@@ -1,5 +1,13 @@
 ### platformIO VSCode commands
 
+PlatformIO Plus (https://pioplus.com) v0.13.8
+
+  ___I_
+ /\-_--\   PlatformIO Home
+/  \_-__\
+|[]| [] |  [http://127.0.0.1:8008](http://127.0.0.1:8008)
+|__|____|_______________________
+
 #### build
 	> pio run
 
