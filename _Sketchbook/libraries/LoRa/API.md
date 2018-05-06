@@ -32,6 +32,12 @@ LoRa.setPins(ss, reset, dio0);
 
 This call is optional and only needs to be used if you need to change the default pins used.
 
+#### No MCU controlled reset pin
+
+To save further pins one could connect the reset pin of the MCU with reset pin of the radio thus resetting only during startup.
+
+* `reset` - set to `-1` to omit this pin
+
 ### Set SPI Frequency
 
 Override the default SPI frequency of 10 MHz used by the library. **Must** be called before `LoRa.begin()`.
@@ -159,6 +165,14 @@ float snr = LoRa.packetSnr();
 ```
 
 Returns the estimated SNR of the received packet in dB.
+
+### Packet Frequency Error
+
+```arduino
+long freqErr = LoRa.packetFrequencyError();
+```
+
+Returns the frequency error of the received packet in Hz. The frequency error is the frequency offset between the receiver centre frequency and that of an incoming LoRa signal.
 
 ### Available
 
