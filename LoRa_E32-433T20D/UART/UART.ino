@@ -29,28 +29,28 @@ void setup() {
 }
 
 void loop() {
-  // prevauxstate = auxstate;
-  // auxstate = digitalRead(AUX);
-  // if(prevauxstate != auxstate){
-  //   auxcount++;
-  // }
-  // else if(auxcount>0){
-  //   Serial.print("auxSTATE : ");
-  //   Serial.print(auxstate);
-  //   Serial.print("        auxcount : ");
-  //   Serial.println(auxcount);
-  //   auxcount = 0;
-  // }
+  prevauxstate = auxstate;
+  auxstate = digitalRead(AUX);
+  if(prevauxstate != auxstate){
+    auxcount++;
+  }
+  else if(auxcount>0){
+    Serial.print("auxSTATE : ");
+    Serial.print(auxstate);
+    Serial.print("        auxcount : ");
+    Serial.println(auxcount);
+    auxcount = 0;
+  }
 
-  // if(Serial.available() > 0){//사용자 입력을 LoRa모듈에 전송
-  //   String input = Serial.readString();
-  //   lora.println(input);
-  // }
+  if(Serial.available() > 0){//사용자 입력을 LoRa모듈에 전송
+    String input = Serial.readString();
+    lora.println(input);
+  }
  
-  // if(lora.available() > 1){//LoRa모듈의 출력을 시리얼 모니터에 출력
-  //   String input = lora.readString();
-  //   Serial.println(input);
-  // }
+  if(lora.available() > 1){//LoRa모듈의 출력을 시리얼 모니터에 출력
+    String input = lora.readString();
+    Serial.println(input);
+  }
 
   if (lora.available()) {
     Serial.write(lora.read());
