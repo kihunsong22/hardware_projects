@@ -1,0 +1,6 @@
+[ProjectGroup]
+Version=1.0
+[Project1]
+ProjectPath=Fpga\GSM_HTTP_Enabled.PrjFpg
+[Project2]
+ProjectPath=Embedded\project\GSM_HTTP_Enabled.PrjEmb

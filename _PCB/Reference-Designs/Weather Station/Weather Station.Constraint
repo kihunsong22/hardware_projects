@@ -1,0 +1,46 @@
+;...............................................................................
+;Constraints File
+;   Device  :
+;   Board   :
+;   Project :
+;
+;   Created 22/01/2004
+;...............................................................................
+
+;...............................................................................
+; Clocks
+;...............................................................................
+Record=FileHeader | Id=DXP Constraints v1.0
+Record=Constraint | TargetKind=Port | TargetId=CLK_BRD              | FPGA_CLOCK=TRUE
+Record=Constraint | TargetKind=Port | TargetId=CLK_BRD              | FPGA_CLOCK_FREQUENCY=50 Mhz
+Record=Constraint | TargetKind=Net  | TargetId=CLK                  | FPGA_GLOBAL=TRUE
+Record=Constraint | TargetKind=Port | TargetId=JTAG_NEXUS_TCK       | FPGA_CLOCK=TRUE
+Record=Constraint | TargetKind=Port | TargetId=JTAG_NEXUS_TCK       | FPGA_CLOCK_FREQUENCY=1 Mhz
+;...............................................................................
+
+;...............................................................................
+; Static RAM
+;...............................................................................
+Record=Constraint | TargetKind=Port | TargetId=RAM_ADDR[16..0]      | FPGA_SLEW=FAST,FAST,FAST,FAST,FAST,FAST,FAST,FAST,FAST,FAST,FAST,FAST,FAST,FAST,FAST,FAST,FAST
+Record=Constraint | TargetKind=Port | TargetId=RAM_CS               | FPGA_SLEW=FAST
+
+Record=Constraint | TargetKind=Port | TargetId=RAM0_DATA[7..0]      | FPGA_SLEW=FAST,FAST,FAST,FAST,FAST,FAST,FAST,FAST
+Record=Constraint | TargetKind=Port | TargetId=RAM0_OE              | FPGA_SLEW=FAST
+Record=Constraint | TargetKind=Port | TargetId=RAM0_WE              | FPGA_SLEW=FAST
+
+Record=Constraint | TargetKind=Port | TargetId=RAM1_DATA[7..0]      | FPGA_SLEW=FAST,FAST,FAST,FAST,FAST,FAST,FAST,FAST
+Record=Constraint | TargetKind=Port | TargetId=RAM1_OE              | FPGA_SLEW=FAST
+Record=Constraint | TargetKind=Port | TargetId=RAM1_WE              | FPGA_SLEW=FAST
+;...............................................................................
+Record=Constraint | TargetKind=Port | TargetId=RAM_ADDR[16..0]      | FPGA_DRIVE=24mA,24mA,24mA,24mA,24mA,24mA,24mA,24mA,24mA,24mA,24mA,24mA,24mA,24mA,24mA,24mA,24mA
+Record=Constraint | TargetKind=Port | TargetId=RAM_CS               | FPGA_DRIVE=24mA
+
+Record=Constraint | TargetKind=Port | TargetId=RAM0_DATA[7..0]      | FPGA_DRIVE=24mA,24mA,24mA,24mA,24mA,24mA,24mA,24mA
+Record=Constraint | TargetKind=Port | TargetId=RAM0_OE              | FPGA_DRIVE=24mA
+Record=Constraint | TargetKind=Port | TargetId=RAM0_WE              | FPGA_DRIVE=24mA
+
+Record=Constraint | TargetKind=Port | TargetId=RAM1_DATA[7..0]      | FPGA_DRIVE=24mA,24mA,24mA,24mA,24mA,24mA,24mA,24mA
+Record=Constraint | TargetKind=Port | TargetId=RAM1_OE              | FPGA_DRIVE=24mA
+Record=Constraint | TargetKind=Port | TargetId=RAM1_WE              | FPGA_DRIVE=24mA
+;...............................................................................
+

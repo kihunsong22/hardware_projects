@@ -1,0 +1,8 @@
+[ProjectGroup]
+Version=1.0
+[Project1]
+ProjectPath=LedMatrixDisplay.PRJPCB
+[Project2]
+ProjectPath=Fpga_u1\LedMatrix.PrjFpg
+[Project3]
+ProjectPath=LedMatrixDigit\LedMatrixDigit.PRJPCB

@@ -1,0 +1,178 @@
+	.SYMB	NAME, "videomuxsrc_cstart"
+	.SYMB	TOOL, "8051 C compiler", 0
+	.SYMB	FILE, "videomuxsrc_cstart.c"
+	; TASKING 8051 C compiler v1.88r1 Build 287 SN ????????
+	; Options: -c99 --reentrant -Ms -Ctsk51a -Ic:\program files\altium2004\system\tasking\include -A+strings -g -O0 -OABCEFGILPORSY --source --tradeoff=4 --vector-offset=0x0000 -o videomuxsrc_cstart.src
+	; Module start
+	.section	.data_max_extend, data, max
+
+; videomuxsrc_cstart.c	     1  /**************************************************************************
+; videomuxsrc_cstart.c	     2  |*    Startup code automatically generated and updated by:
+; videomuxsrc_cstart.c	     3  |*    TASKING 1.88r1 (build version: 1.37)
+; videomuxsrc_cstart.c	     4  |*    Do not edit unless switching off the automatic generation
+; videomuxsrc_cstart.c	     5  |*    checkbox in Project | Project Options | Processor | Startup Code
+; videomuxsrc_cstart.c	     6  |*
+; videomuxsrc_cstart.c	     7  |*    Copyright 2001-2003 Altium BV
+; videomuxsrc_cstart.c	     8   */
+; videomuxsrc_cstart.c	     9  
+; videomuxsrc_cstart.c	    10  #define P0      (*(__bsfr volatile unsigned char *)0x80)
+; videomuxsrc_cstart.c	    11  #define SP      (*(__sfr  volatile unsigned char *)0x81)
+; videomuxsrc_cstart.c	    12  #define ROMSIZE (*(__sfr  volatile unsigned char *)0x8F)
+; videomuxsrc_cstart.c	    13  #define P1      (*(__bsfr volatile unsigned char *)0x90)
+; videomuxsrc_cstart.c	    14  #define XP      (*(__sfr  volatile unsigned char *)0x9F)
+; videomuxsrc_cstart.c	    15  #define P2      (*(__bsfr volatile unsigned char *)0xA0)
+; videomuxsrc_cstart.c	    16  #define P3      (*(__bsfr volatile unsigned char *)0xB0)
+; videomuxsrc_cstart.c	    17  #define PSW     (*(__bsfr volatile unsigned char *)0xD0)
+; videomuxsrc_cstart.c	    18  
+; videomuxsrc_cstart.c	    19  extern void _init( void );
+; videomuxsrc_cstart.c	    20  extern int   main( int argc );
+; videomuxsrc_cstart.c	    21  extern void _exit( void );
+; videomuxsrc_cstart.c	    22  #pragma weak    _Exit
+; videomuxsrc_cstart.c	    23  #pragma alias   _Exit = _exit
+; videomuxsrc_cstart.c	    24  
+; videomuxsrc_cstart.c	    25  extern char __idata _lc_bs[];		/* system stack begin label */
+; videomuxsrc_cstart.c	    26  
+; videomuxsrc_cstart.c	    27  
+; videomuxsrc_cstart.c	    28  __interrupt(0x0) __frame() void _start( void ) __at(0x2b)
+__999001__1:
+	.define	__REG	"__999001__1"
+	; End of section
+
+	.section	.code_at_0, code, at(0)
+	.global	__interrupt_0
+__interrupt_0:
+	gjmp	__start
+	; End of section
+
+	.section	.code_at_43, code, at(43)
+	.global	__start
+; Function __start
+__start:
+	.registerbank	0
+	.SYMB	LINE, 28, 33
+	.SYMB	LINE, 30, 9
+	.SYMB	TYPE, 256, "__wchar_t", 'T', #4
+	.SYMB	TYPE, 257, "__size_t", 'T', #17
+	.SYMB	TYPE, 258, "__ptrdiff_t", 'T', #16
+	.SYMB	TYPE, 261, 'g', 1, 1
+	.SYMB	TYPE, 260, 'S', 1,\
+		"__b0", #261, 0,\
+		"__b1", #261, 1,\
+		"__b2", #261, 2,\
+		"__b3", #261, 3,\
+		"__b4", #261, 4,\
+		"__b5", #261, 5,\
+		"__b6", #261, 6,\
+		"__b7", #261, 7
+	.SYMB	TYPE, 259, "__bitstruct_t", 'T', #260
+	.SYMB	TYPE, 262, 'X', 0x0008, #1, 0, 0
+	.SYMB	ALAB, __init, #262
+	.SYMB	TYPE, 263, 'X', 0x0008, #16, 0, 1, #16
+	.SYMB	ALAB, _main, #263
+	.SYMB	TYPE, 264, 'Z', #2, -2
+	.SYMB	ALAB, __lc_bs, #264
+	.SYMB	TYPE, 265, 'X', 0x0008, #1, 0, 0
+	.SYMB	ALAB, __Exit, #265
+	.SYMB	TYPE, 266, 'X', 0x0088, #1, 0, 0
+	.SYMB	GFUN, "_start", __start, #266, 0x0000, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 4, 0, 0, 0, 0, 3, 0, 0, 0, 0, 5, 0, 0, 0, 0
+	.SYMB	ALAB, __start, #266
+
+; videomuxsrc_cstart.c	    29  {
+; videomuxsrc_cstart.c	    30  	PSW = 0;								/* select register bank 0 */
+	mov	208,#0
+	.SYMB	LINE, 32, 11
+
+; videomuxsrc_cstart.c	    31  
+; videomuxsrc_cstart.c	    32  	XP = 0x00;							/* needed when using __pdata */
+	mov	159,#0
+	.SYMB	LINE, 34, 16
+
+; videomuxsrc_cstart.c	    33  
+; videomuxsrc_cstart.c	    34  	ROMSIZE = 0x10;					/* size internal Program memory */
+	mov	143,#16
+	.SYMB	LINE, 36, 28
+
+; videomuxsrc_cstart.c	    35  
+; videomuxsrc_cstart.c	    36  	SP = (unsigned char)_lc_bs;		/* initialize system stack pointer */
+	mov	129,#__lc_bs
+	.SYMB	LINE, 38, 9
+
+; videomuxsrc_cstart.c	    37  
+; videomuxsrc_cstart.c	    38  	_init();								/* initialize C variables */
+	gcall	__init
+	.SYMB	LINE, 39, 9
+
+; videomuxsrc_cstart.c	    39  	main(0);
+	clr	A
+	mov	R7,A
+	mov	R6,A
+	mov	AR7,R7
+	mov	AR6,R6
+	gcall	_main
+	mov	AR7,R7
+	mov	AR6,R6
+	.SYMB	LINE, 40, 9
+
+; videomuxsrc_cstart.c	    40  	_exit();
+	gcall	__exit
+	.SYMB	LINE, 41, 1
+
+; videomuxsrc_cstart.c	    41  }
+	reti
+	.undef	__REG
+	; End of function
+	.SYMB	EFUN
+	; End of section
+
+	.section	.data_max_extend, data, max
+	.SYMB	GFUN, "_exit", __exit, #262, 0x0000, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 4, 0, 0, 0, 0, 3, 0, 0, 0, 0, 5, 0, 0, 0, 0
+	.SYMB	ALAB, __exit, #262
+
+; videomuxsrc_cstart.c	    42  
+; videomuxsrc_cstart.c	    43  /* The exit() function jumps to _exit. When it is required to restart
+; videomuxsrc_cstart.c	    44   * the program, SP and _SP should be initialized again (if applicable).
+; videomuxsrc_cstart.c	    45   */
+; videomuxsrc_cstart.c	    46  void _exit( void )
+__999002__1:
+	.define	__REG	"__999002__1"
+	; End of section
+
+	.section	.code, code
+	.global	__exit
+; Function __exit
+__exit:
+	.registerbank	0
+	.SYMB	LINE, 46, 6
+	.SYMB	LINE, 48, 9
+
+; videomuxsrc_cstart.c	    47  {
+; videomuxsrc_cstart.c	    48  	while(1);								/* loop infinite */
+	gjmp	_2
+_3:
+_2:
+	mov	R1,#1
+	mov	R0,#0
+	mov	A,R1
+	orl	A,R0
+	gjnz	_3
+	.SYMB	LINE, 49, 1
+
+; videomuxsrc_cstart.c	    49  }
+	ret
+	.undef	__REG
+	.SYMB	ENDF
+	; End of function
+	.SYMB	EFUN
+	; End of section
+
+	
+	.extern	__init : code
+	.extern	_main : code
+	.extern	__lc_bs : idata
+	.weak	__Exit
+	.global	__Exit
+__Exit	.equ	__exit
+
+; videomuxsrc_cstart.c	    50  
+	; Module end
+	.end

@@ -1,0 +1,32 @@
+[OutputDatabaseLinkFile]
+Version=1.1
+[DatabaseLinks]
+ConnectionString=Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Projects\Examples\Reference Designs\SVN DBLib\Altium Design Library.mdb;Persist Security Info=False
+AddMode=3
+RemoveMode=1
+UpdateMode=2
+ViewMode=0
+LeftQuote=[
+RightQuote=]
+QuoteTableNames=1
+LibraryDatabaseType=Microsoft Access
+LibraryDatabasePath=Altium Design Library.mdb
+DatabasePathRelative=1
+TopPanelCollapsed=0
+LibrarySearchPath=file:///SVN%20Repository/Schematic%20Symbols;file:///SVN%20Repository/PCB%20Footprints
+OrcadMultiValueDelimiter=,
+SearchSubDirectories=0
+LastFocusedTable=AltiumComponents
+SVNRepositoryURL=file:///SVN%20Repository
+FileRepositoryIsRelative=1
+[Table1]
+TableName=AltiumComponents
+Enabled=True
+UserWhere=0
+UserWhereText=
+[FieldMap1]
+Options=FieldName=AltiumComponents.Design Item Id|FieldType=0|ParameterName=Design Item Id|VisibleOnAdd=False|AddMode=0|RemoveMode=0|UpdateMode=0
+[FieldMap2]
+Options=FieldName=AltiumComponents.Library Ref|FieldType=1|ParameterName=[Library Ref]|VisibleOnAdd=False|AddMode=0|RemoveMode=0|UpdateMode=0
+[FieldMap3]
+Options=FieldName=AltiumComponents.Footprint|FieldType=1|ParameterName=[Footprint Ref]|VisibleOnAdd=False|AddMode=0|RemoveMode=0|UpdateMode=0

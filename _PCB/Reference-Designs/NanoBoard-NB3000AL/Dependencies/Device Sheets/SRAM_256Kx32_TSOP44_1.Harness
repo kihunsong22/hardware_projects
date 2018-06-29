@@ -1,0 +1,1 @@
+SRAM=A[20..2],D[31..0],NCS,NWE,NOE,NBE[3..0]

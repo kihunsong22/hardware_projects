@@ -1,0 +1,5 @@
+Record=SubProject|ProjectPath=FPGA Project1.PrjFpg
+Record=SubProject|ProjectPath=FPGA Project1.PrjFpg
+Record=SubProject|ProjectPath=FPGA Project1.PrjFpg
+Record=TopLevelDocument|FileName=NBP15 Xilinx XC9500XL XC9500XV PQ208 Rev1.01.SchDoc
+Record=FPGA_COMPONENT|BaseComponentDesignator=U1|DocumentName=NBP15 Xilinx XC9500XL XC9500XV PQ208 Rev1.01.SchDoc|LibraryReference=XC95288XL-10PQ208C|SubProjectPath=FPGA Project1.PrjFpg|Configuration=Configuration1|Description=FastFLASH XC95288XL High Performance CPLD with 288 Macrocells, 208-Pin PQFP, Commercial Grade|SubPartUniqueId1=LHCDQGNO|SubPartDocPath1=NBP15 Xilinx XC9500XL XC9500XV PQ208 Rev1.01.SchDoc|SubPartUniqueId2=QNPJNAFX|SubPartDocPath2=NBP15 Xilinx XC9500XL XC9500XV PQ208 Rev1.01.SchDoc|SubPartUniqueId3=HLRFSIXM|SubPartDocPath3=NBP15 Xilinx XC9500XL XC9500XV PQ208 Rev1.01.SchDoc

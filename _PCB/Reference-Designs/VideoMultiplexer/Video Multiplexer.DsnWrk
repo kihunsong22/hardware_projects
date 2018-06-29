@@ -1,0 +1,8 @@
+[ProjectGroup]
+Version=1.0
+[Project1]
+ProjectPath=PCB_VideoMux.PrjPCB
+[Project2]
+ProjectPath=FPGAVideoMux.PrjFpg
+[Project3]
+ProjectPath=src\VideoMuxSrc.PrjEmb

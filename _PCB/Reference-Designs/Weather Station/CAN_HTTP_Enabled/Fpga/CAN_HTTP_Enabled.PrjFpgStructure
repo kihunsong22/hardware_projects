@@ -1,0 +1,9 @@
+Record=SubProject|ProjectPath=..\Embedded\project\CAN_HTTP_Enabled.PrjEmb
+Record=SheetSymbol|SourceDocument=CAN_HTTP_Enabled.SCHDOC|Designator=S1|SchDesignator=S1|FileName=PortSplitters.SchDoc
+Record=SheetSymbol|SourceDocument=CAN_HTTP_Enabled.SCHDOC|Designator=U_CPUIF|SchDesignator=U_CPUIF|FileName=cpuif.vhd
+Record=SheetSymbol|SourceDocument=CAN_HTTP_Enabled.SCHDOC|Designator=U_RAMIF|SchDesignator=U_RAMIF|FileName=ramif.vhd
+Record=TopLevelDocument|FileName=CAN_HTTP_Enabled.SCHDOC
+Record=NEXUS_CORE|ComponentDesignator=MCU1|BaseComponentDesignator=MCU1|DocumentName=CAN_HTTP_Enabled.SCHDOC|LibraryReference=TSK51A_D|SubProjectPath=..\Embedded\project\CAN_HTTP_Enabled.PrjEmb|NEXUS_JTAG_INDEX=0|ComponentUniqueID=JYPNELPD|Description=TSK51A OCD Microprocessor|ChildCore1= |ChildModel1=RAM256x8_TSK51D|Comment=TSK51A_D|Component Kind=Standard|Core Revision=1.00.00|Library Name=FPGA Processors.IntLib|Library Reference=TSK51A_D|NEXUS_CORE=Processor_OCDS|NEXUS_JTAG_DEVICE=True|NEXUS_JTAG_ORDER=0|Published=23/10/2003|Publisher=Altium Hobart Technology Centre
+Record=NEXUS_CORE_COMPONENT|BaseComponentDesignator=MCU1|DocumentName=CAN_HTTP_Enabled.SCHDOC|LibraryReference=TSK51A_D|SubProjectPath=..\Embedded\project\CAN_HTTP_Enabled.PrjEmb|Configuration= |Description=TSK51A OCD Microprocessor|SubPartUniqueId1=JYPNELPD|SubPartDocPath1=CAN_HTTP_Enabled.SCHDOC|ChildCore1= |ChildModel1=RAM256x8_TSK51D|Comment=TSK51A_D|Component Kind=Standard|Core Revision=1.00.00|Library Name=FPGA Processors.IntLib|Library Reference=TSK51A_D|NEXUS_CORE=Processor_OCDS|NEXUS_JTAG_DEVICE=True|NEXUS_JTAG_ORDER=0|Published=23/10/2003|Publisher=Altium Hobart Technology Centre
+Record=Configuration|Name=Cyclone12_NB1|DeviceName=EP1C12Q240C6
+Record=Configuration|Name=Spartan300_NB1|DeviceName=XC2S300E-6PQ208C

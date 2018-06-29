@@ -1,0 +1,4 @@
+-G "d:\bocbeta\videomux940"
+-err "fpgavideomux.err"
+-r
+-f "fpgavideomux.mak"

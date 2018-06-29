@@ -1,0 +1,752 @@
+	.SYMB	NAME, "main"
+	.SYMB	TOOL, "8051 C compiler", 0
+	.SYMB	FILE, "main.c"
+	; TASKING 8051 C compiler v1.88r1 Build 287 SN ????????
+	; Options: -c99 --reentrant -Ms -Ctsk51a -Ic:\program files\altium2004\system\tasking\include -A+strings -g -O0 -OABCEFGILPORSY --source --tradeoff=4 --vector-offset=0x0000 -o main.src
+	; Module start
+	.section	.data_max_extend, data, max
+
+; main.c	     1  /*
+; main.c	     2   * main.c --
+; main.c	     3   *
+; main.c	     4   *     This file is the main program for the Video Multiplexer.
+; main.c	     5   *
+; main.c	     6   *     Author: Peter Allworth (Linear Solutions Pty Ltd)
+; main.c	     7   */
+; main.c	     8  
+; main.c	     9  #include "videomux.h"
+; main.c	    10  
+; main.c	    11  /* isr: Service routine called at end of vertical blanking period. */
+; main.c	    12  void __interrupt(__INTNO(0))
+; main.c	    13  isr0()
+__999003__1:
+	.define	__REG	"__999003__1"
+	; End of section
+
+	.section	.code_at_3, code, at(3)
+	.global	__interrupt_3
+__interrupt_3:
+	gjmp	_isr0
+	; End of section
+
+	.section	.code, code
+	.global	_isr0
+; Function _isr0
+_isr0:
+	.registerbank	0
+	.SYMB	LINE, 13, 1
+	.SYMB	TYPE, 256, "__wchar_t", 'T', #4
+	.SYMB	TYPE, 257, "__size_t", 'T', #17
+	.SYMB	TYPE, 258, "__ptrdiff_t", 'T', #16
+	.SYMB	TYPE, 261, 'g', 1, 1
+	.SYMB	TYPE, 260, 'S', 1,\
+		"__b0", #261, 0,\
+		"__b1", #261, 1,\
+		"__b2", #261, 2,\
+		"__b3", #261, 3,\
+		"__b4", #261, 4,\
+		"__b5", #261, 5,\
+		"__b6", #261, 6,\
+		"__b7", #261, 7
+	.SYMB	TYPE, 259, "__bitstruct_t", 'T', #260
+	.SYMB	FILE, "i2c.h"
+	.SYMB	TYPE, 262, "uchar", 'T', #3
+	.SYMB	TYPE, 263, "ushort", 'T', #5
+	.SYMB	TYPE, 264, "uint", 'T', #17
+	.SYMB	TYPE, 265, "ulong", 'T', #7
+	.SYMB	TYPE, 266, 'X', 0x0008, #1, 0, 0
+	.SYMB	ALAB, _I2cInit, #266
+	.SYMB	ENDF
+	.SYMB	FILE, "videomux.h"
+	.SYMB	TYPE, 268, 'N', 1,\
+		"None", 0,\
+		"KeyPress", 1,\
+		"KeyRelease", 2
+	.SYMB	TYPE, 267, "Event", 'T', #268
+	.SYMB	TYPE, 269, "KeyNum", 'T', #3
+	.SYMB	ALAB, _EventInit, #266
+	.SYMB	TYPE, 272, 'n', #3, 129
+	.SYMB	TYPE, 271, 'P', #272
+	.SYMB	TYPE, 270, 'X', 0x0008, #268, 0, 1, #271
+	.SYMB	ALAB, _FetchEvent, #270
+	.SYMB	ALAB, _KeyScan, #266
+	.SYMB	TYPE, 273, 'X', 0x0008, #16, 0, 1, #3
+	.SYMB	ALAB, _EncoderInit, #273
+	.SYMB	ALAB, _DecoderInit, #273
+	.SYMB	ALAB, _UpdatePicture, #266
+	.SYMB	ALAB, _UpdatePip, #266
+	.SYMB	TYPE, 274, 'X', 0x0008, #1, 0, 1, #3
+	.SYMB	ALAB, _SetChannel, #274
+	.SYMB	ALAB, _SetPip, #274
+	.SYMB	ENDF
+	.SYMB	TYPE, 275, 'X', 0x0088, #1, 0, 0
+	.SYMB	GFUN, "isr0", _isr0, #275, 0x0000, 0, 1, 0x1fff, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 4, 0, 0, 0, 0, 3, 0, 0, 0, 0, 5, 0, 0, 0, 0
+	.SYMB	ALAB, _isr0, #275
+	push	AR7
+	.SYMB	SOFF, -1, 0
+	push	ACC
+	.SYMB	SOFF, -2, 0
+	push	B
+	.SYMB	SOFF, -3, 0
+	push	DPL
+	.SYMB	SOFF, -4, 0
+	push	DPH
+	.SYMB	SOFF, -5, 0
+	push	AR0
+	.SYMB	SOFF, -6, 0
+	push	AR1
+	.SYMB	SOFF, -7, 0
+	push	AR2
+	.SYMB	SOFF, -8, 0
+	push	AR3
+	.SYMB	SOFF, -9, 0
+	push	AR4
+	.SYMB	SOFF, -10, 0
+	push	AR5
+	.SYMB	SOFF, -11, 0
+	push	AR6
+	.SYMB	SOFF, -12, 0
+	push	PSW
+	.SYMB	SOFF, -13, 0
+	mov	PSW,#0
+	.SYMB	LINE, 15, 20
+
+; main.c	    14  {
+; main.c	    15      UpdatePicture();
+	gcall	_UpdatePicture
+	.SYMB	LINE, 16, 14
+
+; main.c	    16      KeyScan();
+	gcall	_KeyScan
+	.SYMB	LINE, 17, 1
+
+; main.c	    17  }
+	pop	PSW
+	.SYMB	SOFF, -12, 0
+	pop	AR6
+	.SYMB	SOFF, -11, 0
+	pop	AR5
+	.SYMB	SOFF, -10, 0
+	pop	AR4
+	.SYMB	SOFF, -9, 0
+	pop	AR3
+	.SYMB	SOFF, -8, 0
+	pop	AR2
+	.SYMB	SOFF, -7, 0
+	pop	AR1
+	.SYMB	SOFF, -6, 0
+	pop	AR0
+	.SYMB	SOFF, -5, 0
+	pop	DPH
+	.SYMB	SOFF, -4, 0
+	pop	DPL
+	.SYMB	SOFF, -3, 0
+	pop	B
+	.SYMB	SOFF, -2, 0
+	pop	ACC
+	.SYMB	SOFF, -1, 0
+	pop	AR7
+	.SYMB	SOFF, 0, 0
+	reti
+	.undef	__REG
+	; End of function
+	.SYMB	EFUN
+	; End of section
+
+	.section	.data_max_extend, data, max
+	.SYMB	GFUN, "isr2", _isr2, #275, 0x0000, 0, 1, 0x1fff, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 4, 0, 0, 0, 0, 3, 0, 0, 0, 0, 5, 0, 0, 0, 0
+	.SYMB	ALAB, _isr2, #275
+
+; main.c	    18  
+; main.c	    19  void __interrupt(__INTNO(2))
+; main.c	    20  isr2()
+__999004__1:
+	.define	__REG	"__999004__1"
+	; End of section
+
+	.section	.code_at_19, code, at(19)
+	.global	__interrupt_19
+__interrupt_19:
+	gjmp	_isr2
+	; End of section
+
+	.section	.code, code
+	.global	_isr2
+; Function _isr2
+_isr2:
+	.registerbank	0
+	.SYMB	LINE, 20, 1
+	push	AR7
+	.SYMB	SOFF, -1, 0
+	push	ACC
+	.SYMB	SOFF, -2, 0
+	push	B
+	.SYMB	SOFF, -3, 0
+	push	DPL
+	.SYMB	SOFF, -4, 0
+	push	DPH
+	.SYMB	SOFF, -5, 0
+	push	AR0
+	.SYMB	SOFF, -6, 0
+	push	AR1
+	.SYMB	SOFF, -7, 0
+	push	AR2
+	.SYMB	SOFF, -8, 0
+	push	AR3
+	.SYMB	SOFF, -9, 0
+	push	AR4
+	.SYMB	SOFF, -10, 0
+	push	AR5
+	.SYMB	SOFF, -11, 0
+	push	AR6
+	.SYMB	SOFF, -12, 0
+	push	PSW
+	.SYMB	SOFF, -13, 0
+	mov	PSW,#0
+	.SYMB	LINE, 22, 16
+
+; main.c	    21  {
+; main.c	    22      UpdatePip();
+	gcall	_UpdatePip
+	.SYMB	LINE, 23, 1
+
+; main.c	    23  }
+	pop	PSW
+	.SYMB	SOFF, -12, 0
+	pop	AR6
+	.SYMB	SOFF, -11, 0
+	pop	AR5
+	.SYMB	SOFF, -10, 0
+	pop	AR4
+	.SYMB	SOFF, -9, 0
+	pop	AR3
+	.SYMB	SOFF, -8, 0
+	pop	AR2
+	.SYMB	SOFF, -7, 0
+	pop	AR1
+	.SYMB	SOFF, -6, 0
+	pop	AR0
+	.SYMB	SOFF, -5, 0
+	pop	DPH
+	.SYMB	SOFF, -4, 0
+	pop	DPL
+	.SYMB	SOFF, -3, 0
+	pop	B
+	.SYMB	SOFF, -2, 0
+	pop	ACC
+	.SYMB	SOFF, -1, 0
+	pop	AR7
+	.SYMB	SOFF, 0, 0
+	reti
+	.undef	__REG
+	; End of function
+	.SYMB	EFUN
+	; End of section
+
+	.section	.data_max_extend, data, max
+	.SYMB	GFUN, "ClearLEDs", _ClearLEDs, #266, 0x0000, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 4, 0, 0, 0, 0, 3, 0, 0, 0, 0, 5, 0, 0, 0, 0
+	.SYMB	ALAB, _ClearLEDs, #266
+
+; main.c	    24  
+; main.c	    25  /* ClearLEDs: Turn off the LEDs next to every key. */
+; main.c	    26  void
+; main.c	    27  ClearLEDs(void)
+__999005__1:
+	.define	__REG	"__999005__1"
+	; End of section
+
+	.section	.code, code
+	.global	_ClearLEDs
+; Function _ClearLEDs
+_ClearLEDs:
+	.registerbank	0
+	.SYMB	LINE, 27, 1
+	.SYMB	LINE, 30, 14
+
+; main.c	    28  {
+; main.c	    29      /* The LED controls are active low. */
+; main.c	    30      P0 = 0xFF;
+	mov	128,#255
+	.SYMB	LINE, 31, 1
+
+; main.c	    31  }
+	ret
+	.undef	__REG
+	; End of function
+	.SYMB	EFUN
+	; End of section
+
+	.section	.data_max_extend, data, max
+	.SYMB	GFUN, "SetLED", _SetLED, #274, 0x0000, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 4, 0, 0, 0, 0, 3, 0, 0, 0, 0, 5, 0, 0, 0, 0
+	.SYMB	ALAB, _SetLED, #274
+	.SYMB	IDEN, "n", 7, #3, 0x0000, 0x2801
+
+; main.c	    32  
+; main.c	    33  /* SetLED: Light the LED next to key 0, 1, 2 or 3. */
+; main.c	    34  void
+; main.c	    35  SetLED(KeyNum n)
+__999006__1:
+	.define	__REG	"__999006__1"
+	; End of section
+
+	.section	.code, code
+	.global	_SetLED
+; Function _SetLED
+_SetLED:
+	.registerbank	0
+	.SYMB	LINE, 35, 1
+	.SYMB	LTIM, "n", 7, 0x0000, 0x28c1
+	mov	AR7,R7
+	.SYMB	LINE, 37, 20
+
+; main.c	    36  {
+; main.c	    37      P0 &= ~(1 << n);
+	mov	A,#1
+	mov	AR0,R7
+	inc	R0
+	rrc	A
+_2147483646:
+	rlc	A
+	clr	C
+	gdjnz	R0,_2147483646
+	cpl	A
+	mov	R0,A
+	mov	A,128
+	anl	A,R0
+	mov	128,A
+	.SYMB	LINE, 38, 1
+
+; main.c	    38  }
+	ret
+	.SYMB	LTIM, "n", 7, 0x0000, 0x2841
+	.undef	__REG
+	; End of function
+	.SYMB	EFUN
+	; End of section
+
+	.section	.data_max_extend, data, max
+	.SYMB	TYPE, 276, 'X', 0x0008, #16, 0, 0
+	.SYMB	GFUN, "main", _main, #276, 0x0000, 0, 2, 0x0, 0x1c0000, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 4, 0, 0, 0, 0, 3, 0, 0, 0, 0, 5, 0, 0, 0, 0
+	.SYMB	ALAB, _main, #276
+	.SYMB	IDEN, "e", -1, #268, 0x0000, 0x2001
+	.SYMB	LTIM, "e", -1, 0x0000, 0x2041
+	.SYMB	IDEN, "key", 1, #3, 0x0000, 0x1001, 0
+	.SYMB	IDEN, "first", -1, #3, 0x0000, 0x2001
+	.SYMB	LTIM, "first", -1, 0x0000, 0x2041
+	.SYMB	IDEN, "second", -1, #3, 0x0000, 0x2001
+	.SYMB	LTIM, "second", -1, 0x0000, 0x2041
+	.SYMB	TYPE, 277, 'N', 1,\
+		"Start", 0,\
+		"OneDown", 1,\
+		"TwoDown", 2,\
+		"OneUp", 3
+	.SYMB	IDEN, "state", -1, #277, 0x0000, 0x2001
+	.SYMB	LTIM, "state", -1, 0x0000, 0x2041
+
+; main.c	    39  
+; main.c	    40  /* main: Initialise the hardware and handle user interactions. */
+; main.c	    41  int
+; main.c	    42  main()
+__999007__1:
+	.ds	3
+	.define	__REG	"__999007__1"
+	; End of section
+
+	.section	.code, code
+	.global	_main
+; Function _main
+_main:
+	.registerbank	0
+	.SYMB	LINE, 42, 1
+	mov	A,SP
+	add	A,#1
+	mov	SP,A
+	.SYMB	SOFF, -1, 0
+	.SYMB	LINE, 45, 24
+
+; main.c	    43  {
+; main.c	    44      Event   e;
+; main.c	    45      KeyNum  key, first = 0, second = 0;
+	push	__REG+0
+	.SYMB	SOFF, -2, 0
+	push	__REG+1
+	.SYMB	SOFF, -3, 0
+	push	__REG+2
+	.SYMB	SOFF, -4, 0
+	mov	__REG+1,#0
+	.SYMB	LTIM, "first", 51, 0x0000, 0x20c1
+	.SYMB	LINE, 45, 36
+	mov	__REG+2,#0
+	.SYMB	LTIM, "second", 52, 0x0000, 0x20c1
+	.SYMB	LINE, 50, 14
+
+; main.c	    46      enum {
+; main.c	    47          Start, OneDown, TwoDown, OneUp
+; main.c	    48      } state;
+; main.c	    49  
+; main.c	    50      I2cInit();
+	gcall	_I2cInit
+	.SYMB	LINE, 51, 32
+
+; main.c	    51      (void)DecoderInit(DecoderA);
+	mov	R7,#72
+	mov	AR7,R7
+	gcall	_DecoderInit
+	mov	AR7,R7
+	mov	AR6,R6
+	.SYMB	LINE, 52, 32
+
+; main.c	    52      (void)DecoderInit(DecoderB);
+	mov	R7,#74
+	mov	AR7,R7
+	gcall	_DecoderInit
+	mov	AR7,R7
+	mov	AR6,R6
+	.SYMB	LINE, 53, 31
+
+; main.c	    53      (void)EncoderInit(Encoder);
+	mov	R7,#136
+	mov	AR7,R7
+	gcall	_EncoderInit
+	mov	AR7,R7
+	mov	AR6,R6
+	.SYMB	LINE, 58, 16
+
+; main.c	    54  #ifdef COLOURBAR
+; main.c	    55      /* Only enable this to verify that the encoder is working. */
+; main.c	    56      (void)I2cPoke(Encoder, 0x3A, 0x93);
+; main.c	    57  #endif
+; main.c	    58      ClearLEDs();
+	gcall	_ClearLEDs
+	.SYMB	LINE, 59, 14
+
+; main.c	    59      SetLED(0);
+	mov	R7,#0
+	mov	AR7,R7
+	gcall	_SetLED
+	.SYMB	LINE, 60, 16
+
+; main.c	    60      EventInit();
+	gcall	_EventInit
+	.SYMB	LINE, 61, 12
+
+; main.c	    61      IT0 = 1; /* set INT0 and INT1 edge-triggered */
+	setb	136.0
+	.SYMB	LINE, 62, 12
+
+; main.c	    62      IT1 = 1;
+	setb	136.2
+	.SYMB	LINE, 63, 12
+
+; main.c	    63      EX0 = 1; /* enable INT0 and INT1 */
+	setb	168.0
+	.SYMB	LINE, 64, 12
+
+; main.c	    64      EX1 = 1;
+	setb	168.2
+	.SYMB	LINE, 65, 11
+
+; main.c	    65      EA = 1; /* enable interrupts */
+	setb	168.7
+	.SYMB	LINE, 66, 23
+
+; main.c	    66      for (state = Start;;) {
+	mov	__REG+0,#0
+	.SYMB	LTIM, "state", 50, 0x0000, 0x20c1
+	.SYMB	LINE, 66, 24
+	gjmp	_2
+_3:
+	.SYMB	LINE, 67, 29
+
+; main.c	    67          e = FetchEvent(&key);
+	mov	A,SP
+	add	A,#-3
+	.SYMB	LTIM, "key", 1, 0x0000, 0x10c1, 0
+	mov	R0,A
+	mov	AR7,R0
+	gcall	_FetchEvent
+	mov	R1,A
+	.SYMB	LTIM, "e", 1, 0x0000, 0x20c1
+	.SYMB	LINE, 68, 9
+
+; main.c	    68          if (e == None) {
+	mov	A,R1
+	gjnz	_4
+	.SYMB	LINE, 69, 13
+
+; main.c	    69              continue;
+	gjmp	_5
+	.SYMB	LTIM, "e", 1, 0x0000, 0x2041
+_4:
+	.SYMB	LINE, 71, 9
+
+; main.c	    70          }
+; main.c	    71          switch (state) {
+	mov	A,__REG+0
+	gjz	_6
+	dec	A
+	gjz	_7
+	dec	A
+	gjz	_8
+	dec	A
+	gjz	_9
+	gjmp	_10
+	.SYMB	LTIM, "state", 50, 0x0000, 0x2041
+
+; main.c	    72          case Start:
+_6:
+	.SYMB	LINE, 73, 13
+
+; main.c	    73              if (e == KeyPress) {
+	mov	A,R1
+	.SYMB	LTIM, "e", 1, 0x0000, 0x20c1
+	gcjne	A,#1,_11
+	.SYMB	LTIM, "e", 1, 0x0000, 0x2041
+	.SYMB	LINE, 75, 28
+
+; main.c	    74                  /* First key pressed selects the main picture. */
+; main.c	    75                  first = key;
+	mov	A,SP
+	add	A,#-3
+	mov	R0,A
+	mov	A,@R0
+	mov	__REG+1,A
+	.SYMB	LINE, 76, 32
+
+; main.c	    76                  state = OneDown;
+	mov	__REG+0,#1
+	.SYMB	LTIM, "state", 50, 0x0000, 0x20c1
+	.SYMB	LINE, 77, 28
+
+; main.c	    77                  ClearLEDs();
+	gcall	_ClearLEDs
+	.SYMB	LINE, 78, 30
+
+; main.c	    78                  SetLED(first);
+	mov	AR7,__REG+1
+	gcall	_SetLED
+	.SYMB	LINE, 79, 34
+
+; main.c	    79                  SetChannel(first);
+	mov	AR7,__REG+1
+	gcall	_SetChannel
+_11:
+	.SYMB	LINE, 81, 13
+
+; main.c	    80              }
+; main.c	    81              break;
+	gjmp	_12
+
+; main.c	    82          case OneDown:
+_7:
+	.SYMB	LINE, 83, 35
+
+; main.c	    83              if ((e == KeyRelease) && (key == first)) {
+	mov	A,R1
+	.SYMB	LTIM, "e", 1, 0x0000, 0x20c1
+	gcjne	A,#2,_13
+	mov	A,SP
+	add	A,#-3
+	mov	R0,A
+	mov	A,@R0
+	gcjne	A,__REG+1,_14
+	.SYMB	LINE, 84, 30
+
+; main.c	    84                  state = Start;
+	mov	__REG+0,#0
+	.SYMB	LINE, 85, 15
+
+; main.c	    85              } else if ((e == KeyPress) && (key != first)) {
+	gjmp	_15
+	.SYMB	LTIM, "e", 1, 0x0000, 0x2041
+_14:
+_13:
+	.SYMB	LINE, 85, 40
+	mov	A,R1
+	.SYMB	LTIM, "e", 1, 0x0000, 0x20c1
+	gcjne	A,#1,_16
+	.SYMB	LTIM, "e", 1, 0x0000, 0x2041
+	mov	A,SP
+	add	A,#-3
+	mov	R0,A
+	mov	AR0,@R0
+	mov	A,R0
+	xrl	A,__REG+1
+	gjz	_17
+	.SYMB	LINE, 87, 29
+
+; main.c	    86                  /* Second, while first held, selects picture-in-picture. */
+; main.c	    87                  second = key;
+	mov	A,SP
+	add	A,#-3
+	mov	R0,A
+	mov	A,@R0
+	mov	__REG+2,A
+	.SYMB	LINE, 88, 32
+
+; main.c	    88                  state = TwoDown;
+	mov	__REG+0,#2
+	.SYMB	LINE, 89, 28
+
+; main.c	    89                  ClearLEDs();
+	gcall	_ClearLEDs
+	.SYMB	LINE, 90, 30
+
+; main.c	    90                  SetLED(first);
+	mov	AR7,__REG+1
+	gcall	_SetLED
+	.SYMB	LINE, 91, 31
+
+; main.c	    91                  SetLED(second);
+	mov	AR7,__REG+2
+	gcall	_SetLED
+	.SYMB	LINE, 92, 31
+
+; main.c	    92                  SetPip(second);
+	mov	AR7,__REG+2
+	gcall	_SetPip
+_17:
+_16:
+_15:
+	.SYMB	LINE, 94, 13
+
+; main.c	    93              }
+; main.c	    94              break;
+	gjmp	_18
+
+; main.c	    95          case TwoDown:
+_8:
+	.SYMB	LINE, 96, 13
+
+; main.c	    96              if (e == KeyRelease) {
+	mov	A,R1
+	.SYMB	LTIM, "e", 1, 0x0000, 0x20c1
+	gcjne	A,#2,_19
+	.SYMB	LTIM, "e", 1, 0x0000, 0x2041
+	.SYMB	LINE, 97, 17
+
+; main.c	    97                  if (key == first) {
+	mov	A,SP
+	add	A,#-3
+	mov	R0,A
+	mov	A,@R0
+	gcjne	A,__REG+1,_20
+	.SYMB	LINE, 99, 34
+
+; main.c	    98                      /* Wait until second key is released. */
+; main.c	    99                      state = OneUp;
+	mov	__REG+0,#3
+	.SYMB	LINE, 100, 19
+
+; main.c	   100                  } else if (key == second) {
+	gjmp	_21
+_20:
+	.SYMB	LINE, 100, 24
+	mov	A,SP
+	add	A,#-3
+	mov	R0,A
+	mov	A,@R0
+	gcjne	A,__REG+2,_22
+	.SYMB	LINE, 102, 36
+
+; main.c	   101                      /* Ready to select a new picture-in-picture. */
+; main.c	   102                      state = OneDown;
+	mov	__REG+0,#1
+_22:
+_21:
+_19:
+	.SYMB	LINE, 105, 13
+
+; main.c	   103                  }
+; main.c	   104              }
+; main.c	   105              break;
+	gjmp	_23
+
+; main.c	   106          case OneUp:
+_9:
+	.SYMB	LINE, 107, 35
+
+; main.c	   107              if ((e == KeyRelease) && (key == second)) {
+	mov	A,R1
+	.SYMB	LTIM, "e", 1, 0x0000, 0x20c1
+	gcjne	A,#2,_24
+	.SYMB	LTIM, "e", 1, 0x0000, 0x2041
+	mov	A,SP
+	add	A,#-3
+	mov	R0,A
+	mov	A,@R0
+	gcjne	A,__REG+2,_25
+	.SYMB	LINE, 109, 30
+
+; main.c	   108                  /* Can start new selection once both keys are released. */
+; main.c	   109                  state = Start;
+	mov	__REG+0,#0
+_25:
+_24:
+	.SYMB	LINE, 111, 13
+
+; main.c	   110              }
+; main.c	   111              break;
+	gjmp	_26
+
+; main.c	   112          default:
+_10:
+	.SYMB	LINE, 113, 26
+
+; main.c	   113              state = Start;
+	mov	__REG+0,#0
+	.SYMB	LINE, 114, 13
+
+; main.c	   114              break;
+	gjmp	_27
+
+; main.c	   115          }
+; main.c	   116      }
+_27:
+_26:
+_23:
+_18:
+_12:
+_5:
+_2:
+	.SYMB	LINE, 66, 24
+	gjmp	_3
+	pop	__REG+2
+	pop	__REG+1
+	pop	__REG+0
+	.SYMB	LINE, 117, 1
+
+; main.c	   117  }
+	mov	F0,C
+	xch	A,SP
+	add	A,#255
+	xch	A,SP
+	mov	C,F0
+	ret
+	.SYMB	LTIM, "key", 1, 0x0000, 0x1041, 0
+	.SYMB	LTIM, "state", 50, 0x0000, 0x2041
+	.SYMB	LTIM, "second", 52, 0x0000, 0x2041
+	.SYMB	LTIM, "first", 51, 0x0000, 0x2041
+	.undef	__REG
+	.SYMB	ENDF
+	; End of function
+	.SYMB	EFUN
+	; End of section
+
+	.extern	__start : code
+	.extern	_I2cInit : code
+	.extern	_EventInit : code
+	.extern	_FetchEvent : code
+	.extern	_KeyScan : code
+	.extern	_EncoderInit : code
+	.extern	_DecoderInit : code
+	.extern	_UpdatePicture : code
+	.extern	_UpdatePip : code
+	.extern	_SetChannel : code
+	.extern	_SetPip : code
+	.extern	__REG : data
+
+; main.c	   118  
+; main.c	   119  
+	; Module end
+	.end

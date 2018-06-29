@@ -1,0 +1,8 @@
+Record=SheetSymbol|SourceDocument=TopPCB.SchDoc|Designator=U_FPGA_U1_Auto|SchDesignator=U_FPGA_U1_Auto|FileName=FPGA_U1_Auto.SchDoc
+Record=SheetSymbol|SourceDocument=TopPCB.SchDoc|Designator=U_IrIO|SchDesignator=U_IrIO|FileName=IrIO.SchDoc
+Record=SheetSymbol|SourceDocument=TopPCB.SchDoc|Designator=U_IrPwr|SchDesignator=U_IrPwr|FileName=IrPwr.SchDoc
+Record=SubProject|ProjectPath=..\SoIrDA.PrjFpg
+Record=SubProject|ProjectPath=..\SoIrDA.PrjFpg
+Record=TopLevelDocument|FileName=TopPCB.SchDoc
+Record=FPGA_COMPONENT|BaseComponentDesignator=U1|DocumentName=FPGA_U1_Auto.SchDoc|LibraryReference=XC2S300E-6PQ208C|SubProjectPath=..\SoIrDA.PrjFpg|Configuration=OWIr|Description=Spartan-IIE 1.8V FPGA, 208-Pin PQFP, Standard Performance, Commercial Grade|SubPartUniqueId1=NBIXQEKC|SubPartDocPath1=FPGA_U1_Auto.SchDoc|SubPartUniqueId2=NBIXQEKC|SubPartDocPath2=FPGA_U1_Auto.SchDoc
+Record=FPGA_COMPONENT|BaseComponentDesignator=U3|DocumentName=TopPCB.SchDoc|LibraryReference=XCF02SVO20C|SubProjectPath= |Configuration= |Description=XCF00S Series, Platform Flash In-System Programmable Configuration 3.3V PROM, 20-Pin TSOP, 2-Megabit, Commercial Grade|SubPartUniqueId1=PNBHSHYS|SubPartDocPath1=TopPCB.SchDoc

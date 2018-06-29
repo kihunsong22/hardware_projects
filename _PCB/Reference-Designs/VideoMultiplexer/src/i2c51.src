@@ -1,0 +1,664 @@
+	.SYMB	NAME, "i2c51"
+	.SYMB	TOOL, "8051 C compiler", 0
+	.SYMB	FILE, "i2c51.c"
+	; TASKING 8051 C compiler v1.88r1 Build 287 SN ????????
+	; Options: -c99 --reentrant -Ms -Ctsk51a -Ic:\program files\altium2004\system\tasking\include -A+strings -g -O0 -OABCEFGILPORSY --source --tradeoff=4 --vector-offset=0x0000 -o i2c51.src
+	; Module start
+	.section	.data_max_extend, data, max
+
+; i2c51.c	     1  /*
+; i2c51.c	     2   * i2c51.c --
+; i2c51.c	     3   *
+; i2c51.c	     4   *     This file provides low level routines to communicate with an I2C bus
+; i2c51.c	     5   *     using I/O port pins on an 8051 core.
+; i2c51.c	     6   *
+; i2c51.c	     7   *     Author: Peter Allworth (Linear Solutions Pty Ltd)
+; i2c51.c	     8   */
+; i2c51.c	     9   
+; i2c51.c	    10  #include "i2c.h"
+; i2c51.c	    11  
+; i2c51.c	    12  #define SCL_PIN     P2_6
+; i2c51.c	    13  #define SDA_PIN     P2_7
+; i2c51.c	    14  
+; i2c51.c	    15  #define CLEAR_SCL() (SCL_PIN = 0)
+; i2c51.c	    16  #define SET_SCL()   (SCL_PIN = 1)
+; i2c51.c	    17  #define TEST_SCL()  (SCL_PIN != 0)
+; i2c51.c	    18  
+; i2c51.c	    19  #define CLEAR_SDA() (SDA_PIN = 0)
+; i2c51.c	    20  #define SET_SDA()   (SDA_PIN = 1)
+; i2c51.c	    21  #define TEST_SDA()  (SDA_PIN != 0)
+; i2c51.c	    22  
+; i2c51.c	    23  /* DelayQuarter: Pause for one quarter of an I2C clock period (about 3us). */
+; i2c51.c	    24  static void
+; i2c51.c	    25  DelayQuarter(void)
+__999002__1:
+	.define	__REG	"__999002__1"
+	; End of section
+
+	.section	.code, code
+; Function _DelayQuarter
+_DelayQuarter:
+	.registerbank	0
+	.SYMB	LINE, 25, 1
+	.SYMB	LINE, 28, 5
+	.SYMB	TYPE, 256, "__wchar_t", 'T', #4
+	.SYMB	TYPE, 257, "__size_t", 'T', #17
+	.SYMB	TYPE, 258, "__ptrdiff_t", 'T', #16
+	.SYMB	TYPE, 261, 'g', 1, 1
+	.SYMB	TYPE, 260, 'S', 1,\
+		"__b0", #261, 0,\
+		"__b1", #261, 1,\
+		"__b2", #261, 2,\
+		"__b3", #261, 3,\
+		"__b4", #261, 4,\
+		"__b5", #261, 5,\
+		"__b6", #261, 6,\
+		"__b7", #261, 7
+	.SYMB	TYPE, 259, "__bitstruct_t", 'T', #260
+	.SYMB	FILE, "i2c.h"
+	.SYMB	TYPE, 262, "uchar", 'T', #3
+	.SYMB	TYPE, 263, "ushort", 'T', #5
+	.SYMB	TYPE, 264, "uint", 'T', #17
+	.SYMB	TYPE, 265, "ulong", 'T', #7
+	.SYMB	ENDF
+	.SYMB	TYPE, 266, 'X', 0x0008, #1, 0, 0
+	.SYMB	LFUN, "DelayQuarter", _DelayQuarter, #266, 0x0000, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 4, 0, 0, 0, 0, 3, 0, 0, 0, 0, 5, 0, 0, 0, 0
+	.SYMB	ALAB, _DelayQuarter, #266
+
+; i2c51.c	    26  {
+; i2c51.c	    27      /* The following is about right for an 8051 running at 40MHz. */
+; i2c51.c	    28      __asm(".REPEAT 6");
+	.REPEAT 6
+	.SYMB	LINE, 29, 5
+
+; i2c51.c	    29      __asm("nop");
+	nop
+	.SYMB	LINE, 30, 5
+
+; i2c51.c	    30      __asm(".ENDREP");
+	.ENDREP
+	.SYMB	LINE, 31, 1
+
+; i2c51.c	    31  }
+	ret
+	.undef	__REG
+	; End of function
+	.SYMB	EFUN
+	; End of section
+
+	.section	.data_max_extend, data, max
+	.SYMB	LFUN, "AssertClock", _AssertClock, #266, 0x0000, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 4, 0, 0, 0, 0, 3, 0, 0, 0, 0, 5, 0, 0, 0, 0
+	.SYMB	ALAB, _AssertClock, #266
+
+; i2c51.c	    32  
+; i2c51.c	    33  /* AssertClock: Cause a rising edge on SCL. */
+; i2c51.c	    34  static void
+; i2c51.c	    35  AssertClock(void)
+__999003__1:
+	.define	__REG	"__999003__1"
+	; End of section
+
+	.section	.code, code
+; Function _AssertClock
+_AssertClock:
+	.registerbank	0
+	.SYMB	LINE, 35, 1
+	.SYMB	LINE, 37, 19
+
+; i2c51.c	    36  {
+; i2c51.c	    37      DelayQuarter();
+	gcall	_DelayQuarter
+	.SYMB	LINE, 38, 14
+
+; i2c51.c	    38      SET_SCL();
+	setb	160.6
+	.SYMB	LINE, 39, 23
+
+; i2c51.c	    39      while (!TEST_SCL()) {
+	gjmp	_2
+_3:
+_2:
+	gjnb	160.6,_3
+	.SYMB	LINE, 42, 19
+
+; i2c51.c	    40         /* Wait if a slave is stretching the clock (holding it low). */
+; i2c51.c	    41      }
+; i2c51.c	    42      DelayQuarter();
+	gcall	_DelayQuarter
+	.SYMB	LINE, 43, 1
+
+; i2c51.c	    43  }
+	ret
+	.undef	__REG
+	; End of function
+	.SYMB	EFUN
+	; End of section
+
+	.section	.data_max_extend, data, max
+	.SYMB	GFUN, "I2cInit", _I2cInit, #266, 0x0000, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 4, 0, 0, 0, 0, 3, 0, 0, 0, 0, 5, 0, 0, 0, 0
+	.SYMB	ALAB, _I2cInit, #266
+
+; i2c51.c	    44  
+; i2c51.c	    45  /* I2cInit: Configure the I2C port pins for operation. */
+; i2c51.c	    46  void
+; i2c51.c	    47  I2cInit(void)
+__999004__1:
+	.define	__REG	"__999004__1"
+	; End of section
+
+	.section	.code, code
+	.global	_I2cInit
+; Function _I2cInit
+_I2cInit:
+	.registerbank	0
+	.SYMB	LINE, 47, 1
+	.SYMB	LINE, 50, 14
+
+; i2c51.c	    48  {
+; i2c51.c	    49      /* Clear all slaves off the bus. */
+; i2c51.c	    50      I2cStop();
+	gcall	_I2cStop
+	.SYMB	LINE, 51, 14
+
+; i2c51.c	    51      I2cStop();
+	gcall	_I2cStop
+	.SYMB	LINE, 52, 14
+
+; i2c51.c	    52      I2cStop();
+	gcall	_I2cStop
+	.SYMB	LINE, 53, 1
+
+; i2c51.c	    53  }
+	ret
+	.undef	__REG
+	; End of function
+	.SYMB	EFUN
+	; End of section
+
+	.section	.data_max_extend, data, max
+	.SYMB	GFUN, "I2cStop", _I2cStop, #266, 0x0000, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 4, 0, 0, 0, 0, 3, 0, 0, 0, 0, 5, 0, 0, 0, 0
+	.SYMB	ALAB, _I2cStop, #266
+
+; i2c51.c	    54  
+; i2c51.c	    55  /* I2cStop: Force a clock transition with SDA low. */
+; i2c51.c	    56  void
+; i2c51.c	    57  I2cStop(void)
+__999005__1:
+	.define	__REG	"__999005__1"
+	; End of section
+
+	.section	.code, code
+	.global	_I2cStop
+; Function _I2cStop
+_I2cStop:
+	.registerbank	0
+	.SYMB	LINE, 57, 1
+	.SYMB	LINE, 59, 19
+
+; i2c51.c	    58  {
+; i2c51.c	    59      DelayQuarter();
+	gcall	_DelayQuarter
+	.SYMB	LINE, 60, 16
+
+; i2c51.c	    60      CLEAR_SDA();
+	clr	160.7
+	.SYMB	LINE, 61, 18
+
+; i2c51.c	    61      AssertClock();
+	gcall	_AssertClock
+	.SYMB	LINE, 62, 14
+
+; i2c51.c	    62      SET_SDA();
+	setb	160.7
+	.SYMB	LINE, 63, 19
+
+; i2c51.c	    63      DelayQuarter();
+	gcall	_DelayQuarter
+	.SYMB	LINE, 64, 1
+
+; i2c51.c	    64  }
+	ret
+	.undef	__REG
+	; End of function
+	.SYMB	EFUN
+	; End of section
+
+	.section	.data_max_extend, data, max
+	.SYMB	TYPE, 267, 'X', 0x0008, #16, 0, 1, #3
+	.SYMB	GFUN, "I2cStart", _I2cStart, #267, 0x0000, 0, 2, 0x0, 0x40000, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 4, 0, 0, 0, 0, 3, 0, 0, 0, 0, 5, 0, 0, 0, 0
+	.SYMB	ALAB, _I2cStart, #267
+	.SYMB	IDEN, "controlByte", 7, #3, 0x0000, 0x2801
+
+; i2c51.c	    65  
+; i2c51.c	    66  /* I2cStart: Issue a start condition and return 0, or a -ve error code. */
+; i2c51.c	    67  int
+; i2c51.c	    68  I2cStart(uchar controlByte)
+__999006__2:
+	.ds	1
+	.define	__REG	"__999006__2"
+	; End of section
+
+	.section	.code, code
+	.global	_I2cStart
+; Function _I2cStart
+_I2cStart:
+	.registerbank	0
+	.SYMB	LINE, 68, 1
+	.SYMB	LTIM, "controlByte", 7, 0x0000, 0x28c1
+	push	__REG+0
+	.SYMB	SOFF, -1, 0
+	mov	__REG+0,R7
+	.SYMB	LTIM, "controlByte", 50, 0x0000, 0x28c1
+	.SYMB	LINE, 70, 14
+
+; i2c51.c	    69  {
+; i2c51.c	    70      SET_SDA();
+	setb	160.7
+	.SYMB	LINE, 71, 14
+
+; i2c51.c	    71      SET_SCL();
+	setb	160.6
+	.SYMB	LINE, 72, 23
+
+; i2c51.c	    72      while (!TEST_SCL()) {
+	gjmp	_4
+_5:
+_4:
+	gjnb	160.6,_5
+	.SYMB	LINE, 78, 19
+
+; i2c51.c	    73         /*
+; i2c51.c	    74          * Wait for SCL to go high. It may be stretched low by
+; i2c51.c	    75          * the slave prior to a repeated start condition.
+; i2c51.c	    76          */
+; i2c51.c	    77      }
+; i2c51.c	    78      DelayQuarter();
+	gcall	_DelayQuarter
+	.SYMB	LTIM, "controlByte", 7, 0x0000, 0x2841
+	.SYMB	LINE, 79, 19
+
+; i2c51.c	    79      DelayQuarter();
+	gcall	_DelayQuarter
+	.SYMB	LINE, 80, 22
+
+; i2c51.c	    80      if (!(TEST_SCL() && TEST_SDA())) {
+	gjnb	160.6,_6
+	gjb	160.7,_7
+_6:
+	.SYMB	LINE, 81, 8
+
+; i2c51.c	    81         return I2C_EBUSY;
+	mov	R7,#255
+	mov	R6,#255
+	mov	AR7,R7
+	mov	AR6,R6
+	gjmp	_8
+_7:
+	.SYMB	LINE, 83, 16
+
+; i2c51.c	    82      }
+; i2c51.c	    83      CLEAR_SDA();
+	clr	160.7
+	.SYMB	LINE, 84, 19
+
+; i2c51.c	    84      DelayQuarter();
+	gcall	_DelayQuarter
+	.SYMB	LINE, 85, 19
+
+; i2c51.c	    85      DelayQuarter();
+	gcall	_DelayQuarter
+	.SYMB	LINE, 86, 16
+
+; i2c51.c	    86      CLEAR_SCL();
+	clr	160.6
+	.SYMB	LINE, 87, 32
+
+; i2c51.c	    87      return I2cPut(controlByte) ? 0 : I2C_ENODEV;
+	mov	AR7,__REG+0
+	gcall	_I2cPut
+	gjz	_9
+	clr	A
+	mov	R7,A
+	mov	R6,A
+	.SYMB	LINE, 87, 36
+	gjmp	_10
+_9:
+	.SYMB	LINE, 87, 32
+	mov	R7,#254
+	mov	R6,#255
+_10:
+	.SYMB	LINE, 87, 5
+	mov	AR7,R7
+	mov	AR6,R6
+	gjmp	_11
+
+; i2c51.c	    88  }
+_11:
+_8:
+	.SYMB	LINE, 88, 1
+	pop	__REG+0
+	.SYMB	SOFF, 0, 0
+	.SYMB	LTIM, "controlByte", 50, 0x0000, 0x2841
+	ret
+	.undef	__REG
+	; End of function
+	.SYMB	EFUN
+	; End of section
+
+	.section	.data_max_extend, data, max
+	.SYMB	TYPE, 268, 'X', 0x0008, #3, 0, 1, #3
+	.SYMB	GFUN, "I2cPut", _I2cPut, #268, 0x0000, 0, 2, 0x0, 0xc0000, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 4, 0, 0, 0, 0, 3, 0, 0, 0, 0, 5, 0, 0, 0, 0
+	.SYMB	ALAB, _I2cPut, #268
+	.SYMB	IDEN, "value", 7, #3, 0x0000, 0x2801
+	.SYMB	IDEN, "mask", -1, #3, 0x0000, 0x2001
+	.SYMB	LTIM, "mask", -1, 0x0000, 0x2041
+
+; i2c51.c	    89  
+; i2c51.c	    90  /* I2cPut: Send a byte and return 1 if it was acknowledged or else 0. */
+; i2c51.c	    91  uchar
+; i2c51.c	    92  I2cPut(uchar value)
+__999007__2:
+	.ds	2
+	.define	__REG	"__999007__2"
+	; End of section
+
+	.section	.code, code
+	.global	_I2cPut
+; Function _I2cPut
+_I2cPut:
+	.registerbank	0
+	.SYMB	LINE, 92, 1
+	.SYMB	LTIM, "value", 7, 0x0000, 0x28c1
+	push	__REG+0
+	.SYMB	SOFF, -1, 0
+	push	__REG+1
+	.SYMB	SOFF, -2, 0
+	mov	__REG+0,R7
+	.SYMB	LTIM, "value", 50, 0x0000, 0x28c1
+	.SYMB	LINE, 96, 21
+
+; i2c51.c	    93  {
+; i2c51.c	    94      uchar   mask;
+; i2c51.c	    95  
+; i2c51.c	    96      for (mask = 0x80; mask; mask >>= 1) {
+	mov	__REG+1,#128
+	.SYMB	LTIM, "mask", 51, 0x0000, 0x20c1
+	.SYMB	LINE, 96, 27
+	gjmp	_12
+_13:
+	.SYMB	LINE, 97, 22
+
+; i2c51.c	    97         DelayQuarter();
+	gcall	_DelayQuarter
+	.SYMB	LTIM, "value", 7, 0x0000, 0x2841
+	.SYMB	LINE, 98, 8
+
+; i2c51.c	    98         if (value & mask) {
+	mov	A,__REG+0
+	anl	A,__REG+1
+	gjz	_14
+	.SYMB	LINE, 99, 20
+
+; i2c51.c	    99            SET_SDA();
+	setb	160.7
+	.SYMB	LINE, 100, 10
+
+; i2c51.c	   100         } else {
+	gjmp	_15
+_14:
+	.SYMB	LINE, 101, 22
+
+; i2c51.c	   101            CLEAR_SDA();
+	clr	160.7
+_15:
+	.SYMB	LINE, 103, 21
+
+; i2c51.c	   102         }
+; i2c51.c	   103         AssertClock();
+	gcall	_AssertClock
+	.SYMB	LINE, 104, 22
+
+; i2c51.c	   104         DelayQuarter();
+	gcall	_DelayQuarter
+	.SYMB	LINE, 105, 19
+
+; i2c51.c	   105         CLEAR_SCL();
+	clr	160.6
+	.SYMB	LINE, 96, 39
+	mov	A,__REG+1
+	clr	C
+	rrc	A
+	mov	__REG+1,A
+_12:
+	.SYMB	LINE, 96, 27
+	mov	A,__REG+1
+	gjnz	_13
+	.SYMB	LINE, 109, 19
+
+; i2c51.c	   106      }
+; i2c51.c	   107  
+; i2c51.c	   108      /* Read the acknowledge bit. */
+; i2c51.c	   109      DelayQuarter();
+	gcall	_DelayQuarter
+	.SYMB	LINE, 110, 14
+
+; i2c51.c	   110      SET_SDA();
+	setb	160.7
+	.SYMB	LINE, 111, 18
+
+; i2c51.c	   111      AssertClock();
+	gcall	_AssertClock
+	.SYMB	LINE, 112, 22
+
+; i2c51.c	   112      mask = TEST_SDA();
+	clr	A
+	mov	C,160.7
+	rlc	A
+	mov	__REG+0,A
+	.SYMB	LTIM, "value", 50, 0x0000, 0x2841
+	.SYMB	LTIM, "mask", 50, 0x0000, 0x20c1
+	.SYMB	LINE, 113, 19
+
+; i2c51.c	   113      DelayQuarter();
+	gcall	_DelayQuarter
+	.SYMB	LINE, 114, 16
+
+; i2c51.c	   114      CLEAR_SCL();
+	clr	160.6
+	.SYMB	LINE, 115, 17
+
+; i2c51.c	   115      return mask ? 0 : 1;
+	mov	A,__REG+0
+	gjz	_16
+	.SYMB	LTIM, "mask", 51, 0x0000, 0x2041
+	.SYMB	LTIM, "mask", 50, 0x0000, 0x2041
+	clr	A
+	mov	R1,A
+	mov	R0,A
+	.SYMB	LINE, 115, 21
+	gjmp	_17
+_16:
+	.SYMB	LINE, 115, 17
+	mov	R1,#1
+	mov	R0,#0
+_17:
+	.SYMB	LINE, 115, 5
+	mov	A,R1
+	gjmp	_18
+
+; i2c51.c	   116  }
+_18:
+	.SYMB	LINE, 116, 1
+	pop	__REG+1
+	.SYMB	SOFF, -1, 0
+	pop	__REG+0
+	.SYMB	SOFF, 0, 0
+	ret
+	.undef	__REG
+	; End of function
+	.SYMB	EFUN
+	; End of section
+
+	.section	.data_max_extend, data, max
+	.SYMB	GFUN, "I2cGet", _I2cGet, #268, 0x0000, 0, 2, 0x0, 0x1c0000, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 4, 0, 0, 0, 0, 3, 0, 0, 0, 0, 5, 0, 0, 0, 0
+	.SYMB	ALAB, _I2cGet, #268
+	.SYMB	IDEN, "ack", 7, #3, 0x0000, 0x2801
+	.SYMB	IDEN, "i", -1, #3, 0x0000, 0x2001
+	.SYMB	LTIM, "i", -1, 0x0000, 0x2041
+	.SYMB	IDEN, "n", -1, #3, 0x0000, 0x2001
+	.SYMB	LTIM, "n", -1, 0x0000, 0x2041
+
+; i2c51.c	   117  
+; i2c51.c	   118  /* I2cGet: Return next byte read from I2C bus, acknowledging it if ack is 1. */
+; i2c51.c	   119  uchar
+; i2c51.c	   120  I2cGet(uchar ack)
+__999008__1:
+	.ds	3
+	.define	__REG	"__999008__1"
+	; End of section
+
+	.section	.code, code
+	.global	_I2cGet
+; Function _I2cGet
+_I2cGet:
+	.registerbank	0
+	.SYMB	LINE, 120, 1
+	.SYMB	LTIM, "ack", 7, 0x0000, 0x28c1
+	push	__REG+0
+	.SYMB	SOFF, -1, 0
+	push	__REG+1
+	.SYMB	SOFF, -2, 0
+	push	__REG+2
+	.SYMB	SOFF, -3, 0
+	mov	__REG+2,R7
+	.SYMB	LTIM, "ack", 52, 0x0000, 0x28c1
+	.SYMB	LINE, 124, 15
+
+; i2c51.c	   121  {
+; i2c51.c	   122      uchar   i, n;
+; i2c51.c	   123  
+; i2c51.c	   124      for (n = 0, i = 0; i < 8; i++) {
+	mov	__REG+1,#0
+	.SYMB	LTIM, "n", 51, 0x0000, 0x20c1
+	.SYMB	LINE, 124, 22
+	mov	__REG+0,#0
+	.SYMB	LTIM, "i", 50, 0x0000, 0x20c1
+	.SYMB	LINE, 124, 29
+	gjmp	_19
+_20:
+	.SYMB	LINE, 125, 15
+
+; i2c51.c	   125         n <<= 1;
+	mov	A,__REG+1
+	add	A,ACC
+	mov	__REG+1,A
+	.SYMB	LINE, 126, 22
+
+; i2c51.c	   126         DelayQuarter();
+	gcall	_DelayQuarter
+	.SYMB	LTIM, "ack", 7, 0x0000, 0x2841
+	.SYMB	LINE, 127, 17
+
+; i2c51.c	   127         SET_SDA();
+	setb	160.7
+	.SYMB	LINE, 128, 21
+
+; i2c51.c	   128         AssertClock();
+	gcall	_AssertClock
+	.SYMB	LINE, 129, 8
+
+; i2c51.c	   129         if (TEST_SDA()) {
+	gjnb	160.7,_21
+	.SYMB	LINE, 130, 14
+
+; i2c51.c	   130            n++;
+	inc	__REG+1
+_21:
+	.SYMB	LINE, 132, 22
+
+; i2c51.c	   131         }
+; i2c51.c	   132         DelayQuarter();
+	gcall	_DelayQuarter
+	.SYMB	LINE, 133, 19
+
+; i2c51.c	   133         CLEAR_SCL();
+	clr	160.6
+	.SYMB	LINE, 124, 34
+	inc	__REG+0
+_19:
+	.SYMB	LINE, 124, 29
+	mov	A,__REG+0
+	clr	C
+	subb	A,#8
+	gjc	_20
+	.SYMB	LINE, 137, 19
+
+; i2c51.c	   134      }
+; i2c51.c	   135  
+; i2c51.c	   136      /* Send the acknowledge bit. */
+; i2c51.c	   137      DelayQuarter();
+	gcall	_DelayQuarter
+	.SYMB	LINE, 138, 5
+
+; i2c51.c	   138      if (ack) {
+	mov	A,__REG+2
+	gjz	_22
+	.SYMB	LTIM, "i", 50, 0x0000, 0x2041
+	.SYMB	LINE, 139, 19
+
+; i2c51.c	   139         CLEAR_SDA();
+	clr	160.7
+	.SYMB	LINE, 140, 7
+
+; i2c51.c	   140      } else {
+	gjmp	_23
+_22:
+	.SYMB	LINE, 141, 17
+
+; i2c51.c	   141         SET_SDA();
+	setb	160.7
+_23:
+	.SYMB	LINE, 143, 18
+
+; i2c51.c	   142      }
+; i2c51.c	   143      AssertClock();
+	gcall	_AssertClock
+	.SYMB	LINE, 144, 19
+
+; i2c51.c	   144      DelayQuarter();
+	gcall	_DelayQuarter
+	.SYMB	LINE, 145, 16
+
+; i2c51.c	   145      CLEAR_SCL();
+	clr	160.6
+	.SYMB	LINE, 146, 5
+
+; i2c51.c	   146      return n;
+	mov	A,__REG+1
+	gjmp	_24
+	.SYMB	LTIM, "n", 51, 0x0000, 0x2041
+
+; i2c51.c	   147  }
+_24:
+	.SYMB	LINE, 147, 1
+	pop	__REG+2
+	.SYMB	SOFF, -2, 0
+	.SYMB	LTIM, "ack", 52, 0x0000, 0x2841
+	pop	__REG+1
+	.SYMB	SOFF, -1, 0
+	pop	__REG+0
+	.SYMB	SOFF, 0, 0
+	ret
+	.undef	__REG
+	.SYMB	ENDF
+	; End of function
+	.SYMB	EFUN
+	; End of section
+
+	
+	.extern	__REG : data
+
+; i2c51.c	   148  
+; i2c51.c	   149  
+	; Module end
+	.end

@@ -1,0 +1,355 @@
+	.SYMB	NAME, "seg7"
+	.SYMB	TOOL, "8051 C compiler", 0
+	.SYMB	FILE, "seg7.c"
+	; TASKING 8051 C compiler v1.88r1 Build 287 SN ????????
+	; Options: -c99 --reentrant -Ms -Ctsk51a -Ic:\program files\altium2004\system\tasking\include -A+strings -g -O0 -OABCEFGILPORSY --source --tradeoff=4 --vector-offset=0x0000 -o seg7.src
+	; Module start
+	.section	.data_max_extend, data, max
+
+; seg7.c	     1  /*
+; seg7.c	     2   * seg7.c --
+; seg7.c	     3   *
+; seg7.c	     4   *     This file provides routines to display numbers on a 2-digit,
+; seg7.c	     5   *     seven segment display. The code assumes that each 7-segment
+; seg7.c	     6   *     display is wired to an 8051 output port.
+; seg7.c	     7   *
+; seg7.c	     8   *     Author: Peter Allworth (Linear Solutions Pty Ltd)
+; seg7.c	     9   */
+; seg7.c	    10  
+; seg7.c	    11  #include "videomux.h"
+; seg7.c	    12  
+; seg7.c	    13  enum {
+; seg7.c	    14      DECIMAL_POINT   = 0x80,
+; seg7.c	    15      MINUS_SIGN      = 0x40
+; seg7.c	    16  };
+; seg7.c	    17  
+; seg7.c	    18  /* Mapping from a 1-digit, hex value to segments on the display. */
+; seg7.c	    19  static const char hexBits[16] = {
+; seg7.c	    20      0x3F, 0x06, 0x5B, 0x4F, /* 0, 1, 2, 3 */ 
+; seg7.c	    21      0x66, 0x6D, 0x7D, 0x07, /* 4, 5, 6, 7 */
+; seg7.c	    22      0x7F, 0x67, 0x77, 0x7C, /* 8, 9, A, B */
+; seg7.c	    23      0x39, 0x5E, 0x79, 0x71  /* C, D, E, F */
+; seg7.c	    24  };   
+; seg7.c	    25  
+; seg7.c	    26  /* ShowDigit: display n in hex on the specified port */ 
+; seg7.c	    27  void
+; seg7.c	    28  ShowDigit(Port *p, int n)
+__999001__1:
+	.define	__REG	"__999001__1"
+	; End of section
+
+	.section	.code, code
+	.global	_ShowDigit
+; Function _ShowDigit
+_ShowDigit:
+	.registerbank	0
+	.SYMB	LINE, 28, 1
+	.SYMB	TYPE, 256, "__wchar_t", 'T', #4
+	.SYMB	TYPE, 257, "__size_t", 'T', #17
+	.SYMB	TYPE, 258, "__ptrdiff_t", 'T', #16
+	.SYMB	TYPE, 261, 'g', 1, 1
+	.SYMB	TYPE, 260, 'S', 1,\
+		"__b0", #261, 0,\
+		"__b1", #261, 1,\
+		"__b2", #261, 2,\
+		"__b3", #261, 3,\
+		"__b4", #261, 4,\
+		"__b5", #261, 5,\
+		"__b6", #261, 6,\
+		"__b7", #261, 7
+	.SYMB	TYPE, 259, "__bitstruct_t", 'T', #260
+	.SYMB	FILE, "i2c.h"
+	.SYMB	TYPE, 262, "uchar", 'T', #3
+	.SYMB	TYPE, 263, "ushort", 'T', #5
+	.SYMB	TYPE, 264, "uint", 'T', #17
+	.SYMB	TYPE, 265, "ulong", 'T', #7
+	.SYMB	ENDF
+	.SYMB	FILE, "videomux.h"
+	.SYMB	TYPE, 266, "Port", 'T', #3
+	.SYMB	ENDF
+	.SYMB	TYPE, 267, 'Z', #2, 15
+	.SYMB	TYPE, 268, 'Q', 1, #267
+	.SYMB	IDEN, "hexBits", _hexBits, #268, 0x0081, 0x4004
+	.SYMB	TYPE, 271, 'Q', 2, #3
+	.SYMB	TYPE, 272, 'n', #271, 130
+	.SYMB	TYPE, 270, 'P', #272
+	.SYMB	TYPE, 269, 'X', 0x0008, #1, 0, 2, #270, #16
+	.SYMB	GFUN, "ShowDigit", _ShowDigit, #269, 0x0000, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 4, 0, 0, 0, 0, 3, 0, 0, 0, 0, 5, 0, 0, 0, 0
+	.SYMB	ALAB, _ShowDigit, #269
+	.SYMB	IDEN, "p", 7, #270, 0x0000, 0x2801
+	.SYMB	IDEN, "n", 20, #16, 0x0000, 0x2801
+	.SYMB	LTIM, "p", 7, 0x0000, 0x28c1
+	.SYMB	LTIM, "n", 20, 0x0000, 0x28c1
+	.SYMB	LTIM, "n", 5, 0x0000, 0x28c1
+	.SYMB	LTIM, "n", 4, 0x0000, 0x28c1
+	mov	AR7,R7
+	mov	AR5,R5
+	mov	AR4,R4
+	.SYMB	LINE, 30, 17
+
+; seg7.c	    29  {
+; seg7.c	    30      if ((n < 0) || (n > 15)) {
+	mov	A,R4
+	gjb	ACC.7,_2
+	mov	A,R5
+	add	A,#240
+	mov	A,R4
+	xrl	A,#128
+	addc	A,#127
+	gjnc	_3
+_2:
+	.SYMB	LINE, 32, 27
+
+; seg7.c	    31          /* Report out-of-range error with a '.'. */
+; seg7.c	    32          *p = DECIMAL_POINT;
+	mov	AR7,R7
+	.SYMB	LTIM, "p", 7, 0x0000, 0x2841
+	.SYMB	LTIM, "p", 7, 0x0000, 0x28c1
+	mov	R6,#128
+	mov	AR6,R6
+	gcall	__STSFR
+	.SYMB	LINE, 33, 7
+
+; seg7.c	    33      } else {
+	gjmp	_4
+_3:
+	.SYMB	LINE, 34, 24
+
+; seg7.c	    34          *p = hexBits[n];
+	mov	A,R5
+	add	A,#_hexBits
+	mov	R0,A
+	mov	AR0,R0
+	mov	AR6,@R0
+	mov	AR7,R7
+	.SYMB	LTIM, "p", 7, 0x0000, 0x2841
+	.SYMB	LTIM, "p", 7, 0x0000, 0x28c1
+	mov	AR6,R6
+	gcall	__STSFR
+_4:
+	.SYMB	LINE, 36, 1
+
+; seg7.c	    35      }
+; seg7.c	    36  }
+	ret
+	.SYMB	LTIM, "n", 4, 0x0000, 0x2841
+	.SYMB	LTIM, "n", 5, 0x0000, 0x2841
+	.SYMB	LTIM, "n", 20, 0x0000, 0x2841
+	.SYMB	LTIM, "p", 7, 0x0000, 0x2841
+	.undef	__REG
+	; End of function
+	.SYMB	EFUN
+	; End of section
+
+	.section	.data_max_extend, data, max
+	.SYMB	TYPE, 273, 'X', 0x0008, #1, 0, 3, #270, #270, #16
+	.SYMB	GFUN, "ShowInt", _ShowInt, #273, 0x0000, 0, 2, 0x0, 0x1c0000, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 4, 0, 0, 0, 0, 3, 0, 0, 0, 0, 5, 0, 0, 0, 0
+	.SYMB	ALAB, _ShowInt, #273
+	.SYMB	IDEN, "highDigit", 7, #270, 0x0000, 0x2801
+	.SYMB	IDEN, "lowDigit", 5, #270, 0x0000, 0x2801
+	.SYMB	IDEN, "n", 18, #16, 0x0000, 0x2801
+
+; seg7.c	    37  
+; seg7.c	    38  /* ShowInt: display n as a two-digit hex number on the specified ports */
+; seg7.c	    39  void
+; seg7.c	    40  ShowInt(Port *highDigit, Port *lowDigit, int n)
+__999002__1:
+	.ds	3
+	.define	__REG	"__999002__1"
+	; End of section
+
+	.section	.code, code
+	.global	_ShowInt
+; Function _ShowInt
+_ShowInt:
+	.registerbank	0
+	.SYMB	LINE, 40, 1
+	.SYMB	LTIM, "highDigit", 7, 0x0000, 0x28c1
+	.SYMB	LTIM, "lowDigit", 5, 0x0000, 0x28c1
+	.SYMB	LTIM, "n", 18, 0x0000, 0x28c1
+	.SYMB	LTIM, "n", 3, 0x0000, 0x28c1
+	.SYMB	LTIM, "n", 2, 0x0000, 0x28c1
+	push	__REG+0
+	.SYMB	SOFF, -1, 0
+	push	__REG+1
+	.SYMB	SOFF, -2, 0
+	push	__REG+2
+	.SYMB	SOFF, -3, 0
+	mov	__REG+2,R7
+	.SYMB	LTIM, "highDigit", 52, 0x0000, 0x28c1
+	mov	AR5,R5
+	mov	__REG+1,R3
+	.SYMB	LTIM, "n", 51, 0x0000, 0x28c1, 8, 15
+	mov	__REG+0,R2
+	.SYMB	LTIM, "n", 178, 0x0000, 0x28c1
+	.SYMB	LTIM, "n", 50, 0x0000, 0x28c1, 0, 7
+	.SYMB	LINE, 42, 19
+
+; seg7.c	    41  {
+; seg7.c	    42      if ((n < -15) || (n > 255)) {
+	clr	A
+	mov	R1,A
+	mov	R0,A
+	mov	A,R1
+	clr	C
+	subb	A,#15
+	mov	R3,A
+	.SYMB	LTIM, "n", 3, 0x0000, 0x2841
+	.SYMB	LTIM, "n", 18, 0x0000, 0x2841
+	mov	A,R0
+	subb	A,#0
+	mov	R2,A
+	.SYMB	LTIM, "n", 2, 0x0000, 0x2841
+	mov	A,R3
+	setb	C
+	subb	A,__REG+1
+	mov	A,R2
+	subb	A,__REG+0
+	gjnb	OV,_2147483646
+	cpl	ACC.7
+_2147483646:
+	gjnb	ACC.7,_5
+	mov	A,__REG+0
+	xrl	A,#128
+	add	A,#127
+	gjnc	_6
+_5:
+	.SYMB	LINE, 44, 35
+
+; seg7.c	    43          /* Report out-of-range error with "..". */
+; seg7.c	    44          *highDigit = DECIMAL_POINT;
+	mov	AR7,__REG+2
+	.SYMB	LTIM, "highDigit", 7, 0x0000, 0x2841
+	mov	R6,#128
+	mov	AR6,R6
+	gcall	__STSFR
+	.SYMB	LINE, 45, 34
+
+; seg7.c	    45          *lowDigit = DECIMAL_POINT;
+	mov	AR7,R5
+	mov	R6,#128
+	mov	AR6,R6
+	gcall	__STSFR
+	.SYMB	LINE, 46, 7
+
+; seg7.c	    46      } else if (n >= 0) {
+	gjmp	_7
+_6:
+	.SYMB	LINE, 46, 12
+	mov	A,__REG+0
+	gjb	ACC.7,_8
+	.SYMB	LINE, 47, 39
+
+; seg7.c	    47          ShowDigit(lowDigit, (n & 0xF));
+	mov	A,__REG+1
+	anl	A,#15
+	mov	R1,A
+	mov	A,__REG+0
+	anl	A,#0
+	mov	R0,A
+	mov	AR7,R5
+	mov	AR5,R1
+	.SYMB	LTIM, "lowDigit", 5, 0x0000, 0x2841
+	mov	AR4,R0
+	gcall	_ShowDigit
+	.SYMB	LINE, 48, 39
+
+; seg7.c	    48          ShowDigit(highDigit, (n >> 4));
+	mov	R5,#4
+	mov	AR5,R5
+	mov	AR7,__REG+1
+	mov	AR6,__REG+0
+	gcall	__SHRI
+	mov	AR5,R7
+	mov	AR4,R6
+	mov	AR7,__REG+2
+	mov	AR5,R5
+	mov	AR4,R4
+	gcall	_ShowDigit
+	.SYMB	LINE, 49, 7
+
+; seg7.c	    49      } else {
+	gjmp	_9
+_8:
+	.SYMB	LINE, 50, 42
+
+; seg7.c	    50          ShowDigit(lowDigit, ((-n) & 0xF));
+	mov	A,__REG+1
+	cpl	A
+	add	A,#1
+	mov	R1,A
+	mov	A,__REG+0
+	cpl	A
+	addc	A,#0
+	mov	R0,A
+	mov	A,R1
+	anl	A,#15
+	mov	R3,A
+	mov	A,R0
+	anl	A,#0
+	mov	R2,A
+	mov	AR7,R5
+	.SYMB	LTIM, "lowDigit", 5, 0x0000, 0x28c1
+	mov	AR5,R3
+	.SYMB	LTIM, "lowDigit", 5, 0x0000, 0x2841
+	mov	AR4,R2
+	gcall	_ShowDigit
+	.SYMB	LINE, 51, 32
+
+; seg7.c	    51          *highDigit = MINUS_SIGN;
+	mov	AR7,__REG+2
+	mov	R6,#64
+	mov	AR6,R6
+	gcall	__STSFR
+_9:
+_7:
+	.SYMB	LINE, 46, 7
+	pop	__REG+2
+	.SYMB	SOFF, -2, 0
+	.SYMB	LTIM, "highDigit", 52, 0x0000, 0x2841
+	pop	__REG+1
+	.SYMB	SOFF, -1, 0
+	.SYMB	LTIM, "n", 51, 0x0000, 0x2841, 8, 15
+	.SYMB	LTIM, "n", 178, 0x0000, 0x2841
+	pop	__REG+0
+	.SYMB	SOFF, 0, 0
+	.SYMB	LTIM, "n", 50, 0x0000, 0x2841, 0, 7
+	.SYMB	LINE, 53, 1
+
+; seg7.c	    52      }
+; seg7.c	    53  }
+	ret
+	.undef	__REG
+	.SYMB	ENDF
+	; End of function
+	.SYMB	EFUN
+	; End of section
+
+	.section	.data_init, data, init
+_hexBits:
+	.db	63
+	.db	6
+	.db	91
+	.db	79
+	.db	102
+	.db	109
+	.db	125
+	.db	7
+	.db	127
+	.db	103
+	.db	119
+	.db	124
+	.db	57
+	.db	94
+	.db	121
+	.db	113
+	; End of section
+
+	
+	.extern	__REG : data
+	.extern	__STSFR : code
+	.extern	__SHRI : code
+
+; seg7.c	    54  
+	; Module end
+	.end

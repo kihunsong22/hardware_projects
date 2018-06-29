@@ -1,0 +1,564 @@
+	.SYMB	NAME, "event"
+	.SYMB	TOOL, "8051 C compiler", 0
+	.SYMB	FILE, "event.c"
+	; TASKING 8051 C compiler v1.88r1 Build 287 SN ????????
+	; Options: -c99 --reentrant -Ms -Ctsk51a -Ic:\program files\altium2004\system\tasking\include -A+strings -g -O0 -OABCEFGILPORSY --source --tradeoff=4 --vector-offset=0x0000 -o event.src
+	; Module start
+	.section	.data_max_extend, data, max
+
+; event.c	     1  /*
+; event.c	     2   * event.c --
+; event.c	     3   *
+; event.c	     4   *     This file implements an event queue for
+; event.c	     5   *     the video multiplexer project. It also provides
+; event.c	     6   *     a routine that polls the status of the keypad
+; event.c	     7   *     and adds events to the queue appropriately.
+; event.c	     8   *
+; event.c	     9   *     Author: Peter Allworth (Linear Solutions Pty Ltd)
+; event.c	    10   */
+; event.c	    11  
+; event.c	    12  #include    "videomux.h"
+; event.c	    13  
+; event.c	    14  enum {
+; event.c	    15      QSIZE = 8
+; event.c	    16  };
+; event.c	    17  
+; event.c	    18  static struct {
+; event.c	    19      Event      action;
+; event.c	    20      KeyNum     key;
+; event.c	    21  } queue[QSIZE];
+; event.c	    22  
+; event.c	    23  static uchar head, tail;
+; event.c	    24  
+; event.c	    25  /* EventInit: Set up an initially empty event queue. */
+; event.c	    26  void
+; event.c	    27  EventInit(void)
+__999002__1:
+	.define	__REG	"__999002__1"
+	; End of section
+
+	.section	.code, code
+	.global	_EventInit
+; Function _EventInit
+_EventInit:
+	.registerbank	0
+	.SYMB	LINE, 27, 1
+	.SYMB	LINE, 29, 13
+	.SYMB	TYPE, 256, "__wchar_t", 'T', #4
+	.SYMB	TYPE, 257, "__size_t", 'T', #17
+	.SYMB	TYPE, 258, "__ptrdiff_t", 'T', #16
+	.SYMB	TYPE, 261, 'g', 1, 1
+	.SYMB	TYPE, 260, 'S', 1,\
+		"__b0", #261, 0,\
+		"__b1", #261, 1,\
+		"__b2", #261, 2,\
+		"__b3", #261, 3,\
+		"__b4", #261, 4,\
+		"__b5", #261, 5,\
+		"__b6", #261, 6,\
+		"__b7", #261, 7
+	.SYMB	TYPE, 259, "__bitstruct_t", 'T', #260
+	.SYMB	FILE, "i2c.h"
+	.SYMB	TYPE, 262, "uchar", 'T', #3
+	.SYMB	TYPE, 263, "ushort", 'T', #5
+	.SYMB	TYPE, 264, "uint", 'T', #17
+	.SYMB	TYPE, 265, "ulong", 'T', #7
+	.SYMB	ENDF
+	.SYMB	FILE, "videomux.h"
+	.SYMB	TYPE, 267, 'N', 1,\
+		"None", 0,\
+		"KeyPress", 1,\
+		"KeyRelease", 2
+	.SYMB	TYPE, 266, "Event", 'T', #267
+	.SYMB	TYPE, 268, "KeyNum", 'T', #3
+	.SYMB	ENDF
+	.SYMB	TYPE, 270, 'S', 2,\
+		"action", #267, 0,\
+		"key", #3, 1
+	.SYMB	TYPE, 269, 'Z', #270, 7
+	.SYMB	IDEN, "queue", _queue, #269, 0x0081, 0x4004
+	.SYMB	IDEN, "head", _head, #3, 0x0081, 0x4004
+	.SYMB	IDEN, "tail", _tail, #3, 0x0081, 0x4004
+	.SYMB	TYPE, 271, 'X', 0x0008, #1, 0, 0
+	.SYMB	GFUN, "EventInit", _EventInit, #271, 0x0000, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 4, 0, 0, 0, 0, 3, 0, 0, 0, 0, 5, 0, 0, 0, 0
+	.SYMB	ALAB, _EventInit, #271
+
+; event.c	    28  {
+; event.c	    29      head = 0;
+	mov	_head,#0
+	.SYMB	LINE, 30, 13
+
+; event.c	    30      tail = 0;
+	mov	_tail,#0
+	.SYMB	LINE, 31, 1
+
+; event.c	    31  }
+	ret
+	.undef	__REG
+	; End of function
+	.SYMB	EFUN
+	; End of section
+
+	.section	.data_max_extend, data, max
+	.SYMB	TYPE, 272, 'X', 0x0008, #1, 0, 2, #267, #3
+	.SYMB	GFUN, "PostEvent", _PostEvent, #272, 0x0000, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 4, 0, 0, 0, 0, 3, 0, 0, 0, 0, 5, 0, 0, 0, 0
+	.SYMB	ALAB, _PostEvent, #272
+	.SYMB	IDEN, "action", 7, #267, 0x0000, 0x2801
+	.SYMB	IDEN, "key", 5, #3, 0x0000, 0x2801
+	.SYMB	IDEN, "next", -1, #3, 0x0000, 0x2001
+	.SYMB	LTIM, "next", -1, 0x0000, 0x2041
+
+; event.c	    32  
+; event.c	    33  /* PostEvent: Add an event to the tail of the queue. */
+; event.c	    34  void
+; event.c	    35  PostEvent(Event action, KeyNum key)
+__999003__1:
+	.define	__REG	"__999003__1"
+	; End of section
+
+	.section	.code, code
+	.global	_PostEvent
+; Function _PostEvent
+_PostEvent:
+	.registerbank	0
+	.SYMB	LINE, 35, 1
+	.SYMB	LTIM, "action", 7, 0x0000, 0x28c1
+	.SYMB	LTIM, "key", 5, 0x0000, 0x28c1
+	mov	AR7,R7
+	mov	AR5,R5
+	.SYMB	LINE, 39, 20
+
+; event.c	    36  {
+; event.c	    37      uchar next;
+; event.c	    38  
+; event.c	    39      next = tail + 1;
+	mov	A,_tail
+	inc	A
+	mov	R0,A
+	.SYMB	LTIM, "next", 0, 0x0000, 0x20c1
+	.SYMB	LINE, 40, 5
+
+; event.c	    40      if (next >= QSIZE) {
+	mov	A,R0
+	clr	C
+	subb	A,#8
+	gjc	_2
+	.SYMB	LINE, 41, 17
+
+; event.c	    41          next = 0;
+	mov	R0,#0
+_2:
+	.SYMB	LINE, 43, 5
+
+; event.c	    42      }
+; event.c	    43      if (next == head) {
+	mov	A,R0
+	gcjne	A,_head,_3
+	.SYMB	LINE, 45, 9
+
+; event.c	    44          /* The queue is full, so discard the event. */
+; event.c	    45          return;
+	gjmp	_4
+	.SYMB	LTIM, "next", 0, 0x0000, 0x2041
+_3:
+	.SYMB	LINE, 47, 32
+
+; event.c	    46      }
+; event.c	    47      queue[tail].action = action;
+	mov	A,#2
+	mov	B,_tail
+	mov	B,B
+	mul	AB
+	add	A,#_queue
+	add	A,#0
+	mov	R1,A
+	mov	AR1,R1
+	mov	@R1,AR7
+	.SYMB	LINE, 48, 26
+
+; event.c	    48      queue[tail].key = key;
+	mov	A,#2
+	mov	B,_tail
+	mov	B,B
+	mul	AB
+	add	A,#_queue
+	inc	A
+	mov	R1,A
+	mov	AR1,R1
+	mov	@R1,AR5
+	.SYMB	LINE, 49, 16
+
+; event.c	    49      tail = next;
+	mov	_tail,R0
+
+; event.c	    50  }
+_4:
+	.SYMB	LINE, 50, 1
+	ret
+	.SYMB	LTIM, "key", 5, 0x0000, 0x2841
+	.SYMB	LTIM, "action", 7, 0x0000, 0x2841
+	.undef	__REG
+	; End of function
+	.SYMB	EFUN
+	; End of section
+
+	.section	.data_max_extend, data, max
+	.SYMB	TYPE, 275, 'n', #3, 129
+	.SYMB	TYPE, 274, 'P', #275
+	.SYMB	TYPE, 273, 'X', 0x0008, #267, 0, 1, #274
+	.SYMB	GFUN, "FetchEvent", _FetchEvent, #273, 0x0000, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 4, 0, 0, 0, 0, 3, 0, 0, 0, 0, 5, 0, 0, 0, 0
+	.SYMB	ALAB, _FetchEvent, #273
+	.SYMB	IDEN, "keyPtr", 7, #274, 0x0000, 0x2801
+	.SYMB	IDEN, "next", -1, #3, 0x0000, 0x2001
+	.SYMB	LTIM, "next", -1, 0x0000, 0x2041
+	.SYMB	IDEN, "action", -1, #267, 0x0000, 0x2001
+	.SYMB	LTIM, "action", -1, 0x0000, 0x2041
+
+; event.c	    51  
+; event.c	    52  /* FetchEvent: Return the next event from the queue or "None" if empty. */
+; event.c	    53  Event
+; event.c	    54  FetchEvent(KeyNum *keyPtr)
+__999004__1:
+	.define	__REG	"__999004__1"
+	; End of section
+
+	.section	.code, code
+	.global	_FetchEvent
+; Function _FetchEvent
+_FetchEvent:
+	.registerbank	0
+	.SYMB	LINE, 54, 1
+	.SYMB	LTIM, "keyPtr", 7, 0x0000, 0x28c1
+	mov	AR7,R7
+	.SYMB	LINE, 59, 5
+
+; event.c	    55  {
+; event.c	    56      uchar    next;
+; event.c	    57      Event    action;
+; event.c	    58  
+; event.c	    59      if (head == tail) {
+	mov	A,_head
+	gcjne	A,_tail,_5
+	.SYMB	LINE, 60, 9
+
+; event.c	    60          return None;
+	clr	A
+	gjmp	_6
+_5:
+	.SYMB	LINE, 62, 20
+
+; event.c	    61      }
+; event.c	    62      next = head + 1;
+	mov	A,_head
+	inc	A
+	mov	R3,A
+	.SYMB	LTIM, "next", 3, 0x0000, 0x20c1
+	.SYMB	LINE, 63, 5
+
+; event.c	    63      if (next >= QSIZE) {
+	mov	A,R3
+	clr	C
+	subb	A,#8
+	gjc	_7
+	.SYMB	LINE, 64, 17
+
+; event.c	    64          next = 0;
+	mov	R3,#0
+_7:
+	.SYMB	LINE, 66, 32
+
+; event.c	    65      }
+; event.c	    66      action = queue[head].action;
+	mov	A,#2
+	mov	B,_head
+	mov	B,B
+	mul	AB
+	add	A,#_queue
+	add	A,#0
+	mov	R0,A
+	mov	AR0,R0
+	mov	A,@R0
+	mov	R2,A
+	.SYMB	LTIM, "action", 2, 0x0000, 0x20c1
+	.SYMB	LINE, 67, 30
+
+; event.c	    67      *keyPtr = queue[head].key;
+	mov	AR0,R7
+	mov	A,#2
+	mov	B,_head
+	mov	B,B
+	mul	AB
+	add	A,#_queue
+	inc	A
+	mov	R1,A
+	mov	AR1,R1
+	mov	A,@R1
+	mov	@R0,A
+	.SYMB	LINE, 68, 16
+
+; event.c	    68      head = next;
+	mov	_head,R3
+	.SYMB	LINE, 69, 5
+
+; event.c	    69      return action;
+	mov	A,R2
+	gjmp	_8
+	.SYMB	LTIM, "action", 2, 0x0000, 0x2041
+	.SYMB	LTIM, "next", 3, 0x0000, 0x2041
+
+; event.c	    70  }
+_8:
+_6:
+	.SYMB	LINE, 70, 1
+	ret
+	.SYMB	LTIM, "keyPtr", 7, 0x0000, 0x2841
+	.undef	__REG
+	; End of function
+	.SYMB	EFUN
+	; End of section
+
+	.section	.data_max_extend, data, max
+	.SYMB	GFUN, "KeyScan", _KeyScan, #271, 0x0000, 0, 2, 0x0, 0x40000, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 4, 0, 0, 0, 0, 3, 0, 0, 0, 0, 5, 0, 0, 0, 0
+	.SYMB	ALAB, _KeyScan, #271
+	.SYMB	TYPE, 276, 'Z', #3, 3
+	.SYMB	IDEN, "down", __999006_down, #276, 0x0081, 0x4004
+	.SYMB	IDEN, "count", __999007_count, #276, 0x0081, 0x4004
+	.SYMB	IDEN, "pressed", -1, #3, 0x0000, 0x2001
+	.SYMB	LTIM, "pressed", -1, 0x0000, 0x2041
+	.SYMB	IDEN, "key", -1, #3, 0x0000, 0x2001
+	.SYMB	LTIM, "key", -1, 0x0000, 0x2041
+
+; event.c	    71  
+; event.c	    72  /* KeyScan: Post an event if a key changes state. Call every ~20ms. */
+; event.c	    73  void
+; event.c	    74  KeyScan(void)
+__999005__2:
+	.ds	1
+	.define	__REG	"__999005__2"
+	; End of section
+
+	.section	.code, code
+	.global	_KeyScan
+; Function _KeyScan
+_KeyScan:
+	.registerbank	0
+	.SYMB	LINE, 74, 1
+	.SYMB	LINE, 81, 17
+
+; event.c	    75  {
+; event.c	    76      static uchar     down[4];  /* True if switch is closed. */
+; event.c	    77      static uchar     count[4]; /* No. scans state has been stable. */
+; event.c	    78      uchar            pressed;
+; event.c	    79      KeyNum           key;
+; event.c	    80  
+; event.c	    81      for (key = 0; key < 4; key++) {
+	push	__REG+0
+	.SYMB	SOFF, -1, 0
+	mov	__REG+0,#0
+	.SYMB	LTIM, "key", 50, 0x0000, 0x20c1
+	.SYMB	LINE, 81, 26
+	gjmp	_9
+_10:
+	.SYMB	LINE, 82, 43
+
+; event.c	    82          pressed = ((P1 & (1 << key)) == 0);
+	mov	A,144
+	mov	R1,A
+	mov	R0,#0
+	mov	AR5,__REG+0
+	mov	R6,#0
+	mov	R7,#1
+	mov	AR7,R7
+	mov	AR6,R6
+	gcall	__SHLI
+	mov	AR7,R7
+	mov	AR6,R6
+	mov	A,R1
+	anl	A,R7
+	mov	R3,A
+	mov	A,R0
+	anl	A,R6
+	mov	R2,A
+	mov	A,R3
+	orl	A,R2
+	add	A,#255
+	cpl	C
+	clr	A
+	rlc	A
+	mov	R1,A
+	.SYMB	LTIM, "pressed", 1, 0x0000, 0x20c1
+	.SYMB	LINE, 83, 9
+
+; event.c	    83          if (down[key]) {
+	mov	A,__REG+0
+	add	A,#__999006_down
+	mov	R0,A
+	mov	AR0,R0
+	mov	A,@R0
+	gjz	_11
+	.SYMB	LINE, 84, 13
+
+; event.c	    84              if (!pressed) {
+	mov	A,R1
+	gjnz	_12
+	.SYMB	LTIM, "pressed", 1, 0x0000, 0x2041
+	.SYMB	LINE, 85, 21
+
+; event.c	    85                  if (++count[key] == 3) {
+	mov	A,__REG+0
+	add	A,#__999007_count
+	mov	R0,A
+	mov	AR0,R0
+	mov	A,@R0
+	inc	A
+	mov	R1,A
+	mov	A,__REG+0
+	add	A,#__999007_count
+	mov	R0,A
+	mov	AR0,R0
+	mov	@R0,AR1
+	.SYMB	LINE, 85, 17
+	mov	A,R1
+	gcjne	A,#3,_13
+	.SYMB	LINE, 86, 47
+
+; event.c	    86                      PostEvent(KeyRelease, key);
+	mov	R7,#2
+	mov	AR7,R7
+	mov	AR5,__REG+0
+	gcall	_PostEvent
+	.SYMB	LINE, 87, 34
+
+; event.c	    87                      down[key] = 0;
+	mov	A,__REG+0
+	add	A,#__999006_down
+	mov	R0,A
+	mov	AR0,R0
+	mov	@R0,#0
+	.SYMB	LINE, 88, 19
+
+; event.c	    88                  } else {
+	gjmp	_14
+_13:
+	.SYMB	LINE, 89, 21
+
+; event.c	    89                      continue;
+	gjmp	_15
+_14:
+_12:
+	.SYMB	LINE, 92, 11
+
+; event.c	    90                  }
+; event.c	    91              }
+; event.c	    92          } else {
+	gjmp	_16
+_11:
+	.SYMB	LINE, 93, 13
+
+; event.c	    93              if (pressed) {
+	mov	A,R1
+	.SYMB	LTIM, "pressed", 1, 0x0000, 0x20c1
+	gjz	_17
+	.SYMB	LTIM, "pressed", 1, 0x0000, 0x2041
+	.SYMB	LINE, 94, 21
+
+; event.c	    94                  if (++count[key] == 3) {
+	mov	A,__REG+0
+	add	A,#__999007_count
+	mov	R0,A
+	mov	AR0,R0
+	mov	A,@R0
+	inc	A
+	mov	R1,A
+	mov	A,__REG+0
+	add	A,#__999007_count
+	mov	R0,A
+	mov	AR0,R0
+	mov	@R0,AR1
+	.SYMB	LINE, 94, 17
+	mov	A,R1
+	gcjne	A,#3,_18
+	.SYMB	LINE, 95, 45
+
+; event.c	    95                      PostEvent(KeyPress, key);
+	mov	R7,#1
+	mov	AR7,R7
+	mov	AR5,__REG+0
+	gcall	_PostEvent
+	.SYMB	LINE, 96, 34
+
+; event.c	    96                      down[key] = 1;
+	mov	A,__REG+0
+	add	A,#__999006_down
+	mov	R0,A
+	mov	AR0,R0
+	mov	@R0,#1
+	.SYMB	LINE, 97, 19
+
+; event.c	    97                  } else {
+	gjmp	_19
+_18:
+	.SYMB	LINE, 98, 21
+
+; event.c	    98                      continue;
+	gjmp	_20
+_19:
+_17:
+_16:
+	.SYMB	LINE, 102, 23
+
+; event.c	    99                  }
+; event.c	   100              }
+; event.c	   101          }
+; event.c	   102          count[key] = 0;
+	mov	A,__REG+0
+	add	A,#__999007_count
+	mov	R0,A
+	mov	AR0,R0
+	mov	@R0,#0
+_20:
+_15:
+	.SYMB	LINE, 81, 33
+	inc	__REG+0
+_9:
+	.SYMB	LINE, 81, 26
+	mov	A,__REG+0
+	clr	C
+	subb	A,#4
+	gjc	_10
+	pop	__REG+0
+	.SYMB	SOFF, 0, 0
+	.SYMB	LTIM, "key", 50, 0x0000, 0x2041
+	.SYMB	LINE, 104, 1
+
+; event.c	   103      }
+; event.c	   104  }
+	ret
+	.undef	__REG
+	.SYMB	ENDF
+	; End of function
+	.SYMB	EFUN
+	; End of section
+
+	.section	.data_clear, data, clear
+_queue:
+	.ds	16
+_head:
+	.ds	1
+_tail:
+	.ds	1
+__999006_down:
+	.ds	4
+__999007_count:
+	.ds	4
+	; End of section
+
+	
+	.extern	__REG : data
+	.extern	__SHLI : code
+
+; event.c	   105  
+; event.c	   106  
+; event.c	   107  
+	; Module end
+	.end

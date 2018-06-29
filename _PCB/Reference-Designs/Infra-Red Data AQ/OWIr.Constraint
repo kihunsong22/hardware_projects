@@ -1,0 +1,41 @@
+Record=FileHeader  | Id=DXP Constraints v1.0
+
+Record=Constraint  | TargetKind=Part | TargetId=XC2S300E-6PQ208C
+
+Record=Constraint  | TargetKind=Port | TargetId=IrTX            | FPGA_PINNUM=P36
+Record=Constraint  | TargetKind=Port | TargetId=DQ              | FPGA_PINNUM=P102
+Record=Constraint  | TargetKind=Port | TargetId=DQ              | FPGA_PULLUP=TRUE
+Record=Constraint  | TargetKind=Port | TargetId=TDIH            | FPGA_PINNUM=P160
+Record=Constraint  | TargetKind=Port | TargetId=TCKH            | FPGA_PINNUM=P206
+Record=Constraint  | TargetKind=Port | TargetId=TMSH            | FPGA_PINNUM=P5
+Record=Constraint  | TargetKind=Port | TargetId=JTAG_NEXUS_TMS  | FPGA_PINNUM=P45
+Record=Constraint  | TargetKind=Port | TargetId=JTAG_NEXUS_TDI  | FPGA_PINNUM=P44
+Record=Constraint  | TargetKind=Port | TargetId=JTAG_NEXUS_TCK  | FPGA_PINNUM=P46
+Record=Constraint  | TargetKind=Port | TargetId=JTAGC           | FPGA_PINNUM=P48
+Record=Constraint  | TargetKind=Port | TargetId=CC1             | FPGA_PINNUM=P138
+Record=Constraint  | TargetKind=Port | TargetId=CC2             | FPGA_PINNUM=P135
+Record=Constraint  | TargetKind=Port | TargetId=CC3             | FPGA_PINNUM=P129
+Record=Constraint  | TargetKind=Port | TargetId=CC4             | FPGA_PINNUM=P122
+Record=Constraint  | TargetKind=Port | TargetId=CC1             | FPGA_PULLUP=TRUE
+Record=Constraint  | TargetKind=Port | TargetId=CC2             | FPGA_PULLUP=TRUE
+Record=Constraint  | TargetKind=Port | TargetId=CC3             | FPGA_PULLUP=TRUE
+Record=Constraint  | TargetKind=Port | TargetId=CC4             | FPGA_PULLUP=TRUE
+Record=Constraint  | TargetKind=Port | TargetId=RESET_n         | FPGA_PINNUM=P3
+Record=Constraint  | TargetKind=Port | TargetId=RESET_n         | FPGA_PULLUP=TRUE
+Record=Constraint  | TargetKind=Port | TargetId=TEST2           | FPGA_PINNUM=P108
+Record=Constraint  | TargetKind=Port | TargetId=IrRX            | FPGA_PINNUM=P41
+Record=Constraint  | TargetKind=Port | TargetId=IrSC            | FPGA_PINNUM=P49
+Record=Constraint  | TargetKind=Port | TargetId=TEST1           | FPGA_PINNUM=P152
+Record=Constraint  | TargetKind=Port | TargetId=DIN             | FPGA_PINNUM=P153
+Record=Constraint  | TargetKind=Port | TargetId=INIT            | FPGA_PINNUM=P107
+
+Record=Constraint  | TargetKind=Port | TargetId=JTAG_NEXUS_TDO  | FPGA_PINNUM=P43
+
+Record=Constraint  | TargetKind=Port | TargetId=CLK_BRD         | FPGA_PINNUM=P182
+Record=Constraint  | TargetKind=Port | TargetId=CLK_BRD         | FPGA_CLOCK_PIN=TRUE
+Record=Constraint  | TargetKind=Port | TargetId=CLK_BRD         | FPGA_CLOCK=TRUE
+Record=Constraint  | TargetKind=Port | TargetId=JTAG_NEXUS_TCK  | FPGA_CLOCK=TRUE
+Record=Constraint  | TargetKind=PCB  | TargetId=PCB Project1.PrjPCB
+
+Record=Constraint  | TargetKind=PCB  | TargetId=PcbIrda.PrjPCB
+

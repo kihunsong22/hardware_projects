@@ -1,0 +1,5 @@
+Record=SubProject|ProjectPath=FPGA Project1.PrjFpg
+Record=SubProject|ProjectPath=FPGA Project1.PrjFpg
+Record=SubProject|ProjectPath=FPGA Project1.PrjFpg
+Record=TopLevelDocument|FileName=NBP11 Xilinx Spartan-III BGA456 Rev1.01.SchDoc
+Record=FPGA_COMPONENT|BaseComponentDesignator=U1|DocumentName=NBP11 Xilinx Spartan-III BGA456 Rev1.01.SchDoc|LibraryReference=XC3S400-5FG456C|SubProjectPath=FPGA Project1.PrjFpg|Configuration=Configuration 1|Description=Spartan-3 1.2V FPGA, 264 User I/Os, 456-ball FBGA, High Performance, Commercial Grade|SubPartUniqueId1=HXOVKBWI|SubPartDocPath1=NBP11 Xilinx Spartan-III BGA456 Rev1.01.SchDoc|SubPartUniqueId2=EYVSERMR|SubPartDocPath2=NBP11 Xilinx Spartan-III BGA456 Rev1.01.SchDoc|SubPartUniqueId3=LUMEYYEP|SubPartDocPath3=NBP11 Xilinx Spartan-III BGA456 Rev1.01.SchDoc

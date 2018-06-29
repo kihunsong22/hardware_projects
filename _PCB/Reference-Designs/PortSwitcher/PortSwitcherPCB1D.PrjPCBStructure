@@ -1,0 +1,15 @@
+Record=SheetSymbol|SourceDocument=PCB_PortSwitcher1D.SchDoc|Designator=PCB_Power1D|SchDesignator=PCB_Power1D|FileName=PCB_Power1D.SchDoc|SymbolType=Normal|RawFileName=PCB_Power1D.SchDoc
+Record=SheetSymbol|SourceDocument=PCB_PortSwitcher1D.SchDoc|Designator=PortIO|SchDesignator=PortIO|FileName=PCB_PortIO1D.SchDoc|SymbolType=Normal|RawFileName=PCB_PortIO1D.SchDoc
+Record=SheetSymbol|SourceDocument=PCB_PortSwitcher1D.SchDoc|Designator=PortIO|SchDesignator=PortIO|FileName=PCB_PortIO1D.SchDoc|SymbolType=Normal|RawFileName=PCB_PortIO1D.SchDoc
+Record=SheetSymbol|SourceDocument=PCB_PortSwitcher1D.SchDoc|Designator=PortIO|SchDesignator=PortIO|FileName=PCB_PortIO1D.SchDoc|SymbolType=Normal|RawFileName=PCB_PortIO1D.SchDoc
+Record=SheetSymbol|SourceDocument=PCB_PortSwitcher1D.SchDoc|Designator=PortIO|SchDesignator=PortIO|FileName=PCB_PortIO1D.SchDoc|SymbolType=Normal|RawFileName=PCB_PortIO1D.SchDoc
+Record=SheetSymbol|SourceDocument=PCB_PortSwitcher1D.SchDoc|Designator=U_FPGA Symbol1|SchDesignator=U_FPGA Symbol1|FileName=FPGA Symbol1.SchDoc|SymbolType=Normal|RawFileName=FPGA Symbol1.SchDoc
+Record=SheetSymbol|SourceDocument=PCB_PortSwitcher1D.SchDoc|Designator=U_PCB_JTAG1D|SchDesignator=U_PCB_JTAG1D|FileName=PCB_JTAG1D.SchDoc|SymbolType=Normal|RawFileName=PCB_JTAG1D.SchDoc
+Record=SheetSymbol|SourceDocument=PCB_PortSwitcher1D.SchDoc|Designator=U_PCB_RS2321D|SchDesignator=U_PCB_RS2321D|FileName=PCB_RS2321D.SchDoc|SymbolType=Normal|RawFileName=PCB_RS2321D.SchDoc
+Record=SubProject|ProjectPath=FPGA_U1\PortSwitcherFPGA1C.PrjFpg
+Record=SubProject|ProjectPath=FPGA_U1\PortSwitcherFPGA1C.PrjFpg
+Record=SubProject|ProjectPath=FPGA_U1\PortSwitcherFPGA1C.PrjFpg
+Record=SheetSymbol|SourceDocument=FPGA Symbol1.SchDoc|Designator=U_FPGA Sheet1|SchDesignator=U_FPGA Sheet1|FileName=FPGA Sheet1.SchDoc|SymbolType=Normal|RawFileName=FPGA Sheet1.SchDoc
+Record=TopLevelDocument|FileName=PCB_PortSwitcher1D.SchDoc
+Record=FPGA_COMPONENT|BaseComponentDesignator=U1|DocumentName=FPGA Sheet1.SchDoc|LibraryReference=XC2S300E-6PQ208C|SubProjectPath=FPGA_U1\PortSwitcherFPGA1C.PrjFpg|Configuration=PortSwitch_PCB|Description=Spartan-IIE 1.8V FPGA, 208-Pin PQFP, Standard Performance, Commercial Grade|SubPartUniqueId1=RIIQGOLI|SubPartDocPath1=FPGA Sheet1.SchDoc|SubPartUniqueId2=PGLUWTMU|SubPartDocPath2=FPGA Sheet1.SchDoc|SubPartUniqueId3=RFFRBGXO|SubPartDocPath3=FPGA Sheet1.SchDoc
+Record=FPGA_COMPONENT|BaseComponentDesignator=U501|DocumentName=PCB_JTAG1D.SchDoc|LibraryReference=XCF04SVO20C|SubProjectPath= |Configuration= |Description=XCF00S Series, Platform Flash In-System Programmable Configuration 3.3V PROM, 20-Pin TSOP, 4-Megabit, Commercial Grade|SubPartUniqueId1=PUGNWRTL|SubPartDocPath1=PCB_JTAG1D.SchDoc

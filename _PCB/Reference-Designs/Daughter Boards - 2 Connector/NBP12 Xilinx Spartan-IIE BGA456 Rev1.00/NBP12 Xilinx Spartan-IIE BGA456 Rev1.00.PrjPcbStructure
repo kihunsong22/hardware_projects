@@ -1,0 +1,6 @@
+Record=SubProject|ProjectPath=FPGA Project1.PrjFpg
+Record=SubProject|ProjectPath=FPGA Project1.PrjFpg
+Record=SubProject|ProjectPath=FPGA Project1.PrjFpg
+Record=SubProject|ProjectPath=FPGA Project1.PrjFpg
+Record=TopLevelDocument|FileName=NBP12 Xilinx Spartan-IIE BGA456 Rev1.00.SchDoc
+Record=FPGA_COMPONENT|BaseComponentDesignator=U1|DocumentName=NBP12 Xilinx Spartan-IIE BGA456 Rev1.00.SchDoc|LibraryReference=XC2S600E-6FG456C|SubProjectPath=FPGA Project1.PrjFpg|Configuration=Configuration 1|Description=Spartan-IIE 1.8V FPGA, 456-Ball FBGA, Standard Performance, Commercial Grade|SubPartUniqueId1=IGUAYRDO|SubPartDocPath1=NBP12 Xilinx Spartan-IIE BGA456 Rev1.00.SchDoc|SubPartUniqueId2=MNRUBKED|SubPartDocPath2=NBP12 Xilinx Spartan-IIE BGA456 Rev1.00.SchDoc|SubPartUniqueId3=WVGVGEWI|SubPartDocPath3=NBP12 Xilinx Spartan-IIE BGA456 Rev1.00.SchDoc|SubPartUniqueId4=YSHWDVSJ|SubPartDocPath4=NBP12 Xilinx Spartan-IIE BGA456 Rev1.00.SchDoc

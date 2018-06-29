@@ -1,0 +1,1109 @@
+	.SYMB	NAME, "i2c"
+	.SYMB	TOOL, "8051 C compiler", 0
+	.SYMB	FILE, "i2c.c"
+	; TASKING 8051 C compiler v1.88r1 Build 287 SN ????????
+	; Options: -c99 --reentrant -Ms -Ctsk51a -Ic:\program files\altium2004\system\tasking\include -A+strings -g -O0 -OABCEFGILPORSY --source --tradeoff=4 --vector-offset=0x0000 -o i2c.src
+	; Module start
+	.section	.data_max_extend, data, max
+
+; i2c.c	     1  /*
+; i2c.c	     2   * i2c.c --
+; i2c.c	     3   *
+; i2c.c	     4   *     This file provides routines to communicate with an I2C bus.
+; i2c.c	     5   *     At present, operation is only supported as an I2C master.
+; i2c.c	     6   *
+; i2c.c	     7   *     Author: Peter Allworth (Linear Solutions Pty Ltd)
+; i2c.c	     8   */
+; i2c.c	     9  
+; i2c.c	    10  #include "i2c.h"
+; i2c.c	    11  
+; i2c.c	    12  /*
+; i2c.c	    13   * I2cRead: Read "count" bytes into "buf" from the slave at address "dev".
+; i2c.c	    14   * Start at the multi-byte subaddress given by the contents of array "addr".
+; i2c.c	    15   * Return the number of bytes read, or a negative error code.
+; i2c.c	    16   */
+; i2c.c	    17  
+; i2c.c	    18  int
+; i2c.c	    19  I2cRead(uchar dev, uchar addr[], int addrlen, uchar buf[], int count)
+__999003__1:
+	.ds	4
+	.define	__REG	"__999003__1"
+	; End of section
+
+	.section	.code, code
+	.global	_I2cRead
+; Function _I2cRead
+_I2cRead:
+	.registerbank	0
+	.SYMB	LINE, 19, 1
+	.SYMB	TYPE, 256, "__wchar_t", 'T', #4
+	.SYMB	TYPE, 257, "__size_t", 'T', #17
+	.SYMB	TYPE, 258, "__ptrdiff_t", 'T', #16
+	.SYMB	TYPE, 261, 'g', 1, 1
+	.SYMB	TYPE, 260, 'S', 1,\
+		"__b0", #261, 0,\
+		"__b1", #261, 1,\
+		"__b2", #261, 2,\
+		"__b3", #261, 3,\
+		"__b4", #261, 4,\
+		"__b5", #261, 5,\
+		"__b6", #261, 6,\
+		"__b7", #261, 7
+	.SYMB	TYPE, 259, "__bitstruct_t", 'T', #260
+	.SYMB	FILE, "i2c.h"
+	.SYMB	TYPE, 262, "uchar", 'T', #3
+	.SYMB	TYPE, 263, "ushort", 'T', #5
+	.SYMB	TYPE, 264, "uint", 'T', #17
+	.SYMB	TYPE, 265, "ulong", 'T', #7
+	.SYMB	ENDF
+	.SYMB	FILE, "i2c.h"
+	.SYMB	TYPE, 266, 'X', 0x0008, #1, 0, 0
+	.SYMB	ALAB, _I2cStop, #266
+	.SYMB	TYPE, 267, 'X', 0x0008, #16, 0, 1, #3
+	.SYMB	ALAB, _I2cStart, #267
+	.SYMB	TYPE, 268, 'X', 0x0008, #3, 0, 1, #3
+	.SYMB	ALAB, _I2cPut, #268
+	.SYMB	ALAB, _I2cGet, #268
+	.SYMB	ENDF
+	.SYMB	TYPE, 271, 'n', #3, 129
+	.SYMB	TYPE, 270, 'P', #271
+	.SYMB	TYPE, 269, 'X', 0x0008, #16, 0, 5, #3, #270, #16, #270, #16
+	.SYMB	GFUN, "I2cRead", _I2cRead, #269, 0x0000, 0, 2, 0x0, 0x3c0000, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 4, 0, 0, 0, 0, 3, 0, 0, 0, 0, 5, 0, 0, 0, 0
+	.SYMB	ALAB, _I2cRead, #269
+	.SYMB	IDEN, "dev", 7, #3, 0x0000, 0x2801
+	.SYMB	IDEN, "addr", 5, #270, 0x0000, 0x2801
+	.SYMB	IDEN, "addrlen", 18, #16, 0x0000, 0x2801
+	.SYMB	IDEN, "buf", 6, #270, 0x0000, 0x2801
+	.SYMB	IDEN, "count", -3, #16, 0x0000, 0x1801, 0
+	.SYMB	IDEN, "i", -1, #16, 0x0000, 0x2001
+	.SYMB	LTIM, "i", -1, 0x0000, 0x2041
+	.SYMB	LTIM, "dev", 7, 0x0000, 0x28c1
+	.SYMB	LTIM, "addr", 5, 0x0000, 0x28c1
+	.SYMB	LTIM, "addrlen", 18, 0x0000, 0x28c1
+	.SYMB	LTIM, "addrlen", 3, 0x0000, 0x28c1
+	.SYMB	LTIM, "addrlen", 2, 0x0000, 0x28c1
+	.SYMB	LTIM, "buf", 6, 0x0000, 0x28c1
+	.SYMB	LTIM, "count", -3, 0x0000, 0x18c1, 0
+	mov	A,SP
+	add	A,#6
+	mov	SP,A
+	.SYMB	SOFF, -6, 0
+	push	__REG+0
+	.SYMB	SOFF, -7, 0
+	push	__REG+1
+	.SYMB	SOFF, -8, 0
+	push	__REG+2
+	.SYMB	SOFF, -9, 0
+	push	__REG+3
+	.SYMB	SOFF, -10, 0
+	mov	A,SP
+	add	A,#247
+	.SYMB	LTIM, "dev", 1, 0x0000, 0x18c1, 0
+	push	AR7
+	.SYMB	SOFF, -11, 0
+	mov	R0,A
+	pop	ACC
+	.SYMB	SOFF, -10, 0
+	mov	@R0,A
+	mov	A,SP
+	add	A,#-4
+	.SYMB	LTIM, "addr", 6, 0x0000, 0x18c1, 0
+	push	AR5
+	.SYMB	SOFF, -11, 0
+	mov	R0,A
+	pop	ACC
+	.SYMB	SOFF, -10, 0
+	mov	@R0,A
+	mov	__REG+3,R3
+	.SYMB	LTIM, "addrlen", 53, 0x0000, 0x28c1, 8, 15
+	mov	__REG+2,R2
+	.SYMB	LTIM, "addrlen", 179, 0x0000, 0x28c1
+	.SYMB	LTIM, "addrlen", 52, 0x0000, 0x28c1, 0, 7
+	mov	A,SP
+	add	A,#248
+	.SYMB	LTIM, "buf", 2, 0x0000, 0x18c1, 0
+	push	AR6
+	.SYMB	SOFF, -11, 0
+	mov	R0,A
+	pop	ACC
+	.SYMB	SOFF, -10, 0
+	mov	@R0,A
+	mov	A,SP
+	add	A,#243
+	mov	R0,A
+	mov	AR0,R0
+	mov	AR7,@R0
+	.SYMB	LTIM, "dev", 7, 0x0000, 0x2841
+	push	AR0
+	.SYMB	SOFF, -11, 0
+	mov	A,SP
+	add	A,#248
+	.SYMB	LTIM, "count", 3, 0x0000, 0x18c1, 0, 7, 0
+	push	AR7
+	.SYMB	SOFF, -12, 0
+	mov	R0,A
+	pop	ACC
+	.SYMB	SOFF, -11, 0
+	mov	@R0,A
+	pop	AR0
+	.SYMB	SOFF, -10, 0
+	inc	R0
+	mov	AR7,@R0
+	mov	A,SP
+	add	A,#250
+	.SYMB	LTIM, "count", 4, 0x0000, 0x18c1, 8, 15, 0
+	push	AR7
+	.SYMB	SOFF, -11, 0
+	mov	R0,A
+	pop	ACC
+	.SYMB	SOFF, -10, 0
+	mov	@R0,A
+	.SYMB	LINE, 23, 5
+
+; i2c.c	    20  {
+; i2c.c	    21      int      i;
+; i2c.c	    22  
+; i2c.c	    23      if (addrlen > 0) {
+	mov	A,__REG+2
+	gjb	ACC.7,_2
+	orl	A,__REG+3
+	gjz	_2
+	.SYMB	LINE, 25, 26
+
+; i2c.c	    24          /* Use a write sequence to send the subaddress bytes. */
+; i2c.c	    25          i = I2cStart(dev);
+	mov	A,SP
+	add	A,#247
+	mov	R0,A
+	mov	AR7,@R0
+	.SYMB	LTIM, "dev", 7, 0x0000, 0x28c1
+	gcall	_I2cStart
+	.SYMB	LTIM, "buf", 6, 0x0000, 0x2841
+	.SYMB	LTIM, "addrlen", 2, 0x0000, 0x2841
+	.SYMB	LTIM, "addrlen", 3, 0x0000, 0x2841
+	.SYMB	LTIM, "addrlen", 18, 0x0000, 0x2841
+	.SYMB	LTIM, "addr", 5, 0x0000, 0x2841
+	.SYMB	LTIM, "dev", 7, 0x0000, 0x2841
+	.SYMB	LINE, 26, 9
+
+; i2c.c	    26          if (i < 0) {
+	mov	A,R6
+	.SYMB	LTIM, "i", 6, 0x0000, 0x20c1, 0, 7
+	gjnb	ACC.7,_3
+	.SYMB	LINE, 27, 13
+
+; i2c.c	    27              return i;
+	gjmp	_4
+_3:
+	.SYMB	LINE, 29, 19
+
+; i2c.c	    28          }
+; i2c.c	    29          for (i = 0; i < addrlen; i++) {
+	clr	A
+	mov	__REG+1,A
+	.SYMB	LTIM, "i", 51, 0x0000, 0x20c1, 8, 15
+	mov	__REG+0,A
+	.SYMB	LTIM, "i", 178, 0x0000, 0x20c1
+	.SYMB	LTIM, "i", 50, 0x0000, 0x20c1, 0, 7
+	.SYMB	LINE, 29, 32
+	gjmp	_5
+	.SYMB	LTIM, "i", 6, 0x0000, 0x2041, 0, 7
+_6:
+	.SYMB	LINE, 30, 13
+
+; i2c.c	    30              if (!I2cPut(addr[i])) {
+	mov	R0,__REG+1
+	push	AR0
+	.SYMB	SOFF, -11, 0
+	mov	A,SP
+	add	A,#-5
+	mov	R0,A
+	mov	AR7,@R0
+	.SYMB	LTIM, "addr", 7, 0x0000, 0x28c1
+	pop	AR0
+	.SYMB	SOFF, -10, 0
+	mov	A,R7
+	add	A,R0
+	mov	R0,A
+	mov	AR0,R0
+	mov	AR7,@R0
+	.SYMB	LTIM, "addr", 7, 0x0000, 0x2841
+	gcall	_I2cPut
+	gjnz	_7
+	.SYMB	LINE, 31, 26
+
+; i2c.c	    31                  I2cStop();
+	gcall	_I2cStop
+	.SYMB	LINE, 32, 17
+
+; i2c.c	    32                  return I2C_ENOACK;
+	mov	R7,#253
+	mov	R6,#255
+	gjmp	_8
+	.SYMB	LTIM, "i", 51, 0x0000, 0x2041, 8, 15
+	.SYMB	LTIM, "i", 50, 0x0000, 0x2041, 0, 7
+	.SYMB	LTIM, "i", 178, 0x0000, 0x2041
+_7:
+	.SYMB	LINE, 29, 37
+	inc	__REG+1
+	mov	A,__REG+1
+	gcjne	A,#0,_2147483646
+	inc	__REG+0
+_2147483646:
+_5:
+	.SYMB	LINE, 29, 32
+	mov	A,__REG+3
+	setb	C
+	subb	A,__REG+1
+	.SYMB	LTIM, "i", 51, 0x0000, 0x20c1, 8, 15
+	mov	A,__REG+2
+	subb	A,__REG+0
+	.SYMB	LTIM, "i", 50, 0x0000, 0x20c1, 0, 7
+	.SYMB	LTIM, "i", 178, 0x0000, 0x20c1
+	gjnb	OV,_2147483645
+	cpl	ACC.7
+_2147483645:
+	gjnb	ACC.7,_6
+_2:
+	.SYMB	LINE, 38, 26
+
+; i2c.c	    33              }
+; i2c.c	    34          }
+; i2c.c	    35      }
+; i2c.c	    36  
+; i2c.c	    37      /* Issue a read. (It's a repeated start if there was a subaddress.) */
+; i2c.c	    38      i = I2cStart(dev | 1);
+	mov	A,SP
+	add	A,#247
+	mov	R0,A
+	mov	AR7,@R0
+	.SYMB	LTIM, "dev", 7, 0x0000, 0x28c1
+	mov	A,R7
+	orl	A,#1
+	mov	R7,A
+	.SYMB	LTIM, "dev", 7, 0x0000, 0x2841
+	gcall	_I2cStart
+	.SYMB	LINE, 39, 5
+
+; i2c.c	    39      if (i < 0) {
+	mov	A,R6
+	.SYMB	LTIM, "i", 6, 0x0000, 0x20c1, 0, 7
+	gjnb	ACC.7,_9
+	.SYMB	LTIM, "i", 51, 0x0000, 0x2041, 8, 15
+	.SYMB	LTIM, "i", 178, 0x0000, 0x2041
+	.SYMB	LTIM, "i", 50, 0x0000, 0x2041, 0, 7
+	.SYMB	LINE, 40, 9
+
+; i2c.c	    40          return i;
+	gjmp	_10
+_9:
+	.SYMB	LINE, 44, 5
+
+; i2c.c	    41      }
+; i2c.c	    42  
+; i2c.c	    43      /* Acknowledge all but the last byte during a multi-byte read. */
+; i2c.c	    44      if (count > 0) {
+	mov	A,SP
+	add	A,#249
+	mov	R0,A
+	mov	AR7,@R0
+	mov	A,R7
+	gjb	ACC.7,_11
+	.SYMB	LTIM, "i", 6, 0x0000, 0x2041, 0, 7
+	push	ACC
+	.SYMB	SOFF, -11, 0
+	mov	A,SP
+	add	A,#249
+	mov	R0,A
+	mov	AR7,@R0
+	pop	ACC
+	.SYMB	SOFF, -10, 0
+	orl	A,R7
+	gjz	_11
+	.SYMB	LINE, 45, 19
+
+; i2c.c	    45          for (i = 0; i < (count - 1); i++) {
+	clr	A
+	mov	__REG+3,A
+	.SYMB	LTIM, "addrlen", 53, 0x0000, 0x2841, 8, 15
+	.SYMB	LTIM, "addrlen", 179, 0x0000, 0x2841
+	.SYMB	LTIM, "i", 53, 0x0000, 0x20c1, 8, 15
+	mov	__REG+2,A
+	.SYMB	LTIM, "addrlen", 52, 0x0000, 0x2841, 0, 7
+	.SYMB	LTIM, "i", 179, 0x0000, 0x20c1
+	.SYMB	LTIM, "i", 52, 0x0000, 0x20c1, 0, 7
+	.SYMB	LINE, 45, 36
+	gjmp	_12
+_13:
+	.SYMB	LINE, 46, 31
+
+; i2c.c	    46              buf[i] = I2cGet(1);
+	mov	R0,__REG+3
+	push	AR0
+	.SYMB	SOFF, -11, 0
+	mov	A,SP
+	add	A,#247
+	mov	R0,A
+	mov	AR7,@R0
+	.SYMB	LTIM, "buf", 7, 0x0000, 0x28c1
+	pop	AR0
+	.SYMB	SOFF, -10, 0
+	mov	A,R7
+	add	A,R0
+	mov	R0,A
+	mov	AR0,R0
+	mov	__REG+0,R0
+	mov	R7,#1
+	.SYMB	LTIM, "buf", 7, 0x0000, 0x2841
+	gcall	_I2cGet
+	mov	AR0,__REG+0
+	mov	@R0,A
+	.SYMB	LINE, 45, 41
+	inc	__REG+3
+	.SYMB	LTIM, "i", 179, 0x0000, 0x2041
+	.SYMB	LTIM, "i", 53, 0x0000, 0x2041, 8, 15
+	mov	A,__REG+3
+	gcjne	A,#0,_2147483644
+	inc	__REG+2
+	.SYMB	LTIM, "i", 52, 0x0000, 0x2041, 0, 7
+_2147483644:
+_12:
+	.SYMB	LINE, 45, 36
+	mov	A,SP
+	add	A,#250
+	.SYMB	LTIM, "count", 3, 0x0000, 0x18c1, 0
+	mov	R0,A
+	mov	AR7,@R0
+	.SYMB	LTIM, "count", 7, 0x0000, 0x28c1, 8, 15
+	dec	R0
+	mov	AR6,@R0
+	.SYMB	LTIM, "count", 22, 0x0000, 0x28c1
+	.SYMB	LTIM, "count", 6, 0x0000, 0x28c1, 0, 7
+	mov	AR1,R7
+	mov	AR0,R6
+	dec	R1
+	mov	A,R1
+	gcjne	A,#255,_2147483643
+	dec	R0
+_2147483643:
+	mov	A,R1
+	setb	C
+	subb	A,__REG+3
+	.SYMB	LTIM, "i", 53, 0x0000, 0x20c1, 8, 15
+	mov	A,R0
+	subb	A,__REG+2
+	.SYMB	LTIM, "i", 179, 0x0000, 0x20c1
+	.SYMB	LTIM, "i", 52, 0x0000, 0x20c1, 0, 7
+	gjnb	OV,_2147483642
+	cpl	ACC.7
+_2147483642:
+	gjnb	ACC.7,_13
+	.SYMB	LINE, 48, 27
+
+; i2c.c	    47          }
+; i2c.c	    48          buf[i] = I2cGet(0);
+	mov	__REG+3,__REG+3
+	.SYMB	LTIM, "i", 179, 0x0000, 0x2041
+	.SYMB	LTIM, "i", 53, 0x0000, 0x2041, 8, 15
+	.SYMB	LTIM, "i", 179, 0x0000, 0x20c1
+	.SYMB	LTIM, "i", 53, 0x0000, 0x20c1, 8, 15
+	mov	A,SP
+	add	A,#248
+	mov	R0,A
+	mov	AR7,@R0
+	.SYMB	LTIM, "count", 22, 0x0000, 0x2841
+	.SYMB	LTIM, "count", 7, 0x0000, 0x2841, 8, 15
+	.SYMB	LTIM, "buf", 7, 0x0000, 0x28c1
+	mov	A,R7
+	add	A,__REG+3
+	mov	R0,A
+	mov	AR0,R0
+	mov	__REG+0,R0
+	mov	R7,#0
+	.SYMB	LTIM, "buf", 7, 0x0000, 0x2841
+	gcall	_I2cGet
+	.SYMB	LTIM, "count", 6, 0x0000, 0x2841, 0, 7
+	mov	AR0,__REG+0
+	mov	@R0,A
+	.SYMB	LINE, 49, 7
+
+; i2c.c	    49      } else {
+	gjmp	_14
+	.SYMB	LTIM, "i", 53, 0x0000, 0x2041, 8, 15
+	.SYMB	LTIM, "i", 179, 0x0000, 0x2041
+	.SYMB	LTIM, "i", 52, 0x0000, 0x2041, 0, 7
+_11:
+	.SYMB	LINE, 50, 18
+
+; i2c.c	    50          count = 0;
+	clr	A
+	mov	R7,A
+	push	ACC
+	.SYMB	SOFF, -11, 0
+	mov	A,SP
+	add	A,#249
+	push	AR7
+	.SYMB	SOFF, -12, 0
+	mov	R0,A
+	pop	ACC
+	.SYMB	SOFF, -11, 0
+	mov	@R0,A
+	pop	ACC
+	.SYMB	SOFF, -10, 0
+	mov	R7,A
+	mov	A,SP
+	add	A,#249
+	push	AR7
+	.SYMB	SOFF, -11, 0
+	mov	R0,A
+	pop	ACC
+	.SYMB	SOFF, -10, 0
+	mov	@R0,A
+_14:
+	.SYMB	LINE, 52, 14
+
+; i2c.c	    51      }
+; i2c.c	    52      I2cStop();
+	gcall	_I2cStop
+	.SYMB	LINE, 53, 5
+
+; i2c.c	    53      return count;
+	mov	A,SP
+	add	A,#250
+	mov	R0,A
+	mov	AR7,@R0
+	.SYMB	LTIM, "count", 7, 0x0000, 0x28c1, 8, 15
+	dec	R0
+	mov	AR6,@R0
+	.SYMB	LTIM, "count", 22, 0x0000, 0x28c1
+	.SYMB	LTIM, "count", 6, 0x0000, 0x28c1, 0, 7
+	gjmp	_15
+
+; i2c.c	    54  }
+_15:
+_10:
+_8:
+_4:
+	.SYMB	LINE, 54, 1
+	pop	__REG+3
+	.SYMB	SOFF, -9, 0
+	pop	__REG+2
+	.SYMB	SOFF, -8, 0
+	pop	__REG+1
+	.SYMB	SOFF, -7, 0
+	pop	__REG+0
+	.SYMB	SOFF, -6, 0
+	mov	F0,C
+	xch	A,SP
+	add	A,#250
+	xch	A,SP
+	.SYMB	SOFF, 0, 0
+	mov	C,F0
+	ret
+	.SYMB	LTIM, "count", 3, 0x0000, 0x1841, 0, 7, 0
+	.SYMB	LTIM, "count", 4, 0x0000, 0x1841, 8, 15, 0
+	.SYMB	LTIM, "count", 3, 0x0000, 0x1841, 0
+	.SYMB	LTIM, "count", 7, 0x0000, 0x2841, 8, 15
+	.SYMB	LTIM, "count", 6, 0x0000, 0x2841, 0, 7
+	.SYMB	LTIM, "count", 22, 0x0000, 0x2841
+	.SYMB	LTIM, "count", -3, 0x0000, 0x1841, 0
+	.SYMB	LTIM, "buf", 2, 0x0000, 0x1841, 0
+	.SYMB	LTIM, "addr", 6, 0x0000, 0x1841, 0
+	.SYMB	LTIM, "dev", 1, 0x0000, 0x1841, 0
+	.undef	__REG
+	; End of function
+	.SYMB	EFUN
+	; End of section
+
+	.section	.data_max_extend, data, max
+	.SYMB	GFUN, "I2cWrite", _I2cWrite, #269, 0x0000, 0, 2, 0x0, 0x3c0000, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 4, 0, 0, 0, 0, 3, 0, 0, 0, 0, 5, 0, 0, 0, 0
+	.SYMB	ALAB, _I2cWrite, #269
+	.SYMB	IDEN, "dev", 7, #3, 0x0000, 0x2801
+	.SYMB	IDEN, "addr", 5, #270, 0x0000, 0x2801
+	.SYMB	IDEN, "addrlen", 18, #16, 0x0000, 0x2801
+	.SYMB	IDEN, "buf", 6, #270, 0x0000, 0x2801
+	.SYMB	IDEN, "count", -3, #16, 0x0000, 0x1801, 0
+	.SYMB	IDEN, "i", -1, #16, 0x0000, 0x2001
+	.SYMB	LTIM, "i", -1, 0x0000, 0x2041
+
+; i2c.c	    55  
+; i2c.c	    56  /*
+; i2c.c	    57   * I2cWrite: Write "count" bytes from "buf" to the slave at address "dev".
+; i2c.c	    58   * Start at the multi-byte subaddress given by the contents of array "addr".
+; i2c.c	    59   * Return the number of bytes written, or a negative error code.
+; i2c.c	    60   */
+; i2c.c	    61  
+; i2c.c	    62  int
+; i2c.c	    63  I2cWrite(uchar dev, uchar addr[], int addrlen, uchar buf[], int count)
+__999004__1:
+	.ds	4
+	.define	__REG	"__999004__1"
+	; End of section
+
+	.section	.code, code
+	.global	_I2cWrite
+; Function _I2cWrite
+_I2cWrite:
+	.registerbank	0
+	.SYMB	LINE, 63, 1
+	.SYMB	LTIM, "dev", 7, 0x0000, 0x28c1
+	.SYMB	LTIM, "addr", 5, 0x0000, 0x28c1
+	.SYMB	LTIM, "addrlen", 18, 0x0000, 0x28c1
+	.SYMB	LTIM, "addrlen", 3, 0x0000, 0x28c1
+	.SYMB	LTIM, "addrlen", 2, 0x0000, 0x28c1
+	.SYMB	LTIM, "buf", 6, 0x0000, 0x28c1
+	.SYMB	LTIM, "count", -3, 0x0000, 0x18c1, 0
+	mov	A,SP
+	add	A,#5
+	mov	SP,A
+	.SYMB	SOFF, -5, 0
+	push	__REG+0
+	.SYMB	SOFF, -6, 0
+	push	__REG+1
+	.SYMB	SOFF, -7, 0
+	push	__REG+2
+	.SYMB	SOFF, -8, 0
+	push	__REG+3
+	.SYMB	SOFF, -9, 0
+	mov	A,SP
+	add	A,#-4
+	.SYMB	LTIM, "addr", 5, 0x0000, 0x18c1, 0
+	push	AR5
+	.SYMB	SOFF, -10, 0
+	mov	R0,A
+	pop	ACC
+	.SYMB	SOFF, -9, 0
+	mov	@R0,A
+	mov	__REG+3,R3
+	.SYMB	LTIM, "addrlen", 53, 0x0000, 0x28c1, 8, 15
+	mov	__REG+2,R2
+	.SYMB	LTIM, "addrlen", 179, 0x0000, 0x28c1
+	.SYMB	LTIM, "addrlen", 52, 0x0000, 0x28c1, 0, 7
+	mov	A,SP
+	add	A,#248
+	.SYMB	LTIM, "buf", 1, 0x0000, 0x18c1, 0
+	push	AR6
+	.SYMB	SOFF, -10, 0
+	mov	R0,A
+	pop	ACC
+	.SYMB	SOFF, -9, 0
+	mov	@R0,A
+	mov	A,SP
+	add	A,#244
+	mov	R0,A
+	mov	AR0,R0
+	mov	AR1,@R0
+	push	AR0
+	.SYMB	SOFF, -10, 0
+	mov	A,SP
+	add	A,#248
+	push	AR1
+	.SYMB	SOFF, -11, 0
+	mov	R0,A
+	pop	ACC
+	.SYMB	SOFF, -10, 0
+	mov	@R0,A
+	pop	AR0
+	.SYMB	SOFF, -9, 0
+	inc	R0
+	mov	AR0,@R0
+	mov	A,SP
+	add	A,#250
+	.SYMB	LTIM, "count", 3, 0x0000, 0x18c1, 8, 15, 0
+	push	AR0
+	.SYMB	SOFF, -10, 0
+	mov	R0,A
+	pop	ACC
+	.SYMB	SOFF, -9, 0
+	mov	@R0,A
+	.SYMB	LINE, 67, 22
+
+; i2c.c	    64  {
+; i2c.c	    65      int      i;
+; i2c.c	    66  
+; i2c.c	    67      i = I2cStart(dev);
+	gcall	_I2cStart
+	.SYMB	LTIM, "buf", 6, 0x0000, 0x2841
+	.SYMB	LTIM, "addrlen", 2, 0x0000, 0x2841
+	.SYMB	LTIM, "addrlen", 3, 0x0000, 0x2841
+	.SYMB	LTIM, "addrlen", 18, 0x0000, 0x2841
+	.SYMB	LTIM, "addr", 5, 0x0000, 0x2841
+	.SYMB	LTIM, "dev", 7, 0x0000, 0x2841
+	.SYMB	LINE, 68, 5
+
+; i2c.c	    68      if (i < 0) {
+	mov	A,R6
+	.SYMB	LTIM, "i", 6, 0x0000, 0x20c1, 0, 7
+	gjnb	ACC.7,_16
+	.SYMB	LINE, 69, 9
+
+; i2c.c	    69          return i;
+	gjmp	_17
+_16:
+	.SYMB	LINE, 71, 15
+
+; i2c.c	    70      }
+; i2c.c	    71      for (i = 0; i < addrlen; i++) {
+	clr	A
+	mov	__REG+1,A
+	.SYMB	LTIM, "i", 51, 0x0000, 0x20c1, 8, 15
+	mov	__REG+0,A
+	.SYMB	LTIM, "i", 178, 0x0000, 0x20c1
+	.SYMB	LTIM, "i", 50, 0x0000, 0x20c1, 0, 7
+	.SYMB	LINE, 71, 28
+	gjmp	_18
+	.SYMB	LTIM, "i", 6, 0x0000, 0x2041, 0, 7
+_19:
+	.SYMB	LINE, 72, 9
+
+; i2c.c	    72          if (!I2cPut(addr[i])) {
+	mov	R0,__REG+1
+	push	AR0
+	.SYMB	SOFF, -10, 0
+	mov	A,SP
+	add	A,#-5
+	mov	R0,A
+	mov	AR7,@R0
+	.SYMB	LTIM, "addr", 7, 0x0000, 0x28c1
+	pop	AR0
+	.SYMB	SOFF, -9, 0
+	mov	A,R7
+	add	A,R0
+	mov	R0,A
+	mov	AR0,R0
+	mov	AR7,@R0
+	.SYMB	LTIM, "addr", 7, 0x0000, 0x2841
+	gcall	_I2cPut
+	gjnz	_20
+	.SYMB	LINE, 73, 22
+
+; i2c.c	    73              I2cStop();
+	gcall	_I2cStop
+	.SYMB	LINE, 74, 13
+
+; i2c.c	    74              return I2C_ENOACK;
+	mov	R7,#253
+	mov	R6,#255
+	gjmp	_21
+	.SYMB	LTIM, "i", 51, 0x0000, 0x2041, 8, 15
+	.SYMB	LTIM, "i", 50, 0x0000, 0x2041, 0, 7
+	.SYMB	LTIM, "i", 178, 0x0000, 0x2041
+_20:
+	.SYMB	LINE, 71, 33
+	inc	__REG+1
+	mov	A,__REG+1
+	gcjne	A,#0,_2147483641
+	inc	__REG+0
+_2147483641:
+_18:
+	.SYMB	LINE, 71, 28
+	mov	A,__REG+3
+	setb	C
+	subb	A,__REG+1
+	.SYMB	LTIM, "i", 51, 0x0000, 0x20c1, 8, 15
+	mov	A,__REG+2
+	subb	A,__REG+0
+	.SYMB	LTIM, "i", 178, 0x0000, 0x20c1
+	.SYMB	LTIM, "i", 50, 0x0000, 0x20c1, 0, 7
+	gjnb	OV,_2147483640
+	cpl	ACC.7
+_2147483640:
+	gjnb	ACC.7,_19
+	.SYMB	LINE, 77, 15
+
+; i2c.c	    75          }
+; i2c.c	    76      }
+; i2c.c	    77      for (i = 0; i < count; i++) {
+	clr	A
+	mov	__REG+1,A
+	mov	__REG+0,A
+	.SYMB	LINE, 77, 26
+	gjmp	_22
+_23:
+	.SYMB	LINE, 78, 9
+
+; i2c.c	    78          if (!I2cPut(buf[i])) {
+	mov	R0,__REG+1
+	push	AR0
+	.SYMB	SOFF, -10, 0
+	mov	A,SP
+	add	A,#247
+	mov	R0,A
+	mov	AR7,@R0
+	.SYMB	LTIM, "buf", 7, 0x0000, 0x28c1
+	pop	AR0
+	.SYMB	SOFF, -9, 0
+	mov	A,R7
+	add	A,R0
+	mov	R0,A
+	mov	AR0,R0
+	mov	AR7,@R0
+	.SYMB	LTIM, "buf", 7, 0x0000, 0x2841
+	gcall	_I2cPut
+	gjnz	_24
+	.SYMB	LINE, 79, 13
+
+; i2c.c	    79              break;
+	gjmp	_25
+_24:
+	.SYMB	LINE, 77, 31
+	inc	__REG+1
+	.SYMB	LTIM, "i", 178, 0x0000, 0x2041
+	.SYMB	LTIM, "i", 51, 0x0000, 0x2041, 8, 15
+	mov	A,__REG+1
+	gcjne	A,#0,_2147483639
+	inc	__REG+0
+	.SYMB	LTIM, "i", 50, 0x0000, 0x2041, 0, 7
+_2147483639:
+_22:
+	.SYMB	LINE, 77, 26
+	mov	A,SP
+	add	A,#250
+	mov	R0,A
+	mov	AR7,@R0
+	mov	A,R7
+	setb	C
+	subb	A,__REG+1
+	.SYMB	LTIM, "i", 51, 0x0000, 0x20c1, 8, 15
+	push	PSW
+	.SYMB	SOFF, -10, 0
+	mov	A,SP
+	add	A,#248
+	mov	R0,A
+	mov	AR7,@R0
+	pop	PSW
+	.SYMB	SOFF, -9, 0
+	mov	A,R7
+	subb	A,__REG+0
+	.SYMB	LTIM, "i", 50, 0x0000, 0x20c1, 0, 7
+	.SYMB	LTIM, "i", 178, 0x0000, 0x20c1
+	gjnb	OV,_2147483638
+	cpl	ACC.7
+_2147483638:
+	gjnb	ACC.7,_23
+
+; i2c.c	    80          }
+; i2c.c	    81      }
+; i2c.c	    82      I2cStop();
+_25:
+	.SYMB	LINE, 82, 14
+	gcall	_I2cStop
+	.SYMB	LINE, 83, 5
+
+; i2c.c	    83      return i;
+	mov	AR7,__REG+1
+	mov	AR6,__REG+0
+	gjmp	_26
+	.SYMB	LTIM, "i", 51, 0x0000, 0x2041, 8, 15
+	.SYMB	LTIM, "i", 178, 0x0000, 0x2041
+	.SYMB	LTIM, "i", 50, 0x0000, 0x2041, 0, 7
+
+; i2c.c	    84  }
+_26:
+_21:
+_17:
+	.SYMB	LINE, 84, 1
+	pop	__REG+3
+	.SYMB	SOFF, -8, 0
+	.SYMB	LTIM, "addrlen", 53, 0x0000, 0x2841, 8, 15
+	.SYMB	LTIM, "addrlen", 179, 0x0000, 0x2841
+	pop	__REG+2
+	.SYMB	SOFF, -7, 0
+	.SYMB	LTIM, "addrlen", 52, 0x0000, 0x2841, 0, 7
+	pop	__REG+1
+	.SYMB	SOFF, -6, 0
+	pop	__REG+0
+	.SYMB	SOFF, -5, 0
+	mov	F0,C
+	xch	A,SP
+	add	A,#251
+	xch	A,SP
+	.SYMB	SOFF, 0, 0
+	mov	C,F0
+	ret
+	.SYMB	LTIM, "count", 3, 0x0000, 0x1841, 8, 15, 0
+	.SYMB	LTIM, "count", -3, 0x0000, 0x1841, 0
+	.SYMB	LTIM, "buf", 1, 0x0000, 0x1841, 0
+	.SYMB	LTIM, "addr", 5, 0x0000, 0x1841, 0
+	.undef	__REG
+	; End of function
+	.SYMB	EFUN
+	; End of section
+
+	.section	.data_max_extend, data, max
+	.SYMB	TYPE, 272, 'X', 0x0008, #16, 0, 2, #3, #3
+	.SYMB	GFUN, "I2cPeek", _I2cPeek, #272, 0x0000, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 4, 0, 0, 0, 0, 3, 0, 0, 0, 0, 5, 0, 0, 0, 0
+	.SYMB	ALAB, _I2cPeek, #272
+	.SYMB	IDEN, "dev", 7, #3, 0x0000, 0x2801
+	.SYMB	IDEN, "subaddr", 5, #3, 0x0000, 0x2801
+	.SYMB	IDEN, "result", -1, #16, 0x0000, 0x2001
+	.SYMB	LTIM, "result", -1, 0x0000, 0x2041
+	.SYMB	IDEN, "value", 1, #3, 0x0000, 0x1001, 0
+
+; i2c.c	    85  
+; i2c.c	    86  /*
+; i2c.c	    87   * I2cPeek: Read a byte from the specified subaddress of an I2C device
+; i2c.c	    88   * and return the byte's value (0..255), or a negative error code.
+; i2c.c	    89   */
+; i2c.c	    90  
+; i2c.c	    91  int
+; i2c.c	    92  I2cPeek(uchar dev, uchar subaddr)
+__999005__1:
+	.define	__REG	"__999005__1"
+	; End of section
+
+	.section	.code, code
+	.global	_I2cPeek
+; Function _I2cPeek
+_I2cPeek:
+	.registerbank	0
+	.SYMB	LINE, 92, 1
+	.SYMB	LTIM, "dev", 7, 0x0000, 0x28c1
+	.SYMB	LTIM, "subaddr", 5, 0x0000, 0x28c1
+	mov	A,SP
+	add	A,#2
+	mov	SP,A
+	.SYMB	SOFF, -2, 0
+	mov	AR7,R7
+	mov	A,SP
+	add	A,#0
+	push	AR5
+	.SYMB	SOFF, -3, 0
+	mov	R0,A
+	pop	ACC
+	.SYMB	SOFF, -2, 0
+	mov	@R0,A
+	.SYMB	LINE, 97, 50
+
+; i2c.c	    93  {
+; i2c.c	    94      int      result;
+; i2c.c	    95      uchar    value;
+; i2c.c	    96  
+; i2c.c	    97      result = I2cRead(dev, &subaddr, 1, &value, 1);
+	mov	R1,#1
+	mov	R0,#0
+	push	AR0
+	.SYMB	SOFF, -3, 0
+	push	AR1
+	.SYMB	SOFF, -4, 0
+	mov	A,SP
+	add	A,#-2
+	mov	R1,A
+	mov	A,SP
+	add	A,#253
+	.SYMB	LTIM, "value", 1, 0x0000, 0x10c1, 0
+	mov	R0,A
+	mov	AR7,R7
+	.SYMB	LTIM, "dev", 7, 0x0000, 0x2841
+	.SYMB	LTIM, "dev", 7, 0x0000, 0x28c1
+	mov	AR5,R1
+	.SYMB	LTIM, "subaddr", 5, 0x0000, 0x2841
+	mov	R2,#0
+	mov	R3,#1
+	mov	AR3,R3
+	mov	AR2,R2
+	mov	AR6,R0
+	gcall	_I2cRead
+	.SYMB	LTIM, "dev", 7, 0x0000, 0x2841
+	mov	A,SP
+	add	A,#254
+	mov	SP,A
+	.SYMB	SOFF, -2, 0
+	mov	AR7,R7
+	mov	AR6,R6
+	mov	AR7,R7
+	.SYMB	LTIM, "result", 7, 0x0000, 0x20c1, 8, 15
+	mov	AR6,R6
+	.SYMB	LTIM, "result", 22, 0x0000, 0x20c1
+	.SYMB	LTIM, "result", 6, 0x0000, 0x20c1, 0, 7
+	.SYMB	LINE, 98, 5
+
+; i2c.c	    98      if (result == 1) {
+	mov	A,R7
+	dec	A
+	orl	A,R6
+	gjnz	_27
+	.SYMB	LINE, 99, 28
+
+; i2c.c	    99          result = (int)value;
+	mov	A,SP
+	add	A,#255
+	mov	R0,A
+	mov	A,@R0
+	mov	R7,A
+	.SYMB	LTIM, "result", 22, 0x0000, 0x2041
+	.SYMB	LTIM, "result", 7, 0x0000, 0x2041, 8, 15
+	mov	R6,#0
+	.SYMB	LTIM, "result", 6, 0x0000, 0x2041, 0, 7
+	mov	AR7,R7
+	.SYMB	LTIM, "result", 7, 0x0000, 0x20c1, 8, 15
+	mov	AR6,R6
+	.SYMB	LTIM, "result", 22, 0x0000, 0x20c1
+	.SYMB	LTIM, "result", 6, 0x0000, 0x20c1, 0, 7
+	.SYMB	LINE, 100, 7
+
+; i2c.c	   100      } else if (result == 0) {
+	gjmp	_28
+_27:
+	.SYMB	LINE, 100, 12
+	mov	A,R7
+	orl	A,R6
+	gjnz	_29
+	.SYMB	LINE, 101, 29
+
+; i2c.c	   101          result = I2C_ENODATA;
+	mov	R7,#252
+	mov	R6,#255
+_29:
+_28:
+	.SYMB	LINE, 103, 5
+
+; i2c.c	   102      }
+; i2c.c	   103      return result;
+	mov	AR7,R7
+	.SYMB	LTIM, "result", 22, 0x0000, 0x2041
+	.SYMB	LTIM, "result", 7, 0x0000, 0x2041, 8, 15
+	.SYMB	LTIM, "result", 22, 0x0000, 0x20c1
+	.SYMB	LTIM, "result", 7, 0x0000, 0x20c1, 8, 15
+	mov	AR6,R6
+	.SYMB	LTIM, "result", 22, 0x0000, 0x2041
+	.SYMB	LTIM, "result", 6, 0x0000, 0x2041, 0, 7
+	.SYMB	LTIM, "result", 22, 0x0000, 0x20c1
+	.SYMB	LTIM, "result", 6, 0x0000, 0x20c1, 0, 7
+	gjmp	_30
+
+; i2c.c	   104  }
+_30:
+	.SYMB	LINE, 104, 1
+	mov	F0,C
+	xch	A,SP
+	add	A,#254
+	xch	A,SP
+	.SYMB	SOFF, 0, 0
+	mov	C,F0
+	ret
+	.SYMB	LTIM, "result", 6, 0x0000, 0x2041, 0, 7
+	.SYMB	LTIM, "result", 22, 0x0000, 0x2041
+	.SYMB	LTIM, "result", 7, 0x0000, 0x2041, 8, 15
+	.SYMB	LTIM, "value", 1, 0x0000, 0x1041, 0
+	.undef	__REG
+	; End of function
+	.SYMB	EFUN
+	; End of section
+
+	.section	.data_max_extend, data, max
+	.SYMB	TYPE, 273, 'X', 0x0008, #16, 0, 3, #3, #3, #3
+	.SYMB	GFUN, "I2cPoke", _I2cPoke, #273, 0x0000, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 4, 0, 0, 0, 0, 3, 0, 0, 0, 0, 5, 0, 0, 0, 0
+	.SYMB	ALAB, _I2cPoke, #273
+	.SYMB	IDEN, "dev", 7, #3, 0x0000, 0x2801
+	.SYMB	IDEN, "subaddr", 5, #3, 0x0000, 0x2801
+	.SYMB	IDEN, "value", 3, #3, 0x0000, 0x2801
+
+; i2c.c	   105  
+; i2c.c	   106  /*
+; i2c.c	   107   * I2cPoke: Write a byte value to the specified subaddress of an I2C device
+; i2c.c	   108   * and return the number of bytes written (0 or 1), or a negative error code.
+; i2c.c	   109   */
+; i2c.c	   110  
+; i2c.c	   111  int
+; i2c.c	   112  I2cPoke(uchar dev, uchar subaddr, uchar value)
+__999006__1:
+	.define	__REG	"__999006__1"
+	; End of section
+
+	.section	.code, code
+	.global	_I2cPoke
+; Function _I2cPoke
+_I2cPoke:
+	.registerbank	0
+	.SYMB	LINE, 112, 1
+	.SYMB	LTIM, "dev", 7, 0x0000, 0x28c1
+	.SYMB	LTIM, "subaddr", 5, 0x0000, 0x28c1
+	.SYMB	LTIM, "value", 3, 0x0000, 0x28c1
+	mov	A,SP
+	add	A,#2
+	mov	SP,A
+	.SYMB	SOFF, -2, 0
+	mov	AR7,R7
+	mov	A,SP
+	add	A,#0
+	push	AR5
+	.SYMB	SOFF, -3, 0
+	mov	R0,A
+	pop	ACC
+	.SYMB	SOFF, -2, 0
+	mov	@R0,A
+	mov	A,SP
+	add	A,#255
+	push	AR3
+	.SYMB	SOFF, -3, 0
+	mov	R0,A
+	pop	ACC
+	.SYMB	SOFF, -2, 0
+	mov	@R0,A
+	.SYMB	LINE, 114, 5
+
+; i2c.c	   113  {
+; i2c.c	   114      return I2cWrite(dev, &subaddr, 1, &value, 1);
+	mov	R1,#1
+	mov	R0,#0
+	push	AR0
+	.SYMB	SOFF, -3, 0
+	push	AR1
+	.SYMB	SOFF, -4, 0
+	mov	A,SP
+	add	A,#-2
+	mov	R1,A
+	mov	A,SP
+	add	A,#253
+	mov	R0,A
+	mov	AR7,R7
+	.SYMB	LTIM, "dev", 7, 0x0000, 0x2841
+	.SYMB	LTIM, "dev", 7, 0x0000, 0x28c1
+	mov	AR5,R1
+	.SYMB	LTIM, "subaddr", 5, 0x0000, 0x2841
+	mov	R2,#0
+	mov	R3,#1
+	.SYMB	LTIM, "value", 3, 0x0000, 0x2841
+	mov	AR3,R3
+	mov	AR2,R2
+	mov	AR6,R0
+	gcall	_I2cWrite
+	.SYMB	LTIM, "dev", 7, 0x0000, 0x2841
+	mov	A,SP
+	add	A,#254
+	mov	SP,A
+	.SYMB	SOFF, -2, 0
+	mov	AR7,R7
+	mov	AR6,R6
+	mov	AR7,R7
+	mov	AR6,R6
+	gjmp	_31
+
+; i2c.c	   115  }
+_31:
+	.SYMB	LINE, 115, 1
+	mov	F0,C
+	xch	A,SP
+	add	A,#254
+	xch	A,SP
+	.SYMB	SOFF, 0, 0
+	mov	C,F0
+	ret
+	.undef	__REG
+	.SYMB	ENDF
+	; End of function
+	.SYMB	EFUN
+	; End of section
+
+	
+	.extern	_I2cStop : code
+	.extern	_I2cStart : code
+	.extern	_I2cPut : code
+	.extern	_I2cGet : code
+	.extern	__REG : data
+
+; i2c.c	   116  
+; i2c.c	   117  
+	; Module end
+	.end

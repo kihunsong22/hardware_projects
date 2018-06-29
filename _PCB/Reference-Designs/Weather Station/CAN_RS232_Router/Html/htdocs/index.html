@@ -1,0 +1,33 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+<META HTTP-EQUIV="Expires" CONTENT="-1">
+<title>Altium BOC Weatherstation demo</title>
+<script language="JavaScript">
+var	temperature = 0;
+var	windspeed = 0;
+var	winddir	= 10;
+var	wsurl = "192.168.100.3/";
+var	heartbeat = 0;
+
+setInterval( restart, 30000 );
+
+function restart()
+{
+	if ( heartbeat == 0 )
+	{
+		frames["mailbox"].location = "fetch.html";
+	}
+	heartbeat = 0;
+	return true;
+}
+
+</script>
+</head>
+<frameset rows="30,*" border="0" frameborder="0" framespacing="0">
+<frame name="mailbox" src="fetch.html" frameborder="0" marginwidth="0" marginheight="0" noresize scrolling="no">
+<frame name="display" src="display.shtml" frameborder="0" marginwidth="0" marginheight="0" scrolling="auto">
+</frameset>
+</html>

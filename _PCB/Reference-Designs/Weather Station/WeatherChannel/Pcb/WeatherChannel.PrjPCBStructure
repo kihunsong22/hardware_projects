@@ -1,0 +1,17 @@
+Record=SheetSymbol|SourceDocument=FPGA_U1_Manual.SchDoc|Designator=U_FPGA_U1_Auto|SchDesignator=U_FPGA_U1_Auto|FileName=FPGA_U1_Auto.SchDoc
+Record=SheetSymbol|SourceDocument=FPGA_U1_Manual.SchDoc|Designator=U_WC_Boot|SchDesignator=U_WC_Boot|FileName=WC_Boot.SchDoc
+Record=SheetSymbol|SourceDocument=FPGA_U1_Manual.SchDoc|Designator=U_WC_KB|SchDesignator=U_WC_KB|FileName=WC_KB.SchDoc
+Record=SheetSymbol|SourceDocument=FPGA_U1_Manual.SchDoc|Designator=U_WC_LCD|SchDesignator=U_WC_LCD|FileName=WC_LCD.SchDoc
+Record=SheetSymbol|SourceDocument=FPGA_U1_Manual.SchDoc|Designator=U_WC_MODEM|SchDesignator=U_WC_MODEM|FileName=WC_MODEM.SchDoc
+Record=SheetSymbol|SourceDocument=FPGA_U1_Manual.SchDoc|Designator=U_WC_PWR|SchDesignator=U_WC_PWR|FileName=WC_PWR.SchDoc
+Record=SheetSymbol|SourceDocument=FPGA_U1_Manual.SchDoc|Designator=U_WC_RS232|SchDesignator=U_WC_RS232|FileName=WC_RS232.SchDoc
+Record=SheetSymbol|SourceDocument=FPGA_U1_Manual.SchDoc|Designator=U_WC_SENS|SchDesignator=U_WC_SENS|FileName=WC_SENS.SchDoc
+Record=SheetSymbol|SourceDocument=FPGA_U1_Manual.SchDoc|Designator=U_WC_SRAM|SchDesignator=U_WC_SRAM|FileName=WC_SRAM.SchDoc
+Record=SheetSymbol|SourceDocument=FPGA_U1_Manual.SchDoc|Designator=U_WC_VGA|SchDesignator=U_WC_VGA|FileName=WC_VGA.SchDoc
+Record=SubProject|ProjectPath=..\Fpga\WeatherChannel.PrjFpg
+Record=SubProject|ProjectPath=..\Fpga\WeatherChannel.PrjFpg
+Record=SubProject|ProjectPath=..\Fpga\WeatherChannel.PrjFpg
+Record=TopLevelDocument|FileName=FPGA_U1_Manual.SchDoc
+Record=FPGA_COMPONENT|BaseComponentDesignator=U1|DocumentName=FPGA_U1_Auto.SchDoc|LibraryReference=XC2S300E-6PQ208C|SubProjectPath=..\Fpga\WeatherChannel.PrjFpg|Configuration=PCB Configuration|Description=Spartan-IIE 1.8V FPGA, 208-Pin PQFP, Standard Performance, Commercial Grade|SubPartUniqueId1=VQEHUJHL|SubPartDocPath1=FPGA_U1_Auto.SchDoc|SubPartUniqueId2=XMUMWMIU|SubPartDocPath2=FPGA_U1_Auto.SchDoc|SubPartUniqueId3=JADKBTPI|SubPartDocPath3=FPGA_U1_Auto.SchDoc
+Record=FPGA_COMPONENT|BaseComponentDesignator=U10|DocumentName=WC_Boot.SchDoc|LibraryReference=XCF01SVO20C|SubProjectPath= |Configuration= |Description=XCF00S Series, Platform Flash In-System Programmable Configuration 3.3V PROM, 1-Megabit, Commercial Grade|SubPartUniqueId1=FALDTXLR|SubPartDocPath1=WC_Boot.SchDoc
+Record=FPGA_COMPONENT|BaseComponentDesignator=U11|DocumentName=WC_Boot.SchDoc|LibraryReference=XCF01SVO20C|SubProjectPath= |Configuration= |Description=XCF00S Series, Platform Flash In-System Programmable Configuration 3.3V PROM, 1-Megabit, Commercial Grade|SubPartUniqueId1=TQLIOUDU|SubPartDocPath1=WC_Boot.SchDoc

@@ -1,0 +1,75 @@
+body {
+	font-family: arial, helvetica, sans-serif;
+	font-size: 14px;
+    width: 800px;
+	color: black;
+	background-color: #FFFFFF;
+	margin: 0px auto;
+	padding: 0;
+}
+
+.logo {
+	padding-bottom:1.25em;
+	background-image:url(img/altium_stats_logo.png);
+    background-repeat:no-repeat;
+	padding-top:40;
+	margin:300;
+}
+
+h1 {
+	font-size: 20px;
+    font-weight: bold;
+}
+
+h2 {
+	font-size: 16px;
+    font-weight: bold;
+}
+
+table {
+	
+    width: 50%;
+	color: #333;
+	font-size: 14px;
+	
+	
+	padding: 0px;
+	text-align: left;
+	letter-spacing: 0em;
+    border-collapse: collapse;
+	border-bottom-style:solid;
+	border-bottom-width: 0.1em;
+	border-bottom-color: #f8b448;
+	border-top:#f8b448;
+	border-top-width:0.1em;
+	border-top-style:solid;
+	border-left:#f8b448;
+	border-left-style:solid;
+	border-left-width:0.1em;
+	border-right:#f8b448;
+	border-right-style:solid;
+	border-right-width:0.1em;
+}
+
+td {
+	padding: 5px;
+}
+
+td.value {
+    text-align:right;
+}
+
+tr {
+    background-color: #f8f8f8;
+}
+
+tr:hover {
+    background-color: #e0e0e0;
+}
+
+.line{
+
+	border-top:#f8b448;
+	border-top-width:0.1em;
+	border-top-style:solid;
+}

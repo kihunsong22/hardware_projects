@@ -1,0 +1,10 @@
+[ProjectGroup]
+Version=1.0
+[Project1]
+ProjectPath=PortSwitcherPCB1D.PrjPCB
+[Project2]
+ProjectPath=FPGA_U1\PortSwitcherFPGA1C.PrjFpg
+[Project3]
+ProjectPath=FPGA_U1\PortSwitcherEmb\PortSwitcherEmb1C.PrjEmb
+[Project4]
+ProjectPath=FPGA_U1\PortSwitcherFPGA1C_Nanoboard.PrjFpg

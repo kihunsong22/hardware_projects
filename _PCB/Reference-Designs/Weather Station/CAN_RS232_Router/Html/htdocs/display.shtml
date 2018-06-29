@@ -1,0 +1,103 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+<META HTTP-EQUIV="Expires" CONTENT="-1">
+<title>Altium BOC Weatherstation demo</title>
+<script language="JavaScript1.2">
+<!--
+
+function showarrow( item, index )
+{
+	rad = Math.PI * index / 128;
+	costheta = Math.cos(rad);
+	sintheta = Math.sin(rad);
+	r = Math.sqrt( document.images[item].width * document.images[item].width + document.images[item].height * document.images[item].height );
+	rad += Math.PI / 4;	// 45 degrees further
+	x = Math.cos( rad ) * r;
+	y = Math.sin( rad ) * r;
+	w = Math.max( Math.abs( x ), Math.abs( y ));		// Total width of new image
+	hw = Math.round( w / 2 );
+	document.images[item].filters.item(0).M11 = costheta;
+	document.images[item].filters.item(0).M12 = -sintheta;
+	document.images[item].filters.item(0).M21 = sintheta;
+	document.images[item].filters.item(0).M22 = costheta;
+	document.images[item].style.left = - hw;
+	document.images[item].style.top = - hw;
+}
+
+function setwinddir( degrees )
+{
+	showarrow( "winddir", degrees * 256 / 360 );
+}
+
+function setwindspeed( knots )
+{
+	showarrow( "windspeed", (knots * 192) / 60 + 32 );
+}
+
+function settemperature( temp )
+{
+	showarrow( "temperature", (temp + 20) / 60 * 192 + 32);
+}
+
+function update()
+{
+	setwinddir( parent.winddir );
+	setwindspeed( parent.windspeed );
+	settemperature( parent.temperature );
+//	setwinddir( xdir );
+//	setwindspeed( xdir );
+//	settemperature( xdir );
+//	xdir = (xdir + 1) % 128;
+}
+
+//-->
+</script>
+</head>
+
+<!--body bgcolor="#0000CC" background="wallpaper.jpg" text="white" onLoad="setInterval(update,20);"-->
+<body bgcolor="#0000CC" text="white" onLoad="setInterval(update,200);">
+
+<div align="center">
+
+<table border="0" background="panel.png" width="1013" height="446" cellpadding="0" cellspacing="0">
+<tr height="44" colspan="5">
+<td></td>
+</tr>
+
+<tr height="322" valign="center">
+<td width="28">&nbsp;</td>
+<td width="318" align="center"><div style="position:absolute"><img name="winddir" src="arrow.gif" border="0" style="position:absolute; filter:progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand')"></div></td>
+<td width="318" align="center"><div style="position:absolute"><img name="windspeed" src="arrow.gif" border="0" style="position:absolute; filter:progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand')"></div></td>
+<td width="318" align="center"><div style="position:absolute"><img name="temperature" src="arrow.gif" border="0" style="position:absolute; filter:progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand')"></div></td>
+<td width="31">&nbsp;</td>
+</tr>
+
+<tr height="80" colspan="5">
+<td></td>
+</tr>
+
+</table>
+<p>
+
+Select weatherstation:
+<!-- The following needs to be replaced by SSI / JavaScript combo -->
+
+<select onchange="parent.wsurl = this.value; parent.restart();">
+<option value="192.168.100.3/">Station 1
+<option value="192.168.100.4/">Station 2
+<option value="192.168.100.5/">Station 3
+<option value="192.168.100.6/">Station 4
+</select>
+<!--
+<p>
+<textarea rows="5" cols="80" name="errortracker">
+Not functional!
+</textarea>
+-->
+</div>
+
+</body>
+</html>

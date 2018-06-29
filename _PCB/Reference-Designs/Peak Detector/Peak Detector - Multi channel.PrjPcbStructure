@@ -1,0 +1,13 @@
+Record=SheetSymbol|SourceDocument=Bank.SchDoc|Designator=PD1|SchDesignator=REPEAT(PD,1,8)|FileName=Peak Detector - channel.SchDoc|SymbolType=Normal|RawFileName=Peak Detector - channel.SchDoc
+Record=SheetSymbol|SourceDocument=Bank.SchDoc|Designator=PD2|SchDesignator=REPEAT(PD,1,8)|FileName=Peak Detector - channel.SchDoc|SymbolType=Normal|RawFileName=Peak Detector - channel.SchDoc
+Record=SheetSymbol|SourceDocument=Bank.SchDoc|Designator=PD3|SchDesignator=REPEAT(PD,1,8)|FileName=Peak Detector - channel.SchDoc|SymbolType=Normal|RawFileName=Peak Detector - channel.SchDoc
+Record=SheetSymbol|SourceDocument=Bank.SchDoc|Designator=PD4|SchDesignator=REPEAT(PD,1,8)|FileName=Peak Detector - channel.SchDoc|SymbolType=Normal|RawFileName=Peak Detector - channel.SchDoc
+Record=SheetSymbol|SourceDocument=Bank.SchDoc|Designator=PD5|SchDesignator=REPEAT(PD,1,8)|FileName=Peak Detector - channel.SchDoc|SymbolType=Normal|RawFileName=Peak Detector - channel.SchDoc
+Record=SheetSymbol|SourceDocument=Bank.SchDoc|Designator=PD6|SchDesignator=REPEAT(PD,1,8)|FileName=Peak Detector - channel.SchDoc|SymbolType=Normal|RawFileName=Peak Detector - channel.SchDoc
+Record=SheetSymbol|SourceDocument=Bank.SchDoc|Designator=PD7|SchDesignator=REPEAT(PD,1,8)|FileName=Peak Detector - channel.SchDoc|SymbolType=Normal|RawFileName=Peak Detector - channel.SchDoc
+Record=SheetSymbol|SourceDocument=Bank.SchDoc|Designator=PD8|SchDesignator=REPEAT(PD,1,8)|FileName=Peak Detector - channel.SchDoc|SymbolType=Normal|RawFileName=Peak Detector - channel.SchDoc
+Record=SheetSymbol|SourceDocument=Peak Detector.SchDoc|Designator=BANK1|SchDesignator=REPEAT(BANK,1,4)|FileName=Bank.SchDoc|SymbolType=Normal|RawFileName=Bank.SchDoc
+Record=SheetSymbol|SourceDocument=Peak Detector.SchDoc|Designator=BANK2|SchDesignator=REPEAT(BANK,1,4)|FileName=Bank.SchDoc|SymbolType=Normal|RawFileName=Bank.SchDoc
+Record=SheetSymbol|SourceDocument=Peak Detector.SchDoc|Designator=BANK3|SchDesignator=REPEAT(BANK,1,4)|FileName=Bank.SchDoc|SymbolType=Normal|RawFileName=Bank.SchDoc
+Record=SheetSymbol|SourceDocument=Peak Detector.SchDoc|Designator=BANK4|SchDesignator=REPEAT(BANK,1,4)|FileName=Bank.SchDoc|SymbolType=Normal|RawFileName=Bank.SchDoc
+Record=TopLevelDocument|FileName=Peak Detector.SchDoc

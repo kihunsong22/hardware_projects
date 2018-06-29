@@ -1,0 +1,16 @@
+Record=SheetSymbol|SourceDocument=Mixer.SchDoc|Designator=AUX|SchDesignator=AUX|FileName=Auxilary.SchDoc|SymbolType=Normal|RawFileName=Auxilary.SchDoc
+Record=SheetSymbol|SourceDocument=Mixer.SchDoc|Designator=EFFECTS|SchDesignator=EFFECTS|FileName=Effects.SchDoc|SymbolType=Normal|RawFileName=Effects.SchDoc
+Record=SheetSymbol|SourceDocument=Mixer.SchDoc|Designator=HP|SchDesignator=HP|FileName=Headphone.SchDoc|SymbolType=Normal|RawFileName=Headphone.SchDoc
+Record=SheetSymbol|SourceDocument=Mixer.SchDoc|Designator=MONITOR|SchDesignator=MONITOR|FileName=Monitor.SchDoc|SymbolType=Normal|RawFileName=Monitor.SchDoc
+Record=SheetSymbol|SourceDocument=Mixer.SchDoc|Designator=POWER|SchDesignator=POWER|FileName=Power.SchDoc|SymbolType=Normal|RawFileName=Power.SchDoc
+Record=SheetSymbol|SourceDocument=Mixer.SchDoc|Designator=CIN1|SchDesignator=Repeat(CIN,1,8)|FileName=Input channel.SchDoc|SymbolType=Normal|RawFileName=Input channel.SchDoc
+Record=SheetSymbol|SourceDocument=Mixer.SchDoc|Designator=CIN2|SchDesignator=Repeat(CIN,1,8)|FileName=Input channel.SchDoc|SymbolType=Normal|RawFileName=Input channel.SchDoc
+Record=SheetSymbol|SourceDocument=Mixer.SchDoc|Designator=CIN3|SchDesignator=Repeat(CIN,1,8)|FileName=Input channel.SchDoc|SymbolType=Normal|RawFileName=Input channel.SchDoc
+Record=SheetSymbol|SourceDocument=Mixer.SchDoc|Designator=CIN4|SchDesignator=Repeat(CIN,1,8)|FileName=Input channel.SchDoc|SymbolType=Normal|RawFileName=Input channel.SchDoc
+Record=SheetSymbol|SourceDocument=Mixer.SchDoc|Designator=CIN5|SchDesignator=Repeat(CIN,1,8)|FileName=Input channel.SchDoc|SymbolType=Normal|RawFileName=Input channel.SchDoc
+Record=SheetSymbol|SourceDocument=Mixer.SchDoc|Designator=CIN6|SchDesignator=Repeat(CIN,1,8)|FileName=Input channel.SchDoc|SymbolType=Normal|RawFileName=Input channel.SchDoc
+Record=SheetSymbol|SourceDocument=Mixer.SchDoc|Designator=CIN7|SchDesignator=Repeat(CIN,1,8)|FileName=Input channel.SchDoc|SymbolType=Normal|RawFileName=Input channel.SchDoc
+Record=SheetSymbol|SourceDocument=Mixer.SchDoc|Designator=CIN8|SchDesignator=Repeat(CIN,1,8)|FileName=Input channel.SchDoc|SymbolType=Normal|RawFileName=Input channel.SchDoc
+Record=SheetSymbol|SourceDocument=Mixer.SchDoc|Designator=COUT1|SchDesignator=Repeat(COUT,1,2);|FileName=Output channel.SchDoc|SymbolType=Normal|RawFileName=Output channel.SchDoc
+Record=SheetSymbol|SourceDocument=Mixer.SchDoc|Designator=COUT2|SchDesignator=Repeat(COUT,1,2);|FileName=Output channel.SchDoc|SymbolType=Normal|RawFileName=Output channel.SchDoc
+Record=TopLevelDocument|FileName=Mixer.SchDoc

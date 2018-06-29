@@ -1,0 +1,5 @@
+Record=SubProject|ProjectPath=FPGA Project1.PrjFpg
+Record=SubProject|ProjectPath=FPGA Project1.PrjFpg
+Record=SubProject|ProjectPath=FPGA Project1.PrjFpg
+Record=TopLevelDocument|FileName=NBP7 Xilinx Virtex-II BGA456 Rev1.10.SchDoc
+Record=FPGA_COMPONENT|BaseComponentDesignator=U1|DocumentName=NBP7 Xilinx Virtex-II BGA456 Rev1.10.SchDoc|LibraryReference=XC2V1000-4FG456C|SubProjectPath=FPGA Project1.PrjFpg|Configuration=Configuration 1|Description=Virtex-II 1.5V FPGA, 456-Ball FBGA, Commercial Grade|SubPartUniqueId1=IKQYCBWC|SubPartDocPath1=NBP7 Xilinx Virtex-II BGA456 Rev1.10.SchDoc|SubPartUniqueId2=YWBJOCWN|SubPartDocPath2=NBP7 Xilinx Virtex-II BGA456 Rev1.10.SchDoc|SubPartUniqueId3=YGQLQWXJ|SubPartDocPath3=NBP7 Xilinx Virtex-II BGA456 Rev1.10.SchDoc

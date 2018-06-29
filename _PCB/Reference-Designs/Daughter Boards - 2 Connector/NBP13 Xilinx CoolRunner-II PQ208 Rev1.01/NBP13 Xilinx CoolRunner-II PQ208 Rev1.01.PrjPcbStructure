@@ -1,0 +1,4 @@
+Record=SubProject|ProjectPath=FPGA Project1.PrjFpg
+Record=SubProject|ProjectPath=FPGA Project1.PrjFpg
+Record=TopLevelDocument|FileName=NBP13 Xilinx CoolRunner-II PQ208 Rev1.01.SchDoc
+Record=FPGA_COMPONENT|BaseComponentDesignator=U1|DocumentName=NBP13 Xilinx CoolRunner-II PQ208 Rev1.01.SchDoc|LibraryReference=XC2C256-7PQ208C|SubProjectPath=FPGA Project1.PrjFpg|Configuration=Configuration 1|Description=CoolRunner-II 256 Macrocell CPLD, 208-Pin PQFP, Commercial Grade|SubPartUniqueId1=VPMFOUBS|SubPartDocPath1=NBP13 Xilinx CoolRunner-II PQ208 Rev1.01.SchDoc|SubPartUniqueId2=PMMRAKBH|SubPartDocPath2=NBP13 Xilinx CoolRunner-II PQ208 Rev1.01.SchDoc

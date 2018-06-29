@@ -1,0 +1,8 @@
+[ProjectGroup]
+Version=1.0
+[Project1]
+ProjectPath=Pcb\WeatherChannel.PrjPCB
+[Project2]
+ProjectPath=Fpga\WeatherChannel.PrjFpg
+[Project3]
+ProjectPath=Embedded\project\WeatherChannel.PRJEMB

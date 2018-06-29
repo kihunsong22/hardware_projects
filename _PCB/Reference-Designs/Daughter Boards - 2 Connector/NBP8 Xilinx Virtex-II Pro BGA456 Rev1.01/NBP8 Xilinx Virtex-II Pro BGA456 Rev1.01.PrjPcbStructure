@@ -1,0 +1,9 @@
+Record=SubProject|ProjectPath=FPGA Project1.PrjFpg
+Record=SubProject|ProjectPath=FPGA Project1.PrjFpg
+Record=SubProject|ProjectPath=FPGA Project1.PrjFpg
+Record=SubProject|ProjectPath=FPGA Project1.PrjFpg
+Record=SubProject|ProjectPath=FPGA Project1.PrjFpg
+Record=SheetSymbol|SourceDocument=NBP8 Xilinx Virtex-II Pro BGA456 Rev1.01.SchDoc|Designator=PSU 1|SchDesignator=PSU 1|FileName=Virtex_II_PRO_PSU.SchDoc
+Record=SheetSymbol|SourceDocument=NBP8 Xilinx Virtex-II Pro BGA456 Rev1.01.SchDoc|Designator=RIOP|SchDesignator=RIOP|FileName=Rocket_IO_Port.SchDoc
+Record=TopLevelDocument|FileName=NBP8 Xilinx Virtex-II Pro BGA456 Rev1.01.SchDoc
+Record=FPGA_COMPONENT|BaseComponentDesignator=U1|DocumentName=NBP8 Xilinx Virtex-II Pro BGA456 Rev1.01.SchDoc|LibraryReference=XC2VP4-5FG456C|SubProjectPath=FPGA Project1.PrjFpg|Configuration=Configuration 1|Description=Virtex-II Pro Platform FPGA, 456-Ball FBGA, Speed Grade 5, 248 User I/Os, Commercial Grade|SubPartUniqueId1=DTAQEXWE|SubPartDocPath1=NBP8 Xilinx Virtex-II Pro BGA456 Rev1.01.SchDoc|SubPartUniqueId2=LTBCLPCW|SubPartDocPath2=NBP8 Xilinx Virtex-II Pro BGA456 Rev1.01.SchDoc|SubPartUniqueId3=WRVKXUCF|SubPartDocPath3=Rocket_IO_Port.SchDoc|SubPartUniqueId4=UTILPHAH|SubPartDocPath4=NBP8 Xilinx Virtex-II Pro BGA456 Rev1.01.SchDoc|SubPartUniqueId5=JEWLQJVB|SubPartDocPath5=NBP8 Xilinx Virtex-II Pro BGA456 Rev1.01.SchDoc

@@ -1,0 +1,8 @@
+[ProjectGroup]
+Version=1.0
+[Project1]
+ProjectPath=BOC1_06.PrjPcb
+[Project2]
+ProjectPath=Cyclone_EP1C12Q240\BOCD_CycloneEPC12.PrjPcb
+[Project3]
+ProjectPath=Spartan2E_XC2S300E-6PQ208\BOCD_SpartanIIE300.PrjPcb

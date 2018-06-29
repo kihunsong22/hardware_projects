@@ -1,0 +1,274 @@
+;...............................................................................
+;Constraints File
+;   Device  : Xilinx Spartan IIe XC2S300E-6PQ208C
+;   Board   : Weather Channel Station Board Revision 1
+;   Project : Any
+;
+;   Created 9-Sept-2003
+;   Altium Limited
+;...............................................................................
+
+;...............................................................................
+Record=FileHeader | Id=DXP Constraints v1.0
+;...............................................................................
+
+;...............................................................................
+Record=Constraint | TargetKind=PCB | TargetId=WeatherChannel.PrjPCB
+Record=Constraint | TargetKind=Part | TargetId=XC2S300E-6PQ208C
+;...............................................................................
+
+;...............................................................................
+; VGA Connector
+;...............................................................................
+Record=Constraint | TargetKind=Port | TargetId=VGA_R[1..0] | FPGA_PINNUM=P45,P44
+Record=Constraint | TargetKind=Port | TargetId=VGA_G[1..0] | FPGA_PINNUM=P43,P42
+Record=Constraint | TargetKind=Port | TargetId=VGA_B[1..0] | FPGA_PINNUM=P41,P40
+Record=Constraint | TargetKind=Port | TargetId=VGA_HSYN | FPGA_PINNUM=P36
+Record=Constraint | TargetKind=Port | TargetId=VGA_VSYN | FPGA_PINNUM=P35
+;...............................................................................
+
+;...............................................................................
+; Clocks
+;...............................................................................
+Record=Constraint | TargetKind=Port | TargetId=CLK_BRD | FPGA_PINNUM=P182
+Record=Constraint | TargetKind=Port | TargetId=CLK_BRD | FPGA_CLOCK_PIN=TRUE | FPGA_CLOCK=TRUE
+;...............................................................................
+
+;...............................................................................
+; RS-232 Serial Connector
+;...............................................................................
+Record=Constraint | TargetKind=Port | TargetId=RS_CTS | FPGA_PINNUM=P121
+Record=Constraint | TargetKind=Port | TargetId=RS_RTS | FPGA_PINNUM=P120
+Record=Constraint | TargetKind=Port | TargetId=RS_RX | FPGA_PINNUM=P115
+Record=Constraint | TargetKind=Port | TargetId=RS_TX | FPGA_PINNUM=P116
+;...............................................................................
+
+;...............................................................................
+; LCD
+; Data lines and register selects are shared with RAM
+;...............................................................................
+Record=Constraint | TargetKind=Port | TargetId=LCD_E | FPGA_PINNUM=P108
+Record=Constraint | TargetKind=Port | TargetId=LCD_EDATA | FPGA_PINNUM=P55
+Record=Constraint | TargetKind=Port | TargetId=LCD_LIGHT | FPGA_PINNUM=P34
+;...............................................................................
+
+;...............................................................................
+; Static RAM
+;...............................................................................
+Record=Constraint | TargetKind=Port | TargetId=RAM_ADDR[16..0] | FPGA_PINNUM=P57,P59,P61,P63,P86,P88,P93,P95,P97,P96,P94,P89,P87,P64,P62,P60,P58
+Record=Constraint | TargetKind=Port | TargetId=RAM_CS | FPGA_PINNUM=P69
+
+Record=Constraint | TargetKind=Port | TargetId=RAM0_DATA[7..0] | FPGA_PINNUM=P49,P48,P47,P46,P102,P101,P100,P99
+Record=Constraint | TargetKind=Port | TargetId=RAM0_OE | FPGA_PINNUM=P56
+Record=Constraint | TargetKind=Port | TargetId=RAM0_WE | FPGA_PINNUM=P98
+
+Record=Constraint | TargetKind=Port | TargetId=RAM1_DATA[7..0] | FPGA_PINNUM=P70,P73,P81,P83,P82,P75,P74,P71
+Record=Constraint | TargetKind=Port | TargetId=RAM1_OE | FPGA_PINNUM=P68
+Record=Constraint | TargetKind=Port | TargetId=RAM1_WE | FPGA_PINNUM=P84
+;...............................................................................
+
+;...............................................................................
+; Keyboard and Buttons
+;...............................................................................
+Record=Constraint | TargetKind=Port | TargetId=KP_ROW[3..0] | FPGA_PINNUM=P110,P176,P8,P109
+Record=Constraint | TargetKind=Port | TargetId=KP_COL[3..0] | FPGA_PINNUM=P114,P113,P112,P111
+Record=Constraint | TargetKind=Port | TargetId=TEST_BUTTON | FPGA_PINNUM=P203
+;...............................................................................
+
+;...............................................................................
+; Sensor Interface to ADC and Speed input
+;...............................................................................
+Record=Constraint | TargetKind=Port | TargetId=SCL | FPGA_PINNUM=P149
+Record=Constraint | TargetKind=Port | TargetId=SDA | FPGA_PINNUM=P148
+Record=Constraint | TargetKind=Port | TargetId=SPEED | FPGA_PINNUM=P150
+;...............................................................................
+
+;...............................................................................
+; NEXUS JTAG Soft-Device Chain Connections
+;...............................................................................
+Record=Constraint | TargetKind=Port | TargetId=JTAG_NEXUS_TCK | FPGA_PINNUM=P164
+Record=Constraint | TargetKind=Port | TargetId=JTAG_NEXUS_TDI | FPGA_PINNUM=P166
+Record=Constraint | TargetKind=Port | TargetId=JTAG_NEXUS_TDO | FPGA_PINNUM=P165
+Record=Constraint | TargetKind=Port | TargetId=JTAG_NEXUS_TMS | FPGA_PINNUM=P163
+Record=Constraint | TargetKind=Port | TargetId=JTAG_NEXUS_TCK | FPGA_CLOCK=TRUE
+;...............................................................................
+
+;...............................................................................
+; GCLK and I2C Port Header
+;...............................................................................
+Record=Constraint | TargetKind=Port | TargetId=GCLK1                |
+Record=Constraint | TargetKind=Port | TargetId=GCLK3                |
+Record=Constraint | TargetKind=Port | TargetId=GPIO0                |
+Record=Constraint | TargetKind=Port | TargetId=GPIO1                |
+Record=Constraint | TargetKind=Port | TargetId=GPIO2                |
+Record=Constraint | TargetKind=Port | TargetId=GSCL                 |
+Record=Constraint | TargetKind=Port | TargetId=GSDA                 |
+;...............................................................................
+
+;...............................................................................
+; GSM Port
+;...............................................................................
+Record=Constraint | TargetKind=Port | TargetId=GSM_RXD | FPGA_PINNUM=P126
+Record=Constraint | TargetKind=Port | TargetId=GSM_TXD | FPGA_PINNUM=P127
+Record=Constraint | TargetKind=Port | TargetId=GSM_CTS | FPGA_PINNUM=P146
+Record=Constraint | TargetKind=Port | TargetId=GSM_RTS | FPGA_PINNUM=P145
+Record=Constraint | TargetKind=Port | TargetId=GSM_IGT | FPGA_PINNUM=P147
+Record=Constraint | TargetKind=Port | TargetId=GSM_SYNC | FPGA_PINNUM=P125
+;...............................................................................
+
+;...............................................................................
+; PROM Port
+;...............................................................................
+Record=Constraint | TargetKind=Port | TargetId=CCLK_PR | FPGA_PINNUM=P198
+Record=Constraint | TargetKind=Port | TargetId=DIN_PR | FPGA_PINNUM=P199
+Record=Constraint | TargetKind=Port | TargetId=DONE_PR | FPGA_PINNUM=P202
+Record=Constraint | TargetKind=Port | TargetId=PROGRAM_PR | FPGA_PINNUM=P200      
+;...............................................................................
+
+;...............................................................................
+Record=Constraint | TargetKind=Pin | TargetId=3 | SwapId=1
+Record=Constraint | TargetKind=Pin | TargetId=4 | SwapId=1
+Record=Constraint | TargetKind=Pin | TargetId=5 | SwapId=1
+Record=Constraint | TargetKind=Pin | TargetId=6 | SwapId=1
+Record=Constraint | TargetKind=Pin | TargetId=7 | SwapId=1
+Record=Constraint | TargetKind=Pin | TargetId=8 | SwapId=1
+Record=Constraint | TargetKind=Pin | TargetId=9 | SwapId=1
+Record=Constraint | TargetKind=Pin | TargetId=10 | SwapId=1
+Record=Constraint | TargetKind=Pin | TargetId=11 | SwapId=1
+Record=Constraint | TargetKind=Pin | TargetId=15 | SwapId=1
+Record=Constraint | TargetKind=Pin | TargetId=16 | SwapId=1
+Record=Constraint | TargetKind=Pin | TargetId=17 | SwapId=1
+Record=Constraint | TargetKind=Pin | TargetId=18 | SwapId=1
+Record=Constraint | TargetKind=Pin | TargetId=20 | SwapId=1
+Record=Constraint | TargetKind=Pin | TargetId=21 | SwapId=1
+Record=Constraint | TargetKind=Pin | TargetId=22 | SwapId=1
+Record=Constraint | TargetKind=Pin | TargetId=23 | SwapId=1
+Record=Constraint | TargetKind=Pin | TargetId=24 | SwapId=1
+Record=Constraint | TargetKind=Pin | TargetId=27 | SwapId=1
+Record=Constraint | TargetKind=Pin | TargetId=29 | SwapId=1
+Record=Constraint | TargetKind=Pin | TargetId=30 | SwapId=1
+Record=Constraint | TargetKind=Pin | TargetId=31 | SwapId=1
+Record=Constraint | TargetKind=Pin | TargetId=33 | SwapId=1
+Record=Constraint | TargetKind=Pin | TargetId=34 | SwapId=1
+Record=Constraint | TargetKind=Pin | TargetId=35 | SwapId=1
+Record=Constraint | TargetKind=Pin | TargetId=36 | SwapId=1
+Record=Constraint | TargetKind=Pin | TargetId=40 | SwapId=1
+Record=Constraint | TargetKind=Pin | TargetId=41 | SwapId=1
+Record=Constraint | TargetKind=Pin | TargetId=42 | SwapId=1
+Record=Constraint | TargetKind=Pin | TargetId=43 | SwapId=1
+Record=Constraint | TargetKind=Pin | TargetId=44 | SwapId=1
+Record=Constraint | TargetKind=Pin | TargetId=45 | SwapId=1
+Record=Constraint | TargetKind=Pin | TargetId=46 | SwapId=1
+Record=Constraint | TargetKind=Pin | TargetId=47 | SwapId=1
+Record=Constraint | TargetKind=Pin | TargetId=48 | SwapId=1
+Record=Constraint | TargetKind=Pin | TargetId=49 | SwapId=1
+Record=Constraint | TargetKind=Pin | TargetId=55 | SwapId=1
+Record=Constraint | TargetKind=Pin | TargetId=56 | SwapId=1
+Record=Constraint | TargetKind=Pin | TargetId=57 | SwapId=1
+Record=Constraint | TargetKind=Pin | TargetId=58 | SwapId=1
+Record=Constraint | TargetKind=Pin | TargetId=59 | SwapId=1
+Record=Constraint | TargetKind=Pin | TargetId=60 | SwapId=1
+Record=Constraint | TargetKind=Pin | TargetId=61 | SwapId=1
+Record=Constraint | TargetKind=Pin | TargetId=62 | SwapId=1
+Record=Constraint | TargetKind=Pin | TargetId=63 | SwapId=1
+Record=Constraint | TargetKind=Pin | TargetId=64 | SwapId=1
+Record=Constraint | TargetKind=Pin | TargetId=68 | SwapId=1
+Record=Constraint | TargetKind=Pin | TargetId=69 | SwapId=1
+Record=Constraint | TargetKind=Pin | TargetId=70 | SwapId=1
+Record=Constraint | TargetKind=Pin | TargetId=71 | SwapId=1
+Record=Constraint | TargetKind=Pin | TargetId=73 | SwapId=1
+Record=Constraint | TargetKind=Pin | TargetId=74 | SwapId=1
+Record=Constraint | TargetKind=Pin | TargetId=75 | SwapId=1
+Record=Constraint | TargetKind=Pin | TargetId=77 | SwapId=2
+Record=Constraint | TargetKind=Pin | TargetId=80 | SwapId=2
+Record=Constraint | TargetKind=Pin | TargetId=81 | SwapId=1
+Record=Constraint | TargetKind=Pin | TargetId=82 | SwapId=1
+Record=Constraint | TargetKind=Pin | TargetId=83 | SwapId=1
+Record=Constraint | TargetKind=Pin | TargetId=84 | SwapId=1
+Record=Constraint | TargetKind=Pin | TargetId=86 | SwapId=1
+Record=Constraint | TargetKind=Pin | TargetId=87 | SwapId=1
+Record=Constraint | TargetKind=Pin | TargetId=88 | SwapId=1
+Record=Constraint | TargetKind=Pin | TargetId=89 | SwapId=1
+Record=Constraint | TargetKind=Pin | TargetId=93 | SwapId=1
+Record=Constraint | TargetKind=Pin | TargetId=94 | SwapId=1
+Record=Constraint | TargetKind=Pin | TargetId=95 | SwapId=1
+Record=Constraint | TargetKind=Pin | TargetId=96 | SwapId=1
+Record=Constraint | TargetKind=Pin | TargetId=97 | SwapId=1
+Record=Constraint | TargetKind=Pin | TargetId=98 | SwapId=1
+Record=Constraint | TargetKind=Pin | TargetId=99 | SwapId=1
+Record=Constraint | TargetKind=Pin | TargetId=100 | SwapId=1
+Record=Constraint | TargetKind=Pin | TargetId=101 | SwapId=1
+Record=Constraint | TargetKind=Pin | TargetId=102 | SwapId=1
+Record=Constraint | TargetKind=Pin | TargetId=108 | SwapId=1
+Record=Constraint | TargetKind=Pin | TargetId=109 | SwapId=1
+Record=Constraint | TargetKind=Pin | TargetId=110 | SwapId=1
+Record=Constraint | TargetKind=Pin | TargetId=111 | SwapId=1
+Record=Constraint | TargetKind=Pin | TargetId=112 | SwapId=1
+Record=Constraint | TargetKind=Pin | TargetId=113 | SwapId=1
+Record=Constraint | TargetKind=Pin | TargetId=114 | SwapId=1
+Record=Constraint | TargetKind=Pin | TargetId=115 | SwapId=1
+Record=Constraint | TargetKind=Pin | TargetId=116 | SwapId=1
+Record=Constraint | TargetKind=Pin | TargetId=120 | SwapId=1
+Record=Constraint | TargetKind=Pin | TargetId=121 | SwapId=1
+Record=Constraint | TargetKind=Pin | TargetId=122 | SwapId=1
+Record=Constraint | TargetKind=Pin | TargetId=123 | SwapId=1
+Record=Constraint | TargetKind=Pin | TargetId=125 | SwapId=1
+Record=Constraint | TargetKind=Pin | TargetId=126 | SwapId=1
+Record=Constraint | TargetKind=Pin | TargetId=127 | SwapId=1
+Record=Constraint | TargetKind=Pin | TargetId=129 | SwapId=1
+Record=Constraint | TargetKind=Pin | TargetId=132 | SwapId=1
+Record=Constraint | TargetKind=Pin | TargetId=133 | SwapId=1
+Record=Constraint | TargetKind=Pin | TargetId=134 | SwapId=1
+Record=Constraint | TargetKind=Pin | TargetId=135 | SwapId=1
+Record=Constraint | TargetKind=Pin | TargetId=136 | SwapId=1
+Record=Constraint | TargetKind=Pin | TargetId=138 | SwapId=1
+Record=Constraint | TargetKind=Pin | TargetId=139 | SwapId=1
+Record=Constraint | TargetKind=Pin | TargetId=140 | SwapId=1
+Record=Constraint | TargetKind=Pin | TargetId=141 | SwapId=1
+Record=Constraint | TargetKind=Pin | TargetId=145 | SwapId=1
+Record=Constraint | TargetKind=Pin | TargetId=146 | SwapId=1
+Record=Constraint | TargetKind=Pin | TargetId=147 | SwapId=1
+Record=Constraint | TargetKind=Pin | TargetId=148 | SwapId=1
+Record=Constraint | TargetKind=Pin | TargetId=149 | SwapId=1
+Record=Constraint | TargetKind=Pin | TargetId=150 | SwapId=1
+Record=Constraint | TargetKind=Pin | TargetId=151 | SwapId=1
+Record=Constraint | TargetKind=Pin | TargetId=152 | SwapId=1
+Record=Constraint | TargetKind=Pin | TargetId=154 | SwapId=1
+Record=Constraint | TargetKind=Pin | TargetId=160 | SwapId=1
+Record=Constraint | TargetKind=Pin | TargetId=161 | SwapId=1
+Record=Constraint | TargetKind=Pin | TargetId=162 | SwapId=1
+Record=Constraint | TargetKind=Pin | TargetId=163 | SwapId=1
+Record=Constraint | TargetKind=Pin | TargetId=164 | SwapId=1
+Record=Constraint | TargetKind=Pin | TargetId=165 | SwapId=1
+Record=Constraint | TargetKind=Pin | TargetId=166 | SwapId=1
+Record=Constraint | TargetKind=Pin | TargetId=167 | SwapId=1
+Record=Constraint | TargetKind=Pin | TargetId=168 | SwapId=1
+Record=Constraint | TargetKind=Pin | TargetId=169 | SwapId=1
+Record=Constraint | TargetKind=Pin | TargetId=173 | SwapId=1
+Record=Constraint | TargetKind=Pin | TargetId=174 | SwapId=1
+Record=Constraint | TargetKind=Pin | TargetId=175 | SwapId=1
+Record=Constraint | TargetKind=Pin | TargetId=176 | SwapId=1
+Record=Constraint | TargetKind=Pin | TargetId=178 | SwapId=1
+Record=Constraint | TargetKind=Pin | TargetId=179 | SwapId=1
+Record=Constraint | TargetKind=Pin | TargetId=180 | SwapId=1
+Record=Constraint | TargetKind=Pin | TargetId=181 | SwapId=1
+Record=Constraint | TargetKind=Pin | TargetId=182 | SwapId=2
+Record=Constraint | TargetKind=Pin | TargetId=185 | SwapId=2
+Record=Constraint | TargetKind=Pin | TargetId=187 | SwapId=1
+Record=Constraint | TargetKind=Pin | TargetId=188 | SwapId=1
+Record=Constraint | TargetKind=Pin | TargetId=189 | SwapId=1
+Record=Constraint | TargetKind=Pin | TargetId=191 | SwapId=1
+Record=Constraint | TargetKind=Pin | TargetId=192 | SwapId=1
+Record=Constraint | TargetKind=Pin | TargetId=193 | SwapId=1
+Record=Constraint | TargetKind=Pin | TargetId=194 | SwapId=1
+Record=Constraint | TargetKind=Pin | TargetId=198 | SwapId=1
+Record=Constraint | TargetKind=Pin | TargetId=199 | SwapId=1
+Record=Constraint | TargetKind=Pin | TargetId=200 | SwapId=1
+Record=Constraint | TargetKind=Pin | TargetId=201 | SwapId=1
+Record=Constraint | TargetKind=Pin | TargetId=202 | SwapId=1
+Record=Constraint | TargetKind=Pin | TargetId=203 | SwapId=1
+Record=Constraint | TargetKind=Pin | TargetId=204 | SwapId=1
+Record=Constraint | TargetKind=Pin | TargetId=205 | SwapId=1
+Record=Constraint | TargetKind=Pin | TargetId=206 | SwapId=1
+;...............................................................................
+

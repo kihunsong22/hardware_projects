@@ -1,0 +1,12 @@
+Record=SheetSymbol|SourceDocument=PCB_Top.SchDoc|Designator=U_PCB_Controller|SchDesignator=U_PCB_Controller|FileName=PCB_Controller.SchDoc|SymbolType=Normal|RawFileName=PCB_Controller.SchDoc
+Record=SheetSymbol|SourceDocument=PCB_Top.SchDoc|Designator=U_PCB_DecoderA|SchDesignator=U_PCB_DecoderA|FileName=PCB_DecoderA.SchDoc|SymbolType=Normal|RawFileName=PCB_DecoderA.SchDoc
+Record=SheetSymbol|SourceDocument=PCB_Top.SchDoc|Designator=U_PCB_DecoderB|SchDesignator=U_PCB_DecoderB|FileName=PCB_DecoderB.SchDoc|SymbolType=Normal|RawFileName=PCB_DecoderB.SchDoc
+Record=SheetSymbol|SourceDocument=PCB_Top.SchDoc|Designator=U_PCB_Encoder|SchDesignator=U_PCB_Encoder|FileName=PCB_Encoder.SchDoc|SymbolType=Normal|RawFileName=PCB_Encoder.SchDoc
+Record=SheetSymbol|SourceDocument=PCB_Top.SchDoc|Designator=U_PCB_Headers|SchDesignator=U_PCB_Headers|FileName=PCB_Headers.SchDoc|SymbolType=Normal|RawFileName=PCB_Headers.SchDoc
+Record=SheetSymbol|SourceDocument=PCB_Top.SchDoc|Designator=U_PCB_IO|SchDesignator=U_PCB_IO|FileName=PCB_IO.SchDoc|SymbolType=Normal|RawFileName=PCB_IO.SchDoc
+Record=SheetSymbol|SourceDocument=PCB_Top.SchDoc|Designator=U_PCB_Power|SchDesignator=U_PCB_Power|FileName=PCB_Power.SchDoc|SymbolType=Normal|RawFileName=PCB_Power.SchDoc
+Record=SubProject|ProjectPath=FPGAVideoMux.PrjFpg
+Record=SubProject|ProjectPath=FPGAVideoMux.PrjFpg
+Record=TopLevelDocument|FileName=PCB_Top.SchDoc
+Record=FPGA_COMPONENT|BaseComponentDesignator=U5|DocumentName=PCB_Controller.SchDoc|LibraryReference=XCF01SVO20C|SubProjectPath= |Configuration= |Description=XCF00S Series, Platform Flash In-System Programmable Configuration 3.3V PROM, 1-Megabit, Commercial Grade|SubPartUniqueId1=UIVUNUXK|SubPartDocPath1=PCB_Controller.SchDoc
+Record=FPGA_COMPONENT|BaseComponentDesignator=U7|DocumentName=PCB_Controller.SchDoc|LibraryReference=XC2S300E-6PQ208C|SubProjectPath=FPGAVideoMux.PrjFpg|Configuration=NanoSpartan|Description=Spartan-IIE 1.8V FPGA, 208-Pin PQFP, Standard Performance, Commercial Grade|SubPartUniqueId1=PKEYYEBF|SubPartDocPath1=PCB_Controller.SchDoc|SubPartUniqueId2=CYPWXJSG|SubPartDocPath2=PCB_Controller.SchDoc

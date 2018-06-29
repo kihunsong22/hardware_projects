@@ -1,0 +1,18 @@
+Record=SheetSymbol|SourceDocument=BOC_Top.SchDoc|Designator=BOC_ADC_DAC|SchDesignator=BOC_ADC_DAC|FileName=BOC_ADC_DAC.SchDoc|SymbolType=Normal|RawFileName=BOC_ADC_DAC.SchDoc
+Record=SheetSymbol|SourceDocument=BOC_Top.SchDoc|Designator=BOC_Audio|SchDesignator=BOC_Audio|FileName=BOC_Audio.SchDoc|SymbolType=Normal|RawFileName=BOC_Audio.SchDoc
+Record=SheetSymbol|SourceDocument=BOC_Top.SchDoc|Designator=BOC_Boot|SchDesignator=BOC_Boot|FileName=BOC_Boot.SchDoc|SymbolType=Normal|RawFileName=BOC_Boot.SchDoc
+Record=SheetSymbol|SourceDocument=BOC_Top.SchDoc|Designator=BOC_CAN|SchDesignator=BOC_CAN|FileName=BOC_CAN.SchDoc|SymbolType=Normal|RawFileName=BOC_CAN.SchDoc
+Record=SheetSymbol|SourceDocument=BOC_Top.SchDoc|Designator=BOC_CLK_ADJ|SchDesignator=BOC_CLK_ADJ|FileName=BOC_CLK_ADJ.SchDoc|SymbolType=Normal|RawFileName=BOC_CLK_ADJ.SchDoc
+Record=SheetSymbol|SourceDocument=BOC_Top.SchDoc|Designator=BOC_DAUGHTER|SchDesignator=BOC_DAUGHTER|FileName=BOC_DAUGHTER.SCHDOC|SymbolType=Normal|RawFileName=BOC_DAUGHTER.SCHDOC
+Record=SheetSymbol|SourceDocument=BOC_Top.SchDoc|Designator=BOC_IO|SchDesignator=BOC_IO|FileName=BOC_IO.SchDoc|SymbolType=Normal|RawFileName=BOC_IO.SchDoc
+Record=SheetSymbol|SourceDocument=BOC_Top.SchDoc|Designator=BOC_KB|SchDesignator=BOC_KB|FileName=BOC_KB.SchDoc|SymbolType=Normal|RawFileName=BOC_KB.SchDoc
+Record=SheetSymbol|SourceDocument=BOC_Top.SchDoc|Designator=BOC_LCD|SchDesignator=BOC_LCD|FileName=BOC_LCD.SchDoc|SymbolType=Normal|RawFileName=BOC_LCD.SchDoc
+Record=SheetSymbol|SourceDocument=BOC_Top.SchDoc|Designator=BOC_LED_DIPSWITCH|SchDesignator=BOC_LED_DIPSWITCH|FileName=BOC_LED_DIPSWITCH.SchDoc|SymbolType=Normal|RawFileName=BOC_LED_DIPSWITCH.SchDoc
+Record=SheetSymbol|SourceDocument=BOC_Top.SchDoc|Designator=BOC_PWR|SchDesignator=BOC_PWR|FileName=BOC_PWR.SCHDOC|SymbolType=Normal|RawFileName=BOC_PWR.SCHDOC
+Record=SheetSymbol|SourceDocument=BOC_Top.SchDoc|Designator=BOC_RS232|SchDesignator=BOC_RS232|FileName=BOC_RS232.SchDoc|SymbolType=Normal|RawFileName=BOC_RS232.SchDoc
+Record=SheetSymbol|SourceDocument=BOC_Top.SchDoc|Designator=BOC_Spartan|SchDesignator=BOC_Spartan|FileName=BOC_Spartan.SchDoc|SymbolType=Normal|RawFileName=BOC_Spartan.SchDoc
+Record=SheetSymbol|SourceDocument=BOC_Top.SchDoc|Designator=BOC_SRAM|SchDesignator=BOC_SRAM|FileName=BOC_SRAM.SchDoc|SymbolType=Normal|RawFileName=BOC_SRAM.SchDoc
+Record=SheetSymbol|SourceDocument=BOC_Top.SchDoc|Designator=BOC_VGA_KB_MOUSE|SchDesignator=BOC_VGA_KB_MOUSE|FileName=BOC_VGA_KB_MOUSE.SchDoc|SymbolType=Normal|RawFileName=BOC_VGA_KB_MOUSE.SchDoc
+Record=TopLevelDocument|FileName=BOC_Top.SchDoc
+Record=FPGA_COMPONENT|BaseComponentDesignator=U5|DocumentName=BOC_Boot.SchDoc|LibraryReference=XCF01SVO20C|SubProjectPath= |Configuration= |Description=XCF00S Series, Platform Flash In-System Programmable Configuration 3.3V PROM, 1-Megabit, Commercial Grade|SubPartUniqueId1=MOMCNWFG|SubPartDocPath1=BOC_Boot.SchDoc
+Record=FPGA_COMPONENT|BaseComponentDesignator=U8|DocumentName=BOC_Spartan.SchDoc|LibraryReference=XC2S100E-6TQ144C|SubProjectPath= |Configuration= |Description=Spartan-IIE 1.8V FPGA, 144-Pin TQFP, Standard Performance, Commercial Grade|SubPartUniqueId1=AOOYQYOL|SubPartDocPath1=BOC_Spartan.SchDoc|SubPartUniqueId2=BBKIAJCT|SubPartDocPath2=BOC_Boot.SchDoc|SubPartUniqueId3=NGLQNCFE|SubPartDocPath3=BOC_Boot.SchDoc

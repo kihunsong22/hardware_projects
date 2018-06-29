@@ -1,0 +1,36 @@
+TCPIP stack introduction
+========================
+
+This stack is a minimalistic implementation of the IP/UDP/TCP
+protocols. Small codesize and minimal RAM usage were the major
+requirements, this is not a full-fledged implementation of the defining
+RFC documents.
+
+Included with the stack is a SLIP/PPP implementation with support for
+Hayes compatible modems, capable of dialing in to commercial internet
+providers, or receiving calls from out-of-the-box PPP-clients. To
+facilitate the dial-in process a basic DNS server is running, so users
+can browse to a hostname instead of an IP-number.
+
+An alternative transport layer is ethernet, with basic DHCP and ARP
+support.
+
+An HTTP server is included. Although basic it should be sufficient for
+a lot of implementations. Its most distinguishing ability is to create
+a simple CGI-interface to chosen C-variables, based on a single
+definition line for each variable. It even optionally generates a human
+usable HTML-form on top of the same CGI interface. By default it serves
+pages from hardcode bytearrays.
+
+An FTP server allows access to a FAT-based filesystem, the same
+filesystem is optionally available to the HTTP server.
+
+Finally a TELNET server, a DNS client and a SMTP client are present.
+The TELNET server is only a skeleton demo but can be used as a starting
+point for further development, the combination DNS/SMPT client is
+directly usable to send mail from a device to the outside world.
+
+Last but not least: all features can be included on a "as needed"
+basis, where functionality not included is not compiled.
+
+

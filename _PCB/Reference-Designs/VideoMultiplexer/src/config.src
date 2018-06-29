@@ -1,0 +1,1899 @@
+	.SYMB	NAME, "config"
+	.SYMB	TOOL, "8051 C compiler", 0
+	.SYMB	FILE, "config.c"
+	; TASKING 8051 C compiler v1.88r1 Build 287 SN ????????
+	; Options: -c99 --reentrant -Ms -Ctsk51a -Ic:\program files\altium2004\system\tasking\include -A+strings -g -O0 -OABCEFGILPORSY --source --tradeoff=4 --vector-offset=0x0000 -o config.src
+	; Module start
+	.section	.data_max_extend, data, max
+
+; config.c	     1  /*
+; config.c	     2   * config.c --
+; config.c	     3   *
+; config.c	     4   *     This file provides routines to configure the video encoder
+; config.c	     5   *     and decoders for the Video Multiplexer project. It also
+; config.c	     6   *     handles updates of the custom hardware on the FPGA.
+; config.c	     7   *
+; config.c	     8   *     Author: Peter Allworth (Linear Solutions Pty Ltd)
+; config.c	     9   */
+; config.c	    10  
+; config.c	    11  #include  "videomux.h"
+; config.c	    12  
+; config.c	    13  /* Register interface to custom peripherals (PIP, etc.). */
+; config.c	    14  typedef __sfr volatile unsigned char Port;
+; config.c	    15  #define RegAddr        (*((Port *)0xFE))
+; config.c	    16  #define RegData        (*((Port *)0xFF))
+; config.c	    17  
+; config.c	    18  /* Register addresses for picture-in-picture (PIP) hardware. */
+; config.c	    19  enum {
+; config.c	    20      Xul     = 0x00, /* PIP bounding box upper left X coordinate (1..720) */
+; config.c	    21      Yul     = 0x02, /* PIP bounding box upper left Y coordinate (1..288) */
+; config.c	    22      Xlr     = 0x04, /* PIP bounding box lower right X coordinate (1..720) */
+; config.c	    23      Ylr     = 0x06, /* PIP bounding box upper left Y coordinate (1..288) */
+; config.c	    24      Xlim    = 0x10, /* PIP DMA X limit */
+; config.c	    25      Ylim    = 0x12, /* PIP DMA Y limit */
+; config.c	    26      Xinc    = 0x14, /* PIP DMA X increment */
+; config.c	    27      Yinc    = 0x16, /* PIP DMA Y increment */
+; config.c	    28      StartL  = 0x18, /* PIP DMA start address low byte */
+; config.c	    29      StartH  = 0x19, /* PIP DMA start address high byte */
+; config.c	    30      StartU  = 0x1A, /* PIP DMA start address upper byte */
+; config.c	    31      DecXlim    = 0x20, /* Decimator DMA X limit */
+; config.c	    32      DecYlim    = 0x22, /* Decimator DMA Y limit */
+; config.c	    33      DecXinc    = 0x24, /* Decimator DMA X increment */
+; config.c	    34      DecYinc    = 0x26, /* Decimator DMA Y increment */
+; config.c	    35      DecStartL  = 0x28, /* Decimator DMA start address low byte */
+; config.c	    36      DecStartH  = 0x29, /* Decimator DMA start address high byte */
+; config.c	    37      DecStartU  = 0x2A, /* Decimator DMA start address upper byte */
+; config.c	    38  };
+; config.c	    39  
+; config.c	    40  /* Constants for the screen layout of Picture-in-Picture. */
+; config.c	    41  enum {
+; config.c	    42      ScreenHeight    = 288,
+; config.c	    43      ScreenWidth     = 720,
+; config.c	    44      PipHeight       = (ScreenHeight/4),
+; config.c	    45      PipWidth        = (ScreenWidth/4),
+; config.c	    46      Xleft           = ((ScreenWidth/2 - PipWidth)/2),
+; config.c	    47      Xright          = (Xleft + (ScreenWidth/2)),
+; config.c	    48      Yupper          = ((ScreenHeight/2 - PipHeight)/2),
+; config.c	    49      Ylower          = (Yupper + (ScreenHeight/2)),
+; config.c	    50  };
+; config.c	    51  
+; config.c	    52  #ifdef SAA7121
+; config.c	    53  
+; config.c	    54  /*
+; config.c	    55   * Configuration for SAA7121 comes from Philips application note AN97086.
+; config.c	    56   * The chip is set up to work as a slave, detect sync sygnals out of the data
+; config.c	    57   * stream, PAL output format with WSS, TTX and closed caption disabled.
+; config.c	    58   *
+; config.c	    59   * The configuration tables consist of records of the form:
+; config.c	    60   *     <no. data bytes> [ <start address> <data byte> ... ]
+; config.c	    61   * A zero value for <no. data bytes> indicates the end of the table.
+; config.c	    62   */
+; config.c	    63  
+; config.c	    64  #define EncoderCfg  cfgSAA7121
+; config.c	    65  static const __rom uchar cfgSAA7121[] = {
+; config.c	    66      38, 0x00, /* null */
+; config.c	    67         0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+; config.c	    68         0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+; config.c	    69         0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+; config.c	    70         0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+; config.c	    71         0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+; config.c	    72      9, 0x26, /* WSS, BS, BE, DECCOL, DECFIS, copyguard */
+; config.c	    73         0x00, 0x00, 0x21, 0x1D, 0x00, 0x00, 0x00, 0x00, 0x00,
+; config.c	    74      11, 0x2F, /* null */
+; config.c	    75         0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+; config.c	    76      1, 0x3A, /* colour bar enable (off) */
+; config.c	    77         0x13,
+; config.c	    78      6, 0x5A, /* CHPS, GAINU, GAINV, BLCKL, BLNNL */
+; config.c	    79         0x0C, 0x7D, 0xAF, 0x23, 0x35, 0x35,
+; config.c	    80      3, 0x60, /* FISE, PAL, etc., RTCE, BSTA */
+; config.c	    81         0x00, 0x06, 0x2F,
+; config.c	    82      4, 0x63, /* FSC (PAL) */
+; config.c	    83         0xCB, 0x8A, 0x09, 0x2A,
+; config.c	    84      4, 0x67, /* Line 21 captioning data. */
+; config.c	    85         0x55, 0x56, 0x67, 0x58,
+; config.c	    86      1, 0x6B, /* RCV1 & RCV2 configuration. */
+; config.c	    87         0x20,
+; config.c	    88      4, 0x6C, /* Trigger, multi and closed caption control. */
+; config.c	    89         0x05, 0x20, 0xA0, 0x14,
+; config.c	    90      3, 0x70, /* RCV2 start and end. */
+; config.c	    91         0x80, 0xE8, 0x10,
+; config.c	    92      7, 0x73, /* Teletext configuration (PAL). */
+; config.c	    93         0x42, 0x03, 0x03, 0x05, 0x16, 0x04, 0x16,
+; config.c	    94      3, 0x7A, /* FAL, LAL, TTX60. */
+; config.c	    95         0x18, 0x38, 0x40,
+; config.c	    96      1, 0x7D, /* null */
+; config.c	    97         0x00,
+; config.c	    98      2, 0x7E, /* LINE */
+; config.c	    99         0x00, 0x00,
+; config.c	   100      0        /* End of configuration table. */
+; config.c	   101  };
+; config.c	   102  
+; config.c	   103  #else
+; config.c	   104  
+; config.c	   105  /*
+; config.c	   106   * Configuration for SAA7127 is based on a Linux driver file "saa7127.c".
+; config.c	   107   * The chip is set up to work as a slave, detect sync sygnals out of the data
+; config.c	   108   * stream, PAL output format with WSS, TTX and closed caption disabled.
+; config.c	   109   *
+; config.c	   110   * The configuration tables consist of records of the form:
+; config.c	   111   *     <no. data bytes> [ <start address> <data byte> ... ]
+; config.c	   112   * A zero value for <no. data bytes> indicates the end of the table.
+; config.c	   113   */
+; config.c	   114  
+; config.c	   115  #define EncoderCfg  cfgSAA7127
+; config.c	   116  static const __rom uchar cfgSAA7127[] = {
+; config.c	   117      37, 0x01, /* null */
+; config.c	   118         0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+; config.c	   119         0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+; config.c	   120         0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+; config.c	   121         0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+; config.c	   122         0x00, 0x00, 0x00, 0x00, 0x00,
+; config.c	   123      9, 0x26, /* WSS, BS, BE, DECCOL, DECFIS, copyguard */
+; config.c	   124         0x08, 0x00, 0x21, 0x1D, 0x00, 0x00, 0x00, 0x0F, 0x00,
+; config.c	   125      9, 0x2F, /* null */
+; config.c	   126         0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+; config.c	   127      2, 0x38, /* Gain luminance and colour difference for RGB */
+; config.c	   128         0x1A, 0x1A,
+; config.c	   129      1, 0x3A, /* colour bar enable (off) */
+; config.c	   130         0x13,
+; config.c	   131      25, 0x3B, /* null */
+; config.c	   132         0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+; config.c	   133         0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+; config.c	   134         0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+; config.c	   135         0x00,
+; config.c	   136      6, 0x54, /* VPS enable, input control 2 */
+; config.c	   137         0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+; config.c	   138      6, 0x5A, /* CHPS, GAINU, GAINV, BLCKL, BLNNL */
+; config.c	   139         0x6B, 0x7D, 0xAF, 0x33, 0x35, 0x35,
+; config.c	   140      3, 0x60, /* FISE, PAL, etc., RTCE, BSTA */
+; config.c	   141         0x00, 0x86, 0x2F,
+; config.c	   142      4, 0x63, /* FSC (PAL) */
+; config.c	   143         0xCB, 0x8A, 0x09, 0x2A,
+; config.c	   144      4, 0x67, /* Line 21 captioning data. */
+; config.c	   145         0x55, 0x56, 0x67, 0x58,
+; config.c	   146      1, 0x6B, /* RCV1 & RCV2 configuration. */
+; config.c	   147         0x00, /* (Set to 0x12 if RCV1, RCV2 to be outputs.) */
+; config.c	   148      4, 0x6C, /* Trigger, multi and closed caption control. */
+; config.c	   149         0x09, 0x20, 0xA0, 0x14,
+; config.c	   150      3, 0x70, /* RCV2 start and end. */
+; config.c	   151         0xc9, 0x68, 0x60,
+; config.c	   152      7, 0x73, /* Teletext configuration (PAL). */
+; config.c	   153         0x42, 0x03, 0x03, 0x05, 0x16, 0x04, 0x16,
+; config.c	   154      3, 0x7A, /* FAL, LAL, TTX60. */
+; config.c	   155         0x18, 0x38, 0x40,
+; config.c	   156      1, 0x7D, /* null */
+; config.c	   157         0x00,
+; config.c	   158      2, 0x7E, /* LINE */
+; config.c	   159         0x00, 0x00,
+; config.c	   160      0        /* End of configuration table. */
+; config.c	   161  };
+; config.c	   162  
+; config.c	   163  #endif
+; config.c	   164  
+; config.c	   165  /*
+; config.c	   166   * The following configuration is from Table 41 of the datasheet.
+; config.c	   167   */
+; config.c	   168  
+; config.c	   169  enum {
+; config.c	   170      ModeReg = 0x02,            /* Address of Mode register. */
+; config.c	   171      Mode0   = 0xC0             /* Mode 0 -> CVBS from A11 input. */
+; config.c	   172  };
+; config.c	   173  
+; config.c	   174  #define DecoderCfg  cfgSAA7111A
+; config.c	   175  static const __rom uchar cfgSAA7111A[] = {
+; config.c	   176      1, 0x00, 0x00,
+; config.c	   177      1, 0x01, 0x00,
+; config.c	   178      1, ModeReg, Mode0,
+; config.c	   179      1, 0x03, 0x23,
+; config.c	   180      1, 0x04, 0x00,
+; config.c	   181      1, 0x05, 0x00,
+; config.c	   182      1, 0x06, 0xEB,
+; config.c	   183      1, 0x07, 0xE0,
+; config.c	   184      1, 0x08, 0x88,
+; config.c	   185      1, 0x09, 0x01,
+; config.c	   186      1, 0x0A, 0x80,
+; config.c	   187      1, 0x0B, 0x47,
+; config.c	   188      1, 0x0C, 0x40,
+; config.c	   189      1, 0x0D, 0x00,
+; config.c	   190      1, 0x0E, 0x01,
+; config.c	   191      1, 0x0F, 0x00,
+; config.c	   192      1, 0x10, 0xC8, /* OFTS = B'11' -> CCIR-656, 8-bits */
+; config.c	   193      1, 0x11, 0x1C,
+; config.c	   194      1, 0x12, 0x00,
+; config.c	   195      1, 0x13, 0x00,
+; config.c	   196      1, 0x14, 0x00,
+; config.c	   197      1, 0x15, 0x00,
+; config.c	   198      1, 0x16, 0x00,
+; config.c	   199      1, 0x17, 0x00,
+; config.c	   200      1, 0x18, 0x00,
+; config.c	   201      1, 0x19, 0x00,
+; config.c	   202      1, 0x1D, 0x00,
+; config.c	   203      1, 0x1E, 0x00,
+; config.c	   204      0
+; config.c	   205  };
+; config.c	   206  
+; config.c	   207  /* Configure: Set up an I2C device based on a table of values. */
+; config.c	   208  static int
+; config.c	   209  Configure(uchar dev, __rom uchar table[])
+__999003__2:
+	.ds	4
+	.define	__REG	"__999003__2"
+	; End of section
+
+	.section	.code, code
+; Function _Configure
+_Configure:
+	.registerbank	0
+	.SYMB	LINE, 209, 1
+	.SYMB	TYPE, 256, "__wchar_t", 'T', #4
+	.SYMB	TYPE, 257, "__size_t", 'T', #17
+	.SYMB	TYPE, 258, "__ptrdiff_t", 'T', #16
+	.SYMB	TYPE, 261, 'g', 1, 1
+	.SYMB	TYPE, 260, 'S', 1,\
+		"__b0", #261, 0,\
+		"__b1", #261, 1,\
+		"__b2", #261, 2,\
+		"__b3", #261, 3,\
+		"__b4", #261, 4,\
+		"__b5", #261, 5,\
+		"__b6", #261, 6,\
+		"__b7", #261, 7
+	.SYMB	TYPE, 259, "__bitstruct_t", 'T', #260
+	.SYMB	FILE, "i2c.h"
+	.SYMB	TYPE, 262, "uchar", 'T', #3
+	.SYMB	TYPE, 263, "ushort", 'T', #5
+	.SYMB	TYPE, 264, "uint", 'T', #17
+	.SYMB	TYPE, 265, "ulong", 'T', #7
+	.SYMB	TYPE, 266, 'X', 0x0008, #16, 0, 3, #3, #3, #3
+	.SYMB	ALAB, _I2cPoke, #266
+	.SYMB	ENDF
+	.SYMB	FILE, "videomux.h"
+	.SYMB	TYPE, 268, 'N', 1,\
+		"None", 0,\
+		"KeyPress", 1,\
+		"KeyRelease", 2
+	.SYMB	TYPE, 267, "Event", 'T', #268
+	.SYMB	TYPE, 269, "KeyNum", 'T', #3
+	.SYMB	ENDF
+	.SYMB	TYPE, 270, "Port", 'T', #3
+	.SYMB	TYPE, 271, 'Z', #3, 163
+	.SYMB	TYPE, 272, 'Q', 1, #271
+	.SYMB	IDEN, "cfgSAA7127", _cfgSAA7127, #272, 0x0087, 0x4004
+	.SYMB	TYPE, 273, 'Z', #3, 84
+	.SYMB	TYPE, 274, 'Q', 1, #273
+	.SYMB	IDEN, "cfgSAA7111A", _cfgSAA7111A, #274, 0x0087, 0x4004
+	.SYMB	TYPE, 275, 'S', 10,\
+		"xul", #17, 0,\
+		"yul", #17, 2,\
+		"xlr", #17, 4,\
+		"ylr", #17, 6,\
+		"rdfield", #3, 8,\
+		"wrfield", #3, 9
+	.SYMB	IDEN, "mailbox", _mailbox, #275, 0x0081, 0x4004
+	.SYMB	TYPE, 278, 'Q', 1, #3
+	.SYMB	TYPE, 279, 'n', #278, 135
+	.SYMB	TYPE, 277, 'P', #279
+	.SYMB	TYPE, 276, 'X', 0x0008, #16, 0, 2, #3, #277
+	.SYMB	LFUN, "Configure", _Configure, #276, 0x0000, 0, 2, 0x0, 0x3c0000, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 4, 0, 0, 0, 0, 3, 0, 0, 0, 0, 5, 0, 0, 0, 0
+	.SYMB	ALAB, _Configure, #276
+	.SYMB	IDEN, "dev", 7, #3, 0x0000, 0x2801
+	.SYMB	IDEN, "table", 20, #277, 0x0000, 0x2801
+	.SYMB	IDEN, "count", -1, #3, 0x0000, 0x2001
+	.SYMB	LTIM, "count", -1, 0x0000, 0x2041
+	.SYMB	IDEN, "addr", -1, #3, 0x0000, 0x2001
+	.SYMB	LTIM, "addr", -1, 0x0000, 0x2041
+	.SYMB	IDEN, "i", -1, #16, 0x0000, 0x2001
+	.SYMB	LTIM, "i", -1, 0x0000, 0x2041
+	.SYMB	IDEN, "n", -1, #16, 0x0000, 0x2001
+	.SYMB	LTIM, "n", -1, 0x0000, 0x2041
+	.SYMB	IDEN, "total", -1, #16, 0x0000, 0x2001
+	.SYMB	LTIM, "total", -1, 0x0000, 0x2041
+	.SYMB	LTIM, "dev", 7, 0x0000, 0x28c1
+	.SYMB	LTIM, "table", 20, 0x0000, 0x28c1
+	.SYMB	LTIM, "table", 5, 0x0000, 0x28c1
+	.SYMB	LTIM, "table", 4, 0x0000, 0x28c1
+	mov	A,SP
+	add	A,#5
+	mov	SP,A
+	.SYMB	SOFF, -5, 0
+	push	__REG+0
+	.SYMB	SOFF, -6, 0
+	push	__REG+1
+	.SYMB	SOFF, -7, 0
+	push	__REG+2
+	.SYMB	SOFF, -8, 0
+	push	__REG+3
+	.SYMB	SOFF, -9, 0
+	mov	A,SP
+	add	A,#248
+	.SYMB	LTIM, "dev", 1, 0x0000, 0x18c1, 0
+	push	AR7
+	.SYMB	SOFF, -10, 0
+	mov	R0,A
+	pop	ACC
+	.SYMB	SOFF, -9, 0
+	mov	@R0,A
+	mov	A,SP
+	add	A,#249
+	.SYMB	LTIM, "table", 2, 0x0000, 0x18c1, 0
+	push	AR4
+	.SYMB	SOFF, -10, 0
+	mov	R0,A
+	pop	ACC
+	.SYMB	SOFF, -9, 0
+	mov	@R0,A
+	inc	R0
+	mov	@R0,AR5
+	.SYMB	LINE, 215, 18
+
+; config.c	   210  {
+; config.c	   211      uchar count, addr;
+; config.c	   212      int   i, n, total;
+; config.c	   213  
+; config.c	   214      /* Table format is <count> [ <address> <values> ... ]. */
+; config.c	   215      for(total = 0, i = 0; (count = table[i++]) != 0;) {
+	clr	A
+	mov	R7,A
+	.SYMB	LTIM, "dev", 7, 0x0000, 0x2841
+	push	ACC
+	.SYMB	SOFF, -10, 0
+	mov	A,SP
+	add	A,#-5
+	.SYMB	LTIM, "total", 5, 0x0000, 0x10c1, 8, 15, 0
+	push	AR7
+	.SYMB	SOFF, -11, 0
+	mov	R0,A
+	pop	ACC
+	.SYMB	SOFF, -10, 0
+	mov	@R0,A
+	pop	ACC
+	.SYMB	SOFF, -9, 0
+	mov	R7,A
+	mov	A,SP
+	add	A,#251
+	.SYMB	LTIM, "total", 4, 0x0000, 0x10c1, 0, 7, 0
+	push	AR7
+	.SYMB	SOFF, -10, 0
+	mov	R0,A
+	pop	ACC
+	.SYMB	SOFF, -9, 0
+	mov	@R0,A
+	.SYMB	LINE, 215, 25
+	clr	A
+	mov	__REG+1,A
+	.SYMB	LTIM, "i", 51, 0x0000, 0x20c1, 8, 15
+	mov	__REG+0,A
+	.SYMB	LTIM, "i", 178, 0x0000, 0x20c1
+	.SYMB	LTIM, "i", 50, 0x0000, 0x20c1, 0, 7
+	.SYMB	LINE, 215, 52
+	gjmp	_2
+_3:
+	.SYMB	LINE, 216, 25
+
+; config.c	   216         addr = table[i++];
+	push	AR0
+	.SYMB	SOFF, -10, 0
+	mov	A,SP
+	add	A,#249
+	mov	R0,A
+	mov	AR7,@R0
+	.SYMB	LTIM, "table", 7, 0x0000, 0x28c1, 8, 15
+	dec	R0
+	mov	AR6,@R0
+	.SYMB	LTIM, "table", 22, 0x0000, 0x28c1
+	.SYMB	LTIM, "table", 6, 0x0000, 0x28c1, 0, 7
+	pop	AR0
+	.SYMB	SOFF, -9, 0
+	mov	DPL,R7
+	mov	DPH,R6
+	mov	AR7,R1
+	.SYMB	LTIM, "table", 22, 0x0000, 0x2841
+	.SYMB	LTIM, "table", 7, 0x0000, 0x2841, 8, 15
+	.SYMB	LTIM, "i", 1, 0x0000, 0x20c1, 8, 15
+	mov	AR6,R0
+	.SYMB	LTIM, "table", 6, 0x0000, 0x2841, 0, 7
+	.SYMB	LTIM, "i", 16, 0x0000, 0x20c1
+	.SYMB	LTIM, "i", 0, 0x0000, 0x20c1, 0, 7
+	gcall	__IDXPI
+	clr	A
+	movc	A,@A+DPTR
+	mov	__REG+2,A
+	.SYMB	LTIM, "addr", 52, 0x0000, 0x20c1
+	.SYMB	LINE, 216, 22
+	mov	__REG+1,R1
+	.SYMB	LTIM, "i", 178, 0x0000, 0x2041
+	.SYMB	LTIM, "i", 51, 0x0000, 0x2041, 8, 15
+	mov	__REG+0,R0
+	.SYMB	LTIM, "i", 50, 0x0000, 0x2041, 0, 7
+	inc	__REG+1
+	mov	A,__REG+1
+	gcjne	A,#0,_2147483646
+	.SYMB	LTIM, "i", 1, 0x0000, 0x2041, 8, 15
+	.SYMB	LTIM, "i", 0, 0x0000, 0x2041, 0, 7
+	.SYMB	LTIM, "i", 16, 0x0000, 0x2041
+	inc	__REG+0
+_2147483646:
+	.SYMB	LINE, 217, 27
+
+; config.c	   217         while (count-- != 0) {
+	gjmp	_4
+_5:
+	.SYMB	LINE, 218, 32
+
+; config.c	   218            n = I2cPoke(dev, addr++, table[i++]);
+	mov	R5,__REG+2
+	inc	__REG+2
+	.SYMB	LINE, 218, 43
+	mov	A,SP
+	add	A,#250
+	mov	R0,A
+	mov	AR7,@R0
+	.SYMB	LTIM, "table", 7, 0x0000, 0x28c1, 8, 15
+	dec	R0
+	mov	AR6,@R0
+	.SYMB	LTIM, "table", 22, 0x0000, 0x28c1
+	.SYMB	LTIM, "table", 6, 0x0000, 0x28c1, 0, 7
+	mov	DPL,R7
+	mov	DPH,R6
+	mov	AR7,__REG+1
+	.SYMB	LTIM, "table", 22, 0x0000, 0x2841
+	.SYMB	LTIM, "table", 7, 0x0000, 0x2841, 8, 15
+	.SYMB	LTIM, "i", 51, 0x0000, 0x20c1, 8, 15
+	mov	AR6,__REG+0
+	.SYMB	LTIM, "table", 6, 0x0000, 0x2841, 0, 7
+	.SYMB	LTIM, "i", 178, 0x0000, 0x20c1
+	.SYMB	LTIM, "i", 50, 0x0000, 0x20c1, 0, 7
+	gcall	__IDXPI
+	clr	A
+	movc	A,@A+DPTR
+	mov	R3,A
+	inc	__REG+1
+	.SYMB	LTIM, "i", 178, 0x0000, 0x2041
+	.SYMB	LTIM, "i", 51, 0x0000, 0x2041, 8, 15
+	mov	A,__REG+1
+	gcjne	A,#0,_2147483645
+	inc	__REG+0
+	.SYMB	LTIM, "i", 50, 0x0000, 0x2041, 0, 7
+_2147483645:
+	.SYMB	LINE, 218, 47
+	mov	A,SP
+	add	A,#248
+	mov	R0,A
+	mov	AR7,@R0
+	.SYMB	LTIM, "dev", 7, 0x0000, 0x28c1
+	gcall	_I2cPoke
+	.SYMB	LTIM, "table", 4, 0x0000, 0x2841
+	.SYMB	LTIM, "table", 5, 0x0000, 0x2841
+	.SYMB	LTIM, "table", 20, 0x0000, 0x2841
+	.SYMB	LTIM, "dev", 7, 0x0000, 0x2841
+	.SYMB	LINE, 219, 11
+
+; config.c	   219            if (n < 0) {
+	mov	A,R6
+	.SYMB	LTIM, "n", 6, 0x0000, 0x20c1, 0, 7
+	gjnb	ACC.7,_6
+	.SYMB	LINE, 220, 14
+
+; config.c	   220               return n;
+	gjmp	_7
+	.SYMB	LTIM, "addr", 52, 0x0000, 0x2041
+_6:
+	.SYMB	LINE, 221, 18
+
+; config.c	   221            } else if (n != 1) {
+	mov	A,R7
+	.SYMB	LTIM, "n", 7, 0x0000, 0x20c1, 8, 15
+	.SYMB	LTIM, "n", 22, 0x0000, 0x20c1
+	dec	A
+	orl	A,R6
+	gjz	_8
+	.SYMB	LTIM, "n", 6, 0x0000, 0x2041, 0, 7
+	.SYMB	LTIM, "n", 22, 0x0000, 0x2041
+	.SYMB	LTIM, "n", 7, 0x0000, 0x2041, 8, 15
+	.SYMB	LINE, 222, 14
+
+; config.c	   222               return total;
+	mov	A,SP
+	add	A,#-4
+	.SYMB	LTIM, "total", 4, 0x0000, 0x10c1, 0
+	mov	R0,A
+	mov	AR7,@R0
+	.SYMB	LTIM, "total", 7, 0x0000, 0x20c1, 8, 15
+	dec	R0
+	mov	AR6,@R0
+	.SYMB	LTIM, "total", 22, 0x0000, 0x20c1
+	.SYMB	LTIM, "total", 6, 0x0000, 0x20c1, 0, 7
+	gjmp	_9
+_8:
+	.SYMB	LINE, 224, 18
+
+; config.c	   223            }
+; config.c	   224            total++;
+	mov	A,SP
+	add	A,#-4
+	mov	R0,A
+	mov	AR1,@R0
+	.SYMB	LTIM, "total", 1, 0x0000, 0x20c1, 8, 15
+	dec	R0
+	mov	AR0,@R0
+	.SYMB	LTIM, "total", 16, 0x0000, 0x20c1
+	.SYMB	LTIM, "total", 0, 0x0000, 0x20c1, 0, 7
+	inc	R1
+	.SYMB	LTIM, "total", 16, 0x0000, 0x2041
+	.SYMB	LTIM, "total", 1, 0x0000, 0x2041, 8, 15
+	mov	A,R1
+	gcjne	A,#0,_2147483644
+	.SYMB	LTIM, "total", 6, 0x0000, 0x2041, 0, 7
+	.SYMB	LTIM, "total", 22, 0x0000, 0x2041
+	.SYMB	LTIM, "total", 7, 0x0000, 0x2041, 8, 15
+	inc	R0
+	.SYMB	LTIM, "total", 0, 0x0000, 0x2041, 0, 7
+_2147483644:
+	mov	A,SP
+	add	A,#251
+	push	AR0
+	.SYMB	SOFF, -10, 0
+	.SYMB	LTIM, "total", 0, 0x0000, 0x20c1, 0, 7
+	mov	R0,A
+	.SYMB	LTIM, "total", 0, 0x0000, 0x2041, 0, 7
+	pop	ACC
+	.SYMB	SOFF, -9, 0
+	mov	@R0,A
+	inc	R0
+	mov	@R0,AR1
+_4:
+	.SYMB	LINE, 217, 20
+	mov	R0,__REG+3
+	.SYMB	LTIM, "count", 53, 0x0000, 0x20c1
+	dec	__REG+3
+	.SYMB	LINE, 217, 27
+	mov	A,R0
+	gjnz	_5
+_2:
+	.SYMB	LINE, 215, 34
+	mov	A,SP
+	add	A,#250
+	mov	R0,A
+	mov	AR7,@R0
+	.SYMB	LTIM, "table", 7, 0x0000, 0x28c1, 8, 15
+	dec	R0
+	mov	AR6,@R0
+	.SYMB	LTIM, "table", 22, 0x0000, 0x28c1
+	.SYMB	LTIM, "table", 6, 0x0000, 0x28c1, 0, 7
+	mov	DPL,R7
+	mov	DPH,R6
+	mov	AR7,__REG+1
+	.SYMB	LTIM, "table", 22, 0x0000, 0x2841
+	.SYMB	LTIM, "table", 7, 0x0000, 0x2841, 8, 15
+	.SYMB	LTIM, "i", 51, 0x0000, 0x20c1, 8, 15
+	mov	AR6,__REG+0
+	.SYMB	LTIM, "table", 6, 0x0000, 0x2841, 0, 7
+	.SYMB	LTIM, "i", 50, 0x0000, 0x20c1, 0, 7
+	.SYMB	LTIM, "i", 178, 0x0000, 0x20c1
+	gcall	__IDXPI
+	clr	A
+	movc	A,@A+DPTR
+	mov	__REG+3,A
+	.SYMB	LINE, 215, 43
+	mov	AR1,__REG+1
+	mov	AR0,__REG+0
+	inc	R1
+	mov	A,R1
+	gcjne	A,#0,_2147483643
+	.SYMB	LTIM, "i", 51, 0x0000, 0x2041, 8, 15
+	.SYMB	LTIM, "i", 178, 0x0000, 0x2041
+	.SYMB	LTIM, "i", 50, 0x0000, 0x2041, 0, 7
+	inc	R0
+_2147483643:
+	.SYMB	LINE, 215, 52
+	mov	A,__REG+3
+	gjnz	_3
+	.SYMB	LINE, 227, 5
+
+; config.c	   225         }
+; config.c	   226      }
+; config.c	   227      return total;
+	mov	A,SP
+	add	A,#-4
+	mov	R0,A
+	mov	AR7,@R0
+	.SYMB	LTIM, "total", 7, 0x0000, 0x20c1, 8, 15
+	dec	R0
+	mov	AR6,@R0
+	.SYMB	LTIM, "total", 22, 0x0000, 0x20c1
+	.SYMB	LTIM, "total", 6, 0x0000, 0x20c1, 0, 7
+	gjmp	_10
+	.SYMB	LTIM, "count", 53, 0x0000, 0x2041
+
+; config.c	   228  }
+_10:
+_9:
+_7:
+	.SYMB	LINE, 228, 1
+	pop	__REG+3
+	.SYMB	SOFF, -8, 0
+	pop	__REG+2
+	.SYMB	SOFF, -7, 0
+	pop	__REG+1
+	.SYMB	SOFF, -6, 0
+	pop	__REG+0
+	.SYMB	SOFF, -5, 0
+	mov	F0,C
+	xch	A,SP
+	add	A,#251
+	xch	A,SP
+	.SYMB	SOFF, 0, 0
+	mov	C,F0
+	ret
+	.SYMB	LTIM, "total", 4, 0x0000, 0x1041, 0, 7, 0
+	.SYMB	LTIM, "total", 4, 0x0000, 0x1041, 0
+	.SYMB	LTIM, "total", 7, 0x0000, 0x2041, 8, 15
+	.SYMB	LTIM, "total", 6, 0x0000, 0x2041, 0, 7
+	.SYMB	LTIM, "total", 22, 0x0000, 0x2041
+	.SYMB	LTIM, "total", 5, 0x0000, 0x1041, 8, 15, 0
+	.SYMB	LTIM, "table", 2, 0x0000, 0x1841, 0
+	.SYMB	LTIM, "dev", 1, 0x0000, 0x1841, 0
+	.undef	__REG
+	; End of function
+	.SYMB	EFUN
+	; End of section
+
+	.section	.data_max_extend, data, max
+	.SYMB	TYPE, 280, 'X', 0x0008, #16, 0, 1, #3
+	.SYMB	GFUN, "EncoderInit", _EncoderInit, #280, 0x0000, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 4, 0, 0, 0, 0, 3, 0, 0, 0, 0, 5, 0, 0, 0, 0
+	.SYMB	ALAB, _EncoderInit, #280
+	.SYMB	IDEN, "dev", 7, #3, 0x0000, 0x2801
+
+; config.c	   229  
+; config.c	   230  /* EncoderInit: Set up the I2C registers of a video encoder. */
+; config.c	   231  int
+; config.c	   232  EncoderInit(uchar dev)
+__999004__1:
+	.define	__REG	"__999004__1"
+	; End of section
+
+	.section	.code, code
+	.global	_EncoderInit
+; Function _EncoderInit
+_EncoderInit:
+	.registerbank	0
+	.SYMB	LINE, 232, 1
+	.SYMB	LTIM, "dev", 7, 0x0000, 0x28c1
+	mov	AR7,R7
+	.SYMB	LINE, 234, 5
+
+; config.c	   233  {
+; config.c	   234      return Configure(dev, EncoderCfg);
+	mov	AR7,R7
+	.SYMB	LTIM, "dev", 7, 0x0000, 0x2841
+	.SYMB	LTIM, "dev", 7, 0x0000, 0x28c1
+	mov	R4,#.msb(_cfgSAA7127)
+	mov	R5,#.lsb(_cfgSAA7127)
+	mov	AR5,R5
+	mov	AR4,R4
+	gcall	_Configure
+	.SYMB	LTIM, "dev", 7, 0x0000, 0x2841
+	mov	AR7,R7
+	mov	AR6,R6
+	mov	AR7,R7
+	mov	AR6,R6
+	gjmp	_11
+
+; config.c	   235  }
+_11:
+	.SYMB	LINE, 235, 1
+	ret
+	.undef	__REG
+	; End of function
+	.SYMB	EFUN
+	; End of section
+
+	.section	.data_max_extend, data, max
+	.SYMB	GFUN, "DecoderInit", _DecoderInit, #280, 0x0000, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 4, 0, 0, 0, 0, 3, 0, 0, 0, 0, 5, 0, 0, 0, 0
+	.SYMB	ALAB, _DecoderInit, #280
+	.SYMB	IDEN, "dev", 7, #3, 0x0000, 0x2801
+
+; config.c	   236  
+; config.c	   237  /* DecoderInit: Set up the I2C registers of a video decoder. */
+; config.c	   238  int
+; config.c	   239  DecoderInit(uchar dev)
+__999005__1:
+	.define	__REG	"__999005__1"
+	; End of section
+
+	.section	.code, code
+	.global	_DecoderInit
+; Function _DecoderInit
+_DecoderInit:
+	.registerbank	0
+	.SYMB	LINE, 239, 1
+	.SYMB	LTIM, "dev", 7, 0x0000, 0x28c1
+	mov	AR7,R7
+	.SYMB	LINE, 241, 5
+
+; config.c	   240  {
+; config.c	   241      return Configure(dev, DecoderCfg);
+	mov	AR7,R7
+	.SYMB	LTIM, "dev", 7, 0x0000, 0x2841
+	.SYMB	LTIM, "dev", 7, 0x0000, 0x28c1
+	mov	R4,#.msb(_cfgSAA7111A)
+	mov	R5,#.lsb(_cfgSAA7111A)
+	mov	AR5,R5
+	mov	AR4,R4
+	gcall	_Configure
+	.SYMB	LTIM, "dev", 7, 0x0000, 0x2841
+	mov	AR7,R7
+	mov	AR6,R6
+	mov	AR7,R7
+	mov	AR6,R6
+	gjmp	_12
+
+; config.c	   242  }
+_12:
+	.SYMB	LINE, 242, 1
+	ret
+	.undef	__REG
+	; End of function
+	.SYMB	EFUN
+	; End of section
+
+	.section	.data_max_extend, data, max
+	.SYMB	TYPE, 281, 'X', 0x0008, #3, 0, 1, #3
+	.SYMB	LFUN, "NextField", _NextField, #281, 0x0000, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 4, 0, 0, 0, 0, 3, 0, 0, 0, 0, 5, 0, 0, 0, 0
+	.SYMB	ALAB, _NextField, #281
+	.SYMB	IDEN, "fld", 7, #3, 0x0000, 0x2801
+
+; config.c	   243  
+; config.c	   244  static struct {
+; config.c	   245      unsigned  xul, yul, xlr, ylr;     /* PIP bounding box. */
+; config.c	   246      uchar     rdfield;                /* field buffer being read */
+; config.c	   247      uchar     wrfield;                /* field buffer being written */
+; config.c	   248  } mailbox;
+; config.c	   249  
+; config.c	   250  /* NextField: Return the next field no. in a modulo 4 sequence. */
+; config.c	   251  static uchar
+; config.c	   252  NextField(uchar fld)
+__999006__1:
+	.define	__REG	"__999006__1"
+	; End of section
+
+	.section	.code, code
+; Function _NextField
+_NextField:
+	.registerbank	0
+	.SYMB	LINE, 252, 1
+	.SYMB	LTIM, "fld", 7, 0x0000, 0x28c1
+	mov	AR0,R7
+	.SYMB	LTIM, "fld", 0, 0x0000, 0x28c1
+	.SYMB	LINE, 254, 9
+
+; config.c	   253  {
+; config.c	   254      if (++fld > 3) {
+	inc	R0
+	.SYMB	LINE, 254, 5
+	mov	A,R0
+	setb	C
+	subb	A,#3
+	gjc	_13
+	.SYMB	LINE, 255, 16
+
+; config.c	   255          fld = 0;
+	mov	R0,#0
+_13:
+	.SYMB	LINE, 257, 5
+
+; config.c	   256      }
+; config.c	   257      return fld;
+	mov	A,R0
+	gjmp	_14
+
+; config.c	   258  }
+_14:
+	.SYMB	LINE, 258, 1
+	ret
+	.SYMB	LTIM, "fld", 0, 0x0000, 0x2841
+	.SYMB	LTIM, "fld", 7, 0x0000, 0x2841
+	.undef	__REG
+	; End of function
+	.SYMB	EFUN
+	; End of section
+
+	.section	.data_max_extend, data, max
+	.SYMB	LFUN, "PrevField", _PrevField, #281, 0x0000, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 4, 0, 0, 0, 0, 3, 0, 0, 0, 0, 5, 0, 0, 0, 0
+	.SYMB	ALAB, _PrevField, #281
+	.SYMB	IDEN, "fld", 7, #3, 0x0000, 0x2801
+
+; config.c	   259  
+; config.c	   260  /* NextField: Return the next field no. in a modulo 4 sequence. */
+; config.c	   261  static uchar
+; config.c	   262  PrevField(uchar fld)
+__999007__2:
+	.define	__REG	"__999007__2"
+	; End of section
+
+	.section	.code, code
+; Function _PrevField
+_PrevField:
+	.registerbank	0
+	.SYMB	LINE, 262, 1
+	.SYMB	LTIM, "fld", 7, 0x0000, 0x28c1
+	mov	AR0,R7
+	.SYMB	LTIM, "fld", 0, 0x0000, 0x28c1
+	.SYMB	LINE, 264, 12
+
+; config.c	   263  {
+; config.c	   264      if (fld-- == 0) {
+	mov	R1,AR0
+	dec	R0
+	.SYMB	LINE, 264, 5
+	mov	A,R1
+	gjnz	_15
+	.SYMB	LINE, 265, 16
+
+; config.c	   265          fld = 3;
+	mov	R0,#3
+_15:
+	.SYMB	LINE, 267, 5
+
+; config.c	   266      }
+; config.c	   267      return fld;
+	mov	A,R0
+	gjmp	_16
+
+; config.c	   268  }
+_16:
+	.SYMB	LINE, 268, 1
+	ret
+	.SYMB	LTIM, "fld", 0, 0x0000, 0x2841
+	.SYMB	LTIM, "fld", 7, 0x0000, 0x2841
+	.undef	__REG
+	; End of function
+	.SYMB	EFUN
+	; End of section
+
+	.section	.data_max_extend, data, max
+	.SYMB	TYPE, 282, 'X', 0x0008, #1, 0, 2, #3, #3
+	.SYMB	LFUN, "PutByte", _PutByte, #282, 0x0000, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 4, 0, 0, 0, 0, 3, 0, 0, 0, 0, 5, 0, 0, 0, 0
+	.SYMB	ALAB, _PutByte, #282
+	.SYMB	IDEN, "addr", 7, #3, 0x0000, 0x2801
+	.SYMB	IDEN, "value", 5, #3, 0x0000, 0x2801
+
+; config.c	   269  
+; config.c	   270  /* PutByte: Write a byte to a register in the FPGA. */
+; config.c	   271  static void
+; config.c	   272  PutByte(uchar addr, uchar value)
+__999008__1:
+	.define	__REG	"__999008__1"
+	; End of section
+
+	.section	.code, code
+; Function _PutByte
+_PutByte:
+	.registerbank	0
+	.SYMB	LINE, 272, 1
+	.SYMB	LTIM, "addr", 7, 0x0000, 0x28c1
+	.SYMB	LTIM, "value", 5, 0x0000, 0x28c1
+	mov	AR7,R7
+	mov	AR5,R5
+	.SYMB	LINE, 274, 19
+
+; config.c	   273  {
+; config.c	   274      RegAddr = addr;
+	mov	254,R7
+	.SYMB	LINE, 275, 20
+
+; config.c	   275      RegData = value;
+	mov	255,R5
+	.SYMB	LINE, 276, 1
+
+; config.c	   276  }
+	ret
+	.SYMB	LTIM, "value", 5, 0x0000, 0x2841
+	.SYMB	LTIM, "addr", 7, 0x0000, 0x2841
+	.undef	__REG
+	; End of function
+	.SYMB	EFUN
+	; End of section
+
+	.section	.data_max_extend, data, max
+	.SYMB	TYPE, 283, 'X', 0x0008, #1, 0, 2, #3, #17
+	.SYMB	LFUN, "PutWord", _PutWord, #283, 0x0000, 0, 2, 0x0, 0x1c0000, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 4, 0, 0, 0, 0, 3, 0, 0, 0, 0, 5, 0, 0, 0, 0
+	.SYMB	ALAB, _PutWord, #283
+	.SYMB	IDEN, "addr", 7, #3, 0x0000, 0x2801
+	.SYMB	IDEN, "value", 20, #17, 0x0000, 0x2801
+
+; config.c	   277  
+; config.c	   278  /* PutWord: Write a 16 bit value to a register pair in the FPGA. */
+; config.c	   279  static void
+; config.c	   280  PutWord(uchar addr, unsigned value)
+__999009__1:
+	.ds	3
+	.define	__REG	"__999009__1"
+	; End of section
+
+	.section	.code, code
+; Function _PutWord
+_PutWord:
+	.registerbank	0
+	.SYMB	LINE, 280, 1
+	.SYMB	LTIM, "addr", 7, 0x0000, 0x28c1
+	.SYMB	LTIM, "value", 20, 0x0000, 0x28c1
+	.SYMB	LTIM, "value", 5, 0x0000, 0x28c1
+	.SYMB	LTIM, "value", 4, 0x0000, 0x28c1
+	push	__REG+0
+	.SYMB	SOFF, -1, 0
+	push	__REG+1
+	.SYMB	SOFF, -2, 0
+	push	__REG+2
+	.SYMB	SOFF, -3, 0
+	mov	__REG+2,R7
+	.SYMB	LTIM, "addr", 52, 0x0000, 0x28c1
+	mov	__REG+1,R5
+	.SYMB	LTIM, "value", 51, 0x0000, 0x28c1, 8, 15
+	mov	__REG+0,R4
+	.SYMB	LTIM, "value", 178, 0x0000, 0x28c1
+	.SYMB	LTIM, "value", 50, 0x0000, 0x28c1, 0, 7
+	.SYMB	LINE, 283, 32
+
+; config.c	   281  {
+; config.c	   282      /* Write least significant byte then most significant. */
+; config.c	   283      PutByte(addr, (uchar)value);
+	mov	R5,__REG+1
+	.SYMB	LTIM, "value", 5, 0x0000, 0x2841
+	.SYMB	LTIM, "value", 20, 0x0000, 0x2841
+	mov	AR7,__REG+2
+	.SYMB	LTIM, "addr", 7, 0x0000, 0x2841
+	mov	AR5,R5
+	gcall	_PutByte
+	.SYMB	LTIM, "value", 4, 0x0000, 0x2841
+	.SYMB	LINE, 284, 43
+
+; config.c	   284      PutByte(addr + 1, (uchar)(value >> 8));
+	mov	R0,__REG+2
+	inc	R0
+	mov	R5,#8
+	mov	AR5,R5
+	mov	AR7,__REG+1
+	mov	AR6,__REG+0
+	gcall	__SHRI
+	mov	AR7,R7
+	mov	R5,AR7
+	mov	AR7,R0
+	mov	AR5,R5
+	gcall	_PutByte
+	pop	__REG+2
+	.SYMB	SOFF, -2, 0
+	.SYMB	LTIM, "addr", 52, 0x0000, 0x2841
+	pop	__REG+1
+	.SYMB	SOFF, -1, 0
+	.SYMB	LTIM, "value", 51, 0x0000, 0x2841, 8, 15
+	.SYMB	LTIM, "value", 178, 0x0000, 0x2841
+	pop	__REG+0
+	.SYMB	SOFF, 0, 0
+	.SYMB	LTIM, "value", 50, 0x0000, 0x2841, 0, 7
+	.SYMB	LINE, 285, 1
+
+; config.c	   285  }
+	ret
+	.undef	__REG
+	; End of function
+	.SYMB	EFUN
+	; End of section
+
+	.section	.data_max_extend, data, max
+	.SYMB	TYPE, 284, 'X', 0x0008, #1, 0, 0
+	.SYMB	GFUN, "UpdatePicture", _UpdatePicture, #284, 0x0000, 0, 2, 0x0, 0x40000, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 4, 0, 0, 0, 0, 3, 0, 0, 0, 0, 5, 0, 0, 0, 0
+	.SYMB	ALAB, _UpdatePicture, #284
+	.SYMB	IDEN, "next_field", -1, #3, 0x0000, 0x2001
+	.SYMB	LTIM, "next_field", -1, 0x0000, 0x2041
+
+; config.c	   286  
+; config.c	   287  /* UpdatePicture: Called during interrupts to update the registers. */
+; config.c	   288  void
+; config.c	   289  UpdatePicture(void)
+__999010__1:
+	.ds	1
+	.define	__REG	"__999010__1"
+	; End of section
+
+	.section	.code, code
+	.global	_UpdatePicture
+; Function _UpdatePicture
+_UpdatePicture:
+	.registerbank	0
+	.SYMB	LINE, 289, 1
+	.SYMB	LINE, 295, 38
+
+; config.c	   290  {
+; config.c	   291  #define FLDA   P2_0  /* current value of the BT656 F bit */
+; config.c	   292      uchar      next_field;
+; config.c	   293  
+; config.c	   294      /* bring current field up-to-date and set up DMA pointers for next */
+; config.c	   295      mailbox.rdfield = mailbox.wrfield;
+	push	__REG+0
+	.SYMB	SOFF, -1, 0
+	mov	A,#8
+	add	A,#_mailbox
+	mov	R0,A
+	mov	AR1,R0
+	mov	A,#9
+	add	A,#_mailbox
+	mov	R0,A
+	mov	AR0,R0
+	mov	A,@R0
+	mov	@R1,A
+
+; config.c	   296      do {
+; config.c	   297          mailbox.rdfield = PrevField(mailbox.rdfield);
+; config.c	   298      } while ((mailbox.rdfield & 1) != FLDA);
+_17:
+	.SYMB	LINE, 297, 53
+	mov	A,#8
+	add	A,#_mailbox
+	mov	R0,A
+	mov	AR0,R0
+	mov	__REG+0,R0
+	mov	A,#8
+	add	A,#_mailbox
+	mov	R0,A
+	mov	AR0,R0
+	mov	AR7,@R0
+	gcall	_PrevField
+	mov	AR0,__REG+0
+	mov	@R0,A
+	.SYMB	LINE, 298, 44
+	mov	A,#8
+	add	A,#_mailbox
+	mov	R0,A
+	mov	AR0,R0
+	mov	A,@R0
+	anl	A,#1
+	mov	R1,A
+	mov	R0,#0
+	clr	A
+	mov	C,160.0
+	rlc	A
+	mov	R3,A
+	mov	R2,#0
+	mov	A,R1
+	gcjne	A,AR3,_17
+	mov	A,R0
+	gcjne	A,AR2,_17
+	.SYMB	LINE, 299, 44
+
+; config.c	   299      next_field = NextField(mailbox.rdfield);
+	mov	A,#8
+	add	A,#_mailbox
+	mov	R0,A
+	mov	AR0,R0
+	mov	AR7,@R0
+	gcall	_NextField
+	mov	__REG+0,A
+	.SYMB	LTIM, "next_field", 50, 0x0000, 0x20c1
+	.SYMB	LINE, 302, 30
+
+; config.c	   300  
+; config.c	   301      /* DMA test (2 bytes per pixel) */
+; config.c	   302      PutWord(Xlim, 2*PipWidth);
+	mov	R4,#0
+	mov	R5,#2
+	mov	R6,#0
+	mov	R7,#180
+	gcall	__MULI
+	mov	AR5,R7
+	mov	AR4,R6
+	mov	R7,#16
+	gcall	_PutWord
+	.SYMB	LINE, 303, 29
+
+; config.c	   303      PutWord(Ylim, PipHeight);
+	mov	R7,#18
+	mov	R4,#0
+	mov	R5,#72
+	gcall	_PutWord
+	.SYMB	LINE, 304, 21
+
+; config.c	   304      PutWord(Xinc, 1);
+	mov	R7,#20
+	mov	R4,#0
+	mov	R5,#1
+	gcall	_PutWord
+	.SYMB	LINE, 305, 21
+
+; config.c	   305      PutWord(Yinc, 0);
+	clr	A
+	mov	R5,A
+	mov	R4,A
+	mov	R7,#22
+	gcall	_PutWord
+	.SYMB	LINE, 306, 23
+
+; config.c	   306      PutByte(StartL, 0);
+	mov	R7,#24
+	mov	R5,#0
+	gcall	_PutByte
+	.SYMB	LINE, 307, 39
+
+; config.c	   307      PutByte(StartH, (next_field << 7));
+	mov	A,__REG+0
+	rr	A
+	anl	A,#128
+	mov	R5,A
+	mov	R7,#25
+	gcall	_PutByte
+	.SYMB	LINE, 308, 39
+
+; config.c	   308      PutByte(StartU, (next_field >> 1));
+	mov	A,__REG+0
+	clr	C
+	rrc	A
+	mov	R5,A
+	mov	R7,#26
+	gcall	_PutByte
+	.SYMB	LINE, 311, 30
+
+; config.c	   309  
+; config.c	   310      /* Update the PIP bounding box. */
+; config.c	   311      PutWord(Xul, mailbox.xul);
+	clr	A
+	add	A,#_mailbox
+	mov	R0,A
+	mov	AR0,R0
+	mov	AR0,R0
+	mov	AR4,@R0
+	inc	R0
+	mov	AR5,@R0
+	mov	R7,#0
+	gcall	_PutWord
+	.SYMB	LINE, 312, 30
+
+; config.c	   312      PutWord(Yul, mailbox.yul);
+	mov	A,#2
+	add	A,#_mailbox
+	mov	R0,A
+	mov	AR0,R0
+	mov	AR0,R0
+	mov	AR4,@R0
+	inc	R0
+	mov	AR5,@R0
+	mov	R7,#2
+	gcall	_PutWord
+	.SYMB	LINE, 313, 30
+
+; config.c	   313      PutWord(Xlr, mailbox.xlr);
+	mov	A,#4
+	add	A,#_mailbox
+	mov	R0,A
+	mov	AR0,R0
+	mov	AR0,R0
+	mov	AR4,@R0
+	inc	R0
+	mov	AR5,@R0
+	mov	R7,#4
+	gcall	_PutWord
+	.SYMB	LINE, 314, 30
+
+; config.c	   314      PutWord(Ylr, mailbox.ylr);
+	mov	A,#6
+	add	A,#_mailbox
+	mov	R0,A
+	mov	AR0,R0
+	mov	AR0,R0
+	mov	AR4,@R0
+	inc	R0
+	mov	AR5,@R0
+	mov	R7,#6
+	gcall	_PutWord
+	pop	__REG+0
+	.SYMB	SOFF, 0, 0
+	.SYMB	LTIM, "next_field", 50, 0x0000, 0x2041
+	.SYMB	LINE, 315, 1
+
+; config.c	   315  }
+	ret
+	.undef	__REG
+	; End of function
+	.SYMB	EFUN
+	; End of section
+
+	.section	.data_max_extend, data, max
+	.SYMB	GFUN, "UpdatePip", _UpdatePip, #284, 0x0000, 0, 2, 0x0, 0x40000, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 4, 0, 0, 0, 0, 3, 0, 0, 0, 0, 5, 0, 0, 0, 0
+	.SYMB	ALAB, _UpdatePip, #284
+	.SYMB	IDEN, "next_field", -1, #3, 0x0000, 0x2001
+	.SYMB	LTIM, "next_field", -1, 0x0000, 0x2041
+
+; config.c	   316  
+; config.c	   317  /* UpdatePip: Called during interrupts to update the registers. */
+; config.c	   318  void
+; config.c	   319  UpdatePip(void)
+__999011__1:
+	.ds	1
+	.define	__REG	"__999011__1"
+	; End of section
+
+	.section	.code, code
+	.global	_UpdatePip
+; Function _UpdatePip
+_UpdatePip:
+	.registerbank	0
+	.SYMB	LINE, 319, 1
+	.SYMB	LINE, 325, 41
+
+; config.c	   320  {
+; config.c	   321  #define FLDB   P2_1  /* current value of the BT656 F bit */
+; config.c	   322      uchar      next_field;
+; config.c	   323  
+; config.c	   324      /* bring current field up-to-date and set up DMA pointers for next */
+; config.c	   325      while ((mailbox.wrfield & 1) != FLDB) {
+	push	__REG+0
+	.SYMB	SOFF, -1, 0
+	gjmp	_18
+_19:
+	.SYMB	LINE, 326, 53
+
+; config.c	   326          mailbox.wrfield = NextField(mailbox.wrfield);
+	mov	A,#9
+	add	A,#_mailbox
+	mov	R0,A
+	mov	AR0,R0
+	mov	__REG+0,R0
+	mov	A,#9
+	add	A,#_mailbox
+	mov	R0,A
+	mov	AR0,R0
+	mov	AR7,@R0
+	gcall	_NextField
+	mov	AR0,__REG+0
+	mov	@R0,A
+_18:
+	.SYMB	LINE, 325, 41
+	mov	A,#9
+	add	A,#_mailbox
+	mov	R0,A
+	mov	AR0,R0
+	mov	A,@R0
+	anl	A,#1
+	mov	R1,A
+	mov	R0,#0
+	clr	A
+	mov	C,160.1
+	rlc	A
+	mov	R3,A
+	mov	R2,#0
+	mov	A,R1
+	gcjne	A,AR3,_19
+	mov	A,R0
+	gcjne	A,AR2,_19
+	.SYMB	LINE, 328, 44
+
+; config.c	   327      }
+; config.c	   328      next_field = NextField(mailbox.wrfield);
+	mov	A,#9
+	add	A,#_mailbox
+	mov	R0,A
+	mov	AR0,R0
+	mov	AR7,@R0
+	gcall	_NextField
+	mov	__REG+0,A
+	.SYMB	LTIM, "next_field", 50, 0x0000, 0x20c1
+	.SYMB	LINE, 331, 33
+
+; config.c	   329  
+; config.c	   330      /* Decimator setup */
+; config.c	   331      PutWord(DecXlim, 2*PipWidth);
+	mov	R4,#0
+	mov	R5,#2
+	mov	R6,#0
+	mov	R7,#180
+	gcall	__MULI
+	mov	AR5,R7
+	mov	AR4,R6
+	mov	R7,#32
+	gcall	_PutWord
+	.SYMB	LINE, 332, 32
+
+; config.c	   332      PutWord(DecYlim, PipHeight);
+	mov	R7,#34
+	mov	R4,#0
+	mov	R5,#72
+	gcall	_PutWord
+	.SYMB	LINE, 333, 24
+
+; config.c	   333      PutWord(DecXinc, 1);
+	mov	R7,#36
+	mov	R4,#0
+	mov	R5,#1
+	gcall	_PutWord
+	.SYMB	LINE, 334, 24
+
+; config.c	   334      PutWord(DecYinc, 0);
+	clr	A
+	mov	R5,A
+	mov	R4,A
+	mov	R7,#38
+	gcall	_PutWord
+	.SYMB	LINE, 335, 26
+
+; config.c	   335      PutByte(DecStartL, 0);
+	mov	R7,#40
+	mov	R5,#0
+	gcall	_PutByte
+	.SYMB	LINE, 336, 42
+
+; config.c	   336      PutByte(DecStartH, (next_field << 7));
+	mov	A,__REG+0
+	rr	A
+	anl	A,#128
+	mov	R5,A
+	mov	R7,#41
+	gcall	_PutByte
+	.SYMB	LINE, 337, 42
+
+; config.c	   337      PutByte(DecStartU, (next_field >> 1));
+	mov	A,__REG+0
+	clr	C
+	rrc	A
+	mov	R5,A
+	mov	R7,#42
+	gcall	_PutByte
+	pop	__REG+0
+	.SYMB	SOFF, 0, 0
+	.SYMB	LTIM, "next_field", 50, 0x0000, 0x2041
+	.SYMB	LINE, 338, 1
+
+; config.c	   338  }
+	ret
+	.undef	__REG
+	; End of function
+	.SYMB	EFUN
+	; End of section
+
+	.section	.data_max_extend, data, max
+	.SYMB	TYPE, 285, 'X', 0x0008, #1, 0, 1, #3
+	.SYMB	GFUN, "SetChannel", _SetChannel, #285, 0x0000, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 4, 0, 0, 0, 0, 3, 0, 0, 0, 0, 5, 0, 0, 0, 0
+	.SYMB	ALAB, _SetChannel, #285
+	.SYMB	IDEN, "n", 7, #3, 0x0000, 0x2801
+
+; config.c	   339  
+; config.c	   340  /* SetChannel: Select the input channel for the main image. */
+; config.c	   341  void
+; config.c	   342  SetChannel(KeyNum n)
+__999012__1:
+	.define	__REG	"__999012__1"
+	; End of section
+
+	.section	.code, code
+	.global	_SetChannel
+; Function _SetChannel
+_SetChannel:
+	.registerbank	0
+	.SYMB	LINE, 342, 1
+	.SYMB	LTIM, "n", 7, 0x0000, 0x28c1
+	mov	AR7,R7
+	.SYMB	LINE, 345, 11
+
+; config.c	   343  {
+; config.c	   344      /* Disable interrupts during update of the mailbox. */
+; config.c	   345      EA = 0;
+	clr	168.7
+	.SYMB	LINE, 346, 20
+
+; config.c	   346      mailbox.xul = 0;
+	clr	A
+	add	A,#_mailbox
+	mov	R0,A
+	mov	AR0,R0
+	mov	AR0,R0
+	clr	A
+	mov	@R0,A
+	inc	R0
+	mov	@R0,A
+	.SYMB	LINE, 347, 20
+
+; config.c	   347      mailbox.yul = 0;
+	mov	A,#2
+	add	A,#_mailbox
+	mov	R0,A
+	mov	AR0,R0
+	mov	AR0,R0
+	clr	A
+	mov	@R0,A
+	inc	R0
+	mov	@R0,A
+	.SYMB	LINE, 348, 20
+
+; config.c	   348      mailbox.xlr = 0;
+	mov	A,#4
+	add	A,#_mailbox
+	mov	R0,A
+	mov	AR0,R0
+	mov	AR0,R0
+	clr	A
+	mov	@R0,A
+	inc	R0
+	mov	@R0,A
+	.SYMB	LINE, 349, 20
+
+; config.c	   349      mailbox.ylr = 0;
+	mov	A,#6
+	add	A,#_mailbox
+	mov	R0,A
+	mov	AR0,R0
+	mov	AR0,R0
+	clr	A
+	mov	@R0,A
+	inc	R0
+	mov	@R0,A
+	.SYMB	LINE, 350, 11
+
+; config.c	   350      EA = 1;
+	setb	168.7
+	.SYMB	LINE, 351, 50
+
+; config.c	   351      (void)I2cPoke(DecoderA, ModeReg, (Mode0 + n));
+	mov	A,R7
+	add	A,#192
+	mov	R3,A
+	mov	R7,#72
+	.SYMB	LTIM, "n", 7, 0x0000, 0x2841
+	mov	AR7,R7
+	mov	R5,#2
+	mov	AR5,R5
+	mov	AR3,R3
+	gcall	_I2cPoke
+	mov	AR7,R7
+	mov	AR6,R6
+	.SYMB	LINE, 352, 1
+
+; config.c	   352  }
+	ret
+	.undef	__REG
+	; End of function
+	.SYMB	EFUN
+	; End of section
+
+	.section	.data_max_extend, data, max
+	.SYMB	GFUN, "SetPip", _SetPip, #285, 0x0000, 0, 2, 0x0, 0x40000, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 4, 0, 0, 0, 0, 3, 0, 0, 0, 0, 5, 0, 0, 0, 0
+	.SYMB	ALAB, _SetPip, #285
+	.SYMB	IDEN, "n", 7, #3, 0x0000, 0x2801
+
+; config.c	   353  
+; config.c	   354  /* SetPip: Select the input channel and bounding box for PIP. */
+; config.c	   355  void
+; config.c	   356  SetPip(KeyNum n)
+__999013__2:
+	.ds	1
+	.define	__REG	"__999013__2"
+	; End of section
+
+	.section	.code, code
+	.global	_SetPip
+; Function _SetPip
+_SetPip:
+	.registerbank	0
+	.SYMB	LINE, 356, 1
+	.SYMB	LTIM, "n", 7, 0x0000, 0x28c1
+	push	__REG+0
+	.SYMB	SOFF, -1, 0
+	mov	__REG+0,R7
+	.SYMB	LTIM, "n", 50, 0x0000, 0x28c1
+	.SYMB	LINE, 358, 50
+
+; config.c	   357  {
+; config.c	   358      (void)I2cPoke(DecoderB, ModeReg, (Mode0 + n));
+	mov	A,__REG+0
+	add	A,#192
+	mov	R3,A
+	mov	R7,#74
+	.SYMB	LTIM, "n", 7, 0x0000, 0x2841
+	mov	AR7,R7
+	mov	R5,#2
+	mov	AR5,R5
+	mov	AR3,R3
+	gcall	_I2cPoke
+	mov	AR7,R7
+	mov	AR6,R6
+	.SYMB	LINE, 360, 11
+
+; config.c	   359      /* Disable interrupts during update of the mailbox. */
+; config.c	   360      EA = 0;
+	clr	168.7
+	.SYMB	LINE, 361, 26
+
+; config.c	   361      mailbox.xul = (n & 1)? Xright : Xleft;
+	mov	A,__REG+0
+	anl	A,#1
+	gjz	_20
+	mov	R3,#194
+	mov	R2,#1
+	.SYMB	LINE, 361, 35
+	gjmp	_21
+_20:
+	.SYMB	LINE, 361, 26
+	mov	R3,#90
+	mov	R2,#0
+_21:
+	.SYMB	LINE, 361, 42
+	clr	A
+	add	A,#_mailbox
+	mov	R0,A
+	mov	AR0,R0
+	mov	AR0,R0
+	mov	@R0,AR2
+	inc	R0
+	mov	@R0,AR3
+	.SYMB	LINE, 362, 26
+
+; config.c	   362      mailbox.yul = (n > 1)? Ylower : Yupper;
+	mov	A,__REG+0
+	setb	C
+	subb	A,#1
+	gjc	_22
+	mov	R3,#180
+	mov	R2,#0
+	.SYMB	LINE, 362, 35
+	gjmp	_23
+_22:
+	.SYMB	LINE, 362, 26
+	mov	R3,#36
+	mov	R2,#0
+_23:
+	.SYMB	LINE, 362, 43
+	mov	A,#2
+	add	A,#_mailbox
+	mov	R0,A
+	mov	AR0,R0
+	mov	AR0,R0
+	mov	@R0,AR2
+	inc	R0
+	mov	@R0,AR3
+	.SYMB	LINE, 363, 45
+
+; config.c	   363      mailbox.xlr = mailbox.xul + PipWidth - 1;
+	mov	A,#4
+	add	A,#_mailbox
+	mov	R0,A
+	mov	AR1,R0
+	clr	A
+	add	A,#_mailbox
+	mov	R0,A
+	mov	AR0,R0
+	mov	AR0,R0
+	mov	AR2,@R0
+	inc	R0
+	mov	AR3,@R0
+	mov	A,R3
+	add	A,#180
+	mov	R5,A
+	mov	A,R2
+	addc	A,#0
+	mov	R4,A
+	mov	AR3,R5
+	mov	AR2,R4
+	dec	R3
+	mov	A,R3
+	gcjne	A,#255,_2147483642
+	dec	R2
+_2147483642:
+	mov	AR0,R1
+	mov	@R0,AR2
+	inc	R0
+	mov	@R0,AR3
+	.SYMB	LINE, 364, 46
+
+; config.c	   364      mailbox.ylr = mailbox.yul + PipHeight - 1;
+	mov	A,#6
+	add	A,#_mailbox
+	mov	R0,A
+	mov	AR1,R0
+	mov	A,#2
+	add	A,#_mailbox
+	mov	R0,A
+	mov	AR0,R0
+	mov	AR0,R0
+	mov	AR2,@R0
+	inc	R0
+	mov	AR3,@R0
+	mov	A,R3
+	add	A,#72
+	mov	R5,A
+	mov	A,R2
+	addc	A,#0
+	mov	R4,A
+	mov	AR3,R5
+	mov	AR2,R4
+	dec	R3
+	mov	A,R3
+	gcjne	A,#255,_2147483641
+	dec	R2
+_2147483641:
+	mov	AR0,R1
+	mov	@R0,AR2
+	inc	R0
+	mov	@R0,AR3
+	.SYMB	LINE, 365, 11
+
+; config.c	   365      EA = 1;
+	setb	168.7
+	pop	__REG+0
+	.SYMB	SOFF, 0, 0
+	.SYMB	LTIM, "n", 50, 0x0000, 0x2841
+	.SYMB	LINE, 366, 1
+
+; config.c	   366  }
+	ret
+	.undef	__REG
+	.SYMB	ENDF
+	; End of function
+	.SYMB	EFUN
+	; End of section
+
+	.section	.code_romdata, code, romdata
+_cfgSAA7127:
+	.db	37
+	.db	1
+	.db	0
+	.db	0
+	.db	0
+	.db	0
+	.db	0
+	.db	0
+	.db	0
+	.db	0
+	.db	0
+	.db	0
+	.db	0
+	.db	0
+	.db	0
+	.db	0
+	.db	0
+	.db	0
+	.db	0
+	.db	0
+	.db	0
+	.db	0
+	.db	0
+	.db	0
+	.db	0
+	.db	0
+	.db	0
+	.db	0
+	.db	0
+	.db	0
+	.db	0
+	.db	0
+	.db	0
+	.db	0
+	.db	0
+	.db	0
+	.db	0
+	.db	0
+	.db	0
+	.db	9
+	.db	38
+	.db	8
+	.db	0
+	.db	33
+	.db	29
+	.db	0
+	.db	0
+	.db	0
+	.db	15
+	.db	0
+	.db	9
+	.db	47
+	.db	0
+	.db	0
+	.db	0
+	.db	0
+	.db	0
+	.db	0
+	.db	0
+	.db	0
+	.db	0
+	.db	2
+	.db	56
+	.db	26
+	.db	26
+	.db	1
+	.db	58
+	.db	19
+	.db	25
+	.db	59
+	.db	0
+	.db	0
+	.db	0
+	.db	0
+	.db	0
+	.db	0
+	.db	0
+	.db	0
+	.db	0
+	.db	0
+	.db	0
+	.db	0
+	.db	0
+	.db	0
+	.db	0
+	.db	0
+	.db	0
+	.db	0
+	.db	0
+	.db	0
+	.db	0
+	.db	0
+	.db	0
+	.db	0
+	.db	0
+	.db	6
+	.db	84
+	.db	0
+	.db	0
+	.db	0
+	.db	0
+	.db	0
+	.db	0
+	.db	6
+	.db	90
+	.db	107
+	.db	125
+	.db	175
+	.db	51
+	.db	53
+	.db	53
+	.db	3
+	.db	96
+	.db	0
+	.db	134
+	.db	47
+	.db	4
+	.db	99
+	.db	203
+	.db	138
+	.db	9
+	.db	42
+	.db	4
+	.db	103
+	.db	85
+	.db	86
+	.db	103
+	.db	88
+	.db	1
+	.db	107
+	.db	0
+	.db	4
+	.db	108
+	.db	9
+	.db	32
+	.db	160
+	.db	20
+	.db	3
+	.db	112
+	.db	201
+	.db	104
+	.db	96
+	.db	7
+	.db	115
+	.db	66
+	.db	3
+	.db	3
+	.db	5
+	.db	22
+	.db	4
+	.db	22
+	.db	3
+	.db	122
+	.db	24
+	.db	56
+	.db	64
+	.db	1
+	.db	125
+	.db	0
+	.db	2
+	.db	126
+	.db	0
+	.db	0
+	.db	0
+_cfgSAA7111A:
+	.db	1
+	.db	0
+	.db	0
+	.db	1
+	.db	1
+	.db	0
+	.db	1
+	.db	2
+	.db	192
+	.db	1
+	.db	3
+	.db	35
+	.db	1
+	.db	4
+	.db	0
+	.db	1
+	.db	5
+	.db	0
+	.db	1
+	.db	6
+	.db	235
+	.db	1
+	.db	7
+	.db	224
+	.db	1
+	.db	8
+	.db	136
+	.db	1
+	.db	9
+	.db	1
+	.db	1
+	.db	10
+	.db	128
+	.db	1
+	.db	11
+	.db	71
+	.db	1
+	.db	12
+	.db	64
+	.db	1
+	.db	13
+	.db	0
+	.db	1
+	.db	14
+	.db	1
+	.db	1
+	.db	15
+	.db	0
+	.db	1
+	.db	16
+	.db	200
+	.db	1
+	.db	17
+	.db	28
+	.db	1
+	.db	18
+	.db	0
+	.db	1
+	.db	19
+	.db	0
+	.db	1
+	.db	20
+	.db	0
+	.db	1
+	.db	21
+	.db	0
+	.db	1
+	.db	22
+	.db	0
+	.db	1
+	.db	23
+	.db	0
+	.db	1
+	.db	24
+	.db	0
+	.db	1
+	.db	25
+	.db	0
+	.db	1
+	.db	29
+	.db	0
+	.db	1
+	.db	30
+	.db	0
+	.db	0
+	; End of section
+
+	.section	.data_clear, data, clear
+_mailbox:
+	.ds	10
+	; End of section
+
+	
+	.extern	_I2cPoke : code
+	.extern	__REG : data
+	.extern	__IDXPI : code
+	.extern	__SHRI : code
+	.extern	__MULI : code
+
+; config.c	   367  
+	; Module end
+	.end

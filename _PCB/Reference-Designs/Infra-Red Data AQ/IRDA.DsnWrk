@@ -1,0 +1,8 @@
+[ProjectGroup]
+Version=1.0
+[Project1]
+ProjectPath=SoIrDA.PrjFpg
+[Project2]
+ProjectPath=pcb\PcbIrda.PrjPCB
+[Project3]
+ProjectPath=test_ser\test_ser.PrjEmb

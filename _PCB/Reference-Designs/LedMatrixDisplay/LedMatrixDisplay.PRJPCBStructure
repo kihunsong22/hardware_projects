@@ -1,0 +1,19 @@
+Record=SheetSymbol|SourceDocument=LedMatrixDisplay.SCHDOC|Designator=DIGITS|SchDesignator=DIGITS|FileName=Eight_5x7.SCHDOC|SymbolType=Normal|RawFileName=Eight_5x7.SCHDOC
+Record=SheetSymbol|SourceDocument=LedMatrixDisplay.SCHDOC|Designator=LED_SW|SchDesignator=LED_SW|FileName=LED_DIPSWITCH.SchDoc|SymbolType=Normal|RawFileName=LED_DIPSWITCH.SchDoc
+Record=SheetSymbol|SourceDocument=LedMatrixDisplay.SCHDOC|Designator=PWR|SchDesignator=PWR|FileName=Power.SchDoc|SymbolType=Normal|RawFileName=Power.SchDoc
+Record=SheetSymbol|SourceDocument=LedMatrixDisplay.SCHDOC|Designator=U_FPGA_U1|SchDesignator=U_FPGA_U1|FileName=FPGA_U1_Manual.SchDoc|SymbolType=Normal|RawFileName=FPGA_U1_Manual.SchDoc
+Record=SheetSymbol|SourceDocument=Eight_5x7.SCHDOC|Designator=DG1|SchDesignator=DG1|FileName=DigitHolder.SCHDOC|SymbolType=Normal|RawFileName=DigitHolder.SCHDOC
+Record=SheetSymbol|SourceDocument=Eight_5x7.SCHDOC|Designator=DG2|SchDesignator=DG2|FileName=DigitHolder.SCHDOC|SymbolType=Normal|RawFileName=DigitHolder.SCHDOC
+Record=SheetSymbol|SourceDocument=Eight_5x7.SCHDOC|Designator=DG3|SchDesignator=DG3|FileName=DigitHolder.SCHDOC|SymbolType=Normal|RawFileName=DigitHolder.SCHDOC
+Record=SheetSymbol|SourceDocument=Eight_5x7.SCHDOC|Designator=DG4|SchDesignator=DG4|FileName=DigitHolder.SCHDOC|SymbolType=Normal|RawFileName=DigitHolder.SCHDOC
+Record=SheetSymbol|SourceDocument=Eight_5x7.SCHDOC|Designator=DG5|SchDesignator=DG5|FileName=DigitHolder.SCHDOC|SymbolType=Normal|RawFileName=DigitHolder.SCHDOC
+Record=SheetSymbol|SourceDocument=Eight_5x7.SCHDOC|Designator=DG6|SchDesignator=DG6|FileName=DigitHolder.SCHDOC|SymbolType=Normal|RawFileName=DigitHolder.SCHDOC
+Record=SheetSymbol|SourceDocument=Eight_5x7.SCHDOC|Designator=DG7|SchDesignator=DG7|FileName=DigitHolder.SCHDOC|SymbolType=Normal|RawFileName=DigitHolder.SCHDOC
+Record=SheetSymbol|SourceDocument=Eight_5x7.SCHDOC|Designator=DG8|SchDesignator=DG8|FileName=DigitHolder.SCHDOC|SymbolType=Normal|RawFileName=DigitHolder.SCHDOC
+Record=SheetSymbol|SourceDocument=FPGA_U1_Manual.SchDoc|Designator=U_FPGA_U1_Auto|SchDesignator=U_FPGA_U1_Auto|FileName=FPGA_U1_Auto.SchDoc|SymbolType=Normal|RawFileName=FPGA_U1_Auto.SchDoc
+Record=SubProject|ProjectPath=Fpga_u1\LedMatrix.PrjFpg
+Record=SubProject|ProjectPath=Fpga_u1\LedMatrix.PrjFpg
+Record=SubProject|ProjectPath=Fpga_u1\LedMatrix.PrjFpg
+Record=TopLevelDocument|FileName=LedMatrixDisplay.SCHDOC
+Record=FPGA_COMPONENT|BaseComponentDesignator=U1|DocumentName=FPGA_U1_Auto.SchDoc|LibraryReference=XC2S300E-6PQ208C|SubProjectPath=Fpga_u1\LedMatrix.PrjFpg|Configuration=Spartan300_NB1|Description=Spartan-IIE 1.8V FPGA, 208-Pin PQFP, Standard Performance, Commercial Grade|SubPartUniqueId1=UFFTBQPU|SubPartDocPath1=FPGA_U1_Auto.SchDoc|SubPartUniqueId2=DSDGRBQR|SubPartDocPath2=FPGA_U1_Auto.SchDoc|SubPartUniqueId3=SMGWLGJI|SubPartDocPath3=FPGA_U1_Auto.SchDoc
+Record=FPGA_COMPONENT|BaseComponentDesignator=U2|DocumentName=FPGA_U1_Manual.SchDoc|LibraryReference=XCF02SVO20C|SubProjectPath= |Configuration= |Description=XCF00S Series, Platform Flash In-System Programmable Configuration 3.3V PROM, 20-Pin TSOP, 2-Megabit, Commercial Grade|SubPartUniqueId1=OYAJHHBP|SubPartDocPath1=FPGA_U1_Manual.SchDoc

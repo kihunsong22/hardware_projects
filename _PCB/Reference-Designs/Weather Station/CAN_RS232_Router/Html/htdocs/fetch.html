@@ -1,0 +1,55 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<META HTTP-EQUIV="Pragma" CONTENT="no-cache"> 
+<META HTTP-EQUIV="Expires" CONTENT="-1"> 
+<script language="JavaScript">
+
+<!--
+
+function getArgs(  ) {
+    var args = new Object(  );
+    var query = location.search.substring(1);     
+    var pairs = query.split(",");
+    for(var i = 0; i < pairs.length; i++) {
+        var pos = pairs[i].indexOf('=');
+        if (pos == -1) continue;
+        var argname = pairs[i].substring(0,pos);
+        var value = pairs[i].substring(pos+1);
+        args[argname] = unescape(value);
+    }
+    return args;     // Return the object
+}
+
+function update()
+{
+	var	arg;
+	arg = getArgs();
+
+	if ( !isNaN( arg["temp"] ))
+	{
+		parent.temperature = eval( arg["temp"] );
+	}
+
+	if ( !isNaN( arg["wdir"] ))
+	{
+		parent.winddir = eval( arg["wdir"] );
+	}
+
+	if ( !isNaN( arg["wspeed"] ))
+	{
+		parent.windspeed = eval( arg["wspeed"] );
+	}
+
+	parent.heartbeat++;
+	onError = parent.restart();
+	location.replace( "http://" + parent.wsurl + "fetch.shtml?" + location.protocol + "//" + location.hostname + location.pathname );
+}
+//-->
+</script>
+</head>
+<body onload="setTimeout( update, 3000 )">
+<script language="JavaScript">document.write( 'Data receiver at "' + location.host + '" received ' + location.search );</script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<html>
+<head>
+<title>Altium Weatherstation</title>
+
+<script language="JavaScript">
+<!--
+var temperature = 0;
+var winddir = 0;
+var windspeed = 0;
+
+function showarrow( item, index )
+{
+	rad = Math.PI * index / 128;
+	costheta = Math.cos(rad);
+	sintheta = Math.sin(rad);
+	r = Math.sqrt( document.images[item].width * document.images[item].width + document.images[item].height * document.images[item].height );
+	rad += Math.PI / 4;	// 45 degrees further
+	x = Math.cos( rad ) * r;
+	y = Math.sin( rad ) * r;
+	w = Math.max( Math.abs( x ), Math.abs( y ));		// Total width of new image
+	hw = Math.round( w / 2 );
+	document.images[item].filters.item(0).M11 = costheta;
+	document.images[item].filters.item(0).M12 = -sintheta;
+	document.images[item].filters.item(0).M21 = sintheta;
+	document.images[item].filters.item(0).M22 = costheta;
+	document.images[item].style.left = - hw;
+	document.images[item].style.top = - hw;
+}
+
+function update()
+{
+	showarrow( "winddir", winddir * 256 / 360 + 128 );
+	showarrow( "windspeed", (windspeed * 192) / 60 + 32 );
+	showarrow( "temperature", (temperature + 20) / 60 * 192 + 32);
+}
+
+//-->
+</script>
+</head>
+<body bgcolor="#0000CC" text="white" OnLoad="setInterval(update,1000);">
+<div align="center">
+<table background="klokken.png" cols="5" rows="3" border="0" width="898" height="288">
+<tr height="1">
+	<td colspan="5"><img src="spacer.gif" border="0"></td>
+</tr>
+<tr height="222">
+	<td width="20"><img src="spacer.gif" border="0"></td>
+	<td width="286" align="center"><div style="position:absolute"><img name="winddir" src="arrow.gif" border="0" style="position:absolute; filter:progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand')"></div></td>
+	<td width="286" align="center"><div style="position:absolute"><img name="windspeed" src="arrow.gif" border="0" style="position:absolute; filter:progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand')"></div></td>
+	<td width="286" align="center"><div style="position:absolute"><img name="temperature" src="arrow.gif" border="0" style="position:absolute; filter:progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand')"></div></td>
+	<td width="20"><img src="spacer.gif" border="0"></td>
+</tr>
+<tr height="1">
+	<td colspan="5"><img src="spacer.gif" border="0"></td>
+</tr>
+</table>
+</div>
+<p>
+<table>
+<tr><td><iframe height="0" width="100" border="0" src="fetch.shtml"></iframe></tr></td>
+</table>
+</body>
+</html>

@@ -1,0 +1,6 @@
+user user password
+mkdir htdocs
+cd htdocs
+mput *
+quit
+

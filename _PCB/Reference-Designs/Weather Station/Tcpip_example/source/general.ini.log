@@ -1,0 +1,19 @@
+RUNNING: C:\projects\tcpip_boc\source\tools\stackconfmake.exe (stackconfmake v1.1)
+writing files to be used to tcpipfiles_readme.txt
+writing settings to tcpipset.h
+writing httpserver definition to httpdef.h
+writing html form to httppages/cgiform.html
+CALLING: '"C:\projects\tcpip_boc\source\tools\makefixedfs.exe" "httppages" httpdef_fixed.h "C:\projects\tcpip_boc\source\general.ini.log"'
+RUNNING: C:\projects\tcpip_boc\source\tools\makefixedfs.exe (makefixedfs v1.1)
+parsing directory httppages
+(F) httppages/cgiform.html
+(F) httppages/index.html
+OK: makefixedfs finished
+CALLING: '"C:\projects\tcpip_boc\source\tools\makediskimg.exe"  -r "C:\projects\tcpip_boc\source\general.ini.log" -i "fsdemo" -o fsdef -d 8192 -c 128 -l 9 -e 64 -f B1'
+RUNNING: C:\projects\tcpip_boc\source\tools\makediskimg.exe (makediskimg v1.1)
+(D) fsdemo/htdocs
+(F) fsdemo/htdocs/fs.html
+(F) fsdemo/htdocs/test.jpg
+(F) fsdemo/htdocs/test.txt
+OK: makediskimg finished
+OK: stackconfmake finished

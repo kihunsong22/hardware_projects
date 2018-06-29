@@ -1,0 +1,58 @@
+;...............................................................................
+;Constraints File
+;   Device  : Xilinx Spartan 2E - XC2S300E-6PQ208C
+;   Board   : Custom 8-Character LED Matrix Board LedMatixDisplay.PrjPCB
+;   Project : LedMatix.PrjFPG and LedMatixDisplay.PrjPCB
+;
+;   Created 29/11/2003
+;...............................................................................
+
+;...............................................................................
+Record=FileHeader | Id=DXP Constraints v1.0
+;...............................................................................
+
+;...............................................................................
+Record=Constraint | TargetKind=Part | TargetId=XC2S300E-6PQ208C
+Record=Constraint | TargetKind=PCB | TargetId=LedMatrixDisplay.PRJPCB
+;...............................................................................
+
+;...............................................................................
+Record=Constraint | TargetKind=Port | TargetId=RED[4..0] | FPGA_PINNUM=P63,P61,P60,P59,P57
+Record=Constraint | TargetKind=Port | TargetId=Green[4..0] | FPGA_PINNUM=P17,P45,P135,P96,P167
+Record=Constraint | TargetKind=Port | TargetId=RowA[6..0] | FPGA_PINNUM=P129,P127,P125,P123,P122,P121,P115
+Record=Constraint | TargetKind=Port | TargetId=RowB[6..0] | FPGA_PINNUM=P149,P148,P147,P146,P141,P140,P136
+Record=Constraint | TargetKind=Port | TargetId=RowC[6..0] | FPGA_PINNUM=P179,P178,P176,P175,P174,P173,P169
+Record=Constraint | TargetKind=Port | TargetId=RowD[6..0] | FPGA_PINNUM=P203,P202,P201,P200,P199,P198,P194
+Record=Constraint | TargetKind=Port | TargetId=RowE[6..0] | FPGA_PINNUM=P166,P165,P164,P163,P162,P152,P151
+Record=Constraint | TargetKind=Port | TargetId=RowF[6..0] | FPGA_PINNUM=P20,P18,P16,P15,P11,P10,P9
+Record=Constraint | TargetKind=Port | TargetId=RowG[6..0] | FPGA_PINNUM=P7,P6,P5,P3,P4,P206,P205
+Record=Constraint | TargetKind=Port | TargetId=RowH[6..0] | FPGA_PINNUM=P192,P191,P189,P188,P187,P181,P180
+;...............................................................................
+
+;...............................................................................
+Record=Constraint | TargetKind=Port | TargetId=WR | FPGA_PINNUM=P98
+Record=Constraint | TargetKind=Port | TargetId=WR_REG | FPGA_PINNUM=P86
+Record=Constraint | TargetKind=Port | TargetId=DATA[7..0] | FPGA_PINNUM=P111,P112,P113,P114,P102,P101,P100,P99
+;...............................................................................
+
+;...............................................................................
+Record=Constraint | TargetKind=Port | TargetId=CLK_MHZ40 | FPGA_PINNUM=P185
+Record=Constraint | TargetKind=Port | TargetId=CLK_MHZ40 | FPGA_CLOCK=TRUE
+;...............................................................................
+
+;...............................................................................
+Record=Constraint | TargetKind=Port | TargetId=JTAG_NEXUS_TCK | FPGA_PINNUM=P134
+Record=Constraint | TargetKind=Port | TargetId=JTAG_NEXUS_TDI | FPGA_PINNUM=P138
+Record=Constraint | TargetKind=Port | TargetId=JTAG_NEXUS_TDO | FPGA_PINNUM=P133
+Record=Constraint | TargetKind=Port | TargetId=JTAG_NEXUS_TMS | FPGA_PINNUM=P139
+;...............................................................................
+
+;...............................................................................
+Record=Constraint | TargetKind=Port | TargetId=ADDR[2..0] | FPGA_PINNUM=P97,P109,P110
+Record=Constraint | TargetKind=Port | TargetId=BOARD_ADDR[7..0] | FPGA_PINNUM=P55,P56,P58,P62,P49,P48,P47,P46
+Record=Constraint | TargetKind=Port | TargetId=LED[7..0] | FPGA_PINNUM=P44,P43,P42,P41,P40,P36,P34,P35
+Record=Constraint | TargetKind=Port | TargetId=ENABLE[7..0] | FPGA_PINNUM=P22,P8,P204,P193,P68,P168,P150,P132
+Record=Constraint | TargetKind=Port | TargetId=JUMPERS[7..0] | FPGA_PINNUM=P23,P24,P27,P29,P21,P30,P31,P33
+;...............................................................................
+
+
