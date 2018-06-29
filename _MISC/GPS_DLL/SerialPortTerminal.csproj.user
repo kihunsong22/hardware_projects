@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <LastOpenVersion>8.0.50215</LastOpenVersion>
+    <PublishUrlHistory>ftp://coad.net/blog/resources/clickonce/SerialPortTerminal/|ftp://coadnet0000:kleenex%40coad.net/blog/resources/clickonce/SerialPortTerminal/|http://coad.net/projects/dad/SerialPortTerminal/</PublishUrlHistory>
+    <InstallUrlHistory>http://coad.net/blog/resources/clickonce/SerialPortTerminal/</InstallUrlHistory>
+    <SupportUrlHistory>http://coad.net</SupportUrlHistory>
+    <UpdateUrlHistory>
+    </UpdateUrlHistory>
+    <BootstrapperUrlHistory>
+    </BootstrapperUrlHistory>
+    <ErrorReportUrlHistory>
+    </ErrorReportUrlHistory>
+    <FallbackCulture>en-US</FallbackCulture>
+    <VerifyUploadedFiles>false</VerifyUploadedFiles>
+  </PropertyGroup>
+  <PropertyGroup>
+    <EnableSecurityDebugging>false</EnableSecurityDebugging>
+  </PropertyGroup>
+</Project>

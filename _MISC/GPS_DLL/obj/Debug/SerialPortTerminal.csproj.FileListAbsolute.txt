@@ -1,0 +1,38 @@
+C:\Users\unitech\Downloads\SerialPortTerminal\SerialPortTerminal\bin\Debug\SerialPort Terminal.exe.config
+C:\Users\unitech\Downloads\SerialPortTerminal\SerialPortTerminal\bin\Debug\SerialPort Terminal.exe.manifest
+C:\Users\unitech\Downloads\SerialPortTerminal\SerialPortTerminal\bin\Debug\SerialPort Terminal.application
+C:\Users\unitech\Downloads\SerialPortTerminal\SerialPortTerminal\bin\Debug\SerialPort Terminal.exe
+C:\Users\unitech\Downloads\SerialPortTerminal\SerialPortTerminal\bin\Debug\SerialPort Terminal.pdb
+C:\Users\unitech\Downloads\SerialPortTerminal\SerialPortTerminal\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\unitech\Downloads\SerialPortTerminal\SerialPortTerminal\obj\Debug\SerialPortTerminal.frmTerminal.resources
+C:\Users\unitech\Downloads\SerialPortTerminal\SerialPortTerminal\obj\Debug\SerialPortTerminal.Properties.Resources.resources
+C:\Users\unitech\Downloads\SerialPortTerminal\SerialPortTerminal\obj\Debug\ResGen.read.1.tlog
+C:\Users\unitech\Downloads\SerialPortTerminal\SerialPortTerminal\obj\Debug\ResGen.write.1.tlog
+C:\Users\unitech\Downloads\SerialPortTerminal\SerialPortTerminal\obj\Debug\SerialPort Terminal.exe.manifest
+C:\Users\unitech\Downloads\SerialPortTerminal\SerialPortTerminal\obj\Debug\SerialPort Terminal.application
+C:\Users\unitech\Downloads\SerialPortTerminal\SerialPortTerminal\obj\Debug\SerialPort Terminal.exe
+C:\Users\unitech\Downloads\SerialPortTerminal\SerialPortTerminal\obj\Debug\SerialPort Terminal.pdb
+C:\Users\unitech\Downloads\SerialPortTerminal\SerialPortTerminal\obj\Debug\ServiceWnd.baml
+C:\Users\unitech\Downloads\SerialPortTerminal\SerialPortTerminal\obj\Debug\ServiceWnd.g.cs
+C:\Users\unitech\Downloads\SerialPortTerminal\SerialPortTerminal\obj\Debug\SerialPort Terminal_Content.g.cs
+C:\Users\unitech\Downloads\SerialPortTerminal\SerialPortTerminal\obj\Debug\SerialPort Terminal_MarkupCompile.cache
+C:\Users\unitech\Downloads\SerialPortTerminal\SerialPortTerminal\obj\Debug\SerialPort Terminal.g.resources
+C:\Users\unitech\Desktop\Essential Programs\SerialPortTerminal\SerialPortTerminal\bin\Debug\SerialPort Terminal.exe.config
+C:\Users\unitech\Desktop\Essential Programs\SerialPortTerminal\SerialPortTerminal\obj\Debug\SerialPort Terminal.exe
+C:\Users\unitech\Desktop\Essential Programs\SerialPortTerminal\SerialPortTerminal\obj\Debug\SerialPort Terminal.pdb
+C:\Users\unitech\Desktop\Essential Programs\SerialPortTerminal\SerialPortTerminal\bin\Debug\SerialPort Terminal.exe.manifest
+C:\Users\unitech\Desktop\Essential Programs\SerialPortTerminal\SerialPortTerminal\bin\Debug\SerialPort Terminal.application
+C:\Users\unitech\Desktop\Essential Programs\SerialPortTerminal\SerialPortTerminal\bin\Debug\SerialPort Terminal.exe
+C:\Users\unitech\Desktop\Essential Programs\SerialPortTerminal\SerialPortTerminal\bin\Debug\SerialPort Terminal.pdb
+C:\Users\unitech\Desktop\Essential Programs\SerialPortTerminal\SerialPortTerminal\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\unitech\Desktop\Essential Programs\SerialPortTerminal\SerialPortTerminal\obj\Debug\ServiceWnd.baml
+C:\Users\unitech\Desktop\Essential Programs\SerialPortTerminal\SerialPortTerminal\obj\Debug\ServiceWnd.g.cs
+C:\Users\unitech\Desktop\Essential Programs\SerialPortTerminal\SerialPortTerminal\obj\Debug\SerialPort Terminal_Content.g.cs
+C:\Users\unitech\Desktop\Essential Programs\SerialPortTerminal\SerialPortTerminal\obj\Debug\SerialPort Terminal_MarkupCompile.cache
+C:\Users\unitech\Desktop\Essential Programs\SerialPortTerminal\SerialPortTerminal\obj\Debug\SerialPort Terminal.g.resources
+C:\Users\unitech\Desktop\Essential Programs\SerialPortTerminal\SerialPortTerminal\obj\Debug\SerialPortTerminal.frmTerminal.resources
+C:\Users\unitech\Desktop\Essential Programs\SerialPortTerminal\SerialPortTerminal\obj\Debug\SerialPortTerminal.Properties.Resources.resources
+C:\Users\unitech\Desktop\Essential Programs\SerialPortTerminal\SerialPortTerminal\obj\Debug\ResGen.read.1.tlog
+C:\Users\unitech\Desktop\Essential Programs\SerialPortTerminal\SerialPortTerminal\obj\Debug\ResGen.write.1.tlog
+C:\Users\unitech\Desktop\Essential Programs\SerialPortTerminal\SerialPortTerminal\obj\Debug\SerialPort Terminal.exe.manifest
+C:\Users\unitech\Desktop\Essential Programs\SerialPortTerminal\SerialPortTerminal\obj\Debug\SerialPort Terminal.application

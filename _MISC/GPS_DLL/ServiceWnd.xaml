@@ -1,0 +1,31 @@
+﻿<Window x:Class="SerialPortTerminal.ServiceWnd"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Korean Map" x:Name="ServiceWndName" Background="Beige">
+
+    <Grid>
+        <Slider Orientation="Vertical" 
+           HorizontalAlignment="Left" Minimum="1" x:Name="slider"/>
+    
+    <ScrollViewer Name="scrollViewer"
+              VerticalScrollBarVisibility="Visible" 
+              HorizontalScrollBarVisibility="Visible">
+        
+        <Grid Name="grid" RenderTransformOrigin="1,1">
+            <Grid.LayoutTransform>
+                <TransformGroup>
+                    <ScaleTransform x:Name="scaleTransform" ScaleX="0.3" ScaleY="0.3"/>
+                </TransformGroup>
+            </Grid.LayoutTransform>
+            <Canvas x:Name="ServiceWndMainCanvas" 
+                Width="4096" Height="4096" Background="Beige">
+            </Canvas>
+        </Grid>
+
+    </ScrollViewer>
+
+    </Grid>
+
+
+
+</Window>
