@@ -1,18 +1,20 @@
 // https://www.norwegiancreations.com/2015/10/tutorial-potentiometers-with-arduino-and-filtering/
 
-int sensorPin = 0;
-int sensorValue = 0;    //initialization of sensor variable, equivalent to EMA Y
-float EMA_a = 0.6;      //initialization of EMA alpha
-int EMA_S = 0;          //initialization of EMA S
+    int sensorPin = 0;
+
+    int sensorValue = 0; //EMA current data
+    float EMA_a = 0.6; //EMA alpha, can be set between 0<a<1
+    int EMA = 0; //EMA output
+    // as EMA_a is set closer to 1, the more quicker the EMA output will change
  
 void setup(){
-    Serial.begin(115200);           //setup of Serial module, 115200 bits/second
-    EMA_S = analogRead(sensorPin);  //set EMA S for t=1
+    Serial.begin(115200);
+    EMA = analogRead(sensorPin); //EMA -< t=1
 }
  
 void loop(){
     sensorValue = analogRead(sensorPin);
-    EMA_S = (EMA_a*sensorValue) + ((1-EMA_a)*EMA_S);
-    Serial.println(EMA_S);
+    EMA = (EMA_a*sensorValue) + ((1-EMA_a)*EMA); //EMA formula
+    Serial.println(EMA);
     delay(50);
 }
