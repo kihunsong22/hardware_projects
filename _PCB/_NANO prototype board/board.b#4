@@ -3784,8 +3784,8 @@ design rules under a new name.</description>
 </element>
 <element name="GY-521" library="Seeed-Connector" library_urn="urn:adsk.eagle:library:478" package="H8-2.54" package3d_urn="urn:adsk.eagle:package:33113/1" value="" x="3.937" y="35.179" smashed="yes" rot="R180">
 <attribute name="MPN" value="F185-1108A1BSYC1" x="3.937" y="35.179" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="NAME" x="3.937" y="35.814" size="0.3048" layer="33" ratio="10" rot="R270"/>
 <attribute name="NAME" x="1.905" y="23.622" size="0.889" layer="25" ratio="11"/>
+<attribute name="NAME" x="3.937" y="35.814" size="0.3048" layer="33" ratio="10" rot="R270"/>
 <attribute name="VALUE" x="1.397" y="36.449" size="0.889" layer="27" ratio="11" rot="R270"/>
 </element>
 <element name="RAW_C" library="resistor" library_urn="urn:adsk.eagle:library:348" package="E3,5-8" package3d_urn="urn:adsk.eagle:package:25842/1" value="" x="19.685" y="87.63" smashed="yes" rot="R90">
@@ -3816,10 +3816,6 @@ design rules under a new name.</description>
 <element name="T3_5MM" library="Seeed-Connector" library_urn="urn:adsk.eagle:library:478" package="H2-5.0-10.5X8.0MM" package3d_urn="urn:adsk.eagle:package:33129/1" value="5mm" x="70.358" y="95.25" smashed="yes" rot="R90">
 <attribute name="NAME" x="64.643" y="93.345" size="0.889" layer="25" ratio="11" rot="R90"/>
 <attribute name="VALUE" x="76.708" y="92.71" size="0.889" layer="27" ratio="11" rot="R90"/>
-</element>
-<element name="T4_5MM" library="Seeed-Connector" library_urn="urn:adsk.eagle:library:478" package="H2-5.0-10.5X8.0MM" package3d_urn="urn:adsk.eagle:package:33129/1" value="5mm" x="80.4926" y="42.0624" smashed="yes">
-<attribute name="NAME" x="78.5876" y="47.7774" size="0.889" layer="25" ratio="11"/>
-<attribute name="VALUE" x="77.9526" y="35.7124" size="0.889" layer="27" ratio="11"/>
 </element>
 <element name="NANO" library="Arduino-clone" package="NANO" value="NANO" x="43.307" y="31.496" smashed="yes" rot="R180"/>
 <element name="5PIN2" library="SparkFun-Connectors" library_urn="urn:adsk.eagle:library:513" package="USB-B-MICRO-SMD" package3d_urn="urn:adsk.eagle:package:38238/1" value="" x="27.178" y="96.52" smashed="yes" rot="R270">
@@ -3866,7 +3862,6 @@ design rules under a new name.</description>
 <element name="PIN1" library="SparkFun-Connectors" library_urn="urn:adsk.eagle:library:513" package="1X02_LOCK" package3d_urn="urn:adsk.eagle:package:38045/1" value="" x="43.688" y="87.63" rot="R180"/>
 <element name="PIN2" library="SparkFun-Connectors" library_urn="urn:adsk.eagle:library:513" package="1X02_LOCK" package3d_urn="urn:adsk.eagle:package:38045/1" value="" x="57.658" y="87.63" rot="R180"/>
 <element name="PIN3" library="SparkFun-Connectors" library_urn="urn:adsk.eagle:library:513" package="1X02_LOCK" package3d_urn="urn:adsk.eagle:package:38045/1" value="" x="71.628" y="87.63" rot="R180"/>
-<element name="PIN4" library="SparkFun-Connectors" library_urn="urn:adsk.eagle:library:513" package="1X02_LOCK" package3d_urn="urn:adsk.eagle:package:38045/1" value="" x="72.771" y="41.148" rot="R90"/>
 </elements>
 <signals>
 <signal name="SCK_NRF">
@@ -4170,7 +4165,7 @@ design rules under a new name.</description>
 <wire x1="24.9936" y1="69.7992" x2="25.019" y2="69.723" width="0.1524" layer="1"/>
 <wire x1="12.0396" y1="73.3044" x2="12.001" y2="73.386" width="0.1524" layer="1"/>
 </signal>
-<signal name="VIN">
+<signal name="VIN" class="1">
 <contactref element="RAW_C" pad="+"/>
 <contactref element="VIN" pad="1"/>
 <contactref element="VIN" pad="4"/>
@@ -4204,7 +4199,7 @@ design rules under a new name.</description>
 <wire x1="19.812" y1="85.8012" x2="19.685" y2="85.852" width="0.1524" layer="1"/>
 <wire x1="53.34" y1="40.386" x2="53.467" y2="40.386" width="0.1524" layer="1"/>
 </signal>
-<signal name="3.3V">
+<signal name="3.3V" class="1">
 <contactref element="3.3V" pad="3"/>
 <contactref element="3.3V" pad="4"/>
 <contactref element="3.3V" pad="1"/>
@@ -4244,7 +4239,7 @@ design rules under a new name.</description>
 <wire x1="66.7512" y1="7.4676" x2="66.675" y2="7.366" width="0.1524" layer="16"/>
 <wire x1="73.6092" y1="25.2984" x2="73.66" y2="25.4" width="0.1524" layer="16"/>
 </signal>
-<signal name="5V">
+<signal name="5V" class="1">
 <contactref element="5V" pad="3"/>
 <contactref element="5V" pad="4"/>
 <contactref element="5V" pad="1"/>
@@ -4297,7 +4292,7 @@ design rules under a new name.</description>
 <wire x1="15.778" y1="93.795" x2="28.478" y2="93.795" width="0" layer="19" extent="1-1"/>
 <wire x1="19.685" y1="76.835" x2="15.778" y2="93.795" width="0" layer="19" extent="1-1"/>
 </signal>
-<signal name="GND">
+<signal name="GND" class="1">
 <contactref element="5V_C" pad="-"/>
 <contactref element="RAW_C" pad="-"/>
 <contactref element="3.3V_C" pad="-"/>
@@ -4332,7 +4327,7 @@ design rules under a new name.</description>
 <wire x1="19.685" y1="89.408" x2="25.878" y2="93.795" width="0" layer="19" extent="1-1"/>
 <wire x1="13.178" y1="93.795" x2="19.685" y2="89.408" width="0" layer="19" extent="1-1"/>
 </signal>
-<signal name="SHIELD_IN">
+<signal name="SHIELD_IN" class="1">
 <contactref element="USB_B" pad="SHLD1"/>
 <contactref element="USB_B" pad="SHLD2"/>
 <contactref element="R_SHIELD" pad="1"/>
@@ -4497,7 +4492,7 @@ design rules under a new name.</description>
 <wire x1="3.9624" y1="15.3924" x2="3.937" y2="15.367" width="0.1524" layer="1"/>
 <wire x1="8.6868" y1="19.05" x2="8.763" y2="19.05" width="0.1524" layer="1"/>
 </signal>
-<signal name="N$23">
+<signal name="N$23" class="2">
 <contactref element="PIN1" pad="2"/>
 <contactref element="T1_5MM" pad="1"/>
 <wire x1="40.8432" y1="94.3356" x2="40.8432" y2="87.63" width="0.1524" layer="1"/>
@@ -4505,7 +4500,7 @@ design rules under a new name.</description>
 <wire x1="40.8432" y1="87.63" x2="40.9702" y2="87.63" width="0.1524" layer="1"/>
 <wire x1="39.9288" y1="95.25" x2="39.918" y2="95.25" width="0.1524" layer="1"/>
 </signal>
-<signal name="N$26">
+<signal name="N$26" class="2">
 <contactref element="PIN1" pad="1"/>
 <contactref element="T1_5MM" pad="2"/>
 <wire x1="43.8912" y1="94.3356" x2="43.8912" y2="87.63" width="0.1524" layer="1"/>
@@ -4513,7 +4508,7 @@ design rules under a new name.</description>
 <wire x1="43.8912" y1="87.63" x2="43.8658" y2="87.63" width="0.1524" layer="1"/>
 <wire x1="44.8056" y1="95.25" x2="44.918" y2="95.25" width="0.1524" layer="1"/>
 </signal>
-<signal name="N$27">
+<signal name="N$27" class="2">
 <contactref element="PIN2" pad="2"/>
 <contactref element="T2_5MM" pad="1"/>
 <wire x1="54.864" y1="94.3356" x2="54.864" y2="87.63" width="0.1524" layer="1"/>
@@ -4521,7 +4516,7 @@ design rules under a new name.</description>
 <wire x1="54.864" y1="87.63" x2="54.9402" y2="87.63" width="0.1524" layer="1"/>
 <wire x1="53.9496" y1="95.25" x2="53.888" y2="95.25" width="0.1524" layer="1"/>
 </signal>
-<signal name="N$31">
+<signal name="N$31" class="2">
 <contactref element="PIN2" pad="1"/>
 <contactref element="T2_5MM" pad="2"/>
 <wire x1="57.912" y1="94.3356" x2="57.912" y2="87.63" width="0.1524" layer="1"/>
@@ -4529,7 +4524,7 @@ design rules under a new name.</description>
 <wire x1="57.912" y1="87.63" x2="57.8358" y2="87.63" width="0.1524" layer="1"/>
 <wire x1="58.8264" y1="95.25" x2="58.888" y2="95.25" width="0.1524" layer="1"/>
 </signal>
-<signal name="N$32">
+<signal name="N$32" class="2">
 <contactref element="PIN3" pad="2"/>
 <contactref element="T3_5MM" pad="1"/>
 <wire x1="68.8848" y1="94.3356" x2="68.8848" y2="87.63" width="0.1524" layer="1"/>
@@ -4537,29 +4532,13 @@ design rules under a new name.</description>
 <wire x1="68.8848" y1="87.63" x2="68.9102" y2="87.63" width="0.1524" layer="1"/>
 <wire x1="67.9704" y1="95.25" x2="67.858" y2="95.25" width="0.1524" layer="1"/>
 </signal>
-<signal name="N$33">
+<signal name="N$33" class="2">
 <contactref element="PIN3" pad="1"/>
 <contactref element="T3_5MM" pad="2"/>
 <wire x1="71.9328" y1="94.3356" x2="71.9328" y2="87.63" width="0.1524" layer="1"/>
 <wire x1="72.8472" y1="95.25" x2="71.9328" y2="94.3356" width="0.1524" layer="1"/>
 <wire x1="71.9328" y1="87.63" x2="71.8058" y2="87.63" width="0.1524" layer="1"/>
 <wire x1="72.8472" y1="95.25" x2="72.858" y2="95.25" width="0.1524" layer="1"/>
-</signal>
-<signal name="N$34">
-<contactref element="PIN4" pad="2"/>
-<contactref element="T4_5MM" pad="1"/>
-<wire x1="79.8576" y1="43.8912" x2="72.8472" y2="43.8912" width="0.1524" layer="1"/>
-<wire x1="80.4672" y1="44.5008" x2="79.8576" y2="43.8912" width="0.1524" layer="1"/>
-<wire x1="72.8472" y1="43.8912" x2="72.771" y2="43.8658" width="0.1524" layer="1"/>
-<wire x1="80.4672" y1="44.5008" x2="80.4926" y2="44.5624" width="0.1524" layer="1"/>
-</signal>
-<signal name="N$35">
-<contactref element="PIN4" pad="1"/>
-<contactref element="T4_5MM" pad="2"/>
-<wire x1="79.248" y1="40.8432" x2="72.8472" y2="40.8432" width="0.1524" layer="1"/>
-<wire x1="80.4672" y1="39.624" x2="79.248" y2="40.8432" width="0.1524" layer="1"/>
-<wire x1="72.8472" y1="40.8432" x2="72.771" y2="40.9702" width="0.1524" layer="1"/>
-<wire x1="80.4672" y1="39.624" x2="80.4926" y2="39.5624" width="0.1524" layer="1"/>
 </signal>
 </signals>
 <mfgpreviewcolors>
