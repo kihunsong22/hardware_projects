@@ -29196,9 +29196,7 @@ with hole.</description>
 <pinref part="RAW" gate="G$1" pin="PWR"/>
 <wire x1="-85.09" y1="-45.72" x2="-100.33" y2="-45.72" width="0.1524" layer="91"/>
 <wire x1="-100.33" y1="-45.72" x2="-100.33" y2="-25.4" width="0.1524" layer="91"/>
-<wire x1="-50.8" y1="-15.24" x2="-45.72" y2="-15.24" width="0.1524" layer="91"/>
 <wire x1="-100.33" y1="-25.4" x2="-60.96" y2="-25.4" width="0.1524" layer="91"/>
-<wire x1="-60.96" y1="-25.4" x2="-50.8" y2="-15.24" width="0.1524" layer="91"/>
 <junction x="-100.33" y="-25.4"/>
 </segment>
 </net>

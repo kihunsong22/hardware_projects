@@ -3999,9 +3999,9 @@ design rules under a new name.</description>
 <contactref element="D13-RAW_1" pad="8"/>
 <contactref element="PRO_MINI" pad="17"/>
 <contactref element="D13-RAW_2" pad="8"/>
-<wire x1="60.807" y1="13.373" x2="63.768" y2="13.373" width="0" layer="19" extent="1-1"/>
-<wire x1="51.229" y1="13.402" x2="60.807" y2="13.373" width="0" layer="19" extent="1-1"/>
-<wire x1="22.733" y1="58.293" x2="51.229" y2="13.402" width="0" layer="19" extent="1-1"/>
+<wire x1="51.229" y1="13.402" x2="22.733" y2="58.293" width="0" layer="19" extent="1-1"/>
+<wire x1="60.807" y1="13.373" x2="51.229" y2="13.402" width="0" layer="19" extent="1-1"/>
+<wire x1="63.768" y1="13.373" x2="60.807" y2="13.373" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$24">
 <contactref element="D13-RAW_1" pad="9"/>
@@ -4022,18 +4022,18 @@ design rules under a new name.</description>
 <contactref element="D13-RAW_1" pad="11"/>
 <contactref element="PRO_MINI" pad="14"/>
 <contactref element="D13-RAW_2" pad="11"/>
-<wire x1="60.807" y1="5.753" x2="63.768" y2="5.753" width="0" layer="19" extent="1-1"/>
-<wire x1="51.229" y1="5.782" x2="60.807" y2="5.753" width="0" layer="19" extent="1-1"/>
-<wire x1="20.193" y1="55.753" x2="51.229" y2="5.782" width="0" layer="19" extent="1-1"/>
+<wire x1="51.229" y1="5.782" x2="20.193" y2="55.753" width="0" layer="19" extent="1-1"/>
+<wire x1="60.807" y1="5.753" x2="51.229" y2="5.782" width="0" layer="19" extent="1-1"/>
+<wire x1="63.768" y1="5.753" x2="60.807" y2="5.753" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="MISO_NRF">
 <contactref element="NRF24L01" pad="7"/>
 <contactref element="D13-RAW_1" pad="12"/>
 <contactref element="PRO_MINI" pad="13"/>
 <contactref element="D13-RAW_2" pad="12"/>
-<wire x1="60.807" y1="3.213" x2="63.768" y2="3.213" width="0" layer="19" extent="1-1"/>
-<wire x1="51.229" y1="3.242" x2="60.807" y2="3.213" width="0" layer="19" extent="1-1"/>
-<wire x1="20.193" y1="53.213" x2="51.229" y2="3.242" width="0" layer="19" extent="1-1"/>
+<wire x1="51.229" y1="3.242" x2="20.193" y2="53.213" width="0" layer="19" extent="1-1"/>
+<wire x1="60.807" y1="3.213" x2="51.229" y2="3.242" width="0" layer="19" extent="1-1"/>
+<wire x1="63.768" y1="3.213" x2="60.807" y2="3.213" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="D+_B">
 <contactref element="USB_B" pad="D+"/>
@@ -4063,9 +4063,9 @@ design rules under a new name.</description>
 <contactref element="D1-D9_1" pad="2"/>
 <contactref element="D1-D9_2" pad="2"/>
 <contactref element="PRO_MINI" pad="2"/>
-<wire x1="25.729" y1="28.613" x2="31.369" y2="82.042" width="0" layer="19" extent="1-1"/>
+<wire x1="35.989" y1="28.642" x2="31.369" y2="82.042" width="0" layer="19" extent="1-1"/>
+<wire x1="25.729" y1="28.613" x2="35.989" y2="28.642" width="0" layer="19" extent="1-1"/>
 <wire x1="22.69" y1="28.613" x2="25.729" y2="28.613" width="0" layer="19" extent="1-1"/>
-<wire x1="35.989" y1="28.642" x2="25.729" y2="28.613" width="0" layer="19" extent="1-1"/>
 <wire x1="9.017" y1="16.51" x2="22.69" y2="28.613" width="0" layer="19" extent="1-1"/>
 <wire x1="73.66" y1="28.4" x2="35.989" y2="28.642" width="0" layer="19" extent="1-1"/>
 <wire x1="76.2" y1="28.4" x2="73.66" y2="28.4" width="0" layer="19" extent="1-1"/>
