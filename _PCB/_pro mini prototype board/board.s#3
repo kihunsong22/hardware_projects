@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="9.1.0">
+<eagle version="9.0.1">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -28788,14 +28788,7 @@ with hole.</description>
 <variantdefs>
 </variantdefs>
 <classes>
-<class number="0" name="default" width="0.127" drill="0.127">
-<clearance class="0" value="0.127"/>
-</class>
-<class number="1" name="power" width="0.762" drill="0">
-<clearance class="1" value="0.3048"/>
-</class>
-<class number="2" name="terminal" width="2.54" drill="0">
-<clearance class="2" value="0.3048"/>
+<class number="0" name="default" width="0" drill="0">
 </class>
 </classes>
 <parts>
@@ -28828,6 +28821,7 @@ with hole.</description>
 <part name="T1_5MM" library="Seeed-Connector" library_urn="urn:adsk.eagle:library:478" deviceset="SCREW-TERMINAL-GREEN(2P-5.0)" device="" package3d_urn="urn:adsk.eagle:package:33129/1" value="5mm"/>
 <part name="T2_5MM" library="Seeed-Connector" library_urn="urn:adsk.eagle:library:478" deviceset="SCREW-TERMINAL-GREEN(2P-5.0)" device="" package3d_urn="urn:adsk.eagle:package:33129/1" value="5mm"/>
 <part name="T3_5MM" library="Seeed-Connector" library_urn="urn:adsk.eagle:library:478" deviceset="SCREW-TERMINAL-GREEN(2P-5.0)" device="" package3d_urn="urn:adsk.eagle:package:33129/1" value="5mm"/>
+<part name="T4_5MM" library="Seeed-Connector" library_urn="urn:adsk.eagle:library:478" deviceset="SCREW-TERMINAL-GREEN(2P-5.0)" device="" package3d_urn="urn:adsk.eagle:package:33129/1" value="5mm"/>
 <part name="5PIN1" library="SparkFun-Connectors" library_urn="urn:adsk.eagle:library:513" deviceset="USB_MICRO-B" device="_FEMALE-SMT" package3d_urn="urn:adsk.eagle:package:38238/1"/>
 <part name="BREAD_450" library="SparkFun-Boards" library_urn="urn:adsk.eagle:library:509" deviceset="BREADBOARD" device="MINI" package3d_urn="urn:adsk.eagle:package:37314/1"/>
 <part name="IRQ" library="solpad" library_urn="urn:adsk.eagle:library:364" deviceset="LSP10" device="" package3d_urn="urn:adsk.eagle:package:26501/1"/>
@@ -28841,6 +28835,7 @@ with hole.</description>
 <part name="PIN1" library="SparkFun-Connectors" library_urn="urn:adsk.eagle:library:513" deviceset="CONN_02" device="LOCK" package3d_urn="urn:adsk.eagle:package:38045/1"/>
 <part name="PIN2" library="SparkFun-Connectors" library_urn="urn:adsk.eagle:library:513" deviceset="CONN_02" device="LOCK" package3d_urn="urn:adsk.eagle:package:38045/1"/>
 <part name="PIN3" library="SparkFun-Connectors" library_urn="urn:adsk.eagle:library:513" deviceset="CONN_02" device="LOCK" package3d_urn="urn:adsk.eagle:package:38045/1"/>
+<part name="PIN4" library="SparkFun-Connectors" library_urn="urn:adsk.eagle:library:513" deviceset="CONN_02" device="LOCK" package3d_urn="urn:adsk.eagle:package:38045/1"/>
 </parts>
 <sheets>
 <sheet>
@@ -28882,6 +28877,7 @@ with hole.</description>
 <instance part="T1_5MM" gate="G$1" x="21.59" y="72.39"/>
 <instance part="T2_5MM" gate="G$1" x="21.59" y="53.34"/>
 <instance part="T3_5MM" gate="G$1" x="59.69" y="72.39"/>
+<instance part="T4_5MM" gate="G$1" x="59.69" y="53.34"/>
 <instance part="5PIN1" gate="G$1" x="-180.34" y="46.99" rot="R180"/>
 <instance part="BREAD_450" gate="G$1" x="81.28" y="63.5"/>
 <instance part="IRQ" gate="1" x="52.23" y="-45.88" rot="R180"/>
@@ -28895,6 +28891,7 @@ with hole.</description>
 <instance part="PIN1" gate="G$1" x="6.5" y="71.5"/>
 <instance part="PIN2" gate="G$1" x="6.6" y="52"/>
 <instance part="PIN3" gate="G$1" x="43.2" y="71.4"/>
+<instance part="PIN4" gate="G$1" x="43.9" y="51.8"/>
 </instances>
 <busses>
 </busses>
@@ -29185,7 +29182,7 @@ with hole.</description>
 <wire x1="-128.27" y1="72.39" x2="-128.27" y2="44.45" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="VIN" class="1">
+<net name="VIN" class="0">
 <segment>
 <pinref part="RAW_C" gate="G$1" pin="+"/>
 <wire x1="-128.27" y1="-25.4" x2="-100.33" y2="-25.4" width="0.1524" layer="91"/>
@@ -29218,7 +29215,7 @@ with hole.</description>
 <junction x="-50.8" y="-15.24"/>
 </segment>
 </net>
-<net name="3.3V" class="1">
+<net name="3.3V" class="0">
 <segment>
 <pinref part="3.3V" gate="A" pin="3"/>
 <pinref part="3.3V" gate="A" pin="4"/>
@@ -29251,7 +29248,7 @@ with hole.</description>
 <wire x1="119.38" y1="-47.34" x2="124.08" y2="-47.34" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="5V" class="1">
+<net name="5V" class="0">
 <segment>
 <pinref part="5V" gate="A" pin="3"/>
 <pinref part="5V" gate="A" pin="4"/>
@@ -29308,7 +29305,7 @@ with hole.</description>
 <junction x="91.44" y="-50.8"/>
 </segment>
 </net>
-<net name="GND" class="1">
+<net name="GND" class="0">
 <segment>
 <pinref part="5V_C" gate="G$1" pin="-"/>
 <pinref part="RAW_C" gate="G$1" pin="-"/>
@@ -29382,7 +29379,7 @@ with hole.</description>
 <wire x1="100.33" y1="19.05" x2="107.95" y2="19.05" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="SHIELD_IN" class="1">
+<net name="SHIELD_IN" class="0">
 <segment>
 <pinref part="USB_B" gate="G$1" pin="SHIELD"/>
 <wire x1="-107.95" y1="46.99" x2="-107.95" y2="60.96" width="0.1524" layer="91"/>
@@ -29534,7 +29531,7 @@ with hole.</description>
 <wire x1="105.9" y1="-44.8" x2="124.08" y2="-44.8" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$23" class="2">
+<net name="N$23" class="0">
 <segment>
 <pinref part="PIN1" gate="G$1" pin="2"/>
 <pinref part="T1_5MM" gate="G$1" pin="1"/>
@@ -29542,7 +29539,7 @@ with hole.</description>
 <wire x1="15.62" y1="74.04" x2="16.51" y2="74.93" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$26" class="2">
+<net name="N$26" class="0">
 <segment>
 <pinref part="PIN1" gate="G$1" pin="1"/>
 <pinref part="T1_5MM" gate="G$1" pin="2"/>
@@ -29550,7 +29547,7 @@ with hole.</description>
 <wire x1="14.86" y1="71.5" x2="16.51" y2="69.85" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$27" class="2">
+<net name="N$27" class="0">
 <segment>
 <pinref part="PIN2" gate="G$1" pin="2"/>
 <pinref part="T2_5MM" gate="G$1" pin="1"/>
@@ -29558,7 +29555,7 @@ with hole.</description>
 <wire x1="15.17" y1="54.54" x2="16.51" y2="55.88" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$31" class="2">
+<net name="N$31" class="0">
 <segment>
 <pinref part="PIN2" gate="G$1" pin="1"/>
 <pinref part="T2_5MM" gate="G$1" pin="2"/>
@@ -29566,7 +29563,7 @@ with hole.</description>
 <wire x1="15.31" y1="52" x2="16.51" y2="50.8" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$32" class="2">
+<net name="N$32" class="0">
 <segment>
 <pinref part="PIN3" gate="G$1" pin="2"/>
 <pinref part="T3_5MM" gate="G$1" pin="1"/>
@@ -29574,12 +29571,28 @@ with hole.</description>
 <wire x1="53.62" y1="73.94" x2="54.61" y2="74.93" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$33" class="2">
+<net name="N$33" class="0">
 <segment>
 <pinref part="PIN3" gate="G$1" pin="1"/>
 <pinref part="T3_5MM" gate="G$1" pin="2"/>
 <wire x1="50.82" y1="71.4" x2="53.06" y2="71.4" width="0.1524" layer="91"/>
 <wire x1="53.06" y1="71.4" x2="54.61" y2="69.85" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$34" class="0">
+<segment>
+<pinref part="PIN4" gate="G$1" pin="2"/>
+<pinref part="T4_5MM" gate="G$1" pin="1"/>
+<wire x1="51.52" y1="54.34" x2="53.07" y2="54.34" width="0.1524" layer="91"/>
+<wire x1="53.07" y1="54.34" x2="54.61" y2="55.88" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$35" class="0">
+<segment>
+<pinref part="PIN4" gate="G$1" pin="1"/>
+<pinref part="T4_5MM" gate="G$1" pin="2"/>
+<wire x1="51.52" y1="51.8" x2="53.61" y2="51.8" width="0.1524" layer="91"/>
+<wire x1="53.61" y1="51.8" x2="54.61" y2="50.8" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
