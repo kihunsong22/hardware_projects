@@ -28844,6 +28844,8 @@ http://www.xganon.com</description>
 <part name="D13-RAW_2" library="pinhead" library_urn="urn:adsk.eagle:library:325" deviceset="PINHD-1X12" device="" package3d_urn="urn:adsk.eagle:package:22487/2"/>
 <part name="D1" library="Seeed-Diode" library_urn="urn:adsk.eagle:library:467" deviceset="DIP-DIODE-400V-1A(DO-41)" device="" package3d_urn="urn:adsk.eagle:package:32521/1" value="1N4004"/>
 <part name="U$1" library="Arduino-clone" deviceset="ABK-PRO-MINI" device=""/>
+<part name="GND1" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="GND" device=""/>
+<part name="GND4" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -28892,6 +28894,8 @@ http://www.xganon.com</description>
 <instance part="D13-RAW_2" gate="G$1" x="53.34" y="7.62"/>
 <instance part="D1" gate="G$1" x="-88.9" y="-53.34"/>
 <instance part="U$1" gate="G$1" x="0" y="7.62"/>
+<instance part="GND1" gate="1" x="-5.08" y="-22.86"/>
+<instance part="GND4" gate="1" x="-17.78" y="35.56"/>
 </instances>
 <busses>
 </busses>
@@ -29048,24 +29052,22 @@ http://www.xganon.com</description>
 <segment>
 <wire x1="50.8" y1="10.16" x2="30.48" y2="10.16" width="0.1524" layer="91"/>
 <pinref part="D13-RAW_1" gate="G$1" pin="5"/>
-<junction x="30.48" y="10.16"/>
-<wire x1="15.24" y1="10.16" x2="25.4" y2="10.16" width="0.1524" layer="91"/>
-<wire x1="30.48" y1="10.16" x2="15.24" y2="10.16" width="0.1524" layer="91"/>
 <pinref part="D13-RAW_2" gate="G$1" pin="5"/>
-<pinref part="U$1" gate="G$1" pin="A3"/>
-<wire x1="15.24" y1="10.16" x2="20.32" y2="10.16" width="0.1524" layer="91"/>
+<pinref part="U$1" gate="G$1" pin="A0"/>
+<wire x1="15.24" y1="2.54" x2="22.86" y2="2.54" width="0.1524" layer="91"/>
+<wire x1="22.86" y1="2.54" x2="30.48" y2="10.16" width="0.1524" layer="91"/>
+<junction x="30.48" y="10.16"/>
 </segment>
 </net>
 <net name="N$21" class="0">
 <segment>
 <wire x1="50.8" y1="7.62" x2="30.48" y2="7.62" width="0.1524" layer="91"/>
 <pinref part="D13-RAW_1" gate="G$1" pin="6"/>
-<junction x="30.48" y="7.62"/>
-<wire x1="15.24" y1="7.62" x2="25.4" y2="7.62" width="0.1524" layer="91"/>
-<wire x1="30.48" y1="7.62" x2="15.24" y2="7.62" width="0.1524" layer="91"/>
 <pinref part="D13-RAW_2" gate="G$1" pin="6"/>
-<pinref part="U$1" gate="G$1" pin="A2"/>
-<wire x1="15.24" y1="7.62" x2="20.32" y2="7.62" width="0.1524" layer="91"/>
+<pinref part="U$1" gate="G$1" pin="A1"/>
+<wire x1="15.24" y1="5.08" x2="27.94" y2="5.08" width="0.1524" layer="91"/>
+<wire x1="27.94" y1="5.08" x2="30.48" y2="7.62" width="0.1524" layer="91"/>
+<junction x="30.48" y="7.62"/>
 </segment>
 </net>
 <net name="CE_NRF" class="0">
@@ -29078,29 +29080,26 @@ http://www.xganon.com</description>
 <pinref part="D13-RAW_1" gate="G$1" pin="7"/>
 <pinref part="D13-RAW_2" gate="G$1" pin="7"/>
 <junction x="50.8" y="5.08"/>
+<pinref part="U$1" gate="G$1" pin="A2"/>
+<wire x1="15.24" y1="7.62" x2="27.94" y2="7.62" width="0.1524" layer="91"/>
+<wire x1="27.94" y1="7.62" x2="30.48" y2="5.08" width="0.1524" layer="91"/>
+<junction x="30.48" y="5.08"/>
 </segment>
 </net>
 <net name="CSN_NRF" class="0">
 <segment>
 <pinref part="NRF24L01" gate="G$1" pin="4"/>
-<wire x1="15.24" y1="2.54" x2="25.4" y2="2.54" width="0.1524" layer="91"/>
 <wire x1="77.47" y1="-31.75" x2="88.9" y2="-31.75" width="0.1524" layer="91"/>
 <wire x1="88.9" y1="-31.75" x2="88.9" y2="2.54" width="0.1524" layer="91"/>
 <wire x1="88.9" y1="2.54" x2="50.8" y2="2.54" width="0.1524" layer="91"/>
 <pinref part="D13-RAW_1" gate="G$1" pin="8"/>
-<junction x="30.48" y="2.54"/>
 <wire x1="50.8" y1="2.54" x2="30.48" y2="2.54" width="0.1524" layer="91"/>
-<wire x1="30.48" y1="2.54" x2="15.24" y2="2.54" width="0.1524" layer="91"/>
 <pinref part="D13-RAW_2" gate="G$1" pin="8"/>
 <junction x="50.8" y="2.54"/>
-<pinref part="U$1" gate="G$1" pin="A0"/>
-</segment>
-</net>
-<net name="N$24" class="0">
-<segment>
-<wire x1="50.8" y1="0" x2="30.48" y2="0" width="0.1524" layer="91"/>
-<pinref part="D13-RAW_1" gate="G$1" pin="9"/>
-<pinref part="D13-RAW_2" gate="G$1" pin="9"/>
+<pinref part="U$1" gate="G$1" pin="A3"/>
+<wire x1="15.24" y1="10.16" x2="22.86" y2="10.16" width="0.1524" layer="91"/>
+<wire x1="22.86" y1="10.16" x2="30.48" y2="2.54" width="0.1524" layer="91"/>
+<junction x="30.48" y="2.54"/>
 </segment>
 </net>
 <net name="N$25" class="0">
@@ -29147,7 +29146,6 @@ http://www.xganon.com</description>
 <junction x="50.8" y="-7.62"/>
 <pinref part="U$1" gate="G$1" pin="D10"/>
 <wire x1="15.24" y1="-7.62" x2="20.32" y2="-7.62" width="0.1524" layer="91"/>
-<junction x="15.24" y="-7.62"/>
 </segment>
 </net>
 <net name="D+_B" class="0">
@@ -29337,6 +29335,21 @@ http://www.xganon.com</description>
 <pinref part="GY-521" gate="G$1" pin="2"/>
 <wire x1="100.33" y1="40.64" x2="100.33" y2="19.05" width="0.1524" layer="91"/>
 <wire x1="100.33" y1="19.05" x2="107.95" y2="19.05" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="GND4" gate="1" pin="GND"/>
+<wire x1="-17.78" y1="38.1" x2="-17.78" y2="40.64" width="0.1524" layer="91"/>
+<wire x1="-17.78" y1="40.64" x2="-10.16" y2="40.64" width="0.1524" layer="91"/>
+<pinref part="U$1" gate="G$1" pin="GND3"/>
+<wire x1="-10.16" y1="40.64" x2="-10.16" y2="35.56" width="0.1524" layer="91"/>
+<pinref part="U$1" gate="G$1" pin="GND4"/>
+<wire x1="-10.16" y1="35.56" x2="-7.62" y2="35.56" width="0.1524" layer="91"/>
+<junction x="-10.16" y="35.56"/>
+</segment>
+<segment>
+<pinref part="U$1" gate="G$1" pin="GND1"/>
+<pinref part="GND1" gate="1" pin="GND"/>
+<wire x1="-5.08" y1="-17.78" x2="-5.08" y2="-20.32" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="SHIELD_IN" class="1">
@@ -29539,16 +29552,15 @@ http://www.xganon.com</description>
 <wire x1="53.06" y1="71.4" x2="54.61" y2="69.85" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$28" class="0">
-<segment>
-<wire x1="15.24" y1="5.08" x2="25.4" y2="5.08" width="0.1524" layer="91"/>
-<pinref part="U$1" gate="G$1" pin="A1"/>
-</segment>
-</net>
 <net name="N$29" class="0">
 <segment>
 <wire x1="15.24" y1="0" x2="25.4" y2="0" width="0.1524" layer="91"/>
 <pinref part="U$1" gate="G$1" pin="D13"/>
+<wire x1="50.8" y1="0" x2="30.48" y2="0" width="0.1524" layer="91"/>
+<pinref part="D13-RAW_1" gate="G$1" pin="9"/>
+<pinref part="D13-RAW_2" gate="G$1" pin="9"/>
+<wire x1="25.4" y1="0" x2="30.48" y2="0" width="0.1524" layer="91"/>
+<junction x="30.48" y="0"/>
 </segment>
 </net>
 </nets>
