@@ -6,9 +6,9 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.5" unitdist="mm" unit="mm" style="lines" multiple="1" display="no" altdistance="5" altunitdist="mil" altunit="mil"/>
+<grid distance="5" unitdist="mil" unit="mil" style="lines" multiple="1" display="no" altdistance="5" altunitdist="mil" altunit="mil"/>
 <layers>
-<layer number="1" name="Top" color="4" fill="1" visible="no" active="yes"/>
+<layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
 <layer number="3" name="Route3" color="4" fill="3" visible="no" active="no"/>
 <layer number="4" name="Route4" color="1" fill="4" visible="no" active="no"/>
@@ -264,6 +264,12 @@
 <text x="48" y="19.5" size="1.1176" layer="21">A4_SDA</text>
 <text x="48" y="11.5" size="1.1176" layer="21">A7</text>
 <text x="48" y="9" size="1.1176" layer="21">A6</text>
+<text x="38.354" y="35.433" size="1.1176" layer="21" font="vector" rot="R90">GND</text>
+<text x="41.021" y="35.433" size="1.1176" layer="21" font="vector" rot="R90">GND</text>
+<text x="43.561" y="35.306" size="1.1176" layer="21" font="vector" rot="R90">VCC</text>
+<text x="46.101" y="35.306" size="1.1176" layer="21" font="vector" rot="R90">RX</text>
+<text x="48.514" y="35.306" size="1.1176" layer="21" font="vector" rot="R90">TX</text>
+<text x="51.181" y="35.306" size="1.1176" layer="21" font="vector" rot="R90">DTR</text>
 </plain>
 <libraries>
 <library name="pinhead" urn="urn:adsk.eagle:library:325">
@@ -3971,8 +3977,10 @@ design rules under a new name.</description>
 <contactref element="NRF24L01" pad="3"/>
 <contactref element="D13-RAW_1" pad="7"/>
 <contactref element="D13-RAW_2" pad="7"/>
+<contactref element="U$1" pad="A1"/>
 <wire x1="60.807" y1="15.913" x2="63.768" y2="15.913" width="0" layer="19" extent="1-1"/>
-<wire x1="22.733" y1="55.753" x2="60.807" y2="15.913" width="0" layer="19" extent="1-1"/>
+<wire x1="51.86" y1="18.45" x2="60.807" y2="15.913" width="0" layer="19" extent="1-1"/>
+<wire x1="22.733" y1="55.753" x2="51.86" y2="18.45" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="CSN_NRF">
 <contactref element="NRF24L01" pad="4"/>
@@ -3982,11 +3990,6 @@ design rules under a new name.</description>
 <wire x1="51.86" y1="20.99" x2="22.733" y2="58.293" width="0" layer="19" extent="1-1"/>
 <wire x1="60.807" y1="13.373" x2="51.86" y2="20.99" width="0" layer="19" extent="1-1"/>
 <wire x1="63.768" y1="13.373" x2="60.807" y2="13.373" width="0" layer="19" extent="1-1"/>
-</signal>
-<signal name="N$24">
-<contactref element="D13-RAW_1" pad="9"/>
-<contactref element="D13-RAW_2" pad="9"/>
-<wire x1="60.807" y1="10.833" x2="63.768" y2="10.833" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$25">
 <contactref element="D13-RAW_1" pad="10"/>
@@ -4242,11 +4245,12 @@ design rules under a new name.</description>
 <contactref element="T3_5MM" pad="2"/>
 <wire x1="71.8058" y1="87.63" x2="72.858" y2="95.25" width="0" layer="19" extent="1-1"/>
 </signal>
-<signal name="N$28">
-<contactref element="U$1" pad="A1"/>
-</signal>
 <signal name="N$29">
 <contactref element="U$1" pad="D13"/>
+<contactref element="D13-RAW_1" pad="9"/>
+<contactref element="D13-RAW_2" pad="9"/>
+<wire x1="60.807" y1="10.833" x2="63.768" y2="10.833" width="0" layer="19" extent="1-1"/>
+<wire x1="51.86" y1="10.83" x2="60.807" y2="10.833" width="0" layer="19" extent="1-1"/>
 </signal>
 </signals>
 <mfgpreviewcolors>

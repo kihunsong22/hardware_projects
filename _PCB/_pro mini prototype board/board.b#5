@@ -260,16 +260,19 @@
 <text x="10.414" y="18.542" size="1.1176" layer="21" font="vector">VCC</text>
 <text x="10.414" y="16.002" size="1.1176" layer="21" font="vector">3.3V</text>
 <text x="58.968" y="24.034" size="1.1176" layer="21" font="vector" rot="R180">A3</text>
-<text x="48" y="22" size="1.1176" layer="21">A5_SCL</text>
-<text x="48" y="19.5" size="1.1176" layer="21">A4_SDA</text>
-<text x="48" y="11.5" size="1.1176" layer="21">A7</text>
-<text x="48" y="9" size="1.1176" layer="21">A6</text>
 <text x="38.354" y="35.433" size="1.1176" layer="21" font="vector" rot="R90">GND</text>
 <text x="41.021" y="35.433" size="1.1176" layer="21" font="vector" rot="R90">GND</text>
 <text x="43.561" y="35.306" size="1.1176" layer="21" font="vector" rot="R90">VCC</text>
 <text x="46.101" y="35.306" size="1.1176" layer="21" font="vector" rot="R90">RX</text>
 <text x="48.514" y="35.306" size="1.1176" layer="21" font="vector" rot="R90">TX</text>
 <text x="51.181" y="35.306" size="1.1176" layer="21" font="vector" rot="R90">DTR</text>
+<text x="43.561" y="4.826" size="1.1176" layer="21" font="vector" rot="R90">GND</text>
+<text x="45.974" y="4.826" size="1.1176" layer="21" font="vector" rot="R90">A6</text>
+<text x="48.514" y="4.826" size="1.1176" layer="21" font="vector" rot="R90">A7</text>
+<text x="50.165" y="24.384" size="1.1176" layer="21" font="vector" rot="R180">A5_SCL</text>
+<text x="50.165" y="18.796" size="1.1176" layer="21" font="vector" rot="R180">A4_SDA</text>
+<text x="48.514" y="11.557" size="1.1176" layer="21" font="vector">A7</text>
+<text x="48.514" y="9.017" size="1.1176" layer="21" font="vector">A6</text>
 </plain>
 <libraries>
 <library name="pinhead" urn="urn:adsk.eagle:library:325">
@@ -3962,37 +3965,34 @@ design rules under a new name.</description>
 <signal name="N$20">
 <contactref element="D13-RAW_1" pad="5"/>
 <contactref element="D13-RAW_2" pad="5"/>
-<contactref element="U$1" pad="A3"/>
+<contactref element="U$1" pad="A0"/>
 <wire x1="60.807" y1="20.993" x2="63.768" y2="20.993" width="0" layer="19" extent="1-1"/>
-<wire x1="51.86" y1="13.37" x2="60.807" y2="20.993" width="0" layer="19" extent="1-1"/>
+<wire x1="51.86" y1="20.99" x2="60.807" y2="20.993" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$21">
 <contactref element="D13-RAW_1" pad="6"/>
 <contactref element="D13-RAW_2" pad="6"/>
-<contactref element="U$1" pad="A2"/>
+<contactref element="U$1" pad="A1"/>
 <wire x1="60.807" y1="18.453" x2="63.768" y2="18.453" width="0" layer="19" extent="1-1"/>
-<wire x1="51.86" y1="15.91" x2="60.807" y2="18.453" width="0" layer="19" extent="1-1"/>
+<wire x1="51.86" y1="18.45" x2="60.807" y2="18.453" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="CE_NRF">
 <contactref element="NRF24L01" pad="3"/>
 <contactref element="D13-RAW_1" pad="7"/>
 <contactref element="D13-RAW_2" pad="7"/>
+<contactref element="U$1" pad="A2"/>
 <wire x1="60.807" y1="15.913" x2="63.768" y2="15.913" width="0" layer="19" extent="1-1"/>
-<wire x1="22.733" y1="55.753" x2="60.807" y2="15.913" width="0" layer="19" extent="1-1"/>
+<wire x1="51.86" y1="15.91" x2="60.807" y2="15.913" width="0" layer="19" extent="1-1"/>
+<wire x1="22.733" y1="55.753" x2="51.86" y2="15.91" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="CSN_NRF">
 <contactref element="NRF24L01" pad="4"/>
 <contactref element="D13-RAW_1" pad="8"/>
 <contactref element="D13-RAW_2" pad="8"/>
-<contactref element="U$1" pad="A0"/>
-<wire x1="51.86" y1="20.99" x2="22.733" y2="58.293" width="0" layer="19" extent="1-1"/>
-<wire x1="60.807" y1="13.373" x2="51.86" y2="20.99" width="0" layer="19" extent="1-1"/>
+<contactref element="U$1" pad="A3"/>
+<wire x1="51.86" y1="13.37" x2="22.733" y2="58.293" width="0" layer="19" extent="1-1"/>
+<wire x1="60.807" y1="13.373" x2="51.86" y2="13.37" width="0" layer="19" extent="1-1"/>
 <wire x1="63.768" y1="13.373" x2="60.807" y2="13.373" width="0" layer="19" extent="1-1"/>
-</signal>
-<signal name="N$24">
-<contactref element="D13-RAW_1" pad="9"/>
-<contactref element="D13-RAW_2" pad="9"/>
-<wire x1="60.807" y1="10.833" x2="63.768" y2="10.833" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$25">
 <contactref element="D13-RAW_1" pad="10"/>
@@ -4248,11 +4248,12 @@ design rules under a new name.</description>
 <contactref element="T3_5MM" pad="2"/>
 <wire x1="71.8058" y1="87.63" x2="72.858" y2="95.25" width="0" layer="19" extent="1-1"/>
 </signal>
-<signal name="N$28">
-<contactref element="U$1" pad="A1"/>
-</signal>
 <signal name="N$29">
 <contactref element="U$1" pad="D13"/>
+<contactref element="D13-RAW_1" pad="9"/>
+<contactref element="D13-RAW_2" pad="9"/>
+<wire x1="60.807" y1="10.833" x2="63.768" y2="10.833" width="0" layer="19" extent="1-1"/>
+<wire x1="51.86" y1="10.83" x2="60.807" y2="10.833" width="0" layer="19" extent="1-1"/>
 </signal>
 </signals>
 <mfgpreviewcolors>

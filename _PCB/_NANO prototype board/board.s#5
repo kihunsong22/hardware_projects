@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="9.0.1">
+<eagle version="9.1.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.1" unitdist="mm" unit="mm" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+<grid distance="0.1" unitdist="inch" unit="mm" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="mm"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
@@ -28788,7 +28788,8 @@ with hole.</description>
 <variantdefs>
 </variantdefs>
 <classes>
-<class number="0" name="default" width="0" drill="0">
+<class number="0" name="default" width="0.127" drill="0.127">
+<clearance class="0" value="0.127"/>
 </class>
 </classes>
 <parts>
@@ -28822,10 +28823,6 @@ with hole.</description>
 <part name="T2_5MM" library="Seeed-Connector" library_urn="urn:adsk.eagle:library:478" deviceset="SCREW-TERMINAL-GREEN(2P-5.0)" device="" package3d_urn="urn:adsk.eagle:package:33129/1" value="5mm"/>
 <part name="T3_5MM" library="Seeed-Connector" library_urn="urn:adsk.eagle:library:478" deviceset="SCREW-TERMINAL-GREEN(2P-5.0)" device="" package3d_urn="urn:adsk.eagle:package:33129/1" value="5mm"/>
 <part name="T4_5MM" library="Seeed-Connector" library_urn="urn:adsk.eagle:library:478" deviceset="SCREW-TERMINAL-GREEN(2P-5.0)" device="" package3d_urn="urn:adsk.eagle:package:33129/1" value="5mm"/>
-<part name="PIN1" library="SparkFun-Connectors" library_urn="urn:adsk.eagle:library:513" deviceset="CONN_02" device="" package3d_urn="urn:adsk.eagle:package:38039/1"/>
-<part name="PIN2" library="SparkFun-Connectors" library_urn="urn:adsk.eagle:library:513" deviceset="CONN_02" device="" package3d_urn="urn:adsk.eagle:package:38039/1"/>
-<part name="PIN3" library="SparkFun-Connectors" library_urn="urn:adsk.eagle:library:513" deviceset="CONN_02" device="" package3d_urn="urn:adsk.eagle:package:38039/1"/>
-<part name="PIN4" library="SparkFun-Connectors" library_urn="urn:adsk.eagle:library:513" deviceset="CONN_02" device="" package3d_urn="urn:adsk.eagle:package:38039/1"/>
 <part name="5PIN1" library="SparkFun-Connectors" library_urn="urn:adsk.eagle:library:513" deviceset="USB_MICRO-B" device="_FEMALE-SMT" package3d_urn="urn:adsk.eagle:package:38238/1"/>
 <part name="BREAD_450" library="SparkFun-Boards" library_urn="urn:adsk.eagle:library:509" deviceset="BREADBOARD" device="MINI" package3d_urn="urn:adsk.eagle:package:37314/1"/>
 <part name="IRQ" library="solpad" library_urn="urn:adsk.eagle:library:364" deviceset="LSP10" device="" package3d_urn="urn:adsk.eagle:package:26501/1"/>
@@ -28836,6 +28833,10 @@ with hole.</description>
 <part name="SUPPLY3" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="3.3V" device=""/>
 <part name="J1" library="SparkFun-Connectors" library_urn="urn:adsk.eagle:library:513" deviceset="CONN_05" device="" package3d_urn="urn:adsk.eagle:package:38104/1"/>
 <part name="3.3/5" library="SparkFun-Connectors" library_urn="urn:adsk.eagle:library:513" deviceset="CONN_03" device="LOCK" package3d_urn="urn:adsk.eagle:package:38071/1"/>
+<part name="PIN1" library="SparkFun-Connectors" library_urn="urn:adsk.eagle:library:513" deviceset="CONN_02" device="LOCK" package3d_urn="urn:adsk.eagle:package:38045/1"/>
+<part name="PIN2" library="SparkFun-Connectors" library_urn="urn:adsk.eagle:library:513" deviceset="CONN_02" device="LOCK" package3d_urn="urn:adsk.eagle:package:38045/1"/>
+<part name="PIN3" library="SparkFun-Connectors" library_urn="urn:adsk.eagle:library:513" deviceset="CONN_02" device="LOCK" package3d_urn="urn:adsk.eagle:package:38045/1"/>
+<part name="PIN4" library="SparkFun-Connectors" library_urn="urn:adsk.eagle:library:513" deviceset="CONN_02" device="LOCK" package3d_urn="urn:adsk.eagle:package:38045/1"/>
 </parts>
 <sheets>
 <sheet>
@@ -28878,10 +28879,6 @@ with hole.</description>
 <instance part="T2_5MM" gate="G$1" x="21.59" y="53.34"/>
 <instance part="T3_5MM" gate="G$1" x="59.69" y="72.39"/>
 <instance part="T4_5MM" gate="G$1" x="59.69" y="53.34"/>
-<instance part="PIN1" gate="G$1" x="5.08" y="71.12"/>
-<instance part="PIN2" gate="G$1" x="5.08" y="52.07"/>
-<instance part="PIN3" gate="G$1" x="43.18" y="71.12"/>
-<instance part="PIN4" gate="G$1" x="43.18" y="52.07"/>
 <instance part="5PIN1" gate="G$1" x="-180.34" y="46.99" rot="R180"/>
 <instance part="BREAD_450" gate="G$1" x="81.28" y="63.5"/>
 <instance part="IRQ" gate="1" x="52.23" y="-45.88" rot="R180"/>
@@ -28891,7 +28888,11 @@ with hole.</description>
 <instance part="GY_4-8" gate="G$1" x="99" y="3"/>
 <instance part="SUPPLY3" gate="G$1" x="119.38" y="-53.34" rot="R180"/>
 <instance part="J1" gate="G$1" x="101.4" y="-20.3" rot="R180"/>
-<instance part="3.3/5" gate="J$1" x="131.8" y="-45.4" rot="R180"/>
+<instance part="3.3/5" gate="J$1" x="131.7" y="-44.8" rot="R180"/>
+<instance part="PIN1" gate="G$1" x="6.5" y="71.5"/>
+<instance part="PIN2" gate="G$1" x="6.6" y="52"/>
+<instance part="PIN3" gate="G$1" x="43.2" y="71.4"/>
+<instance part="PIN4" gate="G$1" x="43.9" y="51.8"/>
 </instances>
 <busses>
 </busses>
@@ -29244,8 +29245,8 @@ with hole.</description>
 <segment>
 <pinref part="SUPPLY3" gate="G$1" pin="3.3V"/>
 <pinref part="3.3/5" gate="J$1" pin="3"/>
-<wire x1="119.38" y1="-53.34" x2="119.38" y2="-47.94" width="0.1524" layer="91"/>
-<wire x1="119.38" y1="-47.94" x2="124.18" y2="-47.94" width="0.1524" layer="91"/>
+<wire x1="119.38" y1="-53.34" x2="119.38" y2="-47.34" width="0.1524" layer="91"/>
+<wire x1="119.38" y1="-47.34" x2="124.08" y2="-47.34" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="5V" class="0">
@@ -29300,8 +29301,8 @@ with hole.</description>
 <wire x1="77.47" y1="-36.83" x2="91.44" y2="-36.83" width="0.1524" layer="91"/>
 <wire x1="91.44" y1="-36.83" x2="91.44" y2="-50.8" width="0.1524" layer="91"/>
 <pinref part="3.3/5" gate="J$1" pin="1"/>
-<wire x1="91.44" y1="-50.8" x2="91.44" y2="-42.86" width="0.1524" layer="91"/>
-<wire x1="91.44" y1="-42.86" x2="124.18" y2="-42.86" width="0.1524" layer="91"/>
+<wire x1="91.44" y1="-50.8" x2="91.44" y2="-42.26" width="0.1524" layer="91"/>
+<wire x1="91.44" y1="-42.26" x2="124.08" y2="-42.26" width="0.1524" layer="91"/>
 <junction x="91.44" y="-50.8"/>
 </segment>
 </net>
@@ -29447,70 +29448,6 @@ with hole.</description>
 <wire x1="74.93" y1="13.97" x2="107.95" y2="13.97" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$35" class="0">
-<segment>
-<pinref part="PIN1" gate="G$1" pin="2"/>
-<pinref part="T1_5MM" gate="G$1" pin="1"/>
-<wire x1="12.7" y1="73.66" x2="15.24" y2="73.66" width="0.1524" layer="91"/>
-<wire x1="15.24" y1="73.66" x2="16.51" y2="74.93" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$36" class="0">
-<segment>
-<pinref part="PIN1" gate="G$1" pin="1"/>
-<pinref part="T1_5MM" gate="G$1" pin="2"/>
-<wire x1="12.7" y1="71.12" x2="15.24" y2="71.12" width="0.1524" layer="91"/>
-<wire x1="15.24" y1="71.12" x2="16.51" y2="69.85" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$42" class="0">
-<segment>
-<pinref part="PIN2" gate="G$1" pin="2"/>
-<pinref part="T2_5MM" gate="G$1" pin="1"/>
-<wire x1="12.7" y1="54.61" x2="15.24" y2="54.61" width="0.1524" layer="91"/>
-<wire x1="15.24" y1="54.61" x2="16.51" y2="55.88" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$43" class="0">
-<segment>
-<pinref part="PIN2" gate="G$1" pin="1"/>
-<pinref part="T2_5MM" gate="G$1" pin="2"/>
-<wire x1="12.7" y1="52.07" x2="15.24" y2="52.07" width="0.1524" layer="91"/>
-<wire x1="15.24" y1="52.07" x2="16.51" y2="50.8" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$44" class="0">
-<segment>
-<pinref part="PIN3" gate="G$1" pin="2"/>
-<pinref part="T3_5MM" gate="G$1" pin="1"/>
-<wire x1="50.8" y1="73.66" x2="53.34" y2="73.66" width="0.1524" layer="91"/>
-<wire x1="53.34" y1="73.66" x2="54.61" y2="74.93" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$45" class="0">
-<segment>
-<pinref part="PIN3" gate="G$1" pin="1"/>
-<pinref part="T3_5MM" gate="G$1" pin="2"/>
-<wire x1="50.8" y1="71.12" x2="53.34" y2="71.12" width="0.1524" layer="91"/>
-<wire x1="53.34" y1="71.12" x2="54.61" y2="69.85" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$46" class="0">
-<segment>
-<pinref part="PIN4" gate="G$1" pin="2"/>
-<pinref part="T4_5MM" gate="G$1" pin="1"/>
-<wire x1="50.8" y1="54.61" x2="53.34" y2="54.61" width="0.1524" layer="91"/>
-<wire x1="53.34" y1="54.61" x2="54.61" y2="55.88" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$47" class="0">
-<segment>
-<pinref part="PIN4" gate="G$1" pin="1"/>
-<pinref part="T4_5MM" gate="G$1" pin="2"/>
-<wire x1="50.8" y1="52.07" x2="53.34" y2="52.07" width="0.1524" layer="91"/>
-<wire x1="53.34" y1="52.07" x2="54.61" y2="50.8" width="0.1524" layer="91"/>
-</segment>
-</net>
 <net name="N$1" class="0">
 <segment>
 <pinref part="IRQ" gate="1" pin="MP"/>
@@ -29589,11 +29526,74 @@ with hole.</description>
 <net name="N$11" class="0">
 <segment>
 <pinref part="ES32-433T20D" gate="G$1" pin="6"/>
-<wire x1="113.03" y1="-27.94" x2="105.8" y2="-27.94" width="0.1524" layer="91"/>
-<wire x1="105.8" y1="-27.94" x2="105.8" y2="-45.3" width="0.1524" layer="91"/>
+<wire x1="113.03" y1="-27.94" x2="105.9" y2="-27.94" width="0.1524" layer="91"/>
+<wire x1="105.9" y1="-27.94" x2="105.9" y2="-44.8" width="0.1524" layer="91"/>
 <pinref part="3.3/5" gate="J$1" pin="2"/>
-<wire x1="105.8" y1="-45.3" x2="124.18" y2="-45.3" width="0.1524" layer="91"/>
-<wire x1="124.18" y1="-45.3" x2="124.18" y2="-45.4" width="0.1524" layer="91"/>
+<wire x1="105.9" y1="-44.8" x2="124.08" y2="-44.8" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$23" class="0">
+<segment>
+<pinref part="PIN1" gate="G$1" pin="2"/>
+<pinref part="T1_5MM" gate="G$1" pin="1"/>
+<wire x1="14.12" y1="74.04" x2="15.62" y2="74.04" width="0.1524" layer="91"/>
+<wire x1="15.62" y1="74.04" x2="16.51" y2="74.93" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$26" class="0">
+<segment>
+<pinref part="PIN1" gate="G$1" pin="1"/>
+<pinref part="T1_5MM" gate="G$1" pin="2"/>
+<wire x1="14.12" y1="71.5" x2="14.86" y2="71.5" width="0.1524" layer="91"/>
+<wire x1="14.86" y1="71.5" x2="16.51" y2="69.85" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$27" class="0">
+<segment>
+<pinref part="PIN2" gate="G$1" pin="2"/>
+<pinref part="T2_5MM" gate="G$1" pin="1"/>
+<wire x1="14.22" y1="54.54" x2="15.17" y2="54.54" width="0.1524" layer="91"/>
+<wire x1="15.17" y1="54.54" x2="16.51" y2="55.88" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$31" class="0">
+<segment>
+<pinref part="PIN2" gate="G$1" pin="1"/>
+<pinref part="T2_5MM" gate="G$1" pin="2"/>
+<wire x1="14.22" y1="52" x2="15.31" y2="52" width="0.1524" layer="91"/>
+<wire x1="15.31" y1="52" x2="16.51" y2="50.8" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$32" class="0">
+<segment>
+<pinref part="PIN3" gate="G$1" pin="2"/>
+<pinref part="T3_5MM" gate="G$1" pin="1"/>
+<wire x1="50.82" y1="73.94" x2="53.62" y2="73.94" width="0.1524" layer="91"/>
+<wire x1="53.62" y1="73.94" x2="54.61" y2="74.93" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$33" class="0">
+<segment>
+<pinref part="PIN3" gate="G$1" pin="1"/>
+<pinref part="T3_5MM" gate="G$1" pin="2"/>
+<wire x1="50.82" y1="71.4" x2="53.06" y2="71.4" width="0.1524" layer="91"/>
+<wire x1="53.06" y1="71.4" x2="54.61" y2="69.85" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$34" class="0">
+<segment>
+<pinref part="PIN4" gate="G$1" pin="2"/>
+<pinref part="T4_5MM" gate="G$1" pin="1"/>
+<wire x1="51.52" y1="54.34" x2="53.07" y2="54.34" width="0.1524" layer="91"/>
+<wire x1="53.07" y1="54.34" x2="54.61" y2="55.88" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$35" class="0">
+<segment>
+<pinref part="PIN4" gate="G$1" pin="1"/>
+<pinref part="T4_5MM" gate="G$1" pin="2"/>
+<wire x1="51.52" y1="51.8" x2="53.61" y2="51.8" width="0.1524" layer="91"/>
+<wire x1="53.61" y1="51.8" x2="54.61" y2="50.8" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
