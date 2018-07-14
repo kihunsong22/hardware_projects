@@ -29438,16 +29438,15 @@ http://www.xganon.com</description>
 <junction x="-149.86" y="52.07"/>
 <pinref part="J2" gate="G$1" pin="1"/>
 <wire x1="-81.28" y1="-55.88" x2="-85.09" y2="-52.07" width="0.1524" layer="91"/>
-<wire x1="-85.09" y1="-52.07" x2="-85.09" y2="-51.816" width="0.1524" layer="91"/>
 <junction x="-85.09" y="-40.64"/>
 <pinref part="RAW" gate="G$1" pin="GNDBREAK"/>
-<wire x1="-85.09" y1="-51.816" x2="-85.09" y2="-43.18" width="0.1524" layer="91"/>
+<wire x1="-85.09" y1="-52.07" x2="-85.09" y2="-43.18" width="0.1524" layer="91"/>
 <wire x1="-85.09" y1="-43.18" x2="-85.09" y2="-40.64" width="0.1524" layer="91"/>
 <junction x="-85.09" y="-43.18"/>
-<pinref part="J3" gate="G$1" pin="P$2"/>
-<wire x1="-81.28" y1="-72.39" x2="-85.09" y2="-68.58" width="0.1524" layer="91"/>
-<wire x1="-85.09" y1="-68.58" x2="-85.09" y2="-51.816" width="0.1524" layer="91"/>
-<junction x="-85.09" y="-51.816"/>
+<pinref part="J3" gate="G$1" pin="P$1"/>
+<wire x1="-85.09" y1="-52.07" x2="-85.09" y2="-66.04" width="0.1524" layer="91"/>
+<wire x1="-85.09" y1="-66.04" x2="-81.28" y2="-69.85" width="0.1524" layer="91"/>
+<junction x="-85.09" y="-52.07"/>
 </segment>
 <segment>
 <pinref part="NRF24L01" gate="G$1" pin="1"/>
@@ -29699,11 +29698,13 @@ http://www.xganon.com</description>
 <pinref part="D1" gate="G$1" pin="+"/>
 <wire x1="-93.98" y1="-57.15" x2="-90.17" y2="-60.96" width="0.1524" layer="91"/>
 <wire x1="-90.17" y1="-60.96" x2="-89.916" y2="-60.96" width="0.1524" layer="91"/>
-<pinref part="J3" gate="G$1" pin="P$1"/>
 <wire x1="-89.916" y1="-60.96" x2="-81.28" y2="-60.96" width="0.1524" layer="91"/>
-<wire x1="-81.28" y1="-69.85" x2="-89.916" y2="-61.214" width="0.1524" layer="91"/>
 <wire x1="-89.916" y1="-61.214" x2="-89.916" y2="-60.96" width="0.1524" layer="91"/>
 <junction x="-89.916" y="-60.96"/>
+<pinref part="J3" gate="G$1" pin="P$2"/>
+<wire x1="-90.17" y1="-60.96" x2="-90.17" y2="-63.5" width="0.1524" layer="91"/>
+<wire x1="-90.17" y1="-63.5" x2="-81.28" y2="-72.39" width="0.1524" layer="91"/>
+<junction x="-90.17" y="-60.96"/>
 </segment>
 </net>
 </nets>

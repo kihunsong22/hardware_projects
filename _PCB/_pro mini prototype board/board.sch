@@ -28880,7 +28880,6 @@ http://www.xganon.com</description>
 <part name="5PIN1" library="SparkFun-Connectors" library_urn="urn:adsk.eagle:library:513" deviceset="USB_MICRO-B" device="_FEMALE-SMT" package3d_urn="urn:adsk.eagle:package:38238/1"/>
 <part name="BREAD_450" library="SparkFun-Boards" library_urn="urn:adsk.eagle:library:509" deviceset="BREADBOARD" device="MINI" package3d_urn="urn:adsk.eagle:package:37314/1"/>
 <part name="IRQ" library="solpad" library_urn="urn:adsk.eagle:library:364" deviceset="LSP10" device="" package3d_urn="urn:adsk.eagle:package:26501/1"/>
-<part name="H1" library="holes" library_urn="urn:adsk.eagle:library:237" deviceset="MOUNT-HOLE" device="3.0" package3d_urn="urn:adsk.eagle:package:14277/1"/>
 <part name="H2" library="holes" library_urn="urn:adsk.eagle:library:237" deviceset="MOUNT-HOLE" device="3.0" package3d_urn="urn:adsk.eagle:package:14277/1"/>
 <part name="H3" library="holes" library_urn="urn:adsk.eagle:library:237" deviceset="MOUNT-HOLE" device="3.0" package3d_urn="urn:adsk.eagle:package:14277/1"/>
 <part name="GY_4-8" library="SparkFun-Connectors" library_urn="urn:adsk.eagle:library:513" deviceset="CONN_04" device="" package3d_urn="urn:adsk.eagle:package:38085/1"/>
@@ -28931,7 +28930,6 @@ http://www.xganon.com</description>
 <instance part="5PIN1" gate="G$1" x="-180.34" y="46.99" rot="R180"/>
 <instance part="BREAD_450" gate="G$1" x="81.28" y="63.5"/>
 <instance part="IRQ" gate="1" x="52.23" y="-45.88" rot="R180"/>
-<instance part="H1" gate="G$1" x="-30.48" y="66.04"/>
 <instance part="H2" gate="G$1" x="-30.48" y="60.96"/>
 <instance part="H3" gate="G$1" x="-30.48" y="55.88"/>
 <instance part="GY_4-8" gate="G$1" x="99" y="3"/>
