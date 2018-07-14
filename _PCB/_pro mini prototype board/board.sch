@@ -27369,22 +27369,6 @@ The Slot footprint only works if the mill layer is transmitted to the PCB fab ho
 <text x="2.54" y="-2.54" size="0.889" layer="27" ratio="11" rot="R90">&gt;VALUE</text>
 <rectangle x1="-1.27" y1="-2.54" x2="1.27" y2="2.54" layer="39"/>
 </package>
-<package name="H2-2.0-6X4.5MM" urn="urn:adsk.eagle:footprint:33038/1" library_version="1">
-<wire x1="3" y1="-2.35" x2="-3" y2="-2.35" width="0.127" layer="21"/>
-<wire x1="-3" y1="-2.35" x2="-3" y2="2.35" width="0.127" layer="21"/>
-<wire x1="3" y1="2.35" x2="3" y2="-2.35" width="0.127" layer="21"/>
-<wire x1="-1.27" y1="1.8542" x2="1.27" y2="1.8542" width="0.127" layer="21"/>
-<wire x1="1.27" y1="1.8542" x2="1.27" y2="2.3622" width="0.127" layer="21"/>
-<wire x1="-2.9972" y1="2.3622" x2="-1.27" y2="2.3622" width="0.127" layer="21"/>
-<wire x1="-1.27" y1="2.3622" x2="-1.27" y2="1.8542" width="0.127" layer="21"/>
-<wire x1="2.9972" y1="2.3622" x2="1.27" y2="2.3622" width="0.127" layer="21"/>
-<pad name="-" x="1" y="0.75" drill="0.8" diameter="1.3" rot="R180"/>
-<pad name="+" x="-1" y="0.75" drill="0.8" diameter="1.3" shape="square" rot="R180"/>
-<text x="-2.54" y="3.175" size="0.889" layer="25" ratio="11">&gt;NAME</text>
-<text x="-2.54" y="-1.27" size="0.889" layer="27" ratio="11">&gt;VALUE</text>
-<text x="0.635" y="0.127" size="0.254" layer="33" ratio="10" rot="R180">&gt;NAME</text>
-<rectangle x1="-2.921" y1="-2.286" x2="3.048" y2="2.286" layer="39" rot="R180"/>
-</package>
 </packages>
 <packages3d>
 <package3d name="H2X4-2.54" urn="urn:adsk.eagle:package:33148/1" type="box" library_version="1">
@@ -27405,11 +27389,6 @@ The Slot footprint only works if the mill layer is transmitted to the PCB fab ho
 <package3d name="H2-2.54" urn="urn:adsk.eagle:package:33132/1" type="box" library_version="1">
 <packageinstances>
 <packageinstance name="H2-2.54"/>
-</packageinstances>
-</package3d>
-<package3d name="H2-2.0-6X4.5MM" urn="urn:adsk.eagle:package:33112/1" type="box" library_version="1">
-<packageinstances>
-<packageinstance name="H2-2.0-6X4.5MM"/>
 </packageinstances>
 </package3d>
 </packages3d>
@@ -27465,20 +27444,6 @@ The Slot footprint only works if the mill layer is transmitted to the PCB fab ho
 <text x="1.27" y="6.35" size="1.27" layer="96" ratio="10">&gt;value</text>
 <pin name="1" x="-7.62" y="2.54" length="middle" function="dotclk" swaplevel="1"/>
 <pin name="2" x="-7.62" y="-2.54" length="middle" swaplevel="1"/>
-</symbol>
-<symbol name="JST-2P-DIP" urn="urn:adsk.eagle:symbol:33037/1" library_version="1">
-<wire x1="1.27" y1="2.54" x2="6.35" y2="2.54" width="0.1524" layer="94"/>
-<wire x1="6.35" y1="2.54" x2="6.35" y2="-2.54" width="0.1524" layer="94"/>
-<wire x1="6.35" y1="-2.54" x2="1.27" y2="-2.54" width="0.1524" layer="94"/>
-<wire x1="1.27" y1="-2.54" x2="1.27" y2="-1.27" width="0.1524" layer="94"/>
-<wire x1="1.27" y1="-1.27" x2="1.27" y2="1.27" width="0.1524" layer="94"/>
-<wire x1="1.27" y1="1.27" x2="1.27" y2="2.54" width="0.1524" layer="94"/>
-<wire x1="0" y1="1.27" x2="1.27" y2="1.27" width="0.1524" layer="94"/>
-<wire x1="0" y1="-1.27" x2="1.27" y2="-1.27" width="0.1524" layer="94"/>
-<text x="2.54" y="3.81" size="1.27" layer="96" ratio="10">&gt;VALUE</text>
-<text x="-3.81" y="3.81" size="1.27" layer="95" ratio="10">&gt;NAME</text>
-<pin name="P$1" x="-2.54" y="1.27" visible="pad" length="short"/>
-<pin name="P$2" x="-2.54" y="-1.27" visible="pad" length="short"/>
 </symbol>
 </symbols>
 <devicesets>
@@ -27579,28 +27544,6 @@ The Slot footprint only works if the mill layer is transmitted to the PCB fab ho
 <technology name="">
 <attribute name="MPN" value="P125-1102A0BS116A1" constant="no"/>
 <attribute name="VALUE" value="2p-2.54" constant="no"/>
-</technology>
-</technologies>
-</device>
-</devices>
-</deviceset>
-<deviceset name="DIP-JST-2P-2.0" urn="urn:adsk.eagle:component:33156/1" prefix="J" uservalue="yes" library_version="1">
-<description>320110049</description>
-<gates>
-<gate name="G$1" symbol="JST-2P-DIP" x="0" y="0"/>
-</gates>
-<devices>
-<device name="" package="H2-2.0-6X4.5MM">
-<connects>
-<connect gate="G$1" pin="P$1" pad="+"/>
-<connect gate="G$1" pin="P$2" pad="-"/>
-</connects>
-<package3dinstances>
-<package3dinstance package3d_urn="urn:adsk.eagle:package:33112/1"/>
-</package3dinstances>
-<technologies>
-<technology name="">
-<attribute name="VALUE" value="2p-2.0" constant="no"/>
 </technology>
 </technologies>
 </device>
@@ -28956,7 +28899,6 @@ http://www.xganon.com</description>
 <part name="GND1" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="GND" device=""/>
 <part name="GND4" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="GND" device=""/>
 <part name="J2" library="Seeed-Connector" library_urn="urn:adsk.eagle:library:478" deviceset="DIP-BLACK-MALE-HEADER-VERT(2P-2.54)" device="" package3d_urn="urn:adsk.eagle:package:33132/1" value="2p-2.54"/>
-<part name="J3" library="Seeed-Connector" library_urn="urn:adsk.eagle:library:478" deviceset="DIP-JST-2P-2.0" device="" package3d_urn="urn:adsk.eagle:package:33112/1" value="2p-2.0"/>
 </parts>
 <sheets>
 <sheet>
@@ -29003,12 +28945,11 @@ http://www.xganon.com</description>
 <instance part="D1-D9_2" gate="G$1" x="-50.8" y="7.62"/>
 <instance part="D13-RAW_1" gate="G$1" x="33.02" y="7.62"/>
 <instance part="D13-RAW_2" gate="G$1" x="53.34" y="7.62"/>
-<instance part="D1" gate="G$1" x="-93.98" y="-53.34" rot="R90"/>
+<instance part="D1" gate="G$1" x="-92.71" y="-58.42" rot="R90"/>
 <instance part="U$1" gate="G$1" x="0" y="7.62"/>
 <instance part="GND1" gate="1" x="-5.08" y="-22.86"/>
 <instance part="GND4" gate="1" x="-17.78" y="35.56"/>
-<instance part="J2" gate="G$1" x="-73.66" y="-58.42"/>
-<instance part="J3" gate="G$1" x="-78.74" y="-71.12"/>
+<instance part="J2" gate="G$1" x="-72.39" y="-63.5"/>
 </instances>
 <busses>
 </busses>
@@ -29289,15 +29230,14 @@ http://www.xganon.com</description>
 <junction x="-153.67" y="-48.26"/>
 <label x="-158.75" y="-53.34" size="1.778" layer="95"/>
 <pinref part="RAW" gate="G$1" pin="PWR"/>
-<wire x1="-85.09" y1="-45.72" x2="-88.9" y2="-45.72" width="0.1524" layer="91"/>
-<wire x1="-88.9" y1="-45.72" x2="-93.98" y2="-45.72" width="0.1524" layer="91"/>
-<wire x1="-93.98" y1="-45.72" x2="-100.33" y2="-45.72" width="0.1524" layer="91"/>
+<wire x1="-85.09" y1="-45.72" x2="-92.71" y2="-45.72" width="0.1524" layer="91"/>
+<wire x1="-92.71" y1="-45.72" x2="-100.33" y2="-45.72" width="0.1524" layer="91"/>
 <wire x1="-100.33" y1="-45.72" x2="-100.33" y2="-25.4" width="0.1524" layer="91"/>
 <wire x1="-100.33" y1="-25.4" x2="-60.96" y2="-25.4" width="0.1524" layer="91"/>
 <junction x="-100.33" y="-25.4"/>
 <pinref part="D1" gate="G$1" pin="-"/>
-<wire x1="-93.98" y1="-49.53" x2="-93.98" y2="-45.72" width="0.1524" layer="91"/>
-<junction x="-93.98" y="-45.72"/>
+<wire x1="-92.71" y1="-54.61" x2="-92.71" y2="-45.72" width="0.1524" layer="91"/>
+<junction x="-92.71" y="-45.72"/>
 </segment>
 </net>
 <net name="3.3V" class="1">
@@ -29411,7 +29351,8 @@ http://www.xganon.com</description>
 <wire x1="-95.25" y1="60.96" x2="-95.25" y2="-15.24" width="0.1524" layer="91"/>
 <junction x="-95.25" y="-15.24"/>
 <pinref part="RAW" gate="G$1" pin="GND"/>
-<wire x1="-85.09" y1="-40.64" x2="-95.25" y2="-40.64" width="0.1524" layer="91"/>
+<wire x1="-85.09" y1="-40.64" x2="-87.63" y2="-40.64" width="0.1524" layer="91"/>
+<wire x1="-87.63" y1="-40.64" x2="-95.25" y2="-40.64" width="0.1524" layer="91"/>
 <wire x1="-95.25" y1="-40.64" x2="-95.25" y2="-15.24" width="0.1524" layer="91"/>
 <pinref part="USB_B" gate="G$1" pin="GND"/>
 <wire x1="-120.65" y1="41.91" x2="-120.65" y2="-15.24" width="0.1524" layer="91"/>
@@ -29437,17 +29378,9 @@ http://www.xganon.com</description>
 <wire x1="-175.26" y1="52.07" x2="-149.86" y2="52.07" width="0.1524" layer="91"/>
 <junction x="-149.86" y="52.07"/>
 <pinref part="J2" gate="G$1" pin="1"/>
-<wire x1="-81.28" y1="-55.88" x2="-85.09" y2="-52.07" width="0.1524" layer="91"/>
-<wire x1="-85.09" y1="-52.07" x2="-85.09" y2="-51.816" width="0.1524" layer="91"/>
-<junction x="-85.09" y="-40.64"/>
-<pinref part="RAW" gate="G$1" pin="GNDBREAK"/>
-<wire x1="-85.09" y1="-51.816" x2="-85.09" y2="-43.18" width="0.1524" layer="91"/>
-<wire x1="-85.09" y1="-43.18" x2="-85.09" y2="-40.64" width="0.1524" layer="91"/>
-<junction x="-85.09" y="-43.18"/>
-<pinref part="J3" gate="G$1" pin="P$2"/>
-<wire x1="-81.28" y1="-72.39" x2="-85.09" y2="-68.58" width="0.1524" layer="91"/>
-<wire x1="-85.09" y1="-68.58" x2="-85.09" y2="-51.816" width="0.1524" layer="91"/>
-<junction x="-85.09" y="-51.816"/>
+<wire x1="-80.01" y1="-60.96" x2="-87.63" y2="-53.34" width="0.1524" layer="91"/>
+<wire x1="-87.63" y1="-53.34" x2="-87.63" y2="-40.64" width="0.1524" layer="91"/>
+<junction x="-87.63" y="-40.64"/>
 </segment>
 <segment>
 <pinref part="NRF24L01" gate="G$1" pin="1"/>
@@ -29693,17 +29626,12 @@ http://www.xganon.com</description>
 <junction x="30.48" y="0"/>
 </segment>
 </net>
-<net name="N$28" class="1">
+<net name="N$24" class="0">
 <segment>
-<pinref part="J2" gate="G$1" pin="2"/>
 <pinref part="D1" gate="G$1" pin="+"/>
-<wire x1="-93.98" y1="-57.15" x2="-90.17" y2="-60.96" width="0.1524" layer="91"/>
-<wire x1="-90.17" y1="-60.96" x2="-89.916" y2="-60.96" width="0.1524" layer="91"/>
-<pinref part="J3" gate="G$1" pin="P$1"/>
-<wire x1="-89.916" y1="-60.96" x2="-81.28" y2="-60.96" width="0.1524" layer="91"/>
-<wire x1="-81.28" y1="-69.85" x2="-89.916" y2="-61.214" width="0.1524" layer="91"/>
-<wire x1="-89.916" y1="-61.214" x2="-89.916" y2="-60.96" width="0.1524" layer="91"/>
-<junction x="-89.916" y="-60.96"/>
+<pinref part="J2" gate="G$1" pin="2"/>
+<wire x1="-92.71" y1="-62.23" x2="-88.9" y2="-66.04" width="0.1524" layer="91"/>
+<wire x1="-88.9" y1="-66.04" x2="-80.01" y2="-66.04" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
