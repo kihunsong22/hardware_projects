@@ -4077,7 +4077,7 @@ design rules under a new name.</description>
 <wire x1="24.205" y1="28.359" x2="31.54" y2="28.356" width="0" layer="19" extent="1-1"/>
 <wire x1="21.166" y1="28.359" x2="24.205" y2="28.359" width="0" layer="19" extent="1-1"/>
 <wire x1="9.017" y1="16.51" x2="21.166" y2="28.359" width="0" layer="19" extent="1-1"/>
-<wire x1="19.177" y1="68.326" x2="21.166" y2="28.359" width="0" layer="19" extent="1-1"/>
+<wire x1="19.177" y1="68.326" x2="49.911" y2="54.562" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="5V" class="1">
 <contactref element="5V" pad="3"/>
@@ -4098,15 +4098,15 @@ design rules under a new name.</description>
 <wire x1="19.05" y1="77.851" x2="15.016" y2="93.795" width="0" layer="19" extent="1-1"/>
 <wire x1="13.9822" y1="70.886" x2="19.05" y2="77.851" width="0" layer="19" extent="1-1"/>
 <wire x1="22.733" y1="53.213" x2="13.9822" y2="70.886" width="0" layer="19" extent="1-1"/>
+<wire x1="49.911" y1="48.212" x2="22.733" y2="53.213" width="0" layer="19" extent="1-1"/>
+<wire x1="52.451" y1="48.212" x2="49.911" y2="48.212" width="0" layer="19" extent="1-1"/>
+<wire x1="54.991" y1="48.212" x2="52.451" y2="48.212" width="0" layer="19" extent="1-1"/>
+<wire x1="57.531" y1="48.212" x2="54.991" y2="48.212" width="0" layer="19" extent="1-1"/>
 <wire x1="8.89" y1="26.543" x2="22.733" y2="53.213" width="0" layer="19" extent="1-1"/>
 <wire x1="9.017" y1="21.59" x2="8.89" y2="26.543" width="0" layer="19" extent="1-1"/>
 <wire x1="21.166" y1="2.959" x2="9.017" y2="21.59" width="0" layer="19" extent="1-1"/>
 <wire x1="24.205" y1="2.959" x2="21.166" y2="2.959" width="0" layer="19" extent="1-1"/>
 <wire x1="31.54" y1="2.956" x2="24.205" y2="2.959" width="0" layer="19" extent="1-1"/>
-<wire x1="49.911" y1="48.212" x2="31.54" y2="2.956" width="0" layer="19" extent="1-1"/>
-<wire x1="52.451" y1="48.212" x2="49.911" y2="48.212" width="0" layer="19" extent="1-1"/>
-<wire x1="54.991" y1="48.212" x2="52.451" y2="48.212" width="0" layer="19" extent="1-1"/>
-<wire x1="57.531" y1="48.212" x2="54.991" y2="48.212" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="GND" class="1">
 <contactref element="5V_C" pad="-"/>
