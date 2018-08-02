@@ -13,6 +13,9 @@ void setup() {
   Serial.begin(9600);
   lora.begin(9600);
 
+  while (!Serial) {
+  }
+
   Serial.println("Power on");
 
   pinMode(M0, OUTPUT);
@@ -26,36 +29,38 @@ void setup() {
   Serial.print("M1: ");
   Serial.println(modeArr[MODE][1]);
   Serial.println();
+
+  lora.print("C0 C0 C0", HEX);
 }
 
 void loop() {
-  prevauxstate = auxstate;
-  auxstate = digitalRead(AUX);
-  if(prevauxstate != auxstate){
-    auxcount++;
-  }
-  else if(auxcount>0){
-    Serial.print("auxSTATE : ");
-    Serial.print(auxstate);
-    Serial.print("        auxcount : ");
-    Serial.println(auxcount);
-    auxcount = 0;
-  }
+  //  prevauxstate = auxstate;
+  //  auxstate = digitalRead(AUX);
+  //  if(prevauxstate != auxstate){
+  //    auxcount++;
+  //  }
+  //  else if(auxcount>0){
+  //    Serial.print("auxSTATE : ");
+  //    Serial.print(auxstate);
+  //    Serial.print("        auxcount : ");
+  //    Serial.println(auxcount);
+  //    auxcount = 0;
+  //  }
 
-  if(Serial.available() > 0){//사용자 입력을 LoRa모듈에 전송
-    String input = Serial.readString();
-    lora.println(input);
-  }
- 
-  if(lora.available() > 1){//LoRa모듈의 출력을 시리얼 모니터에 출력
-    String input = lora.readString();
-    Serial.println(input);
-  }
+//    if(Serial.available() > 0){//사용자 입력을 LoRa모듈에 전송
+//      String input = Serial.readString();
+//      lora.print(input);
+//    }
+  
+    if(lora.available() > 1){//LoRa모듈의 출력을 시리얼 모니터에 출력
+      String input = lora.readString();
+      Serial.println(input);
+    }
 
-  if (lora.available()) {
-    Serial.write(lora.read());
-  }
-  if (Serial.available()) {
-    lora.write(Serial.read());
-  }
+//  if (lora.available()) {
+//    Serial.write(lora.read());
+//  }
+//  if (Serial.available()) {
+//    lora.write(Serial.read());
+//  }
 }
