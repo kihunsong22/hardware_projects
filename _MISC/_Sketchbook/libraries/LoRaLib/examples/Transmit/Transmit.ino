@@ -1,67 +1,83 @@
+/*
+   LoRaLib Transmit Example
+
+   This example transmits LoRa packets with one second delays
+   between them. Each packet contains up to 256 bytes
+   of data, in the form of:
+    - Arduino String
+    - null-terminated char array (C-string)
+    - arbitrary binary data (byte array)
+
+   For more detailed information, see the LoRaLib Wiki
+   https://github.com/jgromes/LoRaLib/wiki
+*/
+
 // include the library
 #include <LoRaLib.h>
 
-// create instance of LoRa class with default settings
-// chip:                SX1278
-// NSS pin:             7
-// bandwidth:           125 kHz
-// spreading factor:    9
-// coding rate:         4/7
-// DIO0 pin:            2
-// DIO1 pin:            3
-LoRa lora;
-
-// create instance of Packet class with destination "01:23:45:67:89:AB:CD:EF" and data "Hello World !"
-Packet pack("01:23:45:67:89:AB:CD:EF", "Hello World!");
+// create instance of LoRa class using SX1278 module
+// this pinout corresponds to LoRenz shield:
+// https://github.com/jgromes/LoRenz
+// NSS pin:   7
+// DIO0 pin:  2
+// DIO1 pin:  3
+SX1278 lora = new LoRa;
 
 void setup() {
   Serial.begin(9600);
 
-  // initialize the LoRa module with default settings
-  if(lora.begin() == ERR_NONE) {
-    Serial.println("Initialization done.");
+  // initialize SX1278 with default settings
+  Serial.print(F("Initializing ... "));
+  // carrier frequency:                   434.0 MHz
+  // bandwidth:                           125.0 kHz
+  // spreading factor:                    9
+  // coding rate:                         7
+  // sync word:                           0x12
+  // output power:                        17 dBm
+  // current limit:                       100 mA
+  // preamble length:                     8 symbols
+  // amplifier gain:                      0 (automatic gain control)
+  int state = lora.begin();
+  if (state == ERR_NONE) {
+    Serial.println(F("success!"));
+  } else {
+    Serial.print(F("failed, code "));
+    Serial.println(state);
+    while (true);
   }
-
-  // create a string to store the packet information
-  char str[24];
-
-  // print the source of the packet
-  pack.getSourceStr(str);
-  Serial.print("Source:\t\t");
-  Serial.println(str);
-
-  // print the destination of the packet
-  pack.getDestinationStr(str);
-  Serial.print("Destination:\t");
-  Serial.println(str);
-
-  // print the length of the packet
-  Serial.print("Length:\t\t");
-  Serial.println(pack.length);
-  
-  // print the data of the packet
-  Serial.print("Data:\t\t");
-  Serial.println(pack.data);
 }
 
 void loop() {
   Serial.print("Sending packet ... ");
 
-  // start transmitting the packet
-  uint8_t state = lora.transmit(pack);
-  
-  if(state == ERR_NONE) {
+  // you can transmit C-string or Arduino string up to
+  // 256 characters long
+  int state = lora.transmit("Hello World!");
+
+  // you can also transmit byte array up to 256 bytes long
+  /*
+    byte byteArr[] = {0x01, 0x23, 0x45, 0x56,
+                      0x78, 0xAB, 0xCD, 0xEF};
+    int state = lora.transmit(byteArr, 8);
+  */
+
+  if (state == ERR_NONE) {
     // the packet was successfully transmitted
     Serial.println(" success!");
-    
-  } else if(state == ERR_PACKET_TOO_LONG) {
+
+    // print measured data rate
+    Serial.print("Datarate:\t");
+    Serial.print(lora.dataRate);
+    Serial.println(" bps");
+
+  } else if (state == ERR_PACKET_TOO_LONG) {
     // the supplied packet was longer than 256 bytes
     Serial.println(" too long!");
-    
-  } else if(state == ERR_TX_TIMEOUT) {
-    // timeout occured while transmitting packet
+
+  } else if (state == ERR_TX_TIMEOUT) {
+    // timeout occurred while transmitting packet
     Serial.println(" timeout!");
-    
+
   }
 
   // wait a second before transmitting again

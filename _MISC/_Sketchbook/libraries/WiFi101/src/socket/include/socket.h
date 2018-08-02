@@ -791,7 +791,11 @@ typedef struct{
 	@SOCK_ERR_TIMEOUT	 			 : Socket receive timed out
 */
 typedef struct{
+#ifdef ARDUINO
+	uint32					pu8Buffer;
+#else
 	uint8					*pu8Buffer;
+#endif
 	/*!<
 		Pointer to the USER buffer (passed to @ref recv and @ref recvfrom function) containing the received data chunk.
 	*/
@@ -1202,8 +1206,6 @@ NMI_API SOCKET socket(uint16 u16Domain, uint8 u8Type, uint8 u8Flags);
 @endcode	
 */
 NMI_API sint8 bind(SOCKET sock, struct sockaddr *pstrAddr, uint8 u8AddrLen);
-
-
 /** @} */
 
 /** @defgroup ListenFn listen
@@ -1459,11 +1461,7 @@ NMI_API sint8 accept(SOCKET sock, struct sockaddr *addr, uint8 *addrlen);
 	}
 @endcode
 */
-#ifdef ARDUINO
-NMI_API sint8 connectSocket(SOCKET sock, struct sockaddr *pstrAddr, uint8 u8AddrLen);
-#else
 NMI_API sint8 connect(SOCKET sock, struct sockaddr *pstrAddr, uint8 u8AddrLen);
-#endif
 /** @} */
 /** @defgroup ReceiveFn recv
  *    @ingroup SocketAPI
@@ -1839,8 +1837,6 @@ NMI_API sint16 sendto(SOCKET sock, void *pvSendBuffer, uint16 u16SendLength, uin
 	The function returned @ref SOCK_ERR_NO_ERROR for successful operation and a negative value (indicating the error) otherwise. 
 */
 NMI_API sint8 close(SOCKET sock);
-
-
 /** @} */
 /** @defgroup InetAddressFn nmi_inet_addr
 *  @ingroup SocketAPI

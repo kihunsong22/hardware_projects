@@ -7,40 +7,63 @@
   #include "WProgram.h"
 #endif
 
-//#define DEBUG
+//#define KITELIB_DEBUG
 
-#ifdef DEBUG
-  //#define VERBOSE
-  #define BYTE_TO_BINARY(byte)  \
-    ((byte & 0x80) ? '1' : '0'), \
-    ((byte & 0x40) ? '1' : '0'), \
-    ((byte & 0x20) ? '1' : '0'), \
-    ((byte & 0x10) ? '1' : '0'), \
-    ((byte & 0x08) ? '1' : '0'), \
-    ((byte & 0x04) ? '1' : '0'), \
-    ((byte & 0x02) ? '1' : '0'), \
-    ((byte & 0x01) ? '1' : '0') 
+#ifdef KITELIB_DEBUG
+  #define DEBUG_BEGIN(x)                Serial.begin (x)
+  #define DEBUG_PRINT(x)                Serial.print (x)
+  #define DEBUG_PRINT_BIN(x)            Serial.print (x, BIN)
+  #define DEBUG_PRINTLN_BIN(x)          Serial.println (x, BIN)
+  #define DEBUG_PRINT_DEC(x)            Serial.print (x, DEC)
+  #define DEBUG_PRINTLN_DEC(x)          Serial.println (x, DEC)
+  #define DEBUG_PRINT_HEX(x)            Serial.print (x, HEX)
+  #define DEBUG_PRINTLN_HEX(x)          Serial.println (x, HEX)
+  #define DEBUG_PRINTLN(x)              Serial.println (x)
+  #define DEBUG_PRINT_STR(x)            Serial.print (F(x))
+  #define DEBUG_PRINTLN_STR(x)          Serial.println (F(x))
+#else
+  #define DEBUG_BEGIN(x)
+  #define DEBUG_PRINT(x)
+  #define DEBUG_PRINT_BIN(x)
+  #define DEBUG_PRINTLN_BIN(x)
+  #define DEBUG_PRINT_DEC(x)
+  #define DEBUG_PRINTLN_DEC(x)
+  #define DEBUG_PRINT_HEX(x)
+  #define DEBUG_PRINTLN_HEX(x)
+  #define DEBUG_PRINTLN(x)
+  #define DEBUG_PRINT_STR(x)
+  #define DEBUG_PRINTLN_STR(x)
 #endif
 
-#define ERR_NONE                        0x00
-#define ERR_CHIP_NOT_FOUND              0x01
-#define ERR_EEPROM_NOT_INITIALIZED      0x02
+// Shield configuration
+#define USE_SPI                               0x00
+#define USE_UART                              0x01
+#define USE_I2C                               0x02
+#define INT_NONE                              0x00
+#define INT_0                                 0x01
+#define INT_1                                 0x02
+#define INT_BOTH                              0x03
 
-#define ERR_PACKET_TOO_LONG             0x10
-#define ERR_TX_TIMEOUT                  0x11
+#define ERR_NONE                               0
+#define ERR_UNKNOWN                           -1
 
-#define ERR_RX_TIMEOUT                  0x20
-#define ERR_CRC_MISMATCH                0x21
-
-#define ERR_INVALID_BANDWIDTH           0x30
-#define ERR_INVALID_SPREADING_FACTOR    0x31
-#define ERR_INVALID_CODING_RATE         0x32
-
-#define ERR_INVALID_BIT_RANGE           0x40
-
-enum Chip {CH_SX1272, CH_SX1273, CH_SX1276, CH_SX1277, CH_SX1278, CH_SX1279};
-enum Bandwidth {BW_7_80_KHZ, BW_10_40_KHZ, BW_15_60_KHZ, BW_20_80_KHZ, BW_31_25_KHZ, BW_41_70_KHZ, BW_62_50_KHZ, BW_125_00_KHZ, BW_250_00_KHZ, BW_500_00_KHZ};
-enum SpreadingFactor {SF_6, SF_7, SF_8, SF_9, SF_10, SF_11, SF_12};
-enum CodingRate {CR_4_5, CR_4_6, CR_4_7, CR_4_8};
+#define ERR_CHIP_NOT_FOUND                    -2
+#define ERR_EEPROM_NOT_INITIALIZED            -3
+#define ERR_PACKET_TOO_LONG                   -4
+#define ERR_TX_TIMEOUT                        -5
+#define ERR_RX_TIMEOUT                        -6
+#define ERR_CRC_MISMATCH                      -7
+#define ERR_INVALID_BANDWIDTH                 -8
+#define ERR_INVALID_SPREADING_FACTOR          -9
+#define ERR_INVALID_CODING_RATE               -10
+#define ERR_INVALID_BIT_RANGE                 -11
+#define ERR_INVALID_FREQUENCY                 -12
+#define ERR_INVALID_OUTPUT_POWER              -13
+#define PREAMBLE_DETECTED                     -14
+#define CHANNEL_FREE                          -15
+#define ERR_SPI_WRITE_FAILED                  -16
+#define ERR_INVALID_CURRENT_LIMIT             -17
+#define ERR_INVALID_PREAMBLE_LENGTH           -18
+#define ERR_INVALID_GAIN                      -19
 
 #endif
