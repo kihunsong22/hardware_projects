@@ -6,7 +6,6 @@
  * https://github.com/Bob0505/E32-TTL-100
  */
 #include <SoftwareSerial.h>
-
 #include "E32-TTL-100.h"
 
 /*
