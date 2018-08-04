@@ -34088,6 +34088,7 @@ SparkFun BigTime Watch Kit&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
 <part name="PAD9" library="wirepad" library_urn="urn:adsk.eagle:library:412" deviceset="SMD2" device="" package3d_urn="urn:adsk.eagle:package:30839/1"/>
 <part name="PAD10" library="wirepad" library_urn="urn:adsk.eagle:library:412" deviceset="SMD2" device="" package3d_urn="urn:adsk.eagle:package:30839/1"/>
 <part name="U$1" library="diy-modules" deviceset="USB-SERIAL-FT232R" device=""/>
+<part name="J7" library="SparkFun-Connectors" library_urn="urn:adsk.eagle:library:513" deviceset="CONN_06" device="LOCK" package3d_urn="urn:adsk.eagle:package:38002/1"/>
 </parts>
 <sheets>
 <sheet>
@@ -34176,6 +34177,7 @@ SparkFun BigTime Watch Kit&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
 <instance part="PAD9" gate="1" x="-68.58" y="-38.1"/>
 <instance part="PAD10" gate="1" x="-68.58" y="-43.18"/>
 <instance part="U$1" gate="G$1" x="-76.2" y="73.66"/>
+<instance part="J7" gate="G$1" x="12.7" y="76.2" rot="R180"/>
 </instances>
 <busses>
 </busses>

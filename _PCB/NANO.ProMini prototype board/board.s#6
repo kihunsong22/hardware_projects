@@ -33973,6 +33973,10 @@ SparkFun BigTime Watch Kit&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
 <part name="PAD4" library="wirepad" library_urn="urn:adsk.eagle:library:412" deviceset="SMD2" device="" package3d_urn="urn:adsk.eagle:package:30839/1"/>
 <part name="PAD5" library="wirepad" library_urn="urn:adsk.eagle:library:412" deviceset="SMD2" device="" package3d_urn="urn:adsk.eagle:package:30839/1"/>
 <part name="PAD6" library="wirepad" library_urn="urn:adsk.eagle:library:412" deviceset="SMD2" device="" package3d_urn="urn:adsk.eagle:package:30839/1"/>
+<part name="PAD7" library="wirepad" library_urn="urn:adsk.eagle:library:412" deviceset="SMD2" device="" package3d_urn="urn:adsk.eagle:package:30839/1"/>
+<part name="PAD8" library="wirepad" library_urn="urn:adsk.eagle:library:412" deviceset="SMD2" device="" package3d_urn="urn:adsk.eagle:package:30839/1"/>
+<part name="PAD9" library="wirepad" library_urn="urn:adsk.eagle:library:412" deviceset="SMD2" device="" package3d_urn="urn:adsk.eagle:package:30839/1"/>
+<part name="PAD10" library="wirepad" library_urn="urn:adsk.eagle:library:412" deviceset="SMD2" device="" package3d_urn="urn:adsk.eagle:package:30839/1"/>
 </parts>
 <sheets>
 <sheet>
@@ -34057,6 +34061,10 @@ SparkFun BigTime Watch Kit&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
 <instance part="PAD4" gate="1" x="45.72" y="-99.06" rot="R180"/>
 <instance part="PAD5" gate="1" x="-60.96" y="-93.98"/>
 <instance part="PAD6" gate="1" x="-60.96" y="-99.06"/>
+<instance part="PAD7" gate="1" x="-60.96" y="-35.56"/>
+<instance part="PAD8" gate="1" x="-60.96" y="-40.64"/>
+<instance part="PAD9" gate="1" x="-68.58" y="-38.1"/>
+<instance part="PAD10" gate="1" x="-68.58" y="-43.18"/>
 </instances>
 <busses>
 </busses>
@@ -34422,6 +34430,9 @@ SparkFun BigTime Watch Kit&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
 <wire x1="-40.64" y1="-35.56" x2="-33.02" y2="-27.94" width="0.1524" layer="91"/>
 <pinref part="3.3V" gate="G$1" pin="1"/>
 <wire x1="-154.94" y1="7.62" x2="-154.94" y2="5.08" width="0.1524" layer="91"/>
+<pinref part="PAD7" gate="1" pin="P"/>
+<wire x1="-58.42" y1="-35.56" x2="-40.64" y2="-35.56" width="0.1524" layer="91"/>
+<junction x="-40.64" y="-35.56"/>
 </segment>
 <segment>
 <pinref part="SUPPLY3" gate="G$1" pin="3.3V"/>
@@ -34513,6 +34524,9 @@ SparkFun BigTime Watch Kit&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
 <wire x1="-38.1" y1="-40.64" x2="-40.64" y2="-40.64" width="0.1524" layer="91"/>
 <pinref part="J8" gate="G$1" pin="1"/>
 <wire x1="-215.9" y1="43.18" x2="-190.5" y2="43.18" width="0.1524" layer="91"/>
+<pinref part="PAD8" gate="1" pin="P"/>
+<wire x1="-58.42" y1="-40.64" x2="-40.64" y2="-40.64" width="0.1524" layer="91"/>
+<junction x="-40.64" y="-40.64"/>
 </segment>
 <segment>
 <pinref part="SUPPLY1" gate="G$1" pin="5V"/>
@@ -34942,6 +34956,9 @@ SparkFun BigTime Watch Kit&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
 <pinref part="S4" gate="G$1" pin="2"/>
 <wire x1="-22.86" y1="-63.5" x2="-22.86" y2="-60.96" width="0.1524" layer="91"/>
 <junction x="-22.86" y="-60.96"/>
+<pinref part="PAD9" gate="1" pin="P"/>
+<wire x1="-40.64" y1="-38.1" x2="-66.04" y2="-38.1" width="0.1524" layer="91"/>
+<junction x="-40.64" y="-38.1"/>
 </segment>
 </net>
 <net name="N$37" class="1">
@@ -35218,6 +35235,13 @@ SparkFun BigTime Watch Kit&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
 <pinref part="ESP1" gate="G$1" pin="2"/>
 <wire x1="-116.84" y1="-93.98" x2="-109.22" y2="-86.36" width="0.1524" layer="91"/>
 <wire x1="-109.22" y1="-86.36" x2="-109.22" y2="-83.82" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$65" class="0">
+<segment>
+<pinref part="BOARD_POWER" gate="G$1" pin="1"/>
+<pinref part="PAD10" gate="1" pin="P"/>
+<wire x1="-40.64" y1="-43.18" x2="-66.04" y2="-43.18" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>

@@ -34569,6 +34569,10 @@ SparkFun BigTime Watch Kit&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
 <junction x="-22.86" y="81.28"/>
 <pinref part="SUPPLY6" gate="G$1" pin="3.3V"/>
 <wire x1="-22.86" y1="93.98" x2="-22.86" y2="81.28" width="0.1524" layer="91"/>
+<pinref part="J7" gate="G$1" pin="2"/>
+<wire x1="-10.16" y1="81.28" x2="5.08" y2="81.28" width="0.1524" layer="91"/>
+<wire x1="5.08" y1="81.28" x2="7.62" y2="78.74" width="0.1524" layer="91"/>
+<junction x="-10.16" y="81.28"/>
 </segment>
 <segment>
 <pinref part="ESP_C" gate="G$1" pin="+"/>
@@ -34675,6 +34679,10 @@ SparkFun BigTime Watch Kit&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
 <wire x1="-48.26" y1="73.66" x2="-43.18" y2="68.58" width="0.1524" layer="91"/>
 <wire x1="-43.18" y1="68.58" x2="-25.4" y2="68.58" width="0.1524" layer="91"/>
 <junction x="-25.4" y="68.58"/>
+<pinref part="J7" gate="G$1" pin="3"/>
+<wire x1="-10.16" y1="68.58" x2="0" y2="68.58" width="0.1524" layer="91"/>
+<wire x1="0" y1="68.58" x2="7.62" y2="76.2" width="0.1524" layer="91"/>
+<junction x="-10.16" y="68.58"/>
 </segment>
 </net>
 <net name="GND" class="1">
@@ -34792,6 +34800,10 @@ SparkFun BigTime Watch Kit&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
 <wire x1="-45.72" y1="68.58" x2="-43.18" y2="71.12" width="0.1524" layer="91"/>
 <wire x1="-43.18" y1="71.12" x2="-25.4" y2="71.12" width="0.1524" layer="91"/>
 <junction x="-25.4" y="71.12"/>
+<pinref part="J7" gate="G$1" pin="1"/>
+<wire x1="-10.16" y1="71.12" x2="-2.54" y2="71.12" width="0.1524" layer="91"/>
+<wire x1="-2.54" y1="71.12" x2="7.62" y2="81.28" width="0.1524" layer="91"/>
+<junction x="-10.16" y="71.12"/>
 </segment>
 <segment>
 <pinref part="ESP8266" gate="G$1" pin="GND"/>
@@ -35224,66 +35236,52 @@ SparkFun BigTime Watch Kit&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
 <wire x1="124.46" y1="-15.24" x2="129.54" y2="-20.32" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$56" class="0">
-<segment>
-<pinref part="CP2102_USB-SERIAL" gate="G$1" pin="DTR"/>
-<wire x1="-22.86" y1="78.74" x2="-25.4" y2="78.74" width="0.1524" layer="91"/>
-<pinref part="J9" gate="G$1" pin="2"/>
-<wire x1="-22.86" y1="78.74" x2="-10.16" y2="78.74" width="0.1524" layer="91"/>
-<pinref part="PROMINI_H" gate="A" pin="6"/>
-<wire x1="7.62" y1="38.1" x2="7.62" y2="43.18" width="0.1524" layer="91"/>
-<wire x1="7.62" y1="43.18" x2="-10.16" y2="60.96" width="0.1524" layer="91"/>
-<wire x1="-10.16" y1="60.96" x2="-10.16" y2="78.74" width="0.1524" layer="91"/>
-<junction x="-10.16" y="78.74"/>
-<pinref part="U$1" gate="G$1" pin="DTR"/>
-<wire x1="-55.88" y1="81.28" x2="-45.72" y2="81.28" width="0.1524" layer="91"/>
-<wire x1="-45.72" y1="81.28" x2="-43.18" y2="78.74" width="0.1524" layer="91"/>
-<wire x1="-43.18" y1="78.74" x2="-25.4" y2="78.74" width="0.1524" layer="91"/>
-<junction x="-25.4" y="78.74"/>
-</segment>
-</net>
 <net name="N$62" class="0">
 <segment>
-<pinref part="PROMINI_H" gate="A" pin="5"/>
-<wire x1="5.08" y1="38.1" x2="5.08" y2="43.18" width="0.1524" layer="91"/>
-<wire x1="5.08" y1="43.18" x2="-2.54" y2="50.8" width="0.1524" layer="91"/>
-<wire x1="-2.54" y1="50.8" x2="-10.16" y2="58.42" width="0.1524" layer="91"/>
-<wire x1="-10.16" y1="58.42" x2="-12.7" y2="60.96" width="0.1524" layer="91"/>
 <pinref part="CP2102_USB-SERIAL" gate="G$1" pin="TDO"/>
 <pinref part="J9" gate="G$1" pin="4"/>
-<wire x1="-12.7" y1="73.66" x2="-10.16" y2="73.66" width="0.1524" layer="91"/>
-<wire x1="-22.86" y1="73.66" x2="-15.24" y2="73.66" width="0.1524" layer="91"/>
-<wire x1="-15.24" y1="73.66" x2="-12.7" y2="73.66" width="0.1524" layer="91"/>
+<wire x1="-17.78" y1="73.66" x2="-10.16" y2="73.66" width="0.1524" layer="91"/>
+<wire x1="-22.86" y1="73.66" x2="-17.78" y2="73.66" width="0.1524" layer="91"/>
+<wire x1="-17.78" y1="73.66" x2="-15.24" y2="73.66" width="0.1524" layer="91"/>
+<wire x1="-15.24" y1="73.66" x2="-17.78" y2="73.66" width="0.1524" layer="91"/>
 <wire x1="-22.86" y1="73.66" x2="-25.4" y2="73.66" width="0.1524" layer="91"/>
-<wire x1="-12.7" y1="60.96" x2="-12.7" y2="73.66" width="0.1524" layer="91"/>
-<junction x="-12.7" y="73.66"/>
 <pinref part="U$1" gate="G$1" pin="TX"/>
 <wire x1="-55.88" y1="76.2" x2="-45.72" y2="76.2" width="0.1524" layer="91"/>
 <wire x1="-45.72" y1="76.2" x2="-43.18" y2="73.66" width="0.1524" layer="91"/>
 <wire x1="-43.18" y1="73.66" x2="-25.4" y2="73.66" width="0.1524" layer="91"/>
 <junction x="-25.4" y="73.66"/>
+<pinref part="PROMINI_H" gate="A" pin="5"/>
+<wire x1="5.08" y1="38.1" x2="5.08" y2="43.18" width="0.1524" layer="91"/>
+<wire x1="5.08" y1="43.18" x2="-17.78" y2="66.04" width="0.1524" layer="91"/>
+<wire x1="-17.78" y1="66.04" x2="-17.78" y2="73.66" width="0.1524" layer="91"/>
+<junction x="-17.78" y="73.66"/>
+<pinref part="J7" gate="G$1" pin="4"/>
+<wire x1="-10.16" y1="73.66" x2="7.62" y2="73.66" width="0.1524" layer="91"/>
+<junction x="-10.16" y="73.66"/>
 </segment>
 </net>
 <net name="N$57" class="0">
 <segment>
-<wire x1="-12.7" y1="58.42" x2="-15.24" y2="60.96" width="0.1524" layer="91"/>
-<wire x1="-5.08" y1="50.8" x2="-12.7" y2="58.42" width="0.1524" layer="91"/>
-<wire x1="2.54" y1="43.18" x2="-5.08" y2="50.8" width="0.1524" layer="91"/>
-<pinref part="PROMINI_H" gate="A" pin="4"/>
-<wire x1="2.54" y1="38.1" x2="2.54" y2="43.18" width="0.1524" layer="91"/>
 <pinref part="CP2102_USB-SERIAL" gate="G$1" pin="RXI"/>
 <pinref part="J9" gate="G$1" pin="3"/>
 <wire x1="-10.16" y1="76.2" x2="-12.7" y2="76.2" width="0.1524" layer="91"/>
-<wire x1="-12.7" y1="76.2" x2="-15.24" y2="76.2" width="0.1524" layer="91"/>
-<wire x1="-15.24" y1="76.2" x2="-22.86" y2="76.2" width="0.1524" layer="91"/>
+<wire x1="-12.7" y1="76.2" x2="-20.32" y2="76.2" width="0.1524" layer="91"/>
+<wire x1="-20.32" y1="76.2" x2="-22.86" y2="76.2" width="0.1524" layer="91"/>
 <wire x1="-22.86" y1="76.2" x2="-25.4" y2="76.2" width="0.1524" layer="91"/>
-<wire x1="-15.24" y1="60.96" x2="-15.24" y2="76.2" width="0.1524" layer="91"/>
-<junction x="-15.24" y="76.2"/>
 <pinref part="U$1" gate="G$1" pin="RX"/>
 <wire x1="-55.88" y1="78.74" x2="-45.72" y2="78.74" width="0.1524" layer="91"/>
 <wire x1="-45.72" y1="78.74" x2="-43.18" y2="76.2" width="0.1524" layer="91"/>
 <wire x1="-43.18" y1="76.2" x2="-25.4" y2="76.2" width="0.1524" layer="91"/>
 <junction x="-25.4" y="76.2"/>
+<pinref part="PROMINI_H" gate="A" pin="4"/>
+<wire x1="2.54" y1="38.1" x2="2.54" y2="43.18" width="0.1524" layer="91"/>
+<wire x1="-20.32" y1="76.2" x2="-20.32" y2="66.04" width="0.1524" layer="91"/>
+<wire x1="-20.32" y1="66.04" x2="2.54" y2="43.18" width="0.1524" layer="91"/>
+<junction x="-20.32" y="76.2"/>
+<pinref part="J7" gate="G$1" pin="5"/>
+<wire x1="-10.16" y1="76.2" x2="2.54" y2="76.2" width="0.1524" layer="91"/>
+<wire x1="2.54" y1="76.2" x2="7.62" y2="71.12" width="0.1524" layer="91"/>
+<junction x="-10.16" y="76.2"/>
 </segment>
 </net>
 <net name="N$76" class="0">
@@ -35372,6 +35370,29 @@ SparkFun BigTime Watch Kit&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
 <pinref part="BOARD_POWER" gate="G$1" pin="1"/>
 <pinref part="PAD10" gate="1" pin="P"/>
 <wire x1="-40.64" y1="-43.18" x2="-66.04" y2="-43.18" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$66" class="0">
+<segment>
+<pinref part="PROMINI_H" gate="A" pin="6"/>
+<wire x1="7.62" y1="38.1" x2="7.62" y2="43.18" width="0.1524" layer="91"/>
+<pinref part="CP2102_USB-SERIAL" gate="G$1" pin="DTR"/>
+<wire x1="-22.86" y1="78.74" x2="-25.4" y2="78.74" width="0.1524" layer="91"/>
+<pinref part="J9" gate="G$1" pin="2"/>
+<wire x1="-22.86" y1="78.74" x2="-15.24" y2="78.74" width="0.1524" layer="91"/>
+<pinref part="U$1" gate="G$1" pin="DTR"/>
+<wire x1="-15.24" y1="78.74" x2="-10.16" y2="78.74" width="0.1524" layer="91"/>
+<wire x1="-55.88" y1="81.28" x2="-45.72" y2="81.28" width="0.1524" layer="91"/>
+<wire x1="-45.72" y1="81.28" x2="-43.18" y2="78.74" width="0.1524" layer="91"/>
+<wire x1="-43.18" y1="78.74" x2="-25.4" y2="78.74" width="0.1524" layer="91"/>
+<junction x="-25.4" y="78.74"/>
+<wire x1="7.62" y1="43.18" x2="-15.24" y2="66.04" width="0.1524" layer="91"/>
+<wire x1="-15.24" y1="66.04" x2="-15.24" y2="78.74" width="0.1524" layer="91"/>
+<junction x="-15.24" y="78.74"/>
+<pinref part="J7" gate="G$1" pin="6"/>
+<wire x1="-10.16" y1="78.74" x2="-2.54" y2="78.74" width="0.1524" layer="91"/>
+<wire x1="-2.54" y1="78.74" x2="7.62" y2="68.58" width="0.1524" layer="91"/>
+<junction x="-10.16" y="78.74"/>
 </segment>
 </net>
 </nets>

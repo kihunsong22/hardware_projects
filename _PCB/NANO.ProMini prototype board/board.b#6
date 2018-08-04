@@ -298,10 +298,10 @@ MINI</text>
 <text x="79.1718" y="12.0142" size="1.1176" layer="21" font="vector" rot="R180">5V</text>
 <text x="79.2988" y="6.6802" size="1.1176" layer="21" font="vector" rot="R180">GND</text>
 <text x="38.5826" y="87.8332" size="1.1176" layer="21" font="vector" rot="R180">VIN</text>
-<text x="87.757" y="2.54" size="1.1176" layer="21" font="vector">3.3V</text>
-<text x="87.757" y="7.747" size="1.1176" layer="21" font="vector">5V</text>
-<text x="87.757" y="10.414" size="1.1176" layer="21" font="vector">OFF</text>
-<text x="87.757" y="5.207" size="1.1176" layer="21" font="vector">VCC</text>
+<text x="86.3092" y="3.9878" size="1.1176" layer="21" font="vector" rot="R180">3.3V</text>
+<text x="86.2838" y="9.0424" size="1.1176" layer="21" font="vector" rot="R180">5V</text>
+<text x="86.3092" y="11.557" size="1.1176" layer="21" font="vector" rot="R180">OFF</text>
+<text x="86.3092" y="6.4516" size="1.1176" layer="21" font="vector" rot="R180">VCC</text>
 <text x="102.9462" y="48.9204" size="1.1176" layer="21" font="vector" rot="R180">5V</text>
 <text x="102.9462" y="46.2534" size="1.1176" layer="21" font="vector" rot="R180">GND</text>
 <text x="102.9462" y="43.5864" size="1.1176" layer="21" font="vector" rot="R180">TXD</text>
@@ -314,7 +314,7 @@ MINI</text>
 <text x="111.3536" y="29.1084" size="1.1176" layer="21" font="vector" rot="R180">D+</text>
 <text x="16.637" y="42.672" size="1.1176" layer="21" font="vector" rot="R90">LoRa</text>
 <text x="79.8068" y="17.3482" size="1.1176" layer="21" font="vector" rot="R180">3V3</text>
-<text x="83.439" y="1.651" size="1.1176" layer="21" font="vector" rot="R90">BOARD_POWER</text>
+<text x="91.6178" y="2.032" size="1.1176" layer="21" font="vector" rot="R90">BOARD_POWER</text>
 <text x="81.153" y="67.945" size="1.1176" layer="21" font="vector" rot="R90">TX</text>
 <text x="86.106" y="68.326" size="1.1176" layer="21" font="vector" rot="R180">NC</text>
 <text x="83.185" y="74.295" size="1.1176" layer="21" font="vector">GPIO0</text>
@@ -356,6 +356,10 @@ POW</text>
 <vertex x="92.5576" y="95.631"/>
 <vertex x="92.5576" y="99.06"/>
 </polygon>
+<text x="83.4136" y="5.7912" size="1.1176" layer="22" font="vector" rot="R180">3.3V</text>
+<text x="83.3882" y="8.9408" size="1.1176" layer="22" font="vector" rot="R180">5V</text>
+<text x="83.3882" y="10.5156" size="1.1176" layer="22" font="vector" rot="R180">OFF</text>
+<text x="83.3882" y="7.366" size="1.1176" layer="22" font="vector" rot="R180">VCC</text>
 </plain>
 <libraries>
 <library name="pinhead" urn="urn:adsk.eagle:library:325">
@@ -4666,9 +4670,9 @@ design rules under a new name.</description>
 <attribute name="NAME" x="15.011" y="23.331" size="1.27" layer="25" font="vector" rot="R180"/>
 <attribute name="VALUE" x="23.662" y="3.877" size="1.27" layer="27" rot="R90"/>
 </element>
-<element name="BOARD_POWER" library="SparkFun-Connectors" library_urn="urn:adsk.eagle:library:513" package="1X04_LOCK_LONGPADS" package3d_urn="urn:adsk.eagle:package:38091/1" value="" x="85.471" y="10.795" smashed="yes" rot="MR270">
-<attribute name="PROD_ID" value="CONN-09696" x="85.471" y="10.795" size="1.778" layer="28" rot="MR270" display="off"/>
-<attribute name="VALUE" x="87.884" y="12.065" size="0.6096" layer="28" font="vector" ratio="20" rot="MR270"/>
+<element name="BOARD_POWER" library="SparkFun-Connectors" library_urn="urn:adsk.eagle:library:513" package="1X04_LOCK_LONGPADS" package3d_urn="urn:adsk.eagle:package:38091/1" value="" x="88.2142" y="11.049" smashed="yes" rot="MR270">
+<attribute name="PROD_ID" value="CONN-09696" x="88.2142" y="11.049" size="1.778" layer="28" rot="MR270" display="off"/>
+<attribute name="VALUE" x="90.6272" y="12.319" size="0.6096" layer="28" font="vector" ratio="20" rot="MR270"/>
 </element>
 <element name="PROMINI_H" library="pinhead_v2" package="1X06/OCT" value="" x="44.069" y="40.64" smashed="yes">
 <attribute name="VALUE" x="36.449" y="37.465" size="1.27" layer="27"/>
@@ -4807,17 +4811,17 @@ design rules under a new name.</description>
 <element name="PAD6" library="wirepad" library_urn="urn:adsk.eagle:library:412" package="SMD1,27-2,54" package3d_urn="urn:adsk.eagle:package:30839/1" value="" x="72.9742" y="89.7128" smashed="yes" rot="MR90">
 <attribute name="VALUE" x="72.9742" y="89.7128" size="0.0254" layer="28" rot="MR90"/>
 </element>
-<element name="PAD7" library="wirepad" library_urn="urn:adsk.eagle:library:412" package="SMD1,27-2,54" package3d_urn="urn:adsk.eagle:package:30839/1" value="" x="89.8144" y="4.6736" smashed="yes" rot="R270">
-<attribute name="VALUE" x="89.8144" y="4.6736" size="0.0254" layer="27" rot="R270"/>
+<element name="PAD7" library="wirepad" library_urn="urn:adsk.eagle:library:412" package="SMD1,27-2,54" package3d_urn="urn:adsk.eagle:package:30839/1" value="" x="84.9122" y="5.0546" smashed="yes" rot="R270">
+<attribute name="VALUE" x="84.9122" y="5.0546" size="0.0254" layer="27" rot="R270"/>
 </element>
-<element name="PAD8" library="wirepad" library_urn="urn:adsk.eagle:library:412" package="SMD1,27-2,54" package3d_urn="urn:adsk.eagle:package:30839/1" value="" x="89.8144" y="7.8232" smashed="yes" rot="R270">
-<attribute name="VALUE" x="89.8144" y="7.8232" size="0.0254" layer="27" rot="R270"/>
+<element name="PAD8" library="wirepad" library_urn="urn:adsk.eagle:library:412" package="SMD1,27-2,54" package3d_urn="urn:adsk.eagle:package:30839/1" value="" x="84.9122" y="8.2042" smashed="yes" rot="R270">
+<attribute name="VALUE" x="84.9122" y="8.2042" size="0.0254" layer="27" rot="R270"/>
 </element>
-<element name="PAD9" library="wirepad" library_urn="urn:adsk.eagle:library:412" package="SMD1,27-2,54" package3d_urn="urn:adsk.eagle:package:30839/1" value="" x="89.8144" y="6.2484" smashed="yes" rot="R270">
-<attribute name="VALUE" x="89.8144" y="6.2484" size="0.0254" layer="27" rot="R270"/>
+<element name="PAD9" library="wirepad" library_urn="urn:adsk.eagle:library:412" package="SMD1,27-2,54" package3d_urn="urn:adsk.eagle:package:30839/1" value="" x="84.9122" y="6.6294" smashed="yes" rot="R270">
+<attribute name="VALUE" x="84.9122" y="6.6294" size="0.0254" layer="27" rot="R270"/>
 </element>
-<element name="PAD10" library="wirepad" library_urn="urn:adsk.eagle:library:412" package="SMD1,27-2,54" package3d_urn="urn:adsk.eagle:package:30839/1" value="" x="89.8144" y="9.398" smashed="yes" rot="R270">
-<attribute name="VALUE" x="89.8144" y="9.398" size="0.0254" layer="27" rot="R270"/>
+<element name="PAD10" library="wirepad" library_urn="urn:adsk.eagle:library:412" package="SMD1,27-2,54" package3d_urn="urn:adsk.eagle:package:30839/1" value="" x="84.9122" y="9.779" smashed="yes" rot="R270">
+<attribute name="VALUE" x="84.9122" y="9.779" size="0.0254" layer="27" rot="R270"/>
 </element>
 </elements>
 <signals>
@@ -5060,8 +5064,8 @@ design rules under a new name.</description>
 <wire x1="72.8218" y1="14.4272" x2="75.3618" y2="14.6812" width="0" layer="19" extent="1-1"/>
 <wire x1="70.2818" y1="14.6812" x2="72.8218" y2="14.4272" width="0" layer="19" extent="1-1"/>
 <wire x1="67.7418" y1="14.4272" x2="70.2818" y2="14.6812" width="0" layer="19" extent="1-1"/>
-<wire x1="85.725" y1="3.175" x2="77.9018" y2="14.4272" width="0" layer="19" extent="1-1"/>
-<wire x1="89.8144" y1="4.6736" x2="85.725" y2="3.175" width="0" layer="19" extent="1-1"/>
+<wire x1="84.9122" y1="5.0546" x2="77.9018" y2="14.4272" width="0" layer="19" extent="1-1"/>
+<wire x1="88.4682" y1="3.429" x2="84.9122" y2="5.0546" width="0" layer="19" extent="1-1"/>
 <wire x1="56.769" y1="5.08" x2="67.7418" y2="14.4272" width="0" layer="19" extent="1-1"/>
 <wire x1="54.229" y1="5.08" x2="56.769" y2="5.08" width="0" layer="19" extent="1-1"/>
 <wire x1="51.689" y1="5.08" x2="54.229" y2="5.08" width="0" layer="19" extent="1-1"/>
@@ -5093,9 +5097,9 @@ design rules under a new name.</description>
 <wire x1="107.2642" y1="48.1584" x2="110.3122" y2="48.1584" width="0" layer="19" extent="1-1"/>
 <wire x1="104.5972" y1="48.1584" x2="107.2642" y2="48.1584" width="0" layer="19" extent="1-1"/>
 <wire x1="115.1636" y1="30.7594" x2="110.3122" y2="48.1584" width="0" layer="19" extent="1-1"/>
-<wire x1="89.8144" y1="7.8232" x2="115.1636" y2="30.7594" width="0" layer="19" extent="1-1"/>
-<wire x1="85.725" y1="8.255" x2="89.8144" y2="7.8232" width="0" layer="19" extent="1-1"/>
-<wire x1="77.9018" y1="9.0932" x2="85.725" y2="8.255" width="0" layer="19" extent="1-1"/>
+<wire x1="88.4682" y1="8.509" x2="115.1636" y2="30.7594" width="0" layer="19" extent="1-1"/>
+<wire x1="84.9122" y1="8.2042" x2="88.4682" y2="8.509" width="0" layer="19" extent="1-1"/>
+<wire x1="77.9018" y1="9.0932" x2="84.9122" y2="8.2042" width="0" layer="19" extent="1-1"/>
 <wire x1="75.3618" y1="9.3472" x2="77.9018" y2="9.0932" width="0" layer="19" extent="1-1"/>
 <wire x1="72.8218" y1="9.0932" x2="75.3618" y2="9.3472" width="0" layer="19" extent="1-1"/>
 <wire x1="70.2818" y1="9.3472" x2="72.8218" y2="9.0932" width="0" layer="19" extent="1-1"/>
@@ -5319,8 +5323,8 @@ design rules under a new name.</description>
 <wire x1="80.8228" y1="21.336" x2="77.5716" y2="26.8466" width="0" layer="19" extent="1-1"/>
 <wire x1="86.8426" y1="20.3466" x2="80.8228" y2="21.336" width="0" layer="19" extent="1-1"/>
 <wire x1="90.0938" y1="21.336" x2="86.8426" y2="20.3466" width="0" layer="19" extent="1-1"/>
-<wire x1="89.8144" y1="6.2484" x2="86.8426" y2="20.3466" width="0" layer="19" extent="1-1"/>
-<wire x1="85.471" y1="5.715" x2="89.8144" y2="6.2484" width="0" layer="19" extent="1-1"/>
+<wire x1="84.9122" y1="6.6294" x2="86.8426" y2="20.3466" width="0" layer="19" extent="1-1"/>
+<wire x1="88.2142" y1="5.969" x2="84.9122" y2="6.6294" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$37" class="1">
 <contactref element="S1" pad="3"/>
@@ -5494,7 +5498,7 @@ design rules under a new name.</description>
 <signal name="N$65">
 <contactref element="BOARD_POWER" pad="1"/>
 <contactref element="PAD10" pad="1"/>
-<wire x1="85.471" y1="10.795" x2="89.8144" y2="9.398" width="0" layer="19" extent="1-1"/>
+<wire x1="84.9122" y1="9.779" x2="88.2142" y2="11.049" width="0" layer="19" extent="1-1"/>
 </signal>
 </signals>
 <mfgpreviewcolors>
