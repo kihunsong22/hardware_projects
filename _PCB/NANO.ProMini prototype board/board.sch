@@ -32234,8 +32234,8 @@ Comments, suggestions and bug reports please send to: &lt;b&gt;&lt;a href="mailt
 <wire x1="-10.16" y1="7.62" x2="10.16" y2="7.62" width="0.127" layer="21"/>
 <wire x1="10.16" y1="7.62" x2="10.16" y2="-7.62" width="0.127" layer="21"/>
 <wire x1="10.16" y1="-7.62" x2="-10.16" y2="-7.62" width="0.127" layer="21"/>
-<text x="0" y="8.89" size="1.27" layer="25" align="bottom-center">&gt;NAME</text>
-<text x="0" y="-8.89" size="1.27" layer="27" align="top-center">&gt;VALUE</text>
+<text x="0" y="8.382" size="1.27" layer="25" align="bottom-center">&gt;NAME</text>
+<text x="0.508" y="-8.382" size="1.27" layer="27" align="top-center">&gt;VALUE</text>
 <pad name="1" x="8.89" y="6.35" drill="1" shape="square" rot="R180"/>
 <pad name="2" x="8.89" y="3.81" drill="1" rot="R180"/>
 <pad name="3" x="8.89" y="1.27" drill="1" rot="R180"/>
@@ -32278,12 +32278,12 @@ Comments, suggestions and bug reports please send to: &lt;b&gt;&lt;a href="mailt
 <wire x1="-3.81" y1="3.81" x2="-3.81" y2="-3.81" width="0.127" layer="21"/>
 <wire x1="-3.81" y1="-3.81" x2="-10.16" y2="-3.81" width="0.127" layer="21"/>
 <text x="-7.62" y="0" size="1.778" layer="21" align="center">USB</text>
-<text x="6.35" y="6.35" size="1.27" layer="21" align="center-right">3V3</text>
-<text x="6.35" y="3.81" size="1.27" layer="21" align="center-right">DTR</text>
-<text x="6.35" y="1.27" size="1.27" layer="21" align="center-right">RXI</text>
-<text x="6.35" y="-1.27" size="1.27" layer="21" align="center-right">TXO</text>
-<text x="6.35" y="-3.81" size="1.27" layer="21" align="center-right">GND</text>
-<text x="6.35" y="-6.35" size="1.27" layer="21" align="center-right">+5V</text>
+<text x="7.239" y="6.731" size="1.0668" layer="21" rot="R30" align="center-right">3V3</text>
+<text x="7.239" y="4.191" size="1.0668" layer="21" rot="R30" align="center-right">DTR</text>
+<text x="7.239" y="1.651" size="1.0668" layer="21" rot="R30" align="center-right">RXI</text>
+<text x="7.239" y="-0.889" size="1.0668" layer="21" rot="R30" align="center-right">TXO</text>
+<text x="7.239" y="-3.429" size="1.0668" layer="21" rot="R30" align="center-right">GND</text>
+<text x="7.239" y="-5.969" size="1.0668" layer="21" rot="R30" align="center-right">5V</text>
 <wire x1="-10.16" y1="3.81" x2="-11.43" y2="3.81" width="0.127" layer="21"/>
 <wire x1="-11.43" y1="3.81" x2="-11.43" y2="-3.81" width="0.127" layer="21"/>
 <wire x1="-11.43" y1="-3.81" x2="-10.16" y2="-3.81" width="0.127" layer="21"/>
@@ -32395,6 +32395,71 @@ Comments, suggestions and bug reports please send to: &lt;b&gt;&lt;a href="mailt
 <text x="0" y="8.255" size="1.27" layer="25" align="bottom-center">&gt;NAME</text>
 <text x="0" y="-8.255" size="1.27" layer="27" align="top-center">&gt;VALUE</text>
 </package>
+<package name="USB-SERIAL-FT232R">
+<description>&lt;b&gt;USB to Serial UART Converter&lt;/b&gt; based on &lt;b&gt;FT232R&lt;/b&gt; chip</description>
+<wire x1="-13.208" y1="8.128" x2="13.208" y2="8.128" width="0.127" layer="21"/>
+<wire x1="13.208" y1="8.128" x2="13.208" y2="-8.128" width="0.127" layer="21"/>
+<wire x1="13.208" y1="-8.128" x2="-13.208" y2="-8.128" width="0.127" layer="21"/>
+<text x="0" y="8.89" size="1.27" layer="25" align="bottom-center">&gt;NAME</text>
+<text x="0" y="-8.636" size="1.27" layer="27" align="top-center">&gt;VALUE</text>
+<pad name="1" x="11.43" y="6.35" drill="1" shape="square" rot="R180"/>
+<pad name="2" x="11.43" y="3.81" drill="1" rot="R180"/>
+<pad name="3" x="11.43" y="1.27" drill="1" rot="R180"/>
+<pad name="4" x="11.43" y="-1.27" drill="1" rot="R180"/>
+<wire x1="12.7" y1="-1.905" x2="12.065" y2="-2.54" width="0.127" layer="21"/>
+<wire x1="10.795" y1="-2.54" x2="10.16" y2="-1.905" width="0.127" layer="21"/>
+<wire x1="10.16" y1="-1.905" x2="10.16" y2="-0.635" width="0.127" layer="21"/>
+<wire x1="10.16" y1="-0.635" x2="10.795" y2="0" width="0.127" layer="21"/>
+<wire x1="10.795" y1="0" x2="10.16" y2="0.635" width="0.127" layer="21"/>
+<wire x1="10.16" y1="0.635" x2="10.16" y2="1.905" width="0.127" layer="21"/>
+<wire x1="10.16" y1="1.905" x2="10.795" y2="2.54" width="0.127" layer="21"/>
+<wire x1="10.795" y1="2.54" x2="10.16" y2="3.175" width="0.127" layer="21"/>
+<wire x1="10.16" y1="3.175" x2="10.16" y2="4.445" width="0.127" layer="21"/>
+<wire x1="10.16" y1="4.445" x2="10.795" y2="5.08" width="0.127" layer="21"/>
+<wire x1="10.795" y1="5.08" x2="10.16" y2="5.715" width="0.127" layer="21"/>
+<wire x1="10.16" y1="5.715" x2="10.16" y2="6.985" width="0.127" layer="21"/>
+<wire x1="10.16" y1="6.985" x2="10.795" y2="7.62" width="0.127" layer="21"/>
+<wire x1="12.065" y1="7.62" x2="12.7" y2="6.985" width="0.127" layer="21"/>
+<wire x1="12.7" y1="6.985" x2="12.7" y2="5.715" width="0.127" layer="21"/>
+<wire x1="12.7" y1="5.715" x2="12.065" y2="5.08" width="0.127" layer="21"/>
+<wire x1="12.065" y1="5.08" x2="12.7" y2="4.445" width="0.127" layer="21"/>
+<wire x1="12.7" y1="4.445" x2="12.7" y2="3.175" width="0.127" layer="21"/>
+<wire x1="12.7" y1="3.175" x2="12.065" y2="2.54" width="0.127" layer="21"/>
+<wire x1="12.065" y1="2.54" x2="12.7" y2="1.905" width="0.127" layer="21"/>
+<wire x1="12.7" y1="1.905" x2="12.7" y2="0.635" width="0.127" layer="21"/>
+<wire x1="12.7" y1="0.635" x2="12.065" y2="0" width="0.127" layer="21"/>
+<wire x1="12.065" y1="0" x2="12.7" y2="-0.635" width="0.127" layer="21"/>
+<wire x1="12.7" y1="-0.635" x2="12.7" y2="-1.905" width="0.127" layer="21"/>
+<pad name="5" x="11.43" y="-3.81" drill="1" rot="R180"/>
+<pad name="6" x="11.43" y="-6.35" drill="1" rot="R180"/>
+<wire x1="10.795" y1="-2.54" x2="10.16" y2="-3.175" width="0.127" layer="21"/>
+<wire x1="10.16" y1="-3.175" x2="10.16" y2="-4.445" width="0.127" layer="21"/>
+<wire x1="10.16" y1="-4.445" x2="10.795" y2="-5.08" width="0.127" layer="21"/>
+<wire x1="10.795" y1="-5.08" x2="10.16" y2="-5.715" width="0.127" layer="21"/>
+<wire x1="10.16" y1="-5.715" x2="10.16" y2="-6.985" width="0.127" layer="21"/>
+<wire x1="10.16" y1="-6.985" x2="10.795" y2="-7.62" width="0.127" layer="21"/>
+<wire x1="12.065" y1="-7.62" x2="12.7" y2="-6.985" width="0.127" layer="21"/>
+<wire x1="12.7" y1="-6.985" x2="12.7" y2="-5.715" width="0.127" layer="21"/>
+<wire x1="12.7" y1="-5.715" x2="12.065" y2="-5.08" width="0.127" layer="21"/>
+<wire x1="12.065" y1="-5.08" x2="12.7" y2="-4.445" width="0.127" layer="21"/>
+<wire x1="12.7" y1="-4.445" x2="12.7" y2="-3.175" width="0.127" layer="21"/>
+<wire x1="12.7" y1="-3.175" x2="12.065" y2="-2.54" width="0.127" layer="21"/>
+<wire x1="-13.208" y1="8.128" x2="-13.208" y2="3.81" width="0.127" layer="21"/>
+<wire x1="-13.208" y1="3.81" x2="-13.208" y2="-3.81" width="0.127" layer="21"/>
+<wire x1="-13.208" y1="-3.81" x2="-13.208" y2="-8.128" width="0.127" layer="21"/>
+<wire x1="-13.208" y1="3.81" x2="-3.81" y2="3.81" width="0.127" layer="21"/>
+<wire x1="-3.81" y1="3.81" x2="-3.81" y2="-3.81" width="0.127" layer="21"/>
+<wire x1="-3.81" y1="-3.81" x2="-13.208" y2="-3.81" width="0.127" layer="21"/>
+<text x="-8.89" y="0" size="1.778" layer="21" align="center">USB</text>
+<text x="9.906" y="6.858" size="1.0668" layer="21" rot="R30" align="center-right">DTR</text>
+<text x="9.906" y="4.318" size="1.0668" layer="21" rot="R30" align="center-right">RX</text>
+<text x="9.906" y="1.778" size="1.0668" layer="21" rot="R30" align="center-right">TX</text>
+<text x="9.906" y="-0.762" size="1.0668" layer="21" rot="R30" align="center-right">VCC</text>
+<text x="9.906" y="-3.302" size="1.0668" layer="21" rot="R30" align="center-right">CTS</text>
+<text x="9.906" y="-5.842" size="1.0668" layer="21" rot="R30" align="center-right">GND</text>
+<wire x1="10.795" y1="7.62" x2="12.065" y2="7.62" width="0.127" layer="21"/>
+<wire x1="10.795" y1="-7.62" x2="12.065" y2="-7.62" width="0.127" layer="21"/>
+</package>
 </packages>
 <symbols>
 <symbol name="USB-SERIAL-CP2102">
@@ -32459,6 +32524,27 @@ Comments, suggestions and bug reports please send to: &lt;b&gt;&lt;a href="mailt
 <text x="11.43" y="1.27" size="2.54" layer="94" rot="R90" align="center">ANTENNA</text>
 <text x="-17.78" y="17.78" size="1.778" layer="95">&gt;NAME</text>
 <text x="-17.78" y="15.24" size="1.778" layer="96">&gt;VALUE</text>
+</symbol>
+<symbol name="USB-SERIAL-FT232R">
+<description>&lt;b&gt;USB to Serial UART Converter&lt;/b&gt; based on &lt;b&gt;FT232R&lt;/b&gt; chip</description>
+<pin name="RX" x="20.32" y="5.08" visible="pin" length="middle" rot="R180"/>
+<pin name="TX" x="20.32" y="2.54" visible="pin" length="middle" rot="R180"/>
+<wire x1="-12.7" y1="10.16" x2="15.24" y2="10.16" width="0.254" layer="94"/>
+<wire x1="15.24" y1="10.16" x2="15.24" y2="-7.62" width="0.254" layer="94"/>
+<wire x1="15.24" y1="-7.62" x2="-12.7" y2="-7.62" width="0.254" layer="94"/>
+<wire x1="-12.7" y1="-7.62" x2="-12.7" y2="-2.54" width="0.254" layer="94"/>
+<wire x1="-12.7" y1="-2.54" x2="-12.7" y2="5.08" width="0.254" layer="94"/>
+<wire x1="-12.7" y1="5.08" x2="-12.7" y2="10.16" width="0.254" layer="94"/>
+<wire x1="-12.7" y1="5.08" x2="-3.81" y2="5.08" width="0.254" layer="94"/>
+<wire x1="-3.81" y1="5.08" x2="-3.81" y2="-2.54" width="0.254" layer="94"/>
+<wire x1="-3.81" y1="-2.54" x2="-12.7" y2="-2.54" width="0.254" layer="94"/>
+<text x="-8.382" y="1.016" size="1.778" layer="94" align="center">USB</text>
+<text x="-12.7" y="15.24" size="1.778" layer="95">&gt;NAME</text>
+<text x="-12.7" y="12.7" size="1.778" layer="96">&gt;VALUE</text>
+<pin name="DTR" x="20.32" y="7.62" visible="pin" length="middle" rot="R180"/>
+<pin name="VCC" x="20.32" y="0" visible="pin" length="middle" direction="pwr" rot="R180"/>
+<pin name="CTS" x="20.32" y="-2.54" visible="pin" length="middle" rot="R180"/>
+<pin name="GND" x="20.32" y="-5.08" visible="pin" length="middle" rot="R180"/>
 </symbol>
 </symbols>
 <devicesets>
@@ -32536,6 +32622,31 @@ Comments, suggestions and bug reports please send to: &lt;b&gt;&lt;a href="mailt
 <connect gate="G$1" pin="URXD" pad="D1"/>
 <connect gate="G$1" pin="UTXD" pad="A2"/>
 <connect gate="G$1" pin="VCC" pad="D2"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="USB-SERIAL-FT232R">
+<description>&lt;b&gt;USB to Serial UART Converter&lt;/b&gt; based on &lt;b&gt;FT232R&lt;/b&gt; chip
+&lt;p&gt;More information about &lt;b&gt;FT232R&lt;/b&gt; chip is available here:&lt;br&gt;
+&lt;a href="http://www.ftdichip.com/Products/ICs/FT232R.htm"&gt;http://www.ftdichip.com/Products/ICs/FT232R.htm&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;b&gt;&lt;a href="http://www.ebay.com/sch/ft232rl+arduino+download+max232"&gt;Click here to find device on ebay.com&lt;/a&gt;&lt;/b&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="photo" src="http://www.diymodules.org/img/device-photo.php?name=USB-SERIAL-FT232R"&gt;&lt;/p&gt;</description>
+<gates>
+<gate name="G$1" symbol="USB-SERIAL-FT232R" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="USB-SERIAL-FT232R">
+<connects>
+<connect gate="G$1" pin="CTS" pad="5"/>
+<connect gate="G$1" pin="DTR" pad="1"/>
+<connect gate="G$1" pin="GND" pad="6"/>
+<connect gate="G$1" pin="RX" pad="2"/>
+<connect gate="G$1" pin="TX" pad="3"/>
+<connect gate="G$1" pin="VCC" pad="4"/>
 </connects>
 <technologies>
 <technology name=""/>
@@ -33828,6 +33939,56 @@ SparkFun BigTime Watch Kit&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
 </deviceset>
 </devicesets>
 </library>
+<library name="wirepad" urn="urn:adsk.eagle:library:412">
+<description>&lt;b&gt;Single Pads&lt;/b&gt;&lt;p&gt;
+&lt;author&gt;Created by librarian@cadsoft.de&lt;/author&gt;</description>
+<packages>
+<package name="SMD1,27-2,54" urn="urn:adsk.eagle:footprint:30822/1" library_version="1">
+<description>&lt;b&gt;SMD PAD&lt;/b&gt;</description>
+<smd name="1" x="0" y="0" dx="1.27" dy="2.54" layer="1"/>
+<text x="0" y="0" size="0.0254" layer="27">&gt;VALUE</text>
+<text x="-0.8" y="-2.4" size="1.27" layer="25" rot="R90">&gt;NAME</text>
+</package>
+</packages>
+<packages3d>
+<package3d name="SMD1,27-2,54" urn="urn:adsk.eagle:package:30839/1" type="box" library_version="1">
+<description>SMD PAD</description>
+<packageinstances>
+<packageinstance name="SMD1,27-2,54"/>
+</packageinstances>
+</package3d>
+</packages3d>
+<symbols>
+<symbol name="PAD" urn="urn:adsk.eagle:symbol:30808/1" library_version="1">
+<wire x1="-1.016" y1="1.016" x2="1.016" y2="-1.016" width="0.254" layer="94"/>
+<wire x1="-1.016" y1="-1.016" x2="1.016" y2="1.016" width="0.254" layer="94"/>
+<text x="-1.143" y="1.8542" size="1.778" layer="95">&gt;NAME</text>
+<text x="-1.143" y="-3.302" size="1.778" layer="96">&gt;VALUE</text>
+<pin name="P" x="2.54" y="0" visible="off" length="short" direction="pas" rot="R180"/>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="SMD2" urn="urn:adsk.eagle:component:30857/1" prefix="PAD" uservalue="yes" library_version="1">
+<description>&lt;b&gt;SMD PAD&lt;/b&gt;</description>
+<gates>
+<gate name="1" symbol="PAD" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="SMD1,27-2,54">
+<connects>
+<connect gate="1" pin="P" pad="1"/>
+</connects>
+<package3dinstances>
+<package3dinstance package3d_urn="urn:adsk.eagle:package:30839/1"/>
+</package3dinstances>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devicesets>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -33876,7 +34037,7 @@ SparkFun BigTime Watch Kit&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
 <part name="RA-02" library="LikeCircuit" deviceset="LORA-RA-02-433MHZ" device="" value=""/>
 <part name="BOARD_POWER" library="SparkFun-Connectors" library_urn="urn:adsk.eagle:library:513" deviceset="CONN_04" device="LOCK_LONGPADS" package3d_urn="urn:adsk.eagle:package:38091/1"/>
 <part name="PROMINI_H" library="pinhead_v2" deviceset="PINHD-1X6" device="/OCT"/>
-<part name="CP2102_USB-SERIAL" library="diy-modules" deviceset="USB-SERIAL-CP2102" device="" value=""/>
+<part name="CP2102_USB-SERIAL" library="diy-modules" deviceset="USB-SERIAL-CP2102" device="" value="USB-SERIAL-CP2102"/>
 <part name="MICRO_2" library="SparkFun-Connectors" library_urn="urn:adsk.eagle:library:513" deviceset="USB_MICRO-B" device="_SMT" package3d_urn="urn:adsk.eagle:package:38240/1"/>
 <part name="MICRO_1" library="SparkFun-Connectors" library_urn="urn:adsk.eagle:library:513" deviceset="USB_MICRO-B" device="_SMT" package3d_urn="urn:adsk.eagle:package:38240/1"/>
 <part name="H1" library="holes" library_urn="urn:adsk.eagle:library:237" deviceset="MOUNT-HOLE" device="3.0" package3d_urn="urn:adsk.eagle:package:14277/1"/>
@@ -33899,7 +34060,6 @@ SparkFun BigTime Watch Kit&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
 <part name="GND4" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="GND" device=""/>
 <part name="R1" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="0207/7" package3d_urn="urn:adsk.eagle:package:23493/1" value="4.7k"/>
 <part name="R2" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="0207/7" package3d_urn="urn:adsk.eagle:package:23493/1" value="4.7K"/>
-<part name="J7" library="SparkFun-Connectors" library_urn="urn:adsk.eagle:library:513" deviceset="CONN_06" device="LOCK" package3d_urn="urn:adsk.eagle:package:38002/1"/>
 <part name="J8" library="SparkFun-Connectors" library_urn="urn:adsk.eagle:library:513" deviceset="CONN_04" device="LOCK" package3d_urn="urn:adsk.eagle:package:38089/1"/>
 <part name="J9" library="SparkFun-Connectors" library_urn="urn:adsk.eagle:library:513" deviceset="CONN_06" device="LOCK" package3d_urn="urn:adsk.eagle:package:38002/1"/>
 <part name="GND5" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="GND" device=""/>
@@ -33917,6 +34077,18 @@ SparkFun BigTime Watch Kit&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
 <part name="S4" library="switch-tact" deviceset="DTS-3" device=""/>
 <part name="ESP1" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="0207/7" package3d_urn="urn:adsk.eagle:package:23493/1" value="1k"/>
 <part name="ESP2" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="0207/7" package3d_urn="urn:adsk.eagle:package:23493/1" value="2k"/>
+<part name="PAD1" library="wirepad" library_urn="urn:adsk.eagle:library:412" deviceset="SMD2" device="" package3d_urn="urn:adsk.eagle:package:30839/1"/>
+<part name="PAD2" library="wirepad" library_urn="urn:adsk.eagle:library:412" deviceset="SMD2" device="" package3d_urn="urn:adsk.eagle:package:30839/1"/>
+<part name="PAD3" library="wirepad" library_urn="urn:adsk.eagle:library:412" deviceset="SMD2" device="" package3d_urn="urn:adsk.eagle:package:30839/1"/>
+<part name="PAD4" library="wirepad" library_urn="urn:adsk.eagle:library:412" deviceset="SMD2" device="" package3d_urn="urn:adsk.eagle:package:30839/1"/>
+<part name="PAD5" library="wirepad" library_urn="urn:adsk.eagle:library:412" deviceset="SMD2" device="" package3d_urn="urn:adsk.eagle:package:30839/1"/>
+<part name="PAD6" library="wirepad" library_urn="urn:adsk.eagle:library:412" deviceset="SMD2" device="" package3d_urn="urn:adsk.eagle:package:30839/1"/>
+<part name="PAD7" library="wirepad" library_urn="urn:adsk.eagle:library:412" deviceset="SMD2" device="" package3d_urn="urn:adsk.eagle:package:30839/1"/>
+<part name="PAD8" library="wirepad" library_urn="urn:adsk.eagle:library:412" deviceset="SMD2" device="" package3d_urn="urn:adsk.eagle:package:30839/1"/>
+<part name="PAD9" library="wirepad" library_urn="urn:adsk.eagle:library:412" deviceset="SMD2" device="" package3d_urn="urn:adsk.eagle:package:30839/1"/>
+<part name="PAD10" library="wirepad" library_urn="urn:adsk.eagle:library:412" deviceset="SMD2" device="" package3d_urn="urn:adsk.eagle:package:30839/1"/>
+<part name="U$1" library="diy-modules" deviceset="USB-SERIAL-FT232R" device=""/>
+<part name="J7" library="SparkFun-Connectors" library_urn="urn:adsk.eagle:library:513" deviceset="CONN_06" device="LOCK" package3d_urn="urn:adsk.eagle:package:38002/1"/>
 </parts>
 <sheets>
 <sheet>
@@ -33935,19 +34107,19 @@ SparkFun BigTime Watch Kit&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
 <instance part="GND1" gate="1" x="2.54" y="-22.86"/>
 <instance part="GND2" gate="1" x="101.6" y="53.34" rot="R180"/>
 <instance part="GND3" gate="1" x="83.82" y="-53.34"/>
-<instance part="T1_5MM" gate="G$1" x="22.86" y="73.66"/>
-<instance part="T2_5MM" gate="G$1" x="22.86" y="53.34"/>
-<instance part="T3_5MM" gate="G$1" x="60.96" y="73.66"/>
+<instance part="T1_5MM" gate="G$1" x="-223.52" y="-116.84"/>
+<instance part="T2_5MM" gate="G$1" x="-223.52" y="-137.16"/>
+<instance part="T3_5MM" gate="G$1" x="-185.42" y="-116.84"/>
 <instance part="GY_4-8" gate="G$1" x="99.06" y="12.7"/>
 <instance part="SUPPLY3" gate="G$1" x="127" y="-53.34" rot="R180"/>
 <instance part="J1" gate="G$1" x="96.52" y="-20.32"/>
 <instance part="3.3/5" gate="J$1" x="139.7" y="-45.72" rot="R180"/>
-<instance part="PIN1" gate="G$1" x="7.62" y="71.12"/>
-<instance part="PIN2" gate="G$1" x="7.62" y="50.8"/>
-<instance part="PIN3" gate="G$1" x="43.18" y="71.12"/>
+<instance part="PIN1" gate="G$1" x="-238.76" y="-119.38"/>
+<instance part="PIN2" gate="G$1" x="-238.76" y="-139.7"/>
+<instance part="PIN3" gate="G$1" x="-203.2" y="-119.38"/>
 <instance part="PIEZO_" gate="G$1" x="-177.8" y="-27.94"/>
 <instance part="USB_DATA" gate="G$1" x="-154.94" y="68.58"/>
-<instance part="B1" gate="G$1" x="45.72" y="53.34"/>
+<instance part="B1" gate="G$1" x="-200.66" y="-137.16"/>
 <instance part="PH1" gate="A" x="-25.4" y="2.54"/>
 <instance part="PH2" gate="A" x="25.4" y="2.54"/>
 <instance part="PIEZO" gate="G$1" x="-195.58" y="-33.02"/>
@@ -33977,7 +34149,6 @@ SparkFun BigTime Watch Kit&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
 <instance part="GND4" gate="1" x="116.84" y="-129.54"/>
 <instance part="R1" gate="G$1" x="116.84" y="-10.16"/>
 <instance part="R2" gate="G$1" x="116.84" y="-2.54"/>
-<instance part="J7" gate="G$1" x="-17.78" y="76.2" rot="R180"/>
 <instance part="J8" gate="G$1" x="-220.98" y="45.72"/>
 <instance part="J9" gate="G$1" x="-5.08" y="76.2" rot="R180"/>
 <instance part="GND5" gate="1" x="-43.18" y="53.34"/>
@@ -33995,6 +34166,18 @@ SparkFun BigTime Watch Kit&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
 <instance part="S4" gate="G$1" x="-17.78" y="-63.5" rot="R90"/>
 <instance part="ESP1" gate="G$1" x="-114.3" y="-83.82"/>
 <instance part="ESP2" gate="G$1" x="-134.62" y="-83.82"/>
+<instance part="PAD1" gate="1" x="-71.12" y="-93.98"/>
+<instance part="PAD2" gate="1" x="-71.12" y="-99.06"/>
+<instance part="PAD3" gate="1" x="45.72" y="-104.14" rot="R180"/>
+<instance part="PAD4" gate="1" x="45.72" y="-99.06" rot="R180"/>
+<instance part="PAD5" gate="1" x="-60.96" y="-93.98"/>
+<instance part="PAD6" gate="1" x="-60.96" y="-99.06"/>
+<instance part="PAD7" gate="1" x="-60.96" y="-35.56"/>
+<instance part="PAD8" gate="1" x="-60.96" y="-40.64"/>
+<instance part="PAD9" gate="1" x="-68.58" y="-38.1"/>
+<instance part="PAD10" gate="1" x="-68.58" y="-43.18"/>
+<instance part="U$1" gate="G$1" x="-76.2" y="73.66"/>
+<instance part="J7" gate="G$1" x="12.7" y="76.2" rot="R180"/>
 </instances>
 <busses>
 </busses>
@@ -34360,6 +34543,9 @@ SparkFun BigTime Watch Kit&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
 <wire x1="-40.64" y1="-35.56" x2="-33.02" y2="-27.94" width="0.1524" layer="91"/>
 <pinref part="3.3V" gate="G$1" pin="1"/>
 <wire x1="-154.94" y1="7.62" x2="-154.94" y2="5.08" width="0.1524" layer="91"/>
+<pinref part="PAD7" gate="1" pin="P"/>
+<wire x1="-58.42" y1="-35.56" x2="-40.64" y2="-35.56" width="0.1524" layer="91"/>
+<junction x="-40.64" y="-35.56"/>
 </segment>
 <segment>
 <pinref part="SUPPLY3" gate="G$1" pin="3.3V"/>
@@ -34371,16 +34557,22 @@ SparkFun BigTime Watch Kit&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
 <pinref part="J3" gate="G$1" pin="1"/>
 <pinref part="SUPPLY4" gate="G$1" pin="3.3V"/>
 <wire x1="63.5" y1="-104.14" x2="63.5" y2="-127" width="0.1524" layer="91"/>
+<pinref part="PAD3" gate="1" pin="P"/>
+<wire x1="43.18" y1="-104.14" x2="63.5" y2="-104.14" width="0.1524" layer="91"/>
+<junction x="63.5" y="-104.14"/>
 </segment>
 <segment>
 <pinref part="CP2102_USB-SERIAL" gate="G$1" pin="3V3"/>
-<pinref part="J7" gate="G$1" pin="1"/>
 <wire x1="-22.86" y1="81.28" x2="-25.4" y2="81.28" width="0.1524" layer="91"/>
 <pinref part="J9" gate="G$1" pin="1"/>
 <wire x1="-10.16" y1="81.28" x2="-22.86" y2="81.28" width="0.1524" layer="91"/>
 <junction x="-22.86" y="81.28"/>
 <pinref part="SUPPLY6" gate="G$1" pin="3.3V"/>
 <wire x1="-22.86" y1="93.98" x2="-22.86" y2="81.28" width="0.1524" layer="91"/>
+<pinref part="J7" gate="G$1" pin="2"/>
+<wire x1="-10.16" y1="81.28" x2="5.08" y2="81.28" width="0.1524" layer="91"/>
+<wire x1="5.08" y1="81.28" x2="7.62" y2="78.74" width="0.1524" layer="91"/>
+<junction x="-10.16" y="81.28"/>
 </segment>
 <segment>
 <pinref part="ESP_C" gate="G$1" pin="+"/>
@@ -34397,6 +34589,12 @@ SparkFun BigTime Watch Kit&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
 <pinref part="ESP_POW" gate="G$1" pin="1"/>
 <wire x1="-88.9" y1="-93.98" x2="-93.98" y2="-93.98" width="0.1524" layer="91"/>
 <junction x="-93.98" y="-93.98"/>
+<pinref part="PAD1" gate="1" pin="P"/>
+<wire x1="-88.9" y1="-93.98" x2="-68.58" y2="-93.98" width="0.1524" layer="91"/>
+<junction x="-88.9" y="-93.98"/>
+<pinref part="PAD5" gate="1" pin="P"/>
+<wire x1="-68.58" y1="-93.98" x2="-58.42" y2="-93.98" width="0.1524" layer="91"/>
+<junction x="-68.58" y="-93.98"/>
 </segment>
 </net>
 <net name="5V" class="1">
@@ -34442,6 +34640,9 @@ SparkFun BigTime Watch Kit&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
 <wire x1="-38.1" y1="-40.64" x2="-40.64" y2="-40.64" width="0.1524" layer="91"/>
 <pinref part="J8" gate="G$1" pin="1"/>
 <wire x1="-215.9" y1="43.18" x2="-190.5" y2="43.18" width="0.1524" layer="91"/>
+<pinref part="PAD8" gate="1" pin="P"/>
+<wire x1="-58.42" y1="-40.64" x2="-40.64" y2="-40.64" width="0.1524" layer="91"/>
+<junction x="-40.64" y="-40.64"/>
 </segment>
 <segment>
 <pinref part="SUPPLY1" gate="G$1" pin="5V"/>
@@ -34467,13 +34668,21 @@ SparkFun BigTime Watch Kit&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
 <wire x1="-50.8" y1="55.88" x2="-45.72" y2="60.96" width="0.1524" layer="91"/>
 <wire x1="-45.72" y1="60.96" x2="-27.94" y2="60.96" width="0.1524" layer="91"/>
 <pinref part="CP2102_USB-SERIAL" gate="G$1" pin="+5V"/>
-<pinref part="J7" gate="G$1" pin="6"/>
 <wire x1="-22.86" y1="68.58" x2="-25.4" y2="68.58" width="0.1524" layer="91"/>
 <pinref part="J9" gate="G$1" pin="6"/>
 <wire x1="-22.86" y1="68.58" x2="-10.16" y2="68.58" width="0.1524" layer="91"/>
 <junction x="-22.86" y="68.58"/>
 <wire x1="-27.94" y1="60.96" x2="-22.86" y2="66.04" width="0.1524" layer="91"/>
 <wire x1="-22.86" y1="66.04" x2="-22.86" y2="68.58" width="0.1524" layer="91"/>
+<pinref part="U$1" gate="G$1" pin="VCC"/>
+<wire x1="-55.88" y1="73.66" x2="-48.26" y2="73.66" width="0.1524" layer="91"/>
+<wire x1="-48.26" y1="73.66" x2="-43.18" y2="68.58" width="0.1524" layer="91"/>
+<wire x1="-43.18" y1="68.58" x2="-25.4" y2="68.58" width="0.1524" layer="91"/>
+<junction x="-25.4" y="68.58"/>
+<pinref part="J7" gate="G$1" pin="3"/>
+<wire x1="-10.16" y1="68.58" x2="0" y2="68.58" width="0.1524" layer="91"/>
+<wire x1="0" y1="68.58" x2="7.62" y2="76.2" width="0.1524" layer="91"/>
+<junction x="-10.16" y="68.58"/>
 </segment>
 </net>
 <net name="GND" class="1">
@@ -34578,14 +34787,23 @@ SparkFun BigTime Watch Kit&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
 </segment>
 <segment>
 <pinref part="CP2102_USB-SERIAL" gate="G$1" pin="GND"/>
-<pinref part="J7" gate="G$1" pin="5"/>
 <wire x1="-22.86" y1="71.12" x2="-25.4" y2="71.12" width="0.1524" layer="91"/>
 <pinref part="J9" gate="G$1" pin="5"/>
 <wire x1="-10.16" y1="71.12" x2="-22.86" y2="71.12" width="0.1524" layer="91"/>
 <junction x="-22.86" y="71.12"/>
 <pinref part="GND5" gate="1" pin="GND"/>
 <wire x1="-43.18" y1="55.88" x2="-27.94" y2="71.12" width="0.1524" layer="91"/>
-<wire x1="-27.94" y1="71.12" x2="-22.86" y2="71.12" width="0.1524" layer="91"/>
+<wire x1="-27.94" y1="71.12" x2="-25.4" y2="71.12" width="0.1524" layer="91"/>
+<pinref part="U$1" gate="G$1" pin="GND"/>
+<wire x1="-25.4" y1="71.12" x2="-22.86" y2="71.12" width="0.1524" layer="91"/>
+<wire x1="-55.88" y1="68.58" x2="-45.72" y2="68.58" width="0.1524" layer="91"/>
+<wire x1="-45.72" y1="68.58" x2="-43.18" y2="71.12" width="0.1524" layer="91"/>
+<wire x1="-43.18" y1="71.12" x2="-25.4" y2="71.12" width="0.1524" layer="91"/>
+<junction x="-25.4" y="71.12"/>
+<pinref part="J7" gate="G$1" pin="1"/>
+<wire x1="-10.16" y1="71.12" x2="-2.54" y2="71.12" width="0.1524" layer="91"/>
+<wire x1="-2.54" y1="71.12" x2="7.62" y2="81.28" width="0.1524" layer="91"/>
+<junction x="-10.16" y="71.12"/>
 </segment>
 <segment>
 <pinref part="ESP8266" gate="G$1" pin="GND"/>
@@ -34716,44 +34934,44 @@ SparkFun BigTime Watch Kit&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
 <segment>
 <pinref part="PIN1" gate="G$1" pin="2"/>
 <pinref part="T1_5MM" gate="G$1" pin="1"/>
-<wire x1="15.24" y1="73.66" x2="17.78" y2="76.2" width="0.1524" layer="91"/>
+<wire x1="-231.14" y1="-116.84" x2="-228.6" y2="-114.3" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$26" class="2">
 <segment>
 <pinref part="PIN1" gate="G$1" pin="1"/>
 <pinref part="T1_5MM" gate="G$1" pin="2"/>
-<wire x1="15.24" y1="71.12" x2="17.78" y2="71.12" width="0.1524" layer="91"/>
+<wire x1="-231.14" y1="-119.38" x2="-228.6" y2="-119.38" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$27" class="2">
 <segment>
 <pinref part="PIN2" gate="G$1" pin="2"/>
 <pinref part="T2_5MM" gate="G$1" pin="1"/>
-<wire x1="15.24" y1="53.34" x2="17.78" y2="55.88" width="0.1524" layer="91"/>
+<wire x1="-231.14" y1="-137.16" x2="-228.6" y2="-134.62" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$31" class="2">
 <segment>
 <pinref part="PIN2" gate="G$1" pin="1"/>
 <pinref part="T2_5MM" gate="G$1" pin="2"/>
-<wire x1="15.24" y1="50.8" x2="17.78" y2="50.8" width="0.1524" layer="91"/>
+<wire x1="-231.14" y1="-139.7" x2="-228.6" y2="-139.7" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$32" class="2">
 <segment>
 <pinref part="PIN3" gate="G$1" pin="2"/>
 <pinref part="T3_5MM" gate="G$1" pin="1"/>
-<wire x1="50.8" y1="73.66" x2="53.34" y2="73.66" width="0.1524" layer="91"/>
-<wire x1="53.34" y1="73.66" x2="55.88" y2="76.2" width="0.1524" layer="91"/>
+<wire x1="-195.58" y1="-116.84" x2="-193.04" y2="-116.84" width="0.1524" layer="91"/>
+<wire x1="-193.04" y1="-116.84" x2="-190.5" y2="-114.3" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$33" class="2">
 <segment>
 <pinref part="PIN3" gate="G$1" pin="1"/>
 <pinref part="T3_5MM" gate="G$1" pin="2"/>
-<wire x1="50.8" y1="71.12" x2="53.34" y2="71.12" width="0.1524" layer="91"/>
-<wire x1="53.34" y1="71.12" x2="55.88" y2="71.12" width="0.1524" layer="91"/>
+<wire x1="-195.58" y1="-119.38" x2="-193.04" y2="-119.38" width="0.1524" layer="91"/>
+<wire x1="-193.04" y1="-119.38" x2="-190.5" y2="-119.38" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$34" class="1">
@@ -34871,6 +35089,9 @@ SparkFun BigTime Watch Kit&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
 <pinref part="S4" gate="G$1" pin="2"/>
 <wire x1="-22.86" y1="-63.5" x2="-22.86" y2="-60.96" width="0.1524" layer="91"/>
 <junction x="-22.86" y="-60.96"/>
+<pinref part="PAD9" gate="1" pin="P"/>
+<wire x1="-40.64" y1="-38.1" x2="-66.04" y2="-38.1" width="0.1524" layer="91"/>
+<junction x="-40.64" y="-38.1"/>
 </segment>
 </net>
 <net name="N$37" class="1">
@@ -35015,57 +35236,52 @@ SparkFun BigTime Watch Kit&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
 <wire x1="124.46" y1="-15.24" x2="129.54" y2="-20.32" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$56" class="0">
-<segment>
-<pinref part="CP2102_USB-SERIAL" gate="G$1" pin="DTR"/>
-<pinref part="J7" gate="G$1" pin="2"/>
-<wire x1="-22.86" y1="78.74" x2="-25.4" y2="78.74" width="0.1524" layer="91"/>
-<pinref part="J9" gate="G$1" pin="2"/>
-<wire x1="-22.86" y1="78.74" x2="-10.16" y2="78.74" width="0.1524" layer="91"/>
-<junction x="-22.86" y="78.74"/>
-<pinref part="PROMINI_H" gate="A" pin="6"/>
-<wire x1="7.62" y1="38.1" x2="7.62" y2="43.18" width="0.1524" layer="91"/>
-<wire x1="7.62" y1="43.18" x2="-10.16" y2="60.96" width="0.1524" layer="91"/>
-<wire x1="-10.16" y1="60.96" x2="-10.16" y2="78.74" width="0.1524" layer="91"/>
-<junction x="-10.16" y="78.74"/>
-</segment>
-</net>
 <net name="N$62" class="0">
 <segment>
-<pinref part="PROMINI_H" gate="A" pin="5"/>
-<wire x1="5.08" y1="38.1" x2="5.08" y2="43.18" width="0.1524" layer="91"/>
-<wire x1="5.08" y1="43.18" x2="-2.54" y2="50.8" width="0.1524" layer="91"/>
-<wire x1="-2.54" y1="50.8" x2="-10.16" y2="58.42" width="0.1524" layer="91"/>
-<wire x1="-10.16" y1="58.42" x2="-12.7" y2="60.96" width="0.1524" layer="91"/>
 <pinref part="CP2102_USB-SERIAL" gate="G$1" pin="TDO"/>
 <pinref part="J9" gate="G$1" pin="4"/>
-<wire x1="-12.7" y1="73.66" x2="-10.16" y2="73.66" width="0.1524" layer="91"/>
-<pinref part="J7" gate="G$1" pin="4"/>
-<wire x1="-22.86" y1="73.66" x2="-15.24" y2="73.66" width="0.1524" layer="91"/>
-<junction x="-22.86" y="73.66"/>
-<wire x1="-15.24" y1="73.66" x2="-12.7" y2="73.66" width="0.1524" layer="91"/>
+<wire x1="-17.78" y1="73.66" x2="-10.16" y2="73.66" width="0.1524" layer="91"/>
+<wire x1="-22.86" y1="73.66" x2="-17.78" y2="73.66" width="0.1524" layer="91"/>
+<wire x1="-17.78" y1="73.66" x2="-15.24" y2="73.66" width="0.1524" layer="91"/>
+<wire x1="-15.24" y1="73.66" x2="-17.78" y2="73.66" width="0.1524" layer="91"/>
 <wire x1="-22.86" y1="73.66" x2="-25.4" y2="73.66" width="0.1524" layer="91"/>
-<wire x1="-12.7" y1="60.96" x2="-12.7" y2="73.66" width="0.1524" layer="91"/>
-<junction x="-12.7" y="73.66"/>
+<pinref part="U$1" gate="G$1" pin="TX"/>
+<wire x1="-55.88" y1="76.2" x2="-45.72" y2="76.2" width="0.1524" layer="91"/>
+<wire x1="-45.72" y1="76.2" x2="-43.18" y2="73.66" width="0.1524" layer="91"/>
+<wire x1="-43.18" y1="73.66" x2="-25.4" y2="73.66" width="0.1524" layer="91"/>
+<junction x="-25.4" y="73.66"/>
+<pinref part="PROMINI_H" gate="A" pin="5"/>
+<wire x1="5.08" y1="38.1" x2="5.08" y2="43.18" width="0.1524" layer="91"/>
+<wire x1="5.08" y1="43.18" x2="-17.78" y2="66.04" width="0.1524" layer="91"/>
+<wire x1="-17.78" y1="66.04" x2="-17.78" y2="73.66" width="0.1524" layer="91"/>
+<junction x="-17.78" y="73.66"/>
+<pinref part="J7" gate="G$1" pin="4"/>
+<wire x1="-10.16" y1="73.66" x2="7.62" y2="73.66" width="0.1524" layer="91"/>
+<junction x="-10.16" y="73.66"/>
 </segment>
 </net>
 <net name="N$57" class="0">
 <segment>
-<wire x1="-12.7" y1="58.42" x2="-15.24" y2="60.96" width="0.1524" layer="91"/>
-<wire x1="-5.08" y1="50.8" x2="-12.7" y2="58.42" width="0.1524" layer="91"/>
-<wire x1="2.54" y1="43.18" x2="-5.08" y2="50.8" width="0.1524" layer="91"/>
-<pinref part="PROMINI_H" gate="A" pin="4"/>
-<wire x1="2.54" y1="38.1" x2="2.54" y2="43.18" width="0.1524" layer="91"/>
 <pinref part="CP2102_USB-SERIAL" gate="G$1" pin="RXI"/>
-<pinref part="J7" gate="G$1" pin="3"/>
-<junction x="-22.86" y="76.2"/>
 <pinref part="J9" gate="G$1" pin="3"/>
 <wire x1="-10.16" y1="76.2" x2="-12.7" y2="76.2" width="0.1524" layer="91"/>
-<wire x1="-12.7" y1="76.2" x2="-15.24" y2="76.2" width="0.1524" layer="91"/>
-<wire x1="-15.24" y1="76.2" x2="-22.86" y2="76.2" width="0.1524" layer="91"/>
+<wire x1="-12.7" y1="76.2" x2="-20.32" y2="76.2" width="0.1524" layer="91"/>
+<wire x1="-20.32" y1="76.2" x2="-22.86" y2="76.2" width="0.1524" layer="91"/>
 <wire x1="-22.86" y1="76.2" x2="-25.4" y2="76.2" width="0.1524" layer="91"/>
-<wire x1="-15.24" y1="60.96" x2="-15.24" y2="76.2" width="0.1524" layer="91"/>
-<junction x="-15.24" y="76.2"/>
+<pinref part="U$1" gate="G$1" pin="RX"/>
+<wire x1="-55.88" y1="78.74" x2="-45.72" y2="78.74" width="0.1524" layer="91"/>
+<wire x1="-45.72" y1="78.74" x2="-43.18" y2="76.2" width="0.1524" layer="91"/>
+<wire x1="-43.18" y1="76.2" x2="-25.4" y2="76.2" width="0.1524" layer="91"/>
+<junction x="-25.4" y="76.2"/>
+<pinref part="PROMINI_H" gate="A" pin="4"/>
+<wire x1="2.54" y1="38.1" x2="2.54" y2="43.18" width="0.1524" layer="91"/>
+<wire x1="-20.32" y1="76.2" x2="-20.32" y2="66.04" width="0.1524" layer="91"/>
+<wire x1="-20.32" y1="66.04" x2="2.54" y2="43.18" width="0.1524" layer="91"/>
+<junction x="-20.32" y="76.2"/>
+<pinref part="J7" gate="G$1" pin="5"/>
+<wire x1="-10.16" y1="76.2" x2="2.54" y2="76.2" width="0.1524" layer="91"/>
+<wire x1="2.54" y1="76.2" x2="7.62" y2="71.12" width="0.1524" layer="91"/>
+<junction x="-10.16" y="76.2"/>
 </segment>
 </net>
 <net name="N$76" class="0">
@@ -35075,6 +35291,10 @@ SparkFun BigTime Watch Kit&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
 <wire x1="63.5" y1="-101.6" x2="71.12" y2="-101.6" width="0.1524" layer="91"/>
 <wire x1="71.12" y1="-101.6" x2="78.74" y2="-109.22" width="0.1524" layer="91"/>
 <probe x="68.58" y="-101.6" size="1.778" layer="89" probetype="0"/>
+<pinref part="PAD4" gate="1" pin="P"/>
+<wire x1="43.18" y1="-99.06" x2="43.18" y2="-101.6" width="0.1524" layer="91"/>
+<wire x1="43.18" y1="-101.6" x2="63.5" y2="-101.6" width="0.1524" layer="91"/>
+<junction x="63.5" y="-101.6"/>
 </segment>
 </net>
 <net name="N$59" class="0">
@@ -35116,6 +35336,14 @@ SparkFun BigTime Watch Kit&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
 <pinref part="ESP_POW" gate="G$1" pin="2"/>
 <wire x1="-124.46" y1="-101.6" x2="-93.98" y2="-101.6" width="0.1524" layer="91"/>
 <wire x1="-93.98" y1="-101.6" x2="-88.9" y2="-96.52" width="0.1524" layer="91"/>
+<pinref part="PAD2" gate="1" pin="P"/>
+<wire x1="-88.9" y1="-96.52" x2="-68.58" y2="-96.52" width="0.1524" layer="91"/>
+<wire x1="-68.58" y1="-96.52" x2="-68.58" y2="-99.06" width="0.1524" layer="91"/>
+<junction x="-88.9" y="-96.52"/>
+<pinref part="PAD6" gate="1" pin="P"/>
+<wire x1="-58.42" y1="-96.52" x2="-58.42" y2="-99.06" width="0.1524" layer="91"/>
+<wire x1="-68.58" y1="-96.52" x2="-58.42" y2="-96.52" width="0.1524" layer="91"/>
+<junction x="-68.58" y="-96.52"/>
 </segment>
 </net>
 <net name="N$58" class="1">
@@ -35135,6 +35363,36 @@ SparkFun BigTime Watch Kit&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
 <pinref part="ESP1" gate="G$1" pin="2"/>
 <wire x1="-116.84" y1="-93.98" x2="-109.22" y2="-86.36" width="0.1524" layer="91"/>
 <wire x1="-109.22" y1="-86.36" x2="-109.22" y2="-83.82" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$65" class="0">
+<segment>
+<pinref part="BOARD_POWER" gate="G$1" pin="1"/>
+<pinref part="PAD10" gate="1" pin="P"/>
+<wire x1="-40.64" y1="-43.18" x2="-66.04" y2="-43.18" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$66" class="0">
+<segment>
+<pinref part="PROMINI_H" gate="A" pin="6"/>
+<wire x1="7.62" y1="38.1" x2="7.62" y2="43.18" width="0.1524" layer="91"/>
+<pinref part="CP2102_USB-SERIAL" gate="G$1" pin="DTR"/>
+<wire x1="-22.86" y1="78.74" x2="-25.4" y2="78.74" width="0.1524" layer="91"/>
+<pinref part="J9" gate="G$1" pin="2"/>
+<wire x1="-22.86" y1="78.74" x2="-15.24" y2="78.74" width="0.1524" layer="91"/>
+<pinref part="U$1" gate="G$1" pin="DTR"/>
+<wire x1="-15.24" y1="78.74" x2="-10.16" y2="78.74" width="0.1524" layer="91"/>
+<wire x1="-55.88" y1="81.28" x2="-45.72" y2="81.28" width="0.1524" layer="91"/>
+<wire x1="-45.72" y1="81.28" x2="-43.18" y2="78.74" width="0.1524" layer="91"/>
+<wire x1="-43.18" y1="78.74" x2="-25.4" y2="78.74" width="0.1524" layer="91"/>
+<junction x="-25.4" y="78.74"/>
+<wire x1="7.62" y1="43.18" x2="-15.24" y2="66.04" width="0.1524" layer="91"/>
+<wire x1="-15.24" y1="66.04" x2="-15.24" y2="78.74" width="0.1524" layer="91"/>
+<junction x="-15.24" y="78.74"/>
+<pinref part="J7" gate="G$1" pin="6"/>
+<wire x1="-10.16" y1="78.74" x2="-2.54" y2="78.74" width="0.1524" layer="91"/>
+<wire x1="-2.54" y1="78.74" x2="7.62" y2="68.58" width="0.1524" layer="91"/>
+<junction x="-10.16" y="78.74"/>
 </segment>
 </net>
 </nets>

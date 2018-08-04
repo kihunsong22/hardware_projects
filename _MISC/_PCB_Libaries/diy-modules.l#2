@@ -7609,7 +7609,7 @@ Footprint for SMD assembly.</description>
 <wire x1="13.208" y1="8.128" x2="13.208" y2="-8.128" width="0.127" layer="21"/>
 <wire x1="13.208" y1="-8.128" x2="-13.208" y2="-8.128" width="0.127" layer="21"/>
 <text x="0" y="8.89" size="1.27" layer="25" align="bottom-center">&gt;NAME</text>
-<text x="0" y="-8.636" size="1.27" layer="27" align="top-center">&gt;VALUE</text>
+<text x="0" y="-8.89" size="1.27" layer="27" align="top-center">&gt;VALUE</text>
 <pad name="1" x="11.43" y="6.35" drill="1" shape="square" rot="R180"/>
 <pad name="2" x="11.43" y="3.81" drill="1" rot="R180"/>
 <pad name="3" x="11.43" y="1.27" drill="1" rot="R180"/>
@@ -7659,12 +7659,12 @@ Footprint for SMD assembly.</description>
 <wire x1="-3.81" y1="3.81" x2="-3.81" y2="-3.81" width="0.127" layer="21"/>
 <wire x1="-3.81" y1="-3.81" x2="-13.208" y2="-3.81" width="0.127" layer="21"/>
 <text x="-8.89" y="0" size="1.778" layer="21" align="center">USB</text>
-<text x="9.906" y="6.858" size="1.0668" layer="21" rot="R30" align="center-right">DTR</text>
-<text x="9.906" y="4.318" size="1.0668" layer="21" rot="R30" align="center-right">RX</text>
-<text x="9.906" y="1.778" size="1.0668" layer="21" rot="R30" align="center-right">TX</text>
-<text x="9.906" y="-0.762" size="1.0668" layer="21" rot="R30" align="center-right">VCC</text>
-<text x="9.906" y="-3.302" size="1.0668" layer="21" rot="R30" align="center-right">CTS</text>
-<text x="9.906" y="-5.842" size="1.0668" layer="21" rot="R30" align="center-right">GND</text>
+<text x="8.89" y="6.35" size="1.27" layer="21" align="center-right">DTR</text>
+<text x="8.89" y="3.81" size="1.27" layer="21" align="center-right">RX</text>
+<text x="8.89" y="1.27" size="1.27" layer="21" align="center-right">TX</text>
+<text x="8.89" y="-1.27" size="1.27" layer="21" align="center-right">VCC</text>
+<text x="8.89" y="-3.81" size="1.27" layer="21" align="center-right">CTS</text>
+<text x="8.89" y="-6.35" size="1.27" layer="21" align="center-right">GND</text>
 <wire x1="10.795" y1="7.62" x2="12.065" y2="7.62" width="0.127" layer="21"/>
 <wire x1="10.795" y1="-7.62" x2="12.065" y2="-7.62" width="0.127" layer="21"/>
 </package>

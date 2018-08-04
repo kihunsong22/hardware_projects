@@ -7609,7 +7609,7 @@ Footprint for SMD assembly.</description>
 <wire x1="13.208" y1="8.128" x2="13.208" y2="-8.128" width="0.127" layer="21"/>
 <wire x1="13.208" y1="-8.128" x2="-13.208" y2="-8.128" width="0.127" layer="21"/>
 <text x="0" y="8.89" size="1.27" layer="25" align="bottom-center">&gt;NAME</text>
-<text x="0" y="-8.636" size="1.27" layer="27" align="top-center">&gt;VALUE</text>
+<text x="0" y="-8.89" size="1.27" layer="27" align="top-center">&gt;VALUE</text>
 <pad name="1" x="11.43" y="6.35" drill="1" shape="square" rot="R180"/>
 <pad name="2" x="11.43" y="3.81" drill="1" rot="R180"/>
 <pad name="3" x="11.43" y="1.27" drill="1" rot="R180"/>
