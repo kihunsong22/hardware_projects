@@ -1,12 +1,12 @@
 {
     "author": {
-        "email": "support.eagle@autodesk.com",
-        "name": "Autodesk EAGLE"
+        "email": "angrypig777@gmail.com",
+        "name": " "
     },
     "description": {
         "EN": "EAGLE default 2 layer CAM job."
     },
-    "output_type": "zip",
+    "output_type": "directory",
     "outputs": [
         {
             "format_specifier": {
@@ -187,7 +187,7 @@
             "version": "RS274X"
         }
     ],
-    "timestamp": "2018-01-17T13:57:10",
+    "timestamp": "2018-08-06T14:27:40",
     "type": "EAGLE CAM job",
     "units": "metric",
     "version": "8.6.1"
