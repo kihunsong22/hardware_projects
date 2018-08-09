@@ -21277,10 +21277,10 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <instance part="GND6" gate="1" x="167.64" y="5.08"/>
 <instance part="J6" gate="G$1" x="147.32" y="38.1"/>
 <instance part="SHIELD" gate="G$1" x="157.48" y="10.16"/>
-<instance part="H1" gate="G$1" x="241.3" y="25.4"/>
-<instance part="H2" gate="G$1" x="241.3" y="20.32"/>
-<instance part="H3" gate="G$1" x="241.3" y="15.24"/>
-<instance part="H4" gate="G$1" x="241.3" y="10.16"/>
+<instance part="H1" gate="G$1" x="195.58" y="99.06"/>
+<instance part="H2" gate="G$1" x="195.58" y="93.98"/>
+<instance part="H3" gate="G$1" x="195.58" y="88.9"/>
+<instance part="H4" gate="G$1" x="195.58" y="83.82"/>
 <instance part="JP_SCL" gate="G$1" x="76.2" y="132.08"/>
 <instance part="JP_SDA" gate="G$1" x="76.2" y="124.46"/>
 <instance part="GY-521" gate="G$1" x="20.32" y="91.44"/>

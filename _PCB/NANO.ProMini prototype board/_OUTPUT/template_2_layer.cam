@@ -6,7 +6,7 @@
     "description": {
         "EN": "EAGLE default 2 layer CAM job."
     },
-    "output_type": "directory",
+    "output_type": "zip",
     "outputs": [
         {
             "format_specifier": {
@@ -187,7 +187,7 @@
             "version": "RS274X"
         }
     ],
-    "timestamp": "2018-08-06T14:27:40",
+    "timestamp": "2018-08-09T11:45:11",
     "type": "EAGLE CAM job",
     "units": "metric",
     "version": "8.6.1"
