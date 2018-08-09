@@ -1,7 +1,7 @@
 {
     "author": {
-        "email": "angrypig777@gmail.com",
-        "name": " "
+        "email": "support.eagle@autodesk.com",
+        "name": "Autodesk EAGLE"
     },
     "description": {
         "EN": "EAGLE default 2 layer CAM job."
@@ -187,7 +187,7 @@
             "version": "RS274X"
         }
     ],
-    "timestamp": "2018-08-09T11:45:11",
+    "timestamp": "2018-01-17T13:57:10",
     "type": "EAGLE CAM job",
     "units": "metric",
     "version": "8.6.1"
