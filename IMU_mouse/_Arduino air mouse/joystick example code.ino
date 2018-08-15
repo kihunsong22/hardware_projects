@@ -98,29 +98,6 @@ char btBuf[MAX_BT_BUF];
 //for connection
 int btConnected=0;
 
-
-void setup() {
-  Serial.begin(9600);
-  BTSer.begin(9600); 
-
-  pinMode(statusBtPin, INPUT);
-  digitalWrite(statusBtPin, HIGH);  
-  
-  pinMode(statusLedPin, OUTPUT);
-
-  pinMode(multifunction, OUTPUT);
-
-  digitalWrite(multifunction, HIGH);
-  delay(5); 
-  digitalWrite(multifunction, LOW);
-  //if delay is 10ms, Last Connect Request 
-  //if delay is 2500ms, Hard Rest (factory Reset)
-  delay(100); 
-  digitalWrite(multifunction, HIGH);
-   
-}
-
-
 //Send AT Command
 void sendAT(char *buf){
   for(int i=0;i<strlen(buf);i++){
@@ -172,6 +149,28 @@ void sendVolume(u8 up){
   }
   delay(100);
   sendHID(sendKeyRelease);
+}
+
+
+void setup() {
+  Serial.begin(9600);
+  BTSer.begin(9600); 
+
+  pinMode(statusBtPin, INPUT);
+  digitalWrite(statusBtPin, HIGH);  
+  
+  pinMode(statusLedPin, OUTPUT);
+
+  pinMode(multifunction, OUTPUT);
+
+  digitalWrite(multifunction, HIGH);
+  delay(5); 
+  digitalWrite(multifunction, LOW);
+  //if delay is 10ms, Last Connect Request 
+  //if delay is 2500ms, Hard Rest (factory Reset)
+  delay(100); 
+  digitalWrite(multifunction, HIGH);
+   
 }
 
 

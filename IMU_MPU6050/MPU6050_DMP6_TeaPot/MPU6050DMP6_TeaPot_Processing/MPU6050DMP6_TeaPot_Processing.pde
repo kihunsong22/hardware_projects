@@ -71,7 +71,7 @@ void setup() {
     //String portName = "/dev/ttyUSB13";
     
     // get a specific serial port (use EITHER this OR the first-available code above)
-    String portName = "COM13";
+    String portName = "COM8";
     
     // open the serial port
     port = new Serial(this, portName, 115200);
