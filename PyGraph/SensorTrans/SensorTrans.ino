@@ -1,21 +1,19 @@
-int value = 0;
-int i = 0;
+int value, ti;
 
 void setup(){
     pinMode(A0, INPUT);
-    pinMode(LED_BUILTIN, OUTPUT);
-
-    digitalWrite(LED_BUILTIN, LOW);
 
     Serial.begin(115200);
     Serial.println("Serial connected");
+
+    ti = millis();
 }
 
 void loop(){
-    value = analogRead(A0);
-    digitalWrite(LED_BUILTIN, HIGH);
-    Serial.print("Value: ");
-    Serial.println(value);
-    digitalWrite(LED_BUILTIN, LOW);
-    delay(50);
+    if( (millis()-ti)>10 ){
+        value = analogRead(A0);
+        Serial.print("Value: ");
+        Serial.println(value);
+        ti = millis();
+    }
 }
