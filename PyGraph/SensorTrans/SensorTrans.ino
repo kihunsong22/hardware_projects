@@ -4,7 +4,7 @@ void setup(){
     pinMode(A0, INPUT);
 
     Serial.begin(115200);
-    Serial.println("Serial connected");
+    // Serial.println("Serial connected");
 
     ti = millis();
 }

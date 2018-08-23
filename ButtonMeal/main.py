@@ -1,26 +1,30 @@
-# -*- coding: utf-8 -*-
+import requests, json
+from io import StringIO
 
-import time, serial, requests
-import urllib
+url = "https://api.dimigo.in/dimibobes/20180823"
 
-# ser = serial.Serial('COM8', 115200)
-
-url = "https://api.dimigo.in/dimibobes/today/"
 
 while 1:
     response = requests.get(url)
     if(response.status_code == 200):
         break
-    print("DBG: HTTP response error")
-    time.sleep(0.2)
+    print("HTTP RESPONSE ERROR - " + str(response.status_code))
 
-response.encoding = "euc-kr"
-data = response.text
+JSON = StringIO(response.text)
+JSON = json.load(JSON)
 
-print(data)
+print("JSON DATA: " + str(JSON))
+print()
 
-# while 1:
-#     if(ser.inWaiting()>0):
-#         data = ser.readline()
-#         data = data.decode()
-#         print(data)
+
+meal1 = JSON['breakfast']
+meal2 = JSON['lunch']
+meal3 = JSON['dinner']
+meal4 = JSON['snack']
+meal_date = JSON['date']
+
+print("meal1: " + meal1)
+print("meal2: " + meal2)
+print("meal3: " + meal3)
+print("meal4: " + meal4)
+print("meal_date: " + meal_date)
