@@ -2,9 +2,13 @@
    LoRaLib FSK Modem Example
 
    This example shows how to use FSK modem in SX127x chips.
-   NOTE: The code below is just a guide, do not attempt
-         to run it!
-
+   
+   NOTE: The sketch below is just a guide on how to use
+         FSK modem, so this code should not be run directly!
+         Instead, modify the other examples to use FSK
+         modem and use the appropriate configuration
+         methods.
+   
    For more detailed information, see the LoRaLib Wiki
    https://github.com/jgromes/LoRaLib/wiki
 
@@ -18,7 +22,7 @@
 // create instance of LoRa class using SX1278 module
 // this pinout corresponds to LoRenz shield:
 // https://github.com/jgromes/LoRenz
-// NSS pin:   7
+// NSS pin:   7 (18 on ESP32 boards)
 // DIO0 pin:  2
 // DIO1 pin:  3
 SX1278 fsk = new LoRa;
@@ -49,7 +53,8 @@ void setup() {
   // lora.begin()       start LoRa mode (and disable FSK)
   // lora.beginFSK()    start FSK mode (and disable LoRa)
 
-  // FSK modem supports the following settings:
+  // the following settings can also 
+  // be modified at run-time
   state = fsk.setFrequency(433.5);
   state = fsk.setBitRate(100.0);
   state = fsk.setFrequencyDeviation(10.0);
@@ -64,6 +69,8 @@ void setup() {
     Serial.println(state);
     while (true);
   }
+
+  #error "This sketch is just an API guide! Read the note at line 6."
 }
 
 void loop() {
@@ -156,23 +163,4 @@ void loop() {
   // NOTE: you will not be able to send or receive packets
   // while direct mode is active! to deactivate it, call method
   // fsk.packetMode()
-
-  // "directMode()" method also has an override that allows
-  // you to set raw frequency as 24-bit number
-  // this allows you to send RTTY data
-
-  // set frequency deviation to 0 (required for RTTY)
-  fsk.setFrequencyDeviation(0);
-  // start baud rate timer
-  unsigned long start = micros();
-  // send space (low; 0x6C9999 * 61 Hz = 434.149 749 MHz)
-  fsk.directMode(0x6C9999);
-  // wait for baud rate 45
-  while(micros() - start < 22222);
-  // restart baud rate timer
-  start = micros();
-  // send mark (high; 0x6C999C * 61 Hz = 434.149 932 MHz; 183 Hz shift)
-  fsk.directMode(0x6C9999);
-  // wait for baud rate 45
-  while(micros() - start < 22222);
 }

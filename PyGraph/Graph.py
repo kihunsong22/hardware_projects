@@ -1,123 +1,61 @@
 import serial, time
 import matplotlib.pyplot as plt
-import numpy as np
+import matplotlib.animation as animation
+from matplotlib import style
 from colourize import colourise, highlight
 
-curTime = float('%0.2f' % float(time.time()))
-baseTime =  float('%0.2f' % float(time.time()))
+ser = serial.Serial("COM10", 115200)
+startTime = float('%0.2f' % float(time.time()))
 elapTime = 0.0
 count = 0
-lstX = []
-lstY = []
+lst = []
+
+style.use('fivethirtyeight')
+fig = plt.figure()
+gr1 = fig.add_subplot(1, 1, 1)
 
 
-def makeFig():
-    plt.xlim([count - 2000, count])
-    plt.ylim(0,600)
-    plt.grid(True)
-    plt.xlabel("Count")
-    plt.ylabel("Voltage Value")
+def ardPlot():
+    gr1.xlim([count - 400, count])
+    gr1.ylim(0,1000)
+    gr1.grid(True)
+    # gr1.ylabel("Voltage Value")
+    # gr1.legend(loc="upper left")
 
-    plt.plot(lstX, lstY, 'b-', label="Voltage V")
-    plt.legend(loc="upper left")
+    gr1.clear()
+    gr1.plot(lst, 'b-', label="Voltage V")
+    gr1.pause(0.00001)
 
-try:
-    ser = serial.Serial("COM10", 115200)
 
-    while 1:
+ani = animation.FuncAnimation(fig, ardPlot, interval=200)
+plt.show()
+
+while 1:
+    try:
         while(ser.inWaiting() == 0):
-            pass
+            time.sleep(5)
 
         data = ser.readline()
         data = data.decode()
         value = int(data[7:])
+        elapTime = ( float('%0.2f' % float(time.time()))-startTime )
         print("elapTime: " + str(elapTime) + ", Value: " + str(value))
-        count+=1
 
-        if count>2000:
-            lstX.pop(0)
+        count += 1
+        if count > 400:
+            lst.pop(0)
 
-        lstX.append(count)
-        lstY.append(value)
+        lst.append(value)
 
-        if( (float('%0.2f'%float(time.time())))-baseTime > 1):
-            plt.plot(lstX, lstY, 'b-')
-            plt.xlim([count/2, count])
-            plt.ylim([0, 400])
-            plt.grid(True)
-            plt.xlabel("Count")
-            plt.ylabel("Voltage Value")
+    except UnicodeDecodeError:
+        error = str("ERROR_ UnicodeDecodeError - restarting")
+        print(highlight("grey", colourise("black", error)))
+        pass
 
-            plt.show()
 
-            baseTime = float('%0.2f' % float(time.time()))
-            # ser.close()
-            # exit()
-
-except Exception as e:
-    error = str("ERROR_ " + str(e))
-    print(highlight("grey", colourise("black", error)))
-
-    try:
-        ser.close()
-    except:
-        error = str("ERROR_ NO SERIAL OPENED")
+    except Exception as e:
+        error = str("ERROR_ " + str(e))
         print(highlight("grey", colourise("black", error)))
 
-
-
-
-
-# import serial, time
-# import matplotlib.pyplot as plt
-# import numpy as np
-# from colourize import colourise, highlight
-#
-#
-# try:
-#     ser = serial.Serial("COM13", 115200)
-#     curTime = float('%0.2f' % float(time.time()))
-#     baseTime = float('%0.2f' % float(time.time()))
-#
-#     count = 0
-#     lstX = []
-#     lstY = []
-#
-#     while 1:
-#         elapTime = float(('%0.2f'%float(time.time())))-curTime
-#         while(ser.inWaiting() == 0):
-#             pass
-#
-#         data = ser.readline()
-#         data = data.decode()
-#         value = int(data[7:])
-#         print("elapTime: " + str(int(elapTime)) + ", Value: " + str(value))
-#
-#         # save value as list
-#         count+=1
-#         lstX.append(count)
-#         lstY.append(value)
-#
-#         if(float( (float('%0.2f'%float(time.time())))-baseTime) > 1):
-#             plt.plot(lstX, lstY, 'b-')
-#             plt.xlim([count/2, count])
-#             plt.ylim([0, 400])
-#             plt.grid(True)
-#             plt.xlabel("Count")
-#             plt.ylabel("Voltage Value")
-#
-#             plt.show()
-#
-#             baseTime = float('%0.2f' % float(time.time()))
-#             # ser.close()
-#             # exit()
-#
-# except Exception as e:
-#     error = str("ERROR_ " + str(e))
-#     print(highlight("grey", colourise("black", error)))
-#
-#     try:
-#         ser.close()
-#     except:
-#         error = str("ERROR_ NO SERIAL OPENED")
-#         print(highlight("grey", colourise("black", error)))
+        ser.close()
+        break

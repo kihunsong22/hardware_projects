@@ -5,13 +5,13 @@ from drawnow import *
 
 tempF = []
 pressure = []
-arduinoData = serial.Serial('com11', 115200)  # Creating our serial object named arduinoData
+arduinoData = serial.Serial('COM10', 115200)  # Creating our serial object named arduinoData
 plt.ion()  # Tell matplotlib you want interactive mode to plot live data
 cnt = 0
 
 
 def makeFig():  # Create a function that makes our desired plot
-    plt.ylim(80, 90)  # Set y min and max values
+    plt.ylim(150, 1000)  # Set y min and max values
     plt.title('My Live Streaming Sensor Data')  # Plot the title
     plt.grid(True)  # Turn the grid on
     plt.ylabel('Temp F')  # Set ylabels
@@ -20,7 +20,7 @@ def makeFig():  # Create a function that makes our desired plot
     plt.legend(loc='upper left')  # plot the legend
     plt2 = plt.twinx()  # Create a second y axis
 
-    plt.ylim(93450, 93525)  # Set limits of second y axis- adjust to readings you are getting
+    plt.ylim(200, 1000)  # Set limits of second y axis- adjust to readings you are getting
     plt2.plot(pressure, 'b^-', label='Pressure (Pa)')  # plot pressure data
     plt2.set_ylabel('Pressrue (Pa)')  # label second y axis
     plt2.ticklabel_format(useOffset=False)  # Force matplotlib to NOT autoscale y axis
@@ -30,12 +30,20 @@ def makeFig():  # Create a function that makes our desired plot
 while True:  # While loop that loops forever
     while (arduinoData.inWaiting() == 0):  # Wait here until there is data
         pass  # do nothing
-    arduinoString = arduinoData.readline()  # read the line of text from the serial port
-    dataArray = arduinoString.split(',')  # Split it into an array called dataArray
-    temp = float(dataArray[0])  # Convert first element to floating number and put in temp
-    P = float(dataArray[1])  # Convert second element to floating number and put in P
-    tempF.append(temp)  # Build our tempF array by appending temp readings
-    pressure.append(P)  # Building our pressure array by appending P readings
+    arduinoString = arduinoData.readline()
+    arduinoString = arduinoString.decode()
+    temp = float(arduinoString[7:])
+    p = temp
+    tempF.append(temp)
+    pressure.append(p)
+
+    # arduinoString = arduinoData.readline()  # read the line of text from the serial port
+    # dataArray = arduinoString.split(',')  # Split it into an array called dataArray
+    # temp = float(dataArray[0])  # Convert first element to floating number and put in temp
+    # P = float(dataArray[1])  # Convert second element to floating number and put in P
+    # tempF.append(temp)  # Build our tempF array by appending temp readings
+    # pressure.append(P)  # Building our pressure array by appending P readings
+
     drawnow(makeFig)  # Call drawnow to update our live graph
     plt.pause(.000001)  # Pause Briefly. Important to keep drawnow from crashing
     cnt = cnt + 1

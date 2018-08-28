@@ -1,7 +1,7 @@
 int value, ti;
 
 void setup(){
-    pinMode(A0, INPUT);
+    pinMode(A6, INPUT);
 
     Serial.begin(115200);
     // Serial.println("Serial connected");
@@ -10,9 +10,9 @@ void setup(){
 }
 
 void loop(){
-    if( (millis()-ti)>10 ){
+    if( (millis()-ti)>250 ){
         value = analogRead(A0);
-        Serial.print("Value: ");
+        // Serial.print("Value: ");
         Serial.println(value);
         ti = millis();
     }
