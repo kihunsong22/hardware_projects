@@ -4,16 +4,12 @@ void setup(){
     pinMode(A6, INPUT);
 
     Serial.begin(115200);
-    // Serial.println("Serial connected");
-
-    ti = millis();
 }
 
 void loop(){
-    if( (millis()-ti)>250 ){
-        value = analogRead(A0);
-        // Serial.print("Value: ");
-        Serial.println(value);
-        ti = millis();
-    }
+    value = analogRead(A0);
+    ti = (millis()%10)*2 + (millis()%5)*5;
+    value += ti;
+    Serial.println(value);
+    delay(245);
 }
