@@ -1,7 +1,7 @@
 import requests, json
 from io import StringIO
 
-url = "https://api.dimigo.in/dimibobes/20180823"
+url = "https://dev-api.dimigo.in/dimibobs/today/"
 
 
 while 1:
