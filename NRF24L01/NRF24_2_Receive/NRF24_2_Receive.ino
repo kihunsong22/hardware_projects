@@ -6,7 +6,7 @@ const byte rxAddr[6] = "00001";
 String text = "";
 
 void setup(){
-  Serial.begin(9600);
+  Serial.begin(115200);
   
   radio.begin();
   radio.openReadingPipe(0, rxAddr);

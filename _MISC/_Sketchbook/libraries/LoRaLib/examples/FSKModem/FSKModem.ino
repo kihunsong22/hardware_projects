@@ -70,7 +70,7 @@ void setup() {
     while (true);
   }
 
-  #error "This sketch is just an API guide! Read the note at line 6."
+  #warning "This sketch is just an API guide! Read the note at line 6."
 }
 
 void loop() {
@@ -142,23 +142,39 @@ void loop() {
 
   // FSK modem supports direct data transmission
   // in this mode, SX127x directly transmits any data
-  // received on DIO1 (data) and DIO2 (clock)
+  // sent to DIO1 (data) and DIO2 (clock)
 
-  // activate direct mode
-  state = fsk.directMode();
+  // activate direct mode transmitter
+  state = fsk.transmitDirect();
   if (state != ERR_NONE) {
-    Serial.println(F("Unable to start direct mode, code "));
+    Serial.println(F("Unable to start direct transmission mode, code "));
   }
 
   // using the direct mode, it is possible to transmit
   // FM notes with Arduino tone() function
-  // transmit FM note at 1000 Hz for 1 second
+
+  // tone() function is not available on ESP32 and Arduino Due
+  #if !defined(ESP32) && !defined(_VARIANT_ARDUINO_DUE_X_)
+  // transmit FM tone at 1000 Hz for 1 second
   // (DIO2 is connected to Arduino pin 4)
   tone(4, 1000);
   delay(1000);
   // transmit FM note at 500 Hz for 1 second
   tone(4, 500);
   delay(1000);
+  #endif
+
+  // NOTE: after calling transmitDirect(), SX127x will start
+  // transmitting immediately! This signal can jam other
+  // devices at the same frequency, it is up to the user
+  // to disable it with standby() method!
+
+  // direct mode transmissions can also be received
+  // as bit stream on DIO1 (data) and DIO2 (clock)
+  state = fsk.receiveDirect();
+  if (state != ERR_NONE) {
+    Serial.println(F("Unable to start direct reception mode, code "));
+  }
   
   // NOTE: you will not be able to send or receive packets
   // while direct mode is active! to deactivate it, call method

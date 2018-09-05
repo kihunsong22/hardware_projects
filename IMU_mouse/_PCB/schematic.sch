@@ -24600,21 +24600,20 @@ You are welcome to use this library for commercial purposes. For attribution, we
 </net>
 <net name="N$8" class="0">
 <segment>
-<pinref part="B1" gate="G$1" pin="A2"/>
-<wire x1="132.08" y1="96.52" x2="129.54" y2="96.52" width="0.1524" layer="91"/>
-<wire x1="129.54" y1="96.52" x2="129.54" y2="124.46" width="0.1524" layer="91"/>
 <pinref part="JP_SDA" gate="G$1" pin="2"/>
-<wire x1="129.54" y1="124.46" x2="27.94" y2="124.46" width="0.1524" layer="91"/>
+<wire x1="167.64" y1="124.46" x2="27.94" y2="124.46" width="0.1524" layer="91"/>
+<pinref part="B1" gate="G$1" pin="RXI"/>
+<wire x1="154.94" y1="86.36" x2="167.64" y2="86.36" width="0.1524" layer="91"/>
+<wire x1="167.64" y1="86.36" x2="167.64" y2="124.46" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$9" class="0">
 <segment>
-<pinref part="B1" gate="G$1" pin="A1"/>
-<wire x1="127" y1="127" x2="127" y2="99.06" width="0.1524" layer="91"/>
-<wire x1="127" y1="99.06" x2="132.08" y2="99.06" width="0.1524" layer="91"/>
-<wire x1="127" y1="132.08" x2="127" y2="127" width="0.1524" layer="91"/>
 <pinref part="JP_SCL" gate="G$1" pin="2"/>
-<wire x1="27.94" y1="132.08" x2="127" y2="132.08" width="0.1524" layer="91"/>
+<wire x1="27.94" y1="132.08" x2="170.18" y2="132.08" width="0.1524" layer="91"/>
+<wire x1="170.18" y1="132.08" x2="170.18" y2="88.9" width="0.1524" layer="91"/>
+<pinref part="B1" gate="G$1" pin="GND@1"/>
+<wire x1="170.18" y1="88.9" x2="154.94" y2="88.9" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$11" class="0">
