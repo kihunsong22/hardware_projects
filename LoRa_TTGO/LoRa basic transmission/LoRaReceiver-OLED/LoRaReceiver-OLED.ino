@@ -2,12 +2,11 @@
 #include <LoRa.h>
 #include "SSD1306.h"
 
-SSD1306  display(0x3c, 4, 15);
-
 //OLED pins to ESP32 GPIOs via this connection:
 //OLED_SDA -- GPIO4
 //OLED_SCL -- GPIO15
 //OLED_RST -- GPIO16
+SSD1306  display(0x3c, 4, 15);
 
 
 // WIFI_LoRa_32 ports

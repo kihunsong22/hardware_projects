@@ -91,7 +91,7 @@ void loop(){
     // Serial.print(posY); Serial.print(" ");
     // Serial.println();
 
-    Mouse.move(-velX*mouse_sen, velY*mouse_sen, 0);
+    Mouse.move(-velX*mouse_sen, velY*mouse_sen*1.6, 0);
 
     delay(4);
 }

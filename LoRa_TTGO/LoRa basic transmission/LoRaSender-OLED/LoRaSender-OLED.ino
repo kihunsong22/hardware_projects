@@ -7,9 +7,7 @@
 //OLED_SDA -- GPIO4
 //OLED_SCL -- GPIO15
 //OLED_RST -- GPIO16
-
 SSD1306  display(0x3c, 4, 15);
-
 
 // WIFI_LoRa_32 ports
 
