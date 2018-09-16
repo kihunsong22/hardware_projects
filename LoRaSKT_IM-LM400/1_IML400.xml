@@ -1,0 +1,148 @@
+#Auth_KEY:
+    U2l4WnM0K1dHUHRuUnY3MGo0M1JDNDl1c250TnpMOU1NWVl0dHFvWFhGL3pLVEd1ajJwbGZObXV3V1ErVTRWYw==
+
+#1 IM-L400:
+    X-M2M-NM: angrypigtestNM
+    DEVEUI: 000c05c016103344
+    APPEUI: b40839032bbbbd35
+    APPKEY: b40839032bbbbd35f4859e1b63ea01e3
+    LTID: 2bbbbd35000c05c016103344
+
+<!-- Examples -->
+
+$$$$$REQUEST [Create - Node] POST
+    HOST : http://thingplugtest.sktiot.com:9000
+    URL : /ThingPlug/v1_0
+
+    Accept application/xml
+    locale ko
+    X-M2M-NM angrypigtestNM
+    X-M2M-Origin ThingPlug
+    X-M2M-RI 12345
+    Content-Type application/vnd.onem2m-res+xml;ty=14
+$$
+    <?xml version="1.0" encoding="UTF-8"?>
+    <m2m:nod 
+        xmlns:m2m="http://www.onem2m.org/xml/protocols" 
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <ni>2bbbbd35000c05c016103344</ni>  <!-- LoRa 디바이스 식별자: LTID -->
+        <mga>00001</mga>  <!-- 디바이스 제어 애플리케이션의 주소 -->
+    </m2m:nod>
+
+$$$$$RESPONSE [Create - Node]
+    POST /ThingPlug/v1_0
+    Host : http://thingplugtest.sktiot.com:9000
+    Accept : application/xml
+    locale : ko
+    X-M2M-NM : angrypigtestNM
+    X-M2M-Origin : ThingPlug
+    X-M2M-RI : 12345
+    Content-Type : application/vnd.onem2m-res+xml;ty=14
+    <?xml version="1.0" encoding="UTF-8"?>
+    <m2m:nod 
+        xmlns:m2m="http://www.onem2m.org/xml/protocols" 
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <ni>2bbbbd35000c05c016103344</ni>
+        <mga>00001</mga>
+    </m2m:nod>
+    http 201 Created
+    Server : Apache-Coyote/1.1
+    Set-Cookie : JSESSIONID=0357883B723A1528BDC3B96C772350EB; Path=/; HttpOnly
+    X-M2M-RI : 12345
+    X-M2M-RSC : 2001
+    Content-Location : /ThingPlug/v1_0/node-angrypigtestNM
+    Content-Type : application/vnd.onem2m-res+xml;charset=UTF-8
+    Content-Length : 389
+    Date : Sat, 15 Sep 2018 13:53:41 GMT
+
+    <?xml version="1.0" encoding="utf-8"?>
+    <m2m:nod xmlns:m2m="http://www.onem2m.org/xml/protocols" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <ty>14</ty>  <!-- 14: node -->
+    <ri>ND00000000000000006809</ri>  <!-- Resource의 고유 식별자 -->
+    <rn>angrypigtestNM</rn>  <!-- Resource 이름 -->
+    <pi>CB00000000000000000007</pi>  <!-- 이건뭐지 -->
+    <ct>2018-09-15T22:53:42+09:00</ct>  <!-- Created Time -->
+    <lt>2018-09-15T22:53:42+09:00</lt>  <!-- Last Edit Time -->
+    <ni>2bbbbd35000c05c016103344</ni>  <!-- LoRa디바이 식별자 (LTID) -->
+    <mga>00001</mga>  <!-- 디바이스 제어 애플리케이션의 주소 -->
+    </m2m:nod>
+
+
+
+
+
+
+
+
+
+$$$$$REQUEST [Create - remoteCSE] POST
+    HOST : http://thingplugtest.sktiot.com:9000
+    URL : /ThingPlug/v1_0
+
+    Accept application/xml
+    locale ko
+    X-M2M-NM angrypigtestNM
+    X-M2M-Origin ThingPlug
+    X-M2M-RI 12345
+    Content-Type application/vnd.onem2m-res+xml;ty=14
+    passCode passcode
+
+$$
+    <?xml version="1.0" encoding="UTF-8"?>
+    <m2m:csr 
+        xmlns:m2m="http://www.onem2m.org/xml/protocols" 
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <cst>3</cst>  <!-- CSE Type. 1:Server, 2:Gateway, 3:Device -->
+        <csi>2bbbbd35000c05c016103344</csi>  <!-- CSE식별자로 LTID사용-->
+        <poa>00001</poa>  <!-- LoRa디바이스 어플리케이션의 주소 -->
+        <rr>false</rr>  <!-- Request Reachability: MQTT, 고정IP만 true -->
+        <nl>ND00000000000000006809</nl>  <!-- Node Link -->
+    </m2m:csr>
+
+
+$$$$$RESPONSE [Create - remoteCSE]
+    POST /ThingPlug/v1_0
+    Host : http://thingplugtest.sktiot.com:9000
+    X-M2M-NM : angrypigtestNM
+    Accept : application/xml
+    locale : ko
+    passCode : passcode
+    X-M2M-Origin : ThingPlug
+    X-M2M-RI : 2580
+    Content-Type : application/vnd.onem2m-res+xml;ty=16
+    <?xml version="1.0" encoding="UTF-8"?>
+    <m2m:csr 
+        xmlns:m2m="http://www.onem2m.org/xml/protocols" 
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <cst>3</cst>
+        <csi>2bbbbd35000c05c016103344</csi>
+        <poa>00001</poa>
+        <rr>false</rr>
+        <nl>ND00000000000000006809</nl>
+    </m2m:csr>
+    http 201 Created
+    Server : Apache-Coyote/1.1
+    Set-Cookie : JSESSIONID=11C3F9C83FF4784DA57C4AECAA6679E2; Path=/; HttpOnly
+    X-M2M-RI : 2580
+    X-M2M-RSC : 2001
+    Content-Location : /ThingPlug/v1_0/remoteCSE-angrypigtestNM
+    dKey : R2QzK0k5SFdGVHcrUk4zREFtRVI0cXhrQ2QwV0xHMFVCcmw5eDNwV0RTYzZCSXhUOERiR3JITE9kWGtXQVI2WA==
+    Content-Type : application/vnd.onem2m-res+xml;charset=UTF-8
+    Content-Length : 483
+    Date : Sat, 15 Sep 2018 15:28:59 GMT
+
+    <?xml version="1.0" encoding="utf-8"?>
+    <m2m:csr xmlns:m2m="http://www.onem2m.org/xml/protocols" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <ty>16</ty>
+    <ri>RC00000000000000385523</ri>
+    <rn>angrypigtestNM</rn>
+    <pi>CB00000000000000000007</pi>
+    <ct>2018-09-16T00:28:59+09:00</ct>
+    <lt>2018-09-16T00:28:59+09:00</lt>
+    <acpi>AP00000000000000352978</acpi>
+    <cst>3</cst>
+    <poa>00001</poa>
+    <csi>2bbbbd35000c05c016103344</csi>
+    <rr>false</rr>
+    <nl>ND00000000000000006809</nl>
+    </m2m:csr>

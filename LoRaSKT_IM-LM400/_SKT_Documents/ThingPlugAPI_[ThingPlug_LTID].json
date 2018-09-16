@@ -1,0 +1,381 @@
+{
+	"variables": [],
+	"info": {
+		"name": "ThingPlug_v1",
+		"_postman_id": "678d74b3-818a-f2e5-7acc-189a7e557c31",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "01. Login",
+			"description": "",
+			"item": [
+				{
+					"name": "Get Userkey",
+					"request": {
+						"url": "https://{PLATFORM}.sktiot.com:9443/ThingPlug?division=user&function=login",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "user_id",
+								"value": "{Portal_ID}",
+								"description": ""
+							},
+							{
+								"key": "password",
+								"value": "{Portal_PWD}",
+								"description": ""
+							},
+							{
+								"key": "//Accept",
+								"value": "application/json",
+								"description": "",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "02. Device List",
+			"description": "",
+			"item": [
+				{
+					"name": "Get Device List",
+					"request": {
+						"url": "https://{PLATFORM}.sktiot.com:9443/ThingPlug?division=searchDevice&function=myDevice&startIndex=1&countPerPage=6",
+						"method": "GET",
+						"header": [
+							{
+								"key": "//Accept",
+								"value": "application/json",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "X-M2M-RI",
+								"value": "{LTID}_23455",
+								"description": ""
+							},
+							{
+								"key": "X-M2M-Origin",
+								"value": "{LTID}",
+								"description": ""
+							},
+							{
+								"key": "ukey",
+								"value": "{USER_KEY}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<m2m:nod \n    xmlns:m2m=\"http://www.onem2m.org/xml/protocols\" \n    xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">\n    <ni>12345678901234567890ahb1</ni>\n</m2m:nod>"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "03. App -> ThingPlug",
+			"description": "",
+			"item": [
+				{
+					"name": "Get latest Data",
+					"request": {
+						"url": "https://{PLATFORM}.sktiot.com:9443/{APP_EUI}/v1_0/remoteCSE-{LTID}/container-LoRa/latest",
+						"method": "GET",
+						"header": [
+							{
+								"key": "//Accept",
+								"value": "application/json",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "X-M2M-RI",
+								"value": "{LTID}_0002",
+								"description": ""
+							},
+							{
+								"key": "X-M2M-Origin",
+								"value": "{LTID}",
+								"description": ""
+							},
+							{
+								"key": "ukey",
+								"value": "{USER_KEY}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<m2m:nod \n    xmlns:m2m=\"http://www.onem2m.org/xml/protocols\" \n    xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">\n    <ni>12345678901234567890ahb1</ni>\n</m2m:nod>"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Device Control",
+					"request": {
+						"url": "https://{PLATFORM}.sktiot.com:9443/{APP_EUI}/v1_0/mgmtCmd-{LTID}_extDevMgmt",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/xml",
+								"description": ""
+							},
+							{
+								"key": "X-M2M-RI",
+								"value": "{LTID}_0012",
+								"description": ""
+							},
+							{
+								"key": "X-M2M-Origin",
+								"value": "{LTID}",
+								"description": ""
+							},
+							{
+								"key": "ukey",
+								"value": "{USER_KEY}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/xml",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<m2m:mgc \n    xmlns:m2m=\"http://www.onem2m.org/xml/protocols\" \n    xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">\n    <exe>true</exe>\n    <exra>01020304</exra>\n</m2m:mgc>\n"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get Control Result",
+					"request": {
+						"url": "https://{PLATFORM}.sktiot.com:9443/{APP_EUI}/v1_0/mgmtCmd-{LTID}_extDevMgmt/execInstance-{EXEC_INS}",
+						"method": "GET",
+						"header": [
+							{
+								"key": "//Accept",
+								"value": "application/xml",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "X-M2M-RI",
+								"value": "{LTID}_0012",
+								"description": ""
+							},
+							{
+								"key": "X-M2M-Origin",
+								"value": "{LTID}",
+								"description": ""
+							},
+							{
+								"key": "ukey",
+								"value": "{USER_KEY}",
+								"description": ""
+							},
+							{
+								"key": "//Content-Type",
+								"value": "application/json;ty=12",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"mgc\":{\"exra\":\"{\\\"cmd\\\":\\\"request\\\"}\",\"exe\":true,\"cmt\":\"DevReset\"}}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "04. Data Subscription",
+			"description": "",
+			"item": [
+				{
+					"name": "sub create (Data)",
+					"request": {
+						"url": "https://{PLATFORM}.sktiot.com:9443/{APP_EUI}/v1_0/remoteCSE-{LTID}/container-LoRa",
+						"method": "POST",
+						"header": [
+							{
+								"key": "//Accept",
+								"value": "application/xml",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "X-M2M-RI",
+								"value": "{LTID}_00012",
+								"description": ""
+							},
+							{
+								"key": "X-M2M-Origin",
+								"value": "{LTID}",
+								"description": ""
+							},
+							{
+								"key": "uKey",
+								"value": "{USER_KEY}",
+								"description": ""
+							},
+							{
+								"key": "X-M2M-NM",
+								"value": "{CON_SUB_NAME}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/vnd.onem2m-res+xml;ty=23",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<m2m:sub \n    xmlns:m2m=\"http://www.onem2m.org/xml/protocols\" \n    xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">\n    <enc>\n         <rss>1</rss>\n    </enc>\n    <nu>HTTP|{APP_SERVER}</nu>\n    <nct>2</nct>\n</m2m:sub>"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "sub retrieve (Data)",
+					"request": {
+						"url": "https://{PLATFORM}.sktiot.com:9443/{APP_EUI}/v1_0/remoteCSE-{LTID}/container-LoRa/subscription-{CON_SUB_NAME}",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/xml",
+								"description": ""
+							},
+							{
+								"key": "X-M2M-RI",
+								"value": "{LTID}_0023",
+								"description": ""
+							},
+							{
+								"key": "X-M2M-Origin",
+								"value": "{LTID}",
+								"description": ""
+							},
+							{
+								"key": "uKey",
+								"value": "{USER_KEY}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nod\": \n    {\n        \"ni\":\"12345678901234567890sjw4\",\n        \"mga\" :\"MQTT|12345678901234567890sjw4\"\n    }\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "sub update (Data)",
+					"request": {
+						"url": "https://{PLATFORM}.sktiot.com:9443/{APP_EUI}/v1_0/remoteCSE-{LTID}/container-LoRa/subscription-{CON_SUB_NAME}",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "//Accept",
+								"value": "application/xml",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "X-M2M-RI",
+								"value": "{LTID}_000133",
+								"description": ""
+							},
+							{
+								"key": "X-M2M-Origin",
+								"value": "{LTID}",
+								"description": ""
+							},
+							{
+								"key": "uKey",
+								"value": "{USER_KEY}",
+								"description": ""
+							},
+							{
+								"key": "X-M2M-NM",
+								"value": "{CON_SUB_NAME}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/vnd.onem2m-res+xml;ty=23",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<m2m:sub\r\n\txmlns:m2m=\"http://www.onem2m.org/xml/protocols\"\r\n\txmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">\r\n\t<enc>\r\n\t\t<rss>1</rss>\r\n\t</enc>\r\n\t<nu>HTTP|{APP_SERVER}</nu>\r\n\t<nct>2</nct>\r\n</m2m:sub>"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "sub delete (Data)",
+					"request": {
+						"url": "https://{PLATFORM}.sktiot.com:9443/{APP_EUI}/v1_0/remoteCSE-{LTID}/container-LoRa/subscription-{CON_SUB_NAME}",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/xml",
+								"description": ""
+							},
+							{
+								"key": "X-M2M-RI",
+								"value": "{LTID}_0023",
+								"description": ""
+							},
+							{
+								"key": "X-M2M-Origin",
+								"value": "{LTID}",
+								"description": ""
+							},
+							{
+								"key": "uKey",
+								"value": "{USER_KEY}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
