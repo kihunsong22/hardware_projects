@@ -2,7 +2,6 @@
     U2l4WnM0K1dHUHRuUnY3MGo0M1JDNDl1c250TnpMOU1NWVl0dHFvWFhGL3pLVEd1ajJwbGZObXV3V1ErVTRWYw==
 
 #2 IM-L400:
-    X-M2M-NM: angrypigtest01
     DEVEUI: 000c05c016103346
     APPEUI: 90114cbf4f664601
     APPKEY: 90114cbf4f664601e0b4f846ed164ae2
@@ -11,40 +10,24 @@
 <!-- Examples -->
 
 $$$$$REQUEST [Create - Node]
-    HOST : http://thingplugtest.sktiot.com:9000
-    URL : /ThingPlug/v1_0
-
+    URL : https://onem2m.sktiot.com:9443/ThingPlug/v1_0
     Accept application/xml
     locale ko
-    X-M2M-NM angrypigtestNM2
+    X-M2M-NM {LTID}
     X-M2M-Origin ThingPlug
     X-M2M-RI 1590
     Content-Type application/vnd.onem2m-res+xml;ty=14
+
 $$
     <?xml version="1.0" encoding="UTF-8"?>
     <m2m:nod 
         xmlns:m2m="http://www.onem2m.org/xml/protocols" 
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-        <ni>4f664601000c05c016103346</ni>  <!-- LoRa 디바이스 식별자: LTID -->
-        <mga>00001</mga>  <!-- 디바이스 제어 애플리케이션의 주소 -->
+            <ni> {LTID} </ni>  <!-- 디바이스 식별자 -->
+            <mga>00001</mga>  <!-- 디바이스 제어 애플리에키션의 주소 -->
     </m2m:nod>
 
 $$$$$RESPONSE [Create - Node]
-    POST /ThingPlug/v1_0
-    Host : http://thingplugtest.sktiot.com:9000
-    Accept : application/xml
-    locale : ko
-    X-M2M-NM : angrypigtestNM
-    X-M2M-Origin : ThingPlug
-    X-M2M-RI : 12345
-    Content-Type : application/vnd.onem2m-res+xml;ty=14
-    <?xml version="1.0" encoding="UTF-8"?>
-    <m2m:nod 
-        xmlns:m2m="http://www.onem2m.org/xml/protocols" 
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-        <ni>2bbbbd35000c05c016103344</ni>
-        <mga>00001</mga>
-    </m2m:nod>
     http 201 Created
     Server : Apache-Coyote/1.1
     Set-Cookie : JSESSIONID=0357883B723A1528BDC3B96C772350EB; Path=/; HttpOnly
@@ -55,23 +38,17 @@ $$$$$RESPONSE [Create - Node]
     Content-Length : 389
     Date : Sat, 15 Sep 2018 13:53:41 GMT
 
-    <?xml version="1.0" encoding="utf-8"?>
+    <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     <m2m:nod xmlns:m2m="http://www.onem2m.org/xml/protocols" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-    <ty>14</ty>  <!-- 14: node -->
-    <ri>ND00000000000000006809</ri>  <!-- Resource의 고유 식별자 -->
-    <rn>angrypigtestNM</rn>  <!-- Resource 이름 -->
-    <pi>CB00000000000000000007</pi>  <!-- asdf -->
-    <ct>2018-09-15T22:53:42+09:00</ct>  <!-- Created Time -->
-    <lt>2018-09-15T22:53:42+09:00</lt>  <!-- Last Edit Time -->
-    <ni>2bbbbd35000c05c016103344</ni>  <!-- LoRa디바이 식별자 (LTID) -->
-    <mga>00001</mga>  <!-- 디바이스 제어 애플리케이션의 주소 -->
+        <ty>14</ty>  <!-- 14: node -->
+        <ri>ND00000000000000006816</ri>  <!-- Resource의 고유 식별자 -->
+        <rn>4f664601000c05c016103346</rn>  <!-- Resource 이름 -->
+        <pi>CB00000000000000000007</pi>  <!-- 이건뭐지 -->
+        <ct>2018-09-18T10:17:41+09:00</ct>  <!-- Created Time -->
+        <lt>2018-09-18T10:17:41+09:00</lt>  <!-- Last Edit Time -->
+        <ni>4f664601000c05c016103346</ni>  <!-- LoRa디바이 식별자 (LTID) -->
+        <mga>00001</mga>  <!-- 디바이스 제어 애플리케이션의 주소 -->
     </m2m:nod>
-
-
-
-
-
-
 
 
 
@@ -81,7 +58,7 @@ $$$$$REQUEST [Create - remoteCSE]
 
     Accept application/xml
     locale ko
-    X-M2M-NM angrypigtestNM
+    X-M2M-NM {LTID}
     X-M2M-Origin ThingPlug
     X-M2M-RI 12345
     Content-Type application/vnd.onem2m-res+xml;ty=14
@@ -95,7 +72,7 @@ $$
         <cst>3</cst>  <!-- CSE Type. 1:Server, 2:Gateway, 3:Device -->
         <csi>2bbbbd35000c05c016103344</csi>  <!-- CSE식별자로 LTID사용-->
         <poa>00001</poa>  <!-- LoRa디바이스 어플리케이션의 주소 -->
-        <rr>false</rr>  <!-- Request Reachability: MQTT, 고정IP만 True -->
+        <rr>false</rr>  <!-- Request Reachability: MQTT, 고정IP만 true -->
         <nl>ND00000000000000006809</nl>  <!-- Node Link -->
     </m2m:csr>
 
