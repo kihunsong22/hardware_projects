@@ -1,4 +1,0 @@
--G ""
--err "free documents.err"
--r
--f "free documents.mak"
