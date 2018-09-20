@@ -1,0 +1,649 @@
+{
+	"info": {
+		"_postman_id": "2b4abc0f-0036-4ebd-8afd-1eacd277afb7",
+		"name": "_SKT_LoRa_CUSTOM",
+		"description": "#Auth_KEY:\r\nU2l4WnM0K1dHUHRuUnY3MGo0M1JDNDl1c250TnpMOU1NWVl0dHFvWFhGL3pLVEd1ajJwbGZObXV3V1ErVTRWYw==\r\n\r\n#1 IM-L400:\r\n\tDEVEUI: 000c05c016103344\r\n\tAPPEUI: b40839032bbbbd35\r\n\tAPPKEY: b40839032bbbbd35f4859e1b63ea01e3\r\n\t\r\n\tLTID: 2bbbbd35000c05c016103344\r\n\r\n#2 IM-L400:\r\n\tDEVEUI: 000c05c016103346\r\n\tAPPEUI: 90114cbf4f664601\r\n\tAPPKEY: 90114cbf4f664601e0b4f846ed164ae2\r\n\r\n\tLTID: 4f664601000c05c016103346\r\n\r\n\r\n\r\n{ty}: Resource Type (14: node)\r\n{ri}: Resource Identifier, X-M2M-RI\r\n{rn}: Resoucre Name, X-M2M-NM\r\n{ct}: Created Time\r\n{lt}: Last edited Time\r\n{et}: Expiration Time (유효기간)\r\n{csi}: LTID (CSE 식별자)\r\n{cst}: CSE Type (1:Server, 2:Gateway, 3:Device)\r\n{rr}: Request Rechability (MQTT, 고정 IP만 true, 나머지는 false)\r\n{acpi}: Access Control Policy 자원 ID\r\n{srt}: \r\n{pi}: Parent ID (부모 자원의 ID, remoteCSE)\r\n{poa}: Point Of Access(호출 가능한 디바이스 애플리케이션 주소)\r\n{nl}: 논리적 정보를 포함하는 실제 물리적 LoRa 디바이스 Resource의 node의 Resource 식별자\r\n{ni}: LTID (LoRa 디바이스 식별자)\r\n{mga}: {디바이스 제어 애플리케이션의 주소}\r\n{rsc}: Response Status Code\r\n",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "1. Create",
+			"item": [
+				{
+					"name": "<node> CREATE",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/xml"
+							},
+							{
+								"key": "locale",
+								"value": "ko"
+							},
+							{
+								"key": "X-M2M-NM",
+								"value": "2bbbbd35000c05c016103344",
+								"description": "node이름: LTID"
+							},
+							{
+								"key": "X-M2M-Origin",
+								"value": "ThingPlug",
+								"description": "발신자"
+							},
+							{
+								"key": "X-M2M-RI",
+								"value": "231546",
+								"description": "메시지 식별자"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/vnd.onem2m-res+xml;ty=14",
+								"description": "14: node"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<m2m:nod \r\n    xmlns:m2m=\"http://www.onem2m.org/xml/protocols\" \r\n    xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">\r\n        <ni>2bbbbd35000c05c016103344</ni>  <!-- 디바이스 식별자 -->\r\n        <mga>00001</mga>  <!-- 디바이스 제어 애플리에키션의 주소 -->\r\n</m2m:nod>"
+						},
+						"url": {
+							"raw": "https://onem2m.sktiot.com:9443/ThingPlug/v1_0",
+							"protocol": "https",
+							"host": [
+								"onem2m",
+								"sktiot",
+								"com"
+							],
+							"port": "9443",
+							"path": [
+								"ThingPlug",
+								"v1_0"
+							]
+						},
+						"description": "{ni}: 디바이스 식별자: LTID {mga}: 디바이스 제어 애플리케이션의 주소"
+					},
+					"response": []
+				},
+				{
+					"name": "<node> RETRIEVE",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-M2M-Origin",
+								"value": "ThingPlug",
+								"description": "발신자"
+							},
+							{
+								"key": "X-M2M-RI",
+								"value": "123456",
+								"description": "메시지 식별자"
+							},
+							{
+								"key": "uKey",
+								"value": "U2l4WnM0K1dHUHRuUnY3MGo0M1JDNDl1c250TnpMOU1NWVl0dHFvWFhGL3pLVEd1ajJwbGZObXV3V1ErVTRWYw==",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<m2m:nod \n    xmlns:m2m=\"http://www.onem2m.org/xml/protocols\" \n    xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">\n    <ni>12345678901234567890ahb1</ni>\n</m2m:nod>"
+						},
+						"url": {
+							"raw": "https://thingplugtest.sktiot.com:9443/ThingPlug/v1_0/node-4f664601000c05c016103346",
+							"protocol": "https",
+							"host": [
+								"thingplugtest",
+								"sktiot",
+								"com"
+							],
+							"port": "9443",
+							"path": [
+								"ThingPlug",
+								"v1_0",
+								"node-4f664601000c05c016103346"
+							]
+						},
+						"description": "{ty}: Resource Type (14: node)\n{ri}: Resource Identifier, X-M2M-RI\n{rn}: Resoucre Name, X-M2M-NM\n{pi}: \n{ct}: Created Time\n{lt}: Last edited Time\n{ni}: LTID (LoRa 디바이스 식별자)\n{mga}: (디바이스 제어 애플리케이션의 주소)\n\nApp으로부터 node 조회를 요청받고 결과를 반환.\nremoteCSE 생성 시 nodeLink 를 입력하여 remoteCSE를 생성하였으면 ThingPlug Portal 에서 회원 가입 후 디바이스 등록을,\n해당 remoteCSE 로 생성하였다면 회원가입한 사용자의 uKey 로 조회가 가능 만약 회원가입 및 remoteCSE 등록처리를 하지 않았다면 관리자만 조회가 가능하고 사용자는 조회 불가능"
+					},
+					"response": []
+				},
+				{
+					"name": "<node> DELETE",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/xml"
+							},
+							{
+								"key": "locale",
+								"value": "ko"
+							},
+							{
+								"key": "dKey",
+								"value": ""
+							},
+							{
+								"key": "X-M2M-Origin",
+								"value": "ThingPlug"
+							},
+							{
+								"key": "X-M2M-RI",
+								"value": "846513"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "https://onem2m.sktiot.com:9443/ThingPlug/v1_0/node-2bbbbd35000c05c016103344",
+							"protocol": "https",
+							"host": [
+								"onem2m",
+								"sktiot",
+								"com"
+							],
+							"port": "9443",
+							"path": [
+								"ThingPlug",
+								"v1_0",
+								"node-2bbbbd35000c05c016103344"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "<remoteCSE> CREATE",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/xml"
+							},
+							{
+								"key": "locale",
+								"value": "ko"
+							},
+							{
+								"key": "X-M2M-RI",
+								"value": "84512"
+							},
+							{
+								"key": "X-M2M-Origin",
+								"value": "ThingPlug"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/vnd.onem2m-res+xml;ty=16",
+								"description": "16: remoteCSE"
+							},
+							{
+								"key": "passCode",
+								"value": "passcode"
+							},
+							{
+								"key": "X-M2M-NM",
+								"value": "2bbbbd35000c05c016103344",
+								"description": "X-M2M-NM == LTID"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<m2m:csr \r\n    xmlns:m2m=\"http://www.onem2m.org/xml/protocols\" \r\n    xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">\r\n    <cst>3</cst>  <!-- CSE Type (1:Server, 2:Gateway, 3:Device) -->\r\n    <csi>2bbbbd35000c05c016103344</csi>  <!-- LTID (CSE 식별자) -->\r\n    <poa>00001</poa>  <!-- Point Of Access(호출 가능한 디바이스 애플리케이션 주소) -->\r\n    <rr>false</rr>  <!-- Request Rechability (MQTT, 고정 IP만 true, 나머지는 false) -->\r\n    <nl>ND00000000000000006817</nl>  <!-- 논리적 정보를 포함하는 실제 물리적 LoRa 디바이스 Resource의 node의 Resource 식별자 (node의 ri값)-->\r\n</m2m:csr>"
+						},
+						"url": {
+							"raw": "https://onem2m.sktiot.com:9443/ThingPlug/v1_0",
+							"protocol": "https",
+							"host": [
+								"onem2m",
+								"sktiot",
+								"com"
+							],
+							"port": "9443",
+							"path": [
+								"ThingPlug",
+								"v1_0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "<remoteCSE> RETRIEVE",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/xml"
+							},
+							{
+								"key": "X-M2M-RI",
+								"value": "{Resource ID}"
+							},
+							{
+								"key": "X-M2M-Origin",
+								"value": "{Origin}"
+							},
+							{
+								"key": "uKey",
+								"value": "user Key from Portal"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://onem2m.sktiot.com:9443/{AppEUI}/v1_0/remoteCSE-{CSE-ID}",
+							"protocol": "https",
+							"host": [
+								"onem2m",
+								"sktiot",
+								"com"
+							],
+							"port": "9443",
+							"path": [
+								"{AppEUI}",
+								"v1_0",
+								"remoteCSE-{CSE-ID}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "<container> CREATE",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/xml"
+							},
+							{
+								"key": "X-M2M-RI",
+								"value": "89415"
+							},
+							{
+								"key": "X-M2M-Origin",
+								"value": "ThingPlug"
+							},
+							{
+								"key": "X-M2M-NM",
+								"value": "2bbbbd35000c05c016103344",
+								"description": "X-M2M-NM == LTID"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/vnd.onem2m-res+xml;ty=3",
+								"description": "3: container"
+							},
+							{
+								"key": "dKey",
+								"value": "R2QzK0k5SFdGVHcrUk4zREFtRVI0cXhrQ2QwV0xHMFVCcmw5eDNwV0RTYzZCSXhUOERiR3JITE9kWGtXQVI2WA=="
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<m2m:cnt \r\n    xmlns:m2m=\"http://www.onem2m.org/xml/protocols\" \r\n    xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">\r\n</m2m:cnt>"
+						},
+						"url": {
+							"raw": "https://thingplugtest.sktiot.com:9443//ThingPlug/v1_0/remoteCSE-2bbbbd35000c05c016103344",
+							"protocol": "https",
+							"host": [
+								"thingplugtest",
+								"sktiot",
+								"com"
+							],
+							"port": "9443",
+							"path": [
+								"",
+								"ThingPlug",
+								"v1_0",
+								"remoteCSE-2bbbbd35000c05c016103344"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "<container> RETRIEVE",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/xml"
+							},
+							{
+								"key": "X-M2M-RI",
+								"value": "156684"
+							},
+							{
+								"key": "X-M2M-Origin",
+								"value": "ThingPlug"
+							},
+							{
+								"key": "uKey",
+								"value": "U2l4WnM0K1dHUHRuUnY3MGo0M1JDNDl1c250TnpMOU1NWVl0dHFvWFhGL3pLVEd1ajJwbGZObXV3V1ErVTRWYw=="
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://thingplugtest.sktiot.com:9443//ThingPlug/v1_0/remoteCSE-2bbbbd35000c05c016103344",
+							"protocol": "https",
+							"host": [
+								"thingplugtest",
+								"sktiot",
+								"com"
+							],
+							"port": "9443",
+							"path": [
+								"",
+								"ThingPlug",
+								"v1_0",
+								"remoteCSE-2bbbbd35000c05c016103344"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "<contentInstance> CREATE",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/xml"
+							},
+							{
+								"key": "X-M2M-RI",
+								"value": "84651325"
+							},
+							{
+								"key": "X-M2M-Origin",
+								"value": "ThingPlug"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/vnd.onem2m-res+xml;ty=4",
+								"description": "4: contentInstance"
+							},
+							{
+								"key": "dKey",
+								"value": "R2QzK0k5SFdGVHcrUk4zREFtRVI0cXhrQ2QwV0xHMFVCcmw5eDNwV0RTYzZCSXhUOERiR3JITE9kWGtXQVI2WA=="
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<m2m:cin\n    xmlns:m2m=\"http://www.onem2m.org/xml/protocols\" \n    xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">\n    <cnf>text</cnf>\n    <con>{payload Data}</con>\n</m2m:cin>"
+						},
+						"url": {
+							"raw": "https://thingplugtest.sktiot.com:9443/ThingPlug/v1_0/remoteCSE-2bbbbd35000c05c016103344/container-2bbbbd35000c05c016103344",
+							"protocol": "https",
+							"host": [
+								"thingplugtest",
+								"sktiot",
+								"com"
+							],
+							"port": "9443",
+							"path": [
+								"ThingPlug",
+								"v1_0",
+								"remoteCSE-2bbbbd35000c05c016103344",
+								"container-2bbbbd35000c05c016103344"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "<lastest> RETRIEVE",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/xml"
+							},
+							{
+								"key": "X-M2M-RI",
+								"value": "{Resource ID}"
+							},
+							{
+								"key": "X-M2M-Origin",
+								"value": "{Origin}"
+							},
+							{
+								"key": "uKey",
+								"value": "user Key from Portal"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nod\": \n    {\n        \"ni\":\"12345678901234567890sjw4\",\n        \"mga\" :\"MQTT|12345678901234567890sjw4\"\n    }\n}"
+						},
+						"url": {
+							"raw": "http://thingplugtest.sktiot.com:9000/{AppEUI}/v1_0/remoteCSE-{CSE-ID}/container-{containerName}/latest",
+							"protocol": "http",
+							"host": [
+								"thingplugtest",
+								"sktiot",
+								"com"
+							],
+							"port": "9000",
+							"path": [
+								"{AppEUI}",
+								"v1_0",
+								"remoteCSE-{CSE-ID}",
+								"container-{containerName}",
+								"latest"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "2. Device List",
+			"item": [
+				{
+					"name": "Get Device List",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"disabled": true
+							},
+							{
+								"key": "X-M2M-RI",
+								"value": "12345"
+							},
+							{
+								"key": "X-M2M-Origin",
+								"value": "ThingPlug"
+							},
+							{
+								"key": "ukey",
+								"value": "U2l4WnM0K1dHUHRuUnY3MGo0M1JDNDl1c250TnpMOU1NWVl0dHFvWFhGL3pLVEd1ajJwbGZObXV3V1ErVTRWYw=="
+							},
+							{
+								"key": "//Accept",
+								"value": "application/json",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<m2m:nod \n    xmlns:m2m=\"http://www.onem2m.org/xml/protocols\" \n    xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">\n    <ni>12345678901234567890ahb1</ni>\n</m2m:nod>"
+						},
+						"url": {
+							"raw": "https://onem2m.sktiot.com:9443/ThingPlug?division=searchDevice&function=myDevice&startIndex=1&countPerPage=6",
+							"protocol": "https",
+							"host": [
+								"onem2m",
+								"sktiot",
+								"com"
+							],
+							"port": "9443",
+							"path": [
+								"ThingPlug"
+							],
+							"query": [
+								{
+									"key": "division",
+									"value": "searchDevice"
+								},
+								{
+									"key": "function",
+									"value": "myDevice"
+								},
+								{
+									"key": "startIndex",
+									"value": "1"
+								},
+								{
+									"key": "countPerPage",
+									"value": "6"
+								}
+							]
+						},
+						"description": "DEVEUI: 000c05c016103346\r\nAPPEUI: 90114cbf4f664601\r\nAPPKEY: 90114cbf4f664601e0b4f846ed164ae2\r\nLTID: 4f664601000c05c016103346\r\nX-M2M-NM: {LTID}"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "3. Pull Data",
+			"item": [],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "15ed0d48-cac0-4fdc-80e2-efc8fa75aa28",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "23255c54-91a9-4baa-9291-a1e8d35db404",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "_HeaderSample",
+			"request": {
+				"method": "OPTIONS",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/xml",
+						"disabled": true
+					},
+					{
+						"key": "X-M2M-RI",
+						"value": "{LTID_0001}",
+						"description": "{fr}_{sequential_number}, Request Identifier"
+					},
+					{
+						"key": "X-M2M-Origin",
+						"value": "{LTID}",
+						"description": "발신자 식별자"
+					},
+					{
+						"key": "uKey",
+						"value": "{user_key}"
+					},
+					{
+						"key": "X-M2M-NM",
+						"value": "{ name(testContainer-01) }",
+						"description": "container-{NM}, 생성되는 Resource 이름"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					},
+					{
+						"key": "yt",
+						"value": "3",
+						"description": "3: container, 14:node"
+					},
+					{
+						"key": "Operatrion",
+						"value": "1",
+						"description": "1Create, 2Retrieve, 3Update, 4Delete, 5Notify"
+					},
+					{
+						"key": "//Accept",
+						"value": "application/xml",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<m2m:sub \n    xmlns:m2m=\"http://www.onem2m.org/xml/protocols\" \n    xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">\n    <enc>\n         <rss>1</rss>\n    </enc>\n    <nu>HTTP|{APP_SERVER}</nu>\n    <nct>2</nct>\n    \n    <ni>{nodeID - LTID}</ni>\n    <mga>HTTP|{mgmtCmd Address - 디바이스 제어 애플리케이션의 주소}</mga>\n</m2m:sub>\n"
+				},
+				"url": {
+					"raw": "https://onem2m.sktiot.com:9443/b40839032bbbbd35/v1_0/remoteCSE-2bbbbd3516103344/container-LoRa",
+					"protocol": "https",
+					"host": [
+						"onem2m",
+						"sktiot",
+						"com"
+					],
+					"port": "9443",
+					"path": [
+						"b40839032bbbbd35",
+						"v1_0",
+						"remoteCSE-2bbbbd3516103344",
+						"container-LoRa"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "aadb70b4-38eb-4fc4-aacc-565ea45a9a71",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "a97441a5-4db3-48f3-aaf0-e2e2de3d0353",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

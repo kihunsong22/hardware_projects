@@ -143,42 +143,46 @@ $$$$$RESPONSE [Create - container]
 
 
 
-<!-- Create - containerInstance -->
+<!-- Create - contentInstance -->
 $$$$$REQUEST [Create - container] POST
-    URL: https://thingplugtest.sktiot.com:9443//ThingPlug/v1_0/remoteCSE-2bbbbd35000c05c016103344
+    URL: https://thingplugtest.sktiot.com:9443/ThingPlug/v1_0/remoteCSE-2bbbbd35000c05c016103344/container-2bbbbd35000c05c016103344
     Accept application/xml
-    X-M2M-RI 89415
+    X-M2M-RI 84651325
     X-M2M-Origin ThingPlug
-    X-M2M-NM 2bbbbd35000c05c016103344
-    Content-Type application/vnd.onem2m-res+xml;ty=3
+    Content-Type application/vnd.onem2m-res+xml;ty=4
     dKey R2QzK0k5SFdGVHcrUk4zREFtRVI0cXhrQ2QwV0xHMFVCcmw5eDNwV0RTYzZCSXhUOERiR3JITE9kWGtXQVI2WA==
 
     <?xml version="1.0" encoding="UTF-8"?>
-    <m2m:cnt 
+    <m2m:cin
         xmlns:m2m="http://www.onem2m.org/xml/protocols" 
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-    </m2m:cnt>
+        <cnf>text</cnf>  <!-- Contetent Information -->
+        <con>{payload Data}</con>  <!-- Content -->
+    </m2m:cin>
 
 
 $$$$$RESPONSE [Create - container]
-    Content-Length →414
-    Content-Location →/ThingPlug/v1_0/remoteCSE-2bbbbd35000c05c016103344/container-2bbbbd35000c05c016103344
+    Content-Length →473
+    Content-Location →/ThingPlug/v1_0/remoteCSE-2bbbbd35000c05c016103344/container-2bbbbd35000c05c016103344/contentInstance-CI00000000000109992243
     Content-Type →application/vnd.onem2m-res+xml;charset=UTF-8
-    Date →Tue, 18 Sep 2018 02:40:12 GMT
+    Date →Thu, 20 Sep 2018 02:58:11 GMT
     Server →Apache-Coyote/1.1
-    X-M2M-RI →89415
+    X-M2M-RI →84651325
     X-M2M-RSC →2001
 
+
     <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-    <m2m:cnt xmlns:m2m="http://www.onem2m.org/xml/protocols" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-        <ty>3</ty>  <!-- 3: container -->
-        <ri>CT00000000000000008357</ri>  <!-- Resource의 고유 식별자 -->
-        <rn>2bbbbd35000c05c016103344</rn>  <!-- Resource 이름 -->
-        <pi>RC00000000000000385533</pi>  <!--  Parent ID (부모 자원의 ID, remoteCSE) -->
-        <ct>2018-09-18T11:40:13+09:00</ct>  <!-- Created Time -->
-        <lt>2018-09-18T11:40:13+09:00</lt>  <!-- Last Edit Time -->
-        <st>0</st>  <!-- Statetag: 저장된 Data가 있거나 수정된 경우 1씩 증가 -->
+    <m2m:cin xmlns:m2m="http://www.onem2m.org/xml/protocols" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <ty>4</ty>  <!-- 4: contentInstance -->
+        <ri>CI00000000000109992243</ri>  <!-- Resource의 고유 식별자 -->
+        <rn>CI00000000000109992243</rn>  <!-- Resource 이름 -->
+        <pi>CT00000000000000008357</pi>  <!--  Parent ID (부모 자원의 ID, remoteCSE) -->
+        <ct>2018-09-20T11:58:11+09:00</ct>  <!-- Created Time -->
+        <lt>2018-09-20T11:58:11+09:00</lt>  <!-- Last Edit Time -->
+        <et>2018-10-20T11:58:11+09:00</et>  <!-- Expiration Time -->
+        <st>1</st>  <!-- Statetag: 저장된 Data가 있거나 수정된 경우 1씩 증가 -->
         <cr>RC00000000000000385533</cr>  <!-- Creator: 해당 저장소에 Data를 저장하는 발신자의 식별자 -->
-        <cni>0</cni>  <!-- Current Number of Instances: Data인스턴스 개수 -->
-        <cbs>0</cbs>  <!-- Current Byte Size -->
-    </m2m:cnt>
+        <cnf>text</cnf>  <!-- Current Number of Instances: Data인스턴스 개수 -->
+        <cs>14</cs>  <!-- Current Byte Size -->
+        <con>{payload Data}</con>  <!-- Content -->
+    </m2m:cin>
