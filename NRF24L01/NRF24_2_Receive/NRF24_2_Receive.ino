@@ -1,3 +1,4 @@
+// Receiver
 #include <SPI.h>
 #include <nRF24L01.h>
 #include <RF24.h>
@@ -10,10 +11,15 @@ void setup(){
   
   radio.begin();
   radio.openReadingPipe(0, rxAddr);
-  radio.setPALevel(RF24_PA_MAX);
-  radio.setDataRate(RF24_250KBPS);
+  
+  radio.setPALevel(RF24_PA_LOW);
+  radio.setDataRate(RF24_1MBPS);
+  
   radio.setChannel(108);
   radio.startListening();
+
+  Serial.println();
+  Serial.println("Receiving");
 }
 
 void loop(){
