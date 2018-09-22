@@ -3,7 +3,7 @@
 #include <Wire.h>
 #include "SSD1306.h"
 #include "images.h"
-#include "fonts.h"  //Open_Sans_Hebrew_Condensed_14, Open_Sans_Hebrew_Condensed_18
+#include "fonts.h"  //Open_Sans_Hebrew_Condensed_14, Open_Sans_Hebrew_Condensed_18, Open_Sans_Hebrew_Condensed_24
 
 #define SCK     5    // GPIO5  -- SX1278's SCK
 #define MISO    19   // GPIO19 -- SX1278's MISO
@@ -18,7 +18,7 @@
 #define SBW 125E3 // Signal Bandwidth: 7.83E, 10.4E3, 15.6E3, 20.8E3, 41.7E3, 62.5E3, 125.E3, 250E3, default 125E3
 #define CR 5 // Coding Rate: 5~8, default 5
 
-String packet;
+String packet, prevpacket;
 int packetSize = 0;
 
 SSD1306 display(0x3c, 21, 22);
@@ -39,8 +39,8 @@ void setup() {
 	LoRa.setPins(SS,RST,DI0);
 	LoRa.setTxPower(TXPOW);
 	LoRa.setSpreadingFactor(SF);
-	LoRa.setSignalBandWidth(SBW);
-	LoRa.setCodingRate(CR);
+	LoRa.setSignalBandwidth(SBW);
+	LoRa.setCodingRate4(CR);
 	if (!LoRa.begin(BAND)) {
 		Serial.println("LoRa failed to start");
 		while (1);
@@ -56,21 +56,56 @@ void setup() {
 
 void loop() {
 	packetSize = LoRa.parsePacket();
-	if (packetSize){  // non-zero -> true
+	if (packetSize){  // if(non-zero) -> true
 		packet ="";
 		for (int i = 0; i < packetSize; i++){
 			packet += (char) LoRa.read();
 		}
+		packet = packet.substring(7);
 
 		display.clear();
+		display.setFont(Open_Sans_Hebrew_Condensed_18);
+		display.setTextAlignment(TEXT_ALIGN_RIGHT);
+		display.drawString(128, 0, "RSSI:" + String(LoRa.packetRssi(), DEC));
 		display.setTextAlignment(TEXT_ALIGN_LEFT);
-		display.setFont(Open_Sans_Hebrew_Condensed_14);
-		display.drawString(0 , 15 , String(packetSize,DEC) + " bytes");
-		display.drawStringMaxWidth(0 , 26 , 128, packet);
-		display.drawString(0, 0, "RSSI: " + String(LoRa.packetRssi(), DEC)); 
-		display.display();
-		Serial.println("RSSI: " + String(LoRa.packetRssi(), DEC));
+		display.drawStringMaxWidth(0, 0, 64, packet);
+		// display.drawString(64, 19, String(packet.toInt()));
+		// display.drawString(0, 38, String(packet.toInt()));
+
+		if( (packet.toInt()-prevpacket.toInt()) != 1 ){
+			display.setFont(Open_Sans_Hebrew_Condensed_18);
+			delay(5);
+			display.drawString(0, 19, " Lost: " + (packet.toInt()-prevpacket.toInt()));
+		}
+		printInfo();
+		Serial.println(packet + "   RSSI:" + String(LoRa.packetRssi(), DEC));
+
+		prevpacket = packet;
 	}
 	
-	delay(5);
+	delay(50);
+}
+
+void printInfo(){
+	display.setFont(Open_Sans_Hebrew_Condensed_14);
+	display.setTextAlignment(TEXT_ALIGN_RIGHT);
+
+	switch( String(BAND).substring(0, 3).toInt() ) {
+		case 433:
+			display.drawString(128, 48, "433Mhz, SF " + String(SF));
+			break;
+
+		case 868:
+			display.drawString(128, 48, "868Mhz, SF " + String(SF));
+			break;
+
+		case 915:
+			display.drawString(128, 48, "915Mhz, SF " + String(SF));
+			break;
+		
+		default:
+			break;
+	}
+
+	display.display();
 }
