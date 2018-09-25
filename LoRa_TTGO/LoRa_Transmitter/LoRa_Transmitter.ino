@@ -2,7 +2,6 @@
 #include <LoRa.h>
 #include <Wire.h>
 #include "SSD1306.h"
-#include "images.h"
 #include "fonts.h"  //Open_Sans_Hebrew_Condensed_14, Open_Sans_Hebrew_Condensed_18, Open_Sans_Hebrew_Condensed_24
 
 #define SCK     5    // GPIO5  -- SX1278's SCK
@@ -13,11 +12,12 @@
 #define DI0     26   // GPIO26 -- SX1278's IRQ(Interrupt Request)
 
 #define BAND  868E6  // 433E6, 868E6, 915E6
-#define TXPOW 2 // 2~20 -> PA_OUTPUT_RF0_PIN, 0~14-> PA_OUTPUT_BOOST_PIN
+#define TXPOW 10 // 2~20 -> PA_OUTPUT_RF0_PIN, 0~14-> PA_OUTPUT_BOOST_PIN
 #define SF 7 // Spreading Factor: 6~12, default 7
 #define SBW 125E3 // Signal Bandwidth: 7.83E, 10.4E3, 15.6E3, 20.8E3, 41.7E3, 62.5E3, 125.E3, 250E3, default 125E3
 #define CR 5 // Coding Rate: 5~8, default 5
 
+// #define VBAT (float)(analogRead(35))/282.025 // connect pin 35 to battery pin with 1:1 voltage divider
 uint16_t counter = 0;
 
 SSD1306 display(0x3c, 21, 22);
@@ -31,6 +31,7 @@ void setup() {
 	Serial.println("LoRa Transmitter");
 
 	pinMode(16, OUTPUT);  // OLED reset pin
+	// pinMode(35, INPUT); // Battery voltage pin
 	digitalWrite(16, LOW);  // set GPIO16 low to reset OLED
 	delay(50);
 	digitalWrite(16, HIGH);  // while OLED is running, must set GPIO16 in high
@@ -57,7 +58,7 @@ void loop() {
 	display.clear();
 	display.setTextAlignment(TEXT_ALIGN_LEFT);
 	display.setFont(Open_Sans_Hebrew_Condensed_24);
-	display.drawString(0, 0, "Sent: " + (String(counter)));
+	display.drawString(0, 0, "Data: " + (String(counter)));
 
 	printInfo();
 	Serial.println(String(counter));
@@ -77,21 +78,21 @@ void printInfo(){
 
 	switch( String(BAND).substring(0, 3).toInt() ) {
 		case 433:
-			display.drawString(128, 48, "433Mhz, SF " + String(SF));
+			display.drawString(128, 48, "TXPOW: " + String(TXPOW) + ", 433Mhz, SF " + String(SF));
 			break;
 
 		case 868:
-			display.drawString(128, 48, "868Mhz, SF " + String(SF));
+			display.drawString(128, 48, "TXPOW: " + String(TXPOW) + ", 868Mhz, SF " + String(SF));
 			break;
 
 		case 915:
-			display.drawString(128, 48, "915Mhz, SF " + String(SF));
+			display.drawString(128, 48, "TXPOW: " + String(TXPOW) + ", 915Mhz, SF " + String(SF));
 			break;
 		
 		default:
 			break;
 	}
 
-	display.drawString(128, 33, "TXPOW: " + String(TXPOW));
+	// display.drawString(128, 33, "Battery: " + String(VBAT));
 	display.display();
 }
