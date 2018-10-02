@@ -15,9 +15,9 @@
             </div>
             <nav>
                 <ul>
-                    <li><a href="/server.php?serverno=1">Map</a></li>
-                    <li><a href="/server.php?serverno=2">Status</a></li>
-                    <li><a href="/server.php?serverno=3">Operations</a></li>
+                    <li><a href="/main.php?menu=1">Map</a></li>
+                    <li><a href="/main.php?menu=2">Status</a></li>
+                    <li><a href="/main.php?menu=3">Operations</a></li>
                     <li><a href="/hash.php">HASH</a></li>
                     <li class="last"><a href="/">LOGOUT</a></li>
                 </ul>

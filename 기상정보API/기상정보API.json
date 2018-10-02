@@ -1,0 +1,227 @@
+{
+	"info": {
+		"_postman_id": "ef22f155-ba49-4827-92e7-36b3a1108d07",
+		"name": "기상정보API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "기상정보_성동구",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://www.kma.go.kr/wid/queryDFSRSS.jsp?zone=1120059000",
+					"protocol": "http",
+					"host": [
+						"www",
+						"kma",
+						"go",
+						"kr"
+					],
+					"path": [
+						"wid",
+						"queryDFSRSS.jsp"
+					],
+					"query": [
+						{
+							"key": "zone",
+							"value": "1120059000"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "기상정보_수정구",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://www.kma.go.kr/wid/queryDFSRSS.jsp?zone=4113164000",
+					"protocol": "http",
+					"host": [
+						"www",
+						"kma",
+						"go",
+						"kr"
+					],
+					"path": [
+						"wid",
+						"queryDFSRSS.jsp"
+					],
+					"query": [
+						{
+							"key": "zone",
+							"value": "4113164000"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "미세먼지_성동구",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://openapi.airkorea.or.kr/openapi/services/rest/ArpltnInforInqireSvc/getMsrstnAcctoRltmMesureDnsty?serviceKey=ncSK6OKRIMOj8HCAtGfTJP89UWLn9ZIYzCe%2Fo3uJ9SY8m%2BR%2FwE6lShNfQ5MYTAt0BZuQhHn4T0ZxS4I%2Fx%2B2H6g%3D%3D&numOfRows=1&pageSize=1&pageNo=1&startPage=1&stationName=%EC%A2%85%EB%A1%9C%EA%B5%AC&dataTerm=DAILY&ver=1.3",
+					"protocol": "http",
+					"host": [
+						"openapi",
+						"airkorea",
+						"or",
+						"kr"
+					],
+					"path": [
+						"openapi",
+						"services",
+						"rest",
+						"ArpltnInforInqireSvc",
+						"getMsrstnAcctoRltmMesureDnsty"
+					],
+					"query": [
+						{
+							"key": "serviceKey",
+							"value": "ncSK6OKRIMOj8HCAtGfTJP89UWLn9ZIYzCe%2Fo3uJ9SY8m%2BR%2FwE6lShNfQ5MYTAt0BZuQhHn4T0ZxS4I%2Fx%2B2H6g%3D%3D"
+						},
+						{
+							"key": "numOfRows",
+							"value": "1"
+						},
+						{
+							"key": "pageSize",
+							"value": "1"
+						},
+						{
+							"key": "pageNo",
+							"value": "1"
+						},
+						{
+							"key": "startPage",
+							"value": "1"
+						},
+						{
+							"key": "stationName",
+							"value": "%EC%A2%85%EB%A1%9C%EA%B5%AC"
+						},
+						{
+							"key": "dataTerm",
+							"value": "DAILY"
+						},
+						{
+							"key": "ver",
+							"value": "1.3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "미세먼지_수정구",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://openapi.airkorea.or.kr/openapi/services/rest/ArpltnInforInqireSvc/getMsrstnAcctoRltmMesureDnsty?serviceKey=ncSK6OKRIMOj8HCAtGfTJP89UWLn9ZIYzCe%2Fo3uJ9SY8m%2BR%2FwE6lShNfQ5MYTAt0BZuQhHn4T0ZxS4I%2Fx%2B2H6g%3D%3D&numOfRows=1&pageSize=1&pageNo=1&startPage=1&stationName=%EC%8B%A0%ED%9D%A5&dataTerm=DAILY&ver=1.3",
+					"protocol": "http",
+					"host": [
+						"openapi",
+						"airkorea",
+						"or",
+						"kr"
+					],
+					"path": [
+						"openapi",
+						"services",
+						"rest",
+						"ArpltnInforInqireSvc",
+						"getMsrstnAcctoRltmMesureDnsty"
+					],
+					"query": [
+						{
+							"key": "serviceKey",
+							"value": "ncSK6OKRIMOj8HCAtGfTJP89UWLn9ZIYzCe%2Fo3uJ9SY8m%2BR%2FwE6lShNfQ5MYTAt0BZuQhHn4T0ZxS4I%2Fx%2B2H6g%3D%3D"
+						},
+						{
+							"key": "numOfRows",
+							"value": "1"
+						},
+						{
+							"key": "pageSize",
+							"value": "1"
+						},
+						{
+							"key": "pageNo",
+							"value": "1"
+						},
+						{
+							"key": "startPage",
+							"value": "1"
+						},
+						{
+							"key": "stationName",
+							"value": "%EC%8B%A0%ED%9D%A5"
+						},
+						{
+							"key": "dataTerm",
+							"value": "DAILY"
+						},
+						{
+							"key": "ver",
+							"value": "1.3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "측정소정보 조회",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://openapi.airkorea.or.kr/openapi/services/rest/MsrstnInfoInqireSvc/getMsrstnList?pageNo=1&numOfRows=10&ServiceKey=ncSK6OKRIMOj8HCAtGfTJP89UWLn9ZIYzCe%2Fo3uJ9SY8m%2BR%2FwE6lShNfQ5MYTAt0BZuQhHn4T0ZxS4I%2Fx%2B2H6g%3D%3D",
+					"protocol": "http",
+					"host": [
+						"openapi",
+						"airkorea",
+						"or",
+						"kr"
+					],
+					"path": [
+						"openapi",
+						"services",
+						"rest",
+						"MsrstnInfoInqireSvc",
+						"getMsrstnList"
+					],
+					"query": [
+						{
+							"key": "pageNo",
+							"value": "1"
+						},
+						{
+							"key": "numOfRows",
+							"value": "10"
+						},
+						{
+							"key": "ServiceKey",
+							"value": "ncSK6OKRIMOj8HCAtGfTJP89UWLn9ZIYzCe%2Fo3uJ9SY8m%2BR%2FwE6lShNfQ5MYTAt0BZuQhHn4T0ZxS4I%2Fx%2B2H6g%3D%3D"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
