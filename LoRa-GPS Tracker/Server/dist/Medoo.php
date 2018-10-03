@@ -10,7 +10,7 @@
 
 namespace Medoo;
 
- $conn = mysqli_connect("localhost", "paperframe", "adminpassword1", "paperframe");
+ $conn = mysqli_connect("localhost", "tracker", "adminpassword1db", "tracker");
  // "location, username, userpass, database_name"
 
 use PDO;

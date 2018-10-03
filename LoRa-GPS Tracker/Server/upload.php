@@ -1,8 +1,6 @@
 <?php
-$NOLOGIN = 4660;
 include("./head.php");
 include_once('dist/Medoo.php');
-include_once('SocketPing.php');
 
 ini_set("display_errors", 1);
 ini_set("display_startup_errors", 1);
@@ -26,49 +24,39 @@ function get_client_ip() {
     $ipaddress = 'UNKNOWN';
     return $ipaddress;
 }
+
 $publicip = get_client_ip();
-$curtime = (new DateTime())->format("Y-m-d H:i:s");
 
-
-if(isset($_POST['serverno'])){
-    $serverno = $_POST['serverno'];
-}
-else if(isset($_GET['serverno'])){
-    $serverno = $_GET['serverno'];
-}
-if(!isset($serverno) || ($serverno < 0 || $serverno > 3)){
-    $serverno = 404;
-}
-
-if(isset($_POST['localip'])){
-    $localip = $_POST['localip'];
+if(isset($_GET['passcode'])){
+    $passcode = $_GET['passcode'];  //passcode 설정해야함
 }
 else{
-    $localip = "0.0.0.0";
+    exit();
 }
 
-if(isset($_POST['thermal'])){
-    $thermal = $_POST['thermal'];
+if(isset($_POST['gps_long'])){
+    $gps_long = $_POST['gps_long'];
 }
 else{
-    $thermal = 0;
+    $gps_long = -1;
 }
 
-if(isset($_POST['freq'])){
-    $freq = $_POST['freq'];
+if(isset($_POST['gps_lang'])){
+    $gps_lang = $_POST['gps_lang'];
 }
 else{
-    $freq = 0;
+    $gps_lang = -1;
 }
 
-// $server = serverinfo($serverno);    //$server[0] == $serverip, $server[1] == $serverport
+if(isset($_POST['rssi'])){
+    $rssi = $_POST['rssi'];
+}
+else{
+    $rssi = 1234;
+}
 
-$SQL = "INSERT INTO pf_servers VALUES('', '$curtime',  '$serverno', '$localip', '$publicip', '$thermal', '$freq')";
+$SQL = "INSERT INTO data (gps_lang, gps_long, rssi) VALUES('$gps_lang', '$gps_long', '$rssi');";
 mysqli_query($conn, $SQL);
 
-echo"<scrip>history.back();</script>";
-die;
-
+// exit();
 ?>
-<!-- Footer -->
-<?php include("./footer.php"); ?>
