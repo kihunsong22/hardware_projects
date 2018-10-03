@@ -35,7 +35,6 @@ if(isset($_GET['menu'])){
     }
 }else{
     $menu = 404;
-    die
 }
 ?>
 
