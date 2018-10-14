@@ -25,7 +25,7 @@ bool AUX_HL;
 void blinkLED();  // reverse LED status
 bool ReadAUX();  // read AUX logic level
 RET_STATUS WaitAUX_H();  // wait till AUX goes high && until TIME_OUT_CNT
-bool chkModeSame(MODE_TYPE mode);
+bool chkModeSame(MODE_TYPE mode);  // 
 void SwitchMode(MODE_TYPE mode);
 void cleanUARTBuf();
 void triple_cmd(SLEEP_MODE_CMD_TYPE Tcmd);
@@ -131,7 +131,7 @@ RET_STATUS WaitAUX_H(){
 	STATUS = RET_TIMEOUT;
 		Serial.println(" TimeOut");
 	}else{
-		Serial.println("");
+		// pass
 	}
 
 	return STATUS;

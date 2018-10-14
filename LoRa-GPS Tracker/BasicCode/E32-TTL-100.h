@@ -8,7 +8,7 @@
 #ifndef E32-TTL-100_H_
 #define E32-TTL-100_H_
 
-typedef enum {
+typedef enum{
 	RET_SUCCESS = 0,
 	RET_ERROR_UNKNOWN,	/* something shouldn't have happened */
 	RET_NOT_SUPPORT,
@@ -21,8 +21,7 @@ typedef enum {
 	RET_HW_ERROR,
 } RET_STATUS;
 
-enum MODE_TYPE
-{
+enum MODE_TYPE{
 	MODE_0_NORMAL = 0,
 	MODE_1_WAKE_UP,
 	MODE_2_POWER_SAVIN,
@@ -31,8 +30,7 @@ enum MODE_TYPE
 };
 
 //SPED+
-enum SLEEP_MODE_CMD_TYPE
-{
+enum SLEEP_MODE_CMD_TYPE{
 	W_CFG_PWR_DWN_SAVE = 0xC0,
 	R_CFG							= 0xC1,
 	W_CFG_PWR_DWN_LOSE = 0xC2,
@@ -40,22 +38,19 @@ enum SLEEP_MODE_CMD_TYPE
 	W_RESET_MODULE		 = 0xC4
 };
 
-enum UART_FORMAT_TYPE
-{
+enum UART_FORMAT_TYPE{
 	UART_FORMAT_8N1 = 0x00,	/*no	 parity bit one stop*/
 	UART_FORMAT_8O1 = 0x01,	/*odd	parity bit one stop*/
 	UART_FORMAT_8E1 = 0x02	 /*even parity bitone stop*/
 };
 
-enum UART_BPS_TYPE
-{
+enum UART_BPS_TYPE{
 	UART_BPS_1200 = 0x00,
 	UART_BPS_9600 = 0x03,
 	UART_BPS_115200 = 0x07
 };
 
-enum AIR_BPS_TYPE
-{
+enum AIR_BPS_TYPE{
 	AIR_BPS_300	 = 0x00,
 	AIR_BPS_2400	= 0x02,
 	AIR_BPS_19200 = 0x05
@@ -63,8 +58,7 @@ enum AIR_BPS_TYPE
 //SPED-
 
 //410~441MHz : 410M + CHAN*1M
-enum AIR_CHAN_TYPE
-{
+enum AIR_CHAN_TYPE{
 	AIR_CHAN_410M = 0x00,
 	AIR_CHAN_433M = 0x17,
 	AIR_CHAN_441M = 0x1F
@@ -77,8 +71,7 @@ enum AIR_CHAN_TYPE
 #define OD_DRIVE_MODE		0x00
 #define PP_DRIVE_MODE		0x01
 
-enum WEAK_UP_TIME_TYPE
-{
+enum WEAK_UP_TIME_TYPE{
 	WEAK_UP_TIME_250	= 0x00,
 	WEAK_UP_TIME_1000 = 0x03,
 	WEAK_UP_TIME_2000 = 0x07
@@ -88,8 +81,7 @@ enum WEAK_UP_TIME_TYPE
 #define ENABLE_FEC			0x01
 
 //Transmit power
-enum TSMT_PWR_TYPE
-{
+enum TSMT_PWR_TYPE{
 	TSMT_PWR_20DB = 0x00,
 	TSMT_PWR_17DB = 0x01,
 	TSMT_PWR_14DB = 0x02,

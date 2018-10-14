@@ -2,9 +2,9 @@
 // include("./head.php");
 include_once('dist/Medoo.php');
 
-ini_set("display_errors", 1);
-ini_set("display_startup_errors", 1);
-error_reporting(E_ALL);
+// ini_set("display_errors", 1);
+// ini_set("display_startup_errors", 1);
+// error_reporting(E_ALL);
 
 function get_client_ip() {
     $ipaddress = '';
@@ -32,7 +32,7 @@ if(isset($_POST['passcode'])){
 }else if(isset($_GET['passcode'])){
     $passcode = $_GET['passcode'];
 }else{
-    exit();
+    $passcode = 0;
 }
 
 if(isset($_POST['gps_long'])){
@@ -60,8 +60,11 @@ if(isset($_POST['rssi'])){
     $rssi = 404;
 }
 
+if($passcode != 4660){
+    die("INVALID ACCESS");
+}
+
 $SQL = "INSERT INTO data (gps_lang, gps_long, rssi) VALUES('$gps_lang', '$gps_long', '$rssi');";
 mysqli_query($conn, $SQL);
 
-// exit();
 ?>
