@@ -1,5 +1,5 @@
 <?php
-include("./head.php");
+// include("./head.php");
 include_once('dist/Medoo.php');
 
 ini_set("display_errors", 1);
@@ -27,32 +27,37 @@ function get_client_ip() {
 
 $publicip = get_client_ip();
 
-if(isset($_GET['passcode'])){
-    $passcode = $_GET['passcode'];  //passcode 설정해야함
-}
-else{
+if(isset($_POST['passcode'])){
+    $passcode = $POST['passcode'];  //passcode 설정해야함
+}else if(isset($_GET['passcode'])){
+    $passcode = $_GET['passcode'];
+}else{
     exit();
 }
 
 if(isset($_POST['gps_long'])){
     $gps_long = $_POST['gps_long'];
 }
-else{
+else if(isset($_GET['gps_long'])){
+    $gps_long = $_GET['gps_long'];
+}else{
     $gps_long = -1;
 }
 
 if(isset($_POST['gps_lang'])){
     $gps_lang = $_POST['gps_lang'];
-}
-else{
+}else if(isset($_GET['gps_lang'])){
+    $gps_lang = $_GET['gps_lang'];
+}else{
     $gps_lang = -1;
 }
 
 if(isset($_POST['rssi'])){
     $rssi = $_POST['rssi'];
-}
-else{
-    $rssi = 1234;
+}else if(isset($_GET['rssi'])){
+    $rssi = $_GET['rssi'];
+}else{
+    $rssi = 404;
 }
 
 $SQL = "INSERT INTO data (gps_lang, gps_long, rssi) VALUES('$gps_lang', '$gps_long', '$rssi');";

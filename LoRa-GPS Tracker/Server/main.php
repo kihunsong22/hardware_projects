@@ -61,6 +61,17 @@ if(isset($_GET['menu'])){
                 }
             </script>
         </div>
+
+        <div id="homepage">
+            <section id="code">
+                <p>code to view PHP errors:<br><br>
+                    ini_set('display_errors', 1);<br>
+                    ini_set('display_startup_errors', 1);<br>
+                    error_reporting(E_ALL);
+                </p>
+            </section>
+        </div>
+        
     </div>
 </div>
 <!-- Footer -->
