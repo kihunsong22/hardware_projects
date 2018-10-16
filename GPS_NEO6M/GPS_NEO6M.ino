@@ -14,6 +14,9 @@ void setup(){
 	Serial.begin(115200);
 	GPS.begin(9600);
 
+	ESP.wdtDisable();  // GPS.read() takes forever and triggers WDT reset on ESP
+	ESP.wdtFeed();
+
 	delay(100);
 	Serial.println();
 	Serial.println();
@@ -28,6 +31,7 @@ void loop(){
 	start = millis();
 
 	while (millis() - start < 5000) {
+		ESP.wdtFeed();  // Feed WDT on ESP chips since GPS.read triggers WDT reset
 		if (GPS.available()) {
 			char c = GPS.read();
 			// Serial.print(c);  // uncomment to see raw GPS data
