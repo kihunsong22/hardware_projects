@@ -2,6 +2,7 @@
 #include <Wire.h>
 #include <Adafruit_GFX.h>
 #include <Adafruit_SSD1306.h>
+#include "fonts.h"  //kfont, Open_Sans_Hebrew_Condensed_14, Open_Sans_Hebrew_Condensed_18, Open_Sans_Hebrew_Condensed_24
 #define OLED_RESET 4
 Adafruit_SSD1306 display(OLED_RESET);
 
@@ -37,15 +38,10 @@ static const unsigned char PROGMEM logo16_glcd_bmp[] =
 #endif
 
 void setup()   {
-  Serial.begin(9600);
-
-  // by default, we'll generate the high voltage from the 5v line internally! (neat!)
-  display.begin(SSD1306_SWITCHCAPVCC, 0x3C);  // initialize with the I2C addr 0x3D (for the 128x64)
-  // init done
+  Serial.begin(115200);
+  display.begin(SSD1306_SWITCHCAPVCC, 0x3C);
   // Show image buffer on the display hardware.
-
   display.display();
-  //delay(2000);
 
   display.setTextSize(1);
   display.setTextColor(WHITE);
@@ -53,13 +49,9 @@ void setup()   {
   display.clearDisplay();
   display.println("INPUT YOUR TEXT HERE: ");
 
-  // invert the display
   display.invertDisplay(true);
-  //delay(1000);
   display.invertDisplay(false);
-  //delay(1000);
   display.display();
-  //delay(2000);
    display.clearDisplay();
 }
 

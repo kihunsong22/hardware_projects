@@ -1,5 +1,4 @@
 // https://github.com/Bob0505/E32-TTL-100
-// 
 // UNO/NANO(5V mode)								E32-TTL-100
 //   *--------*	                                        *------*
 //   | D7        | <------------------> | M0     |
@@ -8,7 +7,6 @@
 //   | D10(Rx)   | <---> 4.7k Ohm <---> | Tx     |
 //   | D11(Tx)   | <---> 4.7k Ohm <---> | Rx     |
 //   *--------*                                         *------*
-
 #include <SoftwareSerial.h>
 #include "E32-TTL-100.h"
 
@@ -18,7 +16,9 @@
 #define SOFT_RX	10
 #define SOFT_TX 11
 
-#define Device_A 1  // set device as A or B
+#define DEVICE 1
+const uint8_t dev_num = 1;
+String data = "";
 
 SoftwareSerial softSerial(SOFT_RX, SOFT_TX);  // RX, TX
 
@@ -35,7 +35,7 @@ RET_STATUS Write_CFG_PDS(struct CFGstruct* pCFG);  // write pCFG
 RET_STATUS Read_CFG(struct CFGstruct* pCFG);  // read configuration
 RET_STATUS Read_module_version(struct MVerstruct* MVer);  // read module version
 void Reset_module();  // send RST
-RET_STATUS SleepModeCmd(uint8_t CMD, void* pBuff);  // switch to mode3 sleep
+void SleepModeCmd(uint8_t CMD, void* pBuff);  // switch to mode3 sleep
 RET_STATUS SettingModule(struct CFGstruct *pCFG);  // set module setting struct
 RET_STATUS ReceiveMsg(uint8_t *pdatabuf, uint8_t *data_len);  // receive message
 RET_STATUS SendMsg();  // send random message
@@ -43,6 +43,10 @@ RET_STATUS SendMsg();  // send random message
 
 //=== SETUP =========================================+
 void setup(){
+	Serial.begin(115200);
+	softSerial.begin(9600);
+	Serial.println("\n\n\n Initializing...");
+
 	RET_STATUS STATUS = RET_SUCCESS;
 	struct CFGstruct CFG;
 	struct MVerstruct MVer;
@@ -52,29 +56,32 @@ void setup(){
 	pinMode(AUX_PIN, INPUT);
 	pinMode(LED_BUILTIN, OUTPUT);
 
-	softSerial.begin(9600);
-	Serial.begin(115200);
+switch(dev_num){
+	case 1:
+		Serial.println("Device: 1");
+		break;
+	case 2:
+		Serial.println("Device: 2");
+		break;
 
-#ifdef Device_A
-	Serial.println("[10-A] ");
-#else
-	Serial.println("[10-B] ");
-#endif
+	default:
+		Serial.println("Device: UNDEFINED");
+		break;
+}
 
-	STATUS = SleepModeCmd(R_CFG, (void* )&CFG);
-	STATUS = SettingModule(&CFG);
-
-	STATUS = SleepModeCmd(R_MODULE_VERSION, (void* )&MVer);
+	SleepModeCmd(R_CFG, (void* )&CFG);
+	
+	SettingModule(&CFG);
+	SleepModeCmd(R_MODULE_VERSION, (void* )&MVer);
 
 	// Mode 0 | normal operation
-	SwitchMode(MODE_0_NORMAL);
+	SwitchMode(MODE_1_WAKEUP);
 
-	//self-check initialization.
 	WaitAUX_H();
 	delay(10);
-	
+
 	if(STATUS == RET_SUCCESS)
-		Serial.println("Setup init OK!!");
+		Serial.println("Setup init OK");
 }
 //=== SETUP =========================================-
 
@@ -82,17 +89,26 @@ void setup(){
 void loop(){
 	uint8_t data_buf[100], data_len;
 
-#ifdef Device_A
-	if(ReceiveMsg(data_buf, &data_len)==RET_SUCCESS){
-		blinkLED();
-	}
-#else
-	if(SendMsg()==RET_SUCCESS){
-		blinkLED();
-	}
-#endif
+	switch(dev_num){
+		case 1:
+			data = "test data";
+			if(SendMsg(data)==RET_SUCCESS){
+				blinkLED();
+			}
+			break;
 
-	delay(random(400, 600));
+		case 2:
+			if(ReceiveMsg(data_buf, &data_len)==RET_SUCCESS){
+				blinkLED();
+			}
+			break;
+
+		default:
+			Serial.println("DEVICE NUM ERROR");
+			break;
+	}
+	
+	delay(500);
 }
 //=== LOOP ==========================================-
 
@@ -324,7 +340,7 @@ RET_STATUS SleepModeCmd(uint8_t CMD, void* pBuff){
 RET_STATUS SettingModule(struct CFGstruct *pCFG){
 	RET_STATUS STATUS = RET_SUCCESS;
 
-#ifdef Device_A
+#ifdef DEVICE
 	pCFG->ADDH = DEVICE_A_ADDR_H;
 	pCFG->ADDL = DEVICE_A_ADDR_L;
 #else
@@ -371,7 +387,7 @@ RET_STATUS ReceiveMsg(uint8_t *pdatabuf, uint8_t *data_len){
 	return STATUS;
 }
 
-RET_STATUS SendMsg(){
+RET_STATUS SendMsg(String msg){
 	RET_STATUS STATUS = RET_SUCCESS;
 
 	SwitchMode(MODE_0_NORMAL);
@@ -386,7 +402,7 @@ RET_STATUS SendMsg(){
 
 	//TRSM_FP_MODE
 	//Send format : ADDH ADDL CHAN DATA_0 DATA_1 DATA_2 ...
-#ifdef Device_A
+#ifdef DEVICE
 	uint8_t SendBuf[4] = { DEVICE_B_ADDR_H, DEVICE_B_ADDR_L, 0x17, random(0x00, 0x80)};  //for A
 #else
 	uint8_t SendBuf[4] = { DEVICE_A_ADDR_H, DEVICE_A_ADDR_L, 0x17, random(0x81, 0xFF)};  //for B

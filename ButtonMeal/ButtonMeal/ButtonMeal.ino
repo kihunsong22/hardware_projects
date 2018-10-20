@@ -84,53 +84,19 @@ void printText(void) {
     }
 }
 
-
 // #include "U8glib.h"
+
 // U8GLIB_SSD1306_128X64 u8g(U8G_I2C_OPT_NONE);
 
-// String data;
-
-// void clearScreen();
-
 // void setup() {
-//     Serial.begin(115200);
+// }
 
-//     u8g.firstPage();
-//     do {
+// void loop() {
+//   u8g.firstPage();
+//   do {
 //     u8g.setFont(u8g_font_unifont);
 //     u8g.setPrintPos(0, 10);
 //     u8g.print("Hello, world");
 //     u8g.drawStr(0, 30, "Hello, world!");
-//     } while (u8g.nextPage());
-// }
-
-// void loop() {
-//     if(Serial.available()){
-//         data = Serial.read();
-
-//         u8g.print(data);
-//     }
-// }
-
-// void clearScreen(){
-//     u8g.setColorIndex(0);
-//     u8g.drawBox(1, 1, 64, 128);
-// }
-
-
-// String data;
-// void setup(){
-//     Serial.begin(115200);
-//     pinMode(LED_BUILTIN, OUTPUT);
-
-//     digitalWrite(LED_BUILTIN, LOW);
-// }
-
-// void loop(){
-//     if(Serial.available()){
-//         data = Serial.read();
-
-//         Serial.println(data);
-//         Serial.println();
-//     }
+//   } while (u8g.nextPage());
 // }
