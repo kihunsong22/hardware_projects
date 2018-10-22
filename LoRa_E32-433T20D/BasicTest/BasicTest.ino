@@ -26,18 +26,18 @@ bool AUX_HL;
 
 void blinkLED();  // reverse LED status
 bool ReadAUX();  // read AUX logic level
-RET_STATUS WaitAUX_H();  // wait till AUX goes high && until TIME_OUT_CNT
+RET_STATUS WaitAUX_H();  // wait for AUX HIGH
 bool chkModeSame(MODE_TYPE mode);  // compare mode with pre_mode
-void SwitchMode(MODE_TYPE mode);  // change mode to mode
+void SwitchMode(MODE_TYPE mode);  // change mode
 void cleanUARTBuf();  // read all form buffer
 void triple_cmd(SLEEP_MODE_CMD_TYPE Tcmd);  // send 3x Tcmd and check for response
 RET_STATUS Write_CFG_PDS(struct CFGstruct* pCFG);  // write pCFG
-RET_STATUS Read_CFG(struct CFGstruct* pCFG);  // read configuration
-RET_STATUS Read_module_version(struct MVerstruct* MVer);  // read module version
+RET_STATUS Read_CFG(struct CFGstruct* pCFG);
+RET_STATUS Read_module_version(struct MVerstruct* MVer);
 void Reset_module();  // send RST
-void SleepModeCmd(uint8_t CMD, void* pBuff);  // switch to mode3 sleep
+void SleepModeCmd(uint8_t CMD, void* pBuff);  // parameter setting on mode3
 RET_STATUS SettingModule(struct CFGstruct *pCFG);  // set module setting struct
-RET_STATUS ReceiveMsg(uint8_t *pdatabuf, uint8_t *data_len);  // receive message
+RET_STATUS ReceiveMsg(uint8_t *pdatabuf, uint8_t *data_len);
 RET_STATUS SendMsg();  // send random message
 
 

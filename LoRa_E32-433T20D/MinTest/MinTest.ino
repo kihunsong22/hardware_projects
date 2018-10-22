@@ -27,7 +27,6 @@ bool ReadAUX();  // read AUX logic level
 int8_t WaitAUX_H();  // wait till AUX goes high and wait a few millis
 void SwitchMode(uint8_t mode);  // change mode to mode
 void triple_cmd(uint8_t Tcmd);  // send 3x Tcmd and check for response
-void Reset_module();  // send RST
 void ReceiveMsg();
 int8_t SendMsg(String msg);
 
@@ -64,10 +63,47 @@ void setup(){
 	pinMode(AUX_PIN, INPUT);
 	pinMode(LED_BUILTIN, OUTPUT);
 
-	Reset_module();
+	triple_cmd(0xC4);  // 0xC4: reset
+	delay(1000);
+
+
+
+  // struct SPEDstruct {
+  //   uint8_t air_bps : 0;  // bit 0-2, 0: 8N1
+  //   uint8_t uart_bps: 3;  // bit 3-5, 2: 9600bps
+  //   uint8_t uart_fmt: 2;  // bit 6-7, 2: 2.4k
+  // };
+
+  // struct OPTIONstruct {
+  //   uint8_t tsmt_pwr    : 2;  // bit 0-1, 
+  //   uint8_t enFWC       : 1;  // bit 2
+  //   uint8_t wakeup_time : 3;  // bit 3-5
+  //   uint8_t drive_mode  : 1;  // bit 6
+  //   uint8_t trsm_mode   : 1;  // bit 7
+  // };
+
+  struct CFGstruct {  // settings parameter -> E32 pdf p.28
+    uint8_t HEAD = 0xC0;  // do not save parameters when power-down
+    uint8_t ADDH = 0xFF;  // 0xFFH: broadcast
+    uint8_t ADDL = 0xFF;  // 0xFFH: broadcast
+    // struct SPEDstruct	 SPED_bits;
+    uint8_t SPED = 0x1A;  // 8N1, 9600bps, 2.4k air rate
+    uint8_t CHAN = 0x0E;  // channel 14: broadcast
+    // struct OPTIONstruct OPTION_bits;
+    uint8_t OPTION_bits = 0x44;  // 0, 1, 000, 1, 00
+  };
+
+  struct CFGstruct CFG;
+	SwitchMode(3);  // sleep mode/parameter setting
+  E32.write((const uint8_t *)&CFG, 6);  // 6 for 6 variables in CFG
+
+	delay(1200);
+
 	SwitchMode(0);
-	WaitAUX_H();
-	delay(10);
+
+	// set transparent translation
+	// set ADDR_H, ADDR_L
+	// set channel to broadcast
 
 	Serial.println("Init complete");
 }
@@ -153,7 +189,7 @@ void SwitchMode(uint8_t mode){
 			digitalWrite(M1_PIN, HIGH);
 			break;
 		case 3:
-			// Mode 3 | setting operation
+			// Mode 3 | sleep mode/parammeter setting
 			digitalWrite(M0_PIN, HIGH);
 			digitalWrite(M1_PIN, HIGH);
 			break;
@@ -167,6 +203,7 @@ void SwitchMode(uint8_t mode){
 //=== Mode Select ===================================-
 
 void triple_cmd(uint8_t Tcmd){
+	WaitAUX_H();
 	uint8_t CMD[3] = {Tcmd, Tcmd, Tcmd};
 	E32.write(CMD, 3);
 	Serial.print("Command: ");
@@ -174,13 +211,7 @@ void triple_cmd(uint8_t Tcmd){
 	Serial.print(Tcmd, HEX);
 	Serial.print(Tcmd, HEX);
 	Serial.println();
-	delay(50);
-}
-
-void Reset_module(){
-	triple_cmd(0xC4);  // 0xC4: reset
-	WaitAUX_H();
-	delay(1000);
+	delay(15);
 }
 
 void ReceiveMsg(){
@@ -227,14 +258,14 @@ int8_t SendMsg(String msg){
 		msg.toCharArray(text, msg.length());
 	}
 
-	SwitchMode(1);
+	SwitchMode(1);  // Wake-up mode
 	WaitAUX_H();
 
 	E32.write(text);
 	WaitAUX_H();
 	delay(10);
 	
-	SwitchMode(0);
+	SwitchMode(0);  // Normal mode
 	WaitAUX_H();
 
 	return 0;
