@@ -1,5 +1,4 @@
 #include <SoftwareSerial.h>
-// #include "E32-TTL-100.h"
 
 #define dev_num 1  // 1: TX, 2: RX
 #define MAX_TX_SIZE 57

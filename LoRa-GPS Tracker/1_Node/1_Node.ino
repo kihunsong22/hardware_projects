@@ -1,9 +1,7 @@
 #include <SoftwareSerial.h>
 
-#define dev_num 2  // 1: TX, 2: RX
 #define MAX_TX_SIZE 57
 
-// Broadcast TX/RX Addr: 0xFFFF / 0x0000, channel 14
 #define BC_ADDH 0xFF
 #define BC_ADDL 0xFF
 #define BC_CHAN 0x0E
@@ -36,33 +34,13 @@ void triple_cmd(uint8_t Tcmd);  // send 3x Tcmd
 void ReceiveMsg();
 int8_t SendMsg(String msg);
 
-// switch(dev_num){
-// 	case 1:
-// 		break;
-// 	case 2:
-// 		break;
-// 	default:
-// 		break;
-// }
-
 //=== SETUP =========================================+
 void setup(){
   Serial.begin(115200);
   E32.begin(9600);
 
   Serial.println("\nInitializing...");
-  switch(dev_num){
-    case 1:
-      Serial.println("Device: 1: TX");
-      break;
-    case 2:
-      Serial.println("Device: 2: RX");
-      break;
-
-    default:
-      Serial.println("Device: UNDEFINED");
-      break;
-  }
+  Serial.println("Device: 1: Node/TX");
 
   pinMode(M0_PIN, OUTPUT);
   pinMode(M1_PIN, OUTPUT);
@@ -84,30 +62,19 @@ void setup(){
 
 //=== LOOP ==========================================+
 void loop(){
-  switch(dev_num){
-    case 1:
-      while(1){
-        String dataStr = "test data ";
-        if(SendMsg(dataStr) == 0){  // success
-          blinkLED();
-        }
+  uint16_t gps_sat_num=0;
+  float gps_lati=0.00, gps_long=0.00, 
 
-        delay(2500);
-      }
-      break;
+  gps_lati = 37.341776;
+  gps_long = 126.831320;
+  gps_sat_num=random(4, 8);
+  String dataStr = "test data ";
 
-    case 2:
-      while(1){
-        ReceiveMsg();
-        delay(500);
-      }
-      break;
-
-    default:
-      Serial.println("DEVICE NUM ERROR");
-      break;
+  if(SendMsg(dataStr) == 0){  // success
+    blinkLED();
   }
-  
+
+  delay(2500);  
 }
 //=== LOOP ==========================================-
 

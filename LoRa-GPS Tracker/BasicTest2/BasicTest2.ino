@@ -36,15 +36,6 @@ void triple_cmd(uint8_t Tcmd);  // send 3x Tcmd
 void ReceiveMsg();
 int8_t SendMsg(String msg);
 
-// switch(dev_num){
-// 	case 1:
-// 		break;
-// 	case 2:
-// 		break;
-// 	default:
-// 		break;
-// }
-
 //=== SETUP =========================================+
 void setup(){
   Serial.begin(115200);
