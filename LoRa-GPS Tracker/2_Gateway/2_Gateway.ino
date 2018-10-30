@@ -48,19 +48,18 @@ void ReceiveMsg();
 int8_t SendMsg(String msg);
 
 
-//=== SETUP =========================================+
 void setup(){
 	Serial.begin(115200);
   E32.begin(9600);
 	Serial.println("\r\nInitializing...");
 	Serial.println("Device: Gateway \n");
 
-  delay(2000);
-
   pinMode(M0_PIN, OUTPUT);
   pinMode(M1_PIN, OUTPUT);
   pinMode(AUX_PIN, INPUT);
   pinMode(LED_BUILTIN, OUTPUT);
+
+  delay(200);
 
 	triple_cmd(0xC4);  // 0xC4: reset
 	delay(50);
@@ -81,44 +80,44 @@ void setup(){
 	Serial.print("IP address: ");
 	Serial.println(WiFi.localIP());
 
-	setup_delay = setup_delay<=0 ? -setup_delay : setup_delay;
+	setup_delay = setup_delay<=0 ? -setup_delay : setup_delay;  // minimize LoRa init delay
 	delay(setup_delay*250);
 
 	SwitchMode(3);  // sleep mode/parameter setting
   E32.write((const uint8_t *)&CFG, 6);  // 6 for 6 variables in CFG
   delay(1200);
-
 	SwitchMode(0);
 
   Serial.println("\nInit complete\n");
 }
-//=== SETUP =========================================-
 
-//=== LOOP ==========================================+
 void loop(){
-	float gps_lati=0, gps_long=0;
+	float gps_lati=-12, gps_long=-12;
 	uint16_t rssi=404;
 
 	ReceiveMsg();
 	delay(500);
 
-	// String link1 = link+"&gps_lati="+String(gps_lati)+"&gps_long="+String(gps_long)+"&rssi="+String(rssi);
-	// Serial.print("LINK: ");
-	// Serial.println(link1);
+	String link1 = link+"&gps_lati="+String(gps_lati)+"&gps_long="+String(gps_long)+"&rssi="+String(rssi);
+	Serial.print("LINK: ");
+	Serial.println(link1);
 
-	// http.begin(link1);
-	// if (http.GET() == HTTP_CODE_OK) {
-	// 	String payload = http.getString();
-	// 	Serial.print("Response: ");
-	// 	Serial.println(payload);
-	// 	Serial.println("HTTP upload success");
-	// }else{
-	// 	Serial.println("HTTP Connection Error");
-	// 	Serial.println();
-	// }
-	// http.end();
+	http.begin(link1);
+	if (http.GET() == HTTP_CODE_OK) {
+		String payload = http.getString();
+		Serial.print("Response: ");
+		Serial.println(payload);
+		Serial.println("HTTP upload success");
+	}else{
+		Serial.println("HTTP Connection Error");
+		Serial.println();
+	}
+	http.end();
+
+  while(1){
+		ESP.wdtFeed();
+  }
 }
-//=== LOOP ==========================================-
 
 
 void blinkLED(){
@@ -128,7 +127,6 @@ void blinkLED(){
   delay(75);
 }
 
-//=== AUX ===========================================+
 int8_t WaitAUX_H(){
   uint8_t cnt = 0;
 
@@ -143,9 +141,7 @@ int8_t WaitAUX_H(){
   }
   return 0;
 }
-//=== AUX ===========================================-
 
-//=== Mode Select ===================================+
 void SwitchMode(uint8_t mode){
   WaitAUX_H();
 
@@ -177,7 +173,6 @@ void SwitchMode(uint8_t mode){
   WaitAUX_H();
   delay(10);
 }
-//=== Mode Select ===================================-
 
 void triple_cmd(uint8_t Tcmd){
   WaitAUX_H();
