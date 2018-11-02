@@ -16,9 +16,9 @@
 #include <LoRaLib.h>
 
 // create instance of LoRa class using SX1278 module
-// this pinout corresponds to LoRenz shield: 
-// https://github.com/jgromes/LoRenz
-// NSS pin:   7 (18 on ESP32 boards)
+// this pinout corresponds to KITE Shield
+// https://github.com/jgromes/KiteShield
+// NSS pin:   10 (4 on ESP32 boards)
 // DIO0 pin:  2
 // DIO1 pin:  3
 // IMPORTANT: because this example uses external interrupts,
@@ -85,7 +85,7 @@ void setFlag(void) {
 void loop() {
   // check if the previous transmission finished
   if(transmittedFlag) {
-    Serial.println(F("Packet transmission finished!"));
+    Serial.println(F("transmission finished!"));
 
     // wait one second before next transmission
     delay(1000);
@@ -103,6 +103,10 @@ void loop() {
                         0x78, 0xAB, 0xCD, 0xEF};
       int state = lora.transmit(byteArr, 8);
     */
+
+    // NOTE: when using interrupt-driven transmit method,
+    //       it is not possible to automatically measure
+    //       transmission data rate using getDataRate()
     
     if (state != ERR_NONE) {
       Serial.print(F("failed, code "));

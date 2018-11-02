@@ -16,7 +16,7 @@
 
 const uint8_t M0_PIN = 16;
 const uint8_t M1_PIN = 14;
-const uint8_t AUX_PIN = 15;
+const uint8_t AUX_PIN = 4;
 const uint8_t SOFT_RX = 12;
 const uint8_t SOFT_TX = 13;
 
@@ -62,8 +62,7 @@ void setup(){
   delay(200);
 
 	triple_cmd(0xC4);  // 0xC4: reset
-	delay(50);
-	int8_t setup_delay = 4;
+	delay(1200);
 
 	WiFi.mode(WIFI_STA);
 	WiFiMulti.addAP(SSID1, PASS1);
@@ -72,7 +71,6 @@ void setup(){
 		ESP.wdtFeed();
 		Serial.print(".");
 		delay(250);
-		setup_delay--;
 	}
 	
 	Serial.print("\nWiFi Connected: ");
@@ -80,43 +78,40 @@ void setup(){
 	Serial.print("IP address: ");
 	Serial.println(WiFi.localIP());
 
-	setup_delay = setup_delay<=0 ? -setup_delay : setup_delay;  // minimize LoRa init delay
-	delay(setup_delay*250);
-
 	SwitchMode(3);  // sleep mode/parameter setting
   E32.write((const uint8_t *)&CFG, 6);  // 6 for 6 variables in CFG
   delay(1200);
 	SwitchMode(0);
 
-  Serial.println("\nInit complete\n");
+  // Serial.println("\nInit complete\n");
+
+
+	// float gps_lati=-12, gps_long=-12;
+	// uint16_t rssi=404;
+
+  // String link1 = link+"&gps_lati="+String(gps_lati)+"&gps_long="+String(gps_long)+"&rssi="+String(rssi);
+	// Serial.print("LINK: ");
+	// Serial.println(link1);
+
+	// http.begin(link1);
+	// if (http.GET() == HTTP_CODE_OK) {
+	// 	String payload = http.getString();
+	// 	Serial.print("Response: ");
+	// 	Serial.println(payload);
+	// 	Serial.println("HTTP upload success");
+	// }else{
+	// 	Serial.println("HTTP Connection Error");
+	// 	Serial.println();
+	// }
+	// http.end();
 }
 
 void loop(){
-	float gps_lati=-12, gps_long=-12;
-	uint16_t rssi=404;
+	// float gps_lati=-12, gps_long=-12;
+	// uint16_t rssi=404;
 
 	ReceiveMsg();
 	delay(500);
-
-	String link1 = link+"&gps_lati="+String(gps_lati)+"&gps_long="+String(gps_long)+"&rssi="+String(rssi);
-	Serial.print("LINK: ");
-	Serial.println(link1);
-
-	http.begin(link1);
-	if (http.GET() == HTTP_CODE_OK) {
-		String payload = http.getString();
-		Serial.print("Response: ");
-		Serial.println(payload);
-		Serial.println("HTTP upload success");
-	}else{
-		Serial.println("HTTP Connection Error");
-		Serial.println();
-	}
-	http.end();
-
-  while(1){
-		ESP.wdtFeed();
-  }
 }
 
 

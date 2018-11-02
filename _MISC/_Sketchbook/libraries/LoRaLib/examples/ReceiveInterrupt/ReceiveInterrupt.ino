@@ -21,9 +21,9 @@
 #include <LoRaLib.h>
 
 // create instance of LoRa class using SX1278 module
-// this pinout corresponds to LoRenz shield: 
-// https://github.com/jgromes/LoRenz
-// NSS pin:   7 (18 on ESP32 boards)
+// this pinout corresponds to KITE Shield
+// https://github.com/jgromes/KiteShield
+// NSS pin:   10 (4 on ESP32 boards)
 // DIO0 pin:  2
 // DIO1 pin:  3
 // IMPORTANT: because this example uses external interrupts,
@@ -70,14 +70,19 @@ void setup() {
     while (true);
   }
 
-  // if needed, 'listen' mode can be disabled by calling
-  // any of the following methods:
+  // NOTE: 'listen' mode will be disabled 
+  // automatically by calling any of the 
+  // following methods:
   //
   // lora.standby()
   // lora.sleep()
-  // lora.transmit();
-  // lora.receive();
-  // lora.scanChannel();
+  // lora.transmit()
+  // lora.receive()
+  // lora.scanChannel()
+  //
+  // LoRa module will not receive any new
+  // packets until 'listen' mode is re-enabled
+  // by calling lora.startReceive()
 }
 
 // flag to indicate that a packet was received
@@ -130,13 +135,13 @@ void loop() {
   
       // print RSSI (Received Signal Strength Indicator) 
       Serial.print("RSSI:\t\t\t");
-      Serial.print(lora.lastPacketRSSI);
+      Serial.print(lora.getRSSI());
       Serial.println(" dBm");
   
       // print SNR (Signal-to-Noise Ratio) 
       Serial.print("SNR:\t\t\t");
-      Serial.print(lora.lastPacketSNR);
-      Serial.println(" dBm");
+      Serial.print(lora.getSNR());
+      Serial.println(" dB");
 
       // print frequency error
       Serial.print("Frequency error:\t");

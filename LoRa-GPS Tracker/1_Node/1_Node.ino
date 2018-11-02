@@ -34,7 +34,7 @@ void triple_cmd(uint8_t Tcmd);  // send 3x Tcmd
 void ReceiveMsg();
 int8_t SendMsg(String msg);
 
-//=== SETUP =========================================+
+
 void setup(){
   Serial.begin(115200);
   E32.begin(9600);
@@ -58,12 +58,10 @@ void setup(){
 
   Serial.println("Init complete");
 }
-//=== SETUP =========================================-
 
-//=== LOOP ==========================================+
 void loop(){
   uint16_t gps_sat_num=0;
-  float gps_lati=0.00, gps_long=0.00, 
+  float gps_lati=0.00, gps_long=0.00;
 
   gps_lati = 37.341776;
   gps_long = 126.831320;
@@ -76,7 +74,6 @@ void loop(){
 
   delay(2500);  
 }
-//=== LOOP ==========================================-
 
 
 void blinkLED(){
@@ -86,7 +83,7 @@ void blinkLED(){
   delay(75);
 }
 
-//=== AUX ===========================================+
+
 bool ReadAUX(){
   int val = analogRead(AUX_PIN);
 
@@ -111,9 +108,7 @@ int8_t WaitAUX_H(){
   }
   return 0;
 }
-//=== AUX ===========================================-
 
-//=== Mode Select ===================================+
 void SwitchMode(uint8_t mode){
   WaitAUX_H();
 
@@ -145,7 +140,7 @@ void SwitchMode(uint8_t mode){
   WaitAUX_H();
   delay(10);
 }
-//=== Mode Select ===================================-
+
 
 void triple_cmd(uint8_t Tcmd){
   WaitAUX_H();

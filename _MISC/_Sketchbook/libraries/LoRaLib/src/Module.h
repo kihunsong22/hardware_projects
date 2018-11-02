@@ -9,11 +9,11 @@
 #define SPI_WRITE 0b10000000
 
 #ifdef ESP32
-  // ESP32 boards: pin 7 conflicts with ESP32 flash connections
+  // ESP32 boards (pin 10 conflicts with ESP32 flash connections)
   #define LORALIB_DEFAULT_SPI_CS                      4
 #else
-  // all other architectures: pin 7 does not conflict with anything
-  #define LORALIB_DEFAULT_SPI_CS                      7
+  // all other architectures
+  #define LORALIB_DEFAULT_SPI_CS                      10
 #endif
 
 class Module {
@@ -23,14 +23,12 @@ class Module {
     void init(uint8_t interface, uint8_t gpio);
     
     int16_t SPIgetRegValue(uint8_t reg, uint8_t msb = 7, uint8_t lsb = 0);
-    int16_t SPIsetRegValue(uint8_t reg, uint8_t value, uint8_t msb = 7, uint8_t lsb = 0);
+    int16_t SPIsetRegValue(uint8_t reg, uint8_t value, uint8_t msb = 7, uint8_t lsb = 0, uint8_t checkInterval = 2);
     
     void SPIreadRegisterBurst(uint8_t reg, uint8_t numBytes, uint8_t* inBytes);
-    void SPIreadRegisterBurstStr(uint8_t reg, uint8_t numBytes, char* str);
     uint8_t SPIreadRegister(uint8_t reg);
     
     void SPIwriteRegisterBurst(uint8_t reg, uint8_t* data, uint8_t numBytes);
-    void SPIwriteRegisterBurstStr(uint8_t reg, const char* data, uint8_t numBytes);
     void SPIwriteRegister(uint8_t reg, uint8_t data);
     
     int int0() const { return(_int0); }
