@@ -92,7 +92,7 @@ void loop(){
           blinkLED();
         }
 
-        delay(2500);
+        delay(1200);
       }
       break;
 

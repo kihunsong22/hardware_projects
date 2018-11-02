@@ -1,7 +1,7 @@
 #include <Arduino.h>
-#include <ESP8266WiFi.h>
-#include <ESP8266WiFiMulti.h>
-#include <ESP8266HTTPClient.h>
+// #include <ESP8266WiFi.h>
+// #include <ESP8266WiFiMulti.h>
+// #include <ESP8266HTTPClient.h>
 #include <SoftwareSerial.h>
 
 #define SSID1 "DimiFi 2G1"
@@ -27,7 +27,7 @@ struct CFGstruct {  // settings parameter -> E32 pdf p.28
   // uint8_t SPED = 0x18;  // 8N1, 9600bps, 0.3k air rate
   // uint8_t SPED = 0x19;  // 8N1, 9600bps, 1.2k air rate
   uint8_t SPED = 0x1A;  // 8N1, 9600bps, 2.4k air rate
-  uint8_t CHAN = 0x1F;
+  uint8_t CHAN = 0x10;
   uint8_t OPTION_bits = 0xC4;  // 1, 1, 000, 1, 00
 };
 struct CFGstruct CFG;
@@ -36,8 +36,8 @@ struct CFGstruct CFG;
 // http://tracker.iwinv.net/upload?gps_long=-1&gps_lati=-1&rssi=404&passcode=4660
 const String link = "http://tracker.iwinv.net/upload?passcode=4660";
 
-ESP8266WiFiMulti WiFiMulti;
-HTTPClient http;
+// ESP8266WiFiMulti WiFiMulti;
+// HTTPClient http;
 SoftwareSerial E32(SOFT_RX, SOFT_TX);  // RX, TX
 
 int8_t WaitAUX_H();  // wait till AUX goes high
@@ -64,19 +64,19 @@ void setup(){
 	triple_cmd(0xC4);  // 0xC4: reset
 	delay(1200);
 
-	WiFi.mode(WIFI_STA);
-	WiFiMulti.addAP(SSID1, PASS1);
-	WiFiMulti.addAP(SSID2, PASS2);
-	while(WiFiMulti.run() != WL_CONNECTED){
-		ESP.wdtFeed();
-		Serial.print(".");
-		delay(250);
-	}
+	// WiFi.mode(WIFI_STA);
+	// WiFiMulti.addAP(SSID1, PASS1);
+	// WiFiMulti.addAP(SSID2, PASS2);
+	// while(WiFiMulti.run() != WL_CONNECTED){
+	// 	ESP.wdtFeed();
+	// 	Serial.print(".");
+	// 	delay(250);
+	// }
 	
-	Serial.print("\nWiFi Connected: ");
-	Serial.println(WiFi.SSID());
-	Serial.print("IP address: ");
-	Serial.println(WiFi.localIP());
+	// Serial.print("\nWiFi Connected: ");
+	// Serial.println(WiFi.SSID());
+	// Serial.print("IP address: ");
+	// Serial.println(WiFi.localIP());
 
 	SwitchMode(3);  // sleep mode/parameter setting
   E32.write((const uint8_t *)&CFG, 6);  // 6 for 6 variables in CFG
