@@ -190,6 +190,11 @@
 <text x="34.163" y="34.036" size="1.0668" layer="21" font="vector" rot="R180">GND</text>
 <text x="34.163" y="31.369" size="1.0668" layer="21" font="vector" rot="R180">5V</text>
 <text x="34.29" y="28.956" size="1.0668" layer="21" font="vector" rot="R180">3.3V</text>
+<text x="51.562" y="2.921" size="0.9652" layer="21" font="vector" distance="0">0805
+res</text>
+<text x="50.165" y="28.194" size="0.9652" layer="21" font="vector" distance="0" rot="R90">0805</text>
+<text x="69.85" y="34.671" size="0.9652" layer="21" font="vector" distance="0" rot="R180">0805</text>
+<text x="75.819" y="34.671" size="0.9652" layer="21" font="vector" distance="0" rot="R180">0805</text>
 </plain>
 <libraries>
 <library name="gy-521">
@@ -2364,7 +2369,7 @@ design rules under a new name.</description>
 <via x="12.446" y="29.845" extent="1-16" drill="0.35"/>
 <via x="15.113" y="15.494" extent="1-16" drill="0.35"/>
 <via x="22.606" y="15.24" extent="1-16" drill="0.35"/>
-<via x="51.943" y="3.81" extent="1-16" drill="0.35"/>
+<via x="58.674" y="3.302" extent="1-16" drill="0.35"/>
 </signal>
 <signal name="RAW">
 <contactref element="B1" pad="24"/>
@@ -2522,10 +2527,8 @@ design rules under a new name.</description>
 <wire x1="29.337" y1="33.401" x2="28.448" y2="33.401" width="0.2032" layer="16"/>
 <contactref element="B1" pad="2"/>
 <wire x1="51.689" y1="17.526" x2="42.926" y2="26.289" width="0.2032" layer="16"/>
-<wire x1="51.689" y1="17.526" x2="51.689" y2="11.938" width="0.2032" layer="1"/>
-<wire x1="51.689" y1="11.938" x2="52.705" y2="10.922" width="0.2032" layer="1"/>
-<wire x1="52.705" y1="10.922" x2="52.705" y2="7.1374" width="0.2032" layer="1"/>
-<wire x1="52.705" y1="7.1374" x2="52.5018" y2="6.9342" width="0.2032" layer="1"/>
+<wire x1="51.689" y1="7.747" x2="52.5018" y2="6.9342" width="0.2032" layer="1"/>
+<wire x1="51.689" y1="17.526" x2="51.689" y2="7.747" width="0.2032" layer="1"/>
 </signal>
 <signal name="N$9">
 <contactref element="JP_SCL" pad="2"/>
@@ -2655,16 +2658,14 @@ design rules under a new name.</description>
 <contactref element="B1" pad="9"/>
 <wire x1="70.2818" y1="6.9342" x2="68.326" y2="8.89" width="0.2032" layer="1"/>
 <wire x1="68.326" y1="8.89" x2="63.246" y2="8.89" width="0.2032" layer="1"/>
-<wire x1="63.246" y1="8.89" x2="60.452" y2="11.684" width="0.2032" layer="1"/>
-<wire x1="57.785" y1="11.684" x2="60.452" y2="11.684" width="0.2032" layer="1"/>
 <via x="55.245" y="11.811" extent="1-16" drill="0.35"/>
-<wire x1="55.245" y1="11.811" x2="57.658" y2="11.811" width="0.2032" layer="1"/>
-<wire x1="57.658" y1="11.811" x2="57.785" y2="11.684" width="0.2032" layer="1"/>
 <via x="42.672" y="22.098" extent="1-16" drill="0.35"/>
 <wire x1="40.386" y1="23.2156" x2="41.5544" y2="23.2156" width="0.2032" layer="1"/>
 <wire x1="41.5544" y1="23.2156" x2="42.672" y2="22.098" width="0.2032" layer="1"/>
 <wire x1="42.672" y1="22.098" x2="52.959" y2="11.811" width="0.2032" layer="16"/>
 <wire x1="52.959" y1="11.811" x2="55.245" y2="11.811" width="0.2032" layer="16"/>
+<wire x1="60.325" y1="11.811" x2="55.245" y2="11.811" width="0.2032" layer="1"/>
+<wire x1="63.246" y1="8.89" x2="60.325" y2="11.811" width="0.2032" layer="1"/>
 </signal>
 <signal name="N$5" class="1">
 <contactref element="U1" pad="VCC"/>
@@ -2706,6 +2707,10 @@ design rules under a new name.</description>
 </board>
 </drawing>
 <compatibility>
+<note version="6.3" minversion="6.2.2" severity="warning">
+Since Version 6.2.2 text objects can contain more than one line,
+which will not be processed correctly with this version.
+</note>
 <note version="8.2" severity="warning">
 Since Version 8.2, EAGLE supports online libraries. The ids
 of those online libraries will not be understood (or retained)
