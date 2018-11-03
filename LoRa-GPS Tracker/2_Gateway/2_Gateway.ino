@@ -1,7 +1,7 @@
 #include <Arduino.h>
-// #include <ESP8266WiFi.h>
-// #include <ESP8266WiFiMulti.h>
-// #include <ESP8266HTTPClient.h>
+#include <ESP8266WiFi.h>
+#include <ESP8266WiFiMulti.h>
+#include <ESP8266HTTPClient.h>
 #include <SoftwareSerial.h>
 
 #define SSID1 "DimiFi 2G1"
@@ -25,9 +25,9 @@ struct CFGstruct {  // settings parameter -> E32 pdf p.28
   uint8_t ADDH = 0x05;
   uint8_t ADDL = 0x01;
   // uint8_t SPED = 0x18;  // 8N1, 9600bps, 0.3k air rate
-  // uint8_t SPED = 0x19;  // 8N1, 9600bps, 1.2k air rate
+  // uint8_t SPED = 0x19;  // 8N1, 9600bps, 1.2k air rate 
   uint8_t SPED = 0x1A;  // 8N1, 9600bps, 2.4k air rate
-  uint8_t CHAN = 0x10;
+  uint8_t CHAN = 0x10;  // 424Mhz
   uint8_t OPTION_bits = 0xC4;  // 1, 1, 000, 1, 00
 };
 struct CFGstruct CFG;
