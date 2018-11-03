@@ -21113,8 +21113,7 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <variantdefs>
 </variantdefs>
 <classes>
-<class number="0" name="default" width="0.2032" drill="0.127">
-<clearance class="0" value="0.1524"/>
+<class number="0" name="default" width="0.2032" drill="0">
 </class>
 <class number="1" name="power" width="0.762" drill="0">
 <clearance class="1" value="0.254"/>
@@ -21378,7 +21377,7 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <wire x1="-17.78" y1="5.08" x2="-20.32" y2="5.08" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="A5" class="0">
+<net name="SCL" class="0">
 <segment>
 <pinref part="I2C_1" gate="G$1" pin="3"/>
 <wire x1="-48.26" y1="43.18" x2="-35.56" y2="43.18" width="0.1524" layer="91"/>

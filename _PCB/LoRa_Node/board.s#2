@@ -20607,9 +20607,9 @@ See also HELP HOLE,</description>
 <attribute name="VALUE" x="44.45" y="146.304" size="1.778" layer="96" font="vector"/>
 <attribute name="NAME" x="44.45" y="164.338" size="1.778" layer="95" font="vector"/>
 </instance>
-<instance part="REFERENCE" gate="G$1" x="251.46" y="157.48" smashed="yes">
-<attribute name="VALUE" x="248.92" y="147.574" size="1.778" layer="96" font="vector"/>
-<attribute name="NAME" x="248.92" y="165.608" size="1.778" layer="95" font="vector"/>
+<instance part="REFERENCE" gate="G$1" x="248.92" y="140.97" smashed="yes">
+<attribute name="VALUE" x="246.38" y="131.064" size="1.778" layer="96" font="vector"/>
+<attribute name="NAME" x="246.38" y="149.098" size="1.778" layer="95" font="vector"/>
 </instance>
 <instance part="BME280_1-3" gate="J$1" x="29.21" y="82.55" smashed="yes">
 <attribute name="VALUE" x="26.67" y="75.184" size="1.778" layer="96" font="vector"/>
@@ -20730,13 +20730,13 @@ See also HELP HOLE,</description>
 <attribute name="VALUE" x="31.75" y="146.304" size="1.778" layer="96" font="vector"/>
 <attribute name="NAME" x="31.75" y="164.338" size="1.778" layer="95" font="vector"/>
 </instance>
-<instance part="H2" gate="G$1" x="251.46" y="143.51" smashed="yes">
-<attribute name="NAME" x="253.492" y="144.0942" size="1.778" layer="95"/>
-<attribute name="VALUE" x="253.492" y="141.0462" size="1.778" layer="96"/>
+<instance part="H2" gate="G$1" x="248.92" y="165.1" smashed="yes">
+<attribute name="NAME" x="250.952" y="165.6842" size="1.778" layer="95"/>
+<attribute name="VALUE" x="250.952" y="162.6362" size="1.778" layer="96"/>
 </instance>
-<instance part="H3" gate="G$1" x="251.46" y="134.62" smashed="yes">
-<attribute name="NAME" x="253.492" y="135.2042" size="1.778" layer="95"/>
-<attribute name="VALUE" x="253.492" y="132.1562" size="1.778" layer="96"/>
+<instance part="H3" gate="G$1" x="248.92" y="156.21" smashed="yes">
+<attribute name="NAME" x="250.952" y="156.7942" size="1.778" layer="95"/>
+<attribute name="VALUE" x="250.952" y="153.7462" size="1.778" layer="96"/>
 </instance>
 </instances>
 <busses>

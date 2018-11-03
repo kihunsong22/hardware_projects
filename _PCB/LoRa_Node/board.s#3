@@ -20544,7 +20544,8 @@ See also HELP HOLE,</description>
 <part name="SUPPLY1" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="3.3V" device=""/>
 <part name="H1" library="special-drill" library_urn="urn:adsk.eagle:library:366" deviceset="SPECIAL_DRILL_" device="0.3650" package3d_urn="urn:adsk.eagle:package:26542/1" value="DRILL_0.3650_GP2Y10"/>
 <part name="GP2Y10_1" library="SparkFun-Connectors" library_urn="urn:adsk.eagle:library:513" deviceset="CONN_05" device="" package3d_urn="urn:adsk.eagle:package:38104/1"/>
-<part name="H2" library="holes" deviceset="MOUNT-HOLE" device="2.8"/>
+<part name="H2" library="holes" deviceset="MOUNT-HOLE" device="2.8" value="18650"/>
+<part name="H3" library="holes" deviceset="MOUNT-HOLE" device="3.0" value="ANT"/>
 </parts>
 <sheets>
 <sheet>
@@ -20732,6 +20733,10 @@ See also HELP HOLE,</description>
 <instance part="H2" gate="G$1" x="251.46" y="143.51" smashed="yes">
 <attribute name="NAME" x="253.492" y="144.0942" size="1.778" layer="95"/>
 <attribute name="VALUE" x="253.492" y="141.0462" size="1.778" layer="96"/>
+</instance>
+<instance part="H3" gate="G$1" x="251.46" y="134.62" smashed="yes">
+<attribute name="NAME" x="253.492" y="135.2042" size="1.778" layer="95"/>
+<attribute name="VALUE" x="253.492" y="132.1562" size="1.778" layer="96"/>
 </instance>
 </instances>
 <busses>

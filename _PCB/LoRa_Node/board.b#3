@@ -2426,7 +2426,7 @@ design rules under a new name.</description>
 <attribute name="VALUE" x="56.7436" y="-1.397" size="0.6096" layer="27" font="vector" ratio="20"/>
 </element>
 <element name="H2" library="holes" package="2,8" value="18650" x="102.616" y="15.494" smashed="yes" rot="R90"/>
-<element name="H3" library="holes" package="3,0" value="ANT" x="33.02" y="6.35" smashed="yes"/>
+<element name="H3" library="holes" package="3,0" value="ANT" x="38.1" y="2.54" smashed="yes"/>
 </elements>
 <signals>
 <signal name="GND">
