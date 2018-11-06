@@ -1,7 +1,6 @@
 #include <SoftwareSerial.h>
 
 #define MAX_TX_SIZE 57
-
 #define BC_ADDH 0xFF
 #define BC_ADDL 0xFF
 #define BC_CHAN 0x0E
@@ -40,7 +39,7 @@ void setup(){
   E32.begin(9600);
 
   Serial.println("\nInitializing...");
-  Serial.println("Device: 1: Node/TX");
+  Serial.println("Device: 1: Node/TX_Test");
 
   pinMode(M0_PIN, OUTPUT);
   pinMode(M1_PIN, OUTPUT);
@@ -60,19 +59,13 @@ void setup(){
 }
 
 void loop(){
-  uint16_t gps_sat_num=0;
-  float gps_lati=0.00, gps_long=0.00;
-
-  gps_lati = 37.341776;
-  gps_long = 126.831320;
-  gps_sat_num=random(4, 8);
-  String dataStr = "test data ";
+  String dataStr = "$0#4#7.80#37.39#126.95#20170.00$";
 
   if(SendMsg(dataStr) == 0){  // success
     blinkLED();
   }
 
-  delay(800);  
+  delay(250);  
 }
 
 

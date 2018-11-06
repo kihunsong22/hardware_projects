@@ -131,6 +131,11 @@ void loop(){
 
   dataStr = "$" + String(error) + "#" + String(gps_sat) + "#" + String(gps_hdop) + "#";
   dataStr += String(gps_lati) + "#" + String(gps_long) + "#" + String(gps_alt) + "$";
+
+// DEBUG
+  dataStr = "$0#4#7.80#37.39#126.95#20170.00$";
+// DEBUG
+
   Serial.print("DataSTR: "); Serial.println(dataStr);
 
   if(SendMsg(dataStr) == 0){  // success
@@ -162,7 +167,7 @@ bool ReadAUX(){
 int8_t WaitAUX_H(){
   uint8_t cnt = 0;
 
-  while((ReadAUX()==LOW) && (cnt++<100)){
+  while((ReadAUX()==LOW) && (cnt++<15)){
     Serial.print(".");
     delay(100);
   }

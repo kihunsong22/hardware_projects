@@ -1,13 +1,5 @@
 #include <Arduino.h>
-#include <ESP8266WiFi.h>
-#include <ESP8266WiFiMulti.h>
-#include <ESP8266HTTPClient.h>
 #include <SoftwareSerial.h>
-
-#define SSID1 "DimiFi 2G1"
-#define PASS1 "newdimigo"
-#define SSID2 "DimiFi 2G2"
-#define PASS2 "newdimigo"
 
 #define MAX_TX_SIZE 57
 #define BC_ADDH 0xFF
@@ -32,12 +24,6 @@ struct CFGstruct {  // settings parameter -> E32 pdf p.28
 };
 struct CFGstruct CFG;
 
-
-// http://tracker.iwinv.net/upload?gps_long=-1&gps_lati=-1&rssi=404&passcode=4660
-const String link = "http://tracker.iwinv.net/upload?passcode=4660";
-
-// ESP8266WiFiMulti WiFiMulti;
-// HTTPClient http;
 SoftwareSerial E32(SOFT_RX, SOFT_TX);  // RX, TX
 
 int8_t WaitAUX_H();  // wait till AUX goes high
@@ -52,7 +38,7 @@ void setup(){
 	Serial.begin(115200);
   E32.begin(9600);
 	Serial.println("\r\nInitializing...");
-	Serial.println("Device: Gateway");
+	Serial.println("Device: RX_Test \n");
 
   pinMode(M0_PIN, OUTPUT);
   pinMode(M1_PIN, OUTPUT);
@@ -64,52 +50,14 @@ void setup(){
 	triple_cmd(0xC4);  // 0xC4: reset
 	delay(1200);
 
-	// WiFi.mode(WIFI_STA);
-	// WiFiMulti.addAP(SSID1, PASS1);
-	// WiFiMulti.addAP(SSID2, PASS2);
-	// while(WiFiMulti.run() != WL_CONNECTED){
-	// 	ESP.wdtFeed();
-	// 	Serial.print(".");
-	// 	delay(250);
-	// }
-	
-	// Serial.print("\nWiFi Connected: ");
-	// Serial.println(WiFi.SSID());
-	// Serial.print("IP address: ");
-	// Serial.println(WiFi.localIP());
-
 	SwitchMode(3);  // sleep mode/parameter setting
   E32.write((const uint8_t *)&CFG, 6);  // 6 for 6 variables in CFG
   delay(1200);
 	SwitchMode(0);
-
-  // Serial.println("\nInit complete\n");
-
-
-	// float gps_lati=-12, gps_long=-12;
-	// uint16_t rssi=404;
-
-  // String link1 = link+"&gps_lati="+String(gps_lati)+"&gps_long="+String(gps_long)+"&rssi="+String(rssi);
-	// Serial.print("LINK: ");
-	// Serial.println(link1);
-
-	// http.begin(link1);
-	// if (http.GET() == HTTP_CODE_OK) {
-	// 	String payload = http.getString();
-	// 	Serial.print("Response: ");
-	// 	Serial.println(payload);
-	// 	Serial.println("HTTP upload success");
-	// }else{
-	// 	Serial.println("HTTP Connection Error");
-	// 	Serial.println();
-	// }
-	// http.end();
+  Serial.println("\nInit complete\n");
 }
 
 void loop(){
-	// float gps_lati=-12, gps_long=-12;
-	// uint16_t rssi=404;
-
 	ReceiveMsg();
 	delay(500);
 }
@@ -187,23 +135,36 @@ void ReceiveMsg(){
   }
   uint8_t data_len = E32.available();
   uint8_t idx;
-  blinkLED();
 
   Serial.print("LoRa Received: [");
   Serial.print(String(data_len));
   Serial.println("] bytes.");
 
-  char RX_buf[data_len+1];
-  for(idx=0;idx<data_len;idx++){
-    RX_buf[idx] = E32.read();
-  }
+  // char RX_buf[data_len+1];
+  // for(idx=0;idx<data_len;idx++){
+  //   RX_buf[idx] = E32.read();
+  // }
   // RX_buf[data_len] = "\0";  // NULL terminate array
 
-  Serial.print("data: [");
-  Serial.print(RX_buf);
-  Serial.println("]");
-  Serial.println();
+  String RX_buf = "";
+  
+  for(idx=0;idx<data_len;idx++){
+    RX_buf.concat(String(E32.read()));
+  }
+
+  Serial.print("data: ["); Serial.print(RX_buf); Serial.println("]\n");
   Serial.flush();
+
+  blinkLED();
+  if(data_len == 32){
+    blinkLED();
+    blinkLED();
+    blinkLED();
+  }  
+
+  // if(RX_buf == "$0#4#7.80#37.39#126.95#20170.00$"){
+  //   blinkLED();
+  // }
 
   return;
 }
