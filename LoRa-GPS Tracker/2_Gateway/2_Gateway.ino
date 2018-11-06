@@ -1,7 +1,7 @@
-#include <Arduino.h>
-#include <ESP8266WiFi.h>
-#include <ESP8266WiFiMulti.h>
-#include <ESP8266HTTPClient.h>
+// #include <Arduino.h>
+// #include <ESP8266WiFi.h>
+// #include <ESP8266WiFiMulti.h>
+// #include <ESP8266HTTPClient.h>
 #include <SoftwareSerial.h>
 
 #define SSID1 "DimiFi 2G1"
@@ -14,11 +14,17 @@
 #define BC_ADDL 0xFF
 #define BC_CHAN 0x0E
 
-const uint8_t M0_PIN = 16;
-const uint8_t M1_PIN = 14;
-const uint8_t AUX_PIN = 4;
-const uint8_t SOFT_RX = 12;
-const uint8_t SOFT_TX = 13;
+// const uint8_t M0_PIN = 16;
+// const uint8_t M1_PIN = 14;
+// const uint8_t AUX_PIN = 4;
+// const uint8_t SOFT_RX = 12;
+// const uint8_t SOFT_TX = 13;
+
+const uint8_t M0_PIN = 7;
+const uint8_t M1_PIN = 8;
+const uint8_t AUX_PIN = A0;
+const uint8_t SOFT_RX = 10;
+const uint8_t SOFT_TX = 11;
 
 struct CFGstruct {  // settings parameter -> E32 pdf p.28
   uint8_t HEAD = 0xC0;  // do not save parameters when power-down
@@ -27,7 +33,8 @@ struct CFGstruct {  // settings parameter -> E32 pdf p.28
   // uint8_t SPED = 0x18;  // 8N1, 9600bps, 0.3k air rate
   // uint8_t SPED = 0x19;  // 8N1, 9600bps, 1.2k air rate 
   uint8_t SPED = 0x1A;  // 8N1, 9600bps, 2.4k air rate
-  uint8_t CHAN = 0x10;  // 424Mhz
+  // uint8_t CHAN = 0x10;  // 424Mhz
+  uint8_t CHAN = 0x18;  // 434Mhz
   uint8_t OPTION_bits = 0xC4;  // 1, 1, 000, 1, 00
 };
 struct CFGstruct CFG;

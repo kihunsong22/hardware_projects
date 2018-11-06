@@ -7,11 +7,17 @@
 #define BC_ADDL 0xFF
 #define BC_CHAN 0x0E
 
-const uint8_t M0_PIN = 16;
-const uint8_t M1_PIN = 14;
-const uint8_t AUX_PIN = 4;
-const uint8_t SOFT_RX = 12;
-const uint8_t SOFT_TX = 13;
+const uint8_t M0_PIN = D0;
+const uint8_t M1_PIN = D1;
+const uint8_t AUX_PIN = D2;
+const uint8_t SOFT_RX = D6;
+const uint8_t SOFT_TX = D7;
+
+// const uint8_t M0_PIN = 16;
+// const uint8_t M1_PIN = 14;
+// const uint8_t AUX_PIN = 4;
+// const uint8_t SOFT_RX = 12;
+// const uint8_t SOFT_TX = 13;
 
 const uint8_t GPS_RX = 5;
 const uint8_t GPS_TX = 0;
@@ -23,7 +29,8 @@ struct CFGstruct {  // settings parameter -> E32 pdf p.28
   // uint8_t SPED = 0x18;  // 8N1, 9600bps, 0.3k air rate
   // uint8_t SPED = 0x19;  // 8N1, 9600bps, 1.2k air rate 
   uint8_t SPED = 0x1A;  // 8N1, 9600bps, 2.4k air rate
-  uint8_t CHAN = 0x10;  // 424Mhz
+  // uint8_t CHAN = 0x10;  // 424Mhz
+  uint8_t CHAN = 0x18;  // 434Mhz
   uint8_t OPTION_bits = 0xC4;  // 1, 1, 000, 1, 00
 };
 struct CFGstruct CFG;
@@ -67,6 +74,9 @@ void setup(){
 
 // error, sats, hdop, lat, long, alt
 // uint8_t, uint8_t, float, float, float, float
+
+// error, lat, long
+// uint8_t, float, float
 
 // Sats HDOP  Latitude   Longitude   Fix  Date       Time     Date Alt    Course Speed Card  Distance Course Card  Chars Sentences Checksum
 //            (deg)      (deg)       Age                      Age  (m)    --- from GPS ----  ---- to London  ----  RX    RX        Fail
