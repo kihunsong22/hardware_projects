@@ -1,7 +1,7 @@
-// #include <Arduino.h>
-// #include <ESP8266WiFi.h>
-// #include <ESP8266WiFiMulti.h>
-// #include <ESP8266HTTPClient.h>
+#include <Arduino.h>
+#include <ESP8266WiFi.h>
+#include <ESP8266WiFiMulti.h>
+#include <ESP8266HTTPClient.h>
 #include <SoftwareSerial.h>
 
 #define SSID1 "DimiFi 2G1"
@@ -14,17 +14,26 @@
 #define BC_ADDL 0xFF
 #define BC_CHAN 0x0E
 
+// Wemos D1 Mini
+const uint8_t M0_PIN = D0;
+const uint8_t M1_PIN = D1;
+const uint8_t AUX_PIN = D2;
+const uint8_t SOFT_RX = D6;
+const uint8_t SOFT_TX = D7;
+
+// Wemos D1 Mini Pro
 // const uint8_t M0_PIN = 16;
 // const uint8_t M1_PIN = 14;
 // const uint8_t AUX_PIN = 4;
 // const uint8_t SOFT_RX = 12;
 // const uint8_t SOFT_TX = 13;
 
-const uint8_t M0_PIN = 7;
-const uint8_t M1_PIN = 8;
-const uint8_t AUX_PIN = A0;
-const uint8_t SOFT_RX = 10;
-const uint8_t SOFT_TX = 11;
+// ATMega328p
+// const uint8_t M0_PIN = 7;
+// const uint8_t M1_PIN = 8;
+// const uint8_t AUX_PIN = A0;
+// const uint8_t SOFT_RX = 10;
+// const uint8_t SOFT_TX = 11;
 
 struct CFGstruct {  // settings parameter -> E32 pdf p.28
   uint8_t HEAD = 0xC0;  // do not save parameters when power-down
@@ -40,13 +49,16 @@ struct CFGstruct {  // settings parameter -> E32 pdf p.28
 struct CFGstruct CFG;
 
 
-// http://tracker.iwinv.net/upload?gps_long=-1&gps_lati=-1&rssi=404&passcode=4660
+// http://tracker.iwinv.net/upload?gps_long=-1&gps_lati=-1&debug=404&passcode=4660
 const String link = "http://tracker.iwinv.net/upload?passcode=4660";
+uint8_t data_len = 0;
+String data_rec = "";
 
-// ESP8266WiFiMulti WiFiMulti;
-// HTTPClient http;
+ESP8266WiFiMulti WiFiMulti;
+HTTPClient http;
 SoftwareSerial E32(SOFT_RX, SOFT_TX);  // RX, TX
 
+bool ReadAUX();  // read AUX logic level
 int8_t WaitAUX_H();  // wait till AUX goes high
 void SwitchMode(uint8_t mode);  // change mode
 void blinkLED();
@@ -71,32 +83,50 @@ void setup(){
 	triple_cmd(0xC4);  // 0xC4: reset
 	delay(1200);
 
-	// WiFi.mode(WIFI_STA);
-	// WiFiMulti.addAP(SSID1, PASS1);
-	// WiFiMulti.addAP(SSID2, PASS2);
-	// while(WiFiMulti.run() != WL_CONNECTED){
-	// 	ESP.wdtFeed();
-	// 	Serial.print(".");
-	// 	delay(250);
-	// }
+	WiFi.mode(WIFI_STA);
+	WiFiMulti.addAP(SSID1, PASS1);
+	WiFiMulti.addAP(SSID2, PASS2);
+	while(WiFiMulti.run() != WL_CONNECTED){
+		ESP.wdtFeed();
+		Serial.print(".");
+		delay(250);
+	}
 	
-	// Serial.print("\nWiFi Connected: ");
-	// Serial.println(WiFi.SSID());
-	// Serial.print("IP address: ");
-	// Serial.println(WiFi.localIP());
+	Serial.print("\nWiFi Connected: ");
+	Serial.println(WiFi.SSID());
+	Serial.print("IP address: ");
+	Serial.println(WiFi.localIP());
 
 	SwitchMode(3);  // sleep mode/parameter setting
   E32.write((const uint8_t *)&CFG, 6);  // 6 for 6 variables in CFG
   delay(1200);
 	SwitchMode(0);
 
-  // Serial.println("\nInit complete\n");
+  Serial.println("\nInit complete\n");
+}
+
+void loop(){
+	ReceiveMsg();
+	delay(500);
+
+  if(data_len == 22){
+    blinkLED();
+    blinkLED();
+    blinkLED();
+  }
+
+  if(data_rec.startsWith("$") && data_rec.endsWith("$")){
+    data_rec = data_rec.replace("$", "");
+    gps_lati = 0;
+    gps_long = 0;
+    debug = 0;
+  }
 
 
 	// float gps_lati=-12, gps_long=-12;
-	// uint16_t rssi=404;
+	// uint16_t debug=404;
 
-  // String link1 = link+"&gps_lati="+String(gps_lati)+"&gps_long="+String(gps_long)+"&rssi="+String(rssi);
+  // String link1 = link+"&gps_lati="+String(gps_lati)+"&gps_long="+String(gps_long)+"&debug="+String(debug);
 	// Serial.print("LINK: ");
 	// Serial.println(link1);
 
@@ -111,14 +141,8 @@ void setup(){
 	// 	Serial.println();
 	// }
 	// http.end();
-}
 
-void loop(){
-	// float gps_lati=-12, gps_long=-12;
-	// uint16_t rssi=404;
-
-	ReceiveMsg();
-	delay(500);
+  Serial.println("\n=====\n");
 }
 
 
@@ -129,15 +153,26 @@ void blinkLED(){
   delay(75);
 }
 
+
+bool ReadAUX(){
+  int val = analogRead(AUX_PIN);
+
+  if(val<50){
+    return LOW;
+  }else{
+    return HIGH;
+  }
+}
+
 int8_t WaitAUX_H(){
   uint8_t cnt = 0;
 
-  while((digitalRead(AUX_PIN)==LOW) && (cnt++<15)){
+  while((ReadAUX()==LOW) && (cnt++<15)){
     Serial.print(".");
     delay(100);
   }
 
-  if(cnt>=15){
+  if(cnt>=100){
     Serial.println("  AUX-TimeOut");
     return -1;
   }
@@ -192,7 +227,7 @@ void ReceiveMsg(){
   if(E32.available()==0){
     return;
   }
-  uint8_t data_len = E32.available();
+  data_len = E32.available();
   uint8_t idx;
   blinkLED();
 
@@ -204,12 +239,16 @@ void ReceiveMsg(){
   for(idx=0;idx<data_len;idx++){
     RX_buf[idx] = E32.read();
   }
+  data_rec = RX_buf;
   // RX_buf[data_len] = "\0";  // NULL terminate array
 
+  Serial.print("String Length: [");
+  Serial.print(String(data_rec.length()));
+  Serial.println("] bytes.");
+
   Serial.print("data: [");
-  Serial.print(RX_buf);
+  Serial.print(data_rec);
   Serial.println("]");
-  Serial.println();
   Serial.flush();
 
   return;

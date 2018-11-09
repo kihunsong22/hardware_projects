@@ -1,11 +1,3 @@
-/*
-  BCAQS1187.h
-  Created By: sy.baik, 2018-06-17
-  
-  This library facilitates communication with, and configuration of, 
-  the BCAQS1187 Sensor(CCS811_Indoor air quality sensor) for Arduino.  
-*/
-
 #ifndef BCAQS1187_H
 #define BCAQS1187_h
 
@@ -28,7 +20,7 @@
 #define BCAQS1187_SW_RESET 0xFF
 
   
-  //bootloader registers
+// bootloader registers
 
 #define BCAQS1187_BOOTLOADER_APP_ERASE 0xF1
 #define BCAQS1187_BOOTLOADER_APP_DATA 0xF2

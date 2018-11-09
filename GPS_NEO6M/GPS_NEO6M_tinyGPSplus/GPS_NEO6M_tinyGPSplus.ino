@@ -1,7 +1,7 @@
 #include <TinyGPS++.h>
 #include <SoftwareSerial.h>
 
-const uint8_t RXPin = 5, TXPin = 2;
+const uint8_t RXPin = 5, TXPin = 0;
 
 SoftwareSerial gps_s(RXPin, TXPin);
 TinyGPSPlus gps;

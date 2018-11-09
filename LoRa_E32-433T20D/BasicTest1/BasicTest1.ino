@@ -228,8 +228,7 @@ void ReceiveMsg(){
 
   Serial.print("data: [");
   Serial.print(RX_buf);
-  Serial.println("]");
-  Serial.println();
+  Serial.println("]\n");
   Serial.flush();
 
   return;
