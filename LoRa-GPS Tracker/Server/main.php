@@ -79,30 +79,14 @@ while($row = mysqli_fetch_assoc($gps_result)){
         <!-- content body -->
         <div id="map">
             <!-- Google Maps Div -->
-            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCf9yz2xyNW7nPYCjxMIzO29348OSZa1wk&callback=initMap"
+            <script src="https://maps.googleapis.com/maps/api/js?key=___API_KEY___&callback=initMap"
             async defer></script>
-            <!-- <script>
-                var map;
-                function initMap() {
-                    map = new google.maps.Map(document.getElementById('map'), {
-                    center: {lat: 37.341894, lng: 126.831500},
-                    zoom: 17
-                    });
-
-                    var marker = new google.maps.Marker({
-                    position: {lat: 37.3419, lng: 126.83152},
-                    map: map,
-                    title: 'KDMHS'
-                    // 37.3419, 126.83152
-                    });
-                }
-            </script> -->
             <script>
                 var map;
                 function initMap() {
                     map = new google.maps.Map(document.getElementById('map'), {
                     center: {lat: 37.341894, lng: 126.831500},
-                    zoom: 17
+                    zoom: 18
                     });
 
                     // var marker = new google.maps.Marker({
@@ -111,21 +95,6 @@ while($row = mysqli_fetch_assoc($gps_result)){
                     // title: 'KDMHS'
                     // // 37.3419, 126.83152
                     // });
-
-
-                    <?php
-                    // for($i=0;$i<$filter_num;$i++){  // via marker
-                    //     $gps_lati = $gps_pos[$i][0];
-                    //     $gps_long = $gps_pos[$i][1];
-
-                    //     $gmapLine = "\nvar marker = new google.maps.Marker({position: {lat: ###, lng: @@@},map: map,title: 'GPS'});\n";
-                    //     $gmapLine = str_replace("###", "$gps_lati", $gmapLine);
-                    //     $gmapLine = str_replace("@@@", "$gps_long", $gmapLine);
-
-                    //     echo $gmapLine;
-                    // }
-                    ?>
-
 
                     <?php
                     echo "var GPSpath = [";
@@ -138,7 +107,6 @@ while($row = mysqli_fetch_assoc($gps_result)){
                         $gmapLine = str_replace("@@@", "$gps_long", $gmapLine);
 
                         echo $gmapLine;
-                        // echo $gmapLine;
                     }
                     echo "\n];";
 
