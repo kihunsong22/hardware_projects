@@ -106,7 +106,7 @@ error_reporting(E_ALL);
                         <article class="clear">
                             <figure><img src="assets/images/demo/180x150.gif" alt="">
                                 <figcaption>
-                                    <h2>우리학교 너무춥다</h2>
+                                    <h2>awefwefawef</h2>
                                     <p>구글이 최고지 <a href="https://www.google.com">GOOGLE</a></p>
                                     <footer class="more"><a href="#">Read More &raquo;</a></footer>
                                 </figcaption>
@@ -117,8 +117,8 @@ error_reporting(E_ALL);
                         <article class="clear">
                             <figure><img src="assets/images/demo/180x150.gif" alt="">
                                 <figcaption>
-                                    <h2>방과후실 와이파이는 FTP도 막아놨어</h2>
-                                    <p>그래도 노트북할 수 있는게 어디야</p>
+                                    <h2>awefawefawefawefwaef</h2>
+                                    <p>awefawefwef</p>
                                     <footer class="more"><a href="#">Read More &raquo;</a></footer>
                                 </figcaption>
                             </figure>

@@ -28,9 +28,8 @@ const uint8_t SOFT_TX = 13;
 // const uint8_t SOFT_RX = 10;
 // const uint8_t SOFT_TX = 11;
 
-
 const uint8_t GPS_RX = 5;
-const uint8_t GPS_TX = 0;
+const uint8_t GPS_TX = 0;  // useless
 
 struct CFGstruct {  // settings parameter -> E32 pdf p.28
   // uint8_t HEAD = 0xC0;  // do not save parameters when power-down
@@ -50,8 +49,7 @@ SoftwareSerial E32(SOFT_RX, SOFT_TX);
 SoftwareSerial gps_s(GPS_RX, GPS_TX);
 TinyGPSPlus gps;
 
-bool ReadAUX();  // read AUX logic level
-int8_t WaitAUX_H();  // wait till AUX goes high and wait a few millis
+int8_t WaitAUX_H();  // wait for AUX clear
 void SwitchMode(uint8_t mode);  // change mode to mode
 void blinkLED();
 void triple_cmd(uint8_t Tcmd);  // send 3x Tcmd
@@ -78,16 +76,10 @@ void setup(){
   E32.write((const uint8_t *)&CFG, 6);  // 6 for 6 variables in CFG
   delay(1200);
 
-  SwitchMode(0);
+  SwitchMode(2);  // power-saving mode
 
   Serial.println("Init complete");
 }
-
-// error, sats, hdop, lat, long, alt
-// uint8_t, uint8_t, float, float, float, float
-
-// lat, long
-// float, float
 
 // Sats HDOP  Latitude   Longitude   Fix  Date       Time     Date Alt    Course Speed Card  Distance Course Card  Chars Sentences Checksum
 //            (deg)      (deg)       Age                      Age  (m)    --- from GPS ----  ---- to London  ----  RX    RX        Fail
@@ -97,66 +89,37 @@ void setup(){
 // 8    1.9   37.393070  126.954208  207  11/03/2018 14:02:05 208  72.80  0.00   0.33  N     8875     329.70 NNW   1296  4         0        
 // 8    1.9   37.393070  126.954208  224  11/03/2018 14:02:06 224  72.70  0.00   0.00  N     8875     329.70 NNW   1944  6         0        
 
+String dataStr = "", data1="";
+uint8_t gps_sat=0;
+double gps_lati=0.0, gps_long=0.0;
 
 void loop(){
-  String dataStr = "", data1="";
-  uint8_t gps_sat=0;
-  float gps_lati=0.0, gps_long=0.0;
+  while (gps_s.available() > 0){
+    if (gps.encode(gps_s.read())){
+      gps_lati = gps.location.lat()*10000;
+      gps_long = gps.location.lng()*10000;
+      gps_sat = gps.satellites.value();
 
-  if(gps_s.available()){
-    if(gps.location.isValid() && gps.satellites.isValid()){
-      gps_lati = gps.location.lat();
-      gps_long = gps.location.lng();
-    }else{
-      Serial.println("\n=====\nGPS Data INVALID - Resetting Loop\n=====\n\n");
-      Serial.flush();
-      ESP.deepSleep(5000);
-      return;
-    }
+      dataStr = "";
+      dataStr.concat("$");
+      dataStr.concat(String(gps.location.lat(), 6));
+      // dataStr.concat(gps_lati/10000);
+      dataStr.concat("#");
+      dataStr.concat(String(gps.location.lng(), 6));
+      // dataStr.concat(gps_long/10000);
+      dataStr.concat("$");
+      Serial.print("DataSTR: "); Serial.println(dataStr);
+      Serial.print("Satellites: "); Serial.println(gps_sat);
 
-    if (millis() > 5000 && gps.charsProcessed() < 10){
-      Serial.println("GPS communication error");
-    }
-
-    if(String(gps_lati).length() == 9){
-      data1 = String(gps_lati);
-    }else if(String(gps_lati).length() > 9){
-      data1 = String(gps_lati).substring(0, 8);
-    }else if(String(gps_lati).length() < 9){
-      data1 = String(gps_lati);
-      while(data1.length() < 9){
-        data1.concat("0");
+      if(gps_sat>4){
+        if(SendMsg(dataStr) == 0){
+          blinkLED();
+          delay(2500);
+        }
       }
-    }
-    dataStr = "$" + data1 + "#";
-
-    if(String(gps_long).length() == 10){
-      data1 = String(gps_long);
-    }else if(String(gps_long).length() > 10){
-      data1 = String(gps_long).substring(0, 9);
-    }else if(String(gps_long).length() < 10){
-      data1 = String(gps_long);
-      while(data1.length() < 10){
-        data1.concat("0");
-      }
+      SwitchMode(2); // Power-Saving mode
     }
   }
-  dataStr += data1 + "$";
-
-// DEBUG
-  // dataStr = "$37.393063#126.954201$";  // length = 22
-// DEBUG
-
-  Serial.print("DataSTR: "); Serial.println(dataStr);
-
-  if(SendMsg(dataStr) == 0){  // success
-    blinkLED();
-  }
-
-  SwitchMode(2); // Power-Saving mode
-
-  // delay(2500);
-  ESP.deepSleep(2500);
 }
 
 
@@ -244,7 +207,7 @@ void ReceiveMsg(){
   for(idx=0;idx<data_len;idx++){
     RX_buf[idx] = E32.read();
   }
-  // RX_buf[data_len] = "\0";  // NULL terminate array
+  // RX_buf[data_len] = 0;  // NULL terminate array
 
   Serial.print("data: [");
   Serial.print(RX_buf);
@@ -256,6 +219,7 @@ void ReceiveMsg(){
 }
 
 int8_t SendMsg(String msg){
+  msg.concat("  ");
   Serial.print("LoRa transmitting [");
   Serial.print(String(msg.length()));
   Serial.println("] bytes");

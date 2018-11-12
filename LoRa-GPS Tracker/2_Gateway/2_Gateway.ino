@@ -8,6 +8,8 @@
 #define PASS1 "newdimigo"
 #define SSID2 "DimiFi 2G2"
 #define PASS2 "newdimigo"
+#define SSID3 "13-1102"
+#define PASS3 "146002454"
 
 #define MAX_TX_SIZE 57
 #define BC_ADDH 0xFF
@@ -36,7 +38,7 @@ const uint8_t SOFT_TX = D7;
 // const uint8_t SOFT_TX = 11;
 
 struct CFGstruct {  // settings parameter -> E32 pdf p.28
-  uint8_t HEAD = 0xC0;  // do not save parameters when power-down
+  uint8_t HEAD = 0xC2;  // do not save parameters when power-down
   uint8_t ADDH = 0x05;
   uint8_t ADDL = 0x01;
   // uint8_t SPED = 0x18;  // 8N1, 9600bps, 0.3k air rate
@@ -47,12 +49,6 @@ struct CFGstruct {  // settings parameter -> E32 pdf p.28
   uint8_t OPTION_bits = 0xC4;  // 1, 1, 000, 1, 00
 };
 struct CFGstruct CFG;
-
-
-// http://tracker.iwinv.net/upload?gps_long=-1&gps_lati=-1&debug=404&passcode=4660
-const String link = "http://tracker.iwinv.net/upload?passcode=4660";
-uint8_t data_len = 0;
-String data_rec = "";
 
 ESP8266WiFiMulti WiFiMulti;
 HTTPClient http;
@@ -78,14 +74,14 @@ void setup(){
   pinMode(AUX_PIN, INPUT);
   pinMode(LED_BUILTIN, OUTPUT);
 
-  delay(200);
-
+  delay(50);
 	triple_cmd(0xC4);  // 0xC4: reset
-	delay(1200);
+	delay(800);
 
 	WiFi.mode(WIFI_STA);
 	WiFiMulti.addAP(SSID1, PASS1);
 	WiFiMulti.addAP(SSID2, PASS2);
+	WiFiMulti.addAP(SSID3, PASS3);
 	while(WiFiMulti.run() != WL_CONNECTED){
 		ESP.wdtFeed();
 		Serial.print(".");
@@ -100,49 +96,55 @@ void setup(){
 	SwitchMode(3);  // sleep mode/parameter setting
   E32.write((const uint8_t *)&CFG, 6);  // 6 for 6 variables in CFG
   delay(1200);
-	SwitchMode(0);
+	SwitchMode(1);
 
   Serial.println("\nInit complete\n");
 }
 
+const String link = "http://tracker.iwinv.net/upload?passcode=4660";
+uint8_t data_len=0, debug=0;
+String data_rec = "";
+String gps_lati="", gps_long="";
 void loop(){
 	ReceiveMsg();
-	delay(500);
-
-  if(data_len == 22){
-    blinkLED();
-    blinkLED();
-    blinkLED();
-  }
+  data_rec.trim();
 
   if(data_rec.startsWith("$") && data_rec.endsWith("$")){
-    data_rec = data_rec.replace("$", "");
-    gps_lati = 0;
-    gps_long = 0;
+    blinkLED();
+    blinkLED();
+    blinkLED();
+
+    data_rec.replace("$", "");
+    Serial.print("Data Length: ["); Serial.print(String(data_rec.length())); Serial.println("] bytes.");
+    Serial.print("Data: ["); Serial.print(data_rec); Serial.println("]");
+    Serial.flush();
+    gps_lati = data_rec.substring(0, data_rec.indexOf("#")-1);
+    gps_long = data_rec.substring(data_rec.indexOf("#")+1, data_rec.length()-1);
+    Serial.print("GPS: ["); Serial.print(gps_lati); Serial.print(", "); Serial.print(gps_long); Serial.println("]");
+
     debug = 0;
+
+    // HTTP upload
+    String link1 = link+"&gps_lati="+gps_lati+"&gps_long="+gps_long+"&debug="+String(debug);
+    Serial.print("LINK: ");
+    Serial.println(link1);
+
+    http.begin(link1);
+    if (http.GET() == HTTP_CODE_OK) {
+      String payload = http.getString();
+      Serial.print("Response: ");
+      Serial.println(payload);
+      Serial.println("HTTP upload success");
+    }else{
+      Serial.println("HTTP Connection Error");
+      Serial.println();
+    }
+    http.end();
+  }else{
+    debug = 40;
   }
 
-
-	// float gps_lati=-12, gps_long=-12;
-	// uint16_t debug=404;
-
-  // String link1 = link+"&gps_lati="+String(gps_lati)+"&gps_long="+String(gps_long)+"&debug="+String(debug);
-	// Serial.print("LINK: ");
-	// Serial.println(link1);
-
-	// http.begin(link1);
-	// if (http.GET() == HTTP_CODE_OK) {
-	// 	String payload = http.getString();
-	// 	Serial.print("Response: ");
-	// 	Serial.println(payload);
-	// 	Serial.println("HTTP upload success");
-	// }else{
-	// 	Serial.println("HTTP Connection Error");
-	// 	Serial.println();
-	// }
-	// http.end();
-
-  Serial.println("\n=====\n");
+	delay(500);
 }
 
 
@@ -231,9 +233,10 @@ void ReceiveMsg(){
   uint8_t idx;
   blinkLED();
 
-  Serial.print("LoRa Received: [");
-  Serial.print(String(data_len));
-  Serial.println("] bytes.");
+  Serial.println("\n=====\n");
+  // Serial.print("LoRa Received: [");
+  // Serial.print(String(data_len));
+  // Serial.println("] bytes.");
 
   char RX_buf[data_len+1];
   for(idx=0;idx<data_len;idx++){
@@ -242,19 +245,11 @@ void ReceiveMsg(){
   data_rec = RX_buf;
   // RX_buf[data_len] = "\0";  // NULL terminate array
 
-  Serial.print("String Length: [");
-  Serial.print(String(data_rec.length()));
-  Serial.println("] bytes.");
-
-  Serial.print("data: [");
-  Serial.print(data_rec);
-  Serial.println("]");
-  Serial.flush();
-
   return;
 }
 
 int8_t SendMsg(String msg){
+  msg.concat("  ");
   Serial.print("LoRa transmitting [");
   Serial.print(String(msg.length()));
   Serial.println("] bytes");
@@ -277,15 +272,11 @@ int8_t SendMsg(String msg){
     text[2] = CFG.CHAN;
   }
 
-  SwitchMode(1);  // Wake-up mode
-  WaitAUX_H();
+  SwitchMode(0);  // Normal mode
 
   E32.write(text, msg.length()+3);
   WaitAUX_H();
   delay(10);
-  
-  SwitchMode(0);  // Normal mode
-  WaitAUX_H();
 
   return 0;
 }
