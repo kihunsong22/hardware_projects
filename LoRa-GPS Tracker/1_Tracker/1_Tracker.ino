@@ -62,7 +62,7 @@ void setup(){
   gps_s.begin(9600);
 
   Serial.println("\nInitializing...");
-  Serial.println("Device: 1: Node/TX");
+  Serial.println("Device 1: Node/TX");
 
   pinMode(M0_PIN, OUTPUT);
   pinMode(M1_PIN, OUTPUT);
@@ -70,7 +70,7 @@ void setup(){
   pinMode(LED_BUILTIN, OUTPUT);
 
   triple_cmd(0xC4);  // 0xC4: reset
-  delay(1000);
+  delay(800);
 
   SwitchMode(3);  // sleep mode/parameter setting
   E32.write((const uint8_t *)&CFG, 6);  // 6 for 6 variables in CFG
@@ -78,9 +78,10 @@ void setup(){
 
   SwitchMode(2);  // power-saving mode
 
-  Serial.println("Init complete");
+  Serial.println("Init complete\n");
 }
 
+// // GPS Example
 // Sats HDOP  Latitude   Longitude   Fix  Date       Time     Date Alt    Course Speed Card  Distance Course Card  Chars Sentences Checksum
 //            (deg)      (deg)       Age                      Age  (m)    --- from GPS ----  ---- to London  ----  RX    RX        Fail
 // ----------------------------------------------------------------------------------------------------------------------------------------
@@ -89,39 +90,36 @@ void setup(){
 // 8    1.9   37.393070  126.954208  207  11/03/2018 14:02:05 208  72.80  0.00   0.33  N     8875     329.70 NNW   1296  4         0        
 // 8    1.9   37.393070  126.954208  224  11/03/2018 14:02:06 224  72.70  0.00   0.00  N     8875     329.70 NNW   1944  6         0        
 
-String dataStr = "", data1="";
+String dataStr = "";
 uint8_t gps_sat=0;
-double gps_lati=0.0, gps_long=0.0;
 
 void loop(){
   while (gps_s.available() > 0){
     if (gps.encode(gps_s.read())){
-      gps_lati = gps.location.lat()*10000;
-      gps_long = gps.location.lng()*10000;
+      Serial.println("\n=====\n");
       gps_sat = gps.satellites.value();
 
-      dataStr = "";
-      dataStr.concat("$");
-      dataStr.concat(String(gps.location.lat(), 6));
-      // dataStr.concat(gps_lati/10000);
-      dataStr.concat("#");
-      dataStr.concat(String(gps.location.lng(), 6));
-      // dataStr.concat(gps_long/10000);
-      dataStr.concat("$");
+      if(gps_sat>4){
+        dataStr = "$";
+        dataStr.concat(String(gps.location.lat(), 6));
+        dataStr.concat("#");
+        dataStr.concat(String(gps.location.lng(), 6));
+        dataStr.concat("$");
+      }else{
+        dataStr = "$00#00$";
+      }
+
       Serial.print("DataSTR: "); Serial.println(dataStr);
       Serial.print("Satellites: "); Serial.println(gps_sat);
-
-      if(gps_sat>4){
-        if(SendMsg(dataStr) == 0){
-          blinkLED();
-          delay(2500);
-        }
+      if(SendMsg(dataStr) == 0){
+        blinkLED();
       }
+      WaitAUX_H();
       SwitchMode(2); // Power-Saving mode
+      delay(2500);
     }
   }
 }
-
 
 
 void blinkLED(){
@@ -223,7 +221,6 @@ int8_t SendMsg(String msg){
   Serial.print("LoRa transmitting [");
   Serial.print(String(msg.length()));
   Serial.println("] bytes");
-  // Serial.print("data: ["); Serial.print(msg); Serial.println("]");
 
   char text[MAX_TX_SIZE+3];
   msg = msg.substring(0, MAX_TX_SIZE-1);

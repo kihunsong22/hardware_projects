@@ -8,8 +8,6 @@
 #define PASS1 "newdimigo"
 #define SSID2 "DimiFi 2G2"
 #define PASS2 "newdimigo"
-#define SSID3 "13-1102"
-#define PASS3 "146002454"
 
 #define MAX_TX_SIZE 57
 #define BC_ADDH 0xFF
@@ -38,7 +36,8 @@ const uint8_t SOFT_TX = D7;
 // const uint8_t SOFT_TX = 11;
 
 struct CFGstruct {  // settings parameter -> E32 pdf p.28
-  uint8_t HEAD = 0xC2;  // do not save parameters when power-down
+  // uint8_t HEAD = 0xC0;  // do not save parameters when power-down
+  uint8_t HEAD = 0xC2;  // save parameters when power-down
   uint8_t ADDH = 0x05;
   uint8_t ADDL = 0x01;
   // uint8_t SPED = 0x18;  // 8N1, 9600bps, 0.3k air rate
@@ -50,11 +49,10 @@ struct CFGstruct {  // settings parameter -> E32 pdf p.28
 };
 struct CFGstruct CFG;
 
+SoftwareSerial E32(SOFT_RX, SOFT_TX);  // RX, TX
 ESP8266WiFiMulti WiFiMulti;
 HTTPClient http;
-SoftwareSerial E32(SOFT_RX, SOFT_TX);  // RX, TX
 
-bool ReadAUX();  // read AUX logic level
 int8_t WaitAUX_H();  // wait till AUX goes high
 void SwitchMode(uint8_t mode);  // change mode
 void blinkLED();
@@ -66,22 +64,20 @@ int8_t SendMsg(String msg);
 void setup(){
 	Serial.begin(115200);
   E32.begin(9600);
-	Serial.println("\r\nInitializing...");
-	Serial.println("Device: Gateway");
+	Serial.println("\nInitializing...");
+	Serial.println("Device 2: Gateway");
 
   pinMode(M0_PIN, OUTPUT);
   pinMode(M1_PIN, OUTPUT);
   pinMode(AUX_PIN, INPUT);
   pinMode(LED_BUILTIN, OUTPUT);
 
-  delay(50);
 	triple_cmd(0xC4);  // 0xC4: reset
 	delay(800);
 
 	WiFi.mode(WIFI_STA);
 	WiFiMulti.addAP(SSID1, PASS1);
 	WiFiMulti.addAP(SSID2, PASS2);
-	WiFiMulti.addAP(SSID3, PASS3);
 	while(WiFiMulti.run() != WL_CONNECTED){
 		ESP.wdtFeed();
 		Serial.print(".");
@@ -98,13 +94,14 @@ void setup(){
   delay(1200);
 	SwitchMode(1);
 
-  Serial.println("\nInit complete\n");
+  Serial.println("Init complete\n");
 }
 
 const String link = "http://tracker.iwinv.net/upload?passcode=4660";
-uint8_t data_len=0, debug=0;
+uint16_t debug=0;
 String data_rec = "";
 String gps_lati="", gps_long="";
+
 void loop(){
 	ReceiveMsg();
   data_rec.trim();
@@ -121,10 +118,13 @@ void loop(){
     gps_lati = data_rec.substring(0, data_rec.indexOf("#")-1);
     gps_long = data_rec.substring(data_rec.indexOf("#")+1, data_rec.length()-1);
     Serial.print("GPS: ["); Serial.print(gps_lati); Serial.print(", "); Serial.print(gps_long); Serial.println("]");
+    
+    if(data_rec.length()>18){
+      debug = 0;
+    }else{
+      debug = 500;
+    }
 
-    debug = 0;
-
-    // HTTP upload
     String link1 = link+"&gps_lati="+gps_lati+"&gps_long="+gps_long+"&debug="+String(debug);
     Serial.print("LINK: ");
     Serial.println(link1);
@@ -135,13 +135,14 @@ void loop(){
       Serial.print("Response: ");
       Serial.println(payload);
       Serial.println("HTTP upload success");
+      delay(2000);
     }else{
       Serial.println("HTTP Connection Error");
       Serial.println();
     }
     http.end();
   }else{
-    debug = 40;
+    debug = 400;
   }
 
 	delay(500);
@@ -155,21 +156,10 @@ void blinkLED(){
   delay(75);
 }
 
-
-bool ReadAUX(){
-  int val = analogRead(AUX_PIN);
-
-  if(val<50){
-    return LOW;
-  }else{
-    return HIGH;
-  }
-}
-
 int8_t WaitAUX_H(){
   uint8_t cnt = 0;
 
-  while((ReadAUX()==LOW) && (cnt++<15)){
+  while(digitalRead(AUX_PIN) == LOW && (cnt++<15)){
     Serial.print(".");
     delay(100);
   }
@@ -229,7 +219,7 @@ void ReceiveMsg(){
   if(E32.available()==0){
     return;
   }
-  data_len = E32.available();
+  uint8_t data_len = E32.available();
   uint8_t idx;
   blinkLED();
 
@@ -253,7 +243,6 @@ int8_t SendMsg(String msg){
   Serial.print("LoRa transmitting [");
   Serial.print(String(msg.length()));
   Serial.println("] bytes");
-  // Serial.print("data: ["); Serial.print(msg); Serial.println("]");
 
   char text[MAX_TX_SIZE+3];
   msg = msg.substring(0, MAX_TX_SIZE-1);
