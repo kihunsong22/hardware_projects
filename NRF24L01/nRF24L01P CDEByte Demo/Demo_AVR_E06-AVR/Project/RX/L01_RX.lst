@@ -1,0 +1,2219 @@
+Interrupt Vectors
+    00000 C371      RJMP	__text_start|__start
+
+Program Code (text area)
+__text_start|__start:
+    00372 E5CF      LDI	R28,0x5F
+    00373 E0D4      LDI	R29,4
+    00374 BFCD      OUT	0x3D,R28
+    00375 BFDE      OUT	0x3E,R29
+    00376 51CE      SUBI	R28,0x1E
+    00377 40D0      SBCI	R29,0
+    00378 EA0A      LDI	R16,0xAA
+    00379 8308      ST	Y,R16
+    0037A 2400      CLR	R0
+    0037B E8E8      LDI	R30,0x88
+    0037C E0F0      LDI	R31,0
+    0037D E010      LDI	R17,0
+    0037E 38E8      CPI	R30,0x88
+    0037F 07F1      CPC	R31,R17
+    00380 F011      BEQ	0x0383
+    00381 9201      ST	Z+,R0
+    00382 CFFB      RJMP	0x037E
+    00383 8300      ST	Z,R16
+    00384 EBEB      LDI	R30,0xBB
+    00385 E0F6      LDI	R31,6
+    00386 E6A0      LDI	R26,0x60
+    00387 E0B0      LDI	R27,0
+    00388 E016      LDI	R17,6
+    00389 E000      LDI	R16,0
+    0038A BF0B      OUT	0x3B,R16
+    0038B 3EE3      CPI	R30,0xE3
+    0038C 07F1      CPC	R31,R17
+    0038D F021      BEQ	0x0392
+    0038E 95C8      LPM
+    0038F 9631      ADIW	R30,1
+    00390 920D      ST	X+,R0
+    00391 CFF9      RJMP	0x038B
+    00392 D013      RCALL	_main
+_exit:
+    00393 CFFF      RJMP	_exit
+FILE: F:\产品\ODMPRO~1\E06-RFTB\E06-AVR\DEMO_AVR\nRF24L01P\Source\board.c
+(0001) /*
+(0002) ================================================================================
+(0003) Function : Operation for SI446x
+(0004) 网址：http://shop57165217.taobao.com
+(0005) 作者：李勇  原  亿和电子工作室  现 亿佰特电子科技有限公司
+(0006) TEL：18615799380, e-mail: yihe_liyong@126.com
+(0007) ================================================================================
+(0008) */
+(0009) #include "board.h"
+(0010) 
+(0011) /*
+(0012) =================================================================================
+(0013) SPI_ExchangeByte( );
+(0014) Function : Exchange a byte via the SPI bus
+(0015) INTPUT   : input, The input byte
+(0016) OUTPUT   : The output byte from SPI bus
+(0017) =================================================================================
+(0018) */
+(0019) INT8U SPI_ExchangeByte( INT8U input )
+(0020) {
+(0021)     SPDR = input;
+_SPI_ExchangeByte:
+  input                --> R16
+    00394 B90F      OUT	0x0F,R16
+(0022) 	while ( !(SPSR & (1<<SPIF)) );
+    00395 9B77      SBIS	0x0E,7
+    00396 CFFE      RJMP	0x0395
+(0023) 	return SPDR;
+    00397 B10F      IN	R16,0x0F
+    00398 9508      RET
+(0024) }
+(0025) /*
+(0026) =================================================================================
+(0027) SPI_Initial( );
+(0028) Function : Initialize the SPI bus
+(0029) INTPUT   : None
+(0030) OUTPUT   : None
+(0031) =================================================================================
+(0032) */
+(0033) void SPI_Initial( void )
+(0034) {
+(0035)     /*IO config*/
+(0036)     PORTB |= ( 1<<3 ) | ( 1<<5 ) | ( 1<<2 );
+_SPI_Initial:
+    00399 B388      IN	R24,0x18
+    0039A 628C      ORI	R24,0x2C
+    0039B BB88      OUT	0x18,R24
+(0037)     DDRB |= ( 1<<3 ) | ( 1<<5 ) | ( 1<<2 ) | ( 1<<4 );
+    0039C B387      IN	R24,0x17
+    0039D 638C      ORI	R24,0x3C
+    0039E BB87      OUT	0x17,R24
+(0038)     DDRB &= ~( 1<<4 );
+    0039F 98BC      CBI	0x17,4
+(0039)     SPCR = (1<<SPE) | (1<<MSTR);
+    003A0 E580      LDI	R24,0x50
+    003A1 B98D      OUT	0x0D,R24
+    003A2 9508      RET
+(0040) }
+(0041) /*
+(0042) =================================================================================
+(0043) GPIO_Initial( );
+(0044) Function : Initialize the other GPIOs of the board
+(0045) INTPUT   : None
+(0046) OUTPUT   : None
+(0047) =================================================================================
+(0048) */
+(0049) void GPIO_Initial( void )
+(0050) {
+(0051)     PORTB &= ~( 1<<0 );
+_GPIO_Initial:
+    003A3 98C0      CBI	0x18,0
+(0052)     DDRB  |= ( 1<<0 );
+    003A4 9AB8      SBI	0x17,0
+    003A5 9508      RET
+_main:
+  dly                  --> Y,+34
+  rx_conter            --> R20
+  itmp                 --> R22
+  testbuffer           --> Y,+2
+  tmp                  --> R22
+    003A6 97A6      SBIW	R28,0x26
+FILE: F:\产品\ODMPRO~1\E06-RFTB\E06-AVR\DEMO_AVR\nRF24L01P\Project\RX\main.c
+(0001) 
+(0002) #include "board.h"
+(0003) #include "OLED.h"
+(0004) #include "nRF24L01.h"
+(0005) 
+(0006) void main( void )
+(0007) {
+(0008)     INT32U dly;
+(0009)     INT8U tmp, testbuffer[32] = {'0','0','0','0','0', 0};
+    003A7 E286      LDI	R24,0x26
+    003A8 E090      LDI	R25,0
+    003A9 01FE      MOVW	R30,R28
+    003AA 9632      ADIW	R30,2
+    003AB E200      LDI	R16,0x20
+    003AC E010      LDI	R17,0
+    003AD 93FA      ST	-Y,R31
+    003AE 93EA      ST	-Y,R30
+    003AF 939A      ST	-Y,R25
+    003B0 938A      ST	-Y,R24
+    003B1 D449      RCALL	asgncblk
+(0010)     INT16U rx_conter = 0, itmp;
+    003B2 2744      CLR	R20
+    003B3 2755      CLR	R21
+(0011) 
+(0012)     SPI_Initial( );
+    003B4 DFE4      RCALL	_SPI_Initial
+(0013)     GPIO_Initial( );
+    003B5 DFED      RCALL	_GPIO_Initial
+(0014) 
+(0015)     //初始化L01+的控制口CE = 1
+(0016) 	PORTB |= ( 1<<7 );
+    003B6 9AC7      SBI	0x18,7
+(0017) 	DDRB |= ( 1<<7 );
+    003B7 9ABF      SBI	0x17,7
+(0018) 
+(0019)     //初始化L01+的控制口IRQ,使用查询方式
+(0020)     PORTB |= ( 1<<6 );
+    003B8 9AC6      SBI	0x18,6
+(0021) 	DDRB &= ~( 1<<6 );
+    003B9 98BE      CBI	0x17,6
+(0022) 
+(0023)     //L01+的操作，已经被建成C库，见nRF24L01.h文件，提供SPI和CSN操作，即可调用其内部所有函数。
+(0024)     //用户无需再关心L01+的寄存器操作问题。
+(0025)     L01_Init( );
+    003BA D248      RCALL	_L01_Init
+(0026)     L01_SetTRMode( RX_MODE );
+    003BB E001      LDI	R16,1
+    003BC D21B      RCALL	_L01_SetTRMode
+(0027)     L01_WriteHoppingPoint( 0 );
+    003BD 2700      CLR	R16
+    003BE D20D      RCALL	_L01_WriteHoppingPoint
+(0028)     //L01_SetSpeed( SPD_250K );
+(0029) 
+(0030) 	//关闭LED
+(0031) 	LED_Off( );
+    003BF B382      IN	R24,0x12
+    003C0 6083      ORI	R24,3
+    003C1 BB82      OUT	0x12,R24
+    003C2 B381      IN	R24,0x11
+    003C3 6083      ORI	R24,3
+    003C4 BB81      OUT	0x11,R24
+(0032)     LCD_Init( );            //OLED初始化
+    003C5 D376      RCALL	_LCD_Init
+(0033) 
+(0034)     LCD_Dis_Logo( );
+    003C6 D2A2      RCALL	_LCD_Dis_Logo
+(0035) 
+(0036)     LCD_Dis_Str( 2,24,"AVR  board" );
+    003C7 E78C      LDI	R24,0x7C
+    003C8 E090      LDI	R25,0
+    003C9 8399      STD	Y+1,R25
+    003CA 8388      ST	Y,R24
+    003CB E128      LDI	R18,0x18
+    003CC E002      LDI	R16,2
+    003CD D32B      RCALL	_LCD_Dis_Str
+(0037)     LCD_Dis_Str( 4,0,"yhmcu.taobao.com" );
+    003CE E68B      LDI	R24,0x6B
+    003CF E090      LDI	R25,0
+    003D0 8399      STD	Y+1,R25
+    003D1 8388      ST	Y,R24
+    003D2 2722      CLR	R18
+    003D3 E004      LDI	R16,4
+    003D4 D324      RCALL	_LCD_Dis_Str
+(0038)     LCD_Dis_Str( 6,0,"24L01+:RX " );
+    003D5 E680      LDI	R24,0x60
+    003D6 E090      LDI	R25,0
+    003D7 8399      STD	Y+1,R25
+    003D8 8388      ST	Y,R24
+    003D9 2722      CLR	R18
+    003DA E006      LDI	R16,6
+    003DB D31D      RCALL	_LCD_Dis_Str
+(0039)     LCD_Dis_Str( 6, 80, (char*)testbuffer );
+    003DC 01CE      MOVW	R24,R28
+    003DD 9602      ADIW	R24,2
+    003DE 8399      STD	Y+1,R25
+    003DF 8388      ST	Y,R24
+    003E0 E520      LDI	R18,0x50
+    003E1 E006      LDI	R16,6
+    003E2 D316      RCALL	_LCD_Dis_Str
+    003E3 C074      RJMP	0x0458
+(0040) 	while( 1 )
+(0041) 	{
+(0042)         //清空RX和TX缓冲区，等待接收中断
+(0043)         L01_FlushRX( );
+    003E4 D0C7      RCALL	_L01_FlushRX
+(0044)         L01_FlushTX( );
+    003E5 D0BF      RCALL	_L01_FlushTX
+(0045)         //等待接收中断产生，IRQ将被拉低，用PB6检测
+(0046)         //while( PINB & ( 1<<6 ) );
+(0047)         //读出中断标记不为0
+(0048)         while( ( tmp = L01_ReadIRQSource( ) ) == 0 );
+    003E6 D0F6      RCALL	_L01_ReadIRQSource
+    003E7 2F60      MOV	R22,R16
+    003E8 2366      TST	R22
+    003E9 F3E1      BEQ	0x03E6
+(0049)         //判断中断类型
+(0050)         if( tmp & ( 1<<TX_DS ) )
+    003EA FF05      SBRS	R16,5
+    003EB C001      RJMP	0x03ED
+(0051)         {
+(0052)         }
+    003EC C069      RJMP	0x0456
+(0053)         else if( tmp & ( 1<<MAX_RT ) )
+    003ED FF64      SBRS	R22,4
+    003EE C001      RJMP	0x03F0
+(0054)         {
+(0055)         }
+    003EF C066      RJMP	0x0456
+(0056)         else if( tmp & ( 1<<RX_DR )  )
+    003F0 FF66      SBRS	R22,6
+    003F1 C064      RJMP	0x0456
+(0057)         {
+(0058)             //接收成功，读出数据，判断是否和发射内容一致，进行LED 翻转
+(0059)             for( tmp = 0; tmp < 32; tmp ++ )
+    003F2 2766      CLR	R22
+    003F3 C009      RJMP	0x03FD
+(0060)             {
+(0061)                 testbuffer[tmp] = 0;
+    003F4 01CE      MOVW	R24,R28
+    003F5 9602      ADIW	R24,2
+    003F6 2FE6      MOV	R30,R22
+    003F7 27FF      CLR	R31
+    003F8 0FE8      ADD	R30,R24
+    003F9 1FF9      ADC	R31,R25
+    003FA 2422      CLR	R2
+    003FB 8220      ST	Z,R2
+    003FC 9563      INC	R22
+    003FD 3260      CPI	R22,0x20
+    003FE F3A8      BCS	0x03F4
+(0062)             }
+(0063)             tmp = L01_ReadRXPayload( testbuffer );
+    003FF 018E      MOVW	R16,R28
+    00400 5F0E      SUBI	R16,0xFE
+    00401 4F1F      SBCI	R17,0xFF
+    00402 D0E9      RCALL	_L01_ReadRXPayload
+    00403 2F60      MOV	R22,R16
+(0064)             //判断接收的数据正确否，对应的发射程序，发送的是字符串"123\r\n"
+(0065)             if( tmp == 5 && testbuffer[0] == '1' && testbuffer[1] == '2' && testbuffer[2] == '3' )
+    00404 3005      CPI	R16,5
+    00405 F009      BEQ	0x0407
+    00406 C04F      RJMP	0x0456
+    00407 818A      LDD	R24,Y+2
+    00408 3381      CPI	R24,0x31
+    00409 F009      BEQ	0x040B
+    0040A C04B      RJMP	0x0456
+    0040B 818B      LDD	R24,Y+3
+    0040C 3382      CPI	R24,0x32
+    0040D F009      BEQ	0x040F
+    0040E C047      RJMP	0x0456
+    0040F 818C      LDD	R24,Y+4
+    00410 3383      CPI	R24,0x33
+    00411 F009      BEQ	0x0413
+    00412 C043      RJMP	0x0456
+(0066)             {
+(0067) 
+(0068)                 LED_Toggle( );      //接收数据正确,LED翻转
+    00413 E083      LDI	R24,3
+    00414 B222      IN	R2,0x12
+    00415 2628      EOR	R2,R24
+    00416 BA22      OUT	0x12,R2
+    00417 B381      IN	R24,0x11
+    00418 6083      ORI	R24,3
+    00419 BB81      OUT	0x11,R24
+(0069)                 //Display the received count
+(0070)                 rx_conter ++;
+    0041A 5F4F      SUBI	R20,0xFF
+    0041B 4F5F      SBCI	R21,0xFF
+(0071)                 itmp = rx_conter;
+    0041C 01BA      MOVW	R22,R20
+(0072)                 testbuffer[0] = ( itmp / 10000 ) + '0';
+    0041D E120      LDI	R18,0x10
+    0041E E237      LDI	R19,0x27
+    0041F 018B      MOVW	R16,R22
+    00420 D369      RCALL	div16u
+    00421 01C8      MOVW	R24,R16
+    00422 96C0      ADIW	R24,0x30
+    00423 838A      STD	Y+2,R24
+(0073)                 itmp %= 10000;
+    00424 E120      LDI	R18,0x10
+    00425 E237      LDI	R19,0x27
+    00426 018B      MOVW	R16,R22
+    00427 D360      RCALL	mod16u
+    00428 01B8      MOVW	R22,R16
+(0074)                 testbuffer[1] = ( itmp / 1000 ) + '0';
+    00429 EE28      LDI	R18,0xE8
+    0042A E033      LDI	R19,3
+    0042B D35E      RCALL	div16u
+    0042C 01C8      MOVW	R24,R16
+    0042D 96C0      ADIW	R24,0x30
+    0042E 838B      STD	Y+3,R24
+(0075)                 itmp %= 1000;
+    0042F EE28      LDI	R18,0xE8
+    00430 E033      LDI	R19,3
+    00431 018B      MOVW	R16,R22
+    00432 D355      RCALL	mod16u
+    00433 01B8      MOVW	R22,R16
+(0076)                 testbuffer[2] = ( itmp / 100 ) + '0';
+    00434 E624      LDI	R18,0x64
+    00435 E030      LDI	R19,0
+    00436 D353      RCALL	div16u
+    00437 01C8      MOVW	R24,R16
+    00438 96C0      ADIW	R24,0x30
+    00439 838C      STD	Y+4,R24
+(0077)                 itmp %= 100;
+    0043A E624      LDI	R18,0x64
+    0043B E030      LDI	R19,0
+    0043C 018B      MOVW	R16,R22
+    0043D D34A      RCALL	mod16u
+    0043E 01B8      MOVW	R22,R16
+(0078)                 testbuffer[3] = ( itmp / 10 ) + '0';
+    0043F E02A      LDI	R18,0xA
+    00440 E030      LDI	R19,0
+    00441 D348      RCALL	div16u
+    00442 01C8      MOVW	R24,R16
+    00443 96C0      ADIW	R24,0x30
+    00444 838D      STD	Y+5,R24
+(0079)                 itmp %= 10;
+    00445 E02A      LDI	R18,0xA
+    00446 E030      LDI	R19,0
+    00447 018B      MOVW	R16,R22
+    00448 D33F      RCALL	mod16u
+    00449 01B8      MOVW	R22,R16
+(0080)                 testbuffer[4] = itmp + '0';
+    0044A 01CB      MOVW	R24,R22
+    0044B 96C0      ADIW	R24,0x30
+    0044C 838E      STD	Y+6,R24
+(0081)                 testbuffer[5] = 0;
+    0044D 2422      CLR	R2
+    0044E 822F      STD	Y+7,R2
+(0082)                 LCD_Dis_Str( 6, 80, (char*)testbuffer );
+    0044F 01CE      MOVW	R24,R28
+    00450 9602      ADIW	R24,2
+    00451 8399      STD	Y+1,R25
+    00452 8388      ST	Y,R24
+    00453 E520      LDI	R18,0x50
+    00454 E006      LDI	R16,6
+    00455 D2A3      RCALL	_LCD_Dis_Str
+(0083) 
+(0084)             }
+(0085)         }
+(0086)         L01_ClearIRQ( IRQ_ALL );
+    00456 E700      LDI	R16,0x70
+    00457 D073      RCALL	_L01_ClearIRQ
+    00458 CF8B      RJMP	0x03E4
+    00459 96A6      ADIW	R28,0x26
+    0045A 9508      RET
+FILE: F:\产品\ODMPRO~1\E06-RFTB\E06-AVR\DEMO_AVR\nRF24L01P\Source\nRF24L01.c
+(0001) /*
+(0002) ================================================================================
+(0003) Copyright(c)  Yihe Embedded Studio, All rights reserved.
+(0004)               www.yhmcu.com
+(0005)               http://yhmcu.taobao.com
+(0006) 
+(0007) File Name   : nRF24L01.c
+(0008) Description : nRF24L01 low level operations and configurations.
+(0009) Author      : ShawZhang,LiYong
+(0010) Date        : 2012-4-17 9:08:36
+(0011) Version     : 2.0
+(0012) Compiler    : Any
+(0013) Note        : None
+(0014) ================================================================================
+(0015) */
+(0016) #define _nRF24L01_C_
+(0017) #include "nRF24L01.h"
+(0018) 
+(0019) INT8U CE_Status = 0;
+(0020) /*
+(0021) ================================================================================
+(0022) Function : L01_GetCEStatus( )
+(0023) Description : Get the status of the CE PIN
+(0024) Input : NONE
+(0025) Output: 1:CE=1, 0:CE=0
+(0026) ================================================================================
+(0027) */
+(0028) INT8U L01_GetCEStatus( void )
+(0029) {
+(0030) 	return CE_Status;
+_L01_GetCEStatus:
+    0045B 9100 0087 LDS	R16,CE_Status
+    0045D 9508      RET
+(0031) }
+(0032) /*
+(0033) ================================================================================
+(0034) Function : L01_SetCE( )
+(0035) Description : Set the CE PIN as 1 or 0
+(0036) Input : -status, 1: CE=1, 0: CE=0
+(0037) Output: None
+(0038) ================================================================================
+(0039) */
+(0040) void L01_SetCE( INT8U status )
+(0041) {
+(0042) 	CE_Status = status;
+_L01_SetCE:
+  status               --> R16
+    0045E 9300 0087 STS	CE_Status,R16
+(0043) 	if( status == 0 )  { L01_CE_LOW( ); }
+    00460 2300      TST	R16
+    00461 F419      BNE	0x0465
+    00462 98C7      CBI	0x18,7
+    00463 9ABF      SBI	0x17,7
+    00464 C002      RJMP	0x0467
+(0044) 	else               { L01_CE_HIGH( ); }
+    00465 9AC7      SBI	0x18,7
+    00466 9ABF      SBI	0x17,7
+    00467 9508      RET
+_L01_ReadSingleReg:
+  btmp                 --> R10
+  Addr                 --> R10
+    00468 92AA      ST	-Y,R10
+    00469 2EA0      MOV	R10,R16
+(0045) }
+(0046) /*
+(0047) ================================================================================
+(0048) Function : L01_ReadSingleReg( )
+(0049) Description : Read a single register of nRF24L01
+(0050) Input : -Addr, The address of the register
+(0051) Output: The value read from the register
+(0052) ================================================================================
+(0053) */
+(0054) INT8U L01_ReadSingleReg( INT8U Addr )
+(0055) {
+(0056)     INT8U btmp;
+(0057)     L01_CSN_LOW( );
+    0046A 98C2      CBI	0x18,2
+    0046B 9ABA      SBI	0x17,2
+(0058)     SPI_ExchangeByte( R_REGISTER | Addr );
+    0046C 2D0A      MOV	R16,R10
+    0046D DF26      RCALL	_SPI_ExchangeByte
+(0059)     btmp = SPI_ExchangeByte( 0xFF );
+    0046E EF0F      LDI	R16,0xFF
+    0046F DF24      RCALL	_SPI_ExchangeByte
+    00470 2EA0      MOV	R10,R16
+(0060)     L01_CSN_HIGH( );
+    00471 9AC2      SBI	0x18,2
+    00472 9ABA      SBI	0x17,2
+(0061)     return btmp;
+    00473 90A9      LD	R10,Y+
+    00474 9508      RET
+_L01_WriteSingleReg:
+  tmp                  --> R10
+  Value                --> R12
+  Addr                 --> R20
+    00475 D365      RCALL	push_xgset303C
+    00476 2EC2      MOV	R12,R18
+    00477 2F40      MOV	R20,R16
+(0062) }
+(0063) /*
+(0064) ================================================================================
+(0065) Function : L01_ReadMultiReg( )
+(0066) Description : Read several registers of nRF24L01
+(0067) Input : -StartAddr, The start address of the registers
+(0068)         -nBytes, How many registers do you want to read
+(0069)         -pBuff, The buffer to save the values
+(0070) Output: None
+(0071) ================================================================================
+(0072) */
+(0073) /*void L01_ReadMultiReg( INT8U StartAddr, INT8U nBytes, INT8U *pBuff )
+(0074) {
+(0075)     INT8U btmp;
+(0076)     L01_CSN_LOW( );
+(0077)     SPI_ExchangeByte( R_REGISTER | StartAddr );
+(0078)     for( btmp = 0; btmp < nBytes; btmp ++ )
+(0079)     {
+(0080)         *( pBuff + btmp ) = SPI_ExchangeByte( 0xFF );
+(0081)     }
+(0082)     L01_CSN_HIGH( );
+(0083) }
+(0084) 
+(0085) ================================================================================
+(0086) Function : L01_WriteSingleReg( )
+(0087) Description : Write a single byte to a register
+(0088) Input : -Addr, The address of the register
+(0089)         -Value, The value to be written
+(0090) Output: None
+(0091) ================================================================================
+(0092) */
+(0093) void L01_WriteSingleReg( INT8U Addr, INT8U Value )
+(0094) {
+(0095) 	INT8U tmp = L01_GetCEStatus( );
+    00478 DFE2      RCALL	_L01_GetCEStatus
+    00479 2EA0      MOV	R10,R16
+(0096) 	L01_SetCE( 0 );
+    0047A 2700      CLR	R16
+    0047B DFE2      RCALL	_L01_SetCE
+(0097)     L01_CSN_LOW( );
+    0047C 98C2      CBI	0x18,2
+    0047D 9ABA      SBI	0x17,2
+(0098)     SPI_ExchangeByte( W_REGISTER | Addr );
+    0047E 2F04      MOV	R16,R20
+    0047F 6200      ORI	R16,0x20
+    00480 DF13      RCALL	_SPI_ExchangeByte
+(0099)     SPI_ExchangeByte( Value );
+    00481 2D0C      MOV	R16,R12
+    00482 DF11      RCALL	_SPI_ExchangeByte
+(0100)     L01_CSN_HIGH( );
+    00483 9AC2      SBI	0x18,2
+    00484 9ABA      SBI	0x17,2
+(0101) 	L01_SetCE( tmp );
+    00485 2D0A      MOV	R16,R10
+    00486 DFD7      RCALL	_L01_SetCE
+    00487 C35A      RJMP	pop_xgset303C
+_L01_WriteMultiReg:
+  tmp                  --> R10
+  i                    --> R12
+  Length               --> R14
+  pBuff                --> R20
+  StartAddr            --> R22
+    00488 D32F      RCALL	push_xgsetF0FC
+    00489 01A9      MOVW	R20,R18
+    0048A 2F60      MOV	R22,R16
+    0048B 84EA      LDD	R14,Y+10
+(0102) }
+(0103) /*
+(0104) ================================================================================
+(0105) Function : L01_WriteMultiReg( )
+(0106) Description : Read several registers of nRF24L01
+(0107) Input : -StartAddr, The start address of the registers
+(0108)         -pBuff, The buffer store the values
+(0109)         -Length, How many registers do you want to write
+(0110) Output: None
+(0111) ================================================================================
+(0112) */
+(0113) void L01_WriteMultiReg( INT8U StartAddr, INT8U *pBuff, INT8U Length )
+(0114) {
+(0115)     INT8U i;
+(0116) 	INT8U tmp = L01_GetCEStatus( );
+    0048C DFCE      RCALL	_L01_GetCEStatus
+    0048D 2EA0      MOV	R10,R16
+(0117) 	L01_SetCE( 0 );
+    0048E 2700      CLR	R16
+    0048F DFCE      RCALL	_L01_SetCE
+(0118)     L01_CSN_LOW( );
+    00490 98C2      CBI	0x18,2
+    00491 9ABA      SBI	0x17,2
+(0119)     SPI_ExchangeByte( W_REGISTER | StartAddr );
+    00492 2F06      MOV	R16,R22
+    00493 6200      ORI	R16,0x20
+    00494 DEFF      RCALL	_SPI_ExchangeByte
+(0120)     for( i = 0; i < Length; i ++ )
+    00495 24CC      CLR	R12
+    00496 C007      RJMP	0x049E
+(0121)     {
+(0122)         SPI_ExchangeByte( *( pBuff + i ) );
+    00497 2DEC      MOV	R30,R12
+    00498 27FF      CLR	R31
+    00499 0FE4      ADD	R30,R20
+    0049A 1FF5      ADC	R31,R21
+    0049B 8100      LD	R16,Z
+    0049C DEF7      RCALL	_SPI_ExchangeByte
+    0049D 94C3      INC	R12
+    0049E 14CE      CP	R12,R14
+    0049F F3B8      BCS	0x0497
+(0123)     }
+(0124)     L01_CSN_HIGH( );
+    004A0 9AC2      SBI	0x18,2
+    004A1 9ABA      SBI	0x17,2
+(0125) 	L01_SetCE( tmp );
+    004A2 2D0A      MOV	R16,R10
+    004A3 DFBA      RCALL	_L01_SetCE
+    004A4 C308      RJMP	pop_xgsetF0FC
+(0126) }
+(0127) /*
+(0128) ================================================================================
+(0129) Function : L01_FlushTX( )
+(0130) Description : Flush the TX buffer
+(0131) Input : None
+(0132) Output: None
+(0133) ================================================================================
+(0134) */
+(0135) void L01_FlushTX( void )
+(0136) {
+(0137)     L01_CSN_LOW( );
+_L01_FlushTX:
+    004A5 98C2      CBI	0x18,2
+    004A6 9ABA      SBI	0x17,2
+(0138)     SPI_ExchangeByte( FLUSH_TX );
+    004A7 EE01      LDI	R16,0xE1
+    004A8 DEEB      RCALL	_SPI_ExchangeByte
+(0139)     L01_CSN_HIGH( );
+    004A9 9AC2      SBI	0x18,2
+    004AA 9ABA      SBI	0x17,2
+    004AB 9508      RET
+(0140) }
+(0141) /*
+(0142) ================================================================================
+(0143) Function : L01_FlushRX( )
+(0144) Description : Flush the RX buffer
+(0145) Input : None
+(0146) Output: None
+(0147) ================================================================================
+(0148) */
+(0149) void L01_FlushRX( void )
+(0150) {
+(0151)     L01_CSN_LOW( );
+_L01_FlushRX:
+    004AC 98C2      CBI	0x18,2
+    004AD 9ABA      SBI	0x17,2
+(0152)     SPI_ExchangeByte( FLUSH_RX );
+    004AE EE02      LDI	R16,0xE2
+    004AF DEE4      RCALL	_SPI_ExchangeByte
+(0153)     L01_CSN_HIGH( );
+    004B0 9AC2      SBI	0x18,2
+    004B1 9ABA      SBI	0x17,2
+    004B2 9508      RET
+(0154) }
+(0155) /*
+(0156) ================================================================================
+(0157) Function : L01_ReuseTXPayload( )
+(0158) Description : Reuse the last transmitted payload
+(0159) Input : None
+(0160) Output: None
+(0161) ================================================================================
+(0162) */
+(0163) void L01_ReuseTXPayload( void )
+(0164) {
+(0165)     L01_CSN_LOW( );
+_L01_ReuseTXPayload:
+    004B3 98C2      CBI	0x18,2
+    004B4 9ABA      SBI	0x17,2
+(0166)     SPI_ExchangeByte( REUSE_TX_PL );
+    004B5 EE03      LDI	R16,0xE3
+    004B6 DEDD      RCALL	_SPI_ExchangeByte
+(0167)     L01_CSN_HIGH( );
+    004B7 9AC2      SBI	0x18,2
+    004B8 9ABA      SBI	0x17,2
+    004B9 9508      RET
+(0168) }
+(0169) /*
+(0170) ================================================================================
+(0171) Function : L01_Nop( )
+(0172) Description : nop operation of nRF24L01
+(0173) Input : None
+(0174) Output: None
+(0175) ================================================================================
+(0176) */
+(0177) void L01_Nop( void )
+(0178) {
+(0179)     L01_CSN_LOW( );
+_L01_Nop:
+    004BA 98C2      CBI	0x18,2
+    004BB 9ABA      SBI	0x17,2
+(0180)     SPI_ExchangeByte( L01_NOP );
+    004BC EF0F      LDI	R16,0xFF
+    004BD DED6      RCALL	_SPI_ExchangeByte
+(0181)     L01_CSN_HIGH( );
+    004BE 9AC2      SBI	0x18,2
+    004BF 9ABA      SBI	0x17,2
+    004C0 9508      RET
+_L01_ReadStatusReg:
+  Status               --> R10
+    004C1 92AA      ST	-Y,R10
+(0182) }
+(0183) /*
+(0184) ================================================================================
+(0185) Function : L01_ReadStatusReg( )
+(0186) Description : Read statu register of nRF24L01
+(0187) Input : None
+(0188) Output: Statu register of nRF24L01
+(0189) ================================================================================
+(0190) */
+(0191) INT8U L01_ReadStatusReg( void )
+(0192) {
+(0193)     INT8U Status;
+(0194)     L01_CSN_LOW( );
+    004C2 98C2      CBI	0x18,2
+    004C3 9ABA      SBI	0x17,2
+(0195)     Status = SPI_ExchangeByte( R_REGISTER + L01REG_STATUS );
+    004C4 E007      LDI	R16,7
+    004C5 DECE      RCALL	_SPI_ExchangeByte
+    004C6 2EA0      MOV	R10,R16
+(0196)     L01_CSN_HIGH( );
+    004C7 9AC2      SBI	0x18,2
+    004C8 9ABA      SBI	0x17,2
+(0197)     return Status;
+    004C9 90A9      LD	R10,Y+
+    004CA 9508      RET
+_L01_ClearIRQ:
+  btmp                 --> R10
+  IRQ_Source           --> R20
+    004CB 92AA      ST	-Y,R10
+    004CC 934A      ST	-Y,R20
+    004CD 2F40      MOV	R20,R16
+(0198) }
+(0199) /*
+(0200) ================================================================================
+(0201) Function : L01_ClearIRQ( )
+(0202) Description : Clear IRQ cuased by nRF24L01
+(0203) Input : None
+(0204) Output: None
+(0205) ================================================================================
+(0206) */
+(0207) void L01_ClearIRQ( INT8U IRQ_Source )
+(0208) {
+(0209)     INT8U btmp = 0;
+(0210) 
+(0211)     IRQ_Source &= ( 1<<RX_DR ) | ( 1<<TX_DS ) | ( 1<<MAX_RT );
+    004CE 7740      ANDI	R20,0x70
+(0212)     btmp = L01_ReadStatusReg( );
+    004CF DFF1      RCALL	_L01_ReadStatusReg
+    004D0 2EA0      MOV	R10,R16
+(0213)     L01_CSN_LOW( );
+    004D1 98C2      CBI	0x18,2
+    004D2 9ABA      SBI	0x17,2
+(0214) 	L01_WriteSingleReg( L01REG_STATUS, IRQ_Source | btmp );
+    004D3 2F24      MOV	R18,R20
+    004D4 2B20      OR	R18,R16
+    004D5 E007      LDI	R16,7
+    004D6 DF9E      RCALL	_L01_WriteSingleReg
+(0215)     L01_CSN_HIGH( );
+    004D7 9AC2      SBI	0x18,2
+    004D8 9ABA      SBI	0x17,2
+(0216)     L01_ReadStatusReg( );
+    004D9 DFE7      RCALL	_L01_ReadStatusReg
+    004DA 9149      LD	R20,Y+
+    004DB 90A9      LD	R10,Y+
+    004DC 9508      RET
+(0217) }
+(0218) /*
+(0219) ================================================================================
+(0220) Function : L01_ReadIRQSource( )
+(0221) Description : Read the IRQ source of nRF24L01+
+(0222) Input : None
+(0223) Output: IRQ source mask code
+(0224) ================================================================================
+(0225) */
+(0226) INT8U L01_ReadIRQSource( void )
+(0227) {
+(0228)     return ( L01_ReadStatusReg( ) & ( ( 1<<RX_DR ) | ( 1<<TX_DS ) | ( 1<<MAX_RT ) ) );
+_L01_ReadIRQSource:
+    004DD DFE3      RCALL	_L01_ReadStatusReg
+    004DE 7700      ANDI	R16,0x70
+    004DF 9508      RET
+_L01_ReadTopFIFOWidth:
+  btmp                 --> R10
+    004E0 92AA      ST	-Y,R10
+(0229) }
+(0230) /*
+(0231) ================================================================================
+(0232) Function : L01_ReadTopFIFOWidth( )
+(0233) Description : Read the payload width of the top buffer of FIFO
+(0234) Input : None
+(0235) Output: The width of the pipe buffer
+(0236) ================================================================================
+(0237) */
+(0238) INT8U L01_ReadTopFIFOWidth( void )
+(0239) {
+(0240)     INT8U btmp;
+(0241)     L01_CSN_LOW( );
+    004E1 98C2      CBI	0x18,2
+    004E2 9ABA      SBI	0x17,2
+(0242)     SPI_ExchangeByte( R_RX_PL_WID );
+    004E3 E600      LDI	R16,0x60
+    004E4 DEAF      RCALL	_SPI_ExchangeByte
+(0243)     btmp = SPI_ExchangeByte( 0xFF );
+    004E5 EF0F      LDI	R16,0xFF
+    004E6 DEAD      RCALL	_SPI_ExchangeByte
+    004E7 2EA0      MOV	R10,R16
+(0244)     L01_CSN_HIGH( );
+    004E8 9AC2      SBI	0x18,2
+    004E9 9ABA      SBI	0x17,2
+(0245)     return btmp;
+    004EA 90A9      LD	R10,Y+
+    004EB 9508      RET
+_L01_ReadRXPayload:
+  width                --> R10
+  PipeNum              --> R20
+  pBuff                --> R12
+    004EC D2CD      RCALL	push_xgset30FC
+    004ED 0168      MOVW	R12,R16
+(0246) }
+(0247) /*
+(0248) ================================================================================
+(0249) Function : L01_ReadRXPayload( )
+(0250) Description : Read the RX payload from internal buffer
+(0251) Input : -pBuff, buffer to store the data
+(0252) Output: The length of data read
+(0253) ================================================================================
+(0254) */
+(0255) INT8U L01_ReadRXPayload( INT8U *pBuff )
+(0256) {
+(0257)     INT8U width, PipeNum;
+(0258)     PipeNum = ( L01_ReadSingleReg( L01REG_STATUS ) >> 1 ) & 0x07;
+    004EE E007      LDI	R16,7
+    004EF DF78      RCALL	_L01_ReadSingleReg
+    004F0 2F40      MOV	R20,R16
+    004F1 9546      LSR	R20
+    004F2 7047      ANDI	R20,7
+(0259)     width = L01_ReadTopFIFOWidth( );
+    004F3 DFEC      RCALL	_L01_ReadTopFIFOWidth
+    004F4 2EA0      MOV	R10,R16
+(0260) 
+(0261)     L01_CSN_LOW( );
+    004F5 98C2      CBI	0x18,2
+    004F6 9ABA      SBI	0x17,2
+(0262)     SPI_ExchangeByte( R_RX_PAYLOAD );
+    004F7 E601      LDI	R16,0x61
+    004F8 DE9B      RCALL	_SPI_ExchangeByte
+(0263)     for( PipeNum = 0; PipeNum < width; PipeNum ++ )
+    004F9 2744      CLR	R20
+    004FA C009      RJMP	0x0504
+(0264)     {
+(0265)         *( pBuff + PipeNum ) = SPI_ExchangeByte( 0xFF );
+    004FB EF0F      LDI	R16,0xFF
+    004FC DE97      RCALL	_SPI_ExchangeByte
+    004FD 2EE0      MOV	R14,R16
+    004FE 2FE4      MOV	R30,R20
+    004FF 27FF      CLR	R31
+    00500 0DEC      ADD	R30,R12
+    00501 1DFD      ADC	R31,R13
+    00502 82E0      ST	Z,R14
+    00503 9543      INC	R20
+    00504 154A      CP	R20,R10
+    00505 F3A8      BCS	0x04FB
+(0266)     }
+(0267)     L01_CSN_HIGH( );
+    00506 9AC2      SBI	0x18,2
+    00507 9ABA      SBI	0x17,2
+(0268)     L01_FlushRX( );
+    00508 DFA3      RCALL	_L01_FlushRX
+(0269)     return width;
+    00509 2D0A      MOV	R16,R10
+    0050A C299      RJMP	pop_xgset30FC
+_L01_WriteTXPayload_Ack:
+  length               --> R12
+  btmp                 --> R10
+  nBytes               --> R10
+  pBuff                --> R14
+    0050B D2AE      RCALL	push_xgset30FC
+    0050C 2EA2      MOV	R10,R18
+    0050D 0178      MOVW	R14,R16
+(0270) }
+(0271) /*
+(0272) ================================================================================
+(0273) Function : L01_WriteTXPayload( )
+(0274) Description : Write TX payload to a pipe and prx will return ack back
+(0275) Input : -PipeNum, number of the pipe
+(0276)         -pBuff, A buffer stores the data
+(0277)         -nBytes, How many bytes to be wrote to
+(0278) Output: None
+(0279) ================================================================================
+(0280) */
+(0281) void L01_WriteTXPayload_Ack( INT8U *pBuff, INT8U nBytes )
+(0282) {
+(0283)     INT8U btmp;
+(0284)     INT8U length = ( nBytes > 32 ) ? 32 : nBytes;
+    0050E E280      LDI	R24,0x20
+    0050F 158A      CP	R24,R10
+    00510 F418      BCC	0x0514
+    00511 E240      LDI	R20,0x20
+    00512 E050      LDI	R21,0
+    00513 C002      RJMP	0x0516
+    00514 2D4A      MOV	R20,R10
+    00515 2755      CLR	R21
+    00516 2EC4      MOV	R12,R20
+(0285) 
+(0286)     L01_FlushTX( );
+    00517 DF8D      RCALL	_L01_FlushTX
+(0287)     L01_CSN_LOW( );
+    00518 98C2      CBI	0x18,2
+    00519 9ABA      SBI	0x17,2
+(0288)     SPI_ExchangeByte( W_TX_PAYLOAD );
+    0051A EA00      LDI	R16,0xA0
+    0051B DE78      RCALL	_SPI_ExchangeByte
+(0289)     for( btmp = 0; btmp < length; btmp ++ )
+    0051C 24AA      CLR	R10
+    0051D C007      RJMP	0x0525
+(0290)     {
+(0291)         SPI_ExchangeByte( *( pBuff + btmp ) );
+    0051E 2DEA      MOV	R30,R10
+    0051F 27FF      CLR	R31
+    00520 0DEE      ADD	R30,R14
+    00521 1DFF      ADC	R31,R15
+    00522 8100      LD	R16,Z
+    00523 DE70      RCALL	_SPI_ExchangeByte
+    00524 94A3      INC	R10
+    00525 14AC      CP	R10,R12
+    00526 F3B8      BCS	0x051E
+(0292)     }
+(0293)     L01_CSN_HIGH( );
+    00527 9AC2      SBI	0x18,2
+    00528 9ABA      SBI	0x17,2
+    00529 C27A      RJMP	pop_xgset30FC
+_L01_WriteTXPayload_NoAck:
+  Data_Length          --> R20
+  Data                 --> R10
+    0052A D298      RCALL	push_xgset300C
+    0052B 2F42      MOV	R20,R18
+    0052C 0158      MOVW	R10,R16
+(0294) }
+(0295) /*
+(0296) ================================================================================
+(0297) Function : L01_WritePayload_NoAck( )
+(0298) Description : write data in tx mode, and prx won't return ack back
+(0299) Input : -Data, A buffer stores the address data
+(0300)         -Data_Length, How many bytes of the data buff
+(0301) Output: None
+(0302) ================================================================================
+(0303) */
+(0304) void L01_WriteTXPayload_NoAck( INT8U *Data, INT8U Data_Length )
+(0305) {
+(0306)     if( Data_Length > 32 || Data_Length == 0 )
+    0052D E280      LDI	R24,0x20
+    0052E 1784      CP	R24,R20
+    0052F F010      BCS	0x0532
+    00530 2344      TST	R20
+    00531 F409      BNE	0x0533
+(0307)     {
+(0308)         return ;
+    00532 C010      RJMP	0x0543
+(0309)     }
+(0310)     L01_CSN_LOW( );
+    00533 98C2      CBI	0x18,2
+    00534 9ABA      SBI	0x17,2
+(0311)     SPI_ExchangeByte( W_TX_PAYLOAD_NOACK );
+    00535 EB00      LDI	R16,0xB0
+    00536 DE5D      RCALL	_SPI_ExchangeByte
+    00537 C004      RJMP	0x053C
+(0312)     while( Data_Length-- )
+(0313)     {
+(0314)         SPI_ExchangeByte( *Data++ );
+    00538 01F5      MOVW	R30,R10
+    00539 9101      LD	R16,Z+
+    0053A 015F      MOVW	R10,R30
+    0053B DE58      RCALL	_SPI_ExchangeByte
+    0053C 2E24      MOV	R2,R20
+    0053D 2433      CLR	R3
+    0053E 5041      SUBI	R20,1
+    0053F 2022      TST	R2
+    00540 F7B9      BNE	0x0538
+(0315)     }
+(0316)     L01_CSN_HIGH( );
+    00541 9AC2      SBI	0x18,2
+    00542 9ABA      SBI	0x17,2
+    00543 C284      RJMP	pop_xgset300C
+_L01_WriteRXPayload_InAck:
+  length               --> R12
+  btmp                 --> R10
+  Data_Length          --> R10
+  pData                --> R14
+    00544 D275      RCALL	push_xgset30FC
+    00545 2EA2      MOV	R10,R18
+    00546 0178      MOVW	R14,R16
+(0317) }
+(0318) /*
+(0319) ================================================================================
+(0320) Function : L01_WritePayload_InAck( )
+(0321) Description : write data in tx fifo when rx mode
+(0322) Input : -Data, A buffer stores the address data
+(0323)         -Data_Length, How many bytes of the data buff
+(0324) Output: None
+(0325) ================================================================================
+(0326) */
+(0327) void L01_WriteRXPayload_InAck( INT8U *pData, INT8U Data_Length )
+(0328) {
+(0329)     INT8U length = ( Data_Length > 32 ) ? 32 : Data_Length;
+    00547 E280      LDI	R24,0x20
+    00548 158A      CP	R24,R10
+    00549 F418      BCC	0x054D
+    0054A E240      LDI	R20,0x20
+    0054B E050      LDI	R21,0
+    0054C C002      RJMP	0x054F
+    0054D 2D4A      MOV	R20,R10
+    0054E 2755      CLR	R21
+    0054F 2EC4      MOV	R12,R20
+(0330)     INT8U btmp;
+(0331) 
+(0332)     L01_CSN_LOW( );
+    00550 98C2      CBI	0x18,2
+    00551 9ABA      SBI	0x17,2
+(0333)     SPI_ExchangeByte( W_ACK_PAYLOAD );
+    00552 EA08      LDI	R16,0xA8
+    00553 DE40      RCALL	_SPI_ExchangeByte
+(0334)     for( btmp = 0; btmp < length; btmp ++ )
+    00554 24AA      CLR	R10
+    00555 C007      RJMP	0x055D
+(0335)     {
+(0336)         SPI_ExchangeByte( *( pData + btmp ) );
+    00556 2DEA      MOV	R30,R10
+    00557 27FF      CLR	R31
+    00558 0DEE      ADD	R30,R14
+    00559 1DFF      ADC	R31,R15
+    0055A 8100      LD	R16,Z
+    0055B DE38      RCALL	_SPI_ExchangeByte
+    0055C 94A3      INC	R10
+    0055D 14AC      CP	R10,R12
+    0055E F3B8      BCS	0x0556
+(0337)     }
+(0338)     L01_CSN_HIGH( );
+    0055F 9AC2      SBI	0x18,2
+    00560 9ABA      SBI	0x17,2
+    00561 C242      RJMP	pop_xgset30FC
+_L01_SetTXAddr:
+  Length               --> R12
+  Addr_Length          --> R12
+  pAddr                --> R10
+    00562 D278      RCALL	push_xgset303C
+    00563 2EC2      MOV	R12,R18
+    00564 0158      MOVW	R10,R16
+    00565 9721      SBIW	R28,1
+(0339) }
+(0340) /*
+(0341) ================================================================================
+(0342) Function : L01_SetTXAddr( )
+(0343) Description : Write address for the own device
+(0344) Input : -pAddr, A buffer stores the address data
+(0345)         -Addr_Length, How many bytes of the address
+(0346) Output: None
+(0347) ================================================================================
+(0348) */
+(0349) void L01_SetTXAddr( INT8U *pAddr, INT8U Addr_Length )
+(0350) {
+(0351)     INT8U Length = ( Addr_Length > 5 ) ? 5 : Addr_Length;
+    00566 E085      LDI	R24,5
+    00567 158C      CP	R24,R12
+    00568 F418      BCC	0x056C
+    00569 E045      LDI	R20,5
+    0056A E050      LDI	R21,0
+    0056B C002      RJMP	0x056E
+    0056C 2D4C      MOV	R20,R12
+    0056D 2755      CLR	R21
+    0056E 2EC4      MOV	R12,R20
+(0352)     L01_WriteMultiReg( L01REG_TX_ADDR, pAddr, Length );
+    0056F 82C8      ST	Y,R12
+    00570 0195      MOVW	R18,R10
+    00571 E100      LDI	R16,0x10
+    00572 DF15      RCALL	_L01_WriteMultiReg
+    00573 9621      ADIW	R28,1
+    00574 C26D      RJMP	pop_xgset303C
+_L01_SetRXAddr:
+  pipe                 --> R20
+  Length               --> R12
+  Addr_Length          --> R12
+  pAddr                --> R10
+  PipeNum              --> R14
+    00575 D244      RCALL	push_xgset30FC
+    00576 0159      MOVW	R10,R18
+    00577 2EE0      MOV	R14,R16
+    00578 9721      SBIW	R28,1
+    00579 84C9      LDD	R12,Y+9
+(0353) }
+(0354) /*
+(0355) ================================================================================
+(0356) Function : L01_SetRXAddr( )
+(0357) Description : Write address for a RX pipe
+(0358) Input : -PipeNum, number of the pipe
+(0359)         -pAddr, A buffer stores the address data
+(0360)         -Addr_Length, How many bytes of the address
+(0361) Output: None
+(0362) ================================================================================
+(0363) */
+(0364) void L01_SetRXAddr( INT8U PipeNum, INT8U *pAddr, INT8U Addr_Length )
+(0365) {
+(0366)     INT8U Length = ( Addr_Length > 5 ) ? 5 : Addr_Length;
+    0057A E085      LDI	R24,5
+    0057B 158C      CP	R24,R12
+    0057C F418      BCC	0x0580
+    0057D E045      LDI	R20,5
+    0057E E050      LDI	R21,0
+    0057F C002      RJMP	0x0582
+    00580 2D4C      MOV	R20,R12
+    00581 2755      CLR	R21
+    00582 2EC4      MOV	R12,R20
+(0367)     INT8U pipe = ( PipeNum > 5 ) ? 5 : PipeNum;
+    00583 E085      LDI	R24,5
+    00584 158E      CP	R24,R14
+    00585 F418      BCC	0x0589
+    00586 E045      LDI	R20,5
+    00587 E050      LDI	R21,0
+    00588 C002      RJMP	0x058B
+    00589 2D4E      MOV	R20,R14
+    0058A 2755      CLR	R21
+(0368) 
+(0369)     L01_WriteMultiReg( L01REG_RX_ADDR_P0 + pipe, pAddr, Length );
+    0058B 82C8      ST	Y,R12
+    0058C 0195      MOVW	R18,R10
+    0058D 2F04      MOV	R16,R20
+    0058E 5F06      SUBI	R16,0xF6
+    0058F DEF8      RCALL	_L01_WriteMultiReg
+    00590 9621      ADIW	R28,1
+    00591 C212      RJMP	pop_xgset30FC
+_L01_SetSpeed:
+  btmp                 --> R20
+  speed                --> R22
+    00592 934A      ST	-Y,R20
+    00593 936A      ST	-Y,R22
+    00594 2F60      MOV	R22,R16
+(0370) }
+(0371) /*
+(0372) ================================================================================
+(0373) Function : L01_SetSpeed )
+(0374) Description : Send the communication speed of the RF device
+(0375) Input :    speed,
+(0376) Output: None
+(0377) ================================================================================
+(0378) */
+(0379) void L01_SetSpeed( L01SPD speed )
+(0380) {
+(0381) 	INT8U btmp = L01_ReadSingleReg( L01REG_RF_SETUP );
+    00595 E006      LDI	R16,6
+    00596 DED1      RCALL	_L01_ReadSingleReg
+    00597 2F40      MOV	R20,R16
+(0382) 
+(0383) 	btmp &= ~( ( 1<<5 ) | ( 1<<3 ) );
+    00598 7D47      ANDI	R20,0xD7
+(0384) 	if( speed == SPD_250K )		//250K
+    00599 2366      TST	R22
+    0059A F411      BNE	0x059D
+(0385) 	{
+(0386) 		btmp |= ( 1<<5 );
+    0059B 6240      ORI	R20,0x20
+(0387) 	}
+    0059C C007      RJMP	0x05A4
+(0388) 	else if( speed == SPD_1M )   //1M
+    0059D 3061      CPI	R22,1
+    0059E F411      BNE	0x05A1
+(0389) 	{
+(0390)    		btmp &= ~( ( 1<<5 ) | ( 1<<3 ) );
+    0059F 7D47      ANDI	R20,0xD7
+(0391) 	}
+    005A0 C003      RJMP	0x05A4
+(0392) 	else if( speed == SPD_2M )   //2M
+    005A1 3062      CPI	R22,2
+    005A2 F409      BNE	0x05A4
+(0393) 	{
+(0394) 		btmp |= ( 1<<3 );
+    005A3 6048      ORI	R20,0x8
+(0395) 	}
+(0396) 
+(0397) 	L01_WriteSingleReg( L01REG_RF_SETUP, btmp );
+    005A4 2F24      MOV	R18,R20
+    005A5 E006      LDI	R16,6
+    005A6 DECE      RCALL	_L01_WriteSingleReg
+    005A7 9169      LD	R22,Y+
+    005A8 9149      LD	R20,Y+
+    005A9 9508      RET
+_L01_SetPower:
+  btmp                 --> R20
+  power                --> R10
+    005AA D222      RCALL	push_xgsetF00C
+    005AB 2EA0      MOV	R10,R16
+(0398) }
+(0399) /*
+(0400) ================================================================================
+(0401) Function : L01_SetPower )
+(0402) Description : Send the transmitt power of the device
+(0403) Input :    power
+(0404) Output: None
+(0405) ================================================================================
+(0406) */
+(0407) void L01_SetPower( L01PWR power )
+(0408) {
+(0409)     INT8U btmp = L01_ReadSingleReg( L01REG_RF_SETUP ) & ~0x07;
+    005AC E006      LDI	R16,6
+    005AD DEBA      RCALL	_L01_ReadSingleReg
+    005AE 2F40      MOV	R20,R16
+    005AF 7F48      ANDI	R20,0xF8
+(0410)     switch( power )
+    005B0 2D6A      MOV	R22,R10
+    005B1 2777      CLR	R23
+    005B2 3060      CPI	R22,0
+    005B3 0767      CPC	R22,R23
+    005B4 F069      BEQ	0x05C2
+    005B5 3061      CPI	R22,1
+    005B6 E0E0      LDI	R30,0
+    005B7 077E      CPC	R23,R30
+    005B8 F051      BEQ	0x05C3
+    005B9 3062      CPI	R22,2
+    005BA E0E0      LDI	R30,0
+    005BB 077E      CPC	R23,R30
+    005BC F041      BEQ	0x05C5
+    005BD 3063      CPI	R22,3
+    005BE E0E0      LDI	R30,0
+    005BF 077E      CPC	R23,R30
+    005C0 F031      BEQ	0x05C7
+    005C1 C006      RJMP	0x05C8
+(0411)     {
+(0412)         case P_F18DBM:
+(0413)             btmp |= PWR_18DB;
+(0414)             break;
+    005C2 C005      RJMP	0x05C8
+(0415)         case P_F12DBM:
+(0416)             btmp |= PWR_12DB;
+    005C3 6042      ORI	R20,2
+(0417)             break;
+    005C4 C003      RJMP	0x05C8
+(0418)         case P_F6DBM:
+(0419)             btmp |= PWR_6DB;
+    005C5 6044      ORI	R20,4
+(0420)             break;
+    005C6 C001      RJMP	0x05C8
+(0421)         case P_0DBM:
+(0422)             btmp |= PWR_0DB;
+    005C7 6046      ORI	R20,6
+(0423)             break;
+(0424)         default:
+(0425)             break;
+(0426)     }
+(0427)     L01_WriteSingleReg( L01REG_RF_SETUP, btmp );
+    005C8 2F24      MOV	R18,R20
+    005C9 E006      LDI	R16,6
+    005CA DEAA      RCALL	_L01_WriteSingleReg
+    005CB C208      RJMP	pop_xgsetF00C
+_L01_WriteHoppingPoint:
+  FreqPoint            --> R20
+    005CC 934A      ST	-Y,R20
+    005CD 2F40      MOV	R20,R16
+(0428) }
+(0429) /*
+(0430) ================================================================================
+(0431) Function : L01_WriteHoppingPoint( )
+(0432) Description : Set frequency for the device,must be 0-125
+(0433) Input : -FreqPoint, The hopping point
+(0434) Output: None
+(0435) ================================================================================
+(0436) */
+(0437) void L01_WriteHoppingPoint( INT8U FreqPoint )
+(0438) {
+(0439)     L01_WriteSingleReg( L01REG_RF_CH, FreqPoint & 0x7F );
+    005CE 2F24      MOV	R18,R20
+    005CF 772F      ANDI	R18,0x7F
+    005D0 E005      LDI	R16,5
+    005D1 DEA3      RCALL	_L01_WriteSingleReg
+    005D2 9149      LD	R20,Y+
+    005D3 9508      RET
+(0440) }
+(0441) /*
+(0442) ================================================================================
+(0443) Function : L01_IsTXEmpty( )
+(0444) Description : Check the TX FIFO if is empty,1:empty, 0:not empty
+(0445) Input : -FreqPoint, The hopping point
+(0446) Output: 1:empty, 0:not empty
+(0447) ================================================================================
+(0448) */
+(0449) INT8U L01_IsTXEmpty( void )
+(0450) {
+(0451) 	return L01_ReadSingleReg( L01REG_FIFO_STATUS ) & ( 1<<TX_EMPTY );
+_L01_IsTXEmpty:
+    005D4 E107      LDI	R16,0x17
+    005D5 DE92      RCALL	_L01_ReadSingleReg
+    005D6 7100      ANDI	R16,0x10
+    005D7 9508      RET
+_L01_SetTRMode:
+  controlreg           --> R20
+  mode                 --> R22
+    005D8 934A      ST	-Y,R20
+    005D9 936A      ST	-Y,R22
+    005DA 2F60      MOV	R22,R16
+(0452) }
+(0453) 
+(0454) /*
+(0455) ================================================================================
+(0456) Function : L01_SetTRMode( )
+(0457) Description : Set the device as TX or RX mode
+(0458) Input : -mode, the mode to be set
+(0459)             @TX_MODE, TX mode
+(0460)             @RX_MODE, RX mode
+(0461) Output: None
+(0462) ================================================================================
+(0463) */
+(0464) void L01_SetTRMode( L01MD mode )
+(0465) {
+(0466)     INT8U controlreg = L01_ReadSingleReg( L01REG_CONFIG );
+    005DB 2700      CLR	R16
+    005DC DE8B      RCALL	_L01_ReadSingleReg
+    005DD 2F40      MOV	R20,R16
+(0467)     if( mode == TX_MODE )       { controlreg &= ~( 1<<PRIM_RX ); L01_SetCE( 0 ); }
+    005DE 2366      TST	R22
+    005DF F421      BNE	0x05E4
+    005E0 7F4E      ANDI	R20,0xFE
+    005E1 2700      CLR	R16
+    005E2 DE7B      RCALL	_L01_SetCE
+    005E3 C005      RJMP	0x05E9
+(0468)     else if( mode == RX_MODE )  { controlreg |= ( 1<<PRIM_RX ); L01_SetCE( 1 );}
+    005E4 3061      CPI	R22,1
+    005E5 F419      BNE	0x05E9
+    005E6 6041      ORI	R20,1
+    005E7 E001      LDI	R16,1
+    005E8 DE75      RCALL	_L01_SetCE
+(0469) 
+(0470)     L01_WriteSingleReg( L01REG_CONFIG, controlreg );
+    005E9 2F24      MOV	R18,R20
+    005EA 2700      CLR	R16
+    005EB DE89      RCALL	_L01_WriteSingleReg
+    005EC 9169      LD	R22,Y+
+    005ED 9149      LD	R20,Y+
+    005EE 9508      RET
+_L01_SetPowerDown:
+  controlreg           --> R20
+    005EF 934A      ST	-Y,R20
+(0471) }
+(0472) /*
+(0473) ================================================================================
+(0474) Function : L01_SetPowerDown( )
+(0475) Description : Set the nRF24L01 into PowerDown mode
+(0476) Input : None
+(0477) Output: None
+(0478) ================================================================================
+(0479) */
+(0480) void L01_SetPowerDown( void )
+(0481) {
+(0482) 	INT8U controlreg = L01_ReadSingleReg( L01REG_CONFIG );
+    005F0 2700      CLR	R16
+    005F1 DE76      RCALL	_L01_ReadSingleReg
+    005F2 2F40      MOV	R20,R16
+(0483)     L01_WriteSingleReg( L01REG_CONFIG, controlreg & ( ~( 1<<PWR_UP ) ) );
+    005F3 2F24      MOV	R18,R20
+    005F4 7F2D      ANDI	R18,0xFD
+    005F5 2700      CLR	R16
+    005F6 DE7E      RCALL	_L01_WriteSingleReg
+    005F7 9149      LD	R20,Y+
+    005F8 9508      RET
+_L01_SetPowerUp:
+  controlreg           --> R20
+    005F9 934A      ST	-Y,R20
+(0484) }
+(0485) /*
+(0486) ================================================================================
+(0487) Function : L01_SetPowerUp( )
+(0488) Description : Set the nRF24L01 into Powerup mode
+(0489) Input : None
+(0490) Output: None
+(0491) ================================================================================
+(0492) */
+(0493) void L01_SetPowerUp( void )
+(0494) {
+(0495) 	INT8U controlreg = L01_ReadSingleReg( L01REG_CONFIG );
+    005FA 2700      CLR	R16
+    005FB DE6C      RCALL	_L01_ReadSingleReg
+    005FC 2F40      MOV	R20,R16
+(0496)     L01_WriteSingleReg( L01REG_CONFIG, controlreg | ( 1<<PWR_UP ) );
+    005FD 2F24      MOV	R18,R20
+    005FE 6022      ORI	R18,2
+    005FF 2700      CLR	R16
+    00600 DE74      RCALL	_L01_WriteSingleReg
+    00601 9149      LD	R20,Y+
+    00602 9508      RET
+_L01_Init:
+  tmp                  --> R10
+  addr                 --> Y,+1
+    00603 92AA      ST	-Y,R10
+    00604 9726      SBIW	R28,6
+(0497) }
+(0498) /*
+(0499) ================================================================================
+(0500) Function : L01_Init( )
+(0501) Description : Initialize the nRF24L01
+(0502) Input : None
+(0503) Output: None
+(0504) ================================================================================
+(0505) */
+(0506) void L01_Init( void )
+(0507) {
+(0508)     INT8U addr[5] = {INIT_ADDR};
+    00605 E486      LDI	R24,0x46
+    00606 E090      LDI	R25,0
+    00607 01FE      MOVW	R30,R28
+    00608 9631      ADIW	R30,1
+    00609 E005      LDI	R16,5
+    0060A E010      LDI	R17,0
+    0060B 93FA      ST	-Y,R31
+    0060C 93EA      ST	-Y,R30
+    0060D 939A      ST	-Y,R25
+    0060E 938A      ST	-Y,R24
+    0060F D1EB      RCALL	asgncblk
+(0509) 
+(0510) 	INT8U tmp = L01_GetCEStatus( );
+    00610 DE4A      RCALL	_L01_GetCEStatus
+    00611 2EA0      MOV	R10,R16
+(0511)     L01_SetCE( 0 );
+    00612 2700      CLR	R16
+    00613 DE4A      RCALL	_L01_SetCE
+(0512) 	L01_SetPowerDown( );
+    00614 DFDA      RCALL	_L01_SetPowerDown
+(0513)     L01_ClearIRQ( IRQ_ALL );
+    00615 E700      LDI	R16,0x70
+    00616 DEB4      RCALL	_L01_ClearIRQ
+(0514) #if DYNAMIC_PACKET == 1
+(0515)     //dynamic payload length
+(0516)     L01_WriteSingleReg( L01REG_DYNPD, ( 1<<0 ) );//Enable pipe 0 dynamic payload length
+    00617 E021      LDI	R18,1
+    00618 E10C      LDI	R16,0x1C
+    00619 DE5B      RCALL	_L01_WriteSingleReg
+(0517)     L01_WriteSingleReg( L01REG_FEATRUE, 0x06 );
+    0061A E026      LDI	R18,6
+    0061B E10D      LDI	R16,0x1D
+    0061C DE58      RCALL	_L01_WriteSingleReg
+(0518)     L01_ReadSingleReg( L01REG_DYNPD );
+    0061D E10C      LDI	R16,0x1C
+    0061E DE49      RCALL	_L01_ReadSingleReg
+(0519)     L01_ReadSingleReg( L01REG_FEATRUE );
+    0061F E10D      LDI	R16,0x1D
+    00620 DE47      RCALL	_L01_ReadSingleReg
+(0520) #elif DYNAMIC_PACKET == 0
+(0521)     //Fixed packet length
+(0522)     L01_WriteSingleReg( L01REG_RX_PW_P0, FIXED_PACKET_LEN );
+(0523) #endif//DYNAMIC_PACKET
+(0524) 
+(0525)     L01_WriteSingleReg( L01REG_CONFIG,/* ( 1<<MASK_TX_DS ) |*////receive interrupt
+    00621 E028      LDI	R18,0x8
+    00622 2700      CLR	R16
+    00623 DE51      RCALL	_L01_WriteSingleReg
+(0526)                                       ( 1<<EN_CRC ) );     //Enable CRC, 1 byte
+(0527)     L01_WriteSingleReg( L01REG_EN_AA, ( 1<<ENAA_P0 ) );   //Auto ack in pipe 0
+    00624 E021      LDI	R18,1
+    00625 E001      LDI	R16,1
+    00626 DE4E      RCALL	_L01_WriteSingleReg
+(0528)     L01_WriteSingleReg( L01REG_EN_RXADDR, ( 1<<ERX_P0 ) );//Enable pipe 0 receive
+    00627 E021      LDI	R18,1
+    00628 E002      LDI	R16,2
+    00629 DE4B      RCALL	_L01_WriteSingleReg
+(0529)     L01_WriteSingleReg( L01REG_SETUP_AW, AW_5BYTES );     //Address width : 5Byte
+    0062A E023      LDI	R18,3
+    0062B E003      LDI	R16,3
+    0062C DE48      RCALL	_L01_WriteSingleReg
+(0530)     L01_WriteSingleReg( L01REG_RETR, (((REPEAT_TIME/250)&0X0F)<<4) |
+    0062D E82F      LDI	R18,0x8F
+    0062E E004      LDI	R16,4
+    0062F DE45      RCALL	_L01_WriteSingleReg
+(0531)                         ( REPEAT_CNT & 0x0F ) );          //repeat SETTING
+(0532)     L01_WriteSingleReg( L01REG_RF_CH, 0x0 );             //Initial channel
+    00630 2722      CLR	R18
+    00631 E005      LDI	R16,5
+    00632 DE42      RCALL	_L01_WriteSingleReg
+(0533)     L01_WriteSingleReg( L01REG_RF_SETUP, 0x27 );
+    00633 E227      LDI	R18,0x27
+    00634 E006      LDI	R16,6
+    00635 DE3F      RCALL	_L01_WriteSingleReg
+(0534)     L01_SetTXAddr( &addr[0], 5 );                          //Set TX address
+    00636 E025      LDI	R18,5
+    00637 018E      MOVW	R16,R28
+    00638 5F0F      SUBI	R16,0xFF
+    00639 4F1F      SBCI	R17,0xFF
+    0063A DF27      RCALL	_L01_SetTXAddr
+(0535)     L01_SetRXAddr( 0, &addr[0], 5 );                       //Set RX address
+    0063B E085      LDI	R24,5
+    0063C 8388      ST	Y,R24
+    0063D 019E      MOVW	R18,R28
+    0063E 5F2F      SUBI	R18,0xFF
+    0063F 4F3F      SBCI	R19,0xFF
+    00640 2700      CLR	R16
+    00641 DF33      RCALL	_L01_SetRXAddr
+(0536) 	L01_SetPowerUp( );
+    00642 DFB6      RCALL	_L01_SetPowerUp
+    00643 9626      ADIW	R28,6
+    00644 90A9      LD	R10,Y+
+    00645 9508      RET
+_LCD_Dis_16x16:
+  i                    --> R20
+  p_data               --> R22
+  column               --> R12
+  page                 --> R10
+    00646 D1A2      RCALL	push_xgsetF03C
+    00647 2EC2      MOV	R12,R18
+    00648 2EA0      MOV	R10,R16
+    00649 8568      LDD	R22,Y+8
+    0064A 8579      LDD	R23,Y+9
+FILE: F:\产品\ODMPRO~1\E06-RFTB\E06-AVR\DEMO_AVR\nRF24L01P\Source\OLED.c
+(0001) 
+(0002) #include "OLED.h"
+(0003) #include "font.h"
+(0004) 
+(0005) /*Write a command to OLED module*/
+(0006) void LCD_WrCmd(INT8U cmd);
+(0007) 
+(0008) /*Write a byte to OLED module*/
+(0009) void LCD_WrDat(INT8U dt);
+(0010) 
+(0011) /*Set the position of the OLED*/
+(0012) void LCD_Set_Pos( INT8U page, INT8U column );
+(0013) 
+(0014) 
+(0015) /*
+(0016) =================================================================================
+(0017) LCD_Dis_16x16( );
+(0018) Function : Display 16x16
+(0019) INTPUT   : page, the page of the LCD, 0-7
+(0020)            column, the column of the LCD, 0-127
+(0021)            p_data, the data array for display
+(0022) OUTPUT   : None
+(0023) =================================================================================
+(0024) */
+(0025) void LCD_Dis_16x16( INT8U page, INT8U column, const INT8U *p_data )
+(0026) {
+(0027)     INT8U i;
+(0028) 
+(0029)     LCD_Set_Pos( page, column );
+    0064B 2D2C      MOV	R18,R12
+    0064C 2D0A      MOV	R16,R10
+    0064D D064      RCALL	_LCD_Set_Pos
+(0030)     for( i = 0; i < 16; i ++ )
+    0064E 2744      CLR	R20
+    0064F C007      RJMP	0x0657
+(0031)     {
+(0032)         LCD_WrDat( *p_data ++ );
+    00650 011B      MOVW	R2,R22
+    00651 5F6F      SUBI	R22,0xFF
+    00652 4F7F      SBCI	R23,0xFF
+    00653 01F1      MOVW	R30,R2
+    00654 9104      LPM	R16,Z
+    00655 D0C4      RCALL	_LCD_WrDat
+    00656 9543      INC	R20
+    00657 3140      CPI	R20,0x10
+    00658 F3B8      BCS	0x0650
+(0033)     }
+(0034)     LCD_Set_Pos( page+1, column );
+    00659 2D2C      MOV	R18,R12
+    0065A 2D0A      MOV	R16,R10
+    0065B 5F0F      SUBI	R16,0xFF
+    0065C D055      RCALL	_LCD_Set_Pos
+(0035)     for( i = 0; i < 16; i ++ )
+    0065D 2744      CLR	R20
+    0065E C007      RJMP	0x0666
+(0036)     {
+(0037)         LCD_WrDat( *p_data ++ );
+    0065F 011B      MOVW	R2,R22
+    00660 5F6F      SUBI	R22,0xFF
+    00661 4F7F      SBCI	R23,0xFF
+    00662 01F1      MOVW	R30,R2
+    00663 9104      LPM	R16,Z
+    00664 D0B5      RCALL	_LCD_WrDat
+    00665 9543      INC	R20
+    00666 3140      CPI	R20,0x10
+    00667 F3B8      BCS	0x065F
+    00668 C189      RJMP	pop_xgsetF03C
+_LCD_Dis_Logo:
+  i                    --> R10
+    00669 92AA      ST	-Y,R10
+    0066A 9722      SBIW	R28,2
+(0038)     }
+(0039) 
+(0040) }
+(0041) /*
+(0042) =================================================================================
+(0043) LCD_Dis_Logo( );
+(0044) Function : Display the manufacture LOGO
+(0045) INTPUT   : None
+(0046) OUTPUT   : None
+(0047) =================================================================================
+(0048) */
+(0049) void LCD_Dis_Logo( void )
+(0050) {
+(0051)     INT8U i = 0;
+    0066B 24AA      CLR	R10
+(0052)     LCD_Dis_16x16( 0, i*16+32, &Our_Logo[32*i] );
+    0066C E200      LDI	R16,0x20
+    0066D 2D1A      MOV	R17,R10
+    0066E 0301      MULSU	R16,R17
+    0066F 0110      MOVW	R2,R0
+    00670 E38B      LDI	R24,0x3B
+    00671 E096      LDI	R25,6
+    00672 0E28      ADD	R2,R24
+    00673 1E39      ADC	R3,R25
+    00674 8239      STD	Y+1,R3
+    00675 8228      ST	Y,R2
+    00676 E100      LDI	R16,0x10
+    00677 0301      MULSU	R16,R17
+    00678 2D20      MOV	R18,R0
+    00679 5E20      SUBI	R18,0xE0
+    0067A 2700      CLR	R16
+    0067B DFCA      RCALL	_LCD_Dis_16x16
+(0053)     i++;
+    0067C 94A3      INC	R10
+(0054)     LCD_Dis_16x16( 0, i*16+32, &Our_Logo[32*i] );
+    0067D E200      LDI	R16,0x20
+    0067E 2D1A      MOV	R17,R10
+    0067F 0301      MULSU	R16,R17
+    00680 0110      MOVW	R2,R0
+    00681 E38B      LDI	R24,0x3B
+    00682 E096      LDI	R25,6
+    00683 0E28      ADD	R2,R24
+    00684 1E39      ADC	R3,R25
+    00685 8239      STD	Y+1,R3
+    00686 8228      ST	Y,R2
+    00687 E100      LDI	R16,0x10
+    00688 0301      MULSU	R16,R17
+    00689 2D20      MOV	R18,R0
+    0068A 5E20      SUBI	R18,0xE0
+    0068B 2700      CLR	R16
+    0068C DFB9      RCALL	_LCD_Dis_16x16
+(0055)     i++;
+    0068D 94A3      INC	R10
+(0056)     LCD_Dis_16x16( 0, i*16+32, &Our_Logo[32*i] );
+    0068E E200      LDI	R16,0x20
+    0068F 2D1A      MOV	R17,R10
+    00690 0301      MULSU	R16,R17
+    00691 0110      MOVW	R2,R0
+    00692 E38B      LDI	R24,0x3B
+    00693 E096      LDI	R25,6
+    00694 0E28      ADD	R2,R24
+    00695 1E39      ADC	R3,R25
+    00696 8239      STD	Y+1,R3
+    00697 8228      ST	Y,R2
+    00698 E100      LDI	R16,0x10
+    00699 0301      MULSU	R16,R17
+    0069A 2D20      MOV	R18,R0
+    0069B 5E20      SUBI	R18,0xE0
+    0069C 2700      CLR	R16
+    0069D DFA8      RCALL	_LCD_Dis_16x16
+(0057)     i++;
+    0069E 94A3      INC	R10
+(0058)     LCD_Dis_16x16( 0, i*16+32, &Our_Logo[32*i] );
+    0069F E200      LDI	R16,0x20
+    006A0 2D1A      MOV	R17,R10
+    006A1 0301      MULSU	R16,R17
+    006A2 0110      MOVW	R2,R0
+    006A3 E38B      LDI	R24,0x3B
+    006A4 E096      LDI	R25,6
+    006A5 0E28      ADD	R2,R24
+    006A6 1E39      ADC	R3,R25
+    006A7 8239      STD	Y+1,R3
+    006A8 8228      ST	Y,R2
+    006A9 E100      LDI	R16,0x10
+    006AA 0301      MULSU	R16,R17
+    006AB 2D20      MOV	R18,R0
+    006AC 5E20      SUBI	R18,0xE0
+    006AD 2700      CLR	R16
+    006AE DF97      RCALL	_LCD_Dis_16x16
+    006AF 9622      ADIW	R28,2
+    006B0 90A9      LD	R10,Y+
+    006B1 9508      RET
+_LCD_Set_Pos:
+  column               --> R20
+  page                 --> R22
+    006B2 934A      ST	-Y,R20
+    006B3 936A      ST	-Y,R22
+    006B4 2F42      MOV	R20,R18
+    006B5 2F60      MOV	R22,R16
+(0059) }
+(0060) /*
+(0061) =================================================================================
+(0062) LCD_Set_Pos( );
+(0063) Function : Set the position of the OLED
+(0064) INTPUT   : page, 0-7
+(0065)            column, 0-128
+(0066) OUTPUT   : None
+(0067) =================================================================================
+(0068) */
+(0069) void LCD_Set_Pos( INT8U page, INT8U column )
+(0070) {
+(0071)     LCD_WrCmd( 0xb0 + ( page & 0x07 ) );
+    006B6 2F06      MOV	R16,R22
+    006B7 7007      ANDI	R16,7
+    006B8 5500      SUBI	R16,0x50
+    006B9 D054      RCALL	_LCD_WrCmd
+(0072)     LCD_WrCmd( 0x10 + ( ( column>>4 ) & 0x0F ) );
+    006BA 2F04      MOV	R16,R20
+    006BB 9502      SWAP	R16
+    006BC 700F      ANDI	R16,0xF
+    006BD 700F      ANDI	R16,0xF
+    006BE 5F00      SUBI	R16,0xF0
+    006BF D04E      RCALL	_LCD_WrCmd
+(0073)     LCD_WrCmd( column & 0x0F );
+    006C0 2F04      MOV	R16,R20
+    006C1 700F      ANDI	R16,0xF
+    006C2 D04B      RCALL	_LCD_WrCmd
+    006C3 9169      LD	R22,Y+
+    006C4 9149      LD	R20,Y+
+    006C5 9508      RET
+_LCD_Dis_Char:
+  pos                  --> R22
+  j                    --> R20
+  ch                   --> R20
+  column               --> R12
+  page                 --> R10
+    006C6 D122      RCALL	push_xgsetF03C
+    006C7 2EC2      MOV	R12,R18
+    006C8 2EA0      MOV	R10,R16
+    006C9 8548      LDD	R20,Y+8
+(0074) }
+(0075) /*
+(0076) =================================================================================
+(0077) LCD_Dis_Str( );
+(0078) Function : Display a character
+(0079) INTPUT   : page, 0-7
+(0080)            column, 0-128
+(0081)            ch, the character to be displayed
+(0082) OUTPUT   : None
+(0083) =================================================================================
+(0084) */
+(0085) void LCD_Dis_Char( INT8U page, INT8U column, char ch )
+(0086) {
+(0087)     INT16U pos;
+(0088)     INT8U j;
+(0089)     if( ch < ' ' )  { return; }
+    006CA 3240      CPI	R20,0x20
+    006CB F408      BCC	0x06CD
+    006CC C02B      RJMP	0x06F8
+(0090) 
+(0091)     pos = 16*( ch - ' ' );
+    006CD E100      LDI	R16,0x10
+    006CE 2F14      MOV	R17,R20
+    006CF 0301      MULSU	R16,R17
+    006D0 01B0      MOVW	R22,R0
+    006D1 5060      SUBI	R22,0
+    006D2 4072      SBCI	R23,2
+(0092)     LCD_Set_Pos( page, column );
+    006D3 2D2C      MOV	R18,R12
+    006D4 2D0A      MOV	R16,R10
+    006D5 DFDC      RCALL	_LCD_Set_Pos
+(0093) 
+(0094)     for( j = 0; j < 8; j ++ )
+    006D6 2744      CLR	R20
+    006D7 C00B      RJMP	0x06E3
+(0095)     {
+(0096)         LCD_WrDat( Font8x16[ pos++ ] );
+    006D8 011B      MOVW	R2,R22
+    006D9 5F6F      SUBI	R22,0xFF
+    006DA 4F7F      SBCI	R23,0xFF
+    006DB E48B      LDI	R24,0x4B
+    006DC E090      LDI	R25,0
+    006DD 01F1      MOVW	R30,R2
+    006DE 0FE8      ADD	R30,R24
+    006DF 1FF9      ADC	R31,R25
+    006E0 9104      LPM	R16,Z
+    006E1 D038      RCALL	_LCD_WrDat
+    006E2 9543      INC	R20
+    006E3 3048      CPI	R20,0x8
+    006E4 F398      BCS	0x06D8
+(0097)     }
+(0098)     LCD_Set_Pos( page+1, column );
+    006E5 2D2C      MOV	R18,R12
+    006E6 2D0A      MOV	R16,R10
+    006E7 5F0F      SUBI	R16,0xFF
+    006E8 DFC9      RCALL	_LCD_Set_Pos
+(0099)     for( j = 0; j < 8; j ++ )
+    006E9 2744      CLR	R20
+    006EA C00B      RJMP	0x06F6
+(0100)     {
+(0101)         LCD_WrDat( Font8x16[ pos++ ] );
+    006EB 011B      MOVW	R2,R22
+    006EC 5F6F      SUBI	R22,0xFF
+    006ED 4F7F      SBCI	R23,0xFF
+    006EE E48B      LDI	R24,0x4B
+    006EF E090      LDI	R25,0
+    006F0 01F1      MOVW	R30,R2
+    006F1 0FE8      ADD	R30,R24
+    006F2 1FF9      ADC	R31,R25
+    006F3 9104      LPM	R16,Z
+    006F4 D025      RCALL	_LCD_WrDat
+    006F5 9543      INC	R20
+    006F6 3048      CPI	R20,0x8
+    006F7 F398      BCS	0x06EB
+    006F8 C0F9      RJMP	pop_xgsetF03C
+_LCD_Dis_Str:
+  str                  --> R10
+  column               --> R20
+  page                 --> R12
+    006F9 D0E1      RCALL	push_xgset303C
+    006FA 2F42      MOV	R20,R18
+    006FB 2EC0      MOV	R12,R16
+    006FC 9721      SBIW	R28,1
+    006FD 80AF      LDD	R10,Y+7
+    006FE 84B8      LDD	R11,Y+8
+(0102)     }
+(0103) }
+(0104) /*
+(0105) =================================================================================
+(0106) LCD_Dis_Str( );
+(0107) Function : Display a string
+(0108) INTPUT   : page, 0-7
+(0109)            column, 0-128
+(0110)            str, the string to be displayed
+(0111) OUTPUT   : None
+(0112) =================================================================================
+(0113) */
+(0114) void LCD_Dis_Str( INT8U page, INT8U column, char *str )
+(0115) {
+    006FF C008      RJMP	0x0708
+(0116)     while( *str )
+(0117)     {
+(0118)         LCD_Dis_Char( page, column, *str++ );
+    00700 01F5      MOVW	R30,R10
+    00701 9021      LD	R2,Z+
+    00702 015F      MOVW	R10,R30
+    00703 8228      ST	Y,R2
+    00704 2F24      MOV	R18,R20
+    00705 2D0C      MOV	R16,R12
+    00706 DFBF      RCALL	_LCD_Dis_Char
+(0119)         column += 8;
+    00707 5F48      SUBI	R20,0xF8
+    00708 01F5      MOVW	R30,R10
+    00709 8020      LD	R2,Z
+    0070A 2022      TST	R2
+    0070B F7A1      BNE	0x0700
+    0070C 9621      ADIW	R28,1
+    0070D C0D4      RJMP	pop_xgset303C
+_LCD_WrCmd:
+  i                    --> Y,+1
+  cmd                  --> R10
+    0070E 92AA      ST	-Y,R10
+    0070F 2EA0      MOV	R10,R16
+(0120)     }
+(0121) }
+(0122) /*
+(0123) =================================================================================
+(0124) LCD_WrCmd( );
+(0125) Function : Write a command to OLED module
+(0126) INTPUT   : cmd, the command byte
+(0127) OUTPUT   : None
+(0128) =================================================================================
+(0129) */
+(0130) void LCD_WrCmd(INT8U cmd)
+(0131) {
+(0132)     unsigned char i;
+(0133)     OLED_CSN_L( );
+    00710 98C1      CBI	0x18,1
+    00711 9AB9      SBI	0x17,1
+(0134)     OLED_CMD_L( );//LCD_DC=0;
+    00712 9897      CBI	0x12,7
+    00713 9A8F      SBI	0x11,7
+(0135)     SPI_ExchangeByte( cmd );
+    00714 2D0A      MOV	R16,R10
+    00715 DC7E      RCALL	_SPI_ExchangeByte
+(0136)     OLED_CSN_H( );
+    00716 9AC1      SBI	0x18,1
+    00717 9AB9      SBI	0x17,1
+    00718 90A9      LD	R10,Y+
+    00719 9508      RET
+_LCD_WrDat:
+  i                    --> Y,+1
+  dt                   --> R10
+    0071A 92AA      ST	-Y,R10
+    0071B 2EA0      MOV	R10,R16
+(0137) }
+(0138) /*
+(0139) =================================================================================
+(0140) LCD_WrDat( );
+(0141) Function : Write a byte to OLED module
+(0142) INTPUT   : dt, the data byte
+(0143) OUTPUT   : None
+(0144) =================================================================================
+(0145) */
+(0146) void LCD_WrDat(INT8U dt)
+(0147) {
+(0148)     unsigned char i;
+(0149)     OLED_CSN_L( );
+    0071C 98C1      CBI	0x18,1
+    0071D 9AB9      SBI	0x17,1
+(0150)     OLED_CMD_H( );//LCD_DC=1;
+    0071E 9A97      SBI	0x12,7
+    0071F 9A8F      SBI	0x11,7
+(0151)     SPI_ExchangeByte( dt );
+    00720 2D0A      MOV	R16,R10
+    00721 DC72      RCALL	_SPI_ExchangeByte
+(0152)     OLED_CSN_H( );
+    00722 9AC1      SBI	0x18,1
+    00723 9AB9      SBI	0x17,1
+    00724 90A9      LD	R10,Y+
+    00725 9508      RET
+_LCD_Fill:
+  y                    --> R20
+  x                    --> R22
+  bmp_dat              --> R10
+    00726 D0A6      RCALL	push_xgsetF00C
+    00727 2EA0      MOV	R10,R16
+(0153) }
+(0154) /*
+(0155) =================================================================================
+(0156) LCD_Fill( );
+(0157) Function : flush the whole screen
+(0158) INTPUT   : bmp_dat, the data value
+(0159) OUTPUT   : None
+(0160) =================================================================================
+(0161) */
+(0162) void LCD_Fill(INT8U bmp_dat)
+(0163) {
+(0164)     INT8U y,x;
+(0165)     for(y=0;y<8;y++)
+    00728 2744      CLR	R20
+    00729 C00F      RJMP	0x0739
+(0166)     {
+(0167)         LCD_WrCmd(0xb0+y);
+    0072A 2F04      MOV	R16,R20
+    0072B 5500      SUBI	R16,0x50
+    0072C DFE1      RCALL	_LCD_WrCmd
+(0168)         LCD_WrCmd(0x01);
+    0072D E001      LDI	R16,1
+    0072E DFDF      RCALL	_LCD_WrCmd
+(0169)         LCD_WrCmd(0x10);
+    0072F E100      LDI	R16,0x10
+    00730 DFDD      RCALL	_LCD_WrCmd
+(0170)         for(x=0;x<128;x++)
+    00731 2766      CLR	R22
+    00732 C003      RJMP	0x0736
+(0171)         LCD_WrDat(bmp_dat);
+    00733 2D0A      MOV	R16,R10
+    00734 DFE5      RCALL	_LCD_WrDat
+    00735 9563      INC	R22
+    00736 3860      CPI	R22,0x80
+    00737 F3D8      BCS	0x0733
+    00738 9543      INC	R20
+    00739 3048      CPI	R20,0x8
+    0073A F378      BCS	0x072A
+    0073B C098      RJMP	pop_xgsetF00C
+_LCD_Init:
+  x                    --> R20
+    0073C 934A      ST	-Y,R20
+    0073D 935A      ST	-Y,R21
+(0172)     }
+(0173) }
+(0174) /*
+(0175) =================================================================================
+(0176) LCD_Init( );
+(0177) Function : Initialize the OLED module
+(0178) INTPUT   : none
+(0179) OUTPUT   : None
+(0180) =================================================================================
+(0181) */
+(0182) void LCD_Init(void)
+(0183) {
+(0184)     INT16U x;
+(0185)     OLED_RST_L() ;//LCD_RST=0;
+    0073E 9896      CBI	0x12,6
+    0073F 9A8E      SBI	0x11,6
+(0186)     for( x = 0; x < 1000; x ++ );
+    00740 2744      CLR	R20
+    00741 2755      CLR	R21
+    00742 C002      RJMP	0x0745
+    00743 5F4F      SUBI	R20,0xFF
+    00744 4F5F      SBCI	R21,0xFF
+    00745 3E48      CPI	R20,0xE8
+    00746 E0E3      LDI	R30,3
+    00747 075E      CPC	R21,R30
+    00748 F3D0      BCS	0x0743
+(0187)     OLED_RST_H( );//LCD_RST=1;       //从上电到下面开始初始化要有足够的时间，即等待RC复位完毕
+    00749 9A96      SBI	0x12,6
+    0074A 9A8E      SBI	0x11,6
+(0188)     LCD_WrCmd(0xae);//--turn off oled panel
+    0074B EA0E      LDI	R16,0xAE
+    0074C DFC1      RCALL	_LCD_WrCmd
+(0189)     LCD_WrCmd(0x00);//---set low column address
+    0074D 2700      CLR	R16
+    0074E DFBF      RCALL	_LCD_WrCmd
+(0190)     LCD_WrCmd(0x10);//---set high column address
+    0074F E100      LDI	R16,0x10
+    00750 DFBD      RCALL	_LCD_WrCmd
+(0191)     LCD_WrCmd(0x40);//--set start line address  Set Mapping RAM Display Start Line (0x00~0x3F)
+    00751 E400      LDI	R16,0x40
+    00752 DFBB      RCALL	_LCD_WrCmd
+(0192)     LCD_WrCmd(0x81);//--set contrast control register
+    00753 E801      LDI	R16,0x81
+    00754 DFB9      RCALL	_LCD_WrCmd
+(0193)     LCD_WrCmd(0xcf); // Set SEG Output Current Brightness
+    00755 EC0F      LDI	R16,0xCF
+    00756 DFB7      RCALL	_LCD_WrCmd
+(0194)     LCD_WrCmd(0xa1);//--Set SEG/Column Mapping     0xa0左右反置 0xa1正常
+    00757 EA01      LDI	R16,0xA1
+    00758 DFB5      RCALL	_LCD_WrCmd
+(0195)     LCD_WrCmd(0xc8);//Set COM/Row Scan Direction   0xc0上下反置 0xc8正常
+    00759 EC08      LDI	R16,0xC8
+    0075A DFB3      RCALL	_LCD_WrCmd
+(0196)     LCD_WrCmd(0xa6);//--set normal display
+    0075B EA06      LDI	R16,0xA6
+    0075C DFB1      RCALL	_LCD_WrCmd
+(0197)     LCD_WrCmd(0xa8);//--set multiplex ratio(1 to 64)
+    0075D EA08      LDI	R16,0xA8
+    0075E DFAF      RCALL	_LCD_WrCmd
+(0198)     LCD_WrCmd(0x3f);//--1/64 duty
+    0075F E30F      LDI	R16,0x3F
+    00760 DFAD      RCALL	_LCD_WrCmd
+(0199)     LCD_WrCmd(0xd3);//-set display offset	Shift Mapping RAM Counter (0x00~0x3F)
+    00761 ED03      LDI	R16,0xD3
+    00762 DFAB      RCALL	_LCD_WrCmd
+(0200)     LCD_WrCmd(0x00);//-not offset
+    00763 2700      CLR	R16
+    00764 DFA9      RCALL	_LCD_WrCmd
+(0201)     LCD_WrCmd(0xd5);//--set display clock divide ratio/oscillator frequency
+    00765 ED05      LDI	R16,0xD5
+    00766 DFA7      RCALL	_LCD_WrCmd
+(0202)     LCD_WrCmd(0x80);//--set divide ratio, Set Clock as 100 Frames/Sec
+    00767 E800      LDI	R16,0x80
+    00768 DFA5      RCALL	_LCD_WrCmd
+(0203)     LCD_WrCmd(0xd9);//--set pre-charge period
+    00769 ED09      LDI	R16,0xD9
+    0076A DFA3      RCALL	_LCD_WrCmd
+(0204)     LCD_WrCmd(0xf1);//Set Pre-Charge as 15 Clocks & Discharge as 1 Clock
+    0076B EF01      LDI	R16,0xF1
+    0076C DFA1      RCALL	_LCD_WrCmd
+(0205)     LCD_WrCmd(0xda);//--set com pins hardware configuration
+    0076D ED0A      LDI	R16,0xDA
+    0076E DF9F      RCALL	_LCD_WrCmd
+(0206)     LCD_WrCmd(0x12);
+    0076F E102      LDI	R16,0x12
+    00770 DF9D      RCALL	_LCD_WrCmd
+(0207)     LCD_WrCmd(0xdb);//--set vcomh
+    00771 ED0B      LDI	R16,0xDB
+    00772 DF9B      RCALL	_LCD_WrCmd
+(0208)     LCD_WrCmd(0x40);//Set VCOM Deselect Level
+    00773 E400      LDI	R16,0x40
+    00774 DF99      RCALL	_LCD_WrCmd
+(0209)     LCD_WrCmd(0x20);//-Set Page Addressing Mode (0x00/0x01/0x02)
+    00775 E200      LDI	R16,0x20
+    00776 DF97      RCALL	_LCD_WrCmd
+(0210)     LCD_WrCmd(0x02);//
+    00777 E002      LDI	R16,2
+    00778 DF95      RCALL	_LCD_WrCmd
+(0211)     LCD_WrCmd(0x8d);//--set Charge Pump enable/disable
+    00779 E80D      LDI	R16,0x8D
+    0077A DF93      RCALL	_LCD_WrCmd
+(0212)     LCD_WrCmd(0x14);//--set(0x10) disable
+    0077B E104      LDI	R16,0x14
+    0077C DF91      RCALL	_LCD_WrCmd
+(0213)     LCD_WrCmd(0xa4);// Disable Entire Display On (0xa4/0xa5)
+    0077D EA04      LDI	R16,0xA4
+    0077E DF8F      RCALL	_LCD_WrCmd
+(0214)     LCD_WrCmd(0xa6);// Disable Inverse Display On (0xa6/a7)
+    0077F EA06      LDI	R16,0xA6
+    00780 DF8D      RCALL	_LCD_WrCmd
+(0215)     LCD_WrCmd(0xaf);//--turn on oled panel
+    00781 EA0F      LDI	R16,0xAF
+    00782 DF8B      RCALL	_LCD_WrCmd
+(0216)     LCD_Fill(0x00);  //初始清屏
+FILE: <library>
+    00783 2700      CLR	R16
+    00784 DFA1      RCALL	_LCD_Fill
+    00785 9159      LD	R21,Y+
+    00786 9149      LD	R20,Y+
+    00787 9508      RET
+mod16u:
+    00788 9468      BSET	6
+    00789 C001      RJMP	xdiv16u
+div16u:
+    0078A 94E8      BCLR	6
+xdiv16u:
+    0078B 92EA      ST	-Y,R14
+    0078C 92FA      ST	-Y,R15
+    0078D 938A      ST	-Y,R24
+    0078E 24EE      CLR	R14
+    0078F 24FF      CLR	R15
+    00790 E180      LDI	R24,0x10
+    00791 0F00      LSL	R16
+    00792 1F11      ROL	R17
+    00793 1CEE      ROL	R14
+    00794 1CFF      ROL	R15
+    00795 16E2      CP	R14,R18
+    00796 06F3      CPC	R15,R19
+    00797 F018      BCS	0x079B
+    00798 1AE2      SUB	R14,R18
+    00799 0AF3      SBC	R15,R19
+    0079A 9503      INC	R16
+    0079B 958A      DEC	R24
+    0079C F7A1      BNE	0x0791
+    0079D F416      BRTC	0x07A0
+    0079E 2D0E      MOV	R16,R14
+    0079F 2D1F      MOV	R17,R15
+    007A0 9189      LD	R24,Y+
+    007A1 90F9      LD	R15,Y+
+    007A2 90E9      LD	R14,Y+
+    007A3 9508      RET
+pop_xgset30FC:
+    007A4 90A9      LD	R10,Y+
+    007A5 90B9      LD	R11,Y+
+    007A6 90C9      LD	R12,Y+
+    007A7 90D9      LD	R13,Y+
+    007A8 90E9      LD	R14,Y+
+    007A9 90F9      LD	R15,Y+
+    007AA 9149      LD	R20,Y+
+    007AB 9159      LD	R21,Y+
+    007AC 9508      RET
+pop_xgsetF0FC:
+    007AD 90A9      LD	R10,Y+
+    007AE 90B9      LD	R11,Y+
+    007AF 90C9      LD	R12,Y+
+    007B0 90D9      LD	R13,Y+
+    007B1 90E9      LD	R14,Y+
+    007B2 90F9      LD	R15,Y+
+    007B3 9149      LD	R20,Y+
+    007B4 9159      LD	R21,Y+
+    007B5 9169      LD	R22,Y+
+    007B6 9179      LD	R23,Y+
+    007B7 9508      RET
+push_xgsetF0FC:
+    007B8 937A      ST	-Y,R23
+    007B9 936A      ST	-Y,R22
+push_xgset30FC:
+    007BA 935A      ST	-Y,R21
+    007BB 934A      ST	-Y,R20
+push_xgset00FC:
+    007BC 92FA      ST	-Y,R15
+    007BD 92EA      ST	-Y,R14
+push_xgset003C:
+    007BE 92DA      ST	-Y,R13
+    007BF 92CA      ST	-Y,R12
+    007C0 92BA      ST	-Y,R11
+    007C1 92AA      ST	-Y,R10
+    007C2 9508      RET
+push_xgset300C:
+    007C3 935A      ST	-Y,R21
+    007C4 934A      ST	-Y,R20
+    007C5 92BA      ST	-Y,R11
+    007C6 92AA      ST	-Y,R10
+    007C7 9508      RET
+pop_xgset300C:
+    007C8 90A9      LD	R10,Y+
+    007C9 90B9      LD	R11,Y+
+    007CA 9149      LD	R20,Y+
+    007CB 9159      LD	R21,Y+
+    007CC 9508      RET
+push_xgsetF00C:
+    007CD 937A      ST	-Y,R23
+    007CE 936A      ST	-Y,R22
+    007CF 935A      ST	-Y,R21
+    007D0 934A      ST	-Y,R20
+    007D1 92BA      ST	-Y,R11
+    007D2 92AA      ST	-Y,R10
+    007D3 9508      RET
+pop_xgsetF00C:
+    007D4 90A9      LD	R10,Y+
+    007D5 90B9      LD	R11,Y+
+    007D6 9149      LD	R20,Y+
+    007D7 9159      LD	R21,Y+
+    007D8 9169      LD	R22,Y+
+    007D9 9179      LD	R23,Y+
+    007DA 9508      RET
+push_xgset303C:
+    007DB 935A      ST	-Y,R21
+    007DC 934A      ST	-Y,R20
+    007DD 92DA      ST	-Y,R13
+    007DE 92CA      ST	-Y,R12
+    007DF 92BA      ST	-Y,R11
+    007E0 92AA      ST	-Y,R10
+    007E1 9508      RET
+pop_xgset303C:
+    007E2 90A9      LD	R10,Y+
+    007E3 90B9      LD	R11,Y+
+    007E4 90C9      LD	R12,Y+
+    007E5 90D9      LD	R13,Y+
+    007E6 9149      LD	R20,Y+
+    007E7 9159      LD	R21,Y+
+    007E8 9508      RET
+push_xgsetF03C:
+    007E9 937A      ST	-Y,R23
+    007EA 936A      ST	-Y,R22
+    007EB 935A      ST	-Y,R21
+    007EC 934A      ST	-Y,R20
+    007ED 92DA      ST	-Y,R13
+    007EE 92CA      ST	-Y,R12
+    007EF 92BA      ST	-Y,R11
+    007F0 92AA      ST	-Y,R10
+    007F1 9508      RET
+pop_xgsetF03C:
+    007F2 90A9      LD	R10,Y+
+    007F3 90B9      LD	R11,Y+
+    007F4 90C9      LD	R12,Y+
+    007F5 90D9      LD	R13,Y+
+    007F6 9149      LD	R20,Y+
+    007F7 9159      LD	R21,Y+
+    007F8 9169      LD	R22,Y+
+    007F9 9179      LD	R23,Y+
+    007FA 9508      RET
+asgncblk:
+    007FB 93AA      ST	-Y,R26
+    007FC 93BA      ST	-Y,R27
+    007FD 93EA      ST	-Y,R30
+    007FE 93FA      ST	-Y,R31
+    007FF 920A      ST	-Y,R0
+    00800 81AF      LDD	R26,Y+7
+    00801 85B8      LDD	R27,Y+8
+    00802 81ED      LDD	R30,Y+5
+    00803 81FE      LDD	R31,Y+6
+    00804 3000      CPI	R16,0
+    00805 0701      CPC	R16,R17
+    00806 F031      BEQ	0x080D
+    00807 95C8      LPM
+    00808 920D      ST	X+,R0
+    00809 9631      ADIW	R30,1
+    0080A 5001      SUBI	R16,1
+    0080B 4010      SBCI	R17,0
+    0080C CFF7      RJMP	0x0804
+    0080D 9009      LD	R0,Y+
+    0080E 91F9      LD	R31,Y+
+    0080F 91E9      LD	R30,Y+
+    00810 91B9      LD	R27,Y+
+    00811 91A9      LD	R26,Y+
+    00812 9624      ADIW	R28,4
+    00813 9508      RET

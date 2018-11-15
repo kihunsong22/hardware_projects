@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<workspace>
+  <project>
+    <path>$WS_DIR$\RX\nRF24L01P_RX.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\TX\nRF24L01P_TX.ewp</path>
+  </project>
+  <batchBuild/>
+</workspace>
+
+

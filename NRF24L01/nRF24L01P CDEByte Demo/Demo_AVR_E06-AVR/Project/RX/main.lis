@@ -1,0 +1,417 @@
+                        .module main.c
+                        .area text(rom, con, rel)
+ 0000                   .dbfile ..\..\..\..\..\..\..\ODMPRO~1\E06-RFTB\E06-AVR\DEMO_AVR\nRF24L01P\Project\RX\main.c
+                        .area lit(rom, con, rel)
+ 0000           L6:
+ 0000 3030              .byte 48,48
+ 0002 3030              .byte 48,48
+ 0004 3000              .byte 48,0
+ 0006 00000000000000000000      .word 0,0,0,0,0
+ 0010 00000000000000000000      .word 0,0,0,0,0
+ 001A 000000000000      .byte 0,0,0,0,0,0
+                        .area text(rom, con, rel)
+ 0000                   .dbfile ..\..\..\..\..\..\..\ODMPRO~1\E06-RFTB\E06-AVR\DEMO_AVR\nRF24L01P\Project\RX\main.c
+ 0000                   .dbfile F:\产品\ODMPRO~1\E06-RFTB\E06-AVR\DEMO_AVR\nRF24L01P\Project\RX\main.c
+ 0000                   .dbfunc e main _main fV
+ 0000           ;            dly -> y+34
+ 0000           ;      rx_conter -> R20,R21
+ 0000           ;           itmp -> R22,R23
+ 0000           ;     testbuffer -> y+2
+ 0000           ;            tmp -> R22
+                        .even
+ 0000           _main::
+ 0000 A697              sbiw R28,38
+ 0002                   .dbline -1
+ 0002                   .dbline 7
+ 0002           ; 
+ 0002           ; #include "board.h"
+ 0002           ; #include "OLED.h"
+ 0002           ; #include "nRF24L01.h"
+ 0002           ; 
+ 0002           ; void main( void )
+ 0002           ; {
+ 0002                   .dbline 9
+ 0002           ;     INT32U dly;
+ 0002           ;     INT8U tmp, testbuffer[32] = {'0','0','0','0','0', 0};
+ 0002 80E0              ldi R24,<L6
+ 0004 90E0              ldi R25,>L6
+ 0006 FE01              movw R30,R28
+ 0008 3296              adiw R30,2
+ 000A 00E2              ldi R16,32
+ 000C 10E0              ldi R17,0
+ 000E FA93              st -y,R31
+ 0010 EA93              st -y,R30
+ 0012 9A93              st -y,R25
+ 0014 8A93              st -y,R24
+ 0016 00D0              rcall asgncblk
+ 0018                   .dbline 10
+ 0018           ;     INT16U rx_conter = 0, itmp;
+ 0018 4427              clr R20
+ 001A 5527              clr R21
+ 001C                   .dbline 12
+ 001C           ; 
+ 001C           ;     SPI_Initial( );
+ 001C 00D0              rcall _SPI_Initial
+ 001E                   .dbline 13
+ 001E           ;     GPIO_Initial( );
+ 001E 00D0              rcall _GPIO_Initial
+ 0020                   .dbline 16
+ 0020           ; 
+ 0020           ;     //初始化L01+的控制口CE = 1
+ 0020           ;       PORTB |= ( 1<<7 );
+ 0020 C79A              sbi 0x18,7
+ 0022                   .dbline 17
+ 0022           ;       DDRB |= ( 1<<7 );
+ 0022 BF9A              sbi 0x17,7
+ 0024                   .dbline 20
+ 0024           ; 
+ 0024           ;     //初始化L01+的控制口IRQ,使用查询方式
+ 0024           ;     PORTB |= ( 1<<6 );
+ 0024 C69A              sbi 0x18,6
+ 0026                   .dbline 21
+ 0026           ;       DDRB &= ~( 1<<6 );
+ 0026 BE98              cbi 0x17,6
+ 0028                   .dbline 25
+ 0028           ; 
+ 0028           ;     //L01+的操作，已经被建成C库，见nRF24L01.h文件，提供SPI和CSN操作，即可调用其内部所有函数。
+ 0028           ;     //用户无需再关心L01+的寄存器操作问题。
+ 0028           ;     L01_Init( );
+ 0028 00D0              rcall _L01_Init
+ 002A                   .dbline 26
+ 002A           ;     L01_SetTRMode( RX_MODE );
+ 002A 01E0              ldi R16,1
+ 002C 00D0              rcall _L01_SetTRMode
+ 002E                   .dbline 27
+ 002E           ;     L01_WriteHoppingPoint( 0 );
+ 002E 0027              clr R16
+ 0030 00D0              rcall _L01_WriteHoppingPoint
+ 0032                   .dbline 31
+ 0032           ;     //L01_SetSpeed( SPD_250K );
+ 0032           ; 
+ 0032           ;       //关闭LED
+ 0032           ;       LED_Off( );
+ 0032                   .dbline 31
+ 0032 82B3              in R24,0x12
+ 0034 8360              ori R24,3
+ 0036 82BB              out 0x12,R24
+ 0038                   .dbline 31
+ 0038 81B3              in R24,0x11
+ 003A 8360              ori R24,3
+ 003C 81BB              out 0x11,R24
+ 003E                   .dbline 31
+ 003E                   .dbline 31
+ 003E                   .dbline 32
+ 003E           ;     LCD_Init( );            //OLED初始化
+ 003E 00D0              rcall _LCD_Init
+ 0040                   .dbline 34
+ 0040           ; 
+ 0040           ;     LCD_Dis_Logo( );
+ 0040 00D0              rcall _LCD_Dis_Logo
+ 0042                   .dbline 36
+ 0042           ; 
+ 0042           ;     LCD_Dis_Str( 2,24,"AVR  board" );
+ 0042 80E0              ldi R24,<L7
+ 0044 90E0              ldi R25,>L7
+ 0046 9983              std y+1,R25
+ 0048 8883              std y+0,R24
+ 004A 28E1              ldi R18,24
+ 004C 02E0              ldi R16,2
+ 004E 00D0              rcall _LCD_Dis_Str
+ 0050                   .dbline 37
+ 0050           ;     LCD_Dis_Str( 4,0,"yhmcu.taobao.com" );
+ 0050 80E0              ldi R24,<L8
+ 0052 90E0              ldi R25,>L8
+ 0054 9983              std y+1,R25
+ 0056 8883              std y+0,R24
+ 0058 2227              clr R18
+ 005A 04E0              ldi R16,4
+ 005C 00D0              rcall _LCD_Dis_Str
+ 005E                   .dbline 38
+ 005E           ;     LCD_Dis_Str( 6,0,"24L01+:RX " );
+ 005E 80E0              ldi R24,<L9
+ 0060 90E0              ldi R25,>L9
+ 0062 9983              std y+1,R25
+ 0064 8883              std y+0,R24
+ 0066 2227              clr R18
+ 0068 06E0              ldi R16,6
+ 006A 00D0              rcall _LCD_Dis_Str
+ 006C                   .dbline 39
+ 006C           ;     LCD_Dis_Str( 6, 80, (char*)testbuffer );
+ 006C CE01              movw R24,R28
+ 006E 0296              adiw R24,2
+ 0070 9983              std y+1,R25
+ 0072 8883              std y+0,R24
+ 0074 20E5              ldi R18,80
+ 0076 06E0              ldi R16,6
+ 0078 00D0              rcall _LCD_Dis_Str
+ 007A 74C0              rjmp L11
+ 007C           L10:
+ 007C                   .dbline 41
+ 007C           ;       while( 1 )
+ 007C           ;       {
+ 007C                   .dbline 43
+ 007C           ;         //清空RX和TX缓冲区，等待接收中断
+ 007C           ;         L01_FlushRX( );
+ 007C 00D0              rcall _L01_FlushRX
+ 007E                   .dbline 44
+ 007E           ;         L01_FlushTX( );
+ 007E 00D0              rcall _L01_FlushTX
+ 0080           L13:
+ 0080                   .dbline 48
+ 0080           ;         //等待接收中断产生，IRQ将被拉低，用PB6检测
+ 0080           ;         //while( PINB & ( 1<<6 ) );
+ 0080           ;         //读出中断标记不为0
+ 0080           ;         while( ( tmp = L01_ReadIRQSource( ) ) == 0 );
+ 0080           L14:
+ 0080                   .dbline 48
+ 0080 00D0              rcall _L01_ReadIRQSource
+ 0082 602F              mov R22,R16
+ 0084 6623              tst R22
+ 0086 E1F3              breq L13
+ 0088           X0:
+ 0088                   .dbline 50
+ 0088           ;         //判断中断类型
+ 0088           ;         if( tmp & ( 1<<TX_DS ) )
+ 0088 05FF              sbrs R16,5
+ 008A 01C0              rjmp L16
+ 008C           X1:
+ 008C                   .dbline 51
+ 008C           ;         {
+ 008C                   .dbline 52
+ 008C           ;         }
+ 008C 69C0              rjmp L17
+ 008E           L16:
+ 008E                   .dbline 53
+ 008E           ;         else if( tmp & ( 1<<MAX_RT ) )
+ 008E 64FF              sbrs R22,4
+ 0090 01C0              rjmp L18
+ 0092           X2:
+ 0092                   .dbline 54
+ 0092           ;         {
+ 0092                   .dbline 55
+ 0092           ;         }
+ 0092 66C0              rjmp L19
+ 0094           L18:
+ 0094                   .dbline 56
+ 0094           ;         else if( tmp & ( 1<<RX_DR )  )
+ 0094 66FF              sbrs R22,6
+ 0096 64C0              rjmp L20
+ 0098           X3:
+ 0098                   .dbline 57
+ 0098           ;         {
+ 0098                   .dbline 59
+ 0098           ;             //接收成功，读出数据，判断是否和发射内容一致，进行LED 翻转
+ 0098           ;             for( tmp = 0; tmp < 32; tmp ++ )
+ 0098 6627              clr R22
+ 009A 09C0              rjmp L25
+ 009C           L22:
+ 009C                   .dbline 60
+ 009C           ;             {
+ 009C                   .dbline 61
+ 009C           ;                 testbuffer[tmp] = 0;
+ 009C CE01              movw R24,R28
+ 009E 0296              adiw R24,2
+ 00A0 E62F              mov R30,R22
+ 00A2 FF27              clr R31
+ 00A4 E80F              add R30,R24
+ 00A6 F91F              adc R31,R25
+ 00A8 2224              clr R2
+ 00AA 2082              std z+0,R2
+ 00AC                   .dbline 62
+ 00AC           ;             }
+ 00AC           L23:
+ 00AC                   .dbline 59
+ 00AC 6395              inc R22
+ 00AE           L25:
+ 00AE                   .dbline 59
+ 00AE 6032              cpi R22,32
+ 00B0 A8F3              brlo L22
+ 00B2           X4:
+ 00B2                   .dbline 63
+ 00B2           ;             tmp = L01_ReadRXPayload( testbuffer );
+ 00B2 8E01              movw R16,R28
+ 00B4 0E5F              subi R16,254  ; offset = 2
+ 00B6 1F4F              sbci R17,255
+ 00B8 00D0              rcall _L01_ReadRXPayload
+ 00BA 602F              mov R22,R16
+ 00BC                   .dbline 65
+ 00BC           ;             //判断接收的数据正确否，对应的发射程序，发送的是字符串"123\r\n"
+ 00BC           ;             if( tmp == 5 && testbuffer[0] == '1' && testbuffer[1] == '2' && testbuffer[2] == '3' )
+ 00BC 0530              cpi R16,5
+ 00BE 09F0              breq X10
+ 00C0 4FC0              rjmp L26
+ 00C2           X10:
+ 00C2           X5:
+ 00C2 8A81              ldd R24,y+2
+ 00C4 8133              cpi R24,49
+ 00C6 09F0              breq X11
+ 00C8 4BC0              rjmp L26
+ 00CA           X11:
+ 00CA           X6:
+ 00CA 8B81              ldd R24,y+3
+ 00CC 8233              cpi R24,50
+ 00CE 09F0              breq X12
+ 00D0 47C0              rjmp L26
+ 00D2           X12:
+ 00D2           X7:
+ 00D2 8C81              ldd R24,y+4
+ 00D4 8333              cpi R24,51
+ 00D6 09F0              breq X13
+ 00D8 43C0              rjmp L26
+ 00DA           X13:
+ 00DA           X8:
+ 00DA                   .dbline 66
+ 00DA           ;             {
+ 00DA                   .dbline 68
+ 00DA           ; 
+ 00DA           ;                 LED_Toggle( );      //接收数据正确,LED翻转
+ 00DA                   .dbline 68
+ 00DA 83E0              ldi R24,3
+ 00DC 22B2              in R2,0x12
+ 00DE 2826              eor R2,R24
+ 00E0 22BA              out 0x12,R2
+ 00E2                   .dbline 68
+ 00E2 81B3              in R24,0x11
+ 00E4 8360              ori R24,3
+ 00E6 81BB              out 0x11,R24
+ 00E8                   .dbline 68
+ 00E8                   .dbline 68
+ 00E8                   .dbline 70
+ 00E8           ;                 //Display the received count
+ 00E8           ;                 rx_conter ++;
+ 00E8 4F5F              subi R20,255  ; offset = 1
+ 00EA 5F4F              sbci R21,255
+ 00EC                   .dbline 71
+ 00EC           ;                 itmp = rx_conter;
+ 00EC BA01              movw R22,R20
+ 00EE                   .dbline 72
+ 00EE           ;                 testbuffer[0] = ( itmp / 10000 ) + '0';
+ 00EE 20E1              ldi R18,10000
+ 00F0 37E2              ldi R19,39
+ 00F2 8B01              movw R16,R22
+ 00F4 00D0              rcall div16u
+ 00F6 C801              movw R24,R16
+ 00F8 C096              adiw R24,48
+ 00FA 8A83              std y+2,R24
+ 00FC                   .dbline 73
+ 00FC           ;                 itmp %= 10000;
+ 00FC 20E1              ldi R18,10000
+ 00FE 37E2              ldi R19,39
+ 0100 8B01              movw R16,R22
+ 0102 00D0              rcall mod16u
+ 0104 B801              movw R22,R16
+ 0106                   .dbline 74
+ 0106           ;                 testbuffer[1] = ( itmp / 1000 ) + '0';
+ 0106 28EE              ldi R18,1000
+ 0108 33E0              ldi R19,3
+ 010A 00D0              rcall div16u
+ 010C C801              movw R24,R16
+ 010E C096              adiw R24,48
+ 0110 8B83              std y+3,R24
+ 0112                   .dbline 75
+ 0112           ;                 itmp %= 1000;
+ 0112 28EE              ldi R18,1000
+ 0114 33E0              ldi R19,3
+ 0116 8B01              movw R16,R22
+ 0118 00D0              rcall mod16u
+ 011A B801              movw R22,R16
+ 011C                   .dbline 76
+ 011C           ;                 testbuffer[2] = ( itmp / 100 ) + '0';
+ 011C 24E6              ldi R18,100
+ 011E 30E0              ldi R19,0
+ 0120 00D0              rcall div16u
+ 0122 C801              movw R24,R16
+ 0124 C096              adiw R24,48
+ 0126 8C83              std y+4,R24
+ 0128                   .dbline 77
+ 0128           ;                 itmp %= 100;
+ 0128 24E6              ldi R18,100
+ 012A 30E0              ldi R19,0
+ 012C 8B01              movw R16,R22
+ 012E 00D0              rcall mod16u
+ 0130 B801              movw R22,R16
+ 0132                   .dbline 78
+ 0132           ;                 testbuffer[3] = ( itmp / 10 ) + '0';
+ 0132 2AE0              ldi R18,10
+ 0134 30E0              ldi R19,0
+ 0136 00D0              rcall div16u
+ 0138 C801              movw R24,R16
+ 013A C096              adiw R24,48
+ 013C 8D83              std y+5,R24
+ 013E                   .dbline 79
+ 013E           ;                 itmp %= 10;
+ 013E 2AE0              ldi R18,10
+ 0140 30E0              ldi R19,0
+ 0142 8B01              movw R16,R22
+ 0144 00D0              rcall mod16u
+ 0146 B801              movw R22,R16
+ 0148                   .dbline 80
+ 0148           ;                 testbuffer[4] = itmp + '0';
+ 0148 CB01              movw R24,R22
+ 014A C096              adiw R24,48
+ 014C 8E83              std y+6,R24
+ 014E                   .dbline 81
+ 014E           ;                 testbuffer[5] = 0;
+ 014E 2224              clr R2
+ 0150 2F82              std y+7,R2
+ 0152                   .dbline 82
+ 0152           ;                 LCD_Dis_Str( 6, 80, (char*)testbuffer );
+ 0152 CE01              movw R24,R28
+ 0154 0296              adiw R24,2
+ 0156 9983              std y+1,R25
+ 0158 8883              std y+0,R24
+ 015A 20E5              ldi R18,80
+ 015C 06E0              ldi R16,6
+ 015E 00D0              rcall _LCD_Dis_Str
+ 0160                   .dbline 84
+ 0160           ; 
+ 0160           ;             }
+ 0160           L26:
+ 0160                   .dbline 85
+ 0160           ;         }
+ 0160           L20:
+ 0160           L19:
+ 0160           L17:
+ 0160                   .dbline 86
+ 0160           ;         L01_ClearIRQ( IRQ_ALL );
+ 0160 00E7              ldi R16,112
+ 0162 00D0              rcall _L01_ClearIRQ
+ 0164                   .dbline 87
+ 0164           ;     }
+ 0164           L11:
+ 0164                   .dbline 40
+ 0164 8BCF              rjmp L10
+ 0166           X9:
+ 0166                   .dbline -2
+ 0166           L5:
+ 0166                   .dbline 0 ; func end
+ 0166 A696              adiw R28,38
+ 0168 0895              ret
+ 016A                   .dbsym l dly 34 l
+ 016A                   .dbsym r rx_conter 20 i
+ 016A                   .dbsym r itmp 22 i
+ 016A                   .dbsym l testbuffer 2 A[32:32]c
+ 016A                   .dbsym r tmp 22 c
+ 016A                   .dbend
+                        .area data(ram, con, rel)
+ 0000                   .dbfile F:\产品\ODMPRO~1\E06-RFTB\E06-AVR\DEMO_AVR\nRF24L01P\Project\RX\main.c
+ 0000           L9:
+ 0000                   .blkb 11
+                        .area idata
+ 0000 32344C30312B3A52582000    .byte 50,52,'L,48,49,43,58,'R,'X,32,0
+                        .area data(ram, con, rel)
+ 000B                   .dbfile F:\产品\ODMPRO~1\E06-RFTB\E06-AVR\DEMO_AVR\nRF24L01P\Project\RX\main.c
+ 000B           L8:
+ 000B                   .blkb 17
+                        .area idata
+ 000B 79686D63752E74616F62616F2E636F6D  .byte 'y,'h,'m,'c,'u,46,'t,'a,'o,'b,'a,'o,46,'c,'o,'m
+ 001B 00                .byte 0
+                        .area data(ram, con, rel)
+ 001C                   .dbfile F:\产品\ODMPRO~1\E06-RFTB\E06-AVR\DEMO_AVR\nRF24L01P\Project\RX\main.c
+ 001C           L7:
+ 001C                   .blkb 11
+                        .area idata
+ 001C 4156522020626F61726400    .byte 'A,'V,'R,32,32,'b,'o,'a,'r,'d,0
+                        .area data(ram, con, rel)
+ 0027                   .dbfile F:\产品\ODMPRO~1\E06-RFTB\E06-AVR\DEMO_AVR\nRF24L01P\Project\RX\main.c
+ 0027           ; }

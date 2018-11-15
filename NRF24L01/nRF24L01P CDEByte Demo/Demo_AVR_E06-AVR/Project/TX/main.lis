@@ -1,0 +1,453 @@
+                        .module main.c
+                        .area text(rom, con, rel)
+ 0000                   .dbfile ..\..\..\..\..\..\..\ODMPRO~1\E06-RFTB\E06-AVR\DEMO_AVR\nRF24L01P\Project\TX\main.c
+                        .area lit(rom, con, rel)
+ 0000           L6:
+ 0000 303030303000      .byte 48,48,48,48,48,0
+ 0006 00000000          .byte 0,0,0,0
+                        .area text(rom, con, rel)
+ 0000                   .dbfile ..\..\..\..\..\..\..\ODMPRO~1\E06-RFTB\E06-AVR\DEMO_AVR\nRF24L01P\Project\TX\main.c
+ 0000                   .dbfile F:\产品\ODMPRO~1\E06-RFTB\E06-AVR\DEMO_AVR\nRF24L01P\Project\TX\main.c
+ 0000                   .dbfunc e main _main fV
+ 0000           ;              x -> <dead>
+ 0000           ;      tx_couter -> R20,R21
+ 0000           ;     testbuffer -> y+6
+ 0000           ;           itmp -> R22,R23
+ 0000           ;            tmp -> R10
+ 0000           ;            dly -> y+2
+                        .even
+ 0000           _main::
+ 0000 6097              sbiw R28,16
+ 0002                   .dbline -1
+ 0002                   .dbline 8
+ 0002           ; 
+ 0002           ; 
+ 0002           ; #include "nRF24L01.h"
+ 0002           ; #include "board.h"
+ 0002           ; #include "Oled.h"
+ 0002           ; 
+ 0002           ; void main( void )
+ 0002           ; {
+ 0002                   .dbline 10
+ 0002           ;       INT32U dly;
+ 0002           ;     INT8U tmp,x,testbuffer[10] = {"00000"};
+ 0002 80E0              ldi R24,<L6
+ 0004 90E0              ldi R25,>L6
+ 0006 FE01              movw R30,R28
+ 0008 3696              adiw R30,6
+ 000A 0AE0              ldi R16,10
+ 000C 10E0              ldi R17,0
+ 000E FA93              st -y,R31
+ 0010 EA93              st -y,R30
+ 0012 9A93              st -y,R25
+ 0014 8A93              st -y,R24
+ 0016 00D0              rcall asgncblk
+ 0018                   .dbline 11
+ 0018           ;       INT16U tx_couter = 0, itmp;
+ 0018 4427              clr R20
+ 001A 5527              clr R21
+ 001C                   .dbline 13
+ 001C           ; 
+ 001C           ;       SPI_Initial( );
+ 001C 00D0              rcall _SPI_Initial
+ 001E                   .dbline 14
+ 001E           ;       GPIO_Initial( );
+ 001E 00D0              rcall _GPIO_Initial
+ 0020                   .dbline 18
+ 0020           ; 
+ 0020           ; 
+ 0020           ;       //初始化L01+的控制口CE = 0
+ 0020           ;       L01_CE_LOW( );
+ 0020                   .dbline 18
+ 0020 C798              cbi 0x18,7
+ 0022                   .dbline 18
+ 0022 BF9A              sbi 0x17,7
+ 0024                   .dbline 18
+ 0024                   .dbline 18
+ 0024                   .dbline 21
+ 0024           ; 
+ 0024           ;       //初始化L01+的控制口IRQ,使用查询方式
+ 0024           ;       PORTB |= ( 1<<6 );
+ 0024 C69A              sbi 0x18,6
+ 0026                   .dbline 22
+ 0026           ;       DDRB  &= ~( 1<<6 );
+ 0026 BE98              cbi 0x17,6
+ 0028                   .dbline 26
+ 0028           ; 
+ 0028           ;       //L01+的操作，已经被建成C库，见nRF24L01.h文件，提供SPI和CSN操作，即可调用其内部所有函数。
+ 0028           ;       //用户无需再关心L01+的寄存器操作问题。
+ 0028           ;       L01_Init( );
+ 0028 00D0              rcall _L01_Init
+ 002A                   .dbline 27
+ 002A           ;       L01_SetTRMode( TX_MODE );
+ 002A 0027              clr R16
+ 002C 00D0              rcall _L01_SetTRMode
+ 002E                   .dbline 28
+ 002E           ;       L01_WriteHoppingPoint( 0 );
+ 002E 0027              clr R16
+ 0030 00D0              rcall _L01_WriteHoppingPoint
+ 0032                   .dbline 32
+ 0032           ;       //L01_SetSpeed( SPD_250K );
+ 0032           ; 
+ 0032           ;       //关闭LED
+ 0032           ;       LED_Off( );
+ 0032                   .dbline 32
+ 0032 82B3              in R24,0x12
+ 0034 8360              ori R24,3
+ 0036 82BB              out 0x12,R24
+ 0038                   .dbline 32
+ 0038 81B3              in R24,0x11
+ 003A 8360              ori R24,3
+ 003C 81BB              out 0x11,R24
+ 003E                   .dbline 32
+ 003E                   .dbline 32
+ 003E                   .dbline 34
+ 003E           ; 
+ 003E           ;       LCD_Init( );
+ 003E 00D0              rcall _LCD_Init
+ 0040                   .dbline 35
+ 0040           ;       LCD_Dis_Logo( );
+ 0040 00D0              rcall _LCD_Dis_Logo
+ 0042                   .dbline 36
+ 0042           ;       LCD_Dis_Str( 2,24,"AVR board" );
+ 0042 80E0              ldi R24,<L7
+ 0044 90E0              ldi R25,>L7
+ 0046 9983              std y+1,R25
+ 0048 8883              std y+0,R24
+ 004A 28E1              ldi R18,24
+ 004C 02E0              ldi R16,2
+ 004E 00D0              rcall _LCD_Dis_Str
+ 0050                   .dbline 37
+ 0050           ;     LCD_Dis_Str( 4,0,"yhmcu.taobao.com" );
+ 0050 80E0              ldi R24,<L8
+ 0052 90E0              ldi R25,>L8
+ 0054 9983              std y+1,R25
+ 0056 8883              std y+0,R24
+ 0058 2227              clr R18
+ 005A 04E0              ldi R16,4
+ 005C 00D0              rcall _LCD_Dis_Str
+ 005E                   .dbline 38
+ 005E           ;     LCD_Dis_Str( 6,0,"24L01+:TX " );
+ 005E 80E0              ldi R24,<L9
+ 0060 90E0              ldi R25,>L9
+ 0062 9983              std y+1,R25
+ 0064 8883              std y+0,R24
+ 0066 2227              clr R18
+ 0068 06E0              ldi R16,6
+ 006A 00D0              rcall _LCD_Dis_Str
+ 006C                   .dbline 39
+ 006C           ;     LCD_Dis_Str( 6, 80, (char*)testbuffer );
+ 006C CE01              movw R24,R28
+ 006E 0696              adiw R24,6
+ 0070 9983              std y+1,R25
+ 0072 8883              std y+0,R24
+ 0074 20E5              ldi R18,80
+ 0076 06E0              ldi R16,6
+ 0078 00D0              rcall _LCD_Dis_Str
+ 007A 87C0              rjmp L11
+ 007C           L10:
+ 007C                   .dbline 48
+ 007C           ; 
+ 007C           ;       /*功能：
+ 007C           ;       1、此为发射程序，每隔一段延时，发送一个字符串。
+ 007C           ;       2、用一个LED指示发射开始，另一个LED指示发射状态
+ 007C           ;       3、发射开始：LED闪烁一次，发射结果：显示在OLED
+ 007C           ;       4、发射采用自动应答模式，若取消，通信距离将延长。
+ 007C           ;       */
+ 007C           ;       while( 1 )
+ 007C           ;       {
+ 007C                   .dbline 50
+ 007C           ;         //延时发射
+ 007C           ;         for( dly = 0; dly < 5000; dly ++ );
+ 007C 80E0              ldi R24,0
+ 007E 8A83              std y+2+0,R24
+ 0080 8B83              std y+2+1,R24
+ 0082 8C83              std y+2+2,R24
+ 0084 8D83              std y+2+3,R24
+ 0086 10C0              rjmp L16
+ 0088           L13:
+ 0088                   .dbline 50
+ 0088           L14:
+ 0088                   .dbline 50
+ 0088 81E0              ldi R24,1
+ 008A 90E0              ldi R25,0
+ 008C A0E0              ldi R26,0
+ 008E B0E0              ldi R27,0
+ 0090 2A80              ldd R2,y+2
+ 0092 3B80              ldd R3,y+3
+ 0094 4C80              ldd R4,y+4
+ 0096 5D80              ldd R5,y+5
+ 0098 280E              add R2,R24
+ 009A 391E              adc R3,R25
+ 009C 4A1E              adc R4,R26
+ 009E 5B1E              adc R5,R27
+ 00A0 2A82              std y+2,R2
+ 00A2 3B82              std y+3,R3
+ 00A4 4C82              std y+4,R4
+ 00A6 5D82              std y+5,R5
+ 00A8           L16:
+ 00A8                   .dbline 50
+ 00A8 88E8              ldi R24,136
+ 00AA 93E1              ldi R25,19
+ 00AC A0E0              ldi R26,0
+ 00AE B0E0              ldi R27,0
+ 00B0 2A80              ldd R2,y+2
+ 00B2 3B80              ldd R3,y+3
+ 00B4 4C80              ldd R4,y+4
+ 00B6 5D80              ldd R5,y+5
+ 00B8 2816              cp R2,R24
+ 00BA 3906              cpc R3,R25
+ 00BC 4A06              cpc R4,R26
+ 00BE 5B06              cpc R5,R27
+ 00C0 18F3              brlo L13
+ 00C2           X0:
+ 00C2                   .dbline 52
+ 00C2           ;         //发射一个字符串
+ 00C2           ;         L01_FlushRX( );
+ 00C2 00D0              rcall _L01_FlushRX
+ 00C4                   .dbline 53
+ 00C4           ;         L01_FlushTX( );
+ 00C4 00D0              rcall _L01_FlushTX
+ 00C6                   .dbline 54
+ 00C6           ;         L01_WriteTXPayload_Ack( (INT8U*)"123\r\n", strlen( "123\r\n" ) );
+ 00C6 00E0              ldi R16,<L17
+ 00C8 10E0              ldi R17,>L17
+ 00CA 00D0              rcall _strlen
+ 00CC 202F              mov R18,R16
+ 00CE 00E0              ldi R16,<L17
+ 00D0 10E0              ldi R17,>L17
+ 00D2 00D0              rcall _L01_WriteTXPayload_Ack
+ 00D4                   .dbline 55
+ 00D4           ;         L01_CE_HIGH( );       // CE = 1,启动发射
+ 00D4                   .dbline 55
+ 00D4 C79A              sbi 0x18,7
+ 00D6                   .dbline 55
+ 00D6 BF9A              sbi 0x17,7
+ 00D8                   .dbline 55
+ 00D8                   .dbline 55
+ 00D8           L18:
+ 00D8                   .dbline 58
+ 00D8           ; 
+ 00D8           ;         //等待发射中断产生，判断发射失败或成功
+ 00D8           ;         while( PINB & ( 1<<6 ) );
+ 00D8           L19:
+ 00D8                   .dbline 58
+ 00D8 B699              sbic 0x16,6
+ 00DA FECF              rjmp L18
+ 00DC           X1:
+ 00DC           L21:
+ 00DC                   .dbline 59
+ 00DC           ;         while( ( tmp = L01_ReadIRQSource( ) ) == 0 );
+ 00DC           L22:
+ 00DC                   .dbline 59
+ 00DC 00D0              rcall _L01_ReadIRQSource
+ 00DE A02E              mov R10,R16
+ 00E0 AA20              tst R10
+ 00E2 E1F3              breq L21
+ 00E4           X2:
+ 00E4                   .dbline 60
+ 00E4           ;         L01_CE_LOW( );        // 发射完毕，CE = 0，省电
+ 00E4                   .dbline 60
+ 00E4 C798              cbi 0x18,7
+ 00E6                   .dbline 60
+ 00E6 BF9A              sbi 0x17,7
+ 00E8                   .dbline 60
+ 00E8                   .dbline 60
+ 00E8                   .dbline 62
+ 00E8           ; 
+ 00E8           ;         if( tmp & ( 1<<TX_DS ) )
+ 00E8 05FF              sbrs R16,5
+ 00EA 43C0              rjmp L24
+ 00EC           X3:
+ 00EC                   .dbline 63
+ 00EC           ;         {
+ 00EC                   .dbline 65
+ 00EC           ;             //发射成功，LED翻转
+ 00EC           ;             LED_Toggle( );
+ 00EC                   .dbline 65
+ 00EC 83E0              ldi R24,3
+ 00EE 22B2              in R2,0x12
+ 00F0 2826              eor R2,R24
+ 00F2 22BA              out 0x12,R2
+ 00F4                   .dbline 65
+ 00F4 81B3              in R24,0x11
+ 00F6 8360              ori R24,3
+ 00F8 81BB              out 0x11,R24
+ 00FA                   .dbline 65
+ 00FA                   .dbline 65
+ 00FA                   .dbline 67
+ 00FA           ; 
+ 00FA           ;             tx_couter ++;
+ 00FA 4F5F              subi R20,255  ; offset = 1
+ 00FC 5F4F              sbci R21,255
+ 00FE                   .dbline 68
+ 00FE           ;             itmp = tx_couter;
+ 00FE BA01              movw R22,R20
+ 0100                   .dbline 69
+ 0100           ;             testbuffer[0] = ( itmp / 10000 ) + '0';
+ 0100 20E1              ldi R18,10000
+ 0102 37E2              ldi R19,39
+ 0104 8B01              movw R16,R22
+ 0106 00D0              rcall div16u
+ 0108 C801              movw R24,R16
+ 010A C096              adiw R24,48
+ 010C 8E83              std y+6,R24
+ 010E                   .dbline 70
+ 010E           ;             itmp %= 10000;
+ 010E 20E1              ldi R18,10000
+ 0110 37E2              ldi R19,39
+ 0112 8B01              movw R16,R22
+ 0114 00D0              rcall mod16u
+ 0116 B801              movw R22,R16
+ 0118                   .dbline 71
+ 0118           ;             testbuffer[1] = ( itmp / 1000 ) + '0';
+ 0118 28EE              ldi R18,1000
+ 011A 33E0              ldi R19,3
+ 011C 00D0              rcall div16u
+ 011E C801              movw R24,R16
+ 0120 C096              adiw R24,48
+ 0122 8F83              std y+7,R24
+ 0124                   .dbline 72
+ 0124           ;             itmp %= 1000;
+ 0124 28EE              ldi R18,1000
+ 0126 33E0              ldi R19,3
+ 0128 8B01              movw R16,R22
+ 012A 00D0              rcall mod16u
+ 012C B801              movw R22,R16
+ 012E                   .dbline 73
+ 012E           ;             testbuffer[2] = ( itmp / 100 ) + '0';
+ 012E 24E6              ldi R18,100
+ 0130 30E0              ldi R19,0
+ 0132 00D0              rcall div16u
+ 0134 C801              movw R24,R16
+ 0136 C096              adiw R24,48
+ 0138 8887              std y+8,R24
+ 013A                   .dbline 74
+ 013A           ;             itmp %= 100;
+ 013A 24E6              ldi R18,100
+ 013C 30E0              ldi R19,0
+ 013E 8B01              movw R16,R22
+ 0140 00D0              rcall mod16u
+ 0142 B801              movw R22,R16
+ 0144                   .dbline 75
+ 0144           ;             testbuffer[3] = ( itmp / 10 ) + '0';
+ 0144 2AE0              ldi R18,10
+ 0146 30E0              ldi R19,0
+ 0148 00D0              rcall div16u
+ 014A C801              movw R24,R16
+ 014C C096              adiw R24,48
+ 014E 8987              std y+9,R24
+ 0150                   .dbline 76
+ 0150           ;             itmp %= 10;
+ 0150 2AE0              ldi R18,10
+ 0152 30E0              ldi R19,0
+ 0154 8B01              movw R16,R22
+ 0156 00D0              rcall mod16u
+ 0158 B801              movw R22,R16
+ 015A                   .dbline 77
+ 015A           ;             testbuffer[4] = itmp + '0';
+ 015A CB01              movw R24,R22
+ 015C C096              adiw R24,48
+ 015E 8A87              std y+10,R24
+ 0160                   .dbline 78
+ 0160           ;             testbuffer[5] = 0;
+ 0160 2224              clr R2
+ 0162 2B86              std y+11,R2
+ 0164                   .dbline 79
+ 0164           ;             LCD_Dis_Str( 6, 80, (char*)testbuffer );
+ 0164 CE01              movw R24,R28
+ 0166 0696              adiw R24,6
+ 0168 9983              std y+1,R25
+ 016A 8883              std y+0,R24
+ 016C 20E5              ldi R18,80
+ 016E 06E0              ldi R16,6
+ 0170 00D0              rcall _LCD_Dis_Str
+ 0172                   .dbline 80
+ 0172           ;         }
+ 0172           L24:
+ 0172                   .dbline 81
+ 0172           ;         if( tmp & ( 1<<MAX_RT ) )
+ 0172 A4FE              sbrs R10,4
+ 0174 06C0              rjmp L31
+ 0176           X4:
+ 0176                   .dbline 82
+ 0176           ;         {
+ 0176                   .dbline 84
+ 0176           ;             //发射失败，LED长亮
+ 0176           ;                       LED_On( );
+ 0176                   .dbline 84
+ 0176 82B3              in R24,0x12
+ 0178 8C7F              andi R24,252
+ 017A 82BB              out 0x12,R24
+ 017C                   .dbline 84
+ 017C 81B3              in R24,0x11
+ 017E 8360              ori R24,3
+ 0180 81BB              out 0x11,R24
+ 0182                   .dbline 84
+ 0182                   .dbline 84
+ 0182                   .dbline 85
+ 0182           ;         }
+ 0182           L31:
+ 0182                   .dbline 86
+ 0182           ;         if( tmp & ( 1<<RX_DR )  )
+ 0182 A6FE              sbrs R10,6
+ 0184 00C0              rjmp L33
+ 0186           X5:
+ 0186                   .dbline 87
+ 0186           ;         {
+ 0186                   .dbline 89
+ 0186           ; 
+ 0186           ;         }
+ 0186           L33:
+ 0186                   .dbline 90
+ 0186           ;         L01_ClearIRQ( IRQ_ALL );
+ 0186 00E7              ldi R16,112
+ 0188 00D0              rcall _L01_ClearIRQ
+ 018A                   .dbline 91
+ 018A           ;       }
+ 018A           L11:
+ 018A                   .dbline 47
+ 018A 78CF              rjmp L10
+ 018C           X6:
+ 018C                   .dbline -2
+ 018C           L5:
+ 018C                   .dbline 0 ; func end
+ 018C 6096              adiw R28,16
+ 018E 0895              ret
+ 0190                   .dbsym l x 3 c
+ 0190                   .dbsym r tx_couter 20 i
+ 0190                   .dbsym l testbuffer 6 A[10:10]c
+ 0190                   .dbsym r itmp 22 i
+ 0190                   .dbsym r tmp 10 c
+ 0190                   .dbsym l dly 2 l
+ 0190                   .dbend
+                        .area data(ram, con, rel)
+ 0000                   .dbfile F:\产品\ODMPRO~1\E06-RFTB\E06-AVR\DEMO_AVR\nRF24L01P\Project\TX\main.c
+ 0000           L17:
+ 0000                   .blkb 6
+                        .area idata
+ 0000 3132330D0A00      .byte 49,50,51,13,10,0
+                        .area data(ram, con, rel)
+ 0006                   .dbfile F:\产品\ODMPRO~1\E06-RFTB\E06-AVR\DEMO_AVR\nRF24L01P\Project\TX\main.c
+ 0006           L9:
+ 0006                   .blkb 11
+                        .area idata
+ 0006 32344C30312B3A54582000    .byte 50,52,'L,48,49,43,58,'T,'X,32,0
+                        .area data(ram, con, rel)
+ 0011                   .dbfile F:\产品\ODMPRO~1\E06-RFTB\E06-AVR\DEMO_AVR\nRF24L01P\Project\TX\main.c
+ 0011           L8:
+ 0011                   .blkb 17
+                        .area idata
+ 0011 79686D63752E74616F62616F2E636F6D  .byte 'y,'h,'m,'c,'u,46,'t,'a,'o,'b,'a,'o,46,'c,'o,'m
+ 0021 00                .byte 0
+                        .area data(ram, con, rel)
+ 0022                   .dbfile F:\产品\ODMPRO~1\E06-RFTB\E06-AVR\DEMO_AVR\nRF24L01P\Project\TX\main.c
+ 0022           L7:
+ 0022                   .blkb 10
+                        .area idata
+ 0022 41565220626F61726400      .byte 'A,'V,'R,32,'b,'o,'a,'r,'d,0
+                        .area data(ram, con, rel)
+ 002C                   .dbfile F:\产品\ODMPRO~1\E06-RFTB\E06-AVR\DEMO_AVR\nRF24L01P\Project\TX\main.c
+ 002C           ; }
+ 002C           ; 
+ 002C           ; 
