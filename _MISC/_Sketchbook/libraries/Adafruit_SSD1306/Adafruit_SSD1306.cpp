@@ -54,6 +54,14 @@
 
 // SOME DEFINES AND STATIC VARIABLES USED INTERNALLY -----------------------
 
+#if defined(BUFFER_LENGTH)
+ #define WIRE_MAX BUFFER_LENGTH          ///< AVR or similar Wire lib
+#elif defined(SERIAL_BUFFER_SIZE)
+ #define WIRE_MAX (SERIAL_BUFFER_SIZE-1) ///< Newer Wire uses RingBuffer
+#else
+ #define WIRE_MAX 32                     ///< Use common Arduino core default
+#endif
+
 #define ssd1306_swap(a, b) \
   (((a) ^= (b)), ((b) ^= (a)), ((a) ^= (b))) ///< No-temp-var swap operation
 
@@ -61,14 +69,6 @@
  #define WIRE_WRITE wire->write ///< Wire write function in recent Arduino lib
 #else
  #define WIRE_WRITE wire->send  ///< Wire write function in older Arduino lib
-#endif
-
-#if defined(__AVR__)
-  #define WIRECLK 400000L  ///< AVR: use 400 KHz I2C clock
-#elif defined(ESP32)
-  #define WIRECLK 800000L  ///< ESP32: use 800 KHz I2C clock
-#else
-  #define WIRECLK 1000000L ///< All others: use 1 MHz I2C clock
 #endif
 
 #ifdef HAVE_PORTREG
@@ -83,10 +83,10 @@
  #define SSD1306_MODE_DATA    digitalWrite(dcPin, HIGH); ///< Data mode
 #endif
 
-#if (ARDUINO >= 157)
- #define SETWIRECLOCK wire->setClock(WIRECLK)    ///< Set before I2C transfer
+#if (ARDUINO >= 157) && !defined(ARDUINO_STM32_FEATHER)
+ #define SETWIRECLOCK wire->setClock(wireClk)    ///< Set before I2C transfer
  #define RESWIRECLOCK wire->setClock(restoreClk) ///< Restore after I2C xfer
-#else // setClock() is not present in older Arduino Wire lib
+#else // setClock() is not present in older Arduino Wire lib (or WICED)
  #define SETWIRECLOCK ///< Dummy stand-in define
  #define RESWIRECLOCK ///< keeps compiler happy
 #endif
@@ -108,33 +108,25 @@
 // so other I2C device types still work).  All of these are encapsulated
 // in the TRANSACTION_* macros.
 
-#if defined(ARDUINO_STM32_FEATHER)
- // The WICED board currently has no SPIClass -- hardware SPI is not
- // supported by this library there -- nor is there a Wire setClock()
- // function, so the transaction start/end code is a little simpler...
- #define TRANSACTION_START if(!wire) { SSD1306_SELECT;   } ///< SW SPI select
- #define TRANSACTION_END   if(!wire) { SSD1306_DESELECT; } ///< SW SPI deselect
-#else
- // Everywhere else, check first if Wire, then hardware SPI, then soft SPI:
- #define TRANSACTION_START   \
-  if(wire) {                 \
-    SETWIRECLOCK;            \
-  } else {                   \
-    if(spi) {                \
-      SPI_TRANSACTION_START; \
-    }                        \
-    SSD1306_SELECT;          \
-  } ///< Wire, SPI or bitbang transfer setup
- #define TRANSACTION_END     \
-  if(wire) {                 \
-    RESWIRECLOCK;            \
-  } else {                   \
-    SSD1306_DESELECT;        \
-    if(spi) {                \
-      SPI_TRANSACTION_END;   \
-    }                        \
-  } ///< Wire, SPI or bitbang transfer end
-#endif
+// Check first if Wire, then hardware SPI, then soft SPI:
+#define TRANSACTION_START   \
+ if(wire) {                 \
+   SETWIRECLOCK;            \
+ } else {                   \
+   if(spi) {                \
+     SPI_TRANSACTION_START; \
+   }                        \
+   SSD1306_SELECT;          \
+ } ///< Wire, SPI or bitbang transfer setup
+#define TRANSACTION_END     \
+ if(wire) {                 \
+   RESWIRECLOCK;            \
+ } else {                   \
+   SSD1306_DESELECT;        \
+   if(spi) {                \
+     SPI_TRANSACTION_END;   \
+   }                        \
+ } ///< Wire, SPI or bitbang transfer end
 
 // CONSTRUCTORS, DESTRUCTOR ------------------------------------------------
 
@@ -151,26 +143,31 @@
             Reset pin (using Arduino pin numbering), or -1 if not used
             (some displays might be wired to share the microcontroller's
             reset pin).
-    @param  res
-            Restore-to speed for Wire transmissions following library calls.
-            The library uses a faster-than-default Wire clock for quicker
-            screen updates, but this might not always be compatible with
-            other devices connected to the I2C bus. Arduino default Wire
-            speed (and the default value used here if not specified) is
-            100000 (100 KHz), but if your application knows it can reliably
-            use a higher data rate for other devices, that rate can be
-            specified here. (Ignored if using pre-1.5.7 Arduino software.)
+    @param  clkDuring
+            Speed (in Hz) for Wire transmissions in SSD1306 library calls.
+            Defaults to 400000 (400 KHz), a known 'safe' value for most
+            microcontrollers, and meets the SSD1306 datasheet spec.
+            Some systems can operate I2C faster (800 KHz for ESP32, 1 MHz
+            for many other 32-bit MCUs), and some (perhaps not all)
+            SSD1306's can work with this -- so it's optionally be specified
+            here and is not a default behavior. (Ignored if using pre-1.5.7
+            Arduino software, which operates I2C at a fixed 100 KHz.)
+    @param  clkAfter
+            Speed (in Hz) for Wire transmissions following SSD1306 library
+            calls. Defaults to 100000 (100 KHz), the default Arduino Wire
+            speed. This is done rather than leaving it at the 'during' speed
+            because other devices on the I2C bus might not be compatible
+            with the faster rate. (Ignored if using pre-1.5.7 Arduino
+            software, which operates I2C at a fixed 100 KHz.)
     @return Adafruit_SSD1306 object.
     @note   Call the object's begin() function before use -- buffer
             allocation is performed there!
 */
 Adafruit_SSD1306::Adafruit_SSD1306(uint8_t w, uint8_t h, TwoWire *twi,
-  int8_t rst_pin, uint32_t res) : Adafruit_GFX(w, h),
-  wire(twi ? twi : &Wire), buffer(NULL), mosiPin(-1), clkPin(-1), dcPin(-1),
-  csPin(-1), rstPin(rst_pin), restoreClk(res) {
-#if !defined(ARDUINO_STM32_FEATHER)
-  spi = NULL;
-#endif
+  int8_t rst_pin, uint32_t clkDuring, uint32_t clkAfter) :
+  Adafruit_GFX(w, h), spi(NULL), wire(twi ? twi : &Wire), buffer(NULL),
+  mosiPin(-1), clkPin(-1), dcPin(-1), csPin(-1), rstPin(rst_pin),
+  wireClk(clkDuring), restoreClk(clkAfter) {
 }
 
 /*!
@@ -202,12 +199,9 @@ Adafruit_SSD1306::Adafruit_SSD1306(uint8_t w, uint8_t h, TwoWire *twi,
 */
 Adafruit_SSD1306::Adafruit_SSD1306(uint8_t w, uint8_t h,
   int8_t mosi_pin, int8_t sclk_pin, int8_t dc_pin, int8_t rst_pin,
-  int8_t cs_pin) : Adafruit_GFX(w, h), wire(NULL), buffer(NULL),
+  int8_t cs_pin) : Adafruit_GFX(w, h), spi(NULL), wire(NULL), buffer(NULL),
   mosiPin(mosi_pin), clkPin(sclk_pin), dcPin(dc_pin), csPin(cs_pin),
   rstPin(rst_pin) {
-#if !defined(ARDUINO_STM32_FEATHER)
-  spi = NULL;
-#endif
 }
 
 /*!
@@ -236,7 +230,6 @@ Adafruit_SSD1306::Adafruit_SSD1306(uint8_t w, uint8_t h,
     @note   Call the object's begin() function before use -- buffer
             allocation is performed there!
 */
-#if !defined(ARDUINO_STM32_FEATHER) // No HW SPI on WICED Feather yet
 Adafruit_SSD1306::Adafruit_SSD1306(uint8_t w, uint8_t h, SPIClass *spi,
   int8_t dc_pin, int8_t rst_pin, int8_t cs_pin, uint32_t bitrate) :
   Adafruit_GFX(w, h), spi(spi ? spi : &SPI), wire(NULL), buffer(NULL),
@@ -245,7 +238,6 @@ Adafruit_SSD1306::Adafruit_SSD1306(uint8_t w, uint8_t h, SPIClass *spi,
   spiSettings = SPISettings(bitrate, MSBFIRST, SPI_MODE0);
 #endif
 }
-#endif
 
 /*!
     @brief  DEPRECATED constructor for SPI SSD1306 displays, using software
@@ -275,12 +267,9 @@ Adafruit_SSD1306::Adafruit_SSD1306(uint8_t w, uint8_t h, SPIClass *spi,
 */
 Adafruit_SSD1306::Adafruit_SSD1306(int8_t mosi_pin, int8_t sclk_pin,
   int8_t dc_pin, int8_t rst_pin, int8_t cs_pin) :
-  Adafruit_GFX(SSD1306_LCDWIDTH, SSD1306_LCDHEIGHT), wire(NULL), buffer(NULL),
-  mosiPin(mosi_pin), clkPin(sclk_pin), dcPin(dc_pin), csPin(cs_pin),
-  rstPin(rst_pin) {
-#if !defined(ARDUINO_STM32_FEATHER)
-  spi = NULL;
-#endif
+  Adafruit_GFX(SSD1306_LCDWIDTH, SSD1306_LCDHEIGHT), spi(NULL), wire(NULL),
+  buffer(NULL), mosiPin(mosi_pin), clkPin(sclk_pin), dcPin(dc_pin),
+  csPin(cs_pin), rstPin(rst_pin) {
 }
 
 /*!
@@ -304,7 +293,6 @@ Adafruit_SSD1306::Adafruit_SSD1306(int8_t mosi_pin, int8_t sclk_pin,
     @note   Call the object's begin() function before use -- buffer
             allocation is performed there!
 */
-#if !defined(ARDUINO_STM32_FEATHER) // No HW SPI on WICED Feather yet
 Adafruit_SSD1306::Adafruit_SSD1306(int8_t dc_pin, int8_t rst_pin,
   int8_t cs_pin) : Adafruit_GFX(SSD1306_LCDWIDTH, SSD1306_LCDHEIGHT),
   spi(&SPI), wire(NULL), buffer(NULL), mosiPin(-1), clkPin(-1),
@@ -313,7 +301,6 @@ Adafruit_SSD1306::Adafruit_SSD1306(int8_t dc_pin, int8_t rst_pin,
   spiSettings = SPISettings(8000000, MSBFIRST, SPI_MODE0);
 #endif
 }
-#endif
 
 /*!
     @brief  DEPRECATED constructor for I2C SSD1306 displays. Provided for
@@ -330,12 +317,9 @@ Adafruit_SSD1306::Adafruit_SSD1306(int8_t dc_pin, int8_t rst_pin,
             allocation is performed there!
 */
 Adafruit_SSD1306::Adafruit_SSD1306(int8_t rst_pin) :
-  Adafruit_GFX(SSD1306_LCDWIDTH, SSD1306_LCDHEIGHT), wire(&Wire),
+  Adafruit_GFX(SSD1306_LCDWIDTH, SSD1306_LCDHEIGHT), spi(NULL), wire(&Wire),
   buffer(NULL), mosiPin(-1), clkPin(-1), dcPin(-1), csPin(-1),
   rstPin(rst_pin) {
-#if !defined(ARDUINO_STM32_FEATHER)
-  spi = NULL;
-#endif
 }
 
 /*!
@@ -353,11 +337,9 @@ Adafruit_SSD1306::~Adafruit_SSD1306(void) {
 // Issue single byte out SPI, either soft or hardware as appropriate.
 // SPI transaction/selection must be performed in calling function.
 inline void Adafruit_SSD1306::SPIwrite(uint8_t d) {
-#if !defined(ARDUINO_STM32_FEATHER)
   if(spi) {
     (void)spi->transfer(d);
   } else {
-#endif
     for(uint8_t bit = 0x80; bit; bit >>= 1) {
 #ifdef HAVE_PORTREG
       if(d & bit) *mosiPort |=  mosiPinMask;
@@ -370,9 +352,7 @@ inline void Adafruit_SSD1306::SPIwrite(uint8_t d) {
       digitalWrite(clkPin , LOW);
 #endif
     }
-#if !defined(ARDUINO_STM32_FEATHER)
   }
-#endif
 }
 
 // Issue single command to SSD1306, using I2C or hard/soft SPI as needed.
@@ -399,7 +379,7 @@ void Adafruit_SSD1306::ssd1306_commandList(const uint8_t *c, uint8_t n) {
     WIRE_WRITE((uint8_t)0x00); // Co = 0, D/C = 0
     uint8_t bytesOut = 1;
     while(n--) {
-      if(bytesOut >= 32) { // Wire uses 32-byte transfer blocks max
+      if(bytesOut >= WIRE_MAX) {
         wire->endTransmission();
         wire->beginTransmission(i2caddr);
         WIRE_WRITE((uint8_t)0x00); // Co = 0, D/C = 0
@@ -505,12 +485,10 @@ boolean Adafruit_SSD1306::begin(uint8_t vcs, uint8_t addr, boolean reset,
     csPinMask = digitalPinToBitMask(csPin);
 #endif
     SSD1306_DESELECT
-#if !defined(ARDUINO_STM32_FEATHER)
     if(spi) { // Hardware SPI
       // SPI peripheral begin same as wire check above.
       if(periphBegin) spi->begin();
     } else {  // Soft SPI
-#endif
       pinMode(mosiPin, OUTPUT); // MOSI and SCLK outputs
       pinMode(clkPin , OUTPUT);
 #ifdef HAVE_PORTREG
@@ -522,9 +500,7 @@ boolean Adafruit_SSD1306::begin(uint8_t vcs, uint8_t addr, boolean reset,
 #else
       digitalWrite(clkPin, LOW); // Clock low
 #endif
-#if !defined(ARDUINO_STM32_FEATHER)
     }
-#endif
   }
 
   // Reset SSD1306 if requested and reset pin specified in constructor
@@ -934,7 +910,7 @@ void Adafruit_SSD1306::display(void) {
     WIRE_WRITE((uint8_t)0x40);
     uint8_t bytesOut = 1;
     while(count--) {
-      if(bytesOut >= 32) { // Wire uses 32-byte transfer blocks max
+      if(bytesOut >= WIRE_MAX) {
         wire->endTransmission();
         wire->beginTransmission(i2caddr);
         WIRE_WRITE((uint8_t)0x40);
