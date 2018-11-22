@@ -8,6 +8,8 @@
 #define PASS1 "newdimigo"
 #define SSID2 "DimiFi 2G2"
 #define PASS2 "newdimigo"
+#define SSID3 "N604R"
+#define PASS3 "newdimigo"
 
 #define MAX_TX_SIZE 57
 #define BC_ADDH 0xFF
@@ -78,6 +80,7 @@ void setup(){
 	WiFi.mode(WIFI_STA);
 	WiFiMulti.addAP(SSID1, PASS1);
 	WiFiMulti.addAP(SSID2, PASS2);
+	WiFiMulti.addAP(SSID3, PASS3);
 	while(WiFiMulti.run() != WL_CONNECTED){
 		ESP.wdtFeed();
 		Serial.print(".");

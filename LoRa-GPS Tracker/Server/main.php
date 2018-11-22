@@ -79,13 +79,20 @@ while($row = mysqli_fetch_assoc($gps_result)){
         <!-- content body -->
         <div id="map">
             <!-- Google Maps Div -->
-            <script src="https://maps.googleapis.com/maps/api/js?key=___API_KEY___&callback=initMap"
+            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCf9yz2xyNW7nPYCjxMIzO29348OSZa1wk&callback=initMap"
             async defer></script>
             <script>
                 var map;
                 function initMap() {
                     map = new google.maps.Map(document.getElementById('map'), {
-                    center: {lat: 37.341894, lng: 126.831500},
+                        <?php
+                            $gps_lati = $gps_pos[0][0];  // latest location
+                            $gps_long = $gps_pos[0][1];
+
+                            $centerMsg = "center: {lat: $gps_lati, lng: $gps_long},";
+                            echo $centerMsg;
+                        ?>
+                    // center: {lat: 37.341894, lng: 126.831500},
                     zoom: 18
                     });
 
@@ -111,9 +118,6 @@ while($row = mysqli_fetch_assoc($gps_result)){
                     echo "\n];";
 
                     // marker for latest location
-                    $gps_lati = $gps_pos[0][0];
-                    $gps_long = $gps_pos[0][1];
-
                     $gmapLine = "\nvar marker = new google.maps.Marker({position: {lat: ###, lng: @@@},map: map,title: 'GPS'});\n";
                     $gmapLine = str_replace("###", "$gps_lati", $gmapLine);
                     $gmapLine = str_replace("@@@", "$gps_long", $gmapLine);
