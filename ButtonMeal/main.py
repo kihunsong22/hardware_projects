@@ -40,7 +40,6 @@ print("meal_date: " + meal_date)
 
 msg = ""
 now = datetime.datetime.now()
-# print(str(now.hour))
 if now.hour<9:
     msg = meal1
 elif now.hour<13:
