@@ -20792,7 +20792,6 @@ Modified by Rikard Qvarnström&lt;/author&gt;</description>
 <parts>
 <part name="FRAME1" library="SparkFun-Aesthetics" library_urn="urn:adsk.eagle:library:507" deviceset="FRAME-A4L" device="" value="cname"/>
 <part name="GP2Y10" library="SparkFun-Connectors" library_urn="urn:adsk.eagle:library:513" deviceset="CONN_05" device="" package3d_urn="urn:adsk.eagle:package:38104/1"/>
-<part name="REFERENCE" library="SparkFun-Connectors" library_urn="urn:adsk.eagle:library:513" deviceset="CONN_05" device="" package3d_urn="urn:adsk.eagle:package:38104/1"/>
 <part name="BME280_1-3" library="SparkFun-Connectors" library_urn="urn:adsk.eagle:library:513" deviceset="CONN_03" device="" package3d_urn="urn:adsk.eagle:package:38063/1"/>
 <part name="BME280_4-6" library="SparkFun-Connectors" library_urn="urn:adsk.eagle:library:513" deviceset="CONN_03" device="" package3d_urn="urn:adsk.eagle:package:38063/1"/>
 <part name="GND1" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="GND" device=""/>
@@ -20804,11 +20803,8 @@ Modified by Rikard Qvarnström&lt;/author&gt;</description>
 <part name="SUPPLY8" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="5V" device=""/>
 <part name="SUPPLY9" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="5V" device=""/>
 <part name="SUPPLY10" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="5V" device=""/>
-<part name="SMD1" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="CPOL-EU" device="D" package3d_urn="urn:adsk.eagle:package:23424/2"/>
 <part name="C6" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="CPOL-EU" device="E2.5-5" package3d_urn="urn:adsk.eagle:package:23344/1" value="220uF"/>
-<part name="EL" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="CPOL-EU" device="E2.5-5" package3d_urn="urn:adsk.eagle:package:23344/1"/>
 <part name="R1" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-EU_" device="0204/7" package3d_urn="urn:adsk.eagle:package:23498/1" value="150Ω"/>
-<part name="DIP1" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-EU_" device="0204/7" package3d_urn="urn:adsk.eagle:package:23498/1"/>
 <part name="JP1" library="SparkFun-Jumpers" library_urn="urn:adsk.eagle:library:528" deviceset="JUMPER-SMT_2_NC_TRACE" device="_SILK" package3d_urn="urn:adsk.eagle:package:39281/1" value="Vout"/>
 <part name="JP2" library="pinhead" library_urn="urn:adsk.eagle:library:325" deviceset="PINHD-2X18" device="" package3d_urn="urn:adsk.eagle:package:22438/2"/>
 <part name="JP3" library="pinhead" library_urn="urn:adsk.eagle:library:325" deviceset="PINHD-2X13" device="" package3d_urn="urn:adsk.eagle:package:22418/2"/>
@@ -20846,7 +20842,6 @@ Modified by Rikard Qvarnström&lt;/author&gt;</description>
 <part name="SUPPLY30" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset="V--&gt;" device="" value="GP2Y10"/>
 <part name="SUPPLY31" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset="V&lt;--" device="" value="GP2Y10"/>
 <part name="SUPPLY5" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="5V" device=""/>
-<part name="CER" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0805" package3d_urn="urn:adsk.eagle:package:23617/2" value="100nF"/>
 <part name="GP2Y10_2" library="SparkFun-Connectors" library_urn="urn:adsk.eagle:library:513" deviceset="CONN_05" device="PTH_LONGPADS" package3d_urn="urn:adsk.eagle:package:38109/1"/>
 <part name="MICRO_3" library="SparkFun-Connectors" library_urn="urn:adsk.eagle:library:513" deviceset="USB_MICRO-B" device="_SMT" package3d_urn="urn:adsk.eagle:package:38240/1"/>
 <part name="SUPPLY11" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="5V" device=""/>
@@ -20919,10 +20914,6 @@ Modified by Rikard Qvarnström&lt;/author&gt;</description>
 <attribute name="VALUE" x="46.99" y="146.304" size="1.778" layer="96" font="vector"/>
 <attribute name="NAME" x="46.99" y="164.338" size="1.778" layer="95" font="vector"/>
 </instance>
-<instance part="REFERENCE" gate="G$1" x="119.38" y="16.51" smashed="yes">
-<attribute name="VALUE" x="116.84" y="6.604" size="1.778" layer="96" font="vector"/>
-<attribute name="NAME" x="116.84" y="24.638" size="1.778" layer="95" font="vector"/>
-</instance>
 <instance part="BME280_1-3" gate="J$1" x="17.78" y="83.82" smashed="yes">
 <attribute name="VALUE" x="15.24" y="76.454" size="1.778" layer="96" font="vector"/>
 <attribute name="NAME" x="15.24" y="89.408" size="1.778" layer="95" font="vector"/>
@@ -20958,25 +20949,13 @@ Modified by Rikard Qvarnström&lt;/author&gt;</description>
 <instance part="SUPPLY10" gate="G$1" x="67.31" y="171.45" smashed="yes">
 <attribute name="VALUE" x="67.31" y="174.244" size="1.778" layer="96" align="bottom-center"/>
 </instance>
-<instance part="SMD1" gate="G$1" x="76.2" y="13.97" smashed="yes">
-<attribute name="NAME" x="77.343" y="14.4526" size="1.778" layer="95"/>
-<attribute name="VALUE" x="77.343" y="9.3726" size="1.778" layer="96"/>
-</instance>
 <instance part="C6" gate="G$1" x="80.01" y="156.21" smashed="yes">
 <attribute name="NAME" x="81.153" y="156.6926" size="1.778" layer="95"/>
 <attribute name="VALUE" x="81.153" y="151.6126" size="1.778" layer="96"/>
 </instance>
-<instance part="EL" gate="G$1" x="86.36" y="13.97" smashed="yes">
-<attribute name="NAME" x="87.503" y="14.4526" size="1.778" layer="95"/>
-<attribute name="VALUE" x="87.503" y="9.3726" size="1.778" layer="96"/>
-</instance>
 <instance part="R1" gate="G$1" x="95.25" y="158.75" smashed="yes">
 <attribute name="NAME" x="91.44" y="160.2486" size="1.778" layer="95"/>
 <attribute name="VALUE" x="91.44" y="155.448" size="1.778" layer="96"/>
-</instance>
-<instance part="DIP1" gate="G$1" x="105.41" y="12.7" smashed="yes" rot="R270">
-<attribute name="NAME" x="106.9086" y="16.51" size="1.778" layer="95" rot="R270"/>
-<attribute name="VALUE" x="102.108" y="16.51" size="1.778" layer="96" rot="R270"/>
 </instance>
 <instance part="JP1" gate="G$1" x="69.85" y="135.89" smashed="yes">
 <attribute name="NAME" x="67.31" y="138.43" size="1.778" layer="95" font="vector"/>
@@ -21102,10 +21081,6 @@ Modified by Rikard Qvarnström&lt;/author&gt;</description>
 </instance>
 <instance part="SUPPLY5" gate="G$1" x="50.8" y="10.16" smashed="yes">
 <attribute name="VALUE" x="50.8" y="12.954" size="1.778" layer="96" align="bottom-center"/>
-</instance>
-<instance part="CER" gate="G$1" x="93.98" y="13.97" smashed="yes">
-<attribute name="NAME" x="95.504" y="14.351" size="1.778" layer="95"/>
-<attribute name="VALUE" x="95.504" y="9.271" size="1.778" layer="96"/>
 </instance>
 <instance part="GP2Y10_2" gate="G$1" x="24.13" y="156.21" smashed="yes">
 <attribute name="VALUE" x="21.59" y="146.304" size="1.778" layer="96" font="vector"/>
