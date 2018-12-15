@@ -12,7 +12,21 @@
 #include <SPI.h>
 #include "Adafruit_GFX.h"
 
-#define USE_FAST_PINIO
+#define USE_FAST_PINIO ///< If set, use PORT access instead of digitalWrite()
+//#define USE_SPI_DMA    ///< If set, use SPI DMA if available
+// If DMA is enabled, Arduino sketch MUST #include <Adafruit_ZeroDMA.h>
+// Estimated RAM usage:
+// 4 bytes/pixel on display major axis + 8 bytes/pixel on minor axis,
+// e.g. 320x240 pixels = 320 * 4 + 240 * 8 = 3,200 bytes.
+
+#if !defined(ARDUINO_ARCH_SAMD)
+ #undef USE_SPI_DMA ///< Only for SAMD chips
+#endif
+
+#ifdef USE_SPI_DMA
+ #pragma message ("SPI DMA IS ENABLED. HIGHLY EXPERIMENTAL.")
+ #include <Adafruit_ZeroDMA.h>
+#endif
 
 #if defined(__AVR__)
   typedef volatile uint8_t RwReg;
@@ -35,7 +49,6 @@
 
 /// A heavily optimized SPI display subclass of GFX. Manages SPI bitbanging, transactions, DMA, etc! Despite being called SPITFT, the classic SPI data/command interface is also used by OLEDs.
 class Adafruit_SPITFT : public Adafruit_GFX {
-    protected:
 
     public:
         Adafruit_SPITFT(uint16_t w, uint16_t h, int8_t _CS, int8_t _DC, int8_t _MOSI, int8_t _SCLK, int8_t _RST = -1, int8_t _MISO = -1);
@@ -88,6 +101,9 @@ class Adafruit_SPITFT : public Adafruit_GFX {
 	void      invertDisplay(boolean i);
 
         uint16_t  color565(uint8_t r, uint8_t g, uint8_t b);
+        void      writeCommand(uint8_t cmd);
+        void      spiWrite(uint8_t v);
+        uint8_t   spiRead(void);
 
     protected:
 	SPIClass *_spi;         ///< The SPI device we want to use (set in constructor)
@@ -116,14 +132,21 @@ class Adafruit_SPITFT : public Adafruit_GFX {
 	  dcpinmask;            ///< bitmask for turning on/off DC with fast register bitbang IO 
 #endif
 
-        void        writeCommand(uint8_t cmd);
-        void        spiWrite(uint8_t v);
-        uint8_t     spiRead(void);
-
 	uint8_t   invertOnCommand = 0,    ///<  SPI command byte to turn on invert
 	  invertOffCommand = 0;           ///<  SPI command byte to turn off invert
 	int16_t   _xstart = 0;   ///< Many displays don't have pixels starting at (0,0) of the internal framebuffer, this is the x offset from 0 to align
 	int16_t   _ystart = 0;   ///< Many displays don't have pixels starting at (0,0) of the internal framebuffer, this is the y offset from 0 to align
+
+#ifdef USE_SPI_DMA
+        Adafruit_ZeroDMA dma;                  ///< DMA instance
+        DmacDescriptor  *dptr          = NULL; ///< 1st descriptor
+        DmacDescriptor  *descriptor    = NULL; ///< Allocated descriptor list
+        uint16_t        *pixelBuf[2];          ///< Working buffers
+        uint16_t         maxFillLen;           ///< Max pixels per DMA xfer
+        uint16_t         lastFillColor = 0;    ///< Last color used w/fill
+        uint32_t         lastFillLen   = 0;    ///< # of pixels w/last fill
+        uint8_t          onePixelBuf;          ///< For hi==lo fill
+#endif
 };
 
 #endif // !__AVR_ATtiny85__
