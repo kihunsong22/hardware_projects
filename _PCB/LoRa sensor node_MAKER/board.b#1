@@ -224,10 +224,6 @@
 <text x="26.416" y="17.78" size="1.0668" layer="21" font="vector" ratio="12">18650</text>
 <text x="31.242" y="10.414" size="1.4224" layer="21" font="vector">ANT</text>
 <text x="17.78" y="-7.62" size="1.4224" layer="21" font="vector">GP2Y10_HOLE</text>
-<text x="6.35" y="41.656" size="1.016" layer="21" font="vector" rot="R90">15</text>
-<text x="6.35" y="39.624" size="1.016" layer="21" font="vector" rot="R90">2</text>
-<text x="6.35" y="37.084" size="1.016" layer="21" font="vector" rot="R90">4</text>
-<text x="6.35" y="34.544" size="1.016" layer="21" font="vector" rot="R90">0</text>
 <hole x="32.766" y="7.62" drill="5"/>
 <hole x="28.702" y="16.002" drill="3"/>
 <text x="30.988" y="13.208" size="1.0668" layer="22" font="vector" ratio="12" rot="MR0">18650</text>
@@ -2912,12 +2908,12 @@ design rules under a new name.</description>
 <wire x1="9.84" y1="25.72" x2="9.398" y2="26.162" width="0.9144" layer="1"/>
 <wire x1="9.398" y1="26.162" x2="3.302" y2="32.258" width="0.9144" layer="16"/>
 <wire x1="3.302" y1="34.798" x2="3.302" y2="32.258" width="0.9144" layer="16"/>
+<wire x1="3.302" y1="37.338" x2="3.302" y2="34.798" width="0.9144" layer="1"/>
 <wire x1="34.793434375" y1="35.244559375" x2="34.798" y2="35.24" width="0" layer="19" extent="1-1"/>
 <wire x1="33.274" y1="29.324" x2="33.275934375" y2="29.325940625" width="0" layer="19" extent="1-1"/>
 <wire x1="34.797996875" y1="35.240003125" x2="34.798" y2="35.24" width="0" layer="19" extent="1-1"/>
 <wire x1="9.832875" y1="21.582875" x2="9.8041875" y2="21.5541875" width="0" layer="19" extent="1-1"/>
 <wire x1="9.84" y1="21.59" x2="9.832875" y2="21.582875" width="0" layer="19" extent="1-1"/>
-<wire x1="3.32775" y1="37.29375" x2="3.302" y2="34.798" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="VOUT_1">
 <contactref element="GP2Y10" pad="1"/>
