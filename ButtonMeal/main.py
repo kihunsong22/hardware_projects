@@ -2,15 +2,16 @@ import requests, json, datetime
 from io import StringIO
 import serial
 
-url = "https://dev-api.dimigo.in/dimibobs/today/"
-print("시리얼 포트 번호: ")
-ser_port = input()
-print()
-
-
-def sendData(data):
-    data += "\r\n"
-    ser.write(data.encode())
+# url = "https://dev-api.dimigo.in/dimibobs/today/"
+url = "https://dev-api.dimigo.in/dimibobs/2018-12-20"
+# print("시리얼 포트 번호: ")
+# ser_port = input()
+# print()
+#
+#
+# def sendData(data):
+#     data += "\r\n"
+#     ser.write(data.encode())
 
 
 while 1:
@@ -51,8 +52,8 @@ else:
 
 print("\n다음 급식: " + msg + "\n")
 
-ser = serial.Serial(ser_port, 115200)
-
-while 1:
-    sendData(msg)
-    time.sleep(5)
+# ser = serial.Serial(ser_port, 115200)
+#
+# while 1:
+#     sendData(msg)
+#     time.sleep(5)
