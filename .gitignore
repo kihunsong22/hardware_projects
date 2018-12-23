@@ -1,4 +1,5 @@
 bfg.jar
 ..bfg-report/
-_MISC/_Sketchbook/hardware/**
-
+README.md
+#/_MISC/_Sketchbook/hardware/
+/_MISC/_Sketchbook/hardware/espressif/
