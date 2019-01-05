@@ -1,6 +1,6 @@
 #include "SX127x.h"
 
-SX127x::SX127x(Module* mod) {
+SX127x::SX127x(Module* mod) : PhysicalLayer(SX127X_CRYSTAL_FREQ, SX127X_DIV_EXPONENT) {
   _mod = mod;
 }
 
@@ -136,7 +136,7 @@ int16_t SX127x::transmit(uint8_t* data, size_t len, uint8_t addr) {
     }
     float ih = (float)_mod->SPIgetRegValue(SX127X_REG_MODEM_CONFIG_1, 0, 0);
     float crc = (float)(_mod->SPIgetRegValue(SX127X_REG_MODEM_CONFIG_2, 2, 2) >> 2);
-    float n_pre = (float)_mod->SPIgetRegValue(SX127X_REG_PREAMBLE_LSB);
+    float n_pre = (float)((_mod->SPIgetRegValue(SX127X_REG_PREAMBLE_MSB) << 8) | _mod->SPIgetRegValue(SX127X_REG_PREAMBLE_LSB));
     float n_pay = 8.0 + max(ceil((8.0 * (float)len - 4.0 * (float)_sf + 28.0 + 16.0 * crc - 20.0 * ih)/(4.0 * (float)_sf - 8.0 * de)) * (float)_cr, 0.0);
     uint32_t timeout = ceil(symbolLength * (n_pre + n_pay + 4.25) * 1.5);
     
@@ -820,7 +820,7 @@ int16_t SX127x::setBitRate(float br) {
   // set bit rate
   uint16_t bitRate = 32000 / br;
   state = _mod->SPIsetRegValue(SX127X_REG_BITRATE_MSB, (bitRate & 0xFF00) >> 8, 7, 0);
-  state |= _mod->SPIsetRegValue(SX127X_REG_BITRATE_MSB, bitRate & 0x00FF, 7, 0);
+  state |= _mod->SPIsetRegValue(SX127X_REG_BITRATE_LSB, bitRate & 0x00FF, 7, 0);
   // TODO: fractional part of bit rate setting
   if(state == ERR_NONE) {
     SX127x::_br = br;
