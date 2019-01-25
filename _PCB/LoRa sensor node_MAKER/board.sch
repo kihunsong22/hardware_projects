@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="9.2.2">
+<eagle version="9.3.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.05" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
 <layer number="2" name="Route2" color="16" fill="1" visible="no" active="no"/>
@@ -170,6 +170,7 @@
 <layer number="255" name="routoute" color="7" fill="1" visible="no" active="yes"/>
 </layers>
 <schematic xreflabel="%F%N/%S.%C%R" xrefpart="/%S.%C%R">
+<fusionteam huburn="a.cGVyc29uYWw6dWUyYTRmMGNk" projecturn="a.cGVyc29uYWw6dWUyYTRmMGNkIzIwMTgwMTAyMTEwNTQ5ODMx" folderUrn="urn:adsk.wipprod:fs.folder:co.3TXuhpiQQ5eL4Ucd6Vnmdw" urn="urn:adsk.wipprod:dm.lineage:jao9lns1Qu-pVD1p8f48hQ"  versionUrn="urn:adsk.wipprod:fs.file:vf.jao9lns1Qu-pVD1p8f48hQ?version=2" camFileUrn="" camFileVersionUrn="" lastpublishedchangeguid="8aa52b86-d805-40c3-2260-c694bfbfb5e1"/>
 <libraries>
 <library name="SparkFun-Aesthetics" urn="urn:adsk.eagle:library:507">
 <description>&lt;h3&gt;SparkFun Aesthetics&lt;/h3&gt;

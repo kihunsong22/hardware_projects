@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="9.2.2">
+<eagle version="9.3.0">
 <drawing>
 <settings>
-<setting alwaysvectorfont="no"/>
+<setting alwaysvectorfont="yes"/>
 <setting verticaltext="up"/>
 </settings>
 <grid distance="10" unitdist="mil" unit="mil" style="lines" multiple="1" display="yes" altdistance="5" altunitdist="mil" altunit="mil"/>
@@ -170,7 +170,8 @@
 <layer number="255" name="routoute" color="7" fill="1" visible="no" active="yes"/>
 </layers>
 <board>
-<fusionsync huburn="a.cGVyc29uYWw6dWUyYTRmMGNk" projecturn="a.cGVyc29uYWw6dWUyYTRmMGNkIzIwMTgwMTAyMTEwNTQ5ODMx" f3durn="urn:adsk.wipprod:dm.lineage:1MiHvkwWT7WOIOoCEA1meg" pcbguid="b1f71193-a598-4396-88a2-3955fdcfa6b0" lastpulledtime="" lastsyncedchangeguid="3e5af3bd-b0cc-a881-0aa0-7ec79578c5e4"/>
+<fusionsync huburn="a.cGVyc29uYWw6dWUyYTRmMGNk" projecturn="a.cGVyc29uYWw6dWUyYTRmMGNkIzIwMTgwMTAyMTEwNTQ5ODMx" f3durn="urn:adsk.wipprod:dm.lineage:1MiHvkwWT7WOIOoCEA1meg" pcbguid="b1f71193-a598-4396-88a2-3955fdcfa6b0" lastpulledtime="" lastsyncedchangeguid="792a0cb0-0cd8-2674-4312-9ea3d5903be6"/>
+<fusionteam huburn="a.cGVyc29uYWw6dWUyYTRmMGNk" projecturn="a.cGVyc29uYWw6dWUyYTRmMGNkIzIwMTgwMTAyMTEwNTQ5ODMx" folderUrn="urn:adsk.wipprod:fs.folder:co.3TXuhpiQQ5eL4Ucd6Vnmdw" urn="urn:adsk.wipprod:dm.lineage:WnrQjVTyTvublDDGaUMjQQ"  versionUrn="urn:adsk.wipprod:fs.file:vf.WnrQjVTyTvublDDGaUMjQQ?version=2" camFileUrn="urn:adsk.wipprod:dm.lineage:_qF3iyBUTUSpvp0KbZrq7w" camFileVersionUrn="urn:adsk.wipprod:fs.file:vf._qF3iyBUTUSpvp0KbZrq7w?version=2" lastpublishedchangeguid="8ea549ea-6402-bf49-ce0c-e3115a083de8"/>
 <plain>
 <wire x1="41.148" y1="4.826" x2="41.148" y2="53.594" width="0.1524" layer="21"/>
 <wire x1="41.148" y1="53.594" x2="15.748" y2="53.594" width="0.1524" layer="21"/>
