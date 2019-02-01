@@ -1,5 +1,5 @@
 [Eagle]
-Version="09 02 02"
+Version="09 03 00"
 Platform="Windows"
 Globals="Globals"
 Desktop="Desktop"
@@ -402,12 +402,12 @@ UsedLibraryUrn="urn:adsk.eagle:library:174"
 UsedLibraryUrn="urn:adsk.eagle:library:175"
 UsedLibraryUrn="urn:adsk.eagle:library:176"
 UsedLibraryUrn="urn:adsk.eagle:library:177"
+UsedLibraryUrn="urn:adsk.eagle:library:420"
 UsedLibraryUrn="urn:adsk.eagle:library:438"
 UsedLibraryUrn="urn:adsk.eagle:library:440"
 UsedLibraryUrn="urn:adsk.eagle:library:442"
 UsedLibraryUrn="urn:adsk.eagle:library:492"
 UsedLibraryUrn="urn:adsk.eagle:library:493"
-UsedLibraryUrn="urn:adsk.eagle:library:420"
 
 [Win_1]
 Type="Control Panel"
