@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE eagle SYSTEM "eagle.dtd">
+<eagle>
+    <drawing>
+        <grid unitdist="mm" unit="mm"/>
+        <layers>
+            <layer name="Top" color="4" number="1" visible="yes" active="yes" fill="1"/>
+            <layer name="tKeepout" color="0" number="4" visible="yes" active="yes" fill="1"/>
+            <layer name="Bottom" color="4" number="16" visible="yes" active="yes" fill="1"/>
+            <layer name="tPlace" color="7" number="21" visible="yes" active="yes" fill="1"/>
+            <layer name="bPlace" color="7" number="22" visible="yes" active="yes" fill="1"/>
+            <layer name="tNames" color="7" number="25" visible="yes" active="yes" fill="1"/>
+            <layer name="bNames" color="7" number="26" visible="yes" active="yes" fill="1"/>
+            <layer name="tValues" color="7" number="27" visible="yes" active="yes" fill="1"/>
+            <layer name="bValues" color="7" number="28" visible="yes" active="yes" fill="1"/>
+            <layer name="tStop" color="7" number="29" visible="yes" active="yes" fill="1"/>
+            <layer name="bStop" color="7" number="30" visible="yes" active="yes" fill="1"/>
+            <layer name="tCream" color="7" number="31" visible="yes" active="yes" fill="1"/>
+            <layer name="bCream" color="7" number="32" visible="yes" active="yes" fill="1"/>
+            <layer name="bKeepout" color="0" number="40" visible="yes" active="yes" fill="1"/>
+            <layer name="tRestrict" color="4" number="41" visible="yes" active="yes" fill="1"/>
+            <layer name="bRestrict" color="4" number="42" visible="yes" active="yes" fill="1"/>
+            <layer name="tDocu" color="7" number="51" visible="yes" active="yes" fill="1"/>
+            <layer name="bDocu" color="7" number="52" visible="yes" active="yes" fill="1"/>
+            <layer name="Nets" color="2" number="91" visible="yes" active="yes" fill="1"/>
+            <layer name="Busses" color="1" number="92" visible="yes" active="yes" fill="1"/>
+            <layer name="Pins" color="2" number="93" visible="yes" active="yes" fill="1"/>
+            <layer name="Symbols" color="4" number="94" visible="yes" active="yes" fill="1"/>
+            <layer name="Names" color="7" number="95" visible="yes" active="yes" fill="1"/>
+            <layer name="Values" color="7" number="96" visible="yes" active="yes" fill="1"/>
+            <layer name="Info" color="7" number="97" visible="yes" active="yes" fill="1"/>
+            <layer name="Guide" color="6" number="98" visible="yes" active="yes" fill="1"/>
+        </layers>
+        <library name="Upverter Library">
+            <description>Upverter Parts Library
+
+Created by Upverter.com</description>
+            <packages>
+                <package name="MAXIM_ELECTRONICS_MAX40200AUK+_0">
+                    <description>IDEAL DIODE CURRENT SW, 5.5V, SOT23-5</description>
+                    <wire layer="51" y2="1.5" width="0.15" x2="-0.875" y1="-1.5" x1="-0.875"/>
+                    <wire layer="51" y2="1.5" width="0.15" x2="0.875" y1="1.5" x1="-0.875"/>
+                    <wire layer="51" y2="-1.5" width="0.15" x2="0.875" y1="1.5" x1="0.875"/>
+                    <wire layer="51" y2="-1.5" width="0.15" x2="-0.875" y1="-1.5" x1="0.875"/>
+                    <wire layer="41" y2="1.725" width="0.1" x2="-2.0" y1="-1.725" x1="-2.0"/>
+                    <wire layer="41" y2="1.725" width="0.1" x2="2.0" y1="1.725" x1="-2.0"/>
+                    <wire layer="41" y2="-1.725" width="0.1" x2="2.0" y1="1.725" x1="2.0"/>
+                    <wire layer="41" y2="-1.725" width="0.1" x2="-2.0" y1="-1.725" x1="2.0"/>
+                    <wire layer="21" y2="1.5" width="0.15" x2="-0.2" y1="-1.5" x1="-0.2"/>
+                    <wire layer="21" y2="1.5" width="0.15" x2="0.2" y1="1.5" x1="-0.2"/>
+                    <wire layer="21" y2="-1.5" width="0.15" x2="0.2" y1="1.5" x1="0.2"/>
+                    <wire layer="21" y2="-1.5" width="0.15" x2="-0.2" y1="-1.5" x1="0.2"/>
+                    <text layer="25" align="bottom-left" y="1.875" x="-0.925" rot="R0" size="1.0">&gt;NAME</text>
+                    <circle y="0.95" x="-2.475" layer="21" radius="0.25" width="0.0"/>
+                    <smd layer="1" thermals="yes" name="3" stop="yes" roundness="0" dx="1.3" dy="0.55" y="-0.95" x="-1.25" rot="R0" cream="yes"/>
+                    <smd layer="1" thermals="yes" name="2" stop="yes" roundness="0" dx="1.3" dy="0.55" y="0.0" x="-1.25" rot="R0" cream="yes"/>
+                    <smd layer="1" thermals="yes" name="1" stop="yes" roundness="0" dx="1.3" dy="0.55" y="0.95" x="-1.25" rot="R0" cream="yes"/>
+                    <smd layer="1" thermals="yes" name="4" stop="yes" roundness="0" dx="1.3" dy="0.55" y="-0.95" x="1.25" rot="R0" cream="yes"/>
+                    <smd layer="1" thermals="yes" name="5" stop="yes" roundness="0" dx="1.3" dy="0.55" y="0.95" x="1.25" rot="R0" cream="yes"/>
+                </package>
+            </packages>
+            <symbols>
+                <symbol name="MAXIM_ELECTRONICS_MAX40200AUK+_0_0">
+                    <description>IDEAL DIODE CURRENT SW, 5.5V, SOT23-5</description>
+                    <wire layer="94" y2="-5.08" width="0.254" x2="2.54" y1="-20.32" x1="2.54"/>
+                    <wire layer="94" y2="-5.08" width="0.254" x2="20.32" y1="-5.08" x1="2.54"/>
+                    <wire layer="94" y2="-20.32" width="0.254" x2="20.32" y1="-5.08" x1="20.32"/>
+                    <wire layer="94" y2="-20.32" width="0.254" x2="2.54" y1="-20.32" x1="20.32"/>
+                    <wire layer="94" y2="-7.62" width="0.15" x2="2.54" y1="-7.62" x1="2.54"/>
+                    <wire layer="94" y2="-12.7" width="0.15" x2="2.54" y1="-12.7" x1="2.54"/>
+                    <wire layer="94" y2="-12.7" width="0.15" x2="20.32" y1="-12.7" x1="20.32"/>
+                    <wire layer="94" y2="-7.62" width="0.15" x2="20.32" y1="-7.62" x1="20.32"/>
+                    <wire layer="94" y2="-17.78" width="0.15" x2="20.32" y1="-17.78" x1="20.32"/>
+                    <text layer="95" align="top-left" y="-2.54" x="2.54" rot="R0" size="2.54">&gt;NAME</text>
+                    <text layer="95" align="top-left" y="-22.86" x="2.54" rot="R0" size="2.54">MAX40200AUK+</text>
+                    <pin direction="pwr" name="VDD" visible="both" length="middle" y="-7.62" x="-2.54"/>
+                    <pin direction="in" name="EN" visible="both" length="middle" y="-12.7" x="-2.54"/>
+                    <pin direction="pas" name="NC" visible="both" length="middle" y="-12.7" x="25.4" rot="R180"/>
+                    <pin direction="out" name="OUT" visible="both" length="middle" y="-7.62" x="25.4" rot="R180"/>
+                    <pin direction="pwr" name="GND" visible="both" length="middle" y="-17.78" x="25.4" rot="R180"/>
+                </symbol>
+            </symbols>
+            <devicesets>
+                <deviceset prefix="U" name="MAXIM_ELECTRONICS_MAX40200AUK+">
+                    <description>IDEAL DIODE CURRENT SW, 5.5V, SOT23-5</description>
+                    <gates>
+                        <gate name="G$0" symbol="MAXIM_ELECTRONICS_MAX40200AUK+_0_0" x="0"/>
+                    </gates>
+                    <devices>
+                        <device name="MAXIM_ELECTRONICS_MAX40200AUK+_0_0" package="MAXIM_ELECTRONICS_MAX40200AUK+_0">
+                            <connects>
+                                <connect gate="G$0" pad="1" pin="VDD"/>
+                                <connect gate="G$0" pad="2" pin="GND"/>
+                                <connect gate="G$0" pad="3" pin="EN"/>
+                                <connect gate="G$0" pad="4" pin="NC"/>
+                                <connect gate="G$0" pad="5" pin="OUT"/>
+                            </connects>
+                            <technologies>
+                                <technology>
+                                    <attribute name="mouser_part_number" value="700-MAX40200AUK+"/>
+                                    <attribute name="mfg_package_ident_rev" value="J"/>
+                                    <attribute name="max_junction_temp" value="+150°C"/>
+                                    <attribute name="max_power_dissipation" value="312.6mW"/>
+                                    <attribute name="temperature_range_high" value="+125°C"/>
+                                    <attribute name="nominal_supply_current" value="7uA"/>
+                                    <attribute name="digikey_description" value="IC DIODE CURRENT SWITCH SOT23-5"/>
+                                    <attribute name="temperature_range_low" value="-40°C"/>
+                                    <attribute name="device_class_L1" value="Integrated Circuits (ICs)"/>
+                                    <attribute name="digikey_part_number" value="MAX40200AUK+-ND"/>
+                                    <attribute name="max_supply_voltage" value="5.5V"/>
+                                    <attribute name="prefix" value="U"/>
+                                    <attribute name="output_current" value="1A"/>
+                                    <attribute name="verification_version" value="0.0.0.1"/>
+                                    <attribute name="datasheet" value="https://datasheets.maximintegrated.com/en/ds/MAX40200.pdf"/>
+                                    <attribute name="MF" value="Maxim Electronics"/>
+                                    <attribute name="footprint_url" value="https://pdfserv.maximintegrated.com/land_patterns/90-0174.PDF"/>
+                                    <attribute name="MPN" value="MAX40200AUK+"/>
+                                    <attribute name="lead_free" value="yes"/>
+                                    <attribute name="height" value="1.45mm"/>
+                                    <attribute name="mfg_package_ident" value="U5-1"/>
+                                    <attribute name="device_class_L2" value="Power Management ICs"/>
+                                    <attribute name="device_class_L3" value="unset"/>
+                                    <attribute name="min_supply_voltage" value="1.5V"/>
+                                    <attribute name="rohs" value="yes"/>
+                                    <attribute name="centroid_not_specified" value="No"/>
+                                    <attribute name="standoff_height" value="0mm"/>
+                                    <attribute name="mfg_package_ident_date" value="0"/>
+                                    <attribute name="number_of_outputs" value="1"/>
+                                    <attribute name="package" value="SOT23-5"/>
+                                </technology>
+                            </technologies>
+                        </device>
+                    </devices>
+                </deviceset>
+            </devicesets>
+        </library>
+    </drawing>
+</eagle>
