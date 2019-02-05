@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="20" unitdist="mil" unit="mil" style="lines" multiple="1" display="yes" altdistance="5" altunitdist="mil" altunit="mil"/>
+<grid distance="10" unitdist="mil" unit="mil" style="lines" multiple="1" display="yes" altdistance="5" altunitdist="mil" altunit="mil"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="2" name="Route2" color="16" fill="1" visible="no" active="no"/>
@@ -183,19 +183,19 @@
 <hole x="3" y="3" drill="3.2"/>
 <hole x="92" y="3" drill="3.2"/>
 <hole x="92" y="57" drill="3.2"/>
-<text x="1.43" y="50.084" size="1.27" layer="21" font="vector" align="top-left">3.2mm
-3mm/3mm spacing</text>
+<text x="1.43" y="50.084" size="1.27" layer="21" font="vector" align="top-left">3mm/3mm spacing</text>
 <dimension x1="95" y1="60" x2="0" y2="60" x3="47.5" y3="33" textsize="1.27" layer="21" dtype="vertical"/>
 <dimension x1="94.2" y1="0" x2="94.2" y2="60" x3="44.832" y3="30" textsize="1.27" layer="21" dtype="vertical"/>
 <wire x1="3" y1="60" x2="0" y2="57" width="0.1524" layer="20" curve="90"/>
 <wire x1="93" y1="60" x2="95" y2="58" width="0.1524" layer="20" curve="-90"/>
 <wire x1="95" y1="2" x2="93" y2="0" width="0.1524" layer="20" curve="-90"/>
 <wire x1="0" y1="2" x2="2" y2="0" width="0.1524" layer="20" curve="90"/>
-<dimension x1="3" y1="3" x2="0" y2="7" x3="1.5" y3="8" textsize="1.27" layer="21" dtype="horizontal"/>
 <dimension x1="4.6" y1="57" x2="1.4" y2="57" x3="3" y3="53" textsize="1.27" layer="21" dtype="diameter"/>
 <circle x="50.1" y="52.908" radius="4.2" width="0.5" layer="21"/>
 <wire x1="48.3" y1="53.308" x2="48.3" y2="54.708" width="0.3" layer="21"/>
 <wire x1="47.6" y1="54.008" x2="49" y2="54.008" width="0.3" layer="21"/>
+<text x="74.676" y="10.922" size="1.651" layer="21" font="vector" rot="R180" align="top-left">ON</text>
+<text x="67.31" y="10.922" size="1.651" layer="21" font="vector" rot="R180" align="top-left">OFF</text>
 </plain>
 <libraries>
 <library name="rcl" urn="urn:adsk.eagle:library:334">
@@ -2071,10 +2071,6 @@ design rules under a new name.</description>
 <vertex x="102.06" y="-5.08"/>
 <vertex x="-5.08" y="-5.08"/>
 </polygon>
-<via x="107.14" y="58.166" extent="1-16" drill="0.35" shape="octagon"/>
-<via x="110.95" y="58.166" extent="1-16" drill="0.35" shape="octagon"/>
-<via x="107.14" y="61.214" extent="1-16" drill="0.35" shape="octagon"/>
-<via x="110.95" y="61.214" extent="1-16" drill="0.35" shape="octagon"/>
 <contactref element="C1" pad="2"/>
 <contactref element="C2" pad="2"/>
 <contactref element="JP_GND" pad="2"/>
@@ -2114,10 +2110,14 @@ design rules under a new name.</description>
 <via x="90.678" y="23.574" extent="1-16" drill="0.35" shape="octagon"/>
 <wire x1="70.463" y1="28.721" x2="70.463" y2="29.823" width="3.048" layer="16"/>
 <wire x1="70.463" y1="29.823" x2="70.612" y2="29.972" width="3.048" layer="16"/>
-<wire x1="110.95" y1="58.166" x2="110.95" y2="61.214" width="0" layer="19" extent="1-1"/>
-<wire x1="107.14" y1="61.214" x2="110.95" y2="61.214" width="0" layer="19" extent="1-1"/>
-<wire x1="107.14" y1="58.166" x2="107.14" y2="61.214" width="0" layer="19" extent="1-1"/>
-<wire x1="85.55" y1="42.418" x2="107.14" y2="58.166" width="0" layer="19" extent="1-1"/>
+<via x="66.294" y="27.892" extent="1-16" drill="0.35" shape="octagon"/>
+<via x="66.294" y="30.686" extent="1-16" drill="0.35" shape="octagon"/>
+<via x="63.246" y="27.892" extent="1-16" drill="0.35" shape="octagon"/>
+<via x="63.246" y="30.686" extent="1-16" drill="0.35" shape="octagon"/>
+<via x="68.024" y="21.082" extent="1-16" drill="0.35" shape="octagon"/>
+<via x="68.024" y="22.606" extent="1-16" drill="0.35" shape="octagon"/>
+<via x="68.024" y="24.638" extent="1-16" drill="0.35" shape="octagon"/>
+<via x="68.024" y="26.162" extent="1-16" drill="0.35" shape="octagon"/>
 </signal>
 <signal name="V_BATT" class="1">
 <contactref element="JP_VBATT/5V" pad="1"/>
@@ -2298,11 +2298,11 @@ design rules under a new name.</description>
 <contactref element="M2" pad="B-"/>
 <wire x1="83.8" y1="8.519" x2="84.445" y2="7.874" width="0.9144" layer="1"/>
 <wire x1="84.445" y1="7.874" x2="89.408" y2="7.874" width="0.9144" layer="1"/>
-<wire x1="70.463" y1="25.546" x2="78.74" y2="17.269" width="0.9144" layer="1"/>
 <wire x1="82.79264375" y1="8.5538" x2="83.7652" y2="8.5538" width="0.9144" layer="1"/>
 <wire x1="83.7652" y1="8.5538" x2="83.8" y2="8.519" width="0.9144" layer="1"/>
 <wire x1="78.74" y1="12.60644375" x2="82.79264375" y2="8.5538" width="0.9144" layer="1"/>
-<wire x1="78.74" y1="17.269" x2="78.74" y2="12.60644375" width="0.9144" layer="1"/>
+<wire x1="78.74" y1="12.60644375" x2="78.74" y2="17.269" width="0.9144" layer="1"/>
+<wire x1="78.74" y1="17.269" x2="70.463" y2="25.546" width="0.9144" layer="1"/>
 </signal>
 <signal name="N$6" class="1">
 <contactref element="M2" pad="B+"/>
@@ -2392,10 +2392,6 @@ design rules under a new name.</description>
 </board>
 </drawing>
 <compatibility>
-<note version="6.3" minversion="6.2.2" severity="warning">
-Since Version 6.2.2 text objects can contain more than one line,
-which will not be processed correctly with this version.
-</note>
 <note version="8.2" severity="warning">
 Since Version 8.2, EAGLE supports online libraries. The ids
 of those online libraries will not be understood (or retained)
