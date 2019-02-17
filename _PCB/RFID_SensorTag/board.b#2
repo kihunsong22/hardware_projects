@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="10" unitdist="mil" unit="mil" style="lines" multiple="1" display="yes" altdistance="5" altunitdist="mil" altunit="mil"/>
+<grid distance="1" unitdist="mil" unit="mil" style="lines" multiple="1" display="yes" altdistance="5" altunitdist="mil" altunit="mil"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="2" name="Route2" color="16" fill="1" visible="no" active="no"/>
@@ -211,6 +211,12 @@
 <wire x1="37.846" y1="42.164" x2="37.846" y2="40.64" width="0.3048" layer="22"/>
 <wire x1="37.846" y1="40.64" x2="40.132" y2="40.64" width="0.3048" layer="22"/>
 <wire x1="40.132" y1="40.64" x2="40.132" y2="42.164" width="0.3048" layer="22"/>
+<text x="76.454" y="3.81" size="1.651" layer="21" font="vector" rot="R180" align="top-left">ON</text>
+<text x="65.278" y="3.81" size="1.651" layer="21" font="vector" rot="R180" align="top-left">OFF</text>
+<text x="94.742" y="9.906" size="1.778" layer="21" font="vector" rot="R90">B+</text>
+<text x="94.742" y="6.096" size="1.778" layer="21" font="vector" rot="R90">B-</text>
+<text x="85.852" y="6.096" size="1.778" layer="22" font="vector" rot="MR90">B-</text>
+<text x="85.852" y="9.906" size="1.778" layer="22" font="vector" rot="MR90">B+</text>
 </plain>
 <libraries>
 <library name="rcl" urn="urn:adsk.eagle:library:334">
@@ -2090,7 +2096,7 @@ design rules under a new name.</description>
 <contactref element="C2" pad="2"/>
 <contactref element="JP_GND" pad="2"/>
 <contactref element="JP_GND" pad="1"/>
-<via x="52.9" y="52.908" extent="1-16" drill="0.85"/>
+<via x="52.9762" y="52.908" extent="1-16" drill="0.85"/>
 <via x="59.182" y="22.304" extent="1-16" drill="0.35" shape="octagon"/>
 <via x="59.182" y="26.114" extent="1-16" drill="0.35" shape="octagon"/>
 <via x="56.134" y="22.304" extent="1-16" drill="0.35" shape="octagon"/>

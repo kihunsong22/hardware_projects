@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+<grid distance="0.05" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
@@ -176,41 +176,41 @@
 By cl@xganon.com
 http://www.xganon.com</description>
 <packages>
-<package name="NANO_ICSP-REMOVED" urn="urn:adsk.eagle:footprint:8522656/1" library_version="1">
-<pad name="TX0" x="5.08" y="-8.89" drill="0.8" shape="long"/>
-<pad name="RX1" x="5.08" y="-6.35" drill="0.8" shape="long"/>
-<pad name="RST1" x="5.08" y="-3.81" drill="0.8" shape="long"/>
-<pad name="GND1" x="5.08" y="-1.27" drill="0.8" shape="long"/>
-<pad name="D2" x="5.08" y="1.27" drill="0.8" shape="long"/>
-<pad name="D3" x="5.08" y="3.81" drill="0.8" shape="long"/>
-<pad name="D4" x="5.08" y="6.35" drill="0.8" shape="long"/>
-<pad name="D5" x="5.08" y="8.89" drill="0.8" shape="long"/>
-<pad name="D6" x="5.08" y="11.43" drill="0.8" shape="long"/>
-<pad name="D7" x="5.08" y="13.97" drill="0.8" shape="long"/>
-<pad name="D8" x="5.08" y="16.51" drill="0.8" shape="long"/>
-<pad name="D9" x="5.08" y="19.05" drill="0.8" shape="long"/>
-<pad name="RAW" x="-10.16" y="-8.89" drill="0.8" shape="long"/>
-<pad name="GND" x="-10.16" y="-6.35" drill="0.8" shape="long"/>
-<pad name="RST" x="-10.16" y="-3.81" drill="0.8" shape="long"/>
-<pad name="A3" x="-10.16" y="11.43" drill="0.8" shape="long"/>
-<pad name="A2" x="-10.16" y="13.97" drill="0.8" shape="long"/>
-<pad name="A1" x="-10.16" y="16.51" drill="0.8" shape="long"/>
-<pad name="A0" x="-10.16" y="19.05" drill="0.8" shape="long"/>
-<pad name="D13" x="-10.16" y="26.67" drill="0.8" shape="long"/>
-<pad name="D12" x="5.08" y="26.67" drill="0.8" shape="long"/>
-<pad name="D11" x="5.08" y="24.13" drill="0.8" shape="long"/>
-<pad name="D10" x="5.08" y="21.59" drill="0.8" shape="long"/>
-<pad name="3.3V" x="-10.16" y="24.13" drill="0.8" shape="long" rot="R180"/>
-<pad name="AREF" x="-10.16" y="21.59" drill="0.8" shape="long" rot="R180"/>
-<pad name="5V" x="-10.16" y="-1.27" drill="0.8" shape="long"/>
-<pad name="A4" x="-10.16" y="8.89" drill="0.8" shape="long" rot="R180"/>
-<pad name="A5" x="-10.16" y="6.35" drill="0.8" shape="long" rot="R180"/>
-<pad name="A6" x="-10.16" y="3.81" drill="0.8" shape="long" rot="R180"/>
-<pad name="A7" x="-10.16" y="1.27" drill="0.8" shape="long" rot="R180"/>
+<package name="NANO_ICSP-REMOVED" urn="urn:adsk.eagle:footprint:8522656/1" locally_modified="yes" library_version="1" library_locally_modified="yes">
+<pad name="TX0" x="5.1816" y="-8.89" drill="1" shape="octagon"/>
+<pad name="RX1" x="5.1816" y="-6.35" drill="1" shape="octagon"/>
+<pad name="RST1" x="5.1816" y="-3.81" drill="1" shape="octagon"/>
+<pad name="GND1" x="5.1816" y="-1.27" drill="1" shape="octagon"/>
+<pad name="D2" x="5.1816" y="1.27" drill="1" shape="octagon"/>
+<pad name="D3" x="5.1816" y="3.81" drill="1" shape="octagon"/>
+<pad name="D4" x="5.1816" y="6.35" drill="1" shape="octagon"/>
+<pad name="D5" x="5.1816" y="8.89" drill="1" shape="octagon"/>
+<pad name="D6" x="5.1816" y="11.43" drill="1" shape="octagon"/>
+<pad name="D7" x="5.1816" y="13.97" drill="1" shape="octagon"/>
+<pad name="D8" x="5.1816" y="16.51" drill="1" shape="octagon"/>
+<pad name="D9" x="5.1816" y="19.05" drill="1" shape="octagon"/>
+<pad name="RAW" x="-10.16" y="-8.89" drill="1" shape="octagon"/>
+<pad name="GND" x="-10.16" y="-6.35" drill="1" shape="octagon"/>
+<pad name="RST" x="-10.16" y="-3.81" drill="1" shape="octagon"/>
+<pad name="A3" x="-10.16" y="11.43" drill="1" shape="octagon"/>
+<pad name="A2" x="-10.16" y="13.97" drill="1" shape="octagon"/>
+<pad name="A1" x="-10.16" y="16.51" drill="1" shape="octagon"/>
+<pad name="A0" x="-10.16" y="19.05" drill="1" shape="octagon"/>
+<pad name="D13" x="-10.16" y="26.67" drill="1" shape="octagon"/>
+<pad name="D12" x="5.1816" y="26.67" drill="1" shape="octagon"/>
+<pad name="D11" x="5.1816" y="24.13" drill="1" shape="octagon"/>
+<pad name="D10" x="5.1816" y="21.59" drill="1" shape="octagon"/>
+<pad name="3.3V" x="-10.16" y="24.13" drill="1" shape="octagon" rot="R180"/>
+<pad name="AREF" x="-10.16" y="21.59" drill="1" shape="octagon" rot="R180"/>
+<pad name="5V" x="-10.16" y="-1.27" drill="1" shape="octagon"/>
+<pad name="A4" x="-10.16" y="8.89" drill="1" shape="octagon" rot="R180"/>
+<pad name="A5" x="-10.16" y="6.35" drill="1" shape="octagon" rot="R180"/>
+<pad name="A6" x="-10.16" y="3.81" drill="1" shape="octagon" rot="R180"/>
+<pad name="A7" x="-10.16" y="1.27" drill="1" shape="octagon" rot="R180"/>
 </package>
 </packages>
 <packages3d>
-<package3d name="NANO_ICSP-REMOVED" urn="urn:adsk.eagle:package:8522668/1" type="box" library_version="1">
+<package3d name="NANO_ICSP-REMOVED" urn="urn:adsk.eagle:package:8522668/1" locally_modified="yes" type="box" library_version="1" library_locally_modified="yes">
 <packageinstances>
 <packageinstance name="NANO_ICSP-REMOVED"/>
 </packageinstances>
@@ -256,7 +256,7 @@ http://www.xganon.com</description>
 </symbol>
 </symbols>
 <devicesets>
-<deviceset name="NANO_ICSP-REMOVED" urn="urn:adsk.eagle:component:8522674/1" library_version="1">
+<deviceset name="NANO_ICSP-REMOVED" urn="urn:adsk.eagle:component:8522674/1" locally_modified="yes" library_version="1" library_locally_modified="yes">
 <gates>
 <gate name="G$1" symbol="NANO_ICSP-REMOVED" x="7.62" y="5.08"/>
 </gates>
@@ -6927,105 +6927,6 @@ Created by Upverter.com</description>
 </deviceset>
 </devicesets>
 </library>
-<library name="SparkFun-Jumpers" urn="urn:adsk.eagle:library:528">
-<description>&lt;h3&gt;SparkFun Jumpers&lt;/h3&gt;
-In this library you'll find jumpers, or other semipermanent means of changing current paths. The least permanent form is the solder jumper. These can be changed by adding, removing, or moving solder. In cases that are less likely to be changed we have jumpers that are connected with traces. These can be cut with a razor, or reconnected with solder. Reference designator JP.
-&lt;br&gt;
-&lt;br&gt;
-We've spent an enormous amount of time creating and checking these footprints and parts, but it is &lt;b&gt; the end user's responsibility&lt;/b&gt; to ensure correctness and suitablity for a given componet or application. 
-&lt;br&gt;
-&lt;br&gt;If you enjoy using this library, please buy one of our products at &lt;a href=" www.sparkfun.com"&gt;SparkFun.com&lt;/a&gt;.
-&lt;br&gt;
-&lt;br&gt;
-&lt;b&gt;Licensing:&lt;/b&gt; Creative Commons ShareAlike 4.0 International - https://creativecommons.org/licenses/by-sa/4.0/ 
-&lt;br&gt;
-&lt;br&gt;
-You are welcome to use this library for commercial purposes. For attribution, we ask that when you begin to sell your device using our footprint, you email us with a link to the product being sold. We want bragging rights that we helped (in a very small part) to create your 8th world wonder. We would like the opportunity to feature your device on our homepage.</description>
-<packages>
-<package name="SMT-JUMPER_2_NC_PASTE_NO-SILK" urn="urn:adsk.eagle:footprint:39260/1" library_version="1">
-<text x="0" y="1.143" size="0.6096" layer="25" font="vector" ratio="20" align="bottom-center">&gt;NAME</text>
-<text x="0" y="-1.143" size="0.6096" layer="27" font="vector" ratio="20" align="top-center">&gt;VALUE</text>
-<rectangle x1="-1.2446" y1="-1.1176" x2="1.2446" y2="1.1176" layer="31"/>
-<smd name="1" x="-0.4064" y="0" dx="0.635" dy="1.27" layer="1" cream="no"/>
-<smd name="2" x="0.4064" y="0" dx="0.635" dy="1.27" layer="1" cream="no"/>
-</package>
-<package name="SMT-JUMPER_2_NC_PASTE_SILK" urn="urn:adsk.eagle:footprint:39261/1" library_version="1">
-<text x="0" y="1.143" size="0.6096" layer="25" font="vector" ratio="20" align="bottom-center">&gt;NAME</text>
-<text x="0" y="-1.143" size="0.6096" layer="27" font="vector" ratio="20" align="top-center">&gt;VALUE</text>
-<wire x1="0.8636" y1="-1.016" x2="-0.8636" y2="-1.016" width="0.1524" layer="21"/>
-<wire x1="0.8636" y1="1.016" x2="1.1176" y2="0.762" width="0.1524" layer="21" curve="-90"/>
-<wire x1="-1.1176" y1="0.762" x2="-0.8636" y2="1.016" width="0.1524" layer="21" curve="-90"/>
-<wire x1="-1.1176" y1="-0.762" x2="-0.8636" y2="-1.016" width="0.1524" layer="21" curve="90"/>
-<wire x1="0.8636" y1="-1.016" x2="1.1176" y2="-0.762" width="0.1524" layer="21" curve="90"/>
-<wire x1="1.1176" y1="-0.762" x2="1.1176" y2="0.762" width="0.1524" layer="21"/>
-<wire x1="-1.1176" y1="-0.762" x2="-1.1176" y2="0.762" width="0.1524" layer="21"/>
-<wire x1="-0.8636" y1="1.016" x2="0.8636" y2="1.016" width="0.1524" layer="21"/>
-<rectangle x1="-1.2446" y1="-1.1176" x2="1.2446" y2="1.1176" layer="31"/>
-<smd name="1" x="-0.4064" y="0" dx="0.635" dy="1.27" layer="1" cream="no"/>
-<smd name="2" x="0.4064" y="0" dx="0.635" dy="1.27" layer="1" cream="no"/>
-</package>
-</packages>
-<packages3d>
-<package3d name="SMT-JUMPER_2_NC_PASTE_NO-SILK" urn="urn:adsk.eagle:package:39283/1" type="box" library_version="1">
-<packageinstances>
-<packageinstance name="SMT-JUMPER_2_NC_PASTE_NO-SILK"/>
-</packageinstances>
-</package3d>
-<package3d name="SMT-JUMPER_2_NC_PASTE_SILK" urn="urn:adsk.eagle:package:39282/1" type="box" library_version="1">
-<packageinstances>
-<packageinstance name="SMT-JUMPER_2_NC_PASTE_SILK"/>
-</packageinstances>
-</package3d>
-</packages3d>
-<symbols>
-<symbol name="SMT-JUMPER_2_NC_PASTE" urn="urn:adsk.eagle:symbol:39259/1" library_version="1">
-<wire x1="0.381" y1="0.635" x2="0.381" y2="-0.635" width="1.27" layer="94" curve="-180" cap="flat"/>
-<wire x1="-0.381" y1="-0.635" x2="-0.381" y2="0.635" width="1.27" layer="94" curve="-180" cap="flat"/>
-<wire x1="2.54" y1="0" x2="1.651" y2="0" width="0.1524" layer="94"/>
-<wire x1="-2.54" y1="0" x2="-1.651" y2="0" width="0.1524" layer="94"/>
-<text x="-2.54" y="2.54" size="1.778" layer="95" font="vector">&gt;NAME</text>
-<text x="-2.54" y="-2.54" size="1.778" layer="96" font="vector" align="top-left">&gt;VALUE</text>
-<pin name="2" x="5.08" y="0" visible="off" length="short" direction="pas" swaplevel="1" rot="R180"/>
-<pin name="1" x="-5.08" y="0" visible="off" length="short" direction="pas" swaplevel="1"/>
-<circle x="0" y="0" radius="1.93440625" width="0" layer="95"/>
-</symbol>
-</symbols>
-<devicesets>
-<deviceset name="JUMPER-SMT_2_NC_PASTE" urn="urn:adsk.eagle:component:39299/1" prefix="JP" library_version="1">
-<description>&lt;h3&gt;Normally closed solder jumper&lt;/h3&gt;
-&lt;p&gt;This jumper has an aperture in the stencil to allow solder paste to bridge the split in the wire so it's normally closed (NC). Wick off the solder to open the connection. Reapply solder to reclose the connection.&lt;/p&gt;</description>
-<gates>
-<gate name="G$1" symbol="SMT-JUMPER_2_NC_PASTE" x="0" y="0"/>
-</gates>
-<devices>
-<device name="_NO-SILK" package="SMT-JUMPER_2_NC_PASTE_NO-SILK">
-<connects>
-<connect gate="G$1" pin="1" pad="1"/>
-<connect gate="G$1" pin="2" pad="2"/>
-</connects>
-<package3dinstances>
-<package3dinstance package3d_urn="urn:adsk.eagle:package:39283/1"/>
-</package3dinstances>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-<device name="_SILK" package="SMT-JUMPER_2_NC_PASTE_SILK">
-<connects>
-<connect gate="G$1" pin="1" pad="1"/>
-<connect gate="G$1" pin="2" pad="2"/>
-</connects>
-<package3dinstances>
-<package3dinstance package3d_urn="urn:adsk.eagle:package:39282/1"/>
-</package3dinstances>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
-</devicesets>
-</library>
 </libraries>
 <attributes>
 </attributes>
@@ -7093,7 +6994,6 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <part name="GND8" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="GND" device=""/>
 <part name="U1" library="Maxim Electronics - MAX40200AUK+" deviceset="MAXIM_ELECTRONICS_MAX40200AUK+" device="MAXIM_ELECTRONICS_MAX40200AUK+_0_0"/>
 <part name="BATT" library="pinhead" library_urn="urn:adsk.eagle:library:325" deviceset="PINHD-1X2" device="" package3d_urn="urn:adsk.eagle:package:22435/2"/>
-<part name="JP_BATT_EN" library="SparkFun-Jumpers" library_urn="urn:adsk.eagle:library:528" deviceset="JUMPER-SMT_2_NC_PASTE" device="_SILK" package3d_urn="urn:adsk.eagle:package:39282/1" value=""/>
 <part name="C4" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0805" package3d_urn="urn:adsk.eagle:package:23617/2" value="100nF"/>
 </parts>
 <sheets>
@@ -7212,10 +7112,6 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <instance part="BATT" gate="G$1" x="66.04" y="27.94" smashed="yes" rot="R270">
 <attribute name="NAME" x="71.755" y="34.29" size="1.778" layer="95" rot="R270"/>
 <attribute name="VALUE" x="60.96" y="34.29" size="1.778" layer="96" rot="R270"/>
-</instance>
-<instance part="JP_BATT_EN" gate="G$1" x="60.96" y="39.37" smashed="yes">
-<attribute name="NAME" x="58.42" y="41.91" size="1.778" layer="95" font="vector"/>
-<attribute name="VALUE" x="58.42" y="36.83" size="1.778" layer="96" font="vector" align="top-left"/>
 </instance>
 <instance part="C4" gate="G$1" x="151.13" y="38.1" smashed="yes">
 <attribute name="NAME" x="152.654" y="38.481" size="1.778" layer="95"/>
@@ -7446,17 +7342,6 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <label x="228.6" y="161.29" size="1.016" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
-<net name="N$3" class="1">
-<segment>
-<pinref part="BATT" gate="G$1" pin="1"/>
-<pinref part="X1" gate="-1" pin="S"/>
-<wire x1="68.58" y1="30.48" x2="68.58" y2="22.86" width="0.1524" layer="91"/>
-<wire x1="68.58" y1="30.48" x2="68.58" y2="39.37" width="0.1524" layer="91"/>
-<junction x="68.58" y="30.48"/>
-<pinref part="JP_BATT_EN" gate="G$1" pin="2"/>
-<wire x1="66.04" y1="39.37" x2="68.58" y2="39.37" width="0.1524" layer="91"/>
-</segment>
-</net>
 <net name="N$5" class="1">
 <segment>
 <pinref part="BATT" gate="G$1" pin="2"/>
@@ -7466,13 +7351,6 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <wire x1="66.04" y1="30.48" x2="66.04" y2="34.29" width="0.1524" layer="91"/>
 <wire x1="66.04" y1="34.29" x2="50.8" y2="34.29" width="0.1524" layer="91"/>
 <junction x="66.04" y="30.48"/>
-</segment>
-</net>
-<net name="N$6" class="1">
-<segment>
-<pinref part="M2" gate="G$1" pin="B+"/>
-<pinref part="JP_BATT_EN" gate="G$1" pin="1"/>
-<wire x1="50.8" y1="39.37" x2="55.88" y2="39.37" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="BATT_VOUT" class="1">
@@ -7527,6 +7405,17 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <pinref part="U$1" gate="G$1" pin="D8"/>
 <wire x1="142.24" y1="134.62" x2="151.13" y2="134.62" width="0.1524" layer="91"/>
 <label x="151.13" y="134.62" size="1.016" layer="95" xref="yes"/>
+</segment>
+</net>
+<net name="N$1" class="1">
+<segment>
+<pinref part="X1" gate="-1" pin="S"/>
+<pinref part="BATT" gate="G$1" pin="1"/>
+<wire x1="68.58" y1="30.48" x2="68.58" y2="22.86" width="0.1524" layer="91"/>
+<pinref part="M2" gate="G$1" pin="B+"/>
+<wire x1="50.8" y1="39.37" x2="68.58" y2="39.37" width="0.1524" layer="91"/>
+<wire x1="68.58" y1="30.48" x2="68.58" y2="39.37" width="0.1524" layer="91"/>
+<junction x="68.58" y="30.48"/>
 </segment>
 </net>
 </nets>
