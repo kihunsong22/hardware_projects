@@ -10,6 +10,9 @@
 
    For more detailed information, see the LoRaLib Wiki
    https://github.com/jgromes/LoRaLib/wiki
+
+   For full API reference, see the GitHub Pages
+   https://jgromes.github.io/LoRaLib/
 */
 
 // include the library
@@ -65,7 +68,7 @@ void setup() {
   /*
     byte byteArr[] = {0x01, 0x23, 0x45, 0x56,
                       0x78, 0xAB, 0xCD, 0xEF};
-    state = lora.transmit(byteArr, 8);
+    state = lora.startTransmit(byteArr, 8);
   */
   
   if (state != ERR_NONE) {
