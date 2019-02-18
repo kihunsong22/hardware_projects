@@ -117,14 +117,14 @@
 <wire x1="8.255" y1="1.27" x2="7.62" y2="0.635" width="0.1524" layer="21"/>
 <wire x1="7.62" y1="-0.635" x2="8.255" y2="-1.27" width="0.1524" layer="21"/>
 <wire x1="9.525" y1="-1.27" x2="8.255" y2="-1.27" width="0.1524" layer="21"/>
-<pad name="3V3" x="-8.89" y="0" drill="0.9652" rot="R90"/>
-<pad name="RST" x="-6.35" y="0" drill="0.9652" rot="R90"/>
-<pad name="GND" x="-3.81" y="0" drill="0.9652" rot="R90"/>
-<pad name="IRQ" x="-1.27" y="0" drill="0.9652" rot="R90"/>
-<pad name="MISO" x="1.27" y="0" drill="0.9652" rot="R90"/>
-<pad name="MOSI" x="3.81" y="0" drill="0.9652" rot="R90"/>
-<pad name="SCK" x="6.35" y="0" drill="0.9652" rot="R90"/>
-<pad name="SS" x="8.89" y="0" drill="0.9652" rot="R90"/>
+<pad name="3V3" x="-8.89" y="0" drill="1.016" rot="R90"/>
+<pad name="RST" x="-6.35" y="0" drill="1.016" rot="R90"/>
+<pad name="GND" x="-3.81" y="0" drill="1.016" rot="R90"/>
+<pad name="IRQ" x="-1.27" y="0" drill="1.016" rot="R90"/>
+<pad name="MISO" x="1.27" y="0" drill="1.016" rot="R90"/>
+<pad name="MOSI" x="3.81" y="0" drill="1.016" rot="R90"/>
+<pad name="SCK" x="6.35" y="0" drill="1.016" rot="R90"/>
+<pad name="SS" x="8.89" y="0" drill="1.016" rot="R90"/>
 <text x="-19.0062" y="1.2888" size="1.27" layer="25" ratio="10">&gt;NAME</text>
 <text x="12.57" y="1.285" size="1.27" layer="27">&gt;VALUE</text>
 <rectangle x1="6.096" y1="-0.254" x2="6.604" y2="0.254" layer="51"/>
