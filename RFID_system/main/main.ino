@@ -153,6 +153,9 @@ void doSomething(String uid) {
     co2 += 50;
     warningCheck = true;
   }
+  if (uid == "59701060") {
+    warningCheck = true;
+  }
 }
 void gameEnd() {
   digitalWrite(8, HIGH);
