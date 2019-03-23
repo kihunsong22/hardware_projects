@@ -23,8 +23,8 @@
 #include <LoRaLib.h>
 
 // create instance of LoRa class using SX1278 module
-// this pinout corresponds to KITE Shield
-// https://github.com/jgromes/KiteShield
+// this pinout corresponds to RadioShield
+// https://github.com/jgromes/RadioShield
 // NSS pin:   10 (4 on ESP32/ESP8266 boards)
 // DIO0 pin:  2
 // DIO1 pin:  3
@@ -43,6 +43,7 @@ void setup() {
   // current limit:               100 mA
   // data shaping:                Gaussian, BT = 0.3
   // sync word:                   0x2D  0x01
+  // OOK modulation:              false
   int state = fsk.beginFSK();
   if (state == ERR_NONE) {
     Serial.println(F("success!"));
@@ -71,6 +72,19 @@ void setup() {
   state = fsk.setSyncWord(syncWord, 8);
   if (state != ERR_NONE) {
     Serial.print(F("Unable to set configuration, code "));
+    Serial.println(state);
+    while (true);
+  }
+
+  // FSK modulation can be changed to OOK
+  // NOTE: When using OOK, the maximum bit rate is only 32.768 kbps!
+  //       Also, data shaping changes from Gaussian filter to
+  //       simple filter with cutoff frequency. Make sure to call
+  //       setDataShapingOOK() to set the correct shaping!
+  state = fsk.setOOK(true);
+  state = fsk.setDataShapingOOK(1);
+  if (state != ERR_NONE) {
+    Serial.print(F("Unable to change modulation, code "));
     Serial.println(state);
     while (true);
   }
@@ -160,7 +174,7 @@ void loop() {
   }
 
   // using the direct mode, it is possible to transmit
-  // FM notes with Arduino tone() function
+  // FM tones with Arduino tone() function
   
   // it is recommended to set data shaping to 0
   // (no shaping) when transmitting audio

@@ -7,9 +7,9 @@
   #include "WProgram.h"
 #endif
 
-//#define KITELIB_DEBUG
+//#define RADIOLIB_DEBUG
 
-#ifdef KITELIB_DEBUG
+#ifdef RADIOLIB_DEBUG
   #define DEBUG_BEGIN(x)                Serial.begin (x)
   #define DEBUG_PRINT(x)                Serial.print (x)
   #define DEBUG_PRINT_BIN(x)            Serial.print (x, BIN)
@@ -188,6 +188,11 @@
   \brief The supplied FSK data shaping option is invalid.
 */
 #define ERR_INVALID_DATA_SHAPING              -25
+
+/*! 
+  \brief The current modulation is invalid for the requested operation.
+*/
+#define ERR_INVALID_MODULATION                -26
 
 /*!
   \}

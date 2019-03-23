@@ -1,5 +1,5 @@
 /*
-   LoRaLib Transmit with Inerrupts Example
+   LoRaLib Transmit with Interrupts Example
 
    This example transmits LoRa packets with one second delays
    between them. Each packet contains up to 256 bytes
@@ -19,8 +19,8 @@
 #include <LoRaLib.h>
 
 // create instance of LoRa class using SX1278 module
-// this pinout corresponds to KITE Shield
-// https://github.com/jgromes/KiteShield
+// this pinout corresponds to RadioShield
+// https://github.com/jgromes/RadioShield
 // NSS pin:   10 (4 on ESP32/ESP8266 boards)
 // DIO0 pin:  2
 // DIO1 pin:  3

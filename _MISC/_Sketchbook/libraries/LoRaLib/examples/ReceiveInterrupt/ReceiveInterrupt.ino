@@ -1,5 +1,5 @@
 /*
-   LoRaLib Receive with Inerrupts Example
+   LoRaLib Receive with Interrupts Example
 
    This example listens for LoRa transmissions and tries to
    receive them. Once a packet is received, an interrupt is
@@ -24,8 +24,8 @@
 #include <LoRaLib.h>
 
 // create instance of LoRa class using SX1278 module
-// this pinout corresponds to KITE Shield
-// https://github.com/jgromes/KiteShield
+// this pinout corresponds to RadioShield
+// https://github.com/jgromes/RadioShield
 // NSS pin:   10 (4 on ESP32/ESP8266 boards)
 // DIO0 pin:  2
 // DIO1 pin:  3

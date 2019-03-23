@@ -26,8 +26,8 @@
 #include <LoRaLib.h>
 
 // create instance of LoRa class using SX1278 module
-// this pinout corresponds to KITE Shield
-// https://github.com/jgromes/KiteShield
+// this pinout corresponds to RadioShield
+// https://github.com/jgromes/RadioShield
 // NSS pin:   10 (4 on ESP32/ESP8266 boards)
 // DIO0 pin:  2
 // DIO1 pin:  3
@@ -48,6 +48,16 @@ SX1272 loraSX1272 = new LoRa(6, 4, 5);
 // DIO0 pin:  15 (A1)
 // DIO1 pin:  16 (A2)
 SX1276 loraSX1276 = new LoRa(14, 15, 16);
+
+// to use non-default SPI interface or software SPI
+// implementation, pass the SPI interface to the LoRa
+// constructor
+// 
+// DigitalIO library for software SPI
+// https://github.com/greiman/DigitalIO
+//#include "DigitalIO.h"
+//SoftSPI<MISO_PIN, MOSI_PIN, SCK_PIN> softSpi;
+//SX1278 softLora = new LoRa(2, 3, 10, softSpi);
 
 void setup() {
   Serial.begin(9600);
@@ -186,6 +196,13 @@ void setup() {
   //       leave at 0 unless you know what you're doing
   if (loraSX1278.setGain(1) == ERR_INVALID_GAIN) {
     Serial.println("Selected gain is invalid for this module!");
+    while (true);
+  }
+
+  // disable automatic CRC check on received packets
+  // NOTE: packets that do not pass the check are discarded automatically
+  if (loraSX1278.setCRC(false) != ERR_NONE) {
+    Serial.println("Unable to set CRC!");
     while (true);
   }
 
