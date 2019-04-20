@@ -509,6 +509,8 @@ UsedLibrary="C:/Users/angrypig/Angrypig/Dev/hardware/_MISC/_PCB_Libaries/stm32.l
 UsedLibrary="C:/Users/angrypig/Angrypig/Dev/hardware/_MISC/_PCB_Libaries/stm32f051.lbr"
 UsedLibrary="C:/Users/angrypig/Angrypig/Dev/hardware/_MISC/_PCB_Libaries/switch-tact.lbr"
 UsedLibrary="C:/Users/angrypig/Angrypig/Dev/hardware/_MISC/_PCB_Libaries/tango.lbr"
+UsedLibrary="C:/Users/angrypig/Angrypig/Dev/hardware/_MISC/_PCB_Libaries/esp12e.lbr"
+UsedLibrary="C:/Users/angrypig/Angrypig/Dev/hardware/_MISC/_PCB_Libaries/_Custom/SamacSys_Parts.lbr"
 
 [Win_1]
 Type="Control Panel"
