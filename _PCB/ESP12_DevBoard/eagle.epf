@@ -474,6 +474,7 @@ UsedLibrary="C:/Users/angrypig/Angrypig/Dev/hardware/_MISC/_PCB_Libaries/diode.l
 UsedLibrary="C:/Users/angrypig/Angrypig/Dev/hardware/_MISC/_PCB_Libaries/diy-modules.lbr"
 UsedLibrary="C:/Users/angrypig/Angrypig/Dev/hardware/_MISC/_PCB_Libaries/dp_devices.lbr"
 UsedLibrary="C:/Users/angrypig/Angrypig/Dev/hardware/_MISC/_PCB_Libaries/ds1307_pcf8583.lbr"
+UsedLibrary="C:/Users/angrypig/Angrypig/Dev/hardware/_MISC/_PCB_Libaries/esp12e.lbr"
 UsedLibrary="C:/Users/angrypig/Angrypig/Dev/hardware/_MISC/_PCB_Libaries/esp32_1.lbr"
 UsedLibrary="C:/Users/angrypig/Angrypig/Dev/hardware/_MISC/_PCB_Libaries/esp32_2.lbr"
 UsedLibrary="C:/Users/angrypig/Angrypig/Dev/hardware/_MISC/_PCB_Libaries/esp8266modules.lbr"
@@ -509,7 +510,6 @@ UsedLibrary="C:/Users/angrypig/Angrypig/Dev/hardware/_MISC/_PCB_Libaries/stm32.l
 UsedLibrary="C:/Users/angrypig/Angrypig/Dev/hardware/_MISC/_PCB_Libaries/stm32f051.lbr"
 UsedLibrary="C:/Users/angrypig/Angrypig/Dev/hardware/_MISC/_PCB_Libaries/switch-tact.lbr"
 UsedLibrary="C:/Users/angrypig/Angrypig/Dev/hardware/_MISC/_PCB_Libaries/tango.lbr"
-UsedLibrary="C:/Users/angrypig/Angrypig/Dev/hardware/_MISC/_PCB_Libaries/esp12e.lbr"
 UsedLibrary="C:/Users/angrypig/Angrypig/Dev/hardware/_MISC/_PCB_Libaries/_Custom/SamacSys_Parts.lbr"
 
 [Win_1]
