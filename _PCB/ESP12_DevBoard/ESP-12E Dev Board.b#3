@@ -171,12 +171,10 @@
 </layers>
 <board>
 <plain>
-<wire x1="0" y1="0" x2="0" y2="70" width="0" layer="20"/>
-<wire x1="0" y1="0" x2="70" y2="0" width="0" layer="20"/>
-<wire x1="70" y1="0" x2="70" y2="70" width="0" layer="20"/>
-<wire x1="70" y1="70" x2="0" y2="70" width="0" layer="20"/>
-<dimension x1="0" y1="0" x2="0" y2="70" x3="-2.54" y3="35" textsize="1.778" layer="21"/>
-<dimension x1="0" y1="0" x2="70" y2="0" x3="35" y3="-2.54" textsize="1.778" layer="21"/>
+<wire x1="0" y1="0" x2="160" y2="0" width="0" layer="20"/>
+<wire x1="160" y1="0" x2="160" y2="100" width="0" layer="20"/>
+<wire x1="160" y1="100" x2="0" y2="100" width="0" layer="20"/>
+<wire x1="0" y1="100" x2="0" y2="0" width="0" layer="20"/>
 </plain>
 <libraries>
 <library name="rcl" urn="urn:adsk.eagle:library:334">
