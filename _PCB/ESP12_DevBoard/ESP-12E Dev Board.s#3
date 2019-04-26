@@ -19722,14 +19722,14 @@ TXB0104PWR
 <part name="SUPPLY15" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="5V" device=""/>
 <part name="GND21" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="GND" device=""/>
 <part name="SUPPLY14" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="3.3V" device=""/>
-<part name="SUPPLY18" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="3.3V" device=""/>
 <part name="GND13" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="GND" device=""/>
 <part name="SUPPLY17" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="12V" device=""/>
 <part name="SUPPLY16" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="3.3V" device=""/>
 <part name="J11" library="con-molex-spox" deviceset="5267-3" device="" value="BTN2"/>
 <part name="GND26" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="GND" device=""/>
-<part name="SUPPLY22" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="3.3V" device=""/>
 <part name="GND27" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="GND" device=""/>
+<part name="SUPPLY18" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="5V" device=""/>
+<part name="SUPPLY22" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="5V" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -20386,9 +20386,6 @@ Analog: ADC</text>
 <instance part="SUPPLY14" gate="G$1" x="53.34" y="127" smashed="yes">
 <attribute name="VALUE" x="53.34" y="129.794" size="1.778" layer="96" align="bottom-center"/>
 </instance>
-<instance part="SUPPLY18" gate="G$1" x="224.79" y="74.93" smashed="yes">
-<attribute name="VALUE" x="224.79" y="77.724" size="1.778" layer="96" align="bottom-center"/>
-</instance>
 <instance part="GND13" gate="1" x="172.72" y="142.24" smashed="yes">
 <attribute name="VALUE" x="172.72" y="141.986" size="1.778" layer="96" align="top-center"/>
 </instance>
@@ -20405,11 +20402,14 @@ Analog: ADC</text>
 <instance part="GND26" gate="1" x="231.14" y="57.15" smashed="yes" rot="R180">
 <attribute name="VALUE" x="231.14" y="57.404" size="1.778" layer="96" rot="R180" align="top-center"/>
 </instance>
-<instance part="SUPPLY22" gate="G$1" x="224.79" y="54.61" smashed="yes">
-<attribute name="VALUE" x="224.79" y="57.404" size="1.778" layer="96" align="bottom-center"/>
-</instance>
 <instance part="GND27" gate="1" x="187.96" y="137.16" smashed="yes">
 <attribute name="VALUE" x="187.96" y="136.906" size="1.778" layer="96" align="top-center"/>
+</instance>
+<instance part="SUPPLY18" gate="G$1" x="224.79" y="74.93" smashed="yes">
+<attribute name="VALUE" x="224.79" y="77.724" size="1.778" layer="96" align="bottom-center"/>
+</instance>
+<instance part="SUPPLY22" gate="G$1" x="224.79" y="54.61" smashed="yes">
+<attribute name="VALUE" x="224.79" y="57.404" size="1.778" layer="96" align="bottom-center"/>
 </instance>
 </instances>
 <busses>
@@ -20560,24 +20560,10 @@ Analog: ADC</text>
 <junction x="53.34" y="124.46"/>
 </segment>
 <segment>
-<wire x1="224.79" y1="68.58" x2="234.95" y2="68.58" width="0.1524" layer="91"/>
-<pinref part="J8" gate="G$1" pin="-2"/>
-<wire x1="234.95" y1="68.58" x2="234.95" y2="68.66" width="0.1524" layer="91"/>
-<pinref part="SUPPLY18" gate="G$1" pin="3.3V"/>
-<wire x1="224.79" y1="74.93" x2="224.79" y2="68.58" width="0.1524" layer="91"/>
-</segment>
-<segment>
 <pinref part="J6" gate="G$1" pin="-2"/>
 <wire x1="222.25" y1="111.76" x2="233.68" y2="111.76" width="0.1524" layer="91"/>
 <pinref part="SUPPLY16" gate="G$1" pin="3.3V"/>
 <wire x1="222.25" y1="111.76" x2="222.25" y2="118.11" width="0.1524" layer="91"/>
-</segment>
-<segment>
-<wire x1="224.79" y1="48.26" x2="234.95" y2="48.26" width="0.1524" layer="91"/>
-<pinref part="J11" gate="G$1" pin="-2"/>
-<wire x1="234.95" y1="48.26" x2="234.95" y2="48.34" width="0.1524" layer="91"/>
-<pinref part="SUPPLY22" gate="G$1" pin="3.3V"/>
-<wire x1="224.79" y1="54.61" x2="224.79" y2="48.26" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="RST" class="0">
@@ -20829,6 +20815,20 @@ Analog: ADC</text>
 <pinref part="U4" gate="G$1" pin="VCCB"/>
 <wire x1="63.5" y1="121.92" x2="63.5" y2="127" width="0.1524" layer="91"/>
 <pinref part="SUPPLY15" gate="G$1" pin="5V"/>
+</segment>
+<segment>
+<wire x1="224.79" y1="68.58" x2="234.95" y2="68.58" width="0.1524" layer="91"/>
+<pinref part="J8" gate="G$1" pin="-2"/>
+<wire x1="234.95" y1="68.58" x2="234.95" y2="68.66" width="0.1524" layer="91"/>
+<pinref part="SUPPLY18" gate="G$1" pin="5V"/>
+<wire x1="224.79" y1="68.58" x2="224.79" y2="74.93" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<wire x1="224.79" y1="48.26" x2="234.95" y2="48.26" width="0.1524" layer="91"/>
+<pinref part="J11" gate="G$1" pin="-2"/>
+<wire x1="234.95" y1="48.26" x2="234.95" y2="48.34" width="0.1524" layer="91"/>
+<pinref part="SUPPLY22" gate="G$1" pin="5V"/>
+<wire x1="224.79" y1="48.26" x2="224.79" y2="54.61" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="RXD" class="0">
