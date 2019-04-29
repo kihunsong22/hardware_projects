@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="9.3.2">
+<eagle version="9.4.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+<grid distance="50" unitdist="mil" unit="mil" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
 <layer number="2" name="Route2" color="16" fill="1" visible="no" active="no"/>
@@ -19699,7 +19699,6 @@ TXB0104PWR
 <part name="J2" library="con-molex-spox" deviceset="5267-4" device="" value="I2C"/>
 <part name="GND11" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="GND" device=""/>
 <part name="SUPPLY11" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="5V" device=""/>
-<part name="GND16" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="GND" device=""/>
 <part name="FRAME2" library="frames" library_urn="urn:adsk.eagle:library:229" deviceset="A4L-LOC" device=""/>
 <part name="FRAME1" library="frames" library_urn="urn:adsk.eagle:library:229" deviceset="A4L-LOC" device=""/>
 <part name="J6" library="con-molex-spox" deviceset="5267-4" device="" value="TEMP/HUM"/>
@@ -19730,6 +19729,7 @@ TXB0104PWR
 <part name="GND27" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="GND" device=""/>
 <part name="SUPPLY18" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="5V" device=""/>
 <part name="SUPPLY22" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="5V" device=""/>
+<part name="SUPPLY23" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="5V" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -20309,9 +20309,6 @@ Analog: ADC</text>
 <instance part="SUPPLY11" gate="G$1" x="222.25" y="161.29" smashed="yes">
 <attribute name="VALUE" x="222.25" y="164.084" size="1.778" layer="96" align="bottom-center"/>
 </instance>
-<instance part="GND16" gate="1" x="187.96" y="130.81" smashed="yes" rot="R180">
-<attribute name="VALUE" x="187.96" y="131.064" size="1.778" layer="96" rot="R180" align="top-center"/>
-</instance>
 <instance part="FRAME2" gate="G$1" x="1.27" y="1.27" smashed="yes">
 <attribute name="DRAWING_NAME" x="218.44" y="16.51" size="2.54" layer="94"/>
 <attribute name="LAST_DATE_TIME" x="218.44" y="11.43" size="2.286" layer="94"/>
@@ -20411,6 +20408,9 @@ Analog: ADC</text>
 <instance part="SUPPLY22" gate="G$1" x="224.79" y="54.61" smashed="yes">
 <attribute name="VALUE" x="224.79" y="57.404" size="1.778" layer="96" align="bottom-center"/>
 </instance>
+<instance part="SUPPLY23" gate="G$1" x="187.96" y="129.54" smashed="yes">
+<attribute name="VALUE" x="187.96" y="132.334" size="1.778" layer="96" align="bottom-center"/>
+</instance>
 </instances>
 <busses>
 </busses>
@@ -20466,12 +20466,6 @@ Analog: ADC</text>
 <pinref part="GND11" gate="1" pin="GND"/>
 <wire x1="233.68" y1="157.48" x2="228.6" y2="157.48" width="0.1524" layer="91"/>
 <wire x1="228.6" y1="157.48" x2="228.6" y2="161.29" width="0.1524" layer="91"/>
-</segment>
-<segment>
-<pinref part="GND16" gate="1" pin="GND"/>
-<pinref part="J5" gate="G$1" pin="-1"/>
-<wire x1="187.96" y1="128.27" x2="187.96" y2="124.46" width="0.1524" layer="91"/>
-<wire x1="187.96" y1="124.46" x2="193.04" y2="124.46" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="J6" gate="G$1" pin="-1"/>
@@ -20829,6 +20823,12 @@ Analog: ADC</text>
 <wire x1="234.95" y1="48.26" x2="234.95" y2="48.34" width="0.1524" layer="91"/>
 <pinref part="SUPPLY22" gate="G$1" pin="5V"/>
 <wire x1="224.79" y1="48.26" x2="224.79" y2="54.61" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="J5" gate="G$1" pin="-1"/>
+<wire x1="187.96" y1="124.46" x2="193.04" y2="124.46" width="0.1524" layer="91"/>
+<pinref part="SUPPLY23" gate="G$1" pin="5V"/>
+<wire x1="187.96" y1="129.54" x2="187.96" y2="124.46" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="RXD" class="0">
