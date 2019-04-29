@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="1" unitdist="mm" unit="mm" style="lines" multiple="1" display="yes" altdistance="5" altunitdist="mil" altunit="mil"/>
+<grid distance="1" unitdist="mm" unit="mm" style="lines" multiple="1" display="no" altdistance="5" altunitdist="mil" altunit="mil"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="2" name="Route2" color="16" fill="1" visible="no" active="no"/>
@@ -171,12 +171,14 @@
 </layers>
 <board>
 <plain>
-<wire x1="0" y1="4" x2="0" y2="62" width="0" layer="20"/>
-<wire x1="65" y1="-1" x2="65" y2="62" width="0" layer="20"/>
-<dimension x1="0" y1="-2" x2="65" y2="-2" x3="32.5" y3="-4.54" textsize="1.0668" layer="21"/>
-<hole x="3" y="60" drill="3.3"/>
-<hole x="62" y="60" drill="3.3"/>
-<hole x="62" y="1" drill="3.3"/>
+<wire x1="0" y1="-1" x2="0" y2="57" width="0" layer="20"/>
+<wire x1="1" y1="-2" x2="51" y2="-2" width="0" layer="20"/>
+<wire x1="52" y1="-1" x2="52" y2="57" width="0" layer="20"/>
+<dimension x1="0" y1="-2" x2="0" y2="58" x3="-2.54" y3="28" textsize="1.0668" layer="21"/>
+<dimension x1="0" y1="-2" x2="52" y2="-2" x3="26" y3="-4.54" textsize="1.0668" layer="21"/>
+<hole x="3" y="55" drill="3.3"/>
+<hole x="49" y="55" drill="3.3"/>
+<hole x="49" y="1" drill="3.3"/>
 <hole x="3" y="1" drill="3.3"/>
 <text x="37.084" y="51.308" size="1.27" layer="21" font="vector" ratio="15">GND</text>
 <text x="41.402" y="51.308" size="1.27" layer="21" font="vector" ratio="15">5V</text>
@@ -207,26 +209,11 @@
 <text x="6.35" y="23.622" size="1.27" layer="21" font="vector" ratio="15">GND</text>
 <text x="10.668" y="23.622" size="1.27" layer="21" font="vector" ratio="15">5V</text>
 <text x="13.462" y="23.622" size="1.27" layer="21" font="vector" ratio="15">D8</text>
-<wire x1="64" y1="63" x2="1" y2="63" width="0" layer="20"/>
-<wire x1="1" y1="63" x2="0" y2="62" width="0" layer="20"/>
-<wire x1="64" y1="63" x2="65" y2="62" width="0" layer="20"/>
-<wire x1="64" y1="-2" x2="65" y2="-1" width="0" layer="20"/>
-<wire x1="64" y1="-2" x2="1" y2="-2" width="0" layer="20"/>
-<wire x1="1" y1="-2" x2="0" y2="-1" width="0" layer="20"/>
-<wire x1="0" y1="-1" x2="0" y2="4" width="0" layer="20"/>
-<dimension x1="0" y1="-2" x2="0" y2="63" x3="-2" y3="30.5" textsize="1.778" layer="21"/>
-<polygon width="0" layer="39">
-<vertex x="18" y="51"/>
-<vertex x="18" y="63"/>
-<vertex x="35" y="63"/>
-<vertex x="35" y="51"/>
-</polygon>
-<polygon width="0" layer="40">
-<vertex x="18" y="63"/>
-<vertex x="18" y="51"/>
-<vertex x="35" y="51"/>
-<vertex x="35" y="63"/>
-</polygon>
+<wire x1="51" y1="58" x2="1" y2="58" width="0" layer="20"/>
+<wire x1="1" y1="58" x2="0" y2="57" width="0" layer="20"/>
+<wire x1="51" y1="58" x2="52" y2="57" width="0" layer="20"/>
+<wire x1="52" y1="-1" x2="51" y2="-2" width="0" layer="20"/>
+<wire x1="0" y1="-1" x2="1" y2="-2" width="0" layer="20"/>
 </plain>
 <libraries>
 <library name="rcl" urn="urn:adsk.eagle:library:334">
@@ -2358,16 +2345,16 @@ design rules under a new name.</description>
 <contactref element="U4" pad="7"/>
 <contactref element="VR1" pad="1"/>
 <polygon width="0" layer="1">
-<vertex x="-6.89" y="68.66"/>
-<vertex x="-6.89" y="-6.35"/>
-<vertex x="70.47" y="-6.35"/>
-<vertex x="70.47" y="68.66"/>
+<vertex x="-6.89" y="63.66"/>
+<vertex x="-6.89" y="-8.35"/>
+<vertex x="70.47" y="-8.35"/>
+<vertex x="70.47" y="63.66"/>
 </polygon>
 <polygon width="0" layer="16">
-<vertex x="-6.89" y="68.66"/>
-<vertex x="-6.89" y="-6.35"/>
-<vertex x="70.47" y="-6.35"/>
-<vertex x="70.47" y="68.66"/>
+<vertex x="-8.89" y="63.66"/>
+<vertex x="-8.89" y="-6.35"/>
+<vertex x="71.47" y="-6.35"/>
+<vertex x="71.47" y="63.66"/>
 </polygon>
 <contactref element="J11" pad="P$1"/>
 <contactref element="J3" pad="P$8"/>
@@ -3287,6 +3274,7 @@ design rules under a new name.</description>
 <approved hash="3,1,7c1e1260152d7b53"/>
 <approved hash="3,1,d673e80de8a2d6dc"/>
 <approved hash="3,1,39252a9ad6381cd7"/>
+<approved hash="23,1,4c41177915aa4e92"/>
 </errors>
 </board>
 </drawing>
