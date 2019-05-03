@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="50" unitdist="mil" unit="mil" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
 <layer number="2" name="Route2" color="16" fill="1" visible="no" active="no"/>
@@ -20217,6 +20217,10 @@ Analog: ADC</text>
 <text x="244.602" y="149.098" size="1.524" layer="97">SDA</text>
 <text x="203.962" y="156.718" size="1.524" layer="97">VDD</text>
 <text x="203.962" y="159.258" size="1.524" layer="97">VSS</text>
+<text x="244.602" y="131.318" size="1.524" layer="97">SCL</text>
+<text x="244.602" y="128.778" size="1.524" layer="97">SDA</text>
+<text x="244.602" y="108.458" size="1.524" layer="97">SCL</text>
+<text x="244.602" y="105.918" size="1.524" layer="97">SDA</text>
 </plain>
 <instances>
 <instance part="SJR1" gate="G$1" x="64.77" y="57.15" smashed="yes">

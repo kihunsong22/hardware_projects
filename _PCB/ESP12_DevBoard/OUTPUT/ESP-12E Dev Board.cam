@@ -9,30 +9,6 @@
     "output_type": "zip",
     "outputs": [
         {
-            "filename_prefix": "CAMOutputs/DrillFiles",
-            "format_specifier": {
-                "decimal": 3,
-                "integer": 3
-            },
-            "output_type": "drill",
-            "outputs": [
-                {
-                    "drills": {
-                        "NPTH": true,
-                        "PTH": true,
-                        "VIA": true
-                    },
-                    "filename_format": "%DRILLPREFIX/drills.xln",
-                    "layers": {
-                        "from": 1,
-                        "to": 16
-                    },
-                    "name": "Excellon",
-                    "type": "excellon"
-                }
-            ]
-        },
-        {
             "filename_prefix": "CAMOutputs/GerberFiles",
             "format_specifier": {
                 "decimal": 4,
@@ -59,10 +35,9 @@
                     "filename_format": "%PREFIX/copper_top.gbr",
                     "layers": [
                         1,
-                        18,
-                        17
+                        17,
+                        18
                     ],
-                    "milling": false,
                     "name": "Top Copper",
                     "polarity": "positive",
                     "type": "gerber_layer"
@@ -88,7 +63,6 @@
                         17,
                         18
                     ],
-                    "milling": false,
                     "name": "Bottom Copper",
                     "polarity": "positive",
                     "type": "gerber_layer"
@@ -131,7 +105,6 @@
                     "layers": [
                         29
                     ],
-                    "milling": false,
                     "name": "Soldermask Top",
                     "polarity": "positive",
                     "type": "gerber_layer"
@@ -154,7 +127,6 @@
                     "layers": [
                         30
                     ],
-                    "milling": false,
                     "name": "Soldermask Bottom",
                     "polarity": "positive",
                     "type": "gerber_layer"
@@ -255,13 +227,49 @@
             "version": "RS274X"
         },
         {
+            "filename_prefix": "CAMOutputs/DrillFiles",
+            "format_specifier": {
+                "decimal": 3,
+                "integer": 3
+            },
+            "output_type": "drill",
+            "outputs": [
+                {
+                    "advanced_options": {
+                        "mirror": false,
+                        "offset_x": 0,
+                        "offset_y": 0,
+                        "rotate": false,
+                        "upside_down": false
+                    },
+                    "filename_format": "%DRILLPREFIX/drill_%FROM_%TO.xln",
+                    "name": "Auto Drill",
+                    "type": "autodrills"
+                }
+            ]
+        },
+        {
+            "filename_prefix": "CAMOutputs/Assembly",
+            "output_type": "assembly",
+            "outputs": [
+                {
+                    "filename_format": "%ASSEMBLYPREFIX/%N",
+                    "list_attribute": true,
+                    "list_type": "values",
+                    "name": "Bill of Material",
+                    "output_format": "txt",
+                    "type": "bom"
+                }
+            ]
+        },
+        {
             "filename_prefix": "CAMOutputs/DrawingFiles",
             "output_type": "drawing",
             "outputs": [
             ]
         }
     ],
-    "timestamp": "2018-12-05T11:02:34",
+    "timestamp": "2019-04-12T17:58:02",
     "type": "EAGLE CAM job",
     "units": "metric",
     "version": "9.2.0"
