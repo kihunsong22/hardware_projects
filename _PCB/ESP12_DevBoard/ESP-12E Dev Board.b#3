@@ -2300,11 +2300,11 @@ design rules under a new name.</description>
 <attribute name="NAME" x="49.657" y="16.1036" size="1.0668" layer="25" font="vector" rot="R180"/>
 <attribute name="SPICEPREFIX" value="C" x="55.88" y="7.0104" size="1.778" layer="27" rot="R180" display="off"/>
 </element>
-<element name="R9" library="rcl" library_urn="urn:adsk.eagle:library:334" package="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="10k" x="24.384" y="25.654" smashed="yes">
+<element name="R9" library="rcl" library_urn="urn:adsk.eagle:library:334" package="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="4.7k" x="24.384" y="25.654" smashed="yes">
 <attribute name="NAME" x="26.4414" y="25.0444" size="1.0668" layer="25" font="vector"/>
 <attribute name="SPICEPREFIX" value="R" x="24.384" y="25.654" size="1.778" layer="27" display="off"/>
 </element>
-<element name="R14" library="rcl" library_urn="urn:adsk.eagle:library:334" package="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="10k" x="24.384" y="23.622" smashed="yes">
+<element name="R14" library="rcl" library_urn="urn:adsk.eagle:library:334" package="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="4.7k" x="24.384" y="23.622" smashed="yes">
 <attribute name="NAME" x="26.3906" y="23.114" size="1.0668" layer="25" font="vector"/>
 <attribute name="SPICEPREFIX" value="R" x="24.384" y="23.622" size="1.778" layer="27" display="off"/>
 </element>
@@ -2400,7 +2400,7 @@ design rules under a new name.</description>
 <via x="32.3088" y="27.432" extent="1-16" drill="0.35"/>
 <via x="35.052" y="27.432" extent="1-16" drill="0.35"/>
 <via x="19.1516" y="27.2796" extent="1-16" drill="0.35"/>
-<via x="18.6436" y="25.8572" extent="1-16" drill="0.35"/>
+<via x="18.4912" y="25.908" extent="1-16" drill="0.35"/>
 <via x="29.5656" y="25.7048" extent="1-16" drill="0.35"/>
 <via x="12.9032" y="4.1148" extent="1-16" drill="0.35"/>
 <via x="14.1224" y="15.9004" extent="1-16" drill="0.35"/>
@@ -2443,7 +2443,7 @@ design rules under a new name.</description>
 <via x="38.2016" y="8.7884" extent="1-16" drill="0.35"/>
 <via x="34.544" y="14.3764" extent="1-16" drill="0.35"/>
 <via x="21.8948" y="32.3088" extent="1-16" drill="0.35"/>
-<via x="17.7292" y="25.8064" extent="1-16" drill="0.35"/>
+<via x="16.6116" y="25.8064" extent="1-16" drill="0.35"/>
 <via x="34.3916" y="34.5186" extent="1-16" drill="0.35"/>
 <via x="36.322" y="37.846" extent="1-16" drill="0.35"/>
 <via x="50.5968" y="52.07" extent="1-16" drill="0.35"/>
@@ -2453,6 +2453,8 @@ design rules under a new name.</description>
 <via x="50.3428" y="24.5364" extent="1-16" drill="0.35"/>
 <contactref element="C15" pad="1"/>
 <via x="25.4508" y="32.3088" extent="1-16" drill="0.35"/>
+<via x="15.0368" y="27.94" extent="1-16" drill="0.35"/>
+<via x="37.6936" y="12.446" extent="1-16" drill="0.35"/>
 </signal>
 <signal name="3.3V" class="1">
 <contactref element="R4" pad="1"/>
