@@ -19663,7 +19663,6 @@ TXB0104PWR
 <part name="GND8" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="GND" device=""/>
 <part name="SUPPLY8" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="3.3V" device=""/>
 <part name="C3" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0805" package3d_urn="urn:adsk.eagle:package:23617/2" value="10uF"/>
-<part name="C7" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0805" package3d_urn="urn:adsk.eagle:package:23617/2" value="10uF"/>
 <part name="C4" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0805" package3d_urn="urn:adsk.eagle:package:23617/2" value="22uF"/>
 <part name="C8" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0805" package3d_urn="urn:adsk.eagle:package:23617/2" value="22uF"/>
 <part name="C5" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="CPOL-US" device="SMCB" package3d_urn="urn:adsk.eagle:package:25920/5" value="100uF"/>
@@ -19856,10 +19855,6 @@ pushbutton: 6mm * 3.5mm</text>
 <attribute name="NAME" x="176.022" y="120.777" size="1.778" layer="95"/>
 <attribute name="VALUE" x="176.022" y="116.459" size="1.778" layer="96"/>
 </instance>
-<instance part="C7" gate="G$1" x="175.26" y="63.5" smashed="yes">
-<attribute name="NAME" x="176.022" y="63.627" size="1.778" layer="95"/>
-<attribute name="VALUE" x="175.768" y="59.309" size="1.778" layer="96"/>
-</instance>
 <instance part="C4" gate="G$1" x="218.44" y="120.65" smashed="yes">
 <attribute name="NAME" x="219.202" y="121.031" size="1.778" layer="95"/>
 <attribute name="VALUE" x="218.948" y="116.459" size="1.778" layer="96"/>
@@ -19967,13 +19962,10 @@ pushbutton: 6mm * 3.5mm</text>
 <wire x1="189.23" y1="63.5" x2="185.42" y2="63.5" width="0.1524" layer="91"/>
 <wire x1="185.42" y1="63.5" x2="185.42" y2="57.15" width="0.1524" layer="91"/>
 <wire x1="185.42" y1="57.15" x2="185.42" y2="53.34" width="0.1524" layer="91"/>
-<wire x1="175.26" y1="57.15" x2="185.42" y2="57.15" width="0.1524" layer="91"/>
 <junction x="185.42" y="57.15"/>
 <pinref part="C8" gate="G$1" pin="1"/>
 <wire x1="185.42" y1="57.15" x2="218.44" y2="57.15" width="0.1524" layer="91"/>
 <wire x1="218.44" y1="57.15" x2="218.44" y2="58.42" width="0.1524" layer="91"/>
-<pinref part="C7" gate="G$1" pin="2"/>
-<wire x1="175.26" y1="58.42" x2="175.26" y2="57.15" width="0.1524" layer="91"/>
 <pinref part="C13" gate="G$1" pin="-"/>
 <wire x1="218.44" y1="57.15" x2="228.6" y2="57.15" width="0.1524" layer="91"/>
 <wire x1="228.6" y1="57.15" x2="228.6" y2="58.42" width="0.1524" layer="91"/>
@@ -20135,10 +20127,6 @@ pushbutton: 6mm * 3.5mm</text>
 <wire x1="185.42" y1="67.31" x2="185.42" y2="74.93" width="0.1524" layer="91"/>
 <wire x1="185.42" y1="67.31" x2="189.23" y2="67.31" width="0.1524" layer="91"/>
 <pinref part="SUPPLY7" gate="G$1" pin="5V"/>
-<wire x1="175.26" y1="67.31" x2="185.42" y2="67.31" width="0.1524" layer="91"/>
-<junction x="185.42" y="67.31"/>
-<pinref part="C7" gate="G$1" pin="1"/>
-<wire x1="175.26" y1="66.04" x2="175.26" y2="67.31" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="U1" gate="G$1" pin="OUT"/>

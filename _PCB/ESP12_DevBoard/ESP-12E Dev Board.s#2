@@ -19732,6 +19732,7 @@ TXB0104PWR
 <part name="C13" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="CPOL-US" device="UD-6,3X7,7" package3d_urn="urn:adsk.eagle:package:23472/1" value="220uF"/>
 <part name="R9" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="10k"/>
 <part name="R14" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="10k"/>
+<part name="C14" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0805" package3d_urn="urn:adsk.eagle:package:23617/2" value="100nF"/>
 </parts>
 <sheets>
 <sheet>
@@ -19899,6 +19900,10 @@ pushbutton: 6mm * 3.5mm</text>
 <attribute name="NAME" x="229.616" y="64.135" size="1.778" layer="95"/>
 <attribute name="VALUE" x="229.616" y="59.309" size="1.778" layer="96"/>
 </instance>
+<instance part="C14" gate="G$1" x="66.04" y="100.33" smashed="yes" rot="R180">
+<attribute name="NAME" x="67.564" y="103.251" size="1.778" layer="95"/>
+<attribute name="VALUE" x="67.564" y="98.171" size="1.778" layer="96"/>
+</instance>
 </instances>
 <busses>
 </busses>
@@ -19952,6 +19957,9 @@ pushbutton: 6mm * 3.5mm</text>
 <wire x1="38.1" y1="96.52" x2="66.04" y2="96.52" width="0.1524" layer="91"/>
 <wire x1="66.04" y1="96.52" x2="66.04" y2="92.71" width="0.1524" layer="91"/>
 <junction x="66.04" y="92.71"/>
+<pinref part="C14" gate="G$1" pin="1"/>
+<wire x1="66.04" y1="97.79" x2="66.04" y2="96.52" width="0.1524" layer="91"/>
+<junction x="66.04" y="96.52"/>
 </segment>
 <segment>
 <pinref part="U2" gate="G$1" pin="GND"/>
@@ -20127,6 +20135,9 @@ pushbutton: 6mm * 3.5mm</text>
 <pinref part="SUPPLY5" gate="G$1" pin="5V"/>
 <wire x1="64.77" y1="106.68" x2="66.04" y2="106.68" width="0.1524" layer="91"/>
 <wire x1="66.04" y1="106.68" x2="66.04" y2="115.57" width="0.1524" layer="91"/>
+<pinref part="C14" gate="G$1" pin="2"/>
+<wire x1="66.04" y1="105.41" x2="66.04" y2="106.68" width="0.1524" layer="91"/>
+<junction x="66.04" y="106.68"/>
 </segment>
 <segment>
 <pinref part="U2" gate="G$1" pin="IN"/>

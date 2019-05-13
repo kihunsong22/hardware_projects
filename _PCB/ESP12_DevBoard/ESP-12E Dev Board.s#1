@@ -19815,15 +19815,15 @@ pushbutton: 6mm * 3.5mm</text>
 <attribute name="NAME" x="17.78" y="113.03" size="1.778" layer="95" align="center-left"/>
 <attribute name="VALUE" x="17.78" y="110.49" size="1.778" layer="96" align="center-left"/>
 </instance>
-<instance part="D2" gate="G$1" x="60.96" y="106.68" smashed="yes">
-<attribute name="NAME" x="57.15" y="111.252" size="1.27" layer="95" ratio="10"/>
-<attribute name="VALUE" x="57.15" y="109.728" size="1.27" layer="96" ratio="10"/>
+<instance part="D2" gate="G$1" x="66.04" y="113.03" smashed="yes" rot="R90">
+<attribute name="NAME" x="61.468" y="109.22" size="1.27" layer="95" ratio="10" rot="R90"/>
+<attribute name="VALUE" x="62.992" y="109.22" size="1.27" layer="96" ratio="10" rot="R90"/>
 </instance>
 <instance part="GND5" gate="1" x="66.04" y="86.36" smashed="yes">
 <attribute name="VALUE" x="66.04" y="86.106" size="1.778" layer="96" align="top-center"/>
 </instance>
-<instance part="SUPPLY5" gate="G$1" x="66.04" y="115.57" smashed="yes">
-<attribute name="VALUE" x="66.04" y="118.364" size="1.778" layer="96" align="bottom-center"/>
+<instance part="SUPPLY5" gate="G$1" x="66.04" y="119.38" smashed="yes">
+<attribute name="VALUE" x="66.04" y="122.174" size="1.778" layer="96" align="bottom-center"/>
 </instance>
 <instance part="D1" gate="G$1" x="53.34" y="161.29" smashed="yes" rot="R90">
 <attribute name="NAME" x="48.768" y="157.48" size="1.27" layer="95" ratio="10" rot="R90"/>
@@ -20131,15 +20131,6 @@ pushbutton: 6mm * 3.5mm</text>
 </net>
 <net name="5V" class="1">
 <segment>
-<pinref part="D2" gate="G$1" pin="-"/>
-<pinref part="SUPPLY5" gate="G$1" pin="5V"/>
-<wire x1="64.77" y1="106.68" x2="66.04" y2="106.68" width="0.1524" layer="91"/>
-<wire x1="66.04" y1="106.68" x2="66.04" y2="115.57" width="0.1524" layer="91"/>
-<pinref part="C14" gate="G$1" pin="2"/>
-<wire x1="66.04" y1="105.41" x2="66.04" y2="106.68" width="0.1524" layer="91"/>
-<junction x="66.04" y="106.68"/>
-</segment>
-<segment>
 <pinref part="U2" gate="G$1" pin="IN"/>
 <wire x1="185.42" y1="67.31" x2="185.42" y2="74.93" width="0.1524" layer="91"/>
 <wire x1="185.42" y1="67.31" x2="189.23" y2="67.31" width="0.1524" layer="91"/>
@@ -20170,6 +20161,11 @@ pushbutton: 6mm * 3.5mm</text>
 <wire x1="228.6" y1="124.46" x2="240.03" y2="124.46" width="0.1524" layer="91"/>
 <junction x="228.6" y="124.46"/>
 </segment>
+<segment>
+<pinref part="SUPPLY5" gate="G$1" pin="5V"/>
+<pinref part="D2" gate="G$1" pin="-"/>
+<wire x1="66.04" y1="119.38" x2="66.04" y2="116.84" width="0.1524" layer="91"/>
+</segment>
 </net>
 <net name="D-_USB" class="0">
 <segment>
@@ -20185,13 +20181,6 @@ pushbutton: 6mm * 3.5mm</text>
 <label x="44.45" y="101.6" size="1.1684" layer="95" xref="yes"/>
 </segment>
 </net>
-<net name="5V_INPUT" class="1">
-<segment>
-<pinref part="J1" gate="G$1" pin="VCC"/>
-<pinref part="D2" gate="G$1" pin="+"/>
-<wire x1="38.1" y1="106.68" x2="57.15" y2="106.68" width="0.1524" layer="91"/>
-</segment>
-</net>
 <net name="N$3" class="0">
 <segment>
 <pinref part="JP1" gate="G$1" pin="PWR"/>
@@ -20201,6 +20190,17 @@ pushbutton: 6mm * 3.5mm</text>
 <pinref part="C1" gate="G$1" pin="2"/>
 <wire x1="53.34" y1="152.4" x2="53.34" y2="154.94" width="0.1524" layer="91"/>
 <junction x="53.34" y="154.94"/>
+</segment>
+</net>
+<net name="N$10" class="1">
+<segment>
+<wire x1="66.04" y1="105.41" x2="66.04" y2="106.68" width="0.1524" layer="91"/>
+<pinref part="C14" gate="G$1" pin="2"/>
+<pinref part="J1" gate="G$1" pin="VCC"/>
+<wire x1="38.1" y1="106.68" x2="66.04" y2="106.68" width="0.1524" layer="91"/>
+<pinref part="D2" gate="G$1" pin="+"/>
+<wire x1="66.04" y1="109.22" x2="66.04" y2="106.68" width="0.1524" layer="91"/>
+<junction x="66.04" y="106.68"/>
 </segment>
 </net>
 </nets>
