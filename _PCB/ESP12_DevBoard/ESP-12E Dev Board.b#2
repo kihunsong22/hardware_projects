@@ -216,6 +216,7 @@
 <wire x1="0" y1="-1" x2="1" y2="-2" width="0" layer="20"/>
 <text x="0.762" y="52.578" size="2.032" layer="21" font="vector" rot="SR270">ArimScience</text>
 <text x="26.7208" y="41.9608" size="1.778" layer="21" font="vector">V1.3</text>
+<circle x="20.4216" y="22.9108" radius="0.113590625" width="0.508" layer="21"/>
 </plain>
 <libraries>
 <library name="rcl" urn="urn:adsk.eagle:library:334">
