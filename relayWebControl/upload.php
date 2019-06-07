@@ -22,11 +22,17 @@ if(isset($_GET['devnum'])){
     die("no devnum");
 }
 
+if(isset($_GET['status'])){
+    $cur_status = $_GET['status'];
+}else{
+    die("no status");
+}
+
 $SQL = "SELECT * FROM devices WHERE dev_num='$devnum'";
 $result = mysqli_query($conn, $SQL);
 
 if(mysqli_num_rows($result)==1){
-    $SQL = "UPDATE devices SET update_time=CURRENT_TIMESTAMP WHERE dev_num='$devnum'";
+    $SQL = "UPDATE devices SET update_time=CURRENT_TIMESTAMP, cur_status='$cur_status' WHERE dev_num='$devnum'";
     mysqli_query($conn, $SQL);
 //    echo "update";
 
