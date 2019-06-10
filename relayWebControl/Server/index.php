@@ -78,8 +78,8 @@ if(isset($_POST['devnum']) && isset($_POST['onoff'])) {
         $SQL = "UPDATE devices SET set_status='$set_onoff' WHERE dev_num='$set_devnum'";
         mysqli_query($conn, $SQL);
         echo "<script>window.location.href='./'</script>";  // remove POST data after processing
+//        echo "<script>history.back();</script>";  // remove POST data after processing
     }
-
 }
 
 if(isset($_POST['remove'])){
@@ -97,15 +97,6 @@ $SQL = "SELECT * FROM devices ORDER BY dev_num";
 $result = mysqli_query($conn, $SQL);
 
 $num_rows = mysqli_num_rows($result);
-//$devices[$num_rows][5] = "0";
-//for($i=0; $i<$num_rows; $i++){
-//    $row = mysqli_fetch_assoc($result);
-//    $devices[$i][0] = $row['dev_num'];
-//    $devices[$i][1] = $row['update_time'];
-//    $devices[$i][2] = $row['cur_status'];
-//    $devices[$i][3] = $row['set_status'];
-//    $devices[$i][4] = $row['reserve'];
-//}
 ?>
 
 <!DOCTYPE html>
@@ -159,8 +150,9 @@ $num_rows = mysqli_num_rows($result);
 
           <?php
           include_once ('devices.php');
-          for($i=0; $i<$num_rows; $i++){
-              show_devices($i);
+          for($i=1; $i<=$num_rows; $i++){
+              $html = show_devices($i);
+              echo $html;
           }
           ?>
 

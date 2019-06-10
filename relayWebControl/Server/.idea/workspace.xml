@@ -2,37 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2528eb0d-8e21-4069-b7fe-bc532e039234" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../.idea/deployment.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/relayWebControl.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/webServers.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Basic 84 Free HTML5 Template from OS Templates/Basic 84 Free HTML5 Template from OS Templates.7z" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Basic 84 Free HTML5 Template from OS Templates/images/demo/215x315.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Basic 84 Free HTML5 Template from OS Templates/images/demo/32x32.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Basic 84 Free HTML5 Template from OS Templates/images/demo/960x360.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Basic 84 Free HTML5 Template from OS Templates/images/demo/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Basic 84 Free HTML5 Template from OS Templates/images/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Basic 84 Free HTML5 Template from OS Templates/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Basic 84 Free HTML5 Template from OS Templates/scripts/html5shiv.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Basic 84 Free HTML5 Template from OS Templates/scripts/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Basic 84 Free HTML5 Template from OS Templates/styles/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Basic 84 Free HTML5 Template from OS Templates/styles/layout.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dbconnect.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../images/demo/215x315.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../images/demo/32x32.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../images/demo/960x360.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../images/demo/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../images/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../index.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../index_1.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../scripts/html5shiv.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../scripts/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../styles/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../styles/layout.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../upload.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/index_1.php" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -61,11 +31,25 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/index_1.php">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="15" column="48" lean-forward="true" selection-start-line="15" selection-start-column="48" selection-end-line="15" selection-end-column="48" />
+            <state relative-caret-position="976">
+              <caret line="153" column="39" lean-forward="true" selection-start-line="153" selection-start-column="39" selection-end-line="153" selection-end-column="39" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/devices.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="211">
+              <caret line="31" column="188" selection-start-line="31" selection-start-column="188" selection-end-line="31" selection-end-column="188" />
+              <folding>
+                <element signature="n#style#0;n#iframe#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#section#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -96,8 +80,8 @@
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/styles/layout.css" />
         <option value="$PROJECT_DIR$/upload.php" />
-        <option value="$PROJECT_DIR$/devices.php" />
         <option value="$PROJECT_DIR$/index.php" />
+        <option value="$PROJECT_DIR$/devices.php" />
       </list>
     </option>
   </component>
@@ -185,12 +169,12 @@
       <updated>1559750865130</updated>
       <workItem from="1559750866391" duration="21042000" />
       <workItem from="1559991118580" duration="12683000" />
-      <workItem from="1560063586014" duration="4792000" />
+      <workItem from="1560063586014" duration="9570000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="38517000" />
+    <option name="totallyTimeSpent" value="43295000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -208,7 +192,7 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
-      <window_info anchor="bottom" id="File Transfer" order="9" visible="true" weight="0.24504249" />
+      <window_info anchor="bottom" id="File Transfer" order="9" visible="true" weight="0.10339943" />
       <window_info anchor="bottom" id="Database Changes" order="10" />
       <window_info anchor="bottom" id="Terminal" order="11" weight="0.26258206" />
       <window_info anchor="bottom" id="Event Log" order="12" side_tool="true" />
@@ -260,13 +244,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/devices.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="353">
-          <caret line="88" column="45" selection-start-line="88" selection-start-column="45" selection-end-line="88" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/dbconnect.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
@@ -281,17 +258,29 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
+    <entry file="file://$PROJECT_DIR$/index_1.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="137">
-          <caret line="186" column="34" selection-start-line="186" selection-start-column="34" selection-end-line="186" selection-end-column="34" />
+        <state relative-caret-position="390">
+          <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index_1.php">
+    <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="15" column="48" lean-forward="true" selection-start-line="15" selection-start-column="48" selection-end-line="15" selection-end-column="48" />
+        <state relative-caret-position="976">
+          <caret line="153" column="39" lean-forward="true" selection-start-line="153" selection-start-column="39" selection-end-line="153" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/devices.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="211">
+          <caret line="31" column="188" selection-start-line="31" selection-start-column="188" selection-end-line="31" selection-end-column="188" />
+          <folding>
+            <element signature="n#style#0;n#iframe#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#section#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

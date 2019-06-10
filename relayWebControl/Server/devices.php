@@ -28,8 +28,8 @@ $curtime = (new DateTime())->format("Y-m-d H:i:s");
 echo '<link rel="stylesheet" href="styles/layout.css" type="text/css">';
 
 // SHOW DEVICES
-$article = '<article><figure><img src="images/con###IMG###.png" width="32" height="32" alt="">
-</figure><strong>Device ###DEVNUM### - ###STATUS###</strong><br><form action="/index.php" method="post">
+$article = '<iframe width="0" height="0" border="0" name="dummyframe" id="dummyframe" style="display: none;"></iframe><article><figure><img src="images/con###IMG###.png" width="32" height="32" alt="">
+</figure><strong>Device ###DEVNUM### - ###STATUS###</strong><br><form action="/index.php" method="post" target="dummyframe" onSubmit="setTimeout(function(){window.location.reload();}, 100)">
 <input type="hidden" name="devnum" value="###DEVNUM###"><input type="hidden" name="onoff" value="###ONOFF###">
 <!---###reserve###---><!---###---><br><input type="submit" id="onoff" value="###ONOFFTEXT###"></form><br>
 <p>last online: <a onclick="return false">###SEC###</a>ago</p></article>';
@@ -41,7 +41,7 @@ $result = mysqli_query($conn, $SQL);
 
 $num_rows = mysqli_num_rows($result);
 $devices[$num_rows][5] = "0";
-for($i=0; $i<$num_rows; $i++){
+for($i=1; $i<=$num_rows; $i++){
     $row = mysqli_fetch_assoc($result);
     $devices[$i][0] = $row['dev_num'];
     $devices[$i][1] = $row['update_time'];
@@ -96,10 +96,14 @@ function show_devices($dev_num){
         $html = str_replace("<article>", '<article class="last">', $html);
     }
 
-    echo $html;
+    return $html;
 }
 
 if(isset($_GET['dev_num'])){
     $dev_num = $_GET['dev_num'];
-    show_devices($dev_num);
+    echo '<html><body><div class="wrapper row2"><div id="container" class="clear" style="padding:0px"><div id="homepage"><section id="services" class="clear" style="margin: 0px">
+	<iframe width="0" height="0" border="0" name="dummyframe" id="dummyframe"></iframe>';
+    $html = show_devices($dev_num);
+    echo $html;
+    echo '</section></div></div></div></body></html>';
 }
