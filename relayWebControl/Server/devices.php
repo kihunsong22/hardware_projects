@@ -1,4 +1,8 @@
 <?php
+
+//use the code below to embed device control to other external pages
+//<iframe src="http://iotsv.cafe24.com/devices.php?dev_num=1" frameborder="0" width="300" height="163" scrolling="no"></iframe>
+
 ini_set("display_errors", 1);
 ini_set("display_startup_errors", 1);
 error_reporting(E_ALL);
