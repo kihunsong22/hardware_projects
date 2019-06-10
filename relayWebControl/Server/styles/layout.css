@@ -86,7 +86,7 @@ input, textarea, select{font-size:12px; font-family:Georgia,"Times New Roman",Ti
 
 #header form{display:block; width:290px; float:right; margin:20px 0; padding:0;}
 #header form input{display:block; float:left; width:200px; margin:0; padding:5px; color:#C0BAB6; background-color:#232323; border:1px solid #666666;}
-#header form #sf_submit{display:block; float:right; width:70px; font-size:12px; font-weight:bold; text-transform:uppercase; color:#FFFFFF; background-color:#FF9900; border:none; cursor:pointer;}
+#header form #sf_submit{display:block; float:right; width:70px; font-size:12px; font-weight:bold; text-transform:uppercase; color:#FFFFFF; background-color: #ff4c00; border:none; cursor:pointer;}
 
 #header nav{display:block; width:100%; margin:0; padding:20px 0; color:#C0BAB6; background-color:#232323; clear:both;}
 #header nav ul{padding:0 20px;}
@@ -130,9 +130,10 @@ input, textarea, select{font-size:12px; font-family:Georgia,"Times New Roman",Ti
 #container #homepage #latest figcaption{padding:5px; text-align:center; color:#979797; background-color:#EEEEEE; text-transform:uppercase; text-align:center;}
 
 form{display:block; width:290px; float:right; margin:20px 0; padding:0;}
-form input{display:block; float:left; width:200px; margin:0; padding:5px; color:#C0BAB6; background-color: #f2f2f2; border:1px solid #232323;}
-form #sf_submit{display:block; float:left; width:85px; font-size:12px; font-weight:bold; text-transform:uppercase; color:#FFFFFF; background-color:#FF9900; border:none; cursor:pointer;}
-
+form input{display:block; float:left; width:200px; margin:0; padding:5px; color: #181413; background-color: #f2f2f2; border:1px solid #232323;}
+form #sf_reserve{display:block; float:left; width:85px; font-size:12px; font-weight:bold; text-transform:uppercase; color:#FFFFFF; background-color: #ff9900; border:none; cursor:pointer;}
+form #onoff{display:block; float:left; width:85px; font-size:12px; font-weight:bold; text-transform:uppercase; color:#FFFFFF; background-color: #ff9900; border:none; cursor:pointer;}
+Zz
 
 /*----------------------------------------------Footer-------------------------------------*/
 

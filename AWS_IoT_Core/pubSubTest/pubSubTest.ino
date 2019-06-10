@@ -37,7 +37,8 @@ void setup(){
 
   Serial.print("Attempting to connect to SSID: ");
   if (wifiMulti.run() == WL_CONNECTED){
-    Serial.println("Connected to wifi");
+    Serial.print("Connected to wifi: ");
+		Serial.println(WiFi.SSID());
     Serial.print("IP address: ");
     Serial.println(WiFi.localIP());
   }

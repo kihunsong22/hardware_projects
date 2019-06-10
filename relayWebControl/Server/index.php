@@ -38,7 +38,14 @@ function elapsed_time($timestamp, $precision = 2) {
         $$k = $$k ? $$k.' '.$k.$s.' ' : '';
         $result .= $$k;
     }
-    return $result ? $result : '0 secs ';
+    return $result ? $result : '0 sec ';
+}
+
+function is_timestamp($timestamp) {
+    if(strtotime(date('d-m-Y H:i:s',$timestamp)) === (int)$timestamp) {
+        return 1;
+    } else
+        return false;
 }
 
 $publicip = get_client_ip();
@@ -48,23 +55,41 @@ foreach($_POST as $key => $value){
     echo "<script>console.log('$key: $value')</script>";
 }
 
-if(isset($_POST['devnum'])){
+
+if(isset($_POST['devnum']) && isset($_POST['onoff'])) {
     $set_devnum = $_POST['devnum'];
     $set_onoff = $_POST['onoff'];
-    echo "<script>console.log('Set $set_devnum to $set_onoff')</script>";
+    $reserve = $_POST['reservation'];
 
-    $SQL = "UPDATE devices SET set_status='$set_onoff' WHERE dev_num='$set_devnum'";
-    mysqli_query($conn, $SQL);
+//    check if dev_num is reserved
+    $SQL = "SELECT * FROM devices WHERE dev_num='$set_devnum'";
+    $result = mysqli_query($conn, $SQL);
+    $row = mysqli_fetch_assoc($result);
+    $is_reserve_set = $row['reserve']==NULL ? 0 : 1;
+    if($is_reserve_set){  // 예약 취소
+        $SQL = "UPDATE devices SET set_status='$set_onoff', reserve=NULL WHERE dev_num='$set_devnum'";
+        mysqli_query($conn, $SQL);
+//        echo "<script>window.location.href='./'</script>";  // remove POST data after processing
+    }elseif (strlen($reserve)>3 && is_timestamp($reserve)){  // 예약
+        $SQL = "UPDATE devices SET set_status='$set_onoff', reserve='$reserve' WHERE dev_num='$set_devnum'";
+        mysqli_query($conn, $SQL);
+        echo "<script>window.location.href='./'</script>";  // remove POST data after processing
+    }else{  // 단순 온오프
+        $SQL = "UPDATE devices SET set_status='$set_onoff' WHERE dev_num='$set_devnum'";
+        mysqli_query($conn, $SQL);
+        echo "<script>window.location.href='./'</script>";  // remove POST data after processing
+    }
 
-    echo "<script>window.location.href='./'</script>";  // remove POST data after processing
 }
 
 if(isset($_POST['remove'])){
-    $remove = $_POST['remove'];
-    $remove = addslashes($remove);
+    $remove_post = $_POST['remove'];
+    if($remove_post != ""){
+        $remove_post = addslashes($remove_post);
 
-    $SQL = "DELETE FROM devices WHERE dev_num='$remove'";
-    mysqli_query($conn, $SQL);
+        $SQL = "DELETE FROM devices WHERE dev_num='$remove_post'";
+        mysqli_query($conn, $SQL);
+    }
     echo "<script>window.location.href='./'</script>";  // remove POST data after processing
 }
 
@@ -72,14 +97,15 @@ $SQL = "SELECT * FROM devices ORDER BY dev_num";
 $result = mysqli_query($conn, $SQL);
 
 $num_rows = mysqli_num_rows($result);
-$devices[$num_rows][3] = "0";
-for($i=0; $i<$num_rows; $i++){
-    $row = mysqli_fetch_assoc($result);
-    $devices[$i][0] = $row['dev_num'];
-    $devices[$i][1] = $row['update_time'];
-    $devices[$i][2] = $row['cur_status'];
-    $devices[$i][3] = $row['set_status'];
-}
+//$devices[$num_rows][5] = "0";
+//for($i=0; $i<$num_rows; $i++){
+//    $row = mysqli_fetch_assoc($result);
+//    $devices[$i][0] = $row['dev_num'];
+//    $devices[$i][1] = $row['update_time'];
+//    $devices[$i][2] = $row['cur_status'];
+//    $devices[$i][3] = $row['set_status'];
+//    $devices[$i][4] = $row['reserve'];
+//}
 ?>
 
 <!DOCTYPE html>
@@ -123,8 +149,6 @@ for($i=0; $i<$num_rows; $i++){
     <section id="shout">
       <p>
           <?php echo "number of devices: $num_rows"; ?>
-          <br>예약 기능 만들기, 아두이노 코드
-          <br>password, devnum, status
       </p>
     </section>
     <!-- main content -->
@@ -134,42 +158,9 @@ for($i=0; $i<$num_rows; $i++){
       <section id="services" class="clear">
 
           <?php
-          $article = '<article><figure><img src="images/con###IMG###.png" width="32" height="32" alt="">
-</figure><strong>Device ###DEVNUM### - ###STATUS###</strong><br><form action="/" method="post">
-<input type="hidden" name="devnum" value="###DEVNUM###"><input type="hidden" name="onoff" value="###ONOFF###">
-예약: <br><input type="text" placeholder=year-month-day&nbsp;hour:min:sec name="reservation"><br><br>
-<input type="submit" id="sf_submit" value="###ONOFFTEXT###"></form><br>
-<p>last online: <a onclick="return false">###SEC###</a>ago</p></article>';
-
+          include_once ('devices.php');
           for($i=0; $i<$num_rows; $i++){
-              $downtime = elapsed_time(strtotime($devices[$i][1]));
-              $online = strpos($downtime, "min")==false ? 1 : 0;
-              $cur_status = $devices[$i][2]==1 ? "on" : "off";
-              $set_status_text = $devices[$i][3]=="1" ? "TURN OFF" : "TURN ON";
-              $set_status = $devices[$i][3]=="1" ? "0" : "1";
-
-              if(strpos($downtime, "min") == true)    {    $online = 0;    }
-              else if(strpos($downtime, "hour") == true)    {    $online = 0;    }
-              else if(strpos($downtime, "day") == true)    {    $online = 0;    }
-              else if(strpos($downtime, "week") == true)    {    $online = 0;    }
-              else if(strpos($downtime, "month") == true)    {    $online = 0;    }
-              else if(strpos($downtime, "month") == true)    {    $online = 0;    }
-              else     {    $online = 1;    }
-
-
-              $html = $article;
-              $html = str_replace("###DEVNUM###", $devices[$i][0], $html);
-              $html = str_replace("###IMG###", $online, $html);
-              $html = str_replace("###SEC###", $downtime, $html);
-              $html = str_replace("###STATUS###", $cur_status, $html);
-              $html = str_replace("###ONOFFTEXT###", $set_status_text , $html);
-              $html = str_replace("###ONOFF###", $set_status , $html);
-
-              if(($i+1) % 3 == 0){
-                  $html = str_replace("<article>", '<article class="last">', $html);
-              }
-
-              echo $html;
+              show_devices($i);
           }
           ?>
 
@@ -193,7 +184,7 @@ for($i=0; $i<$num_rows; $i++){
       <!-- ########################################################################################## -->
       <!-- ########################################################################################## -->
       <!-- One Quarter -->
-      <br><br><br><br><br><br><br><br>
+      <br><br><br><br><br><br><br>
       <!-- / One Quarter -->
     </div>
     <!-- / content body -->
