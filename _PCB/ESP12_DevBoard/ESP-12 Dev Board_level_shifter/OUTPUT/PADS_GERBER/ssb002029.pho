@@ -1,0 +1,82 @@
+*
+*
+G04 PADS VX.2.4 Build Number: 11282995 generated Gerber (RS-274-X) file*
+G04 PC Version=2.1*
+*
+%IN "ESP-12E Dev Board_with_"*%
+*
+%MOIN*%
+*
+%FSLAX35Y35*%
+*
+*
+*
+*
+G04 PC Standard Apertures*
+*
+*
+G04 Thermal Relief Aperture macro.*
+%AMTER*
+1,1,$1,0,0*
+1,0,$1-$2,0,0*
+21,0,$3,$4,0,0,45*
+21,0,$3,$4,0,0,135*
+%
+*
+*
+G04 Annular Aperture macro.*
+%AMANN*
+1,1,$1,0,0*
+1,0,$2,0,0*
+%
+*
+*
+G04 Odd Aperture macro.*
+%AMODD*
+1,1,$1,0,0*
+1,0,$1-0.005,0,0*
+%
+*
+*
+G04 PC Custom Aperture Macros*
+*
+*
+*
+*
+*
+*
+G04 PC Aperture Table*
+*
+%ADD010C,0.001*%
+%ADD043C,0.00004*%
+*
+*
+*
+*
+G04 PC Circuitry*
+G04 Layer Name ESP-12E Dev Board_with_ - circuitry*
+%LPD*%
+*
+*
+G04 PC Custom Flashes*
+G04 Layer Name ESP-12E Dev Board_with_ - flashes*
+%LPD*%
+*
+*
+G04 PC Circuitry*
+G04 Layer Name ESP-12E Dev Board_with_ - circuitry*
+%LPD*%
+*
+G54D10*
+G54D43*
+G01X96063Y96063D02*
+X100000Y92126D01*
+X308661*
+X312598Y96063*
+Y324409*
+X308661Y328346*
+X100000*
+X96063Y324409*
+Y96063*
+X0Y0D02*
+M02*
