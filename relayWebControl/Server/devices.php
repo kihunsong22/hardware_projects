@@ -39,7 +39,7 @@ $article = '<iframe width="0" height="0" border="0" name="dummyframe" id="dummyf
 <p>last online: <a onclick="return false">###SEC###</a>ago</p></article>';
 $reserveField ='<input type="text" placeholder=year-month-day&nbsp;hour:min:sec name="reservation" onFocus="this.value=(this.value==\'\' ? \''.$curtime.'\' : this.value);"><br>';
 $reserveText = '<p>예약: ###RESTIME###</p>';
-$repeatText = '<p>반복: ###REP1### ~ ###REP2###</p>';
+$repeatText = '<p>반복: ###REP1### ~ ###REP2### 에 ###REPSTATUS###</p>';
 
 $SQL = "SELECT * FROM devices ORDER BY dev_num";
 $result = mysqli_query($conn, $SQL);
@@ -97,6 +97,7 @@ function show_devices($dev_num){
         $html = str_replace("<!---###reserve###--->", $repeatText, $html);
         $html = str_replace("###REP1###", $devices[$dev_num][5], $html);
         $html = str_replace("###REP2###", $devices[$dev_num][6], $html);
+        $html = str_replace("###REPSTATUS###", $devices[$dev_num][3]==1 ? "켜기" : "끄기", $html);
 
     }else{
         $html = str_replace("<!---###reserve###--->", $reserveField, $html);

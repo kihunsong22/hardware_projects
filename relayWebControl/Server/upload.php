@@ -37,6 +37,25 @@ if(mysqli_num_rows($result)==1){
     $repeat_start = $row['repeat_start'];
     $repeat_stop = $row['repeat_stop'];
 
+    $repeat_is_on_now = 0;
+    if($repeat_start != NULL && $repeat_stop != NULL){
+        if(strtotime($repeat_start) < strtotime($repeat_stop)){  // 1일 내에 반복이 끝남
+            if((strtotime(date("H:i:s"))-strtotime($repeat_start)>=0) && (strtotime($repeat_stop)-strtotime(date("H:i:s"))>=0)){
+                $repeat_is_on_now = 1;
+            }else{
+                $repeat_is_on_now = 0;
+            }
+        }elseif(strtotime($repeat_start) > strtotime($repeat_stop)){  // 저녁에 시작해서 담날 아침에 끝나는 등
+            if((strtotime(date("H:i:s"))-strtotime($repeat_start)>=0) && (strtotime($repeat_stop)-strtotime(date("H:i:s"))<=0)){
+                $repeat_is_on_now = 1;
+            }else{
+                $repeat_is_on_now = 0;
+            }
+        }else{
+            $repeat_is_on_now;  // 시작과 끝이 같으므로 그냥 ON
+        }
+    }
+
     if($reserve!=NULL && (strtotime($reserve) - time())<=0){  // 예약된 시간
         $SQL = "UPDATE devices SET reserve=NULL WHERE dev_num='$devnum'";
         mysqli_query($conn, $SQL);
@@ -45,12 +64,10 @@ if(mysqli_num_rows($result)==1){
     }elseif ($reserve!=NULL && (strtotime($reserve) - time())>0){  // 예약이 설정되었으나 시간이 안됨
         $status = $status==0 ? 1 : 0;
         echo "@".$status."#";
-    }elseif ($repeat_start!=NULL && $repeat_stop!=NULL &&
-        (strtotime(date("H:i:s"))-strtotime($repeat_start)>=0) && (strtotime($repeat_stop)-strtotime(date("H:i:s"))>=0)){  // 반복할 시간
+    }elseif ($repeat_start!=NULL && $repeat_stop!=NULL && $repeat_is_on_now){// 반복할 시간
 //        echo "<script>console.log('반복');</script>";
         echo "@".$status."#";
-    }elseif ($repeat_start!=NULL && $repeat_stop!=NULL &&
-        ((strtotime(date("H:i:s"))-strtotime($repeat_start))<0 || (strtotime($repeat_stop)-strtotime(date("H:i:s"))<0))){  // 반복이 설정되었으나 시간이 안됨
+    }elseif ($repeat_start!=NULL && $repeat_stop!=NULL && !$repeat_is_on_now){ // 반복이 설정되었으나 시간이 안됨
 //        echo "<script>console.log('$repeat_start, $repeat_stop');</script>";
         $a = strtotime($repeat_start);
         $b = strtotime($repeat_stop);
