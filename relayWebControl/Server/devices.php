@@ -33,10 +33,11 @@ echo '<link rel="stylesheet" href="styles/layout.css" type="text/css">';
 
 // SHOW DEVICES
 $article = '<iframe width="0" height="0" border="0" name="dummyframe" id="dummyframe" style="display: none;"></iframe><article><figure><img src="images/con###IMG###.png" width="32" height="32" alt="">
-</figure><strong>Device ###DEVNUM### - ###STATUS###</strong><br><form action="/index.php" method="post" target="dummyframe" onSubmit="setTimeout(function(){window.location.reload();}, 100)">
+</figure><strong>Device ###DEVNUM### - ###STATUS###</strong><br><form action="/index.php" method="post" target="dummyframe" >
 <input type="hidden" name="devnum" value="###DEVNUM###"><input type="hidden" name="onoff" value="###ONOFF###">
 <!---###reserve###---><!---###---><br><input type="submit" id="onoff" value="###ONOFFTEXT###"></form><br>
 <p>last online: <a onclick="return false">###SEC###</a>ago</p></article>';
+//onSubmit="setTimeout(function(){window.location.reload();}, 100)"
 $reserveField ='<input type="text" placeholder=year-month-day&nbsp;hour:min:sec name="reservation" onFocus="this.value=(this.value==\'\' ? \''.$curtime.'\' : this.value);"><br>';
 $reserveText = '<p>예약: ###RESTIME###</p>';
 
@@ -81,8 +82,6 @@ function show_devices($dev_num){
     $html = str_replace("###STATUS###", $cur_status, $html);
     $html = str_replace("###ONOFF###", $set_status , $html);
     if($set_reserve){  // DB에 reserve가 존재하므로 예약 취소
-        echo "<script>console.log('예약 취소');</script>";  // remove POST data after processing
-
         $html = str_replace("<!---###--->", $reserve_remove_status, $html);
         $html = str_replace("###ONOFFTEXT###", "예약 취소" , $html);
         $html = str_replace("<!---###reserve###--->", $reserveText, $html);

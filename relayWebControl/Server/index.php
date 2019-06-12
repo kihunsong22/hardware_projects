@@ -4,6 +4,8 @@ ini_set("display_startup_errors", 1);
 error_reporting(E_ALL);
 date_default_timezone_set('Asia/Seoul');
 
+$reset_page = 0;
+
 include_once('./dbconnect.php');
 
 function get_client_ip() {
@@ -48,6 +50,19 @@ function is_timestamp($timestamp) {
         return false;
 }
 
+function is_time($time) {
+    if(preg_match("/(?:[01]\d|2[0123]):(?:[012345]\d):(?:[012345]\d)/", $time)){
+        return 1;
+    }else{
+        return 0;
+    }
+
+//    if(strtotime(date('H:i:s',$timestamp)) === (int)$timestamp) {
+//        return 1;
+//    } else
+//        return 0;
+}
+
 $publicip = get_client_ip();
 $curtime = (new DateTime())->format("Y-m-d H:i:s");
 
@@ -60,25 +75,50 @@ if(isset($_POST['devnum']) && isset($_POST['onoff'])) {
     $set_devnum = $_POST['devnum'];
     $set_onoff = $_POST['onoff'];
     $reserve = $_POST['reservation'];
+    $repeat = explode(" ", $reserve);
 
-//    check if dev_num is reserved
     $SQL = "SELECT * FROM devices WHERE dev_num='$set_devnum'";
     $result = mysqli_query($conn, $SQL);
     $row = mysqli_fetch_assoc($result);
     $is_reserve_set = $row['reserve']==NULL ? 0 : 1;
+    $is_repeat_set = $row['repeat_start']==NULL ? 0 : 1;
     if($is_reserve_set){  // 예약 취소
         $SQL = "UPDATE devices SET set_status='$set_onoff', reserve=NULL WHERE dev_num='$set_devnum'";
         mysqli_query($conn, $SQL);
-//        echo "<script>window.location.href='./'</script>";  // remove POST data after processing
-    }elseif (strlen($reserve)>3 && is_timestamp($reserve)){  // 예약
+
+        if($reset_page == 1)
+            echo "<script>window.location.href='./'</script>";
+        echo "<script>console.log('예약 취소');</script>";
+    }elseif($is_repeat_set){  // 반복 취소
+        $SQL = "UPDATE devices SET set_status='$set_onoff', repeat_start=NULL, repeat_stop=NULL WHERE dev_num='$set_devnum'";
+        mysqli_query($conn, $SQL);
+
+        if($reset_page == 1)
+            echo "<script>window.location.href='./'</script>";
+        echo "<script>console.log('반복 취소');</script>";
+    }elseif(is_time($repeat[0]) && is_time($repeat[1])){  // 반복 예약
+        $a = $repeat[0];
+        $b = $repeat[1];
+        $SQL = "UPDATE devices SET set_status='$set_onoff', repeat_start='$a', repeat_stop='$b' WHERE dev_num='$set_devnum'";
+        mysqli_query($conn, $SQL);
+
+        if($reset_page == 1)
+            echo "<script>window.location.href='./'</script>";
+        echo "<script>console.log('반복 예약');</script>";
+    }elseif(is_timestamp($reserve)){  // 예약
         $SQL = "UPDATE devices SET set_status='$set_onoff', reserve='$reserve' WHERE dev_num='$set_devnum'";
         mysqli_query($conn, $SQL);
-        echo "<script>window.location.href='./'</script>";  // remove POST data after processing
+
+        if($reset_page == 1)
+            echo "<script>window.location.href='./'</script>";
+        echo "<script>console.log('예약');</script>";
     }else{  // 단순 온오프
         $SQL = "UPDATE devices SET set_status='$set_onoff' WHERE dev_num='$set_devnum'";
         mysqli_query($conn, $SQL);
-        echo "<script>window.location.href='./'</script>";  // remove POST data after processing
-//        echo "<script>history.back();</script>";  // remove POST data after processing
+
+        if($reset_page == 1)
+            echo "<script>window.location.href='./'</script>";
+        echo "<script>console.log('온오프');</script>";
     }
 }
 
@@ -90,13 +130,15 @@ if(isset($_POST['remove'])){
         $SQL = "DELETE FROM devices WHERE dev_num='$remove_post'";
         mysqli_query($conn, $SQL);
     }
-    echo "<script>window.location.href='./'</script>";  // remove POST data after processing
+    if($reset_page == 1)
+        echo "<script>window.location.href='./'</script>";
 }
 
 $SQL = "SELECT * FROM devices ORDER BY dev_num";
 $result = mysqli_query($conn, $SQL);
 
 $num_rows = mysqli_num_rows($result);
+
 ?>
 
 <!DOCTYPE html>

@@ -34,17 +34,33 @@ if(mysqli_num_rows($result)==1){
     $row = mysqli_fetch_assoc($result);
     $status = $row['set_status'];
     $reserve = $row['reserve'];
+    $repeat_start = $row['repeat_start'];
+    $repeat_stop = $row['repeat_stop'];
 
     if($reserve!=NULL && (strtotime($reserve) - time())<=0){  // 예약된 시간
         $SQL = "UPDATE devices SET reserve=NULL WHERE dev_num='$devnum'";
         mysqli_query($conn, $SQL);
 
-        echo $status;
+        echo "@".$status."#";
     }elseif ($reserve!=NULL && (strtotime($reserve) - time())>0){  // 예약이 설정되었으나 시간이 안됨
         $status = $status==0 ? 1 : 0;
-        echo $status;
+        echo "@".$status."#";
+    }elseif ($repeat_start!=NULL && $repeat_stop!=NULL &&
+        (strtotime(date("H:i:s"))-strtotime($repeat_start)>=0) && (strtotime($repeat_stop)-strtotime(date("H:i:s"))>=0)){  // 반복할 시간
+        echo "<script>console.log('반복');</script>";
+        echo "@".$status."#";
+    }elseif ($repeat_start!=NULL && $repeat_stop!=NULL &&
+        ((strtotime(date("H:i:s"))-strtotime($repeat_start))<0 || (strtotime($repeat_stop)-strtotime(date("H:i:s"))<0))){  // 반복이 설정되었으나 시간이 안됨
+        echo "<script>console.log('반복시간이안됨');</script>";
+        echo "<script>console.log('$repeat_start, $repeat_stop');</script>";
+        $a = strtotime($repeat_start);
+        $b = strtotime($repeat_stop);
+        $c = strtotime(date("H:i:s"));
+        echo "<script>console.log('$a, $b, $c');</script>";
+        $status = $status==0 ? 1 : 0;
+        echo "@".$status."#";
     }else{  // 예약 없음
-        echo $status;
+        echo "@".$status."#";
     }
 
     $SQL = "UPDATE devices SET update_time=CURRENT_TIMESTAMP, cur_status='$cur_status' WHERE dev_num='$devnum'";
