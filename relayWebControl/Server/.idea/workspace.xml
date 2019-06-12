@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2528eb0d-8e21-4069-b7fe-bc532e039234" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../relayWebControl/relayWebControl.ino" beforeDir="false" afterPath="$PROJECT_DIR$/../relayWebControl/relayWebControl.ino" afterDir="false" />
-    </list>
+    <list default="true" id="2528eb0d-8e21-4069-b7fe-bc532e039234" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,17 +32,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="119" column="62" lean-forward="true" selection-start-line="119" selection-start-column="62" selection-end-line="120" selection-end-column="52" />
+            <state relative-caret-position="382">
+              <caret line="217" column="44" selection-start-line="217" selection-start-column="44" selection-end-line="217" selection-end-column="44" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/devices.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-507">
-              <caret line="39" column="67" selection-start-line="39" selection-start-column="67" selection-end-line="39" selection-end-column="67" />
+            <state relative-caret-position="195">
+              <caret line="94" column="35" selection-start-line="94" selection-start-column="35" selection-end-line="94" selection-end-column="35" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#section#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -54,11 +51,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/upload.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="321">
-              <caret line="52" column="67" selection-start-line="52" selection-start-column="67" selection-end-line="52" selection-end-column="67" />
+              <caret line="57" column="32" selection-start-line="57" selection-start-column="32" selection-end-line="57" selection-end-column="32" />
             </state>
           </provider>
         </entry>
@@ -80,6 +77,8 @@
       <find>echo &quot;&lt;script&gt;window.location.href='./'&lt;/script&gt;&quot;;</find>
       <find>=</find>
       <find>window.location</find>
+      <find>console.</find>
+      <find>$reserve_remove_status</find>
     </findStrings>
     <replaceStrings>
       <replace>$dev_num</replace>
@@ -97,9 +96,9 @@
         <option value="$PROJECT_DIR$/dbconnect.php" />
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/styles/layout.css" />
-        <option value="$PROJECT_DIR$/devices.php" />
-        <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/upload.php" />
+        <option value="$PROJECT_DIR$/index.php" />
+        <option value="$PROJECT_DIR$/devices.php" />
       </list>
     </option>
   </component>
@@ -188,12 +187,12 @@
       <workItem from="1559991118580" duration="12683000" />
       <workItem from="1560063586014" duration="9718000" />
       <workItem from="1560224739940" duration="531000" />
-      <workItem from="1560258428114" duration="8386000" />
+      <workItem from="1560258428114" duration="10379000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="52360000" />
+    <option name="totallyTimeSpent" value="54353000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -271,28 +270,28 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/index_1.php" />
-    <entry file="file://$PROJECT_DIR$/devices.php">
+    <entry file="file://$PROJECT_DIR$/upload.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-507">
-          <caret line="39" column="67" selection-start-line="39" selection-start-column="67" selection-end-line="39" selection-end-column="67" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#section#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
+        <state relative-caret-position="321">
+          <caret line="57" column="32" selection-start-line="57" selection-start-column="32" selection-end-line="57" selection-end-column="32" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="119" column="62" lean-forward="true" selection-start-line="119" selection-start-column="62" selection-end-line="120" selection-end-column="52" />
+        <state relative-caret-position="382">
+          <caret line="217" column="44" selection-start-line="217" selection-start-column="44" selection-end-line="217" selection-end-column="44" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/upload.php">
+    <entry file="file://$PROJECT_DIR$/devices.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="321">
-          <caret line="52" column="67" selection-start-line="52" selection-start-column="67" selection-end-line="52" selection-end-column="67" />
+        <state relative-caret-position="195">
+          <caret line="94" column="35" selection-start-line="94" selection-start-column="35" selection-end-line="94" selection-end-column="35" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#section#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

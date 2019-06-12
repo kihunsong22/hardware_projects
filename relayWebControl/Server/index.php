@@ -4,8 +4,6 @@ ini_set("display_startup_errors", 1);
 error_reporting(E_ALL);
 date_default_timezone_set('Asia/Seoul');
 
-$reset_page = 0;
-
 include_once('./dbconnect.php');
 
 function get_client_ip() {
@@ -86,15 +84,11 @@ if(isset($_POST['devnum']) && isset($_POST['onoff'])) {
         $SQL = "UPDATE devices SET set_status='$set_onoff', reserve=NULL WHERE dev_num='$set_devnum'";
         mysqli_query($conn, $SQL);
 
-        if($reset_page == 1)
-            echo "<script>window.location.href='./'</script>";
         echo "<script>console.log('예약 취소');</script>";
     }elseif($is_repeat_set){  // 반복 취소
         $SQL = "UPDATE devices SET set_status='$set_onoff', repeat_start=NULL, repeat_stop=NULL WHERE dev_num='$set_devnum'";
         mysqli_query($conn, $SQL);
 
-        if($reset_page == 1)
-            echo "<script>window.location.href='./'</script>";
         echo "<script>console.log('반복 취소');</script>";
     }elseif(is_time($repeat[0]) && is_time($repeat[1])){  // 반복 예약
         $a = $repeat[0];
@@ -102,22 +96,16 @@ if(isset($_POST['devnum']) && isset($_POST['onoff'])) {
         $SQL = "UPDATE devices SET set_status='$set_onoff', repeat_start='$a', repeat_stop='$b' WHERE dev_num='$set_devnum'";
         mysqli_query($conn, $SQL);
 
-        if($reset_page == 1)
-            echo "<script>window.location.href='./'</script>";
         echo "<script>console.log('반복 예약');</script>";
     }elseif(is_timestamp($reserve)){  // 예약
         $SQL = "UPDATE devices SET set_status='$set_onoff', reserve='$reserve' WHERE dev_num='$set_devnum'";
         mysqli_query($conn, $SQL);
 
-        if($reset_page == 1)
-            echo "<script>window.location.href='./'</script>";
         echo "<script>console.log('예약');</script>";
     }else{  // 단순 온오프
         $SQL = "UPDATE devices SET set_status='$set_onoff' WHERE dev_num='$set_devnum'";
         mysqli_query($conn, $SQL);
 
-        if($reset_page == 1)
-            echo "<script>window.location.href='./'</script>";
         echo "<script>console.log('온오프');</script>";
     }
 }
@@ -227,7 +215,7 @@ $num_rows = mysqli_num_rows($result);
 <!-- Footer -->
 <div class="wrapper row3">
   <footer id="footer" class="clear">
-    <p class="fl_left">Copyright &copy; 2018 - All Rights Reserved - <a href="#">Domain Name</a></p>
+    <p class="fl_left">Copyright &copy; 2019 - All Rights Reserved - <a href="#">IOTSV</a></p>
     <p class="fl_right">Template by <a target="_blank" href="https://www.os-templates.com/" title="Free Website Templates">OS Templates</a></p>
   </footer>
 </div>

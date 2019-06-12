@@ -47,16 +47,15 @@ if(mysqli_num_rows($result)==1){
         echo "@".$status."#";
     }elseif ($repeat_start!=NULL && $repeat_stop!=NULL &&
         (strtotime(date("H:i:s"))-strtotime($repeat_start)>=0) && (strtotime($repeat_stop)-strtotime(date("H:i:s"))>=0)){  // 반복할 시간
-        echo "<script>console.log('반복');</script>";
+//        echo "<script>console.log('반복');</script>";
         echo "@".$status."#";
     }elseif ($repeat_start!=NULL && $repeat_stop!=NULL &&
         ((strtotime(date("H:i:s"))-strtotime($repeat_start))<0 || (strtotime($repeat_stop)-strtotime(date("H:i:s"))<0))){  // 반복이 설정되었으나 시간이 안됨
-        echo "<script>console.log('반복시간이안됨');</script>";
-        echo "<script>console.log('$repeat_start, $repeat_stop');</script>";
+//        echo "<script>console.log('$repeat_start, $repeat_stop');</script>";
         $a = strtotime($repeat_start);
         $b = strtotime($repeat_stop);
         $c = strtotime(date("H:i:s"));
-        echo "<script>console.log('$a, $b, $c');</script>";
+//        echo "<script>console.log('$a, $b, $c');</script>";
         $status = $status==0 ? 1 : 0;
         echo "@".$status."#";
     }else{  // 예약 없음
