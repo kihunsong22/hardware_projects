@@ -110,7 +110,7 @@ if(isset($_POST['devnum']) && isset($_POST['onoff'])) {
     }
 }
 
-if(isset($_POST['remove'])){
+if(isset($_POST['remove']) && strlen($_POST['remove'])>1){
     $remove_post = $_POST['remove'];
     if($remove_post != ""){
         $remove_post = addslashes($remove_post);
