@@ -1,8 +1,8 @@
 // 수정해주세요
-#define DEVNUM 1  // 디바이스 번호
-const uint8_t relayPin = LED_BUILTIN;  // 릴레이 핀번호
-const char ssid[] = "SSID";  // 와이파이 이름
-const char pass[] = "PASS";  // 와이파이 비밀번호
+#define DEVNUM 3  // 디바이스 번호
+const uint8_t relayPin = 12;  // 릴레이 핀번호
+const char ssid[] = "mickey-office";  // 와이파이 이름
+const char pass[] = "01052913901~~";  // 와이파이 비밀번호
 // 수정해주세요
 
 #include <SPI.h>
@@ -50,21 +50,28 @@ void setup(){
 
 
 void loop(){
-  if (client.available()) {
-		payload.concat(client.read());
-		if(payload.indexOf("@1#") > 0){
+  if (client.available() > 0) {
+    char t = client.read();
+		payload.concat(t);
+		if(payload.indexOf("@1#") >= 0){
+      Serial.println("========================================");
+      Serial.println(payload);
+      Serial.println("========================================");
 			pinStatus = 1;
-			// digitalWrite(relayPin, HIGH);
+			digitalWrite(relayPin, HIGH);
 			digitalWrite(LED_BUILTIN, HIGH);
 			payload = "";
-		}else if(payload.indexOf("@0#") > 0){
+		}else if(payload.indexOf("@0#") >= 0){
+      Serial.println("========================================");
+      Serial.println(payload);
+      Serial.println("========================================");
 			pinStatus = 0;
-			// digitalWrite(relayPin, LOW);
+			digitalWrite(relayPin, LOW);
 			digitalWrite(LED_BUILTIN, LOW);
 			payload = "";
 		}
   }else if (millis() - lastConnectionTime >= delayTime) {
-		Serial.println(payload);
+		// Serial.println(payload);
 		Serial.println("\n========================================");
 		Serial.print("Status: ");  Serial.println(pinStatus);
 		Serial.println("========================================\n");
@@ -77,7 +84,7 @@ void loop(){
 void httpRequest() {
   client.stop();
 
-	String link1 = webLink + "&devnum=" + (String)DEVNUM + "&status=" + (String)status + " HTTP/1.1";
+	String link1 = webLink + "&devnum=" + (String)DEVNUM + "&status=" + (String)pinStatus + " HTTP/1.1";
 	
 	if (client.connect("iotsv.cafe24.com", 80) == 1) {
     Serial.print("\nconnected to ");
