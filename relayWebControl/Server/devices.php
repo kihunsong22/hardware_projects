@@ -32,12 +32,20 @@ $curtime = (new DateTime())->format("Y-m-d H:i:s");
 echo '<link rel="stylesheet" href="styles/layout.css" type="text/css">';
 
 // SHOW DEVICES
-$article = '<iframe width="0" height="0" border="0" name="dummyframe" id="dummyframe" style="display: none;"></iframe><article><figure><img src="images/con###IMG###.png" width="32" height="32" alt="">
-</figure><strong>Device ###DEVNUM### - ###STATUS###</strong><br><form action="/index.php" method="post" target="dummyframe" onSubmit="setTimeout(function(){window.location.reload();}, 100)">
-<input type="hidden" name="devnum" value="###DEVNUM###"><input type="hidden" name="onoff" value="###ONOFF###">
-<!---###reserve###---><!---###---><br><input type="submit" id="onoff" value="###ONOFFTEXT###"></form><br>
-<p>last online: <a onclick="return false">###SEC###</a>ago</p></article>';
-$reserveField ='<input type="text" placeholder=year-month-day&nbsp;hour:min:sec name="reservation" onFocus="this.value=(this.value==\'\' ? \''.$curtime.'\' : this.value);"><br>';
+$article = '
+<iframe width="0" height="0" border="0" name="dummyframe" id="dummyframe" style="display: none;"></iframe>
+<article style="border: 1px solid black;">
+	<figure><img src="images/con###IMG###.png" width="32" height="32" alt="">
+	</figure><strong>Device ###DEVNUM### - ###STATUS###</strong><br>
+	<form action="/index.php" method="post" target="dummyframe"
+		onSubmit="setTimeout(function(){window.location.reload();}, 100)">
+		<input type="hidden" name="devnum" value="###DEVNUM###"><input type="hidden" name="onoff" value="###ONOFF###">
+		<!---###reserve###--->
+		<!---###---><br><input type="submit" id="onoff" value="###ONOFFTEXT###"></form><br>
+	<p>last online: <a onclick="return false">###SEC###</a>ago</p>
+</article>
+';
+$reserveField ='<input type="text" id="input" placeholder=year-month-day&nbsp;hour:min:sec name="reservation" onFocus="this.value=(this.value==\'\' ? \''.$curtime.'\' : this.value);"><br>';
 $reserveText = '<p>예약: ###RESTIME###</p>';
 $repeatText = '<p>반복: ###REP1### ~ ###REP2### 에 ###REPSTATUS###</p>';
 

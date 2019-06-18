@@ -21,8 +21,10 @@ class PhysicalLayer {
       \param crysFreq Frequency of crystal oscillator inside the module in MHz.
 
       \param divExp Exponent of module frequency divider.
+
+      \param maxPacketLength Maximum length of packet that can be received by the module-
     */
-    PhysicalLayer(float crysFreq, uint8_t divExp);
+    PhysicalLayer(float crysFreq, uint8_t divExp, size_t maxPacketLength);
 
     // basic methods
 
@@ -77,7 +79,7 @@ class PhysicalLayer {
 
       \param str Address of Arduino String to save the received data.
 
-      \param len Expected number of characters in the message.
+      \param len Expected number of characters in the message. Leave as 0 if expecting a unknown size packet
 
       \returns \ref status_codes
     */
@@ -197,9 +199,19 @@ class PhysicalLayer {
     */
     uint8_t getDivExponent();
 
+    /*!
+     \brief Query modem for the packet length of received payload.
+
+     \param update Update received packet length. Will return cached value when set to false.
+
+     \returns Length of last received packet in bytes.
+   */
+   virtual size_t getPacketLength(bool update = true) = 0;
+
   private:
     float _crystalFreq;
     uint8_t _divExponent;
+    size_t _maxPacketLength;
 };
 
 #endif

@@ -110,16 +110,18 @@ if(isset($_POST['devnum']) && isset($_POST['onoff'])) {
     }
 }
 
-if(isset($_POST['remove']) && strlen($_POST['remove'])>1){
+if(isset($_POST['remove'])){
     $remove_post = $_POST['remove'];
     if($remove_post != ""){
+        echo "<script>console.log('delete');</script>";
+
         $remove_post = addslashes($remove_post);
 
         $SQL = "DELETE FROM devices WHERE dev_num='$remove_post'";
         mysqli_query($conn, $SQL);
     }
-    if($reset_page == 1)
-        echo "<script>window.location.href='./'</script>";
+
+    echo "<script>window.location.href='./'</script>";
 }
 
 $SQL = "SELECT * FROM devices ORDER BY dev_num";
