@@ -2,30 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a8dcefdc-d2fa-49d2-8c72-817da0870dd2" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/Adafruit_Circuit_Playground/library.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/Adafruit_Circuit_Playground/library.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/Adafruit_Circuit_Playground/utility/Adafruit_CPlay_LIS3DH.h" beforeDir="false" afterPath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/Adafruit_Circuit_Playground/utility/Adafruit_CPlay_LIS3DH.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/Adafruit_Circuit_Playground/utility/Adafruit_CPlay_NeoPixel.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/Adafruit_Circuit_Playground/utility/Adafruit_CPlay_NeoPixel.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/Adafruit_Circuit_Playground/utility/talkie.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/Adafruit_Circuit_Playground/utility/talkie.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/Adafruit_GFX_Library/Adafruit_GFX.h" beforeDir="false" afterPath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/Adafruit_GFX_Library/Adafruit_GFX.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/Adafruit_GFX_Library/library.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/Adafruit_GFX_Library/library.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/LoRaLib/CONTRIBUTING.md" beforeDir="false" afterPath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/LoRaLib/CONTRIBUTING.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/LoRaLib/examples/Receive/Receive.ino" beforeDir="false" afterPath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/LoRaLib/examples/Receive/Receive.ino" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/LoRaLib/examples/ReceiveInterrupt/ReceiveInterrupt.ino" beforeDir="false" afterPath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/LoRaLib/examples/ReceiveInterrupt/ReceiveInterrupt.ino" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/LoRaLib/keywords.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/LoRaLib/keywords.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/LoRaLib/library.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/LoRaLib/library.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/LoRaLib/src/TypeDef.h" beforeDir="false" afterPath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/LoRaLib/src/TypeDef.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/LoRaLib/src/modules/SX1272.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/LoRaLib/src/modules/SX1272.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/LoRaLib/src/modules/SX1272.h" beforeDir="false" afterPath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/LoRaLib/src/modules/SX1272.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/LoRaLib/src/modules/SX1278.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/LoRaLib/src/modules/SX1278.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/LoRaLib/src/modules/SX1278.h" beforeDir="false" afterPath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/LoRaLib/src/modules/SX1278.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/LoRaLib/src/modules/SX127x.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/LoRaLib/src/modules/SX127x.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/LoRaLib/src/modules/SX127x.h" beforeDir="false" afterPath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/LoRaLib/src/modules/SX127x.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/LoRaLib/src/protocols/PhysicalLayer.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/LoRaLib/src/protocols/PhysicalLayer.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/LoRaLib/src/protocols/PhysicalLayer.h" beforeDir="false" afterPath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/LoRaLib/src/protocols/PhysicalLayer.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/deployment.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/relayWebControl.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/relayWebControl.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/webServers.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/webServers.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/devices.php" beforeDir="false" afterPath="$PROJECT_DIR$/Server/devices.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/Server/index.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/styles/layout.css" beforeDir="false" afterPath="$PROJECT_DIR$/Server/styles/layout.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/relayWebControl/relayWebControl.ino" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/relayWebControl_Uno_WiFi_Rev2/relayWebControl_Uno_WiFi_Rev2.ino" beforeDir="false" afterPath="$PROJECT_DIR$/relayWebControl_Uno_WiFi_Rev2/relayWebControl_Uno_WiFi_Rev2.ino" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -39,41 +26,108 @@
     </execution>
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Server/index.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="111" selection-start-line="111" selection-end-line="111" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Server/devices.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="231">
-              <caret line="42" column="20" selection-start-line="42" selection-start-column="20" selection-end-line="42" selection-end-column="20" />
-              <folding>
-                <element signature="n#style#0;n#iframe#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#article#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#section#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <splitter split-orientation="horizontal" split-proportion="0.5">
+      <split-first>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/Server/index2.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="98">
+                  <caret line="64" lean-forward="true" selection-start-line="64" selection-end-line="64" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/Server/devices.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="1196">
+                  <caret line="133" column="17" lean-forward="true" selection-start-line="133" selection-start-column="17" selection-end-line="133" selection-end-column="17" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/Server/devices2.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="450">
+                  <caret line="28" column="91" lean-forward="true" selection-start-line="28" selection-start-column="91" selection-end-line="28" selection-end-column="91" />
+                  <folding>
+                    <element signature="e#6#40#0#HTML" expanded="true" />
+                    <element signature="e#293#312#0#HTML" expanded="true" />
+                    <element signature="e#399#418#0#HTML" expanded="true" />
+                    <element signature="e#469#485#0#HTML" expanded="true" />
+                    <element signature="e#544#566#0#HTML" expanded="true" />
+                    <element signature="e#606#638#0#HTML" expanded="true" />
+                    <element signature="e#973#991#0#HTML" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/Server/api.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="468">
+                  <caret line="53" column="36" lean-forward="true" selection-start-line="53" selection-start-column="1" selection-end-line="53" selection-end-column="36" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/Server/styles/layout.css">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="328">
+                  <caret line="132" column="72" lean-forward="true" selection-start-line="132" selection-start-column="72" selection-end-line="132" selection-end-column="72" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/Server/upload.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="90">
+                  <caret line="14" column="23" lean-forward="true" selection-start-line="14" selection-start-column="23" selection-end-line="14" selection-end-column="23" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/Server/devices2.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="18">
+                  <caret line="16" selection-start-line="16" selection-end-line="16" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>input</find>
       <find>text</find>
       <find>article</find>
       <find>reset_page</find>
       <find>remove</find>
+      <find>id</find>
+      <find>id=</find>
+      <find>input</find>
+      <find>$conn</find>
+      <find>[$dev_num]</find>
+      <find>$devices[$idx]</find>
+      <find>$view</find>
+      <find>$view_order</find>
     </findStrings>
+    <replaceStrings>
+      <replace>[$idx]</replace>
+      <replace>$devices</replace>
+    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -81,36 +135,31 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Server/devices.php" />
-        <option value="$PROJECT_DIR$/Server/index.php" />
         <option value="$PROJECT_DIR$/Server/styles/layout.css" />
+        <option value="$PROJECT_DIR$/Server/index.php" />
+        <option value="$PROJECT_DIR$/Server/devices.php" />
+        <option value="$PROJECT_DIR$/Server/index2.php" />
+        <option value="$PROJECT_DIR$/Server/api.php" />
+        <option value="$PROJECT_DIR$/Server/devices2.php" />
       </list>
     </option>
   </component>
-  <component name="ProjectConfigurationFiles">
-    <option name="files">
-      <list>
-        <option value="$PROJECT_DIR$/.idea/relayWebControl.iml" />
-        <option value="$PROJECT_DIR$/.idea/misc.xml" />
-        <option value="$PROJECT_DIR$/.idea/vcs.xml" />
-        <option value="$PROJECT_DIR$/.idea/modules.xml" />
-        <option value="$PROJECT_DIR$/.idea/deployment.xml" />
-        <option value="$PROJECT_DIR$/.idea/webServers.xml" />
-      </list>
-    </option>
+  <component name="PhpServers">
+    <servers />
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="950" />
     <option name="width" value="980" />
     <option name="height" value="1040" />
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -133,14 +182,24 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/Server" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\angrypig\Angrypig\Dev\hardware\relayWebControl\Server" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -165,25 +224,20 @@
       <option name="presentableId" value="Default" />
       <updated>1560813233455</updated>
       <workItem from="1560813235017" duration="4396000" />
+      <workItem from="1560853329167" duration="25454000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4396000" />
+    <option name="totallyTimeSpent" value="29850000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="7" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Favorites" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24966443" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.12483221" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Database Changes" />
-      <window_info anchor="bottom" id="Version Control" />
-      <window_info anchor="bottom" id="Terminal" />
-      <window_info anchor="bottom" id="Event Log" side_tool="true" />
-      <window_info anchor="bottom" id="File Transfer" visible="true" weight="0.04249292" />
+      <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" />
@@ -191,10 +245,16 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="right" id="Database" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info anchor="bottom" id="File Transfer" order="9" visible="true" weight="0.08498584" />
+      <window_info anchor="bottom" id="Database Changes" order="10" />
+      <window_info anchor="bottom" id="Terminal" order="11" />
+      <window_info anchor="bottom" id="Event Log" order="12" side_tool="true" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Database" order="3" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -204,33 +264,52 @@
     <entry file="file://$PROJECT_DIR$/Server/dbconnect.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/Server/upload.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Server/devices.php">
+    <entry file="file://$PROJECT_DIR$/Server/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="42" column="20" selection-start-line="42" selection-start-column="20" selection-end-line="42" selection-end-column="20" />
-          <folding>
-            <element signature="n#style#0;n#iframe#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#article#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#section#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
+        <state relative-caret-position="288">
+          <caret line="182" column="11" lean-forward="true" selection-start-line="182" selection-start-column="11" selection-end-line="182" selection-end-column="11" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Server/styles/layout.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="232">
-          <caret line="120" column="19" selection-start-line="120" selection-start-column="19" selection-end-line="120" selection-end-column="19" />
+        <state relative-caret-position="328">
+          <caret line="132" column="72" lean-forward="true" selection-start-line="132" selection-start-column="72" selection-end-line="132" selection-end-column="72" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Server/index.php">
+    <entry file="file://$PROJECT_DIR$/Server/upload.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="111" selection-start-line="111" selection-end-line="111" />
+        <state relative-caret-position="90">
+          <caret line="14" column="23" lean-forward="true" selection-start-line="14" selection-start-column="23" selection-end-line="14" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Server/api.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="468">
+          <caret line="53" column="36" lean-forward="true" selection-start-line="53" selection-start-column="1" selection-end-line="53" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Server/devices.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1196">
+          <caret line="133" column="17" lean-forward="true" selection-start-line="133" selection-start-column="17" selection-end-line="133" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Server/index2.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="98">
+          <caret line="64" lean-forward="true" selection-start-line="64" selection-end-line="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Server/devices2.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18">
+          <caret line="16" selection-start-line="16" selection-end-line="16" />
         </state>
       </provider>
     </entry>

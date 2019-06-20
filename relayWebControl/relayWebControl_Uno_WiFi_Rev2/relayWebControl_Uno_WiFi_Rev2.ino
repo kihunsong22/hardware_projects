@@ -1,21 +1,36 @@
 // 수정해주세요
 #define DEVNUM 3  // 디바이스 번호
 const uint8_t relayPin = 12;  // 릴레이 핀번호
+const uint8_t DHTpin  = 2;  // DHT11 데이터 핀번호
 const char ssid[] = "mickey-office";  // 와이파이 이름
 const char pass[] = "01052913901~~";  // 와이파이 비밀번호
+unsigned long myChannelNumber = 803609;  // 채널 넘버
+const char * myWriteAPIKey = "AI5CGWHS71R74C7K";  // API 키
 // 수정해주세요
 
 #include <SPI.h>
 #include <WiFiNINA.h>
-WiFiClient client;
+#include <pm2008_i2c.h>
+#include "DHT.h"
+#include "ThingSpeak.h"
+
 int status = WL_IDLE_STATUS;
 
 const String webLink = "GET /upload.php?pass=pass1406002454";
-
-uint16_t delayTime = 10000;
+const uint16_t delayTime = 10000;
 uint8_t pinStatus = 0;
 uint32_t lastConnectionTime = 0;
 String payload = "";
+
+int pm10 = 0;
+int pm25 = 0;
+int pm1 = 0;
+int dht_temp = 0;
+int dht_humi = 0;
+
+PM2008_I2C pm2008_i2c;
+WiFiClient client;
+DHT dht(DHTpin, DHT11);
 
 void setup(){
   Serial.begin(115200);
@@ -23,6 +38,10 @@ void setup(){
 
 	pinMode(LED_BUILTIN, OUTPUT);
 	pinMode(relayPin, OUTPUT);
+  
+  pm2008_i2c.begin();
+  pm2008_i2c.command();
+  dht.begin();
 	
   if (WiFi.status() == WL_NO_MODULE) {
     Serial.println("Communication with WiFi module failed!");
@@ -44,9 +63,10 @@ void setup(){
   }
   printWifiStatus();
 
+  ThingSpeak.begin(client);
+
 	Serial.println();
 }
-
 
 
 void loop(){
@@ -71,10 +91,40 @@ void loop(){
 			payload = "";
 		}
   }else if (millis() - lastConnectionTime >= delayTime) {
-		// Serial.println(payload);
 		Serial.println("\n========================================");
 		Serial.print("Status: ");  Serial.println(pinStatus);
 		Serial.println("========================================\n");
+    
+    uint8_t ret = pm2008_i2c.read();
+    if(ret == 0){
+      Serial.println("PM2008 readings okay");
+      pm1 = pm2008_i2c.pm1p0_grimm;
+      pm25 = pm2008_i2c.pm2p5_grimm;
+      pm10 = pm2008_i2c.pm10_grimm;
+    }else{
+      Serial.println("PM2008 error");
+    }
+
+    dht_temp = dht.readTemperature();
+    dht_humi = dht.readHumidity();
+
+    if (isnan(dht_humi) || isnan(dht_temp)) {
+      Serial.println("DHT11 error");
+    }
+
+    ThingSpeak.setField(1, pm10);
+    ThingSpeak.setField(2, pm25);
+    ThingSpeak.setField(3, pm1);
+    ThingSpeak.setField(4, dht_temp);
+    ThingSpeak.setField(5, dht_humi);
+
+    ThingSpeak.setStatus("Good");
+    int x = ThingSpeak.writeFields(myChannelNumber, myWriteAPIKey);
+    if(x==200){
+      Serial.println("ThingSpeak upload success");
+    }else{
+      Serial.println("ThingSpeak error");
+    }
 
     httpRequest();
   }

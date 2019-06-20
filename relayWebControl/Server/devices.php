@@ -34,48 +34,64 @@ echo '<link rel="stylesheet" href="styles/layout.css" type="text/css">';
 // SHOW DEVICES
 $article = '
 <iframe width="0" height="0" border="0" name="dummyframe" id="dummyframe" style="display: none;"></iframe>
-<article style="border: 1px solid black;">
+<article style="border: 0px solid black;">
 	<figure><img src="images/con###IMG###.png" width="32" height="32" alt="">
 	</figure><strong>Device ###DEVNUM### - ###STATUS###</strong><br>
 	<form action="/index.php" method="post" target="dummyframe"
 		onSubmit="setTimeout(function(){window.location.reload();}, 100)">
 		<input type="hidden" name="devnum" value="###DEVNUM###"><input type="hidden" name="onoff" value="###ONOFF###">
 		<!---###reserve###--->
-		<!---###---><br><input type="submit" id="onoff" value="###ONOFFTEXT###"></form><br>
+		<!---###---><br><input type="submit" id="onoff" value="###ONOFFTEXT###" class="orange"></form><br>
 	<p>last online: <a onclick="return false">###SEC###</a>ago</p>
 </article>
 ';
+
+//$article = '
+//<iframe width="0" height="0" border="0" name="dummyframe" id="dummyframe" style="display: none;"></iframe>
+//<article style="border: 1px solid black;">
+//	<figure><img src="images/con###IMG###.png" width="32" height="32" alt="">
+//	</figure><strong>Device ###DEVNUM### - ###STATUS###</strong><br>
+//	<form action="/index.php" method="post" target="dummyframe"
+//		onSubmit="setTimeout(function(){window.location.reload();}, 100)">
+//		<input type="hidden" name="devnum" value="###DEVNUM###"><input type="hidden" name="onoff" value="###ONOFF###">
+//		<input type="text" id="input" placeholder=year-month-day&nbsp;hour:min:sec name="reservation" onFocus="this.value=(this.value==\'\' ? \''.$curtime.'\' : this.value);"><br>
+//		<!---###---><br><input type="submit" id="onoff" value="###ONOFFTEXT###"></form><br>
+//	<p>last online: <a onclick="return false">###SEC###</a>ago</p>
+//</article>
+//';
 $reserveField ='<input type="text" id="input" placeholder=year-month-day&nbsp;hour:min:sec name="reservation" onFocus="this.value=(this.value==\'\' ? \''.$curtime.'\' : this.value);"><br>';
 $reserveText = '<p>예약: ###RESTIME###</p>';
 $repeatText = '<p>반복: ###REP1### ~ ###REP2### 에 ###REPSTATUS###</p>';
 
-$SQL = "SELECT * FROM devices ORDER BY dev_num";
-$result = mysqli_query($conn, $SQL);
-
-$num_rows = mysqli_num_rows($result);
-$devices[$num_rows][] = "0";
-for($i=1; $i<=$num_rows; $i++){
-    $row = mysqli_fetch_assoc($result);
-    $devices[$i][0] = $row['dev_num'];
-    $devices[$i][1] = $row['update_time'];
-    $devices[$i][2] = $row['cur_status'];
-    $devices[$i][3] = $row['set_status'];
-    $devices[$i][4] = $row['reserve'];
-    $devices[$i][5] = $row['repeat_start'];
-    $devices[$i][6] = $row['repeat_stop'];
-}
-
-function show_devices($dev_num){
-    global $devices;
+function show_devices($idx){
+    global $devices, $conn;
     global $article, $reserveText, $repeatText, $reserveField;
 
-    $downtime = elapsed_time(strtotime($devices[$dev_num][1]));
+    $SQL = "SELECT * FROM `devices` ORDER BY `dev_num` ASC";
+    $result = mysqli_query($conn, $SQL);
+    $num_rows = mysqli_num_rows($result);
+
+    $devices[7] = "0";
+    for($i=1; $i<=$num_rows; $i++){
+        $row = mysqli_fetch_assoc($result);
+        if($i == $idx){
+            $devices[0] = $row['dev_num'];
+            $devices[1] = $row['update_time'];
+            $devices[2] = $row['cur_status'];
+            $devices[3] = $row['set_status'];
+            $devices[4] = $row['reserve'];
+            $devices[5] = $row['repeat_start'];
+            $devices[6] = $row['repeat_stop'];
+        }
+    }
+
+    $downtime = elapsed_time(strtotime($devices[1]));
     $online = strpos($downtime, "min")==false ? 1 : 0;
-    $cur_status = $devices[$dev_num][2]==1 ? "on" : "off";
-    $set_status_text = $devices[$dev_num][3]=="1" ? "TURN OFF" : "TURN ON";
-    $set_status = $devices[$dev_num][3]=="1" ? "0" : "1";
-    $set_reserve = $devices[$dev_num][4]==NULL ? 0 : 1;
-    $ser_repeat = $devices[$dev_num][5]==NULL ? 0 : 1;
+    $cur_status = $devices[2]==1 ? "on" : "off";
+    $set_status_text = $devices[3]=="1" ? "TURN OFF" : "TURN ON";
+    $set_status = $devices[3]=="1" ? "0" : "1";
+    $set_reserve = $devices[4]==NULL ? 0 : 1;
+    $ser_repeat = $devices[5]==NULL ? 0 : 1;
 
     if(strpos($downtime, "min") == true)    {    $online = 0;    }
     else if(strpos($downtime, "hour") == true)    {    $online = 0;    }
@@ -87,7 +103,7 @@ function show_devices($dev_num){
 
 
     $html = $article;
-    $html = str_replace("###DEVNUM###", $devices[$dev_num][0], $html);
+    $html = str_replace("###DEVNUM###", $devices[0], $html);
     $html = str_replace("###IMG###", $online, $html);
     $html = str_replace("###SEC###", $downtime, $html);
     $html = str_replace("###STATUS###", $cur_status, $html);
@@ -96,24 +112,23 @@ function show_devices($dev_num){
         $html = str_replace("###ONOFFTEXT###", "예약 취소" , $html);
         $html = str_replace("<!---###reserve###--->", $reserveText, $html);
 
-        $reserveNotifyText = $devices[$dev_num][4];
-        $reserveNotifyText .= " 에 ".($devices[$dev_num][3]==1 ? "켜기" : "끄기");
-        $reserveNotifyText .=
+        $reserveNotifyText = $devices[4];
+        $reserveNotifyText .= " 에 ".($devices[3]==1 ? "켜기" : "끄기");
         $html = str_replace("###RESTIME###", $reserveNotifyText, $html);
     }elseif($ser_repeat){  // 반복 취소
         $html = str_replace("###ONOFFTEXT###", "반복 취소" , $html);
         $html = str_replace("<!---###reserve###--->", $repeatText, $html);
-        $html = str_replace("###REP1###", $devices[$dev_num][5], $html);
-        $html = str_replace("###REP2###", $devices[$dev_num][6], $html);
-        $html = str_replace("###REPSTATUS###", $devices[$dev_num][3]==1 ? "켜기" : "끄기", $html);
+        $html = str_replace("###REP1###", $devices[5], $html);
+        $html = str_replace("###REP2###", $devices[6], $html);
+        $html = str_replace("###REPSTATUS###", $devices[3]==1 ? "켜기" : "끄기", $html);
 
     }else{
         $html = str_replace("<!---###reserve###--->", $reserveField, $html);
         $html = str_replace("###ONOFFTEXT###", $set_status_text , $html);
     }
 
-    if(($dev_num+1) % 3 == 0){
-        $html = str_replace("<article>", '<article class="last">', $html);
+    if(($idx+1) % 3 == 0){
+        $html = str_replace("<article", '<article class="last"', $html);
     }
 
     return $html;
