@@ -1,3 +1,5 @@
+<?php
+?>
 <html style="overflow:hidden; border: 0px solid grey;">
 
 <head>
@@ -19,8 +21,11 @@
                             onSubmit="setTimeout(function(){window.location.reload()}, 100)" style="margin: 0;">
                             ON <input type="radio" name="control" checked value="1">
                             / OFF <input type="radio" name="control" value="0"><br>
-                            예약: <input type="text" id="input" placeholder=year-month-day&nbsp;hour:min:sec name="reservation" onFocus="this.value=(this.value==\'\' ? \'curtimeJS\' : this.value);"><br>
-                            반복: <br>
+                            예약: <input type="text" id="res_input" placeholder="year-month-day&nbsp;hour:min:sec" name="reservation"
+                                       onFocus="this.value=(this.value=='' ? timestamp : this.value);"><br>
+                            반복: <input type="text" id="rep_input" placeholder="hour:min:sec" name="repeat"
+                                       onFocus="this.value=(this.value=='' ? time : this.value);">
+                            <br>
                             월<input type="checkbox" name="day" value="mon">화 <input type="checkbox" name="day" value="tue">수
                             <input type="checkbox" name="day" value="wed">목 <input type="checkbox" name="day" value="thur">금
                             <input type="checkbox" name="day" value="fri">토 <input type="checkbox" name="day" value="sat">일
@@ -39,31 +44,51 @@
     </div>
     <script>
         function httpGet(idx){
-            url = "http://iotsv.cafe24.com/api.php" + "?idx=" + idx;
-            httpRequest = new XMLHttpRequest();
+            url = "http://iotsv.cafe24.com/api.php" + "?idx=" + idx
+            httpRequest = new XMLHttpRequest()
             httpRequest.onreadystatechange = function(){
-                console.log("ready state change");
-            };
-            httpRequest.open('GET', url, false);
-            httpRequest.send();
-            return httpRequest.responseText;
+                // console.log("ready state change")
+            }
+            httpRequest.open('GET', url, false)
+            httpRequest.send()
+            return httpRequest.responseText
         }
 
-        var data = httpGet(1);
-        data = JSON.parse(data);
-        console.log(data);
-        
-        document.getElementById("devnum").innerHTML = data.devices.dev_num;
-        var cur_onoff = data.devices.cur_status == "1" ? "ON" : "OFF";
-        document.getElementById("cur_status").innerHTML = cur_onoff;
-        var onoffButton = data.devices.set_status == "1" ? "Turn Off" : "Turn On";
-        document.getElementById("onoff").value = onoffButton;
-        document.getElementById("hid_devnum").value = data.devices.dev_num;
-        var onoffSet = data.devices.set_status == "1" ? "0" : "1";
-        document.getElementById("hid_onoff").value = onoffSet;
-        // document.getElementById("hid_onoff").value = !data.devices.set_status;  // true/false 값이 바로 db에 들어가게되서 안됨
-        var timeAgo = moment(data.devices.update_time).fromNow(true);
-        document.getElementById("last_online").innerHTML = timeAgo;
+        var data;
+
+        function setData(dev_num){
+            data = httpGet(dev_num)
+            data = JSON.parse(data)
+            // console.log(data)
+
+            document.getElementById("devnum").innerHTML = data.devices.dev_num
+            var cur_onoff = data.devices.cur_status == "1" ? "ON" : "OFF"
+            document.getElementById("cur_status").innerHTML = cur_onoff
+            var onoffButton = data.devices.set_status == "1" ? "Turn Off" : "Turn On"
+            document.getElementById("onoff").value = onoffButton
+            document.getElementById("hid_devnum").value = data.devices.dev_num
+            var onoffSet = data.devices.set_status == "1" ? "0" : "1"
+            document.getElementById("hid_onoff").value = onoffSet
+            // document.getElementById("hid_onoff").value = !data.devices.set_status;  // true/false 값이 바로 db에 들어가게되서 안됨
+            // var timeAgo = moment(data.devices.update_time).fromNow(true)  // moment.js보다 PHP함수가 더 직관적
+            document.getElementById("last_online").innerHTML = data.devices.timepassed
+
+            //반복/예약 상태 출력
+
+            timestamp = moment().format('YYYY-MM-DD hh:mm:ss')
+            time = moment().format('hh:mm:ss')
+        }
+
+        var url_string = window.location.href
+        var url = new URL(url_string);
+        var dev_num = url.searchParams.get("dev_num");
+        console.log("dev_num: "+dev_num);
+
+        setData(dev_num)
+        setInterval(function(){
+            setData(dev_num)
+        }, 1000)
+
     </script>
 </body>
 

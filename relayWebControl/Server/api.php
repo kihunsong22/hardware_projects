@@ -9,6 +9,26 @@ header("Access-Control-Allow-Headers: X-Requested-With");
 
 include_once('./dbconnect.php');
 
+if(!function_exists("elapsed_time")){
+    function elapsed_time($timestamp, $precision = 2) {
+        $time = time() - $timestamp;
+        $a = array('decade' => 315576000, 'year' => 31557600, 'month' => 2629800, 'week' => 604800, 'day' => 86400, 'hour' => 3600, 'min' => 60, 'sec' => 1);
+        $i = 0;
+        $result = "";
+        foreach($a as $k => $v) {
+            $$k = floor($time/$v);
+            if ($$k) $i++;
+            $time = $i >= $precision ? 0 : $time - $$k * $v;
+            $s = $$k > 1 ? 's' : '';
+            $$k = $$k ? $$k.' '.$k.$s.' ' : '';
+            $result .= $$k;
+        }
+        return $result ? $result : '0 sec ';
+    }
+}
+
+$curtime = (new DateTime())->format("Y-m-d H:i:s");
+
 //foreach($_POST as $key => $value){
 //    echo "<script>console.log('POST $key: $value')</script>";
 //}
@@ -39,7 +59,7 @@ $num_rows = mysqli_num_rows($result);
 $devices[] = "";
 for($i=1; $i<=$num_rows; $i++){
     $row = mysqli_fetch_assoc($result);
-    if($i == $idx){
+    if($row['dev_num'] == $idx){
         $devices["idx"] = $row['idx'];
         $devices["update_time"] = $row['update_time'];
         $devices["dev_num"] = $row['dev_num'];
@@ -50,7 +70,8 @@ for($i=1; $i<=$num_rows; $i++){
         $devices["repeat_stop"] = $row['repeat_stop'];
     }
 }
-
+$timepassed = elapsed_time(strtotime($devices["update_time"]));
+$devices["timepassed"] = $timepassed;
 $arr = array('devices' => $devices);
 
 $json = json_encode($arr, JSON_PRETTY_PRINT);
