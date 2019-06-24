@@ -15,85 +15,42 @@
                 <section id="services" class="clear" style="margin: 0px">
                     <iframe width="0" height="0" style="border:0" name="dummyframe" id="dummyframe" style="display: none;"></iframe>
                     <article style="border: 0px solid black;">
-                        <figure><img src="images/con0.png" width="32" height="32" alt=""></figure> <strong>Device <span id="devnum">X</span> - <span id="cur_status">X</span></strong>
+                        <figure><img src="images/con0.png" width="32" height="32" alt="" id="status_img"></figure> <strong>Device <span id="devnum">X</span> - <span id="cur_status">X</span></strong>
 
-                        <form action="/index2.php" method="post" target="dummyframe"
-                            onSubmit="setTimeout(function(){window.location.reload()}, 100)" style="margin: 0;">
+                        <form action="/index2.php" method="post" target="dummyframe" style="margin: 0;">
+<!--                        <form action="/index2.php" method="post" target="dummyframe" onSubmit="setTimeout(function(){window.location.reload()}, 100)" style="margin: 0;">-->
                             ON <input type="radio" name="control" checked value="1">
                             / OFF <input type="radio" name="control" value="0"><br>
                             예약: <input type="text" id="res_input" placeholder="year-month-day&nbsp;hour:min:sec" name="reservation"
-                                       onFocus="this.value=(this.value=='' ? timestamp : this.value);"><br>
+                                       onFocus="setRes(this)"><br>
                             반복: <input type="text" id="rep_input" placeholder="hour:min:sec" name="repeat"
-                                       onFocus="this.value=(this.value=='' ? time : this.value);">
+                                       onFocus="setRep(this)">
                             <br>
-                            월<input type="checkbox" name="day" value="mon">화 <input type="checkbox" name="day" value="tue">수
-                            <input type="checkbox" name="day" value="wed">목 <input type="checkbox" name="day" value="thur">금
-                            <input type="checkbox" name="day" value="fri">토 <input type="checkbox" name="day" value="sat">일
-                            <input type="checkbox" name="day" value="sun">
+                            월<input type="checkbox" name="day[]" value="1">화 <input type="checkbox" name="day[]" value="2">수
+                            <input type="checkbox" name="day[]" value="3">목 <input type="checkbox" name="day[]" value="4">금
+                            <input type="checkbox" name="day[]" value="5">토 <input type="checkbox" name="day[]" value="6">일
+                            <input type="checkbox" name="day[]" value="7">
                             <input type="hidden" id="hid_devnum" name="devnum" value="X">
                             <input type="hidden" id="hid_onoff" name="onoff" value="X"><br>
                             <input type="submit" id="onoff" value="Turn On" class="orange">
                         </form>
 
                         <br>
-                        <p>last online: <a onclick="return false" id="last_online"> X </a> ago</p>
+                        <p style="padding: 0 0 0 10px;">last online: <a onclick="return false" id="last_online"> X </a> ago</p>
+                        <p id="showReserve" style="border: 1px black solid; padding: 0 0 0 10px;">
+                        </p>
                     </article>
                 </section>
             </div>
         </div>
     </div>
-    <script>
-        function httpGet(idx){
-            url = "http://iotsv.cafe24.com/api.php" + "?idx=" + idx
-            httpRequest = new XMLHttpRequest()
-            httpRequest.onreadystatechange = function(){
-                // console.log("ready state change")
-            }
-            httpRequest.open('GET', url, false)
-            httpRequest.send()
-            return httpRequest.responseText
-        }
-
-        var data;
-
-        function setData(dev_num){
-            data = httpGet(dev_num)
-            data = JSON.parse(data)
-            // console.log(data)
-
-            document.getElementById("devnum").innerHTML = data.devices.dev_num
-            var cur_onoff = data.devices.cur_status == "1" ? "ON" : "OFF"
-            document.getElementById("cur_status").innerHTML = cur_onoff
-            var onoffButton = data.devices.set_status == "1" ? "Turn Off" : "Turn On"
-            document.getElementById("onoff").value = onoffButton
-            document.getElementById("hid_devnum").value = data.devices.dev_num
-            var onoffSet = data.devices.set_status == "1" ? "0" : "1"
-            document.getElementById("hid_onoff").value = onoffSet
-            // document.getElementById("hid_onoff").value = !data.devices.set_status;  // true/false 값이 바로 db에 들어가게되서 안됨
-            // var timeAgo = moment(data.devices.update_time).fromNow(true)  // moment.js보다 PHP함수가 더 직관적
-            document.getElementById("last_online").innerHTML = data.devices.timepassed
-
-            //반복/예약 상태 출력
-
-            timestamp = moment().format('YYYY-MM-DD hh:mm:ss')
-            time = moment().format('hh:mm:ss')
-        }
-
-        var url_string = window.location.href
-        var url = new URL(url_string);
-        var dev_num = url.searchParams.get("dev_num");
-        console.log("dev_num: "+dev_num);
-
-        setData(dev_num)
-        setInterval(function(){
-            setData(dev_num)
-        }, 1000)
-
-    </script>
+<!--    <script>-->
+<!--    </script>-->
 </body>
 
 </html>
 
+<script type="text/javascript" src="/scripts/devices.js"></script>
 
 <?php
 

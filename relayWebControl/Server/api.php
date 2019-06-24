@@ -10,7 +10,7 @@ header("Access-Control-Allow-Headers: X-Requested-With");
 include_once('./dbconnect.php');
 
 if(!function_exists("elapsed_time")){
-    function elapsed_time($timestamp, $precision = 2) {
+    function elapsed_time($timestamp, $precision = 2){
         $time = time() - $timestamp;
         $a = array('decade' => 315576000, 'year' => 31557600, 'month' => 2629800, 'week' => 604800, 'day' => 86400, 'hour' => 3600, 'min' => 60, 'sec' => 1);
         $i = 0;
@@ -29,14 +29,6 @@ if(!function_exists("elapsed_time")){
 
 $curtime = (new DateTime())->format("Y-m-d H:i:s");
 
-//foreach($_POST as $key => $value){
-//    echo "<script>console.log('POST $key: $value')</script>";
-//}
-//
-//foreach($_GET as $key => $value){
-//    echo "<script>console.log('GET $key: $value')</script>";
-//}
-
 
 if(!isset($_GET['idx'])){
     die("no idx");
@@ -53,9 +45,7 @@ if(is_int($idx)==false || $idx<=0){
 
 $SQL = "SELECT * FROM `devices` ORDER BY `dev_num`";
 $result = mysqli_query($conn, $SQL);
-
 $num_rows = mysqli_num_rows($result);
-
 $devices[] = "";
 for($i=1; $i<=$num_rows; $i++){
     $row = mysqli_fetch_assoc($result);
@@ -72,7 +62,21 @@ for($i=1; $i<=$num_rows; $i++){
 }
 $timepassed = elapsed_time(strtotime($devices["update_time"]));
 $devices["timepassed"] = $timepassed;
-$arr = array('devices' => $devices);
 
+$SQL = "SELECT * FROM `reserve` WHERE `dev_num`='$idx'";
+$result = mysqli_query($conn, $SQL);
+$num_rows = mysqli_num_rows($result);
+$reserve[][] = "";
+for($i=0;$i<$num_rows;$i++){
+    $row = mysqli_fetch_assoc($result);
+    $reserve[$i]['idx'] = $row['idx'];
+    $reserve[$i]['dev_num'] = $row['dev_num'];
+    $reserve[$i]['control'] = $row['control'];
+    $reserve[$i]['timestamp'] = $row['timestamp'];
+    $reserve[$i]['time'] = $row['time'];
+    $reserve[$i]['day'] = $row['day'];
+}
+
+$arr = array('devices' => $devices, 'reserve' => $reserve);
 $json = json_encode($arr, JSON_PRETTY_PRINT);
 echo $json;
