@@ -2,150 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a8dcefdc-d2fa-49d2-8c72-817da0870dd2" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/Adafruit_INA219-master/.github/ISSUE_TEMPLATE.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/Adafruit_INA219-master/.github/PULL_REQUEST_TEMPLATE.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/Adafruit_INA219-master/.travis.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/Adafruit_INA219-master/Adafruit_INA219.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/Adafruit_INA219-master/Adafruit_INA219.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/Adafruit_INA219-master/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/Adafruit_INA219-master/examples/getcurrent/getcurrent.ino" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/Adafruit_INA219-master/library.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/Adafruit_INA219-master/license.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/ArduinoJson/ArduinoJson.h" beforeDir="false" afterPath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/ArduinoJson/ArduinoJson.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/ArduinoJson/CHANGELOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/ArduinoJson/CHANGELOG.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/ArduinoJson/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/ArduinoJson/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/ArduinoJson/examples/JsonConfigFile/JsonConfigFile.ino" beforeDir="false" afterPath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/ArduinoJson/examples/JsonConfigFile/JsonConfigFile.ino" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/ArduinoJson/examples/JsonGeneratorExample/JsonGeneratorExample.ino" beforeDir="false" afterPath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/ArduinoJson/examples/JsonGeneratorExample/JsonGeneratorExample.ino" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/ArduinoJson/examples/JsonHttpClient/JsonHttpClient.ino" beforeDir="false" afterPath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/ArduinoJson/examples/JsonHttpClient/JsonHttpClient.ino" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/ArduinoJson/examples/JsonParserExample/JsonParserExample.ino" beforeDir="false" afterPath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/ArduinoJson/examples/JsonParserExample/JsonParserExample.ino" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/ArduinoJson/examples/JsonServer/JsonServer.ino" beforeDir="false" afterPath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/ArduinoJson/examples/JsonServer/JsonServer.ino" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/ArduinoJson/examples/JsonUdpBeacon/JsonUdpBeacon.ino" beforeDir="false" afterPath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/ArduinoJson/examples/JsonUdpBeacon/JsonUdpBeacon.ino" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/ArduinoJson/examples/ProgmemExample/ProgmemExample.ino" beforeDir="false" afterPath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/ArduinoJson/examples/ProgmemExample/ProgmemExample.ino" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/ArduinoJson/examples/StringExample/StringExample.ino" beforeDir="false" afterPath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/ArduinoJson/examples/StringExample/StringExample.ino" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/ArduinoJson/keywords.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/ArduinoJson/keywords.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/ArduinoJson/library.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/ArduinoJson/library.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/ArduinoJson/src/ArduinoJson.h" beforeDir="false" afterPath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/ArduinoJson/src/ArduinoJson.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/ArduinoJson/src/ArduinoJson.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/ArduinoJson/src/ArduinoJson.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/ArduinoJson/src/ArduinoJson/Configuration.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/ArduinoJson/src/ArduinoJson/Configuration.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/ArduinoJson/src/ArduinoJson/Data/Encoding.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/ArduinoJson/src/ArduinoJson/Data/JsonBufferAllocated.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/ArduinoJson/src/ArduinoJson/Data/JsonFloat.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/ArduinoJson/src/ArduinoJson/Data/JsonInteger.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/ArduinoJson/src/ArduinoJson/Data/JsonVariantAs.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/ArduinoJson/src/ArduinoJson/Data/JsonVariantContent.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/ArduinoJson/src/ArduinoJson/Data/JsonVariantDefault.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/ArduinoJson/src/ArduinoJson/Data/JsonVariantType.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/ArduinoJson/src/ArduinoJson/Data/List.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/ArduinoJson/src/ArduinoJson/Data/ListConstIterator.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/ArduinoJson/src/ArduinoJson/Data/ListIterator.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/ArduinoJson/src/ArduinoJson/Data/ListNode.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/ArduinoJson/src/ArduinoJson/Data/NonCopyable.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/ArduinoJson/src/ArduinoJson/Data/ReferenceType.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/ArduinoJson/src/ArduinoJson/Data/ValueSaver.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/ArduinoJson/src/ArduinoJson/Deserialization/Comments.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/ArduinoJson/src/ArduinoJson/Deserialization/JsonParser.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/ArduinoJson/src/ArduinoJson/Deserialization/JsonParserImpl.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/ArduinoJson/src/ArduinoJson/Deserialization/StringWriter.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/ArduinoJson/src/ArduinoJson/DynamicJsonBuffer.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/ArduinoJson/src/ArduinoJson/JsonArray.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/ArduinoJson/src/ArduinoJson/JsonArrayImpl.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/ArduinoJson/src/ArduinoJson/JsonArraySubscript.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/ArduinoJson/src/ArduinoJson/JsonBuffer.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/ArduinoJson/src/ArduinoJson/JsonBufferBase.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/ArduinoJson/src/ArduinoJson/JsonBufferImpl.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/ArduinoJson/src/ArduinoJson/JsonObject.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/ArduinoJson/src/ArduinoJson/JsonObjectImpl.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/ArduinoJson/src/ArduinoJson/JsonObjectSubscript.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/ArduinoJson/src/ArduinoJson/JsonPair.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/ArduinoJson/src/ArduinoJson/JsonVariant.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/ArduinoJson/src/ArduinoJson/JsonVariantBase.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/ArduinoJson/src/ArduinoJson/JsonVariantCasts.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/ArduinoJson/src/ArduinoJson/JsonVariantComparisons.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/ArduinoJson/src/ArduinoJson/JsonVariantImpl.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/ArduinoJson/src/ArduinoJson/JsonVariantOr.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/ArduinoJson/src/ArduinoJson/JsonVariantSubscripts.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/ArduinoJson/src/ArduinoJson/Polyfills/alias_cast.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/ArduinoJson/src/ArduinoJson/Polyfills/alias_cast.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/ArduinoJson/src/ArduinoJson/Polyfills/attributes.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/ArduinoJson/src/ArduinoJson/Polyfills/attributes.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/ArduinoJson/src/ArduinoJson/Polyfills/ctype.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/ArduinoJson/src/ArduinoJson/Polyfills/ctype.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/ArduinoJson/src/ArduinoJson/Polyfills/isFloat.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/ArduinoJson/src/ArduinoJson/Polyfills/isInteger.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/ArduinoJson/src/ArduinoJson/Polyfills/math.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/ArduinoJson/src/ArduinoJson/Polyfills/math.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/ArduinoJson/src/ArduinoJson/Polyfills/parseFloat.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/ArduinoJson/src/ArduinoJson/Polyfills/parseInteger.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/ArduinoJson/src/ArduinoJson/RawJson.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/ArduinoJson/src/ArduinoJson/Serialization/DummyPrint.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/ArduinoJson/src/ArduinoJson/Serialization/DynamicStringBuilder.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/ArduinoJson/src/ArduinoJson/Serialization/FloatParts.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/ArduinoJson/src/ArduinoJson/Serialization/IndentedPrint.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/ArduinoJson/src/ArduinoJson/Serialization/JsonPrintable.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/ArduinoJson/src/ArduinoJson/Serialization/JsonSerializer.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/ArduinoJson/src/ArduinoJson/Serialization/JsonSerializerImpl.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/ArduinoJson/src/ArduinoJson/Serialization/JsonWriter.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/ArduinoJson/src/ArduinoJson/Serialization/Prettyfier.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/ArduinoJson/src/ArduinoJson/Serialization/StaticStringBuilder.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/ArduinoJson/src/ArduinoJson/Serialization/StreamPrintAdapter.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/ArduinoJson/src/ArduinoJson/StaticJsonBuffer.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/ArduinoJson/src/ArduinoJson/StringTraits/ArduinoStream.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/ArduinoJson/src/ArduinoJson/StringTraits/CharPointer.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/ArduinoJson/src/ArduinoJson/StringTraits/FlashString.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/ArduinoJson/src/ArduinoJson/StringTraits/StdStream.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/ArduinoJson/src/ArduinoJson/StringTraits/StdString.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/ArduinoJson/src/ArduinoJson/StringTraits/StringTraits.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/ArduinoJson/src/ArduinoJson/TypeTraits/EnableIf.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/ArduinoJson/src/ArduinoJson/TypeTraits/FloatTraits.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/ArduinoJson/src/ArduinoJson/TypeTraits/IsArray.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/ArduinoJson/src/ArduinoJson/TypeTraits/IsBaseOf.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/ArduinoJson/src/ArduinoJson/TypeTraits/IsChar.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/ArduinoJson/src/ArduinoJson/TypeTraits/IsConst.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/ArduinoJson/src/ArduinoJson/TypeTraits/IsFloatingPoint.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/ArduinoJson/src/ArduinoJson/TypeTraits/IsIntegral.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/ArduinoJson/src/ArduinoJson/TypeTraits/IsSame.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/ArduinoJson/src/ArduinoJson/TypeTraits/IsSignedIntegral.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/ArduinoJson/src/ArduinoJson/TypeTraits/IsUnsignedIntegral.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/ArduinoJson/src/ArduinoJson/TypeTraits/IsVariant.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/ArduinoJson/src/ArduinoJson/TypeTraits/RemoveConst.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/ArduinoJson/src/ArduinoJson/TypeTraits/RemoveReference.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/ArduinoJson/src/ArduinoJson/compatibility.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/ArduinoJson/src/ArduinoJson/compatibility.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/ArduinoJson/src/ArduinoJson/version.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/ArduinoJson/src/ArduinoJson/version.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/Firebase_ESP32_Client/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/Firebase_ESP32_Client/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/Firebase_ESP32_Client/_config.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/Firebase_ESP32_Client/examples/Basic/Basic.ino" beforeDir="false" afterPath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/Firebase_ESP32_Client/examples/Basic/Basic.ino" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/Firebase_ESP32_Client/examples/Basic_with_root_ca/Basic_with_root_ca.ino" beforeDir="false" afterPath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/Firebase_ESP32_Client/examples/Basic_with_root_ca/Basic_with_root_ca.ino" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/Firebase_ESP32_Client/examples/Blob/Blob.ino" beforeDir="false" afterPath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/Firebase_ESP32_Client/examples/Blob/Blob.ino" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/Firebase_ESP32_Client/examples/Blynk/Blynk.ino" beforeDir="false" afterPath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/Firebase_ESP32_Client/examples/Blynk/Blynk.ino" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/Firebase_ESP32_Client/examples/Different_objects_stream/Different_objects_stream.ino" beforeDir="false" afterPath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/Firebase_ESP32_Client/examples/Different_objects_stream/Different_objects_stream.ino" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/Firebase_ESP32_Client/examples/ETag/ETag.ino" beforeDir="false" afterPath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/Firebase_ESP32_Client/examples/ETag/ETag.ino" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/Firebase_ESP32_Client/examples/Line_notify/Line_notify.ino" beforeDir="false" afterPath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/Firebase_ESP32_Client/examples/Line_notify/Line_notify.ino" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/Firebase_ESP32_Client/examples/Multiple_stream_tasks/Multiple_stream_tasks.ino" beforeDir="false" afterPath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/Firebase_ESP32_Client/examples/Multiple_stream_tasks/Multiple_stream_tasks.ino" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/Firebase_ESP32_Client/examples/Priority/Priority.ino" beforeDir="false" afterPath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/Firebase_ESP32_Client/examples/Priority/Priority.ino" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/Firebase_ESP32_Client/examples/Retry_and_queue/Retry_and_queue.ino" beforeDir="false" afterPath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/Firebase_ESP32_Client/examples/Retry_and_queue/Retry_and_queue.ino" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/Firebase_ESP32_Client/examples/Shallowed_data/Shallowed_data.ino" beforeDir="false" afterPath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/Firebase_ESP32_Client/examples/Shallowed_data/Shallowed_data.ino" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/Firebase_ESP32_Client/examples/Stream_callback/Stream_callback.ino" beforeDir="false" afterPath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/Firebase_ESP32_Client/examples/Stream_callback/Stream_callback.ino" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/Firebase_ESP32_Client/examples/Stream_loop/Stream_loop.ino" beforeDir="false" afterPath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/Firebase_ESP32_Client/examples/Stream_loop/Stream_loop.ino" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/Firebase_ESP32_Client/examples/Timestamp/Timestamp.ino" beforeDir="false" afterPath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/Firebase_ESP32_Client/examples/Timestamp/Timestamp.ino" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/Firebase_ESP32_Client/library.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/Firebase_ESP32_Client/library.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/Firebase_ESP32_Client/src/FirebaseESP32.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/Firebase_ESP32_Client/src/FirebaseESP32.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/Firebase_ESP32_Client/src/FirebaseESP32.h" beforeDir="false" afterPath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/Firebase_ESP32_Client/src/FirebaseESP32.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/Firebase_ESP32_Client/src/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/Firebase_ESP32_Client/src/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/RF24/RF24.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/RF24/RF24.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/RF24/RF24.h" beforeDir="false" afterPath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/RF24/RF24.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/RF24/RF24_config.h" beforeDir="false" afterPath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/RF24/RF24_config.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/RF24/library.json" beforeDir="false" afterPath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/RF24/library.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/RF24/library.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/RF24/library.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/RF24/printf.h" beforeDir="false" afterPath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/RF24/printf.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/RF24/utility/LittleWire/RF24_arch_config.h" beforeDir="false" afterPath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/RF24/utility/LittleWire/RF24_arch_config.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/RF24/utility/MRAA/RF24_arch_config.h" beforeDir="false" afterPath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/RF24/utility/MRAA/RF24_arch_config.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/RF24/utility/RPi/RF24_arch_config.h" beforeDir="false" afterPath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/RF24/utility/RPi/RF24_arch_config.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/RF24/utility/RPi/spi.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/RF24/utility/RPi/spi.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/RF24/utility/SPIDEV/RF24_arch_config.h" beforeDir="false" afterPath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/RF24/utility/SPIDEV/RF24_arch_config.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/RF24/utility/SPIDEV/compatibility.c" beforeDir="false" afterPath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/RF24/utility/SPIDEV/compatibility.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/RF24/utility/SPIDEV/spi.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/RF24/utility/SPIDEV/spi.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/RF24/utility/wiringPi/RF24_arch_config.h" beforeDir="false" afterPath="$PROJECT_DIR$/../_MISC/_Sketchbook/libraries/RF24/utility/wiringPi/RF24_arch_config.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/Server/api.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/devices2.php" beforeDir="false" afterPath="$PROJECT_DIR$/Server/devices2.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/index2.php" beforeDir="false" afterPath="$PROJECT_DIR$/Server/index2.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/styles/layout.css" beforeDir="false" afterPath="$PROJECT_DIR$/Server/styles/layout.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/scripts/devices.js" beforeDir="false" afterPath="$PROJECT_DIR$/Server/scripts/devices.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -163,29 +22,26 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Server/index2.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="46">
-              <caret line="73" column="59" selection-start-line="73" selection-start-column="59" selection-end-line="73" selection-end-column="59" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Server/devices2.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="342">
-              <caret line="46" column="19" lean-forward="true" selection-start-line="46" selection-start-column="19" selection-end-line="46" selection-end-column="19" />
-              <folding>
-                <element signature="e#2736#2789#0#HTML" expanded="true" />
-              </folding>
+            <state relative-caret-position="-8">
+              <caret line="61" column="12" selection-start-line="61" selection-start-column="12" selection-end-line="61" selection-end-column="12" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Server/devices2.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="345">
+              <caret line="40" column="14" selection-start-line="40" selection-start-column="14" selection-end-line="40" selection-end-column="14" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Server/scripts/devices.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="226">
-              <caret line="71" column="45" lean-forward="true" selection-start-line="71" selection-start-column="45" selection-end-line="71" selection-end-column="45" />
+            <state relative-caret-position="270">
+              <caret line="75" column="21" lean-forward="true" selection-start-line="75" selection-start-column="21" selection-end-line="75" selection-end-column="21" />
               <folding>
                 <element signature="n#style#0;n#input#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#input#0;n#!!top" expanded="true" />
@@ -197,7 +53,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Server/api.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="276">
+            <state relative-caret-position="352">
               <caret line="71" column="38" lean-forward="true" selection-start-line="71" selection-start-column="38" selection-end-line="71" selection-end-column="38" />
             </state>
           </provider>
@@ -206,8 +62,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Server/styles/layout.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2430">
-              <caret line="135" column="182" selection-start-line="135" selection-start-column="182" selection-end-line="135" selection-end-column="182" />
+            <state relative-caret-position="298">
+              <caret line="117" lean-forward="true" selection-start-line="117" selection-end-line="117" />
             </state>
           </provider>
         </entry>
@@ -273,9 +129,9 @@
         <option value="$PROJECT_DIR$/Server/upload2.php" />
         <option value="$PROJECT_DIR$/Server/api.php" />
         <option value="$PROJECT_DIR$/Server/styles/layout.css" />
-        <option value="$PROJECT_DIR$/Server/devices2.php" />
         <option value="$PROJECT_DIR$/Server/index2.php" />
         <option value="$PROJECT_DIR$/Server/scripts/devices.js" />
+        <option value="$PROJECT_DIR$/Server/devices2.php" />
       </list>
     </option>
   </component>
@@ -283,10 +139,9 @@
     <servers />
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="367" />
-    <option name="y" value="-20" />
-    <option name="width" value="978" />
-    <option name="height" value="1039" />
+    <option name="x" value="952" />
+    <option name="width" value="977" />
+    <option name="height" value="1038" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="1" id="Add" />
@@ -367,18 +222,19 @@
       <workItem from="1561281989222" duration="1202000" />
       <workItem from="1561284966065" duration="2278000" />
       <workItem from="1561292204994" duration="3621000" />
-      <workItem from="1561331363460" duration="3677000" />
+      <workItem from="1561331363460" duration="4277000" />
+      <workItem from="1561343724471" duration="1532000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="53755000" />
+    <option name="totallyTimeSpent" value="55887000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1375839" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13959731" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -390,7 +246,7 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
-      <window_info anchor="bottom" id="File Transfer" order="9" visible="true" weight="0.203966" />
+      <window_info active="true" anchor="bottom" id="File Transfer" order="9" visible="true" weight="0.06657224" />
       <window_info anchor="bottom" id="Database Changes" order="10" />
       <window_info anchor="bottom" id="Terminal" order="11" weight="0.12747875" />
       <window_info anchor="bottom" id="Event Log" order="12" side_tool="true" />
@@ -407,10 +263,10 @@
     <entry file="file://$PROJECT_DIR$/Server/dbconnect.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/Server/styles/layout.css">
+    <entry file="file://$PROJECT_DIR$/Server/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2430">
-          <caret line="135" column="182" selection-start-line="135" selection-start-column="182" selection-end-line="135" selection-end-column="182" />
+        <state relative-caret-position="252">
+          <caret line="179" column="25" lean-forward="true" selection-start-line="179" selection-start-column="25" selection-end-line="179" selection-end-column="25" />
         </state>
       </provider>
     </entry>
@@ -428,30 +284,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Server/styles/layout.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="298">
+          <caret line="117" lean-forward="true" selection-start-line="117" selection-end-line="117" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Server/api.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
+        <state relative-caret-position="352">
           <caret line="71" column="38" lean-forward="true" selection-start-line="71" selection-start-column="38" selection-end-line="71" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Server/index2.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="73" column="59" selection-start-line="73" selection-start-column="59" selection-end-line="73" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Server/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="179" column="25" lean-forward="true" selection-start-line="179" selection-start-column="25" selection-end-line="179" selection-end-column="25" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Server/devices.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="213">
+        <state relative-caret-position="-57">
           <caret line="65" column="28" lean-forward="true" selection-start-line="65" selection-start-column="28" selection-end-line="65" selection-end-column="28" />
           <folding>
             <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -460,24 +309,28 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Server/devices2.php">
+    <entry file="file://$PROJECT_DIR$/Server/scripts/devices.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="46" column="19" lean-forward="true" selection-start-line="46" selection-start-column="19" selection-end-line="46" selection-end-column="19" />
+        <state relative-caret-position="270">
+          <caret line="75" column="21" lean-forward="true" selection-start-line="75" selection-start-column="21" selection-end-line="75" selection-end-column="21" />
           <folding>
-            <element signature="e#2736#2789#0#HTML" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Server/scripts/devices.js">
+    <entry file="file://$PROJECT_DIR$/Server/index2.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="226">
-          <caret line="71" column="45" lean-forward="true" selection-start-line="71" selection-start-column="45" selection-end-line="71" selection-end-column="45" />
-          <folding>
-            <element signature="n#style#0;n#input#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#!!top" expanded="true" />
-          </folding>
+        <state relative-caret-position="-8">
+          <caret line="61" column="12" selection-start-line="61" selection-start-column="12" selection-end-line="61" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Server/devices2.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="40" column="14" selection-start-line="40" selection-start-column="14" selection-end-line="40" selection-end-column="14" />
         </state>
       </provider>
     </entry>

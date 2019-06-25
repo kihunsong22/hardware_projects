@@ -1,4 +1,3 @@
-
 url_string = window.location.href
 url = new URL(url_string)
 dev_num = url.searchParams.get("dev_num")
@@ -6,6 +5,7 @@ console.log("dev_num: "+dev_num)
 var data
 res_empty = 1
 rep_empty = 1
+
 
 function httpGet(idx){
     url = "http://iotsv.cafe24.com/api.php" + "?idx=" + idx
@@ -22,16 +22,14 @@ function httpGet(idx){
 function setData(dev_num){
     data = httpGet(dev_num)
     data = JSON.parse(data)
-    // console.log(data)
 
     document.getElementById("devnum").innerHTML = data.devices.dev_num
     var cur_onoff = data.devices.cur_status == "1" ? "ON" : "OFF"
     document.getElementById("cur_status").innerHTML = cur_onoff
-    var onoffButton = data.devices.set_status == "1" ? "Turn Off" : "Turn On"
-    document.getElementById("onoff").value = onoffButton
+
     document.getElementById("hid_devnum").value = data.devices.dev_num
-    var onoffSet = data.devices.set_status == "1" ? "0" : "1"
-    document.getElementById("hid_onoff").value = onoffSet
+    // var onoffSet = data.devices.set_status == "1" ? "0" : "1"
+
     // document.getElementById("hid_onoff").value = !data.devices.set_status;  // true/false 값이 바로 db에 들어가게되서 안됨
     // var timeAgo = moment(data.devices.update_time).fromNow(true)  // moment.js보다 PHP함수가 더 직관적
     document.getElementById("last_online").innerHTML = data.devices.timepassed
@@ -41,10 +39,30 @@ function setData(dev_num){
         document.getElementById("status_img").src = "images/con1.png"
     }
 
-    //반복/예약 상태 출력
+    timestamp = moment().format('YYYY-MM-DD HH:mm:ss')
+    time = moment().format('HH:mm:ss')
+}
 
-    timestamp = moment().format('YYYY-MM-DD hh:mm:ss')
-    time = moment().format('hh:mm:ss')
+function setSubmitButton(){
+    res_input = document.getElementById("res_input").value
+    rep_input = document.getElementById("rep_input").value
+    control = 2
+
+    if(document.getElementById("radio_on").checked == 1){
+        control = 1
+    }else if(document.getElementById("radio_off").checked == 1){
+        control = 0
+    }
+
+    if(rep_input=="" && res_input==""){
+        if(control == 1){
+            document.getElementById("onoff").value = "Turn On"
+        }else if(control == 0){
+            document.getElementById("onoff").value = "Turn Off"
+        }
+    }else{
+        document.getElementById('onoff').value = "예약"
+    }
 }
 
 function setRep(me){
@@ -68,44 +86,63 @@ function setRes(me){
 }
 
 function removeRes(idx) {
-    var xhttp = new XMLHttpRequest();
+    if(!confirm("삭제하시겠습니까?")){
+        return
+    }
+
+    xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {};
-    xhttp.open("POST", "/index2.php", true);
+    xhttp.open("POST", "/api.php", false);
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     body = "delete=1&idx=" + idx
     xhttp.send(body);
+
+    console.log("HTTP request done: ")
+    response = xhttp.responseText
+    console.log(response)
 }
 
 setData(dev_num)
+updateShowRes()
 setInterval(function(){
     setData(dev_num)
     updateShowRes()
 }, 1000)
 
 function updateShowRes(){
-    removeButton = '<input type="submit" value="삭제" onclick="removeRes(IDX)" style="width: 10px; height:10px;">'
     showRes = document.getElementById("showReserve")
     showRes.innerHTML = ""
     for(i=0; i<data.reserve["length"]; i++){
         idx = data.reserve[i].idx
-        message = '<input type="submit" value="삭제" onclick="removeRes(idx)" style="width: 10px; height:10px;">'
+        message = '<a onclick="removeRes('+idx+')" id="remButton">'
         if(data.reserve[i].timestamp != null){  // 예약
             message += "예약: "
             message += data.reserve[i].timestamp + " 에 "
             message += data.reserve[i].control == 1 ? "켜기" : "끄기"
             message += "<br>"
-            // console.log(message)
 
-        }else{  // 반복
-            message += "반복: "
-            //day contains
+        }else if(data.reserve[i].time != null){  // 반복
+            dayText = data.reserve[i].day
+            dayText =  dayText.replace("1", "월, ")
+            dayText =  dayText.replace("2", "화, ")
+            dayText =  dayText.replace("3", "수, ")
+            dayText =  dayText.replace("4", "목, ")
+            dayText =  dayText.replace("5", "금, ")
+            dayText =  dayText.replace("6", "토, ")
+            dayText =  dayText.replace("7", "일, ")
+
+            if(data.reserve[i].day.length>0){
+                dayText = dayText.slice(0, -2)
+            }
+            message += dayText
+            message += " "
             message += data.reserve[i].time + " 에 "
             message += data.reserve[i].control == 1 ? "켜기" : "끄기"
+            message += '</a>'
             message += "<br>"
-            // console.log(message)
+
         }
         showRes.innerHTML += message
     }
 }
 
-// showRes.innerHTML += "<br>123";

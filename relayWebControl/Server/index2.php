@@ -6,25 +6,6 @@ date_default_timezone_set('Asia/Seoul');
 
 include_once('./dbconnect.php');
 
-function get_client_ip() {
-    $ipaddress = '';
-    if (getenv('HTTP_CLIENT_IP'))
-        $ipaddress = getenv('HTTP_CLIENT_IP');
-    else if(getenv('HTTP_X_FORWARDED_FOR'))
-        $ipaddress = getenv('HTTP_X_FORWARDED_FOR');
-    else if(getenv('HTTP_X_FORWARDED'))
-        $ipaddress = getenv('HTTP_X_FORWARDED');
-    else if(getenv('HTTP_FORWARDED_FOR'))
-        $ipaddress = getenv('HTTP_FORWARDED_FOR');
-    else if(getenv('HTTP_FORWARDED'))
-        $ipaddress = getenv('HTTP_FORWARDED');
-    else if(getenv('REMOTE_ADDR'))
-        $ipaddress = getenv('REMOTE_ADDR');
-    else
-        $ipaddress = 'UNKNOWN';
-    return $ipaddress;
-}
-
 function elapsed_time($timestamp, $precision = 2) {
     $time = time() - $timestamp;
     $a = array('decade' => 315576000, 'year' => 31557600, 'month' => 2629800, 'week' => 604800, 'day' => 86400, 'hour' => 3600, 'min' => 60, 'sec' => 1);
@@ -41,42 +22,38 @@ function elapsed_time($timestamp, $precision = 2) {
     return $result ? $result : '0 sec ';
 }
 
-function is_timestamp($timestamp) {
-    if(strtotime(date('d-m-Y H:i:s',$timestamp)) === (int)$timestamp) {
-        return 1;
-    } else
-        return false;
+function logCon($logString){
+    $logString = htmlspecialchars($logString);
+    echo "<script>console.log('$logString')</script>";
 }
 
-function is_time($time){
-    if (preg_match("/(?:[01]\d|2[0123]):(?:[012345]\d):(?:[012345]\d)/", $time)) {
-        return 1;
-    } else {
-        return 0;
-    }
-}
-
-$publicip = get_client_ip();
 $curtime = (new DateTime())->format("Y-m-d H:i:s");
 
-echo "<script>console.log('')</script>";
-echo "<script>console.log('POST DATA: {')</script>";
-foreach($_POST as $key => $value){
-    echo "<script>console.log('    $key: $value')</script>";
-}
+$devnum = "";
+$control = "";
+$res = "";
+$rep = "";
+$onoff = "";
 $day = "";
+
+logCon(" ");
+logCon("Post Data: {");
+foreach($_POST as $key => $value){
+    logCon("    $key: $value");
+}
+
 if(!empty($_POST['day'])){
     foreach($_POST['day'] as $day_post){
         $day .= $day_post;
     }
 }
 if(isset($_POST['devnum'])){
-    echo "<script>console.log('    day[]: $day')</script>";
+    logCon("    day[]: $day");
 }
-echo "<script>console.log('}')</script>";
+logCon("}");
 
 
-if(isset($_POST['devnum']) && isset($_POST['onoff'])) {
+if(isset($_POST['devnum'])) {
     $devnum = $_POST['devnum'];
     $control = $_POST['control'];
     $res = $_POST['reservation'];
@@ -85,64 +62,25 @@ if(isset($_POST['devnum']) && isset($_POST['onoff'])) {
     $onoff = $_POST['onoff'];
 
     if($res != ""){
-        echo "<script>console.log('Control: Set Reservation');</script>";
+        logCon("Control: Set Reservation");
 
         $SQL = "INSERT INTO reserve (`dev_num`, `control`, `timestamp`) VALUES('$devnum', '$control', '$res')";
         mysqli_query($conn, $SQL);
     }
 
     if($rep != ""){
-        echo "<script>console.log('Control: Set Repeat');</script>";
+        logCon("Control: Set Repeat");
 
         $SQL = "INSERT INTO reserve (`dev_num`, `control`, `time`, `day`) VALUES('$devnum', '$control', '$rep', '$day')";
         mysqli_query($conn, $SQL);
     }
 
-
-//    $set_devnum = $_POST['devnum'];
-//    $set_onoff = $_POST['onoff'];
-//    $reserve = $_POST['reservation'];
-//    $repeat = explode(" ", $reserve);
-//
-//    $SQL = "SELECT * FROM devices WHERE dev_num='$set_devnum'";
-//    $result = mysqli_query($conn, $SQL);
-//    $row = mysqli_fetch_assoc($result);
-//    $is_reserve_set = $row['reserve']==NULL ? 0 : 1;
-//    $is_repeat_set = $row['repeat_start']==NULL ? 0 : 1;
-//    if($is_reserve_set){  // 예약 취소
-//        $SQL = "UPDATE devices SET set_status='$set_onoff', reserve=NULL WHERE dev_num='$set_devnum'";
-//        mysqli_query($conn, $SQL);
-//
-//        echo "<script>console.log('Control: Cancel Reservation');</script>";
-//    }elseif($is_repeat_set){  // 반복 취소
-//        $SQL = "UPDATE devices SET set_status='$set_onoff', repeat_start=NULL, repeat_stop=NULL WHERE dev_num='$set_devnum'";
-//        mysqli_query($conn, $SQL);
-//
-//        echo "<script>console.log('Control: Cancel Repeat');</script>";
-//    }elseif(is_time($repeat[0]) && is_time($repeat[1])){  // 반복 예약
-//        $a = $repeat[0];
-//        $b = $repeat[1];
-//        $SQL = "UPDATE devices SET set_status='$set_onoff', repeat_start='$a', repeat_stop='$b' WHERE dev_num='$set_devnum'";
-//        mysqli_query($conn, $SQL);
-//
-//        echo "<script>console.log('Control: Set Repeat');</script>";
-//    }elseif(is_timestamp($reserve)){  // 예약
-//        $SQL = "UPDATE devices SET set_status='$set_onoff', reserve='$reserve' WHERE dev_num='$set_devnum'";
-//        mysqli_query($conn, $SQL);
-//
-//        echo "<script>console.log('Control: Set Reservation');</script>";
-//    }else{  // 단순 온오프
-//        $SQL = "UPDATE devices SET set_status='$set_onoff' WHERE dev_num='$set_devnum'";
-//        mysqli_query($conn, $SQL);
-//
-//        echo "<script>console.log('Control: Set On/Off');</script>";
-//    }
 }
 
 if(isset($_POST['remove'])){
     $remove_post = $_POST['remove'];
     if($remove_post != ""){
-        echo "<script>console.log('Control: Delete Device');</script>";
+        logCon("Control: Delete Reservation");
 
         $remove_post = addslashes($remove_post);
 
