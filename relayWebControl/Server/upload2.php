@@ -7,8 +7,8 @@ date_default_timezone_set('Asia/Seoul');
 include_once('dbconnect.php');
 
 function logCon($logString){
-    $logString = htmlspecialchars($logString);
-    echo "<script>console.log('$logString')</script>";
+    // $logString = htmlspecialchars($logString);
+    // echo "<script>console.log('$logString')</script>";
 }
 
 if(isset($_GET['pass'])){
@@ -112,9 +112,13 @@ $lastRes = 0;
 for($i=0; $i<mysqli_num_rows($result); $i++){
     if( ($lastRes<$reserve[$i]['Utimestamp']) && ($reserve[$i]['Utimestamp']<$curTime) ){
         $lastRes = $reserve[$i]['Utimestamp'];
+        $control = $reserve[$i]['control'];
     }
 }
 logCon("lastRes: ".$lastRes);
+logCon("control: ".$control);
+$msg = $control==0 ? "@0#" : "@1#"; 
+echo $msg;
 
 // 하나의 변수에 전체 예약의 가장 최근상태를 저장
 // 예약:

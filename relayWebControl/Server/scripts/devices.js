@@ -1,7 +1,7 @@
 url_string = window.location.href
 url = new URL(url_string)
 dev_num = url.searchParams.get("dev_num")
-console.log("dev_num: "+dev_num)
+// console.log("dev_num: "+dev_num)
 var data
 res_empty = 1
 rep_empty = 1

@@ -46,38 +46,42 @@ if(!empty($_POST['day'])){
     foreach($_POST['day'] as $day_post){
         $day .= $day_post;
     }
-}
-if(isset($_POST['devnum'])){
     logCon("    day[]: $day");
 }
 logCon("}");
 
 
+
 if(isset($_POST['devnum'])) {
     $devnum = $_POST['devnum'];
     $control = $_POST['control'];
-    $res = $_POST['reservation'];
-    $rep = $_POST['repeat'];
-//    $day_post = $_POST['day'];
-    $onoff = $_POST['onoff'];
+    if(isset($_POST['reservation'])){
+        $res = $_POST['reservation'];
+    }
+    if(isset($_POST['repeat'])){
+        $rep = $_POST['repeat'];
+    }
 
-    if($res != ""){
+    
+    if(empty($_POST['reservation']) && empty($_POST['repeat'])){
+        logCon("Control: Set on/off");
+
+        $SQL = "UPDATE devices SET `set_status`='$control', `update_time`=CURRENT_TIMESTAMP WHERE `dev_num`='8'";
+        mysqli_query($conn, $SQL);
+    }else if($res != ""){
         logCon("Control: Set Reservation");
 
         $SQL = "INSERT INTO reserve (`dev_num`, `control`, `timestamp`) VALUES('$devnum', '$control', '$res')";
         mysqli_query($conn, $SQL);
-    }
-
-    if($rep != ""){
+    }else if($rep != ""){
         logCon("Control: Set Repeat");
 
         $SQL = "INSERT INTO reserve (`dev_num`, `control`, `time`, `day`) VALUES('$devnum', '$control', '$rep', '$day')";
         mysqli_query($conn, $SQL);
     }
-
 }
 
-if(isset($_POST['remove'])){
+if(!empty($_POST['remove'])){  // 디바이스 삭제시에는 remove 필드만 필요
     $remove_post = $_POST['remove'];
     if($remove_post != ""){
         logCon("Control: Delete Reservation");
@@ -88,7 +92,7 @@ if(isset($_POST['remove'])){
         mysqli_query($conn, $SQL);
     }
 
-    echo "<script>window.location.href='./'</script>";
+    echo "<script>window.location.href='./'</script>";  // 브라우저의 POST 데이터 제거
 }
 
 $SQL = "SELECT * FROM devices ORDER BY dev_num";

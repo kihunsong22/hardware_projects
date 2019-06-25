@@ -128,6 +128,10 @@ void loop(){
 
     httpRequest();
   }
+
+  if(millis() > 7200000‬){  // 2시간마다 리셋
+    resetFunc();
+  }
 }
 
 
@@ -166,3 +170,5 @@ void printWifiStatus() {
   Serial.print(rssi);
   Serial.println(" dBm");
 }
+
+void(* resetFunc) (void) = 0;

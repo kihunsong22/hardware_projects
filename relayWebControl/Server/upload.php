@@ -84,5 +84,4 @@ if(mysqli_num_rows($result)==1){
 }else{
     $SQL = "INSERT INTO devices (dev_num, set_status) VALUES('$devnum', '0')";
     mysqli_query($conn, $SQL);
-//    echo "insert";
 }
