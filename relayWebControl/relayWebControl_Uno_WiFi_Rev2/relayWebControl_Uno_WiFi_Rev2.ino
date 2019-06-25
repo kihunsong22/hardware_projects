@@ -32,6 +32,8 @@ PM2008_I2C pm2008_i2c;
 WiFiClient client;
 DHT dht(DHTpin, DHT11);
 
+void(* resetFunc) (void) = 0;
+
 void setup(){
   Serial.begin(115200);
   Serial.println();
@@ -129,7 +131,7 @@ void loop(){
     httpRequest();
   }
 
-  if(millis() > 7200000‬){  // 2시간마다 리셋
+  if(millis() > 172800000){  // 2일마다 리셋
     resetFunc();
   }
 }
@@ -170,5 +172,3 @@ void printWifiStatus() {
   Serial.print(rssi);
   Serial.println(" dBm");
 }
-
-void(* resetFunc) (void) = 0;

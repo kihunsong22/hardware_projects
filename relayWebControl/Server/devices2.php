@@ -24,7 +24,7 @@
                             <br>
                             월<input type="checkbox" name="day[]" value="1">&nbsp; 화<input type="checkbox" name="day[]" value="2">&nbsp;
                             수<input type="checkbox" name="day[]" value="3">&nbsp; 목<input type="checkbox" name="day[]" value="4">&nbsp;
-                            목<input type="checkbox" name="day[]" value="5">&nbsp; 토<input type="checkbox" name="day[]" value="6">&nbsp;
+                            금<input type="checkbox" name="day[]" value="5">&nbsp; 토<input type="checkbox" name="day[]" value="6">&nbsp;
                             일<input type="checkbox" name="day[]" value="7">
                             <input type="hidden" id="hid_devnum" name="devnum" value="X">
                             <!-- <input type="hidden" id="hid_onoff" name="onoff" value="X"><br> -->
