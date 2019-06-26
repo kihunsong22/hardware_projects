@@ -7,19 +7,21 @@ header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: GET, POST');
 header("Access-Control-Allow-Headers: X-Requested-With");
 
-include_once('./dbconnect.php');
+include_once './dbconnect.php';
 
 if (!function_exists("elapsed_time")) {
-    function elapsed_time($timestamp, $precision = 2)
-    {
+    function elapsed_time($timestamp, $precision = 2) {
         $time = time() - $timestamp;
         $a = array('decade' => 315576000, 'year' => 31557600, 'month' => 2629800, 'week' => 604800, 'day' => 86400, 'hour' => 3600, 'min' => 60, 'sec' => 1);
         $i = 0;
         $result = "";
         foreach ($a as $k => $v) {
             $$k = floor($time / $v);
-            if ($$k) $i++;
-            $time = $i >= $precision ? 0 : $time - $$k * $v;
+            if ($$k) {
+                $i++;
+            }
+
+            $time = $i >= $precision ? 0 : $time-$$k * $v;
             $s = $$k > 1 ? 's' : '';
             $$k = $$k ? $$k . ' ' . $k . $s . ' ' : '';
             $result .= $$k;
@@ -30,7 +32,7 @@ if (!function_exists("elapsed_time")) {
 
 $curtime = (new DateTime())->format("Y-m-d H:i:s");
 
-if (!isset($_POST['delete'])) {  // view devices and reservation status
+if (!isset($_POST['delete'])) { // view devices and reservation status
     if (!isset($_GET['idx'])) {
         die("no idx");
     }
@@ -79,7 +81,7 @@ if (!isset($_POST['delete'])) {  // view devices and reservation status
     $arr = array('devices' => $devices, 'reserve' => $reserve);
     $json = json_encode($arr, JSON_PRETTY_PRINT);
     echo $json;
-} else {  // delete reservation
+} else { // delete reservation
     if (!isset($_POST['idx'])) {
         die("no idx to delete");
     }

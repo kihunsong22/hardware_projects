@@ -1,144 +1,49 @@
-<?php
+<html style="overflow:hidden; border: 0px solid grey;">
 
-//use the code below to embed device control to other external pages
-//<iframe src="http://iotsv.cafe24.com/devices.php?dev_num=1" frameborder="0" width="300" height="163" scrolling="no"></iframe>
+<head>
+    <link rel="stylesheet" href="styles/layout.css" type="text/css">
+    <script type="text/javascript" src="/scripts/moment.js"></script>
+    <!--    <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js"></script>-->
+</head>
 
-ini_set("display_errors", 1);
-ini_set("display_startup_errors", 1);
-error_reporting(E_ALL);
+<body>
+    <div class="wrapper row2">
+        <div id="container" class="clear" style="padding:0px">
+            <div id="homepage">
+                <section id="services" class="clear" style="margin: 0px">
+                    <iframe width="0" height="0" style="border:0" name="dummyframe" id="dummyframe" style="display: none;"></iframe>
+                    <article style="border: 0px solid black;">
+                        <figure><img src="images/con0.png" width="32" height="32" alt="" id="status_img"></figure>
+                        <strong>Device <span id="devnum">X</span> - <span id="cur_status">X</span></strong>
 
-include_once('dbconnect.php');
+                        <form action="/index.php" method="post" target="dummyframe" style="margin: 0;">
+                            ON <input type="radio" name="control" id="radio_on" checked value="1" onclick="setSubmitButton()">
+                            / OFF <input type="radio" name="control" id="radio_off" value="0" onclick="setSubmitButton()"><br>
+                            예약: <input type="text" id="res_input" placeholder="년-월-일&nbsp;시:분:초" name="reservation" onFocus="setRes(this)" onclick="setSubmitButton()" onblur="setSubmitButton()"><br>
+                            반복: <input type="text" id="rep_input" placeholder="시:분:초" name="repeat" onFocus="setRep(this)" onclick="setSubmitButton()" onblur="setSubmitButton()">
+                            <br>
+                            월<input type="checkbox" name="day[]" value="1">&nbsp; 화<input type="checkbox" name="day[]" value="2">&nbsp;
+                            수<input type="checkbox" name="day[]" value="3">&nbsp; 목<input type="checkbox" name="day[]" value="4">&nbsp;
+                            금<input type="checkbox" name="day[]" value="5">&nbsp; 토<input type="checkbox" name="day[]" value="6">&nbsp;
+                            일<input type="checkbox" name="day[]" value="7">
+                            <input type="hidden" id="hid_devnum" name="devnum" value="X">
+                            <!-- <input type="hidden" id="hid_onoff" name="onoff" value="X"><br> -->
+                            <input type="submit" id="onoff" value="Turn On" class="orange">
+                        </form>
 
-if(!function_exists("elapsed_time")){
-    function elapsed_time($timestamp, $precision = 2) {
-        $time = time() - $timestamp;
-        $a = array('decade' => 315576000, 'year' => 31557600, 'month' => 2629800, 'week' => 604800, 'day' => 86400, 'hour' => 3600, 'min' => 60, 'sec' => 1);
-        $i = 0;
-        $result = "";
-        foreach($a as $k => $v) {
-            $$k = floor($time/$v);
-            if ($$k) $i++;
-            $time = $i >= $precision ? 0 : $time - $$k * $v;
-            $s = $$k > 1 ? 's' : '';
-            $$k = $$k ? $$k.' '.$k.$s.' ' : '';
-            $result .= $$k;
-        }
-        return $result ? $result : '0 sec ';
-    }
-}
+                        <br>
+                        <p style="padding: 0 0 0 10px;">last online: <a onclick="return false" id="last_online"> X </a> ago</p>
+                        <p id="showReserve" style="border: 1px black solid; padding: 0 0 0 10px; margin: 3px;">
+                        </p>
+                    </article>
+                </section>
+            </div>
+        </div>
+    </div>
+    <!--    <script>-->
+    <!--    </script>-->
+</body>
 
-$curtime = (new DateTime())->format("Y-m-d H:i:s");
+</html>
 
-echo '<link rel="stylesheet" href="styles/layout.css" type="text/css">';
-
-// SHOW DEVICES
-$article = '
-<iframe width="0" height="0" border="0" name="dummyframe" id="dummyframe" style="display: none;"></iframe>
-<article style="border: 0px solid black;">
-	<figure><img src="images/con###IMG###.png" width="32" height="32" alt="">
-	</figure><strong>Device ###DEVNUM### - ###STATUS###</strong><br>
-	<form action="/index.php" method="post" target="dummyframe"
-		onSubmit="setTimeout(function(){window.location.reload();}, 100)">
-		<input type="hidden" name="devnum" value="###DEVNUM###"><input type="hidden" name="onoff" value="###ONOFF###">
-		<!---###reserve###--->
-		<!---###---><br><input type="submit" id="onoff" value="###ONOFFTEXT###" class="orange"></form><br>
-	<p>last online: <a onclick="return false">###SEC###</a>ago</p>
-</article>
-';
-
-//$article = '
-//<iframe width="0" height="0" border="0" name="dummyframe" id="dummyframe" style="display: none;"></iframe>
-//<article style="border: 1px solid black;">
-//	<figure><img src="images/con###IMG###.png" width="32" height="32" alt="">
-//	</figure><strong>Device ###DEVNUM### - ###STATUS###</strong><br>
-//	<form action="/index.php" method="post" target="dummyframe"
-//		onSubmit="setTimeout(function(){window.location.reload();}, 100)">
-//		<input type="hidden" name="devnum" value="###DEVNUM###"><input type="hidden" name="onoff" value="###ONOFF###">
-//		<input type="text" id="input" placeholder=year-month-day&nbsp;hour:min:sec name="reservation" onFocus="this.value=(this.value==\'\' ? \''.$curtime.'\' : this.value);"><br>
-//		<!---###---><br><input type="submit" id="onoff" value="###ONOFFTEXT###"></form><br>
-//	<p>last online: <a onclick="return false">###SEC###</a>ago</p>
-//</article>
-//';
-$reserveField ='<input type="text" id="input" placeholder=year-month-day&nbsp;hour:min:sec name="reservation" onFocus="this.value=(this.value==\'\' ? \''.$curtime.'\' : this.value);"><br>';
-$reserveText = '<p>예약: ###RESTIME###</p>';
-$repeatText = '<p>반복: ###REP1### ~ ###REP2### 에 ###REPSTATUS###</p>';
-
-function show_devices($idx){
-    global $devices, $conn;
-    global $article, $reserveText, $repeatText, $reserveField;
-
-    $SQL = "SELECT * FROM `devices` ORDER BY `dev_num` ASC";
-    $result = mysqli_query($conn, $SQL);
-    $num_rows = mysqli_num_rows($result);
-
-    $devices[7] = "0";
-    for($i=1; $i<=$num_rows; $i++){
-        $row = mysqli_fetch_assoc($result);
-        if($i == $idx){
-            $devices[0] = $row['dev_num'];
-            $devices[1] = $row['update_time'];
-            $devices[2] = $row['cur_status'];
-            $devices[3] = $row['set_status'];
-            $devices[4] = $row['reserve'];
-            $devices[5] = $row['repeat_start'];
-            $devices[6] = $row['repeat_stop'];
-        }
-    }
-
-    $downtime = elapsed_time(strtotime($devices[1]));
-    $online = strpos($downtime, "min")==false ? 1 : 0;
-    $cur_status = $devices[2]==1 ? "on" : "off";
-    $set_status_text = $devices[3]=="1" ? "TURN OFF" : "TURN ON";
-    $set_status = $devices[3]=="1" ? "0" : "1";
-    $set_reserve = $devices[4]==NULL ? 0 : 1;
-    $ser_repeat = $devices[5]==NULL ? 0 : 1;
-
-    if(strpos($downtime, "min") == true)    {    $online = 0;    }
-    else if(strpos($downtime, "hour") == true)    {    $online = 0;    }
-    else if(strpos($downtime, "day") == true)    {    $online = 0;    }
-    else if(strpos($downtime, "week") == true)    {    $online = 0;    }
-    else if(strpos($downtime, "month") == true)    {    $online = 0;    }
-    else if(strpos($downtime, "month") == true)    {    $online = 0;    }
-    else     {    $online = 1;    }
-
-
-    $html = $article;
-    $html = str_replace("###DEVNUM###", $devices[0], $html);
-    $html = str_replace("###IMG###", $online, $html);
-    $html = str_replace("###SEC###", $downtime, $html);
-    $html = str_replace("###STATUS###", $cur_status, $html);
-    $html = str_replace("###ONOFF###", $set_status , $html);
-    if($set_reserve){  // DB에 reserve가 존재하므로 예약 취소
-        $html = str_replace("###ONOFFTEXT###", "예약 취소" , $html);
-        $html = str_replace("<!---###reserve###--->", $reserveText, $html);
-
-        $reserveNotifyText = $devices[4];
-        $reserveNotifyText .= " 에 ".($devices[3]==1 ? "켜기" : "끄기");
-        $html = str_replace("###RESTIME###", $reserveNotifyText, $html);
-    }elseif($ser_repeat){  // 반복 취소
-        $html = str_replace("###ONOFFTEXT###", "반복 취소" , $html);
-        $html = str_replace("<!---###reserve###--->", $repeatText, $html);
-        $html = str_replace("###REP1###", $devices[5], $html);
-        $html = str_replace("###REP2###", $devices[6], $html);
-        $html = str_replace("###REPSTATUS###", $devices[3]==1 ? "켜기" : "끄기", $html);
-
-    }else{
-        $html = str_replace("<!---###reserve###--->", $reserveField, $html);
-        $html = str_replace("###ONOFFTEXT###", $set_status_text , $html);
-    }
-
-    if(($idx+1) % 3 == 0){
-        $html = str_replace("<article", '<article class="last"', $html);
-    }
-
-    return $html;
-}
-
-if(isset($_GET['dev_num'])){
-    $dev_num = $_GET['dev_num'];
-    echo '<html><body><div class="wrapper row2"><div id="container" class="clear" style="padding:0px"><div id="homepage"><section id="services" class="clear" style="margin: 0px">
-	<iframe width="0" height="0" border="0" name="dummyframe" id="dummyframe"></iframe>';
-    $html = show_devices($dev_num);
-    echo $html;
-    echo '</section></div></div></div></body></html>';
-}
+<script type="text/javascript" src="/scripts/devices.js"></script>
