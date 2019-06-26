@@ -60,8 +60,10 @@ function setSubmitButton(){
         }else if(control == 0){
             document.getElementById("onoff").value = "Turn Off"
         }
-    }else{
+    }else if(rep_input==""){
         document.getElementById('onoff').value = "예약"
+    }else{
+        document.getElementById('onoff').value = "반복"
     }
 }
 

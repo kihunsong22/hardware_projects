@@ -33,7 +33,7 @@
 
                         <br>
                         <p style="padding: 0 0 0 10px;">last online: <a onclick="return false" id="last_online"> X </a> ago</p>
-                        <p id="showReserve" style="border: 1px black solid; padding: 0 0 0 10px;">
+                        <p id="showReserve" style="border: 1px black solid; padding: 0 0 0 10px; margin: 3px;">
                         </p>
                     </article>
                 </section>
