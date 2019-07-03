@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a8dcefdc-d2fa-49d2-8c72-817da0870dd2" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/devices2.php" beforeDir="false" afterPath="$PROJECT_DIR$/Server/devices2.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/scripts/devices.js" beforeDir="false" afterPath="$PROJECT_DIR$/Server/scripts/devices.js" afterDir="false" />
-    </list>
+    <list default="true" id="a8dcefdc-d2fa-49d2-8c72-817da0870dd2" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,32 +16,31 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Server/index2.php">
+        <entry file="file://$PROJECT_DIR$/Server/scripts/devices.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-8">
-              <caret line="61" column="12" selection-start-line="61" selection-start-column="12" selection-end-line="61" selection-end-column="12" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Server/devices2.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="40" column="14" selection-start-line="40" selection-start-column="14" selection-end-line="40" selection-end-column="14" />
+            <state relative-caret-position="378">
+              <caret line="123" lean-forward="true" selection-start-line="123" selection-end-line="123" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Server/scripts/devices.js">
+        <entry file="file://$PROJECT_DIR$/Server/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="75" column="21" lean-forward="true" selection-start-line="75" selection-start-column="21" selection-end-line="75" selection-end-column="21" />
+            <state relative-caret-position="284">
+              <caret line="157" lean-forward="true" selection-start-line="157" selection-end-line="157" />
               <folding>
-                <element signature="n#style#0;n#input#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#iframe#0;n#!!top" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Server/devices.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="39" selection-start-column="39" selection-end-column="39" />
             </state>
           </provider>
         </entry>
@@ -53,8 +48,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Server/api.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="352">
-              <caret line="71" column="38" lean-forward="true" selection-start-line="71" selection-start-column="38" selection-end-line="71" selection-end-column="38" />
+            <state relative-caret-position="1692">
+              <caret line="94" column="1" selection-start-line="94" selection-start-column="1" selection-end-line="94" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -62,8 +57,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Server/styles/layout.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="298">
-              <caret line="117" lean-forward="true" selection-start-line="117" selection-end-line="117" />
+            <state relative-caret-position="7974">
+              <caret line="443" selection-start-line="443" selection-end-line="443" />
             </state>
           </provider>
         </entry>
@@ -71,17 +66,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Server/upload.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
-              <caret line="16" selection-start-line="16" selection-end-line="16" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Server/upload2.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="14" column="23" lean-forward="true" selection-start-line="14" selection-start-column="23" selection-end-line="14" selection-end-column="23" />
+            <state relative-caret-position="378">
+              <caret line="21" selection-start-line="21" selection-end-line="21" />
             </state>
           </provider>
         </entry>
@@ -125,13 +111,13 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/Server/index.php" />
-        <option value="$PROJECT_DIR$/Server/devices.php" />
         <option value="$PROJECT_DIR$/Server/upload2.php" />
         <option value="$PROJECT_DIR$/Server/api.php" />
         <option value="$PROJECT_DIR$/Server/styles/layout.css" />
         <option value="$PROJECT_DIR$/Server/index2.php" />
         <option value="$PROJECT_DIR$/Server/scripts/devices.js" />
         <option value="$PROJECT_DIR$/Server/devices2.php" />
+        <option value="$PROJECT_DIR$/Server/devices.php" />
       </list>
     </option>
   </component>
@@ -139,9 +125,9 @@
     <servers />
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="952" />
-    <option name="width" value="977" />
-    <option name="height" value="1038" />
+    <option name="x" value="951" />
+    <option name="width" value="978" />
+    <option name="height" value="1039" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="1" id="Add" />
@@ -224,17 +210,18 @@
       <workItem from="1561292204994" duration="3621000" />
       <workItem from="1561331363460" duration="4277000" />
       <workItem from="1561343724471" duration="1532000" />
+      <workItem from="1562041528180" duration="59000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="55887000" />
+    <option name="totallyTimeSpent" value="55946000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13959731" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14161074" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -246,7 +233,7 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
-      <window_info active="true" anchor="bottom" id="File Transfer" order="9" visible="true" weight="0.06657224" />
+      <window_info active="true" anchor="bottom" id="File Transfer" order="9" visible="true" weight="0.13597734" />
       <window_info anchor="bottom" id="Database Changes" order="10" />
       <window_info anchor="bottom" id="Terminal" order="11" weight="0.12747875" />
       <window_info anchor="bottom" id="Event Log" order="12" side_tool="true" />
@@ -263,17 +250,31 @@
     <entry file="file://$PROJECT_DIR$/Server/dbconnect.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/Server/index.php">
+    <entry file="file://$PROJECT_DIR$/Server/index2.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="179" column="25" lean-forward="true" selection-start-line="179" selection-start-column="25" selection-end-line="179" selection-end-column="25" />
+        <state relative-caret-position="1098">
+          <caret line="61" column="12" selection-start-line="61" selection-start-column="12" selection-end-line="61" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Server/api.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1692">
+          <caret line="94" column="1" selection-start-line="94" selection-start-column="1" selection-end-line="94" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Server/styles/layout.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="7974">
+          <caret line="443" selection-start-line="443" selection-end-line="443" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Server/upload.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="16" selection-start-line="16" selection-end-line="16" />
+        <state relative-caret-position="378">
+          <caret line="21" selection-start-line="21" selection-end-line="21" />
         </state>
       </provider>
     </entry>
@@ -284,53 +285,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Server/styles/layout.css">
+    <entry file="file://$PROJECT_DIR$/Server/devices2.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="298">
-          <caret line="117" lean-forward="true" selection-start-line="117" selection-end-line="117" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Server/api.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="71" column="38" lean-forward="true" selection-start-line="71" selection-start-column="38" selection-end-line="71" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Server/devices.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-57">
-          <caret line="65" column="28" lean-forward="true" selection-start-line="65" selection-start-column="28" selection-end-line="65" selection-end-column="28" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#section#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
+        <state relative-caret-position="392">
+          <caret line="40" column="14" selection-start-line="40" selection-start-column="14" selection-end-line="40" selection-end-column="14" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Server/scripts/devices.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="75" column="21" lean-forward="true" selection-start-line="75" selection-start-column="21" selection-end-line="75" selection-end-column="21" />
+        <state relative-caret-position="378">
+          <caret line="123" lean-forward="true" selection-start-line="123" selection-end-line="123" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Server/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="284">
+          <caret line="157" lean-forward="true" selection-start-line="157" selection-end-line="157" />
           <folding>
-            <element signature="n#style#0;n#input#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#iframe#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Server/index2.php">
+    <entry file="file://$PROJECT_DIR$/Server/devices.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-8">
-          <caret line="61" column="12" selection-start-line="61" selection-start-column="12" selection-end-line="61" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Server/devices2.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="40" column="14" selection-start-line="40" selection-start-column="14" selection-end-line="40" selection-end-column="14" />
+        <state>
+          <caret column="39" selection-start-column="39" selection-end-column="39" />
         </state>
       </provider>
     </entry>

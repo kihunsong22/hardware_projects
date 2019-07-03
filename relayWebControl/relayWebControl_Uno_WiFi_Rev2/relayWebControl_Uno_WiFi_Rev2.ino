@@ -72,6 +72,11 @@ void setup(){
 
 
 void loop(){
+  while ( WiFi.status() != WL_CONNECTED ){
+    WiFi.begin(ssid, pass);
+    delay(10000);
+  }
+
   if (client.available() > 0) {
     char t = client.read();
 		payload.concat(t);
