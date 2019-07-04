@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="9.4.0">
+<eagle version="9.4.2">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -19234,14 +19234,14 @@ Source: http://www.cypress.com .. 38-12025_0P_V.pdf</description>
 <text x="-2.54" y="-5.08" size="1.27" layer="21">&gt;VALUE</text>
 </package>
 <package name="5267-8">
-<pad name="P$1" x="0" y="0" drill="0.8" shape="long" rot="R90"/>
+<pad name="P$1" x="0" y="0" drill="1" shape="long" rot="R90"/>
 <pad name="P$2" x="2.5" y="0" drill="0.8" shape="long" rot="R90"/>
 <pad name="P$3" x="5" y="0" drill="0.8" shape="long" rot="R90"/>
 <pad name="P$4" x="7.5" y="0" drill="0.8" shape="long" rot="R90"/>
 <pad name="P$5" x="10" y="0" drill="0.8" shape="long" rot="R90"/>
 <pad name="P$6" x="12.5" y="0" drill="0.8" shape="long" rot="R90"/>
 <pad name="P$7" x="15" y="0" drill="0.8" shape="long" rot="R90"/>
-<pad name="P$8" x="17.5" y="0" drill="0.8" shape="long" rot="R90"/>
+<pad name="P$8" x="17.5" y="0" drill="1" shape="long" rot="R90"/>
 <wire x1="19.95" y1="1.8" x2="-0.9" y2="1.8" width="0.127" layer="21"/>
 <wire x1="-2.45" y1="0.2" x2="-2.45" y2="-3.1" width="0.127" layer="21"/>
 <wire x1="0.75" y1="1.75" x2="1.25" y2="1.25" width="0.127" layer="21"/>

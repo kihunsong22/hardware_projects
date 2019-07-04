@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.05" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
 <layer number="2" name="Route2" color="16" fill="1" visible="no" active="no"/>
@@ -19435,8 +19435,8 @@ Source: http://www.cypress.com .. 38-12025_0P_V.pdf</description>
 <part name="GND15" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="GND" device=""/>
 <part name="C11" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0805" package3d_urn="urn:adsk.eagle:package:23617/2" value="100nF"/>
 <part name="U3" library="ch340g" deviceset="CH340G" device="" value="CH340C"/>
-<part name="C13" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="CPOL-US" device="SMCB" package3d_urn="urn:adsk.eagle:package:25920/5" value="100uF"/>
-<part name="C14" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0805" package3d_urn="urn:adsk.eagle:package:23617/2" value="100nF"/>
+<part name="C12" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="CPOL-US" device="SMCB" package3d_urn="urn:adsk.eagle:package:25920/5" value="100uF"/>
+<part name="C13" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0805" package3d_urn="urn:adsk.eagle:package:23617/2" value="100nF"/>
 <part name="GND16" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="GND" device=""/>
 <part name="Q1" library="SamacSys_Parts" deviceset="UMH3NFHATN" device="" value="UMH3N"/>
 <part name="J4" library="con-molex-spox" deviceset="5267-4" device="" value="I2C"/>
@@ -20009,11 +20009,11 @@ Analog: ADC</text>
 <attribute name="NAME" x="48.7172" y="165.0492" size="1.778" layer="95"/>
 <attribute name="VALUE" x="48.7172" y="163.0172" size="1.778" layer="95"/>
 </instance>
-<instance part="C13" gate="G$1" x="24.13" y="30.48" smashed="yes">
+<instance part="C12" gate="G$1" x="24.13" y="30.48" smashed="yes">
 <attribute name="NAME" x="25.146" y="31.115" size="1.778" layer="95"/>
 <attribute name="VALUE" x="25.146" y="26.289" size="1.778" layer="96"/>
 </instance>
-<instance part="C14" gate="G$1" x="36.83" y="27.94" smashed="yes" rot="R180">
+<instance part="C13" gate="G$1" x="36.83" y="27.94" smashed="yes" rot="R180">
 <attribute name="NAME" x="38.1" y="31.115" size="1.778" layer="95"/>
 <attribute name="VALUE" x="38.1" y="26.289" size="1.778" layer="96"/>
 </instance>
@@ -20178,8 +20178,8 @@ Analog: ADC</text>
 <segment>
 <pinref part="GND26" gate="1" pin="GND"/>
 <wire x1="24.13" y1="25.4" x2="24.13" y2="22.86" width="0.1524" layer="91"/>
-<pinref part="C13" gate="G$1" pin="-"/>
-<pinref part="C14" gate="G$1" pin="1"/>
+<pinref part="C12" gate="G$1" pin="-"/>
+<pinref part="C13" gate="G$1" pin="1"/>
 <wire x1="24.13" y1="22.86" x2="24.13" y2="20.32" width="0.1524" layer="91"/>
 <wire x1="36.83" y1="25.4" x2="36.83" y2="22.86" width="0.1524" layer="91"/>
 <junction x="24.13" y="22.86"/>
@@ -20276,8 +20276,8 @@ Analog: ADC</text>
 <wire x1="24.13" y1="36.83" x2="24.13" y2="40.64" width="0.1524" layer="91"/>
 <wire x1="24.13" y1="36.83" x2="24.13" y2="33.02" width="0.1524" layer="91"/>
 <junction x="24.13" y="36.83"/>
-<pinref part="C13" gate="G$1" pin="+"/>
-<pinref part="C14" gate="G$1" pin="2"/>
+<pinref part="C12" gate="G$1" pin="+"/>
+<pinref part="C13" gate="G$1" pin="2"/>
 <wire x1="36.83" y1="33.02" x2="36.83" y2="36.83" width="0.1524" layer="91"/>
 <pinref part="SJR1" gate="G$1" pin="VCC"/>
 <wire x1="36.83" y1="36.83" x2="36.83" y2="46.99" width="0.1524" layer="91"/>

@@ -215,7 +215,7 @@
 <wire x1="52" y1="-1" x2="51" y2="-2" width="0" layer="20"/>
 <wire x1="0" y1="-1" x2="1" y2="-2" width="0" layer="20"/>
 <text x="0.762" y="53.086" size="2.2352" layer="21" font="vector" ratio="10" rot="SR270">ArimScience</text>
-<text x="26.7208" y="41.9608" size="1.778" layer="21" font="vector">V1.4</text>
+<text x="25.1968" y="42.4688" size="1.778" layer="21" font="vector" ratio="12">V1.4.1</text>
 <circle x="20.4216" y="22.9108" radius="0.113590625" width="0.508" layer="21"/>
 <text x="39.5224" y="-1.8796" size="1.4224" layer="21" font="vector" ratio="12">RESET</text>
 <text x="29.8196" y="-1.8288" size="1.4224" layer="21" font="vector" ratio="12">FLASH</text>
@@ -2716,12 +2716,7 @@ design rules under a new name.</description>
 <wire x1="17.378" y1="21.396" x2="18.542" y2="21.396" width="0.762" layer="1"/>
 <wire x1="18.542" y1="14.42215625" x2="18.542" y2="21.396" width="0.762" layer="1"/>
 <contactref element="J5" pad="P$1"/>
-<via x="4.572" y="10.414" extent="1-16" drill="0.35"/>
-<wire x1="4.572" y1="10.414" x2="2.332" y2="8.174" width="0.762" layer="16"/>
-<wire x1="2.332" y1="8.174" x2="1.778" y2="8.174" width="0.762" layer="16"/>
-<wire x1="4.572" y1="10.414" x2="7.2644" y2="13.1064" width="0.762" layer="1"/>
-<wire x1="17.22624375" y1="13.1064" x2="18.542" y2="14.42215625" width="0.762" layer="1"/>
-<wire x1="7.2644" y1="13.1064" x2="17.22624375" y2="13.1064" width="0.762" layer="1"/>
+<wire x1="18.542" y1="14.42215625" x2="17.22624375" y2="13.1064" width="0.762" layer="1"/>
 <wire x1="30.098" y1="12.466" x2="24.9936" y2="12.466" width="0.762" layer="1"/>
 <wire x1="24.9936" y1="12.466" x2="21.316" y2="12.466" width="0.762" layer="1"/>
 <wire x1="30.098" y1="6.266" x2="30.098" y2="12.466" width="0.762" layer="1"/>
@@ -2752,6 +2747,8 @@ design rules under a new name.</description>
 <wire x1="21.316" y1="12.466" x2="19.35984375" y2="14.42215625" width="0.762" layer="1"/>
 <wire x1="24.9936" y1="10.6238" x2="24.9936" y2="12.466" width="0.762" layer="1"/>
 <wire x1="40.7562" y1="50.5038" x2="40.7562" y2="55.8104" width="0.762" layer="1"/>
+<wire x1="6.7104" y1="13.1064" x2="1.778" y2="8.174" width="0.762" layer="1"/>
+<wire x1="17.22624375" y1="13.1064" x2="6.7104" y2="13.1064" width="0.762" layer="1"/>
 </signal>
 <signal name="D-_USB">
 <contactref element="J1" pad="D-"/>

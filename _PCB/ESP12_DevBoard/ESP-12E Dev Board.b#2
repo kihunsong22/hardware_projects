@@ -2203,14 +2203,14 @@ design rules under a new name.</description>
 <element name="U3" library="ch340g" package="SOIC16" value="CH340C" x="26.226" y="18.734" smashed="yes">
 <attribute name="NAME" x="30.544" y="20.258" size="1.0668" layer="25" font="vector" rot="R180"/>
 </element>
-<element name="VR1" library="SamacSys_Parts" package="RK09K1130BGM" value="RK09K1130AAU" x="11.001" y="58.025" smashed="yes">
-<attribute name="DESCRIPTION" value="Audio single pot. 10K Vertical 15mm,1B Alps RK09K Series, Linear Potentiometer with a 6 mm Dia. Shaft, 10k, +/-20%, Through Hole" x="50.371" y="44.055" size="1.778" layer="27" display="off"/>
-<attribute name="HEIGHT" value="mm" x="50.371" y="44.055" size="1.778" layer="27" display="off"/>
-<attribute name="MANUFACTURER_NAME" value="ALPS" x="50.371" y="44.055" size="1.778" layer="27" display="off"/>
-<attribute name="MANUFACTURER_PART_NUMBER" value="RK09K1130A6S" x="50.371" y="44.055" size="1.778" layer="27" display="off"/>
-<attribute name="MOUSER_PART_NUMBER" value="688-RK09K1130A6S" x="50.371" y="44.055" size="1.778" layer="27" display="off"/>
-<attribute name="MOUSER_PRICE-STOCK" value="https://www.mouser.com/Search/Refine.aspx?Keyword=688-RK09K1130A6S" x="50.371" y="44.055" size="1.778" layer="27" display="off"/>
-<attribute name="NAME" x="10.537759375" y="55.52156875" size="1.0668" layer="25" font="vector" align="center"/>
+<element name="VR1" library="SamacSys_Parts" package="RK09K1130BGM" value="RK09K1130AAU" x="11.255" y="58.025" smashed="yes">
+<attribute name="DESCRIPTION" value="Audio single pot. 10K Vertical 15mm,1B Alps RK09K Series, Linear Potentiometer with a 6 mm Dia. Shaft, 10k, +/-20%, Through Hole" x="50.625" y="44.055" size="1.778" layer="27" display="off"/>
+<attribute name="HEIGHT" value="mm" x="50.625" y="44.055" size="1.778" layer="27" display="off"/>
+<attribute name="MANUFACTURER_NAME" value="ALPS" x="50.625" y="44.055" size="1.778" layer="27" display="off"/>
+<attribute name="MANUFACTURER_PART_NUMBER" value="RK09K1130A6S" x="50.625" y="44.055" size="1.778" layer="27" display="off"/>
+<attribute name="MOUSER_PART_NUMBER" value="688-RK09K1130A6S" x="50.625" y="44.055" size="1.778" layer="27" display="off"/>
+<attribute name="MOUSER_PRICE-STOCK" value="https://www.mouser.com/Search/Refine.aspx?Keyword=688-RK09K1130A6S" x="50.625" y="44.055" size="1.778" layer="27" display="off"/>
+<attribute name="NAME" x="10.791759375" y="55.52156875" size="1.0668" layer="25" font="vector" align="center"/>
 </element>
 <element name="J11" library="con-molex-spox" package="5267-3" value="BTN2" x="8.128" y="28.146" smashed="yes">
 <attribute name="NAME" x="6.096" y="25.606" size="1.0668" layer="21" font="vector"/>
@@ -2707,9 +2707,9 @@ design rules under a new name.</description>
 <wire x1="9.936" y1="27.261" x2="10.628" y2="27.953" width="0.762" layer="1"/>
 <wire x1="10.628" y1="27.953" x2="10.628" y2="28.146" width="0.762" layer="1"/>
 <wire x1="10.708" y1="34.99" x2="10.708" y2="39.5067625" width="0.762" layer="1"/>
-<wire x1="11.9514" y1="43.9754" x2="13.501" y2="45.525" width="0.762" layer="1"/>
+<wire x1="11.9514" y1="43.7214" x2="13.755" y2="45.525" width="0.762" layer="1"/>
 <wire x1="10.708" y1="39.5067625" x2="11.9514" y2="40.7501625" width="0.762" layer="1"/>
-<wire x1="11.9514" y1="40.7501625" x2="11.9514" y2="43.9754" width="0.762" layer="1"/>
+<wire x1="11.9514" y1="40.7501625" x2="11.9514" y2="43.7214" width="0.762" layer="1"/>
 <wire x1="10.628" y1="28.146" x2="11.513" y2="27.261" width="0.762" layer="1"/>
 <wire x1="11.513" y1="27.261" x2="17.378" y2="21.396" width="0.762" layer="1"/>
 <wire x1="11.513" y1="27.261" x2="9.936" y2="27.261" width="0.762" layer="1"/>
@@ -3018,8 +3018,8 @@ design rules under a new name.</description>
 <signal name="N$2">
 <contactref element="VR1" pad="2"/>
 <contactref element="J3" pad="P$3"/>
-<wire x1="11.001" y1="45.525" x2="9.0864" y2="43.6104" width="0.508" layer="1"/>
-<wire x1="9.0864" y1="43.6104" x2="7.8247625" y2="43.6104" width="0.508" layer="1"/>
+<wire x1="11.255" y1="45.525" x2="9.3404" y2="43.6104" width="0.508" layer="1"/>
+<wire x1="9.3404" y1="43.6104" x2="7.8247625" y2="43.6104" width="0.508" layer="1"/>
 <wire x1="7.8247625" y1="43.6104" x2="6.8244" y2="42.6100375" width="0.508" layer="1"/>
 <wire x1="6.8244" y1="42.6100375" x2="6.8244" y2="25.26295625" width="0.508" layer="1"/>
 <wire x1="3.16444375" y1="21.603" x2="1.778" y2="21.603" width="0.508" layer="1"/>
