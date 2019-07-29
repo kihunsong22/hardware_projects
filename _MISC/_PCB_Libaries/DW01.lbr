@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--/2305177/132515/2.43/6/3/Integrated Circuit/-->
-<!DOCTYPE curve SYSTEM "eagle.dtd">
-<eagle version="7.7.0">
+<!DOCTYPE eagle SYSTEM "eagle.dtd">
+<eagle version="9.4.2">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
+<setting keepoldvectorfont="yes"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+<grid distance="0.05" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="16" name="Bottom" color="1" fill="1" visible="yes" active="yes"/>
@@ -63,14 +63,14 @@
 <package name="SOT95P280X135-6N">
 <description>&lt;b&gt;SOT2-23-6&lt;/b&gt;&lt;br&gt;
 </description>
-<smd name="1" x="-1.25" y="0.95" dx="1.25" dy="0.6" layer="1" rot="R0"/>
-<smd name="2" x="-1.25" y="0" dx="1.25" dy="0.6" layer="1" rot="R0"/>
-<smd name="3" x="-1.25" y="-0.95" dx="1.25" dy="0.6" layer="1" rot="R0"/>
-<smd name="4" x="1.25" y="-0.95" dx="1.25" dy="0.6" layer="1" rot="R0"/>
-<smd name="5" x="1.25" y="0" dx="1.25" dy="0.6" layer="1" rot="R0"/>
-<smd name="6" x="1.25" y="0.95" dx="1.25" dy="0.6" layer="1" rot="R0"/>
-<text x="0" y="0" align="center" size="1.27" layer="25" rot="R0" >&gt;NAME</text>
-<text x="0" y="0" align="center" size="1.27" layer="27" rot="R0" >&gt;VALUE</text>
+<smd name="1" x="-1.25" y="0.95" dx="1.25" dy="0.6" layer="1"/>
+<smd name="2" x="-1.25" y="0" dx="1.25" dy="0.6" layer="1"/>
+<smd name="3" x="-1.25" y="-0.95" dx="1.25" dy="0.6" layer="1"/>
+<smd name="4" x="1.25" y="-0.95" dx="1.25" dy="0.6" layer="1"/>
+<smd name="5" x="1.25" y="0" dx="1.25" dy="0.6" layer="1"/>
+<smd name="6" x="1.25" y="0.95" dx="1.25" dy="0.6" layer="1"/>
+<text x="0" y="0" size="1.27" layer="25" align="center">&gt;NAME</text>
+<text x="0" y="0" size="1.27" layer="27" align="center">&gt;VALUE</text>
 <wire x1="-2.125" y1="1.835" x2="2.125" y2="1.835" width="0.05" layer="51"/>
 <wire x1="2.125" y1="1.835" x2="2.125" y2="-1.835" width="0.05" layer="51"/>
 <wire x1="2.125" y1="-1.835" x2="-2.125" y2="-1.835" width="0.05" layer="51"/>
@@ -89,18 +89,18 @@
 </packages>
 <symbols>
 <symbol name="DW01">
-<wire x1="5.08" y1="2.54" x2="20.32" y2="2.54" width="0.254" layer="94"/>
-<wire x1="20.32" y1="-7.62" x2="20.32" y2="2.54" width="0.254" layer="94"/>
-<wire x1="20.32" y1="-7.62" x2="5.08" y2="-7.62" width="0.254" layer="94"/>
-<wire x1="5.08" y1="2.54" x2="5.08" y2="-7.62" width="0.254" layer="94"/>
-<text x="21.59" y="7.62" align="center-left" size="1.778" layer="95">&gt;NAME</text>
-<text x="21.59" y="5.08" align="center-left" size="1.778" layer="96">&gt;VALUE</text>
-<pin name="OD" x="0" y="0" length="middle" direction="io" rot="R0"/>
-<pin name="CSI" x="0" y="-2.54" length="middle" direction="io" rot="R0"/>
-<pin name="OC" x="0" y="-5.08" length="middle" direction="io" rot="R0"/>
-<pin name="VSS" x="25.4" y="0" length="middle" direction="io" rot="R180"/>
-<pin name="VDD" x="25.4" y="-2.54" length="middle" direction="io" rot="R180"/>
-<pin name="TD" x="25.4" y="-5.08" length="middle" direction="io" rot="R180"/>
+<wire x1="-7.62" y1="5.08" x2="7.62" y2="5.08" width="0.254" layer="94"/>
+<wire x1="7.62" y1="-5.08" x2="7.62" y2="5.08" width="0.254" layer="94"/>
+<wire x1="7.62" y1="-5.08" x2="-7.62" y2="-5.08" width="0.254" layer="94"/>
+<wire x1="-7.62" y1="5.08" x2="-7.62" y2="-5.08" width="0.254" layer="94"/>
+<text x="-7.62" y="8.89" size="1.778" layer="95" align="center-left">&gt;NAME</text>
+<text x="-7.62" y="6.35" size="1.778" layer="96" align="center-left">&gt;VALUE</text>
+<pin name="OD" x="-12.7" y="2.54" length="middle"/>
+<pin name="CSI" x="-12.7" y="0" length="middle"/>
+<pin name="OC" x="-12.7" y="-2.54" length="middle"/>
+<pin name="VSS" x="12.7" y="2.54" length="middle" rot="R180"/>
+<pin name="VDD" x="12.7" y="0" length="middle" rot="R180"/>
+<pin name="TD" x="12.7" y="-2.54" length="middle" rot="R180"/>
 </symbol>
 </symbols>
 <devicesets>
@@ -113,21 +113,21 @@ Source: &lt;a href="https://datasheet.lcsc.com/szlcsc/1906271838_SLKORMICRO-Elec
 <devices>
 <device name="" package="SOT95P280X135-6N">
 <connects>
-<connect gate="G$1" pin="OD" pad="1"/>
 <connect gate="G$1" pin="CSI" pad="2"/>
 <connect gate="G$1" pin="OC" pad="3"/>
+<connect gate="G$1" pin="OD" pad="1"/>
 <connect gate="G$1" pin="TD" pad="4"/>
 <connect gate="G$1" pin="VDD" pad="5"/>
 <connect gate="G$1" pin="VSS" pad="6"/>
 </connects>
 <technologies>
 <technology name="">
-<attribute name="Mouser_Part_Number" value="" constant="no"/>
-<attribute name="Mouser_Price-Stock" value="" constant="no"/>
-<attribute name="Manufacturer_Name" value="Slkor" constant="no"/>
-<attribute name="Manufacturer_Part_Number" value="DW01" constant="no"/>
-<attribute name="Description" value="ic" constant="no"/>
-<attribute name="Height" value="1.35mm" constant="no"/>
+<attribute name="DESCRIPTION" value="ic" constant="no"/>
+<attribute name="HEIGHT" value="1.35mm" constant="no"/>
+<attribute name="MANUFACTURER_NAME" value="Slkor" constant="no"/>
+<attribute name="MANUFACTURER_PART_NUMBER" value="DW01" constant="no"/>
+<attribute name="MOUSER_PART_NUMBER" value="" constant="no"/>
+<attribute name="MOUSER_PRICE-STOCK" value="" constant="no"/>
 </technology>
 </technologies>
 </device>
