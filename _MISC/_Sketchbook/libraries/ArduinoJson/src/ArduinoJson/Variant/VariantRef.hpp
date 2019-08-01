@@ -222,6 +222,7 @@ class VariantRef : public VariantRefBase<VariantData>,
   // set(ArrayConstRef)
   // set(ObjectRef)
   // set(ObjecConstRef)
+  // set(const JsonDocument&)
   template <typename TVariant>
   typename enable_if<IsVisitable<TVariant>::value, bool>::type set(
       const TVariant &value) const;
@@ -378,6 +379,14 @@ class VariantConstRef : public VariantRefBase<const VariantData>,
       operator[](TChar *key) const {
     const CollectionData *obj = variantAsObject(_data);
     return VariantConstRef(obj ? obj->get(adaptString(key)) : 0);
+  }
+
+  FORCE_INLINE bool operator==(VariantConstRef lhs) const {
+    return variantEquals(_data, lhs._data);
+  }
+
+  FORCE_INLINE bool operator!=(VariantConstRef lhs) const {
+    return !variantEquals(_data, lhs._data);
   }
 };
 }  // namespace ARDUINOJSON_NAMESPACE
