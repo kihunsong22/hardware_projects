@@ -136,7 +136,7 @@
 </symbol>
 </symbols>
 <devicesets>
-<deviceset name="MT3608" prefix="U">
+<deviceset name="MT3608" prefix="IC">
 <gates>
 <gate name="G$1" symbol="MT3608" x="-5.08" y="0"/>
 </gates>
