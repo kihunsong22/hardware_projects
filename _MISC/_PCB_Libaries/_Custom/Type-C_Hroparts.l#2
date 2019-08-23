@@ -159,12 +159,12 @@
 <library>
 <packages>
 <package name="TYPE-C-31-M-17">
-<smd name="GND" x="-2.75" y="0.4" dx="2" dy="0.8" layer="1" rot="R90"/>
-<smd name="GND_2" x="2.75" y="0.4" dx="2" dy="0.8" layer="1" rot="R90"/>
-<smd name="VBUS" x="-1.52" y="0.4" dx="2" dy="0.76" layer="1" rot="R90"/>
-<smd name="VBUS_2" x="1.52" y="0.4" dx="2" dy="0.76" layer="1" rot="R90"/>
-<smd name="CC1" x="-0.5" y="0.4" dx="2" dy="0.7" layer="1" rot="R90"/>
-<smd name="CC2" x="0.5" y="0.4" dx="2" dy="0.7" layer="1" rot="R90"/>
+<smd name="GND" x="-2.75" y="0" dx="1.2" dy="0.8" layer="1" rot="R90"/>
+<smd name="GND_2" x="2.75" y="0" dx="1.2" dy="0.8" layer="1" rot="R90"/>
+<smd name="VBUS" x="-1.52" y="0" dx="1.2" dy="0.76" layer="1" rot="R90"/>
+<smd name="VBUS_2" x="1.52" y="0" dx="1.2" dy="0.76" layer="1" rot="R90"/>
+<smd name="CC1" x="-0.5" y="0" dx="1.2" dy="0.7" layer="1" rot="R90"/>
+<smd name="CC2" x="0.5" y="0" dx="1.2" dy="0.7" layer="1" rot="R90"/>
 <pad name="P$2" x="4.32" y="-0.15" drill="0.6" diameter="1.1" shape="long" rot="R90"/>
 <wire x1="4.62" y1="-0.45" x2="4.62" y2="0.15" width="0" layer="46"/>
 <wire x1="4.02" y1="-0.45" x2="4.02" y2="0.15" width="0" layer="46"/>
@@ -216,7 +216,7 @@
 </symbol>
 </symbols>
 <devicesets>
-<deviceset name="TYPE-C-31-M-17" prefix="J">
+<deviceset name="TYPE-C-31-M-17">
 <gates>
 <gate name="G$1" symbol="TYPE-C-31-M-17" x="-2.54" y="0"/>
 </gates>
