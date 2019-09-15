@@ -12,11 +12,10 @@
 
 //This example shows how to store and read binary data from file on SD card to database.
 
-//Required HTTPClientESP32Ex library to be installed  https://github.com/mobizt/HTTPClientESP32Ex
 
 #include <WiFi.h>
-#include "FirebaseESP32.h"
-#include "SD.h"
+#include <FirebaseESP32.h>
+#include <SD.h>
 
 
 #define FIREBASE_HOST "YOUR_FIREBASE_PROJECT.firebaseio.com" //Do not include https:// in FIREBASE_HOST
@@ -137,7 +136,7 @@ void setup() {
 
 
   //Set file (read file from SD card and set to database)
-  if (Firebase.setFile(firebaseData, path + "/Binary/File/data1", "/source.txt"))
+  if (Firebase.setFile(firebaseData, StorageType::SD, path + "/Binary/File/data1", "/source.txt"))
   {
     Serial.println("PASSED");
     Serial.println("------------------------------------");
@@ -156,7 +155,7 @@ void setup() {
 
 
   //Set file (read file from SD card and set to database)
-  if (Firebase.setFile(firebaseData, path + "/Binary/File/data2", "/source.txt"))
+  if (Firebase.setFile(firebaseData, StorageType::SD, path + "/Binary/File/data2", "/source.txt"))
   {
     Serial.println("PASSED");
     Serial.println("------------------------------------");
@@ -176,7 +175,7 @@ void setup() {
 
 
   //Set file (read file from SD card and set to database)
-  if (Firebase.setFile(firebaseData, path + "/Binary/File/data3", "/source.txt"))
+  if (Firebase.setFile(firebaseData, StorageType::SD, path + "/Binary/File/data3", "/source.txt"))
   {
     Serial.println("PASSED");
     Serial.println("------------------------------------");
@@ -196,7 +195,7 @@ void setup() {
 
 
   //Set file (read file from SD card and set to database)
-  if (Firebase.setFile(firebaseData, path + "/Binary/File/data4", "/source.txt"))
+  if (Firebase.setFile(firebaseData, StorageType::SD, path + "/Binary/File/data4", "/source.txt"))
   {
     Serial.println("PASSED");
     Serial.println("------------------------------------");
@@ -216,7 +215,7 @@ void setup() {
 
 
   //Set file (read file from SD card and set to database)
-  if (Firebase.setFile(firebaseData, path + "/Binary/File/data5", "/source.txt"))
+  if (Firebase.setFile(firebaseData, StorageType::SD, path + "/Binary/File/data5", "/source.txt"))
   {
     Serial.println("PASSED");
     Serial.println("------------------------------------");
@@ -237,7 +236,7 @@ void setup() {
 
 
   //Set file (read file from SD card and set to database)
-  if (Firebase.setFile(firebaseData, path + "/Binary/File/data6", "/source.txt"))
+  if (Firebase.setFile(firebaseData, StorageType::SD, path + "/Binary/File/data6", "/source.txt"))
   {
     Serial.println("PASSED");
     Serial.println("------------------------------------");
@@ -257,7 +256,7 @@ void setup() {
 
 
   //Set file (read file from SD card and set to database)
-  if (Firebase.setFile(firebaseData, path + "/Binary/File/data7", "/source.txt"))
+  if (Firebase.setFile(firebaseData, StorageType::SD, path + "/Binary/File/data7", "/source.txt"))
   {
     Serial.println("PASSED");
     Serial.println("------------------------------------");
@@ -277,7 +276,7 @@ void setup() {
 
 
   //Set file (read file from SD card and set to database)
-  if (Firebase.setFile(firebaseData, path + "/Binary/File/data8", "/source.txt"))
+  if (Firebase.setFile(firebaseData, StorageType::SD, path + "/Binary/File/data8", "/source.txt"))
   {
     Serial.println("PASSED");
     Serial.println("------------------------------------");
@@ -297,7 +296,7 @@ void setup() {
 
 
   //Set file (read file from SD card and set to database)
-  if (Firebase.setFile(firebaseData, path + "/Binary/File/data9", "/source.txt"))
+  if (Firebase.setFile(firebaseData, StorageType::SD, path + "/Binary/File/data9", "/source.txt"))
   {
     Serial.println("PASSED");
     Serial.println("------------------------------------");
@@ -317,7 +316,7 @@ void setup() {
 
 
   //Set file (read file from SD card and set to database)
-  if (Firebase.setFile(firebaseData, path + "/Binary/File/data10", "/source.txt"))
+  if (Firebase.setFile(firebaseData, StorageType::SD, path + "/Binary/File/data10", "/source.txt"))
   {
     Serial.println("PASSED");
     Serial.println("------------------------------------");
@@ -338,7 +337,7 @@ void setup() {
   Serial.println("Get file data 1 test...");
 
   //Get file (download file to SD card)
-  if (Firebase.getFile(firebaseData, path + "/Binary/File/data1", "/target_1.txt"))
+  if (Firebase.getFile(firebaseData, StorageType::SD, path + "/Binary/File/data1", "/target_1.txt"))
   {
 
     Serial.println("PASSED");
@@ -361,7 +360,7 @@ void setup() {
   Serial.println("Get file data 2 test...");
 
   //Get file (download file to SD card)
-  if (Firebase.getFile(firebaseData, path + "/Binary/File/data2", "/target_2.txt"))
+  if (Firebase.getFile(firebaseData, StorageType::SD, path + "/Binary/File/data2", "/target_2.txt"))
   {
 
     Serial.println("PASSED");
@@ -384,7 +383,7 @@ void setup() {
   Serial.println("Get file data 3 test...");
 
   //Get file (download file to SD card)
-  if (Firebase.getFile(firebaseData, path + "/Binary/File/data3", "/target_3.txt"))
+  if (Firebase.getFile(firebaseData, StorageType::SD, path + "/Binary/File/data3", "/target_3.txt"))
   {
 
     Serial.println("PASSED");
@@ -406,7 +405,7 @@ void setup() {
   Serial.println("Get file data 4 test...");
 
   //Get file (download file to SD card)
-  if (Firebase.getFile(firebaseData, path + "/Binary/File/data4", "/target_4.txt"))
+  if (Firebase.getFile(firebaseData, StorageType::SD, path + "/Binary/File/data4", "/target_4.txt"))
   {
 
     Serial.println("PASSED");
@@ -429,7 +428,7 @@ void setup() {
   Serial.println("Get file data 5 test...");
 
   //Get file (download file to SD card)
-  if (Firebase.getFile(firebaseData, path + "/Binary/File/data5", "/target_5.txt"))
+  if (Firebase.getFile(firebaseData, StorageType::SD, path + "/Binary/File/data5", "/target_5.txt"))
   {
 
     Serial.println("PASSED");
@@ -452,7 +451,7 @@ void setup() {
   Serial.println("Get file data 6 test...");
 
   //Get file (download file to SD card)
-  if (Firebase.getFile(firebaseData, path + "/Binary/File/data6", "/target_6.txt"))
+  if (Firebase.getFile(firebaseData, StorageType::SD, path + "/Binary/File/data6", "/target_6.txt"))
   {
 
     Serial.println("PASSED");
@@ -474,7 +473,7 @@ void setup() {
   Serial.println("Get file data 7 test...");
 
   //Get file (download file to SD card)
-  if (Firebase.getFile(firebaseData, path + "/Binary/File/data7", "/target_7.txt"))
+  if (Firebase.getFile(firebaseData, StorageType::SD, path + "/Binary/File/data7", "/target_7.txt"))
   {
 
     Serial.println("PASSED");
@@ -496,7 +495,7 @@ void setup() {
   Serial.println("Get file data 8 test...");
 
   //Get file (download file to SD card)
-  if (Firebase.getFile(firebaseData, path + "/Binary/File/data8", "/target_8.txt"))
+  if (Firebase.getFile(firebaseData, StorageType::SD, path + "/Binary/File/data8", "/target_8.txt"))
   {
 
     Serial.println("PASSED");
@@ -519,7 +518,7 @@ void setup() {
   Serial.println("Get file data 9 test...");
 
   //Get file (download file to SD card)
-  if (Firebase.getFile(firebaseData, path + "/Binary/File/data9", "/target_9.txt"))
+  if (Firebase.getFile(firebaseData, StorageType::SD, path + "/Binary/File/data9", "/target_9.txt"))
   {
 
     Serial.println("PASSED");
@@ -541,7 +540,7 @@ void setup() {
   Serial.println("Get file data 10 test...");
 
   //Get file (download file to SD card)
-  if (Firebase.getFile(firebaseData, path + "/Binary/File/data10", "/target_10.txt"))
+  if (Firebase.getFile(firebaseData, StorageType::SD, path + "/Binary/File/data10", "/target_10.txt"))
   {
 
     Serial.println("PASSED");
@@ -581,7 +580,7 @@ void setup() {
   file.close();
 
   //Append file data to database
-  if (Firebase.pushFile(firebaseData, path + "/Binary/File/Logs", "/push_in.txt"))
+  if (Firebase.pushFile(firebaseData, StorageType::SD, path + "/Binary/File/Logs", "/push_in.txt"))
   {
     Serial.println("PASSED");
     Serial.println("PATH: " + firebaseData.dataPath());
@@ -594,7 +593,7 @@ void setup() {
     Serial.println("Get appended file data test...");
 
     //Get the recently appended file (download file to SD card)
-    if (Firebase.getFile(firebaseData, path + "/Binary/File/Logs/" + firebaseData.pushName(), "/push_out.txt"))
+    if (Firebase.getFile(firebaseData, StorageType::SD, path + "/Binary/File/Logs/" + firebaseData.pushName(), "/push_out.txt"))
     {
 
       Serial.println("PASSED");

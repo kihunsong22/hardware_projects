@@ -44,6 +44,8 @@ THE SOFTWARE.
 
 #ifdef __AVR__
 #include <avr/pgmspace.h>
+#elif defined(ARDUINO_ARCH_SAMD)
+#include <avr/dtostrf.h>
 #else
 //#define PROGMEM /* empty */
 //#define pgm_read_byte(x) (*(x))
@@ -819,6 +821,14 @@ class MPU6050 {
         // DMP_CFG_2 register
         uint8_t getDMPConfig2();
         void setDMPConfig2(uint8_t config);
+
+		// Calibration Routines
+		void CalibrateGyro(uint8_t Loops = 15); // Fine tune after setting offsets with less Loops.
+		void CalibrateAccel(uint8_t Loops = 15);// Fine tune after setting offsets with less Loops.
+		void PID(uint8_t ReadAddress, float kP,float kI, uint8_t Loops);  // Does the math
+		void PrintActiveOffsets(); // See the results of the Calibration
+
+
 
         // special methods for MotionApps 2.0 implementation
         #ifdef MPU6050_INCLUDE_DMP_MOTIONAPPS20

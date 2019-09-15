@@ -13,7 +13,7 @@
 //This example shows how to backup and restore database data
 
 #include <WiFi.h>
-#include "FirebaseESP32.h"
+#include <FirebaseESP32.h>
 
 #define FIREBASE_HOST "YOUR_FIREBASE_PROJECT.firebaseio.com" //Without http:// or https://
 #define FIREBASE_AUTH "YOUR_FIREBASE_DATABASE_SECRET"
@@ -59,7 +59,7 @@ void setup()
   //Download and save data at defined database path to SD card.
   //{TARGET_NODE_PATH} is the full path of database to backup and restore.
 
-  if (!Firebase.backup(firebaseData, "/{TARGET_NODE_PATH}", "/{PATH_IN_SD_CARD}"))
+  if (!Firebase.backup(firebaseData, StorageType::SD, "/{TARGET_NODE_PATH}", "/{PATH_IN_SD_CARD}"))
   {
     Serial.println("FAILED");
     Serial.println("REASON: " + firebaseData.fileTransferError());
@@ -81,7 +81,7 @@ void setup()
   //Restore data to defined database path using backup file on SD card.
   //{TARGET_NODE_PATH} is the full path of database to restore
 
-  if (!Firebase.restore(firebaseData, "/{TARGET_NODE_PATH}", "/{PATH_IN_SD_CARD}"))
+  if (!Firebase.restore(firebaseData, StorageType::SD, "/{TARGET_NODE_PATH}", "/{PATH_IN_SD_CARD}"))
   {
     Serial.println("FAILED");
     Serial.println("REASON: " + firebaseData.fileTransferError());

@@ -1,16 +1,14 @@
 /*
- * Google's Firebase Realtime Database Arduino Library for ESP32, version 3.1.2
+ * Google's Firebase Realtime Database Arduino Library for ESP32, version 3.2.1
  * 
-* June 18, 2019
+ * September 1, 2019
  * 
+ *
  * Feature Added:
- * - Get the seconds of server's timestamp through getInt(). 
- * 
+ *
+ *
  * Feature Fixed:
- * - Int data type returned instead of double for large double with zero decimal place
- * - Update timestamp example for proper printed value
- * - Update other examples for double printed value
- * 
+ *
  * 
  * This library provides ESP32 to perform REST API by GET PUT, POST, PATCH, DELETE data from/to with Google's Firebase database using get, set, update
  * and delete calls. 
@@ -45,11 +43,12 @@
 #include <Arduino.h>
 #include <WiFi.h>
 #include "FS.h"
-#include "SPIFFS.h"
-#include <HTTPClientESP32Ex.h>
+#include <SPIFFS.h>
+#include "FirebaseESP32HTTPClient.h"
 #include <functional>
 #include <SD.h>
 #include <vector>
+#include "FirebaseJson.h"
 
 #define FIEBASE_PORT 443
 
@@ -185,23 +184,23 @@ static const char ESP32_FIREBASE_STR_119[] PROGMEM = "delete";
 
 static const char ESP32_FIREBASE_STR_120[] PROGMEM = "fcm.googleapis.com";
 static const char ESP32_FIREBASE_STR_121[] PROGMEM = "/fcm/send";
-static const char ESP32_FIREBASE_STR_122[] PROGMEM = "{\"notification\":{";
+static const char ESP32_FIREBASE_STR_122[] PROGMEM = "\"notification\":{";
 static const char ESP32_FIREBASE_STR_123[] PROGMEM = "\"title\":\"";
-static const char ESP32_FIREBASE_STR_124[] PROGMEM = "\",\"body\":\"";
-static const char ESP32_FIREBASE_STR_125[] PROGMEM = ",\"icon\":\"";
-static const char ESP32_FIREBASE_STR_126[] PROGMEM = ",\"click_action\":\"";
+static const char ESP32_FIREBASE_STR_124[] PROGMEM = "\"body\":\"";
+static const char ESP32_FIREBASE_STR_125[] PROGMEM = "\"icon\":\"";
+static const char ESP32_FIREBASE_STR_126[] PROGMEM = "\"click_action\":\"";
 static const char ESP32_FIREBASE_STR_127[] PROGMEM = "}";
-static const char ESP32_FIREBASE_STR_128[] PROGMEM = ",\"to\":\"";
+static const char ESP32_FIREBASE_STR_128[] PROGMEM = "\"to\":\"";
 static const char ESP32_FIREBASE_STR_129[] PROGMEM = "application/json";
-static const char ESP32_FIREBASE_STR_130[] PROGMEM = ",\"registration_ids\":[";
+static const char ESP32_FIREBASE_STR_130[] PROGMEM = "\"registration_ids\":[";
 static const char ESP32_FIREBASE_STR_131[] PROGMEM = "Authorization: key=";
 static const char ESP32_FIREBASE_STR_132[] PROGMEM = ",";
 static const char ESP32_FIREBASE_STR_133[] PROGMEM = "]";
 static const char ESP32_FIREBASE_STR_134[] PROGMEM = "/topics/";
-static const char ESP32_FIREBASE_STR_135[] PROGMEM = ",\"data\":";
-static const char ESP32_FIREBASE_STR_136[] PROGMEM = ",\"priority\":\"";
-static const char ESP32_FIREBASE_STR_137[] PROGMEM = ",\"time_to_live\":";
-static const char ESP32_FIREBASE_STR_138[] PROGMEM = ",\"collapse_key\":\"";
+static const char ESP32_FIREBASE_STR_135[] PROGMEM = "\"data\":";
+static const char ESP32_FIREBASE_STR_136[] PROGMEM = "\"priority\":\"";
+static const char ESP32_FIREBASE_STR_137[] PROGMEM = "\"time_to_live\":";
+static const char ESP32_FIREBASE_STR_138[] PROGMEM = "\"collapse_key\":\"";
 static const char ESP32_FIREBASE_STR_139[] PROGMEM = "\"multicast_id\":";
 static const char ESP32_FIREBASE_STR_140[] PROGMEM = "\"success\":";
 static const char ESP32_FIREBASE_STR_141[] PROGMEM = "\"failure\":";
@@ -226,6 +225,8 @@ static const char ESP32_FIREBASE_STR_159[] PROGMEM = "ms";
 static const char ESP32_FIREBASE_STR_160[] PROGMEM = "&writeSizeLimit=";
 static const char ESP32_FIREBASE_STR_161[] PROGMEM = "{\".value\":";
 static const char ESP32_FIREBASE_STR_162[] PROGMEM = "&format=export";
+static const char ESP32_FIREBASE_STR_163[] PROGMEM = "{";
+static const char ESP32_FIREBASE_STR_164[] PROGMEM = "Flash memory was not ready";
 
 static const unsigned char ESP32_FIREBASE_base64_table[65] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
 
@@ -235,7 +236,7 @@ class QueueInfo;
 class FirebaseESP32;
 class FCMObject;
 
-struct QueueStorageType
+struct StorageType
 {
   static const uint8_t SPIFFS = 0;
   static const uint8_t SD = 1;
@@ -246,9 +247,40 @@ typedef void (*StreamTimeoutCallback)(bool);
 typedef void (*QueueInfoCallback)(QueueInfo);
 
 static std::vector<std::reference_wrapper<FirebaseData>> firebaseDataObject;
-static uint8_t dataObjectIndex = 0;
-static uint8_t streamIndex = 0;
-static uint8_t errorQueueIndex = 0;
+static uint8_t dataObjectIndex __attribute__((used)) = 0;
+static uint8_t streamIndex __attribute__((used)) = 0;
+static uint8_t errorQueueIndex __attribute__((used)) = 0;
+
+class StreamData
+{
+public:
+  StreamData();
+  ~StreamData();
+  String dataPath();
+  String streamPath();
+  int intData();
+  float floatData();
+  double doubleData();
+  bool boolData();
+  String stringData();
+  String jsonData();
+  std::vector<uint8_t> blobData();
+  FirebaseJson &jsonObject();
+  String dataType();
+  String eventType();
+  void empty();
+  friend FirebaseESP32;
+  FirebaseJson *_json;
+
+private:
+  std::string _streamPath = "";
+  std::string _path = "";
+  std::string _data = "";
+  std::vector<uint8_t> _blob = std::vector<uint8_t>();
+  std::string _dataTypeStr = "";
+  std::string _eventTypeStr = "";
+  uint8_t _dataType = 0;
+};
 
 class FCMObject
 {
@@ -331,6 +363,14 @@ public:
   void setDataMessage(const String &jsonString);
 
   /*
+    Set the custom data message type information.
+    
+    @param json - The FirebaseJson object.
+
+  */
+  void setDataMessage(FirebaseJson &json);
+
+  /*
     Clear custom data message type information.
     
   */
@@ -380,16 +420,15 @@ public:
   friend FirebaseData;
 
 private:
-  bool fcm_connect(HTTPClientESP32Ex &client);
-  bool fcm_connect(HTTPClientESP32Ex &client, std::vector<const char *> _rootCA);
+  bool fcm_connect(FirebaseESP32HTTPClient &net);
 
-  bool fcm_send(HTTPClientESP32Ex &client, int &httpcode, uint8_t messageType);
+  bool fcm_send(FirebaseESP32HTTPClient &net, int &httpcode, uint8_t messageType);
 
   void fcm_buildHeader(std::string &header, size_t payloadSize);
 
   void fcm_buildPayload(std::string &msg, uint8_t messageType);
 
-  bool getFCMServerResponse(HTTPClientESP32Ex &client, int &httpcode);
+  bool getFCMServerResponse(FirebaseESP32HTTPClient &net, int &httpcode);
 
   void clear();
 
@@ -414,16 +453,16 @@ class QueryFilter
 public:
   QueryFilter();
   ~QueryFilter();
-  void orderBy(const String &);
-  void limitToFirst(int);
-  void limitToLast(int);
-  void startAt(float);
-  void endAt(float);
-  void startAt(const String &);
-  void endAt(const String &);
-  void equalTo(int);
-  void equalTo(const String &);
-  void clear();
+  QueryFilter &orderBy(const String &);
+  QueryFilter &limitToFirst(int);
+  QueryFilter &limitToLast(int);
+  QueryFilter &startAt(float);
+  QueryFilter &endAt(float);
+  QueryFilter &startAt(const String &);
+  QueryFilter &endAt(const String &);
+  QueryFilter &equalTo(int);
+  QueryFilter &equalTo(const String &);
+  QueryFilter &clear();
   friend FirebaseESP32;
   friend FirebaseData;
 
@@ -469,6 +508,7 @@ struct QueueItem
   uint32_t timestamp = 0;
   uint8_t runCount = 0;
   uint8_t runIndex = 0;
+  uint8_t storageType = 0;
 
   std::string path = "";
   std::string payload = "";
@@ -513,22 +553,21 @@ public:
 
   /*
     Store Firebase's authentication credentials.
-    
+
     @param host - Your Firebase database project host e.g. Your_ProjectID.firebaseio.com.
     @param auth - Your database secret.
+    @param rootCA - Root CA certificate base64 string (PEM file).
+    @param rootCAFile - Root CA certificate DER file (binary).
+    @param StorageType - Type of storage, StorageType::SD and StorageType::SPIFFS.
 
-   */
+    Root CA certificate DER file is only support in Core SDK v2.5.x
+
+  */
   void begin(const String &host, const String &auth);
 
-  /*
-    Store Firebase's authentication credentials.
-    
-    @param host - Your Firebase database project host e.g. Your_ProjectID.firebaseio.com.
-    @param auth - Your database secret.
-    @param rootCA - Base64 encoded root certificate string.
-
-   */
   void begin(const String &host, const String &auth, const char *rootCA);
+
+  void begin(const String &host, const String &auth, const String &rootCAFile, uint8_t storageType);
 
   /*
     Stop Firebase and release all resources.
@@ -797,11 +836,28 @@ public:
   bool pushJSON(FirebaseData &dataObj, const String &path, const String &jsonString);
 
   /*
+    Append new child nodes's key and value (using FirebaseJson object) to the defined database path.
 
-    Append new child nodes's key and value (using JSON data) and the virtual child ".priority" to the defined database path.
+    @param dataObj - Firebase Data Object to hold data and instances.
+    @param path - Target database path which key and value in FirebaseJson object will be appended.
+    @param json - The appended FirebaseJson object.
+
+    @return - Boolean type status indicates the success of operation.
+
+    The new appended node's key will be stored in Firebase Data object,
+    which its value can be accessed via function [FirebaseData object].pushName().
+
+  */
+  bool pushJSON(FirebaseData &dataObj, const String &path, FirebaseJson &json);
+
+  /*
+
+    Append new child nodes's key and value (using JSON data or FirebaseJson object) and the virtual child ".priority" to the defined database path.
 
   */
   bool pushJSON(FirebaseData &dataObj, const String &path, const String &jsonString, float priority);
+
+  bool pushJSON(FirebaseData &dataObj, const String &path, FirebaseJson &json, float priority);
 
   /*
     Append new blob (binary data) to the defined database path.
@@ -827,11 +883,12 @@ public:
   bool pushBlob(FirebaseData &dataObj, const String &path, uint8_t *blob, size_t size, float priority);
 
   /*
-    Append new binary data from file store on SD card to the defined database path.
+    Append new binary data from file store on SD card/Flash memory to the defined database path.
 
     @param dataObj - Firebase Data Object to hold data and instances.
+    @param storageType - Type of storage to read file data, StorageType::SPIFS or StorageType::SD.
     @param path - Target database path which binary data from file will be appended.
-    @param fileName - File name (full file path) in SD card.
+    @param fileName - File name (full file path) in SD card/Flash memory.
 
     @return - Boolean type status indicates the success of operation.
     
@@ -839,14 +896,14 @@ public:
     which its value can be accessed via function [FirebaseData object].pushName().
 
    */
-  bool pushFile(FirebaseData &dataObj, const String &path, const String &fileName);
+  bool pushFile(FirebaseData &dataObj, uint8_t storageType, const String &path, const String &fileName);
 
   /*
 
-    Append new binary data from file store on SD card and the virtual child ".priority" to the defined database path.
+    Append new binary data from file store on SD card/Flash memory and the virtual child ".priority" to the defined database path.
 
   */
-  bool pushFile(FirebaseData &dataObj, const String &path, const String &fileName, float priority);
+  bool pushFile(FirebaseData &dataObj, uint8_t storageType, const String &path, const String &fileName, float priority);
 
   /*
     Append new Firebase server's timestamp to the defined database path.
@@ -1172,21 +1229,46 @@ public:
 
   /*
 
-    Set JSON data and virtual child ".priority" at the defined database path.
+    Set child nodes's key and value (using FirebaseJson object) to the defined database path.
+
+    This will replace any child nodes inside the defined path with node' s key
+    and value defined in FirebaseJson object.
+
+    @param dataObj - Firebase Data Object to hold data and instances.
+    @param path - Target database path which key and value in FirebaseJson object will be replaced or set.
+    @param json - The FirebaseJson object.
+
+    @return - Boolean type status indicates the success of operation.
+
+    Call [FirebaseData object].dataType to determine what type of data that successfully
+    stores in database.
+
+    Call [FirebaseData object].jsonData will return the JSON string value of
+    payload returned from server.
+
+  */
+  bool setJSON(FirebaseData &dataObj, const String &path, FirebaseJson &json);
+
+  /*
+
+    Set JSON data or FirebaseJson object and virtual child ".priority" at the defined database path.
 
   */
   bool setJSON(FirebaseData &dataObj, const String &path, const String &jsonString, float priority);
 
+  bool setJSON(FirebaseData &dataObj, const String &path, FirebaseJson &json, float priority);
+
   /*
 
-    Set child nodes's key and value (using JSON data) to the defined database path if defined database path's ETag matched the ETag value.
+    Set child nodes's key and value (using JSON data or FirebaseJson object) to the defined database path if defined database path's ETag matched the ETag value.
 
     This will replace any child nodes inside the defined path with node' s key
-    and value defined in JSON data.
+    and value defined in JSON data or FirebaseJson object.
 
     @param dataObj - Firebase Data Object to hold data and instances.
     @param path - Target database path which key and value in JSON data will be replaced or set.
     @param jsonString - The JSON string to set (should be valid JSON data).
+    @param json - The FirebaseJson object.
     @param ETag - Known unique identifier string (ETag) of defined database path.
 
     @return - Boolean type status indicates the success of operation.
@@ -1206,12 +1288,16 @@ public:
    */
   bool setJSON(FirebaseData &dataObj, const String &path, const String &jsonString, const String &ETag);
 
+  bool setJSON(FirebaseData &dataObj, const String &path, FirebaseJson &json, const String &ETag);
+
   /*
 
-    Set JSON data and the virtual child ".priority" if defined ETag matches at the defined database path 
+    Set JSON data or FirebaseJson object and the virtual child ".priority" if defined ETag matches at the defined database path 
 
   */
   bool setJSON(FirebaseData &dataObj, const String &path, const String &jsonString, float priority, const String &ETag);
+
+  bool setJSON(FirebaseData &dataObj, const String &path, FirebaseJson &json, float priority, const String &ETag);
 
   /*
     Set blob (binary data) at the defined database path.
@@ -1266,32 +1352,34 @@ public:
   bool setBlob(FirebaseData &dataObj, const String &path, uint8_t *blob, size_t size, float priority, const String &ETag);
 
   /*
-    Set binary data from file store on SD card to the defined database path.
+    Set binary data from file store on SD card/Flash memory to the defined database path.
 
     @param dataObj - Firebase Data Object to hold data and instances.
+    @param storageType - Type of storage to read file data, StorageType::SPIFS or StorageType::SD.
     @param path - Target database path which binary data from file will be set.
-    @param fileName - File name (full file path) in SD card.
+    @param fileName - File name (full file path) in SD card/Flash memory.
 
     @return - Boolean type status indicates the success of operation.
     
     No payload returned from server.
 
    */
-  bool setFile(FirebaseData &dataObj, const String &path, const String &fileName);
+  bool setFile(FirebaseData &dataObj, uint8_t storageType, const String &path, const String &fileName);
 
   /*
 
     Set binary data from file and virtual child ".priority" at the defined database path.
 
   */
-  bool setFile(FirebaseData &dataObj, const String &path, const String &fileName, float priority);
+  bool setFile(FirebaseData &dataObj, uint8_t storageType, const String &path, const String &fileName, float priority);
 
   /*
-    Set binary data from file store on SD card to the defined database path if defined database path's ETag matched the ETag value.
+    Set binary data from file store on SD card/Flash memory to the defined database path if defined database path's ETag matched the ETag value.
 
     @param dataObj - Firebase Data Object to hold data and instances.
+    @param storageType - Type of storage to read file data, StorageType::SPIFS or StorageType::SD.
     @param path - Target database path which binary data from file will be set.
-    @param fileName - File name (full file path) in SD card.
+    @param fileName - File name (full file path) in SD card/Flash memory.
     @param ETag - Known unique identifier string (ETag) of defined database path.
 
     @return - Boolean type status indicates the success of operation.
@@ -1302,14 +1390,14 @@ public:
     the operation will failed with HTTP code 412, Precondition Failed (ETag is not match).
 
    */
-  bool setFile(FirebaseData &dataObj, const String &path, const String &fileName, const String &ETag);
+  bool setFile(FirebaseData &dataObj, uint8_t storageType, const String &path, const String &fileName, const String &ETag);
 
   /*
 
     Set binary data from file and the virtual child ".priority" if defined ETag matches at the defined database path 
 
   */
-  bool setFile(FirebaseData &dataObj, const String &path, const String &fileName, float priority, const String &ETag);
+  bool setFile(FirebaseData &dataObj, uint8_t storageType, const String &path, const String &fileName, float priority, const String &ETag);
 
   /*
     Set Firebase server's timestamp to the defined database path.
@@ -1349,11 +1437,33 @@ public:
   bool updateNode(FirebaseData &dataObj, const String &path, const String &jsonString);
 
   /*
+    Update child nodes's key or exising key's value (using FirebaseJson object) under the defined database path.
 
-    Update child nodes's key or exising key's value and virtual child ".priority" (using JSON data) under the defined database path.
+    @param dataObj - Firebase Data Object to hold data and instances.
+    @param path - Target database path which key and value in FirebaseJson object will be update.
+    @param json - The FirebaseJson object used for update.
+
+    @return - Boolean type status indicates the success of operation.
+
+    Call [FirebaseData object].dataType to determine what type of data that successfully
+    stores in database.
+
+    Call [FirebaseData object].jsonData will return the json string value of
+    payload returned from server.
+
+    To reduce the network data usage, use updateNodeSilent instead.
+
+  */
+  bool updateNode(FirebaseData &dataObj, const String path, FirebaseJson &json);
+
+  /*
+
+    Update child nodes's key or exising key's value and virtual child ".priority" (using JSON data or FirebaseJson object) under the defined database path.
 
   */
   bool updateNode(FirebaseData &dataObj, const String &path, const String &jsonString, float priority);
+
+  bool updateNode(FirebaseData &dataObj, const String &path, FirebaseJson &json, float priority);
 
   /*
     Update child nodes's key or exising key's value (using JSON data) under the defined database path.
@@ -1371,11 +1481,28 @@ public:
   bool updateNodeSilent(FirebaseData &dataObj, const String &path, const String &jsonString);
 
   /*
+    Update child nodes's key or exising key's value (using FirebaseJson object) under the defined database path.
 
-    Update child nodes's key or exising key's value and virtual child ".priority" (using JSON data) under the defined database path.
+    @param dataObj - Firebase Data Object to hold data and instances.
+    @param path - Target database path which key and value in FirebaseJson object will be update.
+    @param json - The FirebaseJson object used for update.
+
+    @return - Boolean type status indicates the success of operation.
+
+    Owing to the objective of this function to reduce the netwok data usage,
+    no payload will be returned from server.
+
+  */
+  bool updateNodeSilent(FirebaseData &dataObj, const String &path, FirebaseJson &json);
+
+  /*
+
+    Update child nodes's key or exising key's value and virtual child ".priority" (using JSON data or FirebaseJson object) under the defined database path.
 
   */
   bool updateNodeSilent(FirebaseData &dataObj, const String &path, const String &jsonString, float priority);
+
+  bool updateNodeSilent(FirebaseData &dataObj, const String &path, FirebaseJson &json, float priority);
 
   /*
     Read the integer value at the defined database path.
@@ -1690,19 +1817,20 @@ public:
   bool getBlob(FirebaseData &dataObj, const String &path, std::vector<uint8_t> &target);
 
   /*
-    Download file data in database at defined database path and save to SD card.
+    Download file data in database at defined database path and save to SD card/Flash memory.
 
-    The downloaded data will be decoded to binary and save to SD card, then
+    The downloaded data will be decoded to binary and save to SD card/Flash memory, then
     please make sure that data at the defined database path is file type.
 
     @param dataObj - Firebase Data Object to hold data and instances.
+    @param storageType - Type of storage to write file data, StorageType::SPIFS or StorageType::SD.
     @param nodePath - Database path that file data will be downloaded.
-    @param fileName - File name (full path) to save in SD card.
+    @param fileName - File name (full path) to save in SD card/Flash memory.
 
     @return Boolean type status indicates the success of operation.
 
    */
-  bool getFile(FirebaseData &dataObj, const String &nodePath, const String &fileName);
+  bool getFile(FirebaseData &dataObj, uint8_t storageType, const String &nodePath, const String &fileName);
 
   /*
     Delete all child nodes at the defined database path.
@@ -1842,31 +1970,33 @@ public:
   void clearErrorQueue(FirebaseData &dataObj);
 
   /*
-    Backup (download) database at defined database path to SD card.
+    Backup (download) database at defined database path to SD card/Flash memory.
 
     @param dataObj - Firebase Data Object to hold data and instances.
+    @param StorageType - Type of storage, StorageType::SD and StorageType::SPIFFS.
     @param nodePath - Database path to be backuped.
-    @param dirPath - Folder in SD card to save the downloaed file.
+    @param dirPath - Folder in SD card/Flash memory to save the downloaed file.
 
     @return Boolean type status indicates the success of operation.
 
     The backup .json filename is constructed from the database path by replace slash (/) with dot (.).
 
    */
-  bool backup(FirebaseData &dataObj, const String &nodePath, const String &dirPath);
+  bool backup(FirebaseData &dataObj, uint8_t storageType, const String &nodePath, const String &dirPath);
 
   /*
-    Restore database at defined path usin backup file saved on SD card.
+    Restore database at defined path usin backup file saved on SD card/Flash memory.
 
     @param dataObj - Firebase Data Object to hold data and instances.
+    @param StorageType - Type of storage, StorageType::SD and StorageType::SPIFFS.
     @param nodePath - Database path to  be restored.
-    @param dirPath - Path/Folder in SD card that the backup file was saved. 
+    @param dirPath - Path/Folder in SD card/Flash memory that the backup file was saved. 
 
 
     @return Boolean type status indicates the success of operation.
     
    */
-  bool restore(FirebaseData &dataObj, const String &nodePath, const String &dirPath);
+  bool restore(FirebaseData &dataObj, uint8_t storageType, const String &nodePath, const String &dirPath);
 
   /*
   
@@ -1920,7 +2050,7 @@ public:
 
    @param dataObj - Firebase Data Object to hold data and instances.
    @param filename - File name to be saved.
-   @param storageType - Type of storage to save file, QueueStorageType::SPIFS or QueueStorageType::SD.
+   @param storageType - Type of storage to save file, StorageType::SPIFS or StorageType::SD.
     
   */
   bool saveErrorQueue(FirebaseData &dataObj, const String &filename, uint8_t storageType);
@@ -1930,7 +2060,7 @@ public:
    Delete file in Flash (SPIFFS) or SD card.
 
    @param filename - File name to delete.
-   @param storageType - Type of storage to save file, QueueStorageType::SPIFS or QueueStorageType::SD.
+   @param storageType - Type of storage to save file, StorageType::SPIFS or StorageType::SD.
     
   */
   bool deleteStorageFile(const String &filename, uint8_t storageType);
@@ -1941,7 +2071,7 @@ public:
 
    @param dataObj - Firebase Data Object to hold data and instances.
    @param filename - File name to be read and restore queues.
-   @param storageType - Type of storage to read file, QueueStorageType::SPIFS or QueueStorageType::SD.
+   @param storageType - Type of storage to read file, StorageType::SPIFS or StorageType::SD.
     
   */
   bool restoreErrorQueue(FirebaseData &dataObj, const String &filename, uint8_t storageType);
@@ -1951,7 +2081,7 @@ public:
 
     @param dataObj - Firebase Data Object to hold data and instances.
     @param filename - File name to be read and count for queues.
-    @param storageType - Type of storage to read file, QueueStorageType::SPIFS or QueueStorageType::SD.
+    @param storageType - Type of storage to read file, StorageType::SPIFS or StorageType::SD.
 
     @return Number (0-255) of queues store in defined SPIFFS file.
 
@@ -2059,14 +2189,15 @@ protected:
   bool setBlob(FirebaseData &dataObj, const std::string &path, uint8_t *blob, size_t size, bool queue, const std::string &priority, const std::string &etag);
 
   bool buildRequest(FirebaseData &dataObj, uint8_t firebaseMethod, uint8_t firebaseDataType, const std::string &path, const char *buff, bool queue, const std::string &priority, const std::string &etag = "");
-  bool buildRequestFile(FirebaseData &dataObj, uint8_t firebaseMethod, const std::string &path, const std::string &fileName, bool queue, const std::string &priority, const std::string &etag = "");
-  bool sendRequest(FirebaseData &dataObj, const std::string &path, const uint8_t _method, uint8_t dataType, const std::string &payload, const std::string &priority, const std::string &etag);
+  bool buildRequestFile(FirebaseData &dataObj, uint8_t storageType, uint8_t firebaseMethod, const std::string &path, const std::string &fileName, bool queue, const std::string &priority, const std::string &etag = "");
+  bool sendRequest(FirebaseData &dataObj, uint8_t storageType, const std::string &path, const uint8_t _method, uint8_t dataType, const std::string &payload, const std::string &priority, const std::string &etag);
   bool firebaseConnectStream(FirebaseData &dataObj, const std::string &path);
   bool getServerStreamResponse(FirebaseData &dataObj);
   bool getServerResponse(FirebaseData &dataObj);
   bool getDownloadResponse(FirebaseData &dataObj);
   bool getUploadResponse(FirebaseData &dataObj);
   void endFileTransfer(FirebaseData &dataObj);
+  void reconnect();
 
   void buildFirebaseRequest(FirebaseData &dataObj, const std::string &host, uint8_t _method, uint8_t dataType, const std::string &path, const std::string &auth, int payloadLength, std::string &request);
   void resetFirebasedataFlag(FirebaseData &dataObj);
@@ -2076,23 +2207,28 @@ protected:
   int firebaseConnect(FirebaseData &dataObj, const std::string &path, const uint8_t _method, uint8_t dataType, const std::string &payload, const std::string &priority);
   bool cancelCurrentResponse(FirebaseData &dataObj);
   void setDataType(FirebaseData &dataObj, const std::string &data);
+  void setSecure(FirebaseData &dataObj);
   bool commError(FirebaseData &dataObj);
   uint8_t openErrorQueue(FirebaseData &dataObj, const String &filename, uint8_t storageType, uint8_t mode);
   std::vector<std::string> splitString(int size, const char *str, const char delim);
 
   bool sdTest();
-  void createDirs(std::string dirs);
+  void createDirs(std::string dirs, uint8_t storageType);
   bool replace(std::string &str, const std::string &from, const std::string &to);
   std::string base64_encode_string(const unsigned char *src, size_t len);
-  void send_base64_encode_file(WiFiClient *tcp, const std::string &filePath);
+  void send_base64_encode_file(WiFiClient *net, const std::string &filePath, uint8_t storageType);
   bool base64_decode_string(const std::string src, std::vector<uint8_t> &out);
   bool base64_decode_file(File &file, const char *src, size_t len);
+  bool base64_decode_SPIFFS(File &file, const char *src, size_t len);
 
   bool sendFCMMessage(FirebaseData &dataObj, uint8_t messageType);
 
   std::string _host = "";
   std::string _auth = "";
-  std::vector<const char *> _rootCA = std::vector<const char *>();
+  std::shared_ptr<const char> _rootCA = nullptr;
+  int _certType = -1;
+  std::string _rootCAFile = "";
+  uint8_t _rootCAFileStoreageType = StorageType::SPIFFS;
 
   uint16_t _port = 443;
   bool _reconnectWiFi = false;
@@ -2118,6 +2254,16 @@ public:
     @return - Boolean type status indicates the success of operation.
    */
   bool pauseFirebase(bool pause);
+
+
+  /*
+
+    Get WiFi client instance.
+
+    @return - WiFi client instance.
+
+  */
+  WiFiClient &getWiFiClient();
 
   /*
     Determine the data type of payload returned from server.
@@ -2229,6 +2375,15 @@ public:
   String jsonData();
 
   /*
+
+    Return the Firebase JSON object of server returned payload.
+
+    @return FirebaseJson object.
+
+  */
+  FirebaseJson &jsonObject();
+
+  /*
     Return the blob data (uint8_t) array of server returned payload.
 
     @return Dynamic array of 8-bit unsigned integer i.e. std::vector<uint8_t>.
@@ -2305,9 +2460,9 @@ public:
   int httpCode();
 
   /*
-    Determine the name (full path) of backup file in SD card.
+    Determine the name (full path) of backup file in SD card/Flash memory.
     
-    @return String (String object) of file name that store on SD card after backup operation.
+    @return String (String object) of file name that store on SD card/Flash memory after backup operation.
 
    */
   String getBackupFilename();
@@ -2344,7 +2499,7 @@ public:
 
   FCMObject fcm;
 
-  HTTPClientESP32Ex http;
+  FirebaseESP32HTTPClient _net;
 
   QueryFilter queryFilter;
 
@@ -2403,6 +2558,8 @@ protected:
   std::string _etag = "";
   std::string _etag2 = "";
   std::string _priority = "";
+  uint8_t _storageType = 0;
+  FirebaseJson _json;
   uint16_t _maxBlobSize = 1024;
 
   std::vector<uint8_t> _blob = std::vector<uint8_t>();
@@ -2430,6 +2587,7 @@ protected:
   std::string getMethod(uint8_t method);
 
   void addQueue(uint8_t firebaseMethod,
+                uint8_t storageType,
                 uint8_t firebaseDataType,
                 const std::string path,
                 const std::string filename,
@@ -2447,35 +2605,6 @@ protected:
   void setQuery(QueryFilter &query);
 
   friend FirebaseESP32;
-};
-
-class StreamData
-{
-public:
-  StreamData();
-  ~StreamData();
-  String dataPath();
-  String streamPath();
-  int intData();
-  float floatData();
-  double doubleData();
-  bool boolData();
-  String stringData();
-  String jsonData();
-  std::vector<uint8_t> blobData();
-  String dataType();
-  String eventType();
-  void empty();
-  friend FirebaseESP32;
-
-protected:
-  std::string _streamPath = "";
-  std::string _path = "";
-  std::string _data = "";
-  std::vector<uint8_t> _blob = std::vector<uint8_t>();
-  std::string _dataTypeStr = "";
-  std::string _eventTypeStr = "";
-  uint8_t _dataType = 0;
 };
 
 extern FirebaseESP32 Firebase;

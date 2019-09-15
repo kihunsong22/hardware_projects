@@ -32,7 +32,7 @@ public:
   void end();
 
   int beginPacket(int implicitHeader = false);
-  int endPacket();
+  int endPacket(bool async = false);
 
   int parsePacket(int size = 0);
   int packetRssi();
@@ -66,6 +66,10 @@ public:
   void setSyncWord(int sw);
   void enableCrc();
   void disableCrc();
+  void enableInvertIQ();
+  void disableInvertIQ();
+  
+  void setOCP(uint8_t mA); // Over Current Protection control
 
   // deprecated
   void crc() { enableCrc(); }
@@ -84,6 +88,7 @@ private:
   void implicitHeaderMode();
 
   void handleDio0Rise();
+  bool isTransmitting();
 
   int getSpreadingFactor();
   long getSignalBandwidth();
