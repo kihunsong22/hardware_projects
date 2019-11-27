@@ -4,17 +4,19 @@
 #if ARDUINO >= 100
   #include "Arduino.h"
 #else
-  #include "WProgram.h"
+  #error "Unsupported Arduino version (< 1.0.0)"
 #endif
+
+#define RADIOLIB_DEBUG_PORT  Serial
 
 //#define RADIOLIB_DEBUG
 
 #ifdef RADIOLIB_DEBUG
-  #define DEBUG_PRINT(...) { Serial.print(__VA_ARGS__); }
-  #define DEBUG_PRINTLN(...) { Serial.println(__VA_ARGS__); }
+  #define RADIOLIB_DEBUG_PRINT(...) { RADIOLIB_DEBUG_PORT.print(__VA_ARGS__); }
+  #define RADIOLIB_DEBUG_PRINTLN(...) { RADIOLIB_DEBUG_PORT.println(__VA_ARGS__); }
 #else
-  #define DEBUG_PRINT(...) {}
-  #define DEBUG_PRINTLN(...) {}
+  #define RADIOLIB_DEBUG_PRINT(...) {}
+  #define RADIOLIB_DEBUG_PRINTLN(...) {}
 #endif
 
 // Shield configuration
@@ -175,6 +177,21 @@
   \brief The current modulation is invalid for the requested operation.
 */
 #define ERR_INVALID_MODULATION                -26
+
+/*!
+  \brief The supplied number of RSSI samples is invalid.
+*/
+#define ERR_INVALID_NUM_SAMPLES               -27
+
+/*!
+  \brief The supplied RSSI offset is invalid.
+*/
+#define ERR_INVALID_RSSI_OFFSET               -28
+
+/*!
+  \brief The supplied encoding is invalid.
+*/
+#define ERR_INVALID_ENCODING                  -29
 
 /*!
   \}

@@ -11,11 +11,11 @@ int16_t SX127x::begin(uint8_t chipVersion, uint8_t syncWord, uint8_t currentLimi
 
   // try to find the SX127x chip
   if(!SX127x::findChip(chipVersion)) {
-    DEBUG_PRINTLN(F("No SX127x found!"));
+    RADIOLIB_DEBUG_PRINTLN(F("No SX127x found!"));
     _mod->term();
     return(ERR_CHIP_NOT_FOUND);
   } else {
-    DEBUG_PRINTLN(F("Found SX127x!"));
+    RADIOLIB_DEBUG_PRINTLN(F("Found SX127x!"));
   }
 
   // check active modem
@@ -55,11 +55,11 @@ int16_t SX127x::beginFSK(uint8_t chipVersion, float br, float freqDev, float rxB
 
   // try to find the SX127x chip
   if(!SX127x::findChip(chipVersion)) {
-    DEBUG_PRINTLN(F("No SX127x found!"));
+    RADIOLIB_DEBUG_PRINTLN(F("No SX127x found!"));
     _mod->term();
     return(ERR_CHIP_NOT_FOUND);
   } else {
-    DEBUG_PRINTLN(F("Found SX127x!"));
+    RADIOLIB_DEBUG_PRINTLN(F("Found SX127x!"));
   }
 
   // check currently active modem
@@ -117,6 +117,18 @@ int16_t SX127x::beginFSK(uint8_t chipVersion, float br, float freqDev, float rxB
 
   // enable/disable OOK
   state = setOOK(enableOOK);
+  if(state != ERR_NONE) {
+    return(state);
+  }
+
+  // set default RSSI measurement config
+  state = setRSSIConfig(2);
+  if(state != ERR_NONE) {
+    return(state);
+  }
+
+  // set default encoding
+  state = setEncoding(0);
 
   return(state);
 }
@@ -468,6 +480,9 @@ int16_t SX127x::startTransmit(uint8_t* data, size_t len, uint8_t addr) {
 int16_t SX127x::readData(uint8_t* data, size_t len) {
   int16_t modem = getActiveModem();
   size_t length = len;
+
+  // put module to standby
+  standby();
 
   if(modem == SX127X_LORA) {
     // len set to maximum indicates unknown packet length, read the number of actually received bytes
@@ -890,6 +905,52 @@ size_t SX127x::getPacketLength(bool update) {
   return(_packetLength);
 }
 
+int16_t SX127x::setRSSIConfig(uint8_t smoothingSamples, int8_t offset) {
+  // check active modem
+  if(getActiveModem() != SX127X_FSK_OOK) {
+    return(ERR_WRONG_MODEM);
+  }
+
+  // set mode to standby
+  int16_t state = standby();
+  if(state != ERR_NONE) {
+    return(state);
+  }
+
+  // check provided values
+  if(!(smoothingSamples <= 7)) {
+    return(ERR_INVALID_NUM_SAMPLES);
+  }
+
+  if(!((offset >= -16) && (offset <= 15))) {
+    return(ERR_INVALID_RSSI_OFFSET);
+  }
+
+  // set new register values
+  state = _mod->SPIsetRegValue(SX127X_REG_RSSI_CONFIG, offset, 7, 3);
+  state |= _mod->SPIsetRegValue(SX127X_REG_RSSI_CONFIG, smoothingSamples, 2, 0);
+  return(state);
+}
+
+int16_t SX127x::setEncoding(uint8_t encoding) {
+  // check active modem
+  if(getActiveModem() != SX127X_FSK_OOK) {
+    return(ERR_WRONG_MODEM);
+  }
+
+  // set encoding
+  switch(encoding) {
+    case 0:
+      return(_mod->SPIsetRegValue(SX127X_REG_PACKET_CONFIG_1, SX127X_DC_FREE_NONE, 6, 5));
+    case 1:
+      return(_mod->SPIsetRegValue(SX127X_REG_PACKET_CONFIG_1, SX127X_DC_FREE_MANCHESTER, 6, 5));
+    case 2:
+      return(_mod->SPIsetRegValue(SX127X_REG_PACKET_CONFIG_1, SX127X_DC_FREE_WHITENING, 6, 5));
+    default:
+      return(ERR_INVALID_ENCODING);
+  }
+}
+
 int16_t SX127x::config() {
   // turn off frequency hopping
   int16_t state = _mod->SPIsetRegValue(SX127X_REG_HOP_PERIOD, SX127X_HOP_PERIOD_OFF);
@@ -954,16 +1015,15 @@ bool SX127x::findChip(uint8_t ver) {
       flagFound = true;
     } else {
       #ifdef RADIOLIB_DEBUG
-        Serial.print(F("SX127x not found! ("));
-        Serial.print(i + 1);
-        Serial.print(F(" of 10 tries) SX127X_REG_VERSION == "));
+        RADIOLIB_DEBUG_PRINT(F("SX127x not found! ("));
+        RADIOLIB_DEBUG_PRINT(i + 1);
+        RADIOLIB_DEBUG_PRINT(F(" of 10 tries) SX127X_REG_VERSION == "));
 
         char buffHex[5];
         sprintf(buffHex, "0x%02X", version);
-        Serial.print(buffHex);
-        Serial.print(F(", expected 0x00"));
-        Serial.print(ver, HEX);
-        Serial.println();
+        RADIOLIB_DEBUG_PRINT(buffHex);
+        RADIOLIB_DEBUG_PRINT(F(", expected 0x00"));
+        RADIOLIB_DEBUG_PRINTLN(ver, HEX);
       #endif
       delay(1000);
       i++;
@@ -1012,23 +1072,23 @@ void SX127x::clearFIFO(size_t count) {
 
 #ifdef RADIOLIB_DEBUG
 void SX127x::regDump() {
-  Serial.println();
-  Serial.println(F("ADDR\tVALUE"));
+  RADIOLIB_DEBUG_PRINTLN();
+  RADIOLIB_DEBUG_PRINTLN(F("ADDR\tVALUE"));
   for(uint16_t addr = 0x01; addr <= 0x70; addr++) {
     if(addr <= 0x0F) {
-      Serial.print(F("0x0"));
+      RADIOLIB_DEBUG_PRINT(F("0x0"));
     } else {
-      Serial.print(F("0x"));
+      RADIOLIB_DEBUG_PRINT(F("0x"));
     }
-    Serial.print(addr, HEX);
-    Serial.print('\t');
+    RADIOLIB_DEBUG_PRINT(addr, HEX);
+    RADIOLIB_DEBUG_PRINT('\t');
     uint8_t val = _mod->SPIreadRegister(addr);
     if(val <= 0x0F) {
-      Serial.print(F("0x0"));
+      RADIOLIB_DEBUG_PRINT(F("0x0"));
     } else {
-      Serial.print(F("0x"));
+      RADIOLIB_DEBUG_PRINT(F("0x"));
     }
-    Serial.println(val, HEX);
+    RADIOLIB_DEBUG_PRINTLN(val, HEX);
 
     delay(50);
   }
