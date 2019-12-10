@@ -257,8 +257,14 @@
                     "list_attribute": true,
                     "list_type": "values",
                     "name": "Bill of Material",
-                    "output_format": "txt",
+                    "output_format": "csv",
                     "type": "bom"
+                },
+                {
+                    "filename_format": "%ASSEMBLYPREFIX/PnP_%N_%BOARDSIDE",
+                    "name": "Pick and Place",
+                    "output_format": "csv",
+                    "type": "pick_and_place"
                 }
             ]
         },
@@ -269,7 +275,7 @@
             ]
         }
     ],
-    "timestamp": "2019-04-12T17:58:02",
+    "timestamp": "2019-07-17T17:48:33",
     "type": "EAGLE CAM job",
     "units": "metric",
     "version": "9.2.0"
