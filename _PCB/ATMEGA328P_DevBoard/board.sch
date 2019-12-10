@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="9.5.0">
+<eagle version="9.5.2">
 <drawing>
 <settings>
-<setting alwaysvectorfont="no"/>
+<setting alwaysvectorfont="yes"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.05" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
@@ -22355,33 +22355,20 @@ Source: &lt;a href="https://datasheet.lcsc.com/szlcsc/Bao-Cheng-Elec-BC-BCIHP073
 <part name="SUPPLY16" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="5V" device=""/>
 <part name="SUPPLY15" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="5V" device=""/>
 <part name="GND6" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="GND" device=""/>
-<part name="C4" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0805" package3d_urn="urn:adsk.eagle:package:23617/2" value="4.7uF"/>
 <part name="SUPPLY17" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="V_BATT" device=""/>
-<part name="R2" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="1.2k"/>
 <part name="LED2" library="led" library_urn="urn:adsk.eagle:library:259" deviceset="LED" device="CHIP-LED0805" package3d_urn="urn:adsk.eagle:package:15818/2" value="green"/>
 <part name="LED1" library="led" library_urn="urn:adsk.eagle:library:259" deviceset="LED" device="CHIP-LED0805" package3d_urn="urn:adsk.eagle:package:15818/2" value="red"/>
-<part name="R6" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="1.2k"/>
-<part name="R4" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="1.2k"/>
-<part name="C5" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0805" package3d_urn="urn:adsk.eagle:package:23617/2" value="4.7uF"/>
 <part name="GND7" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="GND" device=""/>
 <part name="IC2" library="DW01" deviceset="DW01" device=""/>
 <part name="T1" library="FS8205A" deviceset="FS8205A-MOSFET" device="" value="FS8205A"/>
-<part name="R5" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="1k"/>
 <part name="GND8" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="GND" device=""/>
-<part name="R3" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="100"/>
 <part name="SUPPLY13" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="V_BATT" device=""/>
-<part name="C3" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0805" package3d_urn="urn:adsk.eagle:package:23617/2" value="0.1uF"/>
 <part name="U1" library="buckboost" deviceset="MT3608" device=""/>
-<part name="C6" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0805" package3d_urn="urn:adsk.eagle:package:23617/2" value="22uF"/>
 <part name="SUPPLY18" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="5V" device=""/>
 <part name="GND9" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="GND" device=""/>
 <part name="D2" library="diode" deviceset="DIODE-" device="DO214AC" value="SS34"/>
-<part name="C8" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0805" package3d_urn="urn:adsk.eagle:package:23617/2" value="22uF"/>
 <part name="GND11" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="GND" device=""/>
 <part name="SUPPLY19" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="12V" device=""/>
-<part name="C7" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0805" package3d_urn="urn:adsk.eagle:package:23617/2" value="4.7uF"/>
-<part name="R7" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="8.2k"/>
-<part name="R8" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="430Ω"/>
 <part name="GND10" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="GND" device=""/>
 <part name="C9" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="CPOL-US" device="SMCA" package3d_urn="urn:adsk.eagle:package:25926/3" value="10uF"/>
 <part name="L1" library="BCIHP0730-220M" deviceset="BCIHP0730-220M" device="" value="22uH"/>
@@ -22390,10 +22377,26 @@ Source: &lt;a href="https://datasheet.lcsc.com/szlcsc/Bao-Cheng-Elec-BC-BCIHP073
 <part name="C1" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0603" package3d_urn="urn:adsk.eagle:package:23616/2" value="4.7n / 1kv"/>
 <part name="C2" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0603" package3d_urn="urn:adsk.eagle:package:23616/2" value="4.7uF"/>
 <part name="R1" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0603" package3d_urn="urn:adsk.eagle:package:23555/3" value="1M"/>
+<part name="R10" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0603" package3d_urn="urn:adsk.eagle:package:23555/3" value="1.2k"/>
+<part name="C11" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0603" package3d_urn="urn:adsk.eagle:package:23616/2" value="4.7uF"/>
+<part name="C4" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0603" package3d_urn="urn:adsk.eagle:package:23616/2" value="4.7uF"/>
+<part name="R2" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0603" package3d_urn="urn:adsk.eagle:package:23555/3" value="1.2k"/>
+<part name="R4" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0603" package3d_urn="urn:adsk.eagle:package:23555/3" value="1.2k"/>
+<part name="R6" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0603" package3d_urn="urn:adsk.eagle:package:23555/3" value="100"/>
+<part name="R11" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0603" package3d_urn="urn:adsk.eagle:package:23555/3" value="1k"/>
+<part name="C5" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0603" package3d_urn="urn:adsk.eagle:package:23616/2" value="0.1uF"/>
+<part name="R3" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0603" package3d_urn="urn:adsk.eagle:package:23555/3" value="430"/>
+<part name="R5" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0603" package3d_urn="urn:adsk.eagle:package:23555/3" value="8.2k"/>
+<part name="C3" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0603" package3d_urn="urn:adsk.eagle:package:23616/2" value="4.7uF"/>
+<part name="C12" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0603" package3d_urn="urn:adsk.eagle:package:23616/2" value="22uF"/>
+<part name="C7" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0603" package3d_urn="urn:adsk.eagle:package:23616/2" value="22uF"/>
+<part name="C10" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0603" package3d_urn="urn:adsk.eagle:package:23616/2" value="4.7n / 1kv"/>
+<part name="R9" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0603" package3d_urn="urn:adsk.eagle:package:23555/3" value="1M"/>
 </parts>
 <sheets>
 <sheet>
 <plain>
+<text x="185.42" y="20.32" size="2.54" layer="97" font="vector">Power input</text>
 </plain>
 <instances>
 <instance part="FRAME1" gate="G$1" x="3.81" y="3.81" smashed="yes">
@@ -22602,6 +22605,8 @@ Source: &lt;a href="https://datasheet.lcsc.com/szlcsc/Bao-Cheng-Elec-BC-BCIHP073
 </sheet>
 <sheet>
 <plain>
+<text x="222.25" y="26.67" size="1.778" layer="97">22uF cap may need to be reaplaced to 0805</text>
+<text x="185.42" y="20.32" size="2.54" layer="97" font="vector">Battery charging circuit, boost converter</text>
 </plain>
 <instances>
 <instance part="FRAME2" gate="G$1" x="3.81" y="3.81" smashed="yes">
@@ -22647,16 +22652,8 @@ Source: &lt;a href="https://datasheet.lcsc.com/szlcsc/Bao-Cheng-Elec-BC-BCIHP073
 <instance part="GND6" gate="1" x="46.99" y="119.38" smashed="yes">
 <attribute name="VALUE" x="46.99" y="119.126" size="1.778" layer="96" align="top-center"/>
 </instance>
-<instance part="C4" gate="G$1" x="54.61" y="128.27" smashed="yes" rot="R270">
-<attribute name="NAME" x="54.991" y="126.746" size="1.778" layer="95" rot="R270"/>
-<attribute name="VALUE" x="49.911" y="126.746" size="1.778" layer="96" rot="R270"/>
-</instance>
 <instance part="SUPPLY17" gate="G$1" x="118.11" y="128.27" smashed="yes" rot="R270">
 <attribute name="VALUE" x="120.904" y="128.27" size="1.778" layer="96" rot="R270" align="bottom-center"/>
-</instance>
-<instance part="R2" gate="G$1" x="54.61" y="133.35" smashed="yes" rot="R180">
-<attribute name="NAME" x="52.07" y="133.1214" size="1.778" layer="95" rot="R180"/>
-<attribute name="VALUE" x="62.23" y="132.842" size="1.778" layer="96" rot="R180"/>
 </instance>
 <instance part="LED2" gate="G$1" x="113.03" y="154.94" smashed="yes">
 <attribute name="NAME" x="108.966" y="150.368" size="1.778" layer="95" rot="R90"/>
@@ -22665,18 +22662,6 @@ Source: &lt;a href="https://datasheet.lcsc.com/szlcsc/Bao-Cheng-Elec-BC-BCIHP073
 <instance part="LED1" gate="G$1" x="102.87" y="154.94" smashed="yes">
 <attribute name="NAME" x="98.806" y="150.368" size="1.778" layer="95" rot="R90"/>
 <attribute name="VALUE" x="106.045" y="150.368" size="1.778" layer="96" rot="R90"/>
-</instance>
-<instance part="R6" gate="G$1" x="113.03" y="142.24" smashed="yes" rot="R90">
-<attribute name="NAME" x="111.5314" y="138.43" size="1.778" layer="95" rot="R90"/>
-<attribute name="VALUE" x="116.332" y="138.43" size="1.778" layer="96" rot="R90"/>
-</instance>
-<instance part="R4" gate="G$1" x="102.87" y="142.24" smashed="yes" rot="R90">
-<attribute name="NAME" x="101.3714" y="138.43" size="1.778" layer="95" rot="R90"/>
-<attribute name="VALUE" x="106.172" y="138.43" size="1.778" layer="96" rot="R90"/>
-</instance>
-<instance part="C5" gate="G$1" x="96.52" y="120.65" smashed="yes" rot="R180">
-<attribute name="NAME" x="94.996" y="120.269" size="1.778" layer="95" rot="R180"/>
-<attribute name="VALUE" x="94.996" y="125.349" size="1.778" layer="96" rot="R180"/>
 </instance>
 <instance part="GND7" gate="1" x="96.52" y="113.03" smashed="yes">
 <attribute name="VALUE" x="96.52" y="112.776" size="1.778" layer="96" align="top-center"/>
@@ -22693,29 +22678,13 @@ Source: &lt;a href="https://datasheet.lcsc.com/szlcsc/Bao-Cheng-Elec-BC-BCIHP073
 <attribute name="VALUE" x="89.535" y="53.34" size="1.778" layer="96"/>
 <attribute name="NAME" x="89.535" y="55.245" size="1.778" layer="95"/>
 </instance>
-<instance part="R5" gate="G$1" x="106.68" y="80.01" smashed="yes" rot="R180">
-<attribute name="NAME" x="110.49" y="78.5114" size="1.778" layer="95" rot="R180"/>
-<attribute name="VALUE" x="110.49" y="83.312" size="1.778" layer="96" rot="R180"/>
-</instance>
 <instance part="GND8" gate="1" x="116.84" y="44.45" smashed="yes">
 <attribute name="VALUE" x="116.84" y="44.196" size="1.778" layer="96" align="top-center"/>
-</instance>
-<instance part="R3" gate="G$1" x="58.42" y="80.01" smashed="yes">
-<attribute name="NAME" x="55.88" y="81.5086" size="1.778" layer="95"/>
-<attribute name="VALUE" x="60.96" y="78.232" size="1.778" layer="96" rot="R180"/>
 </instance>
 <instance part="SUPPLY13" gate="G$1" x="46.99" y="86.36" smashed="yes">
 <attribute name="VALUE" x="46.99" y="89.154" size="1.778" layer="96" align="bottom-center"/>
 </instance>
-<instance part="C3" gate="G$1" x="46.99" y="76.2" smashed="yes">
-<attribute name="NAME" x="48.514" y="76.581" size="1.778" layer="95"/>
-<attribute name="VALUE" x="48.514" y="71.501" size="1.778" layer="96"/>
-</instance>
 <instance part="U1" gate="G$1" x="175.26" y="72.39" smashed="yes"/>
-<instance part="C6" gate="G$1" x="153.67" y="71.12" smashed="yes">
-<attribute name="NAME" x="155.194" y="71.501" size="1.778" layer="95"/>
-<attribute name="VALUE" x="155.194" y="66.421" size="1.778" layer="96"/>
-</instance>
 <instance part="SUPPLY18" gate="G$1" x="153.67" y="82.55" smashed="yes">
 <attribute name="VALUE" x="153.67" y="85.344" size="1.778" layer="96" align="bottom-center"/>
 </instance>
@@ -22726,27 +22695,11 @@ Source: &lt;a href="https://datasheet.lcsc.com/szlcsc/Bao-Cheng-Elec-BC-BCIHP073
 <attribute name="NAME" x="191.77" y="86.0806" size="1.778" layer="95"/>
 <attribute name="VALUE" x="191.77" y="84.0486" size="1.778" layer="96"/>
 </instance>
-<instance part="C8" gate="G$1" x="218.44" y="76.2" smashed="yes">
-<attribute name="NAME" x="219.964" y="76.581" size="1.778" layer="95"/>
-<attribute name="VALUE" x="219.964" y="71.501" size="1.778" layer="96"/>
-</instance>
 <instance part="GND11" gate="1" x="218.44" y="62.23" smashed="yes">
 <attribute name="VALUE" x="218.44" y="61.976" size="1.778" layer="96" align="top-center"/>
 </instance>
 <instance part="SUPPLY19" gate="G$1" x="218.44" y="87.63" smashed="yes">
 <attribute name="VALUE" x="218.44" y="90.424" size="1.778" layer="96" align="bottom-center"/>
-</instance>
-<instance part="C7" gate="G$1" x="209.55" y="76.2" smashed="yes">
-<attribute name="NAME" x="211.074" y="76.581" size="1.778" layer="95"/>
-<attribute name="VALUE" x="211.074" y="71.501" size="1.778" layer="96"/>
-</instance>
-<instance part="R7" gate="G$1" x="204.47" y="76.2" smashed="yes" rot="R270">
-<attribute name="NAME" x="205.9686" y="80.01" size="1.778" layer="95" rot="R270"/>
-<attribute name="VALUE" x="201.168" y="80.01" size="1.778" layer="96" rot="R270"/>
-</instance>
-<instance part="R8" gate="G$1" x="204.47" y="62.23" smashed="yes" rot="R270">
-<attribute name="NAME" x="205.9686" y="66.04" size="1.778" layer="95" rot="R270"/>
-<attribute name="VALUE" x="201.168" y="66.04" size="1.778" layer="96" rot="R270"/>
 </instance>
 <instance part="GND10" gate="1" x="204.47" y="52.07" smashed="yes">
 <attribute name="VALUE" x="204.47" y="51.816" size="1.778" layer="96" align="top-center"/>
@@ -22763,6 +22716,58 @@ Source: &lt;a href="https://datasheet.lcsc.com/szlcsc/Bao-Cheng-Elec-BC-BCIHP073
 <attribute name="NAME" x="31.75" y="79.375" size="1.778" layer="95"/>
 <attribute name="VALUE" x="39.37" y="81.28" size="1.778" layer="96" rot="R180"/>
 </instance>
+<instance part="R10" gate="G$1" x="54.61" y="133.35" smashed="yes" rot="R180">
+<attribute name="NAME" x="58.42" y="131.8514" size="1.778" layer="95" rot="R180"/>
+<attribute name="VALUE" x="58.42" y="136.652" size="1.778" layer="96" rot="R180"/>
+</instance>
+<instance part="C11" gate="G$1" x="54.61" y="128.27" smashed="yes" rot="R270">
+<attribute name="NAME" x="49.911" y="126.746" size="1.778" layer="95" rot="R270"/>
+<attribute name="VALUE" x="54.991" y="126.746" size="1.778" layer="96" rot="R270"/>
+</instance>
+<instance part="C4" gate="G$1" x="96.52" y="120.65" smashed="yes" rot="R180">
+<attribute name="NAME" x="94.996" y="125.349" size="1.778" layer="95" rot="R180"/>
+<attribute name="VALUE" x="94.996" y="120.269" size="1.778" layer="96" rot="R180"/>
+</instance>
+<instance part="R2" gate="G$1" x="113.03" y="142.24" smashed="yes" rot="R90">
+<attribute name="NAME" x="111.5314" y="138.43" size="1.778" layer="95" rot="R90"/>
+<attribute name="VALUE" x="116.332" y="138.43" size="1.778" layer="96" rot="R90"/>
+</instance>
+<instance part="R4" gate="G$1" x="102.87" y="142.24" smashed="yes" rot="R90">
+<attribute name="NAME" x="101.3714" y="138.43" size="1.778" layer="95" rot="R90"/>
+<attribute name="VALUE" x="106.172" y="138.43" size="1.778" layer="96" rot="R90"/>
+</instance>
+<instance part="R6" gate="G$1" x="58.42" y="80.01" smashed="yes" rot="R180">
+<attribute name="NAME" x="62.23" y="78.5114" size="1.778" layer="95" rot="R180"/>
+<attribute name="VALUE" x="62.23" y="83.312" size="1.778" layer="96" rot="R180"/>
+</instance>
+<instance part="R11" gate="G$1" x="106.68" y="80.01" smashed="yes" rot="R180">
+<attribute name="NAME" x="110.49" y="78.5114" size="1.778" layer="95" rot="R180"/>
+<attribute name="VALUE" x="110.49" y="83.312" size="1.778" layer="96" rot="R180"/>
+</instance>
+<instance part="C5" gate="G$1" x="46.99" y="76.2" smashed="yes">
+<attribute name="NAME" x="48.514" y="71.501" size="1.778" layer="95"/>
+<attribute name="VALUE" x="48.514" y="76.581" size="1.778" layer="96"/>
+</instance>
+<instance part="R3" gate="G$1" x="204.47" y="62.23" smashed="yes" rot="R270">
+<attribute name="NAME" x="205.9686" y="66.04" size="1.778" layer="95" rot="R270"/>
+<attribute name="VALUE" x="201.168" y="66.04" size="1.778" layer="96" rot="R270"/>
+</instance>
+<instance part="R5" gate="G$1" x="204.47" y="76.2" smashed="yes" rot="R270">
+<attribute name="NAME" x="205.9686" y="80.01" size="1.778" layer="95" rot="R270"/>
+<attribute name="VALUE" x="201.168" y="80.01" size="1.778" layer="96" rot="R270"/>
+</instance>
+<instance part="C3" gate="G$1" x="209.55" y="76.2" smashed="yes">
+<attribute name="NAME" x="211.074" y="71.501" size="1.778" layer="95"/>
+<attribute name="VALUE" x="211.074" y="76.581" size="1.778" layer="96"/>
+</instance>
+<instance part="C12" gate="G$1" x="218.44" y="76.2" smashed="yes">
+<attribute name="NAME" x="219.964" y="71.501" size="1.778" layer="95"/>
+<attribute name="VALUE" x="219.964" y="76.581" size="1.778" layer="96"/>
+</instance>
+<instance part="C7" gate="G$1" x="153.67" y="71.12" smashed="yes">
+<attribute name="NAME" x="155.194" y="66.421" size="1.778" layer="95"/>
+<attribute name="VALUE" x="155.194" y="71.501" size="1.778" layer="96"/>
+</instance>
 </instances>
 <busses>
 </busses>
@@ -22774,25 +22779,24 @@ Source: &lt;a href="https://datasheet.lcsc.com/szlcsc/Bao-Cheng-Elec-BC-BCIHP073
 <wire x1="46.99" y1="121.92" x2="46.99" y2="128.27" width="0.1524" layer="91"/>
 <wire x1="46.99" y1="128.27" x2="46.99" y2="130.81" width="0.1524" layer="91"/>
 <wire x1="46.99" y1="130.81" x2="62.23" y2="130.81" width="0.1524" layer="91"/>
-<pinref part="C4" gate="G$1" pin="2"/>
 <wire x1="49.53" y1="128.27" x2="46.99" y2="128.27" width="0.1524" layer="91"/>
 <junction x="46.99" y="128.27"/>
 <junction x="46.99" y="130.81"/>
-<pinref part="R2" gate="G$1" pin="2"/>
 <wire x1="46.99" y1="133.35" x2="46.99" y2="130.81" width="0.1524" layer="91"/>
 <wire x1="49.53" y1="133.35" x2="46.99" y2="133.35" width="0.1524" layer="91"/>
 <pinref part="IC1" gate="G$1" pin="TEMP"/>
 <wire x1="62.23" y1="135.89" x2="46.99" y2="135.89" width="0.1524" layer="91"/>
 <wire x1="46.99" y1="135.89" x2="46.99" y2="133.35" width="0.1524" layer="91"/>
 <junction x="46.99" y="133.35"/>
+<pinref part="R10" gate="G$1" pin="2"/>
+<pinref part="C11" gate="G$1" pin="2"/>
 </segment>
 <segment>
 <pinref part="GND7" gate="1" pin="GND"/>
-<pinref part="C5" gate="G$1" pin="1"/>
 <wire x1="96.52" y1="115.57" x2="96.52" y2="118.11" width="0.1524" layer="91"/>
+<pinref part="C4" gate="G$1" pin="1"/>
 </segment>
 <segment>
-<pinref part="R5" gate="G$1" pin="1"/>
 <wire x1="111.76" y1="80.01" x2="116.84" y2="80.01" width="0.1524" layer="91"/>
 <wire x1="116.84" y1="80.01" x2="116.84" y2="50.8" width="0.1524" layer="91"/>
 <pinref part="GND8" gate="1" pin="GND"/>
@@ -22800,10 +22804,10 @@ Source: &lt;a href="https://datasheet.lcsc.com/szlcsc/Bao-Cheng-Elec-BC-BCIHP073
 <wire x1="116.84" y1="50.8" x2="116.84" y2="46.99" width="0.1524" layer="91"/>
 <wire x1="97.79" y1="50.8" x2="116.84" y2="50.8" width="0.1524" layer="91"/>
 <junction x="116.84" y="50.8"/>
+<pinref part="R11" gate="G$1" pin="1"/>
 </segment>
 <segment>
 <pinref part="GND9" gate="1" pin="GND"/>
-<pinref part="C6" gate="G$1" pin="2"/>
 <wire x1="153.67" y1="60.96" x2="153.67" y2="64.77" width="0.1524" layer="91"/>
 <wire x1="153.67" y1="64.77" x2="153.67" y2="66.04" width="0.1524" layer="91"/>
 <wire x1="153.67" y1="64.77" x2="162.56" y2="64.77" width="0.1524" layer="91"/>
@@ -22811,12 +22815,11 @@ Source: &lt;a href="https://datasheet.lcsc.com/szlcsc/Bao-Cheng-Elec-BC-BCIHP073
 <junction x="153.67" y="64.77"/>
 <pinref part="U1" gate="G$1" pin="GND"/>
 <wire x1="162.56" y1="69.85" x2="165.1" y2="69.85" width="0.1524" layer="91"/>
+<pinref part="C7" gate="G$1" pin="2"/>
 </segment>
 <segment>
-<pinref part="C8" gate="G$1" pin="2"/>
 <pinref part="GND11" gate="1" pin="GND"/>
 <wire x1="218.44" y1="71.12" x2="218.44" y2="67.31" width="0.1524" layer="91"/>
-<pinref part="C7" gate="G$1" pin="2"/>
 <wire x1="218.44" y1="67.31" x2="218.44" y2="64.77" width="0.1524" layer="91"/>
 <wire x1="209.55" y1="71.12" x2="209.55" y2="67.31" width="0.1524" layer="91"/>
 <wire x1="209.55" y1="67.31" x2="218.44" y2="67.31" width="0.1524" layer="91"/>
@@ -22824,11 +22827,13 @@ Source: &lt;a href="https://datasheet.lcsc.com/szlcsc/Bao-Cheng-Elec-BC-BCIHP073
 <pinref part="C9" gate="G$1" pin="-"/>
 <wire x1="228.6" y1="71.12" x2="228.6" y2="67.31" width="0.1524" layer="91"/>
 <wire x1="228.6" y1="67.31" x2="218.44" y2="67.31" width="0.1524" layer="91"/>
+<pinref part="C3" gate="G$1" pin="2"/>
+<pinref part="C12" gate="G$1" pin="2"/>
 </segment>
 <segment>
 <pinref part="GND10" gate="1" pin="GND"/>
-<pinref part="R8" gate="G$1" pin="2"/>
 <wire x1="204.47" y1="54.61" x2="204.47" y2="57.15" width="0.1524" layer="91"/>
+<pinref part="R3" gate="G$1" pin="2"/>
 </segment>
 </net>
 <net name="5V" class="1">
@@ -22837,9 +22842,9 @@ Source: &lt;a href="https://datasheet.lcsc.com/szlcsc/Bao-Cheng-Elec-BC-BCIHP073
 <pinref part="IC1" gate="G$1" pin="VCC"/>
 <wire x1="59.69" y1="121.92" x2="59.69" y2="128.27" width="0.1524" layer="91"/>
 <wire x1="59.69" y1="128.27" x2="62.23" y2="128.27" width="0.1524" layer="91"/>
-<pinref part="C4" gate="G$1" pin="1"/>
 <wire x1="57.15" y1="128.27" x2="59.69" y2="128.27" width="0.1524" layer="91"/>
 <junction x="59.69" y="128.27"/>
+<pinref part="C11" gate="G$1" pin="1"/>
 </segment>
 <segment>
 <pinref part="LED2" gate="G$1" pin="A"/>
@@ -22867,13 +22872,13 @@ Source: &lt;a href="https://datasheet.lcsc.com/szlcsc/Bao-Cheng-Elec-BC-BCIHP073
 <wire x1="161.29" y1="74.93" x2="153.67" y2="74.93" width="0.1524" layer="91"/>
 <wire x1="153.67" y1="74.93" x2="153.67" y2="82.55" width="0.1524" layer="91"/>
 <junction x="162.56" y="74.93"/>
-<pinref part="C6" gate="G$1" pin="1"/>
 <wire x1="153.67" y1="73.66" x2="153.67" y2="74.93" width="0.1524" layer="91"/>
 <junction x="153.67" y="74.93"/>
 <wire x1="161.29" y1="74.93" x2="161.29" y2="82.55" width="0.1524" layer="91"/>
 <wire x1="161.29" y1="82.55" x2="168.91" y2="82.55" width="0.1524" layer="91"/>
 <junction x="161.29" y="74.93"/>
 <pinref part="L1" gate="G$1" pin="1"/>
+<pinref part="C7" gate="G$1" pin="1"/>
 </segment>
 </net>
 <net name="V_BATT" class="1">
@@ -22882,14 +22887,12 @@ Source: &lt;a href="https://datasheet.lcsc.com/szlcsc/Bao-Cheng-Elec-BC-BCIHP073
 <pinref part="SUPPLY17" gate="G$1" pin="V_BATT"/>
 <wire x1="90.17" y1="128.27" x2="96.52" y2="128.27" width="0.1524" layer="91"/>
 <wire x1="96.52" y1="128.27" x2="118.11" y2="128.27" width="0.1524" layer="91"/>
-<pinref part="C5" gate="G$1" pin="2"/>
 <wire x1="96.52" y1="125.73" x2="96.52" y2="128.27" width="0.1524" layer="91"/>
 <junction x="96.52" y="128.27"/>
+<pinref part="C4" gate="G$1" pin="2"/>
 </segment>
 <segment>
 <wire x1="46.99" y1="78.74" x2="46.99" y2="80.01" width="0.1524" layer="91"/>
-<pinref part="C3" gate="G$1" pin="1"/>
-<pinref part="R3" gate="G$1" pin="1"/>
 <wire x1="53.34" y1="80.01" x2="46.99" y2="80.01" width="0.1524" layer="91"/>
 <junction x="46.99" y="80.01"/>
 <pinref part="JP5" gate="A" pin="2"/>
@@ -22898,49 +22901,50 @@ Source: &lt;a href="https://datasheet.lcsc.com/szlcsc/Bao-Cheng-Elec-BC-BCIHP073
 <wire x1="41.91" y1="80.01" x2="46.99" y2="80.01" width="0.1524" layer="91"/>
 <pinref part="SUPPLY13" gate="G$1" pin="V_BATT"/>
 <wire x1="46.99" y1="80.01" x2="46.99" y2="86.36" width="0.1524" layer="91"/>
+<pinref part="C5" gate="G$1" pin="1"/>
+<pinref part="R6" gate="G$1" pin="2"/>
 </segment>
 </net>
 <net name="N$8" class="0">
 <segment>
-<pinref part="R2" gate="G$1" pin="1"/>
 <pinref part="IC1" gate="G$1" pin="PROG"/>
 <wire x1="59.69" y1="133.35" x2="62.23" y2="133.35" width="0.1524" layer="91"/>
+<pinref part="R10" gate="G$1" pin="1"/>
 </segment>
 </net>
 <net name="N$9" class="0">
 <segment>
 <pinref part="LED2" gate="G$1" pin="C"/>
-<pinref part="R6" gate="G$1" pin="2"/>
 <wire x1="113.03" y1="149.86" x2="113.03" y2="147.32" width="0.1524" layer="91"/>
+<pinref part="R2" gate="G$1" pin="2"/>
 </segment>
 </net>
 <net name="N$11" class="0">
 <segment>
 <pinref part="LED1" gate="G$1" pin="C"/>
-<pinref part="R4" gate="G$1" pin="2"/>
 <wire x1="102.87" y1="149.86" x2="102.87" y2="147.32" width="0.1524" layer="91"/>
+<pinref part="R4" gate="G$1" pin="2"/>
 </segment>
 </net>
 <net name="N$2" class="0">
 <segment>
 <pinref part="IC1" gate="G$1" pin="CHRG"/>
-<pinref part="R4" gate="G$1" pin="1"/>
 <wire x1="90.17" y1="133.35" x2="102.87" y2="133.35" width="0.1524" layer="91"/>
 <wire x1="102.87" y1="133.35" x2="102.87" y2="137.16" width="0.1524" layer="91"/>
+<pinref part="R4" gate="G$1" pin="1"/>
 </segment>
 </net>
 <net name="N$3" class="0">
 <segment>
 <pinref part="IC1" gate="G$1" pin="STDBY"/>
-<pinref part="R6" gate="G$1" pin="1"/>
 <wire x1="90.17" y1="130.81" x2="113.03" y2="130.81" width="0.1524" layer="91"/>
 <wire x1="113.03" y1="130.81" x2="113.03" y2="137.16" width="0.1524" layer="91"/>
+<pinref part="R2" gate="G$1" pin="1"/>
 </segment>
 </net>
 <net name="BATT_GND" class="1">
 <segment>
 <label x="29.21" y="73.66" size="1.778" layer="95" rot="R180" xref="yes"/>
-<pinref part="C3" gate="G$1" pin="2"/>
 <wire x1="41.91" y1="69.85" x2="46.99" y2="69.85" width="0.1524" layer="91"/>
 <wire x1="46.99" y1="69.85" x2="46.99" y2="71.12" width="0.1524" layer="91"/>
 <pinref part="IC2" gate="G$1" pin="VSS"/>
@@ -22954,20 +22958,21 @@ Source: &lt;a href="https://datasheet.lcsc.com/szlcsc/Bao-Cheng-Elec-BC-BCIHP073
 <wire x1="41.91" y1="73.66" x2="41.91" y2="69.85" width="0.1524" layer="91"/>
 <wire x1="29.21" y1="73.66" x2="35.56" y2="73.66" width="0.1524" layer="91"/>
 <junction x="35.56" y="73.66"/>
+<pinref part="C5" gate="G$1" pin="2"/>
 </segment>
 </net>
 <net name="N$4" class="1">
 <segment>
-<pinref part="R3" gate="G$1" pin="2"/>
 <pinref part="IC2" gate="G$1" pin="VDD"/>
 <wire x1="63.5" y1="80.01" x2="66.04" y2="80.01" width="0.1524" layer="91"/>
+<pinref part="R6" gate="G$1" pin="1"/>
 </segment>
 </net>
 <net name="N$5" class="0">
 <segment>
 <pinref part="IC2" gate="G$1" pin="CSI"/>
-<pinref part="R5" gate="G$1" pin="2"/>
 <wire x1="96.52" y1="80.01" x2="101.6" y2="80.01" width="0.1524" layer="91"/>
+<pinref part="R11" gate="G$1" pin="2"/>
 </segment>
 </net>
 <net name="N$6" class="1">
@@ -23016,29 +23021,29 @@ Source: &lt;a href="https://datasheet.lcsc.com/szlcsc/Bao-Cheng-Elec-BC-BCIHP073
 <wire x1="204.47" y1="82.55" x2="209.55" y2="82.55" width="0.1524" layer="91"/>
 <wire x1="209.55" y1="82.55" x2="218.44" y2="82.55" width="0.1524" layer="91"/>
 <wire x1="218.44" y1="82.55" x2="218.44" y2="87.63" width="0.1524" layer="91"/>
-<pinref part="C8" gate="G$1" pin="1"/>
 <wire x1="218.44" y1="78.74" x2="218.44" y2="82.55" width="0.1524" layer="91"/>
 <junction x="218.44" y="82.55"/>
-<pinref part="C7" gate="G$1" pin="1"/>
 <wire x1="209.55" y1="78.74" x2="209.55" y2="82.55" width="0.1524" layer="91"/>
 <junction x="209.55" y="82.55"/>
 <pinref part="C9" gate="G$1" pin="+"/>
 <wire x1="218.44" y1="82.55" x2="228.6" y2="82.55" width="0.1524" layer="91"/>
 <wire x1="228.6" y1="82.55" x2="228.6" y2="78.74" width="0.1524" layer="91"/>
-<pinref part="R7" gate="G$1" pin="1"/>
 <wire x1="204.47" y1="81.28" x2="204.47" y2="82.55" width="0.1524" layer="91"/>
 <junction x="204.47" y="82.55"/>
+<pinref part="R5" gate="G$1" pin="1"/>
+<pinref part="C3" gate="G$1" pin="1"/>
+<pinref part="C12" gate="G$1" pin="1"/>
 </segment>
 </net>
 <net name="N$14" class="0">
 <segment>
-<pinref part="R7" gate="G$1" pin="2"/>
 <pinref part="U1" gate="G$1" pin="FB"/>
 <wire x1="204.47" y1="71.12" x2="204.47" y2="69.85" width="0.1524" layer="91"/>
 <wire x1="204.47" y1="69.85" x2="185.42" y2="69.85" width="0.1524" layer="91"/>
-<pinref part="R8" gate="G$1" pin="1"/>
 <wire x1="204.47" y1="69.85" x2="204.47" y2="67.31" width="0.1524" layer="91"/>
 <junction x="204.47" y="69.85"/>
+<pinref part="R3" gate="G$1" pin="1"/>
+<pinref part="R5" gate="G$1" pin="2"/>
 </segment>
 </net>
 </nets>
@@ -23080,6 +23085,14 @@ Source: &lt;a href="https://datasheet.lcsc.com/szlcsc/Bao-Cheng-Elec-BC-BCIHP073
 <instance part="U2" gate="U1" x="134.62" y="95.25" smashed="yes">
 <attribute name="NAME" x="114.3" y="129.032" size="1.778" layer="95"/>
 <attribute name="VALUE" x="114.3" y="62.23" size="1.778" layer="96"/>
+</instance>
+<instance part="C10" gate="G$1" x="76.2" y="16.51" smashed="yes">
+<attribute name="NAME" x="73.279" y="12.954" size="1.778" layer="95" rot="R90"/>
+<attribute name="VALUE" x="80.899" y="9.144" size="1.778" layer="96" rot="R90"/>
+</instance>
+<instance part="R9" gate="G$1" x="86.36" y="15.24" smashed="yes" rot="R90">
+<attribute name="NAME" x="84.8614" y="11.43" size="1.778" layer="95" rot="R90"/>
+<attribute name="VALUE" x="89.662" y="11.43" size="1.778" layer="96" rot="R90"/>
 </instance>
 </instances>
 <busses>

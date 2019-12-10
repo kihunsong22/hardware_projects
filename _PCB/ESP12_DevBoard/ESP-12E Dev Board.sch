@@ -1,41 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="9.5.0">
+<eagle version="9.5.2">
 <drawing>
 <settings>
-<setting alwaysvectorfont="no"/>
+<setting alwaysvectorfont="yes"/>
 <setting verticaltext="up"/>
 </settings>
 <grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
-<layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
-<layer number="2" name="Route2" color="16" fill="1" visible="no" active="no"/>
-<layer number="3" name="Route3" color="17" fill="1" visible="no" active="no"/>
-<layer number="4" name="Route4" color="18" fill="1" visible="no" active="no"/>
-<layer number="5" name="Route5" color="19" fill="1" visible="no" active="no"/>
-<layer number="6" name="Route6" color="25" fill="1" visible="no" active="no"/>
-<layer number="7" name="Route7" color="26" fill="1" visible="no" active="no"/>
-<layer number="8" name="Route8" color="27" fill="1" visible="no" active="no"/>
-<layer number="9" name="Route9" color="28" fill="1" visible="no" active="no"/>
-<layer number="10" name="Route10" color="29" fill="1" visible="no" active="no"/>
-<layer number="11" name="Route11" color="30" fill="1" visible="no" active="no"/>
-<layer number="12" name="Route12" color="20" fill="1" visible="no" active="no"/>
-<layer number="13" name="Route13" color="21" fill="1" visible="no" active="no"/>
-<layer number="14" name="Route14" color="22" fill="1" visible="no" active="no"/>
-<layer number="15" name="Route15" color="23" fill="1" visible="no" active="no"/>
-<layer number="16" name="Bottom" color="1" fill="1" visible="no" active="no"/>
-<layer number="17" name="Pads" color="2" fill="1" visible="no" active="no"/>
-<layer number="18" name="Vias" color="2" fill="1" visible="no" active="no"/>
-<layer number="19" name="Unrouted" color="6" fill="1" visible="no" active="no"/>
-<layer number="20" name="Dimension" color="24" fill="1" visible="no" active="no"/>
-<layer number="21" name="tPlace" color="7" fill="1" visible="no" active="no"/>
-<layer number="22" name="bPlace" color="7" fill="1" visible="no" active="no"/>
-<layer number="23" name="tOrigins" color="15" fill="1" visible="no" active="no"/>
-<layer number="24" name="bOrigins" color="15" fill="1" visible="no" active="no"/>
-<layer number="25" name="tNames" color="7" fill="1" visible="no" active="no"/>
-<layer number="26" name="bNames" color="7" fill="1" visible="no" active="no"/>
-<layer number="27" name="tValues" color="7" fill="1" visible="no" active="no"/>
-<layer number="28" name="bValues" color="7" fill="1" visible="no" active="no"/>
+<layer number="1" name="Top" color="4" fill="1" visible="yes" active="no"/>
+<layer number="2" name="Route2" color="16" fill="1" visible="yes" active="no"/>
+<layer number="3" name="Route3" color="17" fill="1" visible="yes" active="no"/>
+<layer number="4" name="Route4" color="18" fill="1" visible="yes" active="no"/>
+<layer number="5" name="Route5" color="19" fill="1" visible="yes" active="no"/>
+<layer number="6" name="Route6" color="25" fill="1" visible="yes" active="no"/>
+<layer number="7" name="Route7" color="26" fill="1" visible="yes" active="no"/>
+<layer number="8" name="Route8" color="27" fill="1" visible="yes" active="no"/>
+<layer number="9" name="Route9" color="28" fill="1" visible="yes" active="no"/>
+<layer number="10" name="Route10" color="29" fill="1" visible="yes" active="no"/>
+<layer number="11" name="Route11" color="30" fill="1" visible="yes" active="no"/>
+<layer number="12" name="Route12" color="20" fill="1" visible="yes" active="no"/>
+<layer number="13" name="Route13" color="21" fill="1" visible="yes" active="no"/>
+<layer number="14" name="Route14" color="22" fill="1" visible="yes" active="no"/>
+<layer number="15" name="Route15" color="23" fill="1" visible="yes" active="no"/>
+<layer number="16" name="Bottom" color="1" fill="1" visible="yes" active="no"/>
+<layer number="17" name="Pads" color="2" fill="1" visible="yes" active="no"/>
+<layer number="18" name="Vias" color="2" fill="1" visible="yes" active="no"/>
+<layer number="19" name="Unrouted" color="6" fill="1" visible="yes" active="no"/>
+<layer number="20" name="Dimension" color="24" fill="1" visible="yes" active="no"/>
+<layer number="21" name="tPlace" color="7" fill="1" visible="yes" active="no"/>
+<layer number="22" name="bPlace" color="7" fill="1" visible="yes" active="no"/>
+<layer number="23" name="tOrigins" color="15" fill="1" visible="yes" active="no"/>
+<layer number="24" name="bOrigins" color="15" fill="1" visible="yes" active="no"/>
+<layer number="25" name="tNames" color="7" fill="1" visible="yes" active="no"/>
+<layer number="26" name="bNames" color="7" fill="1" visible="yes" active="no"/>
+<layer number="27" name="tValues" color="7" fill="1" visible="yes" active="no"/>
+<layer number="28" name="bValues" color="7" fill="1" visible="yes" active="no"/>
 <layer number="29" name="tStop" color="7" fill="3" visible="no" active="no"/>
 <layer number="30" name="bStop" color="7" fill="6" visible="no" active="no"/>
 <layer number="31" name="tCream" color="7" fill="4" visible="no" active="no"/>
@@ -44,8 +44,8 @@
 <layer number="34" name="bFinish" color="6" fill="6" visible="no" active="no"/>
 <layer number="35" name="tGlue" color="7" fill="4" visible="no" active="no"/>
 <layer number="36" name="bGlue" color="7" fill="5" visible="no" active="no"/>
-<layer number="37" name="tTest" color="7" fill="1" visible="no" active="no"/>
-<layer number="38" name="bTest" color="7" fill="1" visible="no" active="no"/>
+<layer number="37" name="tTest" color="7" fill="1" visible="yes" active="no"/>
+<layer number="38" name="bTest" color="7" fill="1" visible="yes" active="no"/>
 <layer number="39" name="tKeepout" color="4" fill="11" visible="no" active="no"/>
 <layer number="40" name="bKeepout" color="1" fill="11" visible="no" active="no"/>
 <layer number="41" name="tRestrict" color="4" fill="10" visible="no" active="no"/>
@@ -53,19 +53,19 @@
 <layer number="43" name="vRestrict" color="2" fill="10" visible="no" active="no"/>
 <layer number="44" name="Drills" color="7" fill="1" visible="no" active="no"/>
 <layer number="45" name="Holes" color="7" fill="1" visible="no" active="no"/>
-<layer number="46" name="Milling" color="3" fill="1" visible="no" active="no"/>
-<layer number="47" name="Measures" color="7" fill="1" visible="no" active="no"/>
-<layer number="48" name="Document" color="7" fill="1" visible="no" active="no"/>
-<layer number="49" name="Reference" color="7" fill="1" visible="no" active="no"/>
-<layer number="50" name="dxf" color="7" fill="1" visible="no" active="no"/>
-<layer number="51" name="tDocu" color="7" fill="1" visible="no" active="no"/>
-<layer number="52" name="bDocu" color="7" fill="1" visible="no" active="no"/>
-<layer number="53" name="tGND_GNDA" color="7" fill="9" visible="no" active="no"/>
-<layer number="54" name="bGND_GNDA" color="1" fill="9" visible="no" active="no"/>
-<layer number="56" name="wert" color="7" fill="1" visible="no" active="no"/>
-<layer number="57" name="tCAD" color="7" fill="1" visible="no" active="no"/>
-<layer number="59" name="tCarbon" color="7" fill="1" visible="no" active="no"/>
-<layer number="60" name="bCarbon" color="7" fill="1" visible="no" active="no"/>
+<layer number="46" name="Milling" color="3" fill="1" visible="yes" active="no"/>
+<layer number="47" name="Measures" color="7" fill="1" visible="yes" active="no"/>
+<layer number="48" name="Document" color="7" fill="1" visible="yes" active="no"/>
+<layer number="49" name="Reference" color="7" fill="1" visible="yes" active="no"/>
+<layer number="50" name="dxf" color="7" fill="1" visible="yes" active="no"/>
+<layer number="51" name="tDocu" color="7" fill="1" visible="yes" active="no"/>
+<layer number="52" name="bDocu" color="7" fill="1" visible="yes" active="no"/>
+<layer number="53" name="tGND_GNDA" color="7" fill="9" visible="yes" active="no"/>
+<layer number="54" name="bGND_GNDA" color="1" fill="9" visible="yes" active="no"/>
+<layer number="56" name="wert" color="7" fill="1" visible="yes" active="no"/>
+<layer number="57" name="tCAD" color="7" fill="1" visible="yes" active="no"/>
+<layer number="59" name="tCarbon" color="7" fill="1" visible="yes" active="no"/>
+<layer number="60" name="bCarbon" color="7" fill="1" visible="yes" active="no"/>
 <layer number="88" name="SimResults" color="9" fill="1" visible="yes" active="yes"/>
 <layer number="89" name="SimProbes" color="9" fill="1" visible="yes" active="yes"/>
 <layer number="90" name="Modules" color="5" fill="1" visible="yes" active="yes"/>
@@ -217,7 +217,7 @@ DIN A4, landscape with location and doc. field</description>
 </deviceset>
 </devicesets>
 </library>
-<library name="SparkFun-PowerSymbols" urn="urn:adsk.eagle:library:530">
+<library name="SparkFun-PowerSymbols">
 <description>&lt;h3&gt;SparkFun Power Symbols&lt;/h3&gt;
 This library contains power, ground, and voltage-supply symbols.
 &lt;br&gt;
@@ -234,28 +234,28 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <packages>
 </packages>
 <symbols>
-<symbol name="3.3V" urn="urn:adsk.eagle:symbol:39411/1" library_version="1">
+<symbol name="3.3V">
 <description>&lt;h3&gt;3.3V Voltage Supply&lt;/h3&gt;</description>
 <wire x1="0.762" y1="1.27" x2="0" y2="2.54" width="0.254" layer="94"/>
 <wire x1="0" y1="2.54" x2="-0.762" y2="1.27" width="0.254" layer="94"/>
 <pin name="3.3V" x="0" y="0" visible="off" length="short" direction="sup" rot="R90"/>
 <text x="0" y="2.794" size="1.778" layer="96" align="bottom-center">&gt;VALUE</text>
 </symbol>
-<symbol name="5V" urn="urn:adsk.eagle:symbol:39412/1" library_version="1">
+<symbol name="5V">
 <description>&lt;h3&gt;5V Voltage Supply&lt;/h3&gt;</description>
 <wire x1="0.762" y1="1.27" x2="0" y2="2.54" width="0.254" layer="94"/>
 <wire x1="0" y1="2.54" x2="-0.762" y2="1.27" width="0.254" layer="94"/>
 <pin name="5V" x="0" y="0" visible="off" length="short" direction="sup" rot="R90"/>
 <text x="0" y="2.794" size="1.778" layer="96" align="bottom-center">&gt;VALUE</text>
 </symbol>
-<symbol name="12V" urn="urn:adsk.eagle:symbol:39413/1" library_version="1">
+<symbol name="12V">
 <description>&lt;h3&gt;12V Voltage Supply&lt;/h3&gt;</description>
 <wire x1="0.762" y1="1.27" x2="0" y2="2.54" width="0.254" layer="94"/>
 <wire x1="0" y1="2.54" x2="-0.762" y2="1.27" width="0.254" layer="94"/>
 <pin name="12V" x="0" y="0" visible="off" length="short" direction="sup" rot="R90"/>
 <text x="0" y="2.794" size="1.778" layer="96" align="bottom-center">&gt;VALUE</text>
 </symbol>
-<symbol name="DGND" urn="urn:adsk.eagle:symbol:39415/1" library_version="1">
+<symbol name="DGND">
 <description>&lt;h3&gt;Digital Ground Supply&lt;/h3&gt;</description>
 <wire x1="-1.905" y1="0" x2="1.905" y2="0" width="0.254" layer="94"/>
 <pin name="GND" x="0" y="2.54" visible="off" length="short" direction="sup" rot="R270"/>
@@ -263,7 +263,7 @@ You are welcome to use this library for commercial purposes. For attribution, we
 </symbol>
 </symbols>
 <devicesets>
-<deviceset name="3.3V" urn="urn:adsk.eagle:component:39435/1" prefix="SUPPLY" library_version="1">
+<deviceset name="3.3V" prefix="SUPPLY">
 <description>&lt;h3&gt;3.3V Supply Symbol&lt;/h3&gt;
 &lt;p&gt;Power supply symbol for a specifically-stated 3.3V source.&lt;/p&gt;</description>
 <gates>
@@ -277,7 +277,7 @@ You are welcome to use this library for commercial purposes. For attribution, we
 </device>
 </devices>
 </deviceset>
-<deviceset name="5V" urn="urn:adsk.eagle:component:39433/1" prefix="SUPPLY" library_version="1">
+<deviceset name="5V" prefix="SUPPLY">
 <description>&lt;h3&gt;5V Supply Symbol&lt;/h3&gt;
 &lt;p&gt;Power supply symbol for a specifically-stated 5V source.&lt;/p&gt;</description>
 <gates>
@@ -291,7 +291,7 @@ You are welcome to use this library for commercial purposes. For attribution, we
 </device>
 </devices>
 </deviceset>
-<deviceset name="12V" urn="urn:adsk.eagle:component:39437/1" prefix="SUPPLY" library_version="1">
+<deviceset name="12V" prefix="SUPPLY">
 <description>&lt;h3&gt;12V Supply Symbol&lt;/h3&gt;
 &lt;p&gt;Power supply symbol for a specifically-stated 12V source.&lt;/p&gt;</description>
 <gates>
@@ -305,7 +305,7 @@ You are welcome to use this library for commercial purposes. For attribution, we
 </device>
 </devices>
 </deviceset>
-<deviceset name="GND" urn="urn:adsk.eagle:component:39439/1" prefix="GND" library_version="1">
+<deviceset name="GND" prefix="GND">
 <description>&lt;h3&gt;Ground Supply Symbol&lt;/h3&gt;
 &lt;p&gt;Generic signal ground supply symbol.&lt;/p&gt;</description>
 <gates>
@@ -11817,7 +11817,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </symbol>
 </symbols>
 <devicesets>
-<deviceset name="C-EU" urn="urn:adsk.eagle:component:23793/45" prefix="C" uservalue="yes" library_version="10">
+<deviceset name="C-EU" urn="urn:adsk.eagle:component:23793/46" prefix="C" uservalue="yes" library_version="11">
 <description>&lt;B&gt;CAPACITOR&lt;/B&gt;, European symbol</description>
 <gates>
 <gate name="G$1" symbol="C-EU" x="0" y="0"/>
@@ -11833,6 +11833,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="18" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -11847,6 +11848,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="2" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -11861,6 +11863,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="73" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -11875,6 +11878,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="88" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -11889,6 +11893,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="54" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -11903,6 +11908,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -11917,6 +11923,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -11931,6 +11938,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="3" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -11945,6 +11953,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="3" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -11959,6 +11968,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -11973,6 +11983,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -11987,6 +11998,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="4" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -12001,6 +12013,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -12015,6 +12028,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -12029,6 +12043,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -12043,6 +12058,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="56" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -12057,6 +12073,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="65" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -12071,6 +12088,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="14" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -12085,6 +12103,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="4" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -12099,6 +12118,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="16" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -12113,6 +12133,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -12127,6 +12148,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -12141,6 +12163,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -12155,6 +12178,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -12169,6 +12193,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -12183,6 +12208,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="1" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -12197,6 +12223,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="33" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -12211,6 +12238,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="29" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -12225,6 +12253,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="1" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -12239,6 +12268,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="9" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -12253,6 +12283,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="1" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -12267,6 +12298,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="1" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -12281,6 +12313,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -12295,6 +12328,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -12309,6 +12343,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -12323,6 +12358,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -12337,6 +12373,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="4" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -12351,6 +12388,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="1" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -12365,6 +12403,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -12379,6 +12418,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -12393,6 +12433,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -12407,6 +12448,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="3" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -12421,6 +12463,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -12435,6 +12478,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -12449,6 +12493,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -12463,6 +12508,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -12477,6 +12523,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -12491,6 +12538,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="2" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -12505,6 +12553,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -12519,6 +12568,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -12533,6 +12583,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -12547,6 +12598,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -12561,6 +12613,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -12575,6 +12628,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -12589,6 +12643,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -12603,6 +12658,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -12617,6 +12673,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -12631,6 +12688,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -12645,6 +12703,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -12659,6 +12718,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -12673,6 +12733,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="2" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -12687,6 +12748,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -12701,6 +12763,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -12715,6 +12778,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -12729,6 +12793,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -12743,6 +12808,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="15" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -12757,6 +12823,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="30" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -12771,6 +12838,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="52" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -12785,6 +12853,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="13" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -12799,6 +12868,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -12813,6 +12883,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -12827,6 +12898,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -12841,6 +12913,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -12855,6 +12928,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -12869,6 +12943,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -12883,6 +12958,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -12897,6 +12973,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -12911,6 +12988,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -12925,6 +13003,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -12937,7 +13016,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </pinmapping>
 </spice>
 </deviceset>
-<deviceset name="R-US_" urn="urn:adsk.eagle:component:23792/21" prefix="R" uservalue="yes" library_version="10">
+<deviceset name="R-US_" urn="urn:adsk.eagle:component:23792/22" prefix="R" uservalue="yes" library_version="11">
 <description>&lt;B&gt;RESISTOR&lt;/B&gt;, American symbol</description>
 <gates>
 <gate name="G$1" symbol="R-US" x="0" y="0"/>
@@ -12953,6 +13032,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="34" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -12967,6 +13047,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="77" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -12981,6 +13062,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="85" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -12995,6 +13077,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -13009,6 +13092,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="19" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -13023,6 +13107,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -13037,6 +13122,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -13051,6 +13137,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -13065,6 +13152,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -13079,6 +13167,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -13093,6 +13182,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -13107,6 +13197,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -13121,6 +13212,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -13135,6 +13227,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="2" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -13149,6 +13242,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -13163,6 +13257,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="1" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -13177,6 +13272,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -13191,6 +13287,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -13205,6 +13302,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -13219,6 +13317,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -13233,6 +13332,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -13247,6 +13347,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -13261,6 +13362,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="45" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -13275,6 +13377,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="22" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -13289,6 +13392,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -13303,6 +13407,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -13317,6 +13422,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -13331,6 +13437,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -13345,6 +13452,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -13359,6 +13467,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -13373,6 +13482,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="18" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -13387,6 +13497,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="48" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -13401,6 +13512,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="36" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -13415,6 +13527,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="3" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -13429,6 +13542,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -13443,6 +13557,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -13457,6 +13572,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -13471,6 +13587,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="22" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -13485,6 +13602,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -13499,6 +13617,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="8" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -13513,6 +13632,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -13527,6 +13647,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="2" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -13541,6 +13662,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -13555,6 +13677,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -13569,6 +13692,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -13583,6 +13707,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -13597,6 +13722,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -13611,6 +13737,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -13625,6 +13752,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -13639,6 +13767,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -13653,6 +13782,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -13667,6 +13797,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -13681,6 +13812,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -13695,6 +13827,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -13709,6 +13842,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -13723,6 +13857,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -13737,6 +13872,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -13751,6 +13887,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -13765,6 +13902,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="1" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -13779,6 +13917,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -13793,6 +13932,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="1" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -13807,6 +13947,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -13821,6 +13962,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -13835,6 +13977,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -13849,6 +13992,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -13863,6 +14007,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -13877,6 +14022,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -13891,6 +14037,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -13905,6 +14052,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -13919,6 +14067,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -13933,6 +14082,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="3" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -13947,6 +14097,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -13961,6 +14112,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -13975,6 +14127,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -13989,6 +14142,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -14003,6 +14157,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -14017,6 +14172,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -14031,6 +14187,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -14045,6 +14202,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -14059,6 +14217,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -14073,6 +14232,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -14087,6 +14247,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -14101,6 +14262,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -14115,6 +14277,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -14129,6 +14292,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="1" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -14141,7 +14305,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </pinmapping>
 </spice>
 </deviceset>
-<deviceset name="CPOL-US" urn="urn:adsk.eagle:component:23788/28" prefix="C" uservalue="yes" library_version="10">
+<deviceset name="CPOL-US" urn="urn:adsk.eagle:component:23788/29" prefix="C" uservalue="yes" library_version="11">
 <description>&lt;B&gt;POLARIZED CAPACITOR&lt;/B&gt;, American symbol</description>
 <gates>
 <gate name="G$1" symbol="CPOL-US" x="0" y="0"/>
@@ -14157,6 +14321,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="2" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -14171,6 +14336,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="2" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -14185,6 +14351,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -14199,6 +14366,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="7" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -14213,6 +14381,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -14227,6 +14396,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="1" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -14241,6 +14411,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -14255,6 +14426,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -14269,6 +14441,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -14283,6 +14456,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -14297,6 +14471,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -14311,6 +14486,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -14325,6 +14501,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -14339,6 +14516,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -14353,6 +14531,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -14367,6 +14546,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="1" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -14381,6 +14561,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -14395,6 +14576,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -14409,6 +14591,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -14423,6 +14606,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -14437,6 +14621,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -14451,6 +14636,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -14465,6 +14651,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -14479,6 +14666,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -14493,6 +14681,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -14507,6 +14696,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -14521,6 +14711,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="4" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -14535,6 +14726,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -14549,6 +14741,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -14563,6 +14756,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -14577,6 +14771,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -14591,6 +14786,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -14605,6 +14801,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -14619,6 +14816,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="1" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -14633,6 +14831,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -14647,6 +14846,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -14661,6 +14861,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -14675,6 +14876,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -14689,6 +14891,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="6" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -14703,6 +14906,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -14717,6 +14921,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -14731,6 +14936,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -14745,6 +14951,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -14759,6 +14966,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="8" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -14773,6 +14981,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="14" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -14787,6 +14996,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -14801,6 +15011,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -14815,6 +15026,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -14829,6 +15041,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="7" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -14843,6 +15056,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -14857,6 +15071,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -14871,6 +15086,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -14885,6 +15101,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="6" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -14899,6 +15116,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -14913,6 +15131,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -14927,6 +15146,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="9" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -14941,6 +15161,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -14955,6 +15176,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -14969,6 +15191,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -14983,6 +15206,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -14997,6 +15221,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -15011,6 +15236,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -15025,6 +15251,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -15039,6 +15266,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -15053,6 +15281,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -15067,6 +15296,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -15081,6 +15311,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -15095,6 +15326,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -15109,6 +15341,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="12" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -15123,6 +15356,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="7" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -15137,6 +15371,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -15151,6 +15386,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="5" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -15165,6 +15401,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="4" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -15179,6 +15416,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="4" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -15193,6 +15431,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -15207,6 +15446,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -15221,6 +15461,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -15235,6 +15476,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -15249,6 +15491,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -15263,6 +15506,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -15277,6 +15521,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="3" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -15291,6 +15536,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -15305,6 +15551,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -15319,6 +15566,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -15333,6 +15581,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="1" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -15347,6 +15596,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -15361,6 +15611,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -15375,6 +15626,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -15389,6 +15641,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -15403,6 +15656,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -15417,6 +15671,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -15431,6 +15686,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -15445,6 +15701,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -15459,6 +15716,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -15473,6 +15731,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -15487,6 +15746,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -15501,6 +15761,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -15515,6 +15776,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -15529,6 +15791,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="1" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -15543,6 +15806,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -15557,6 +15821,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="2" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -15571,6 +15836,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -15585,6 +15851,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="8" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -15599,6 +15866,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -15613,6 +15881,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="3" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -15627,6 +15896,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="2" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -15641,6 +15911,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -15655,6 +15926,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -15669,6 +15941,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -15683,6 +15956,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -15697,6 +15971,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="2" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -15711,6 +15986,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="1" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -15725,6 +16001,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -15739,6 +16016,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="3" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -15753,6 +16031,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -15767,6 +16046,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -15781,6 +16061,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="1" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -15795,6 +16076,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="1" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -15809,6 +16091,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="1" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -15823,6 +16106,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -15837,6 +16121,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -15851,6 +16136,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -15865,6 +16151,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="1" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -15879,6 +16166,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -15893,6 +16181,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="5" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -15907,6 +16196,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="7" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -15921,6 +16211,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -15935,6 +16226,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="2" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -15949,6 +16241,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -15963,6 +16256,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -15977,6 +16271,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="1" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -15991,6 +16286,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -16005,6 +16301,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -16019,6 +16316,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -16033,6 +16331,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -16047,6 +16346,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="2" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -16061,6 +16361,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -16075,6 +16376,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="1" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -16089,6 +16391,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -16103,6 +16406,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -16117,6 +16421,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -16131,6 +16436,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -16145,6 +16451,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -16159,6 +16466,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -16173,6 +16481,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -16187,6 +16496,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -16201,6 +16511,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -16215,6 +16526,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -16229,6 +16541,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -16243,6 +16556,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -16257,6 +16571,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -16271,6 +16586,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -16285,6 +16601,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -16299,6 +16616,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -16313,6 +16631,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -16327,6 +16646,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -16341,6 +16661,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -16355,6 +16676,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -16369,6 +16691,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -16383,6 +16706,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -16397,6 +16721,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -16411,6 +16736,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -16425,6 +16751,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -16439,6 +16766,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -16453,6 +16781,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -16467,6 +16796,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -16481,6 +16811,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -16495,6 +16826,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -16509,6 +16841,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -16523,6 +16856,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="1" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -16537,6 +16871,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="1" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -16551,6 +16886,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -16565,6 +16901,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -16579,6 +16916,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="2" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -16593,6 +16931,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="C" constant="no"/>
 </technology>
 </technologies>
@@ -16607,7 +16946,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </deviceset>
 </devicesets>
 </library>
-<library name="SparkFun-Switches" urn="urn:adsk.eagle:library:535">
+<library name="SparkFun-Switches">
 <description>&lt;h3&gt;SparkFun Switches, Buttons, Encoders&lt;/h3&gt;
 In this library you'll find switches, buttons, joysticks, and anything that moves to create or disrupt an electrical connection.
 &lt;br&gt;
@@ -16622,7 +16961,35 @@ We've spent an enormous amount of time creating and checking these footprints an
 &lt;br&gt;
 You are welcome to use this library for commercial purposes. For attribution, we ask that when you begin to sell your device using our footprint, you email us with a link to the product being sold. We want bragging rights that we helped (in a very small part) to create your 8th world wonder. We would like the opportunity to feature your device on our homepage.</description>
 <packages>
-<package name="TACTILE_SWITCH_PTH_6.0MM" urn="urn:adsk.eagle:footprint:40103/1" library_version="1">
+<package name="TACTILE_SWITCH_SMD_6.0X3.5MM">
+<description>&lt;h3&gt;Momentary Switch (Pushbutton) - SPST - SMD, 6.0 x 3.5 mm&lt;/h3&gt;
+&lt;p&gt;Normally-open (NO) SPST momentary switches (buttons, pushbuttons).&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.sparkfun.com/datasheets/Components/1101.pdf"&gt;Datasheet&lt;/a&gt;&lt;/p&gt;</description>
+<wire x1="-3" y1="1.1" x2="-3" y2="-1.1" width="0.127" layer="51"/>
+<wire x1="3" y1="1.1" x2="3" y2="-1.1" width="0.127" layer="51"/>
+<wire x1="-2.75" y1="1.75" x2="-3" y2="1.5" width="0.2032" layer="21" curve="90"/>
+<wire x1="-2.75" y1="1.75" x2="2.75" y2="1.75" width="0.2032" layer="21"/>
+<wire x1="2.75" y1="1.75" x2="3" y2="1.5" width="0.2032" layer="21" curve="-90"/>
+<wire x1="3" y1="-1.5" x2="2.75" y2="-1.75" width="0.2032" layer="21" curve="-90"/>
+<wire x1="2.75" y1="-1.75" x2="-2.75" y2="-1.75" width="0.2032" layer="21"/>
+<wire x1="-3" y1="-1.5" x2="-2.75" y2="-1.75" width="0.2032" layer="21" curve="90"/>
+<wire x1="-3" y1="-1.5" x2="-3" y2="-1.1" width="0.2032" layer="21"/>
+<wire x1="-3" y1="1.1" x2="-3" y2="1.5" width="0.2032" layer="21"/>
+<wire x1="3" y1="1.1" x2="3" y2="1.5" width="0.2032" layer="21"/>
+<wire x1="3" y1="-1.5" x2="3" y2="-1.1" width="0.2032" layer="21"/>
+<wire x1="-1.5" y1="0.75" x2="1.5" y2="0.75" width="0.2032" layer="21"/>
+<wire x1="1.5" y1="-0.75" x2="-1.5" y2="-0.75" width="0.2032" layer="21"/>
+<wire x1="-1.5" y1="-0.75" x2="-1.5" y2="0.75" width="0.2032" layer="21"/>
+<wire x1="1.5" y1="-0.75" x2="1.5" y2="0.75" width="0.2032" layer="21"/>
+<wire x1="-2" y1="0" x2="-1" y2="0" width="0.127" layer="51"/>
+<wire x1="-1" y1="0" x2="0.1" y2="0.5" width="0.127" layer="51"/>
+<wire x1="0.3" y1="0" x2="2" y2="0" width="0.127" layer="51"/>
+<smd name="1" x="-3.15" y="0" dx="2.3" dy="1.6" layer="1" rot="R180"/>
+<smd name="2" x="3.15" y="0" dx="2.3" dy="1.6" layer="1" rot="R180"/>
+<text x="0" y="1.905" size="0.6096" layer="25" font="vector" ratio="20" align="bottom-center">&gt;Name</text>
+<text x="0" y="-1.905" size="0.6096" layer="27" font="vector" ratio="20" align="top-center">&gt;Value</text>
+</package>
+<package name="TACTILE_SWITCH_PTH_6.0MM">
 <description>&lt;h3&gt;Momentary Switch (Pushbutton) - SPST - PTH, 6.0mm Square&lt;/h3&gt;
 &lt;p&gt;Normally-open (NO) SPST momentary switches (buttons, pushbuttons).&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://www.omron.com/ecb/products/pdf/en-b3f.pdf"&gt;Datasheet&lt;/a&gt; (B3F-1000)&lt;/p&gt;</description>
@@ -16653,7 +17020,7 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <text x="0" y="3.302" size="0.6096" layer="25" font="vector" ratio="20" align="bottom-center">&gt;Name</text>
 <text x="0" y="-3.175" size="0.6096" layer="27" font="vector" ratio="20" align="top-center">&gt;Value</text>
 </package>
-<package name="TACTILE_SWITCH_SMD_4.5MM" urn="urn:adsk.eagle:footprint:40104/1" library_version="1">
+<package name="TACTILE_SWITCH_SMD_4.5MM">
 <description>&lt;h3&gt;Momentary Switch (Pushbutton) - SPST - SMD, 4.5mm Square&lt;/h3&gt;
 &lt;p&gt;Normally-open (NO) SPST momentary switches (buttons, pushbuttons).&lt;/p&gt;
 &lt;p&gt;&lt;a href="http://spec_sheets.e-switch.com/specs/P010338.pdf"&gt;Dimensional Drawing&lt;/a&gt;&lt;/p&gt;</description>
@@ -16680,7 +17047,7 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <text x="0" y="2.413" size="0.6096" layer="25" font="vector" ratio="20" align="bottom-center">&gt;Name</text>
 <text x="0" y="-2.413" size="0.6096" layer="27" font="vector" ratio="20" align="top-center">&gt;Value</text>
 </package>
-<package name="TACTILE_SWITCH_PTH_12MM" urn="urn:adsk.eagle:footprint:40105/1" library_version="1">
+<package name="TACTILE_SWITCH_PTH_12MM">
 <description>&lt;h3&gt;Momentary Switch (Pushbutton) - SPST - PTH, 12mm Square&lt;/h3&gt;
 &lt;p&gt;Normally-open (NO) SPST momentary switches (buttons, pushbuttons).&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://www.omron.com/ecb/products/pdf/en-b3f.pdf"&gt;Datasheet&lt;/a&gt; (B3F-5050)&lt;/p&gt;</description>
@@ -16711,35 +17078,7 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <text x="0" y="6.223" size="0.6096" layer="25" font="vector" ratio="20" align="bottom-center">&gt;Name</text>
 <text x="0" y="-6.223" size="0.6096" layer="27" font="vector" ratio="20" align="top-center">&gt;Value</text>
 </package>
-<package name="TACTILE_SWITCH_SMD_6.0X3.5MM" urn="urn:adsk.eagle:footprint:40106/1" library_version="1">
-<description>&lt;h3&gt;Momentary Switch (Pushbutton) - SPST - SMD, 6.0 x 3.5 mm&lt;/h3&gt;
-&lt;p&gt;Normally-open (NO) SPST momentary switches (buttons, pushbuttons).&lt;/p&gt;
-&lt;p&gt;&lt;a href="https://www.sparkfun.com/datasheets/Components/1101.pdf"&gt;Datasheet&lt;/a&gt;&lt;/p&gt;</description>
-<wire x1="-3" y1="1.1" x2="-3" y2="-1.1" width="0.127" layer="51"/>
-<wire x1="3" y1="1.1" x2="3" y2="-1.1" width="0.127" layer="51"/>
-<wire x1="-2.75" y1="1.75" x2="-3" y2="1.5" width="0.2032" layer="21" curve="90"/>
-<wire x1="-2.75" y1="1.75" x2="2.75" y2="1.75" width="0.2032" layer="21"/>
-<wire x1="2.75" y1="1.75" x2="3" y2="1.5" width="0.2032" layer="21" curve="-90"/>
-<wire x1="3" y1="-1.5" x2="2.75" y2="-1.75" width="0.2032" layer="21" curve="-90"/>
-<wire x1="2.75" y1="-1.75" x2="-2.75" y2="-1.75" width="0.2032" layer="21"/>
-<wire x1="-3" y1="-1.5" x2="-2.75" y2="-1.75" width="0.2032" layer="21" curve="90"/>
-<wire x1="-3" y1="-1.5" x2="-3" y2="-1.1" width="0.2032" layer="21"/>
-<wire x1="-3" y1="1.1" x2="-3" y2="1.5" width="0.2032" layer="21"/>
-<wire x1="3" y1="1.1" x2="3" y2="1.5" width="0.2032" layer="21"/>
-<wire x1="3" y1="-1.5" x2="3" y2="-1.1" width="0.2032" layer="21"/>
-<wire x1="-1.5" y1="0.75" x2="1.5" y2="0.75" width="0.2032" layer="21"/>
-<wire x1="1.5" y1="-0.75" x2="-1.5" y2="-0.75" width="0.2032" layer="21"/>
-<wire x1="-1.5" y1="-0.75" x2="-1.5" y2="0.75" width="0.2032" layer="21"/>
-<wire x1="1.5" y1="-0.75" x2="1.5" y2="0.75" width="0.2032" layer="21"/>
-<wire x1="-2" y1="0" x2="-1" y2="0" width="0.127" layer="51"/>
-<wire x1="-1" y1="0" x2="0.1" y2="0.5" width="0.127" layer="51"/>
-<wire x1="0.3" y1="0" x2="2" y2="0" width="0.127" layer="51"/>
-<smd name="1" x="-3.15" y="0" dx="2.3" dy="1.6" layer="1" rot="R180"/>
-<smd name="2" x="3.15" y="0" dx="2.3" dy="1.6" layer="1" rot="R180"/>
-<text x="0" y="1.905" size="0.6096" layer="25" font="vector" ratio="20" align="bottom-center">&gt;Name</text>
-<text x="0" y="-1.905" size="0.6096" layer="27" font="vector" ratio="20" align="top-center">&gt;Value</text>
-</package>
-<package name="TACTILE_SWITCH_SMD_6.2MM_TALL" urn="urn:adsk.eagle:footprint:40107/1" library_version="1">
+<package name="TACTILE_SWITCH_SMD_6.2MM_TALL">
 <description>&lt;h3&gt;Momentary Switch (Pushbutton) - SPST - SMD, 6.2mm Square&lt;/h3&gt;
 &lt;p&gt;Normally-open (NO) SPST momentary switches (buttons, pushbuttons).&lt;/p&gt;
 &lt;p&gt;&lt;a href="http://www.apem.com/files/apem/brochures/ADTS6-ADTSM-KTSC6.pdf"&gt;Datasheet&lt;/a&gt; (ADTSM63NVTR)&lt;/p&gt;</description>
@@ -16755,7 +17094,7 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <text x="0" y="3.175" size="0.6096" layer="25" font="vector" ratio="20" align="bottom-center">&gt;Name</text>
 <text x="0" y="-3.175" size="0.6096" layer="27" font="vector" ratio="20" align="top-center">&gt;Value</text>
 </package>
-<package name="TACTILE_SWITCH_PTH_RIGHT_ANGLE_KIT" urn="urn:adsk.eagle:footprint:40108/1" library_version="1">
+<package name="TACTILE_SWITCH_PTH_RIGHT_ANGLE_KIT">
 <description>&lt;h3&gt;Momentary Switch (Pushbutton) - SPST - PTH, Right-angle&lt;/h3&gt;
 &lt;p&gt;Normally-open (NO) SPST momentary switches (buttons, pushbuttons).&lt;/p&gt;
 &lt;p&gt;&lt;a href="http://cdn.sparkfun.com/datasheets/Components/Switches/SW016.JPG"&gt;Dimensional Drawing&lt;/a&gt;&lt;/p&gt;</description>
@@ -16791,7 +17130,7 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <text x="0" y="2.286" size="0.6096" layer="25" font="vector" ratio="20" align="bottom-center">&gt;Name</text>
 <text x="0" y="-2.286" size="0.6096" layer="27" font="vector" ratio="20" align="top-center">&gt;Value</text>
 </package>
-<package name="TACTILE_SWITCH_SMD_12MM" urn="urn:adsk.eagle:footprint:40109/1" library_version="1">
+<package name="TACTILE_SWITCH_SMD_12MM">
 <description>&lt;h3&gt;Momentary Switch (Pushbutton) - SPST - SMD, 12mm Square&lt;/h3&gt;
 &lt;p&gt;Normally-open (NO) SPST momentary switches (buttons, pushbuttons).&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://cdn.sparkfun.com/datasheets/Components/Switches/N301102.pdf"&gt;Datasheet&lt;/a&gt;&lt;/p&gt;</description>
@@ -16806,10 +17145,6 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <wire x1="5" y1="-6" x2="-5" y2="-6" width="0.2032" layer="21"/>
 <wire x1="-6" y1="-5" x2="-6" y2="-4" width="0.2032" layer="21"/>
 <wire x1="-6" y1="-1" x2="-6" y2="1" width="0.2032" layer="21"/>
-<wire x1="-6" y1="-5" x2="-5" y2="-6" width="0.2032" layer="21"/>
-<wire x1="6" y1="-5" x2="5" y2="-6" width="0.2032" layer="21"/>
-<wire x1="6" y1="5" x2="5" y2="6" width="0.2032" layer="21"/>
-<wire x1="-5" y1="6" x2="-6" y2="5" width="0.2032" layer="21"/>
 <circle x="0" y="0" radius="3.5" width="0.2032" layer="21"/>
 <circle x="-4.5" y="4.5" radius="0.3" width="0.7" layer="21"/>
 <circle x="4.5" y="4.5" radius="0.3" width="0.7" layer="21"/>
@@ -16819,10 +17154,14 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <smd name="2" x="-6.975" y="-2.5" dx="1.6" dy="1.55" layer="1"/>
 <smd name="1" x="6.975" y="-2.5" dx="1.6" dy="1.55" layer="1"/>
 <smd name="3" x="6.975" y="2.5" dx="1.6" dy="1.55" layer="1"/>
+<wire x1="-6" y1="-5" x2="-5" y2="-6" width="0.2032" layer="21"/>
+<wire x1="6" y1="-5" x2="5" y2="-6" width="0.2032" layer="21"/>
+<wire x1="6" y1="5" x2="5" y2="6" width="0.2032" layer="21"/>
+<wire x1="-5" y1="6" x2="-6" y2="5" width="0.2032" layer="21"/>
 <text x="0" y="6.223" size="0.6096" layer="25" font="vector" ratio="20" align="bottom-center">&gt;Name</text>
 <text x="0" y="-6.223" size="0.6096" layer="27" font="vector" ratio="20" align="top-center">&gt;Value</text>
 </package>
-<package name="TACTILE_SWITCH_PTH_6.0MM_KIT" urn="urn:adsk.eagle:footprint:40110/1" library_version="1">
+<package name="TACTILE_SWITCH_PTH_6.0MM_KIT">
 <description>&lt;h3&gt;Momentary Switch (Pushbutton) - SPST - PTH, 6.0mm Square&lt;/h3&gt;
 &lt;p&gt;Normally-open (NO) SPST momentary switches (buttons, pushbuttons).&lt;/p&gt;
 &lt;p&gt;&lt;b&gt;Warning:&lt;/b&gt; This is the KIT version of this package. This package has a smaller diameter top stop mask, which doesn't cover the diameter of the pad. This means only the bottom side of the pads' copper will be exposed. You'll only be able to solder to the bottom side.&lt;/p&gt;
@@ -16934,7 +17273,7 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <text x="0" y="3.175" size="0.6096" layer="25" font="vector" ratio="20" align="bottom-center">&gt;Name</text>
 <text x="0" y="-3.175" size="0.6096" layer="27" font="vector" ratio="20" align="top-center">&gt;Value</text>
 </package>
-<package name="TACTILE_SWITCH_SMD_5.2MM" urn="urn:adsk.eagle:footprint:40111/1" library_version="1">
+<package name="TACTILE_SWITCH_SMD_5.2MM">
 <description>&lt;h3&gt;Momentary Switch (Pushbutton) - SPST - SMD, 5.2mm Square&lt;/h3&gt;
 &lt;p&gt;Normally-open (NO) SPST momentary switches (buttons, pushbuttons).&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://www.sparkfun.com/datasheets/Components/Buttons/SMD-Button.pdf"&gt;Dimensional Drawing&lt;/a&gt;&lt;/p&gt;</description>
@@ -16957,7 +17296,7 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <text x="0" y="2.667" size="0.6096" layer="25" font="vector" ratio="20" align="bottom-center">&gt;Name</text>
 <text x="0" y="-2.667" size="0.6096" layer="27" font="vector" ratio="20" align="top-center">&gt;Value</text>
 </package>
-<package name="TACTILE_SWITCH_SMD_RIGHT_ANGLE" urn="urn:adsk.eagle:footprint:40112/1" library_version="1">
+<package name="TACTILE_SWITCH_SMD_RIGHT_ANGLE">
 <description>&lt;h3&gt;Momentary Switch (Pushbutton) - SPST - SMD, Right-angle&lt;/h3&gt;
 &lt;p&gt;Normally-open (NO) SPST momentary switches (buttons, pushbuttons).&lt;/p&gt;</description>
 <hole x="0" y="0.9" drill="0.7"/>
@@ -16978,7 +17317,7 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <text x="0" y="1.651" size="0.6096" layer="25" font="vector" ratio="20" align="bottom-center">&gt;Name</text>
 <text x="0" y="-2.286" size="0.6096" layer="27" font="vector" ratio="20" align="top-center">&gt;Value</text>
 </package>
-<package name="TACTILE_SWITCH_SMD_4.6X2.8MM" urn="urn:adsk.eagle:footprint:40113/1" library_version="1">
+<package name="TACTILE_SWITCH_SMD_4.6X2.8MM">
 <description>&lt;h3&gt;Momentary Switch (Pushbutton) - SPST - SMD, 4.6 x 2.8mm&lt;/h3&gt;
 &lt;p&gt;Normally-open (NO) SPST momentary switches (buttons, pushbuttons).&lt;/p&gt;
 &lt;p&gt;&lt;a href="http://www.ck-components.com/media/1479/kmr2.pdf"&gt;Datasheet&lt;/a&gt;&lt;/p&gt;</description>
@@ -16990,11 +17329,11 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <wire x1="2.1" y1="-1.4" x2="2.1" y2="1.4" width="0.127" layer="51"/>
 <wire x1="-2.1" y1="1.4" x2="2.1" y2="1.4" width="0.127" layer="51"/>
 <wire x1="-2.1" y1="-1.4" x2="2.1" y2="-1.4" width="0.127" layer="51"/>
+<circle x="0" y="0" radius="0.805" width="0.127" layer="21"/>
 <wire x1="1.338" y1="-1.4" x2="-1.338" y2="-1.4" width="0.2032" layer="21"/>
 <wire x1="-1.338" y1="1.4" x2="1.338" y2="1.4" width="0.2032" layer="21"/>
 <wire x1="-2.1" y1="0.13" x2="-2.1" y2="-0.13" width="0.2032" layer="21"/>
 <wire x1="2.1" y1="-0.13" x2="2.1" y2="0.13" width="0.2032" layer="21"/>
-<circle x="0" y="0" radius="0.805" width="0.127" layer="21"/>
 <rectangle x1="-2.3" y1="0.5" x2="-2.1" y2="1.1" layer="51"/>
 <rectangle x1="-2.3" y1="-1.1" x2="-2.1" y2="-0.5" layer="51"/>
 <rectangle x1="2.1" y1="-1.1" x2="2.3" y2="-0.5" layer="51" rot="R180"/>
@@ -17002,99 +17341,58 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <text x="0" y="1.524" size="0.6096" layer="25" font="vector" ratio="20" align="bottom-center">&gt;Name</text>
 <text x="0" y="-1.524" size="0.6096" layer="27" font="vector" ratio="20" align="top-center">&gt;Value</text>
 </package>
+<package name="TACTILE_SWITCH_PTH_RIGHT_ANGLE">
+<description>&lt;h3&gt;Momentary Switch (Pushbutton) - SPST - PTH, Right-angle&lt;/h3&gt;
+&lt;p&gt;Normally-open (NO) SPST momentary switches (buttons, pushbuttons).&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://cdn.sparkfun.com/datasheets/Components/Switches/SW016.JPG"&gt;Dimensional Drawing&lt;/a&gt;&lt;/p&gt;</description>
+<wire x1="1.5" y1="-3.8" x2="-1.5" y2="-3.8" width="0.127" layer="51"/>
+<wire x1="-3.65" y1="-2" x2="-3.65" y2="3.5" width="0.127" layer="51"/>
+<wire x1="-3.65" y1="3.5" x2="-3" y2="3.5" width="0.127" layer="51"/>
+<wire x1="3" y1="3.5" x2="3.65" y2="3.5" width="0.127" layer="51"/>
+<wire x1="3.65" y1="3.5" x2="3.65" y2="-2" width="0.127" layer="51"/>
+<wire x1="-3" y1="2" x2="3" y2="2" width="0.127" layer="51"/>
+<wire x1="-3" y1="2" x2="-3" y2="3.5" width="0.127" layer="51"/>
+<wire x1="3" y1="2" x2="3" y2="3.5" width="0.127" layer="51"/>
+<wire x1="-3.65" y1="-2" x2="-1.5" y2="-2" width="0.127" layer="51"/>
+<wire x1="-1.5" y1="-2" x2="1.5" y2="-2" width="0.127" layer="51"/>
+<wire x1="1.5" y1="-2" x2="3.65" y2="-2" width="0.127" layer="51"/>
+<wire x1="1.5" y1="-2" x2="1.5" y2="-3.8" width="0.127" layer="51"/>
+<wire x1="-1.5" y1="-2" x2="-1.5" y2="-3.8" width="0.127" layer="51"/>
+<wire x1="-3.777" y1="1" x2="-3.777" y2="-2.445003125" width="0.2032" layer="21"/>
+<wire x1="-3.777" y1="-2.445003125" x2="3.777" y2="-2.445003125" width="0.2032" layer="21"/>
+<wire x1="3.777" y1="-2.445003125" x2="3.777" y2="1" width="0.2032" layer="21"/>
+<wire x1="2" y1="2.127" x2="-2" y2="2.127" width="0.2032" layer="21"/>
+<pad name="ANCHOR1" x="-3.7032" y="2.5" drill="1.2" diameter="2.2"/>
+<pad name="ANCHOR2" x="3.7032" y="2.5" drill="1.2" diameter="2.2"/>
+<pad name="1" x="-2.5" y="0" drill="0.8" diameter="1.7" stop="no"/>
+<pad name="2" x="2.5" y="0" drill="0.8" diameter="1.7" stop="no"/>
+<circle x="2.5" y="0" radius="0.4445" width="0" layer="29"/>
+<circle x="-2.5" y="0" radius="0.4445" width="0" layer="29"/>
+<circle x="2.5" y="0" radius="0.889" width="0" layer="30"/>
+<circle x="-2.5" y="0" radius="0.889" width="0" layer="30"/>
+<text x="0" y="2.286" size="0.6096" layer="25" font="vector" ratio="20" align="bottom-center">&gt;Name</text>
+<text x="0" y="-2.286" size="0.6096" layer="27" font="vector" ratio="20" align="top-center">&gt;Value</text>
+<wire x1="-0.635" y1="-2.445003125" x2="0.635" y2="-2.445003125" width="0.4064" layer="51"/>
+<wire x1="3.777" y1="1.905" x2="3.777" y2="3.683" width="0.4064" layer="51"/>
+<wire x1="-3.777" y1="1.905" x2="-3.777" y2="3.683" width="0.4064" layer="51"/>
+<text x="-1.27" y="-0.254" size="0.8128" layer="51" font="vector" ratio="15">Foot</text>
+<wire x1="0" y1="-0.635" x2="0" y2="-1.651" width="0.127" layer="51"/>
+<wire x1="0" y1="-1.651" x2="-0.127" y2="-1.27" width="0.127" layer="51"/>
+<wire x1="-0.127" y1="-1.27" x2="0.127" y2="-1.27" width="0.127" layer="51"/>
+<wire x1="0.127" y1="-1.27" x2="0" y2="-1.651" width="0.127" layer="51"/>
+<wire x1="1.905" y1="3.683" x2="2.921" y2="3.683" width="0.127" layer="51"/>
+<wire x1="2.921" y1="3.683" x2="2.54" y2="3.556" width="0.127" layer="51"/>
+<wire x1="2.54" y1="3.556" x2="2.54" y2="3.81" width="0.127" layer="51"/>
+<wire x1="2.54" y1="3.81" x2="2.921" y2="3.683" width="0.127" layer="51"/>
+<wire x1="-1.905" y1="3.683" x2="-2.921" y2="3.683" width="0.127" layer="51"/>
+<wire x1="-2.921" y1="3.683" x2="-2.54" y2="3.81" width="0.127" layer="51"/>
+<wire x1="-2.54" y1="3.81" x2="-2.54" y2="3.556" width="0.127" layer="51"/>
+<wire x1="-2.54" y1="3.556" x2="-2.921" y2="3.683" width="0.127" layer="51"/>
+<text x="-1.27" y="3.302" size="0.8128" layer="51" font="vector" ratio="15">Feet</text>
+</package>
 </packages>
-<packages3d>
-<package3d name="TACTILE_SWITCH_PTH_6.0MM" urn="urn:adsk.eagle:package:40163/1" type="box" library_version="1">
-<description>Momentary Switch (Pushbutton) - SPST - PTH, 6.0mm Square
-Normally-open (NO) SPST momentary switches (buttons, pushbuttons).
-Datasheet (B3F-1000)</description>
-<packageinstances>
-<packageinstance name="TACTILE_SWITCH_PTH_6.0MM"/>
-</packageinstances>
-</package3d>
-<package3d name="TACTILE_SWITCH_SMD_4.5MM" urn="urn:adsk.eagle:package:40162/1" type="box" library_version="1">
-<description>Momentary Switch (Pushbutton) - SPST - SMD, 4.5mm Square
-Normally-open (NO) SPST momentary switches (buttons, pushbuttons).
-Dimensional Drawing</description>
-<packageinstances>
-<packageinstance name="TACTILE_SWITCH_SMD_4.5MM"/>
-</packageinstances>
-</package3d>
-<package3d name="TACTILE_SWITCH_PTH_12MM" urn="urn:adsk.eagle:package:40164/1" type="box" library_version="1">
-<description>Momentary Switch (Pushbutton) - SPST - PTH, 12mm Square
-Normally-open (NO) SPST momentary switches (buttons, pushbuttons).
-Datasheet (B3F-5050)</description>
-<packageinstances>
-<packageinstance name="TACTILE_SWITCH_PTH_12MM"/>
-</packageinstances>
-</package3d>
-<package3d name="TACTILE_SWITCH_SMD_6.0X3.5MM" urn="urn:adsk.eagle:package:40165/1" type="box" library_version="1">
-<description>Momentary Switch (Pushbutton) - SPST - SMD, 6.0 x 3.5 mm
-Normally-open (NO) SPST momentary switches (buttons, pushbuttons).
-Datasheet</description>
-<packageinstances>
-<packageinstance name="TACTILE_SWITCH_SMD_6.0X3.5MM"/>
-</packageinstances>
-</package3d>
-<package3d name="TACTILE_SWITCH_SMD_6.2MM_TALL" urn="urn:adsk.eagle:package:40172/1" type="box" library_version="1">
-<description>Momentary Switch (Pushbutton) - SPST - SMD, 6.2mm Square
-Normally-open (NO) SPST momentary switches (buttons, pushbuttons).
-Datasheet (ADTSM63NVTR)</description>
-<packageinstances>
-<packageinstance name="TACTILE_SWITCH_SMD_6.2MM_TALL"/>
-</packageinstances>
-</package3d>
-<package3d name="TACTILE_SWITCH_PTH_RIGHT_ANGLE_KIT" urn="urn:adsk.eagle:package:40168/1" type="box" library_version="1">
-<description>Momentary Switch (Pushbutton) - SPST - PTH, Right-angle
-Normally-open (NO) SPST momentary switches (buttons, pushbuttons).
-Dimensional Drawing</description>
-<packageinstances>
-<packageinstance name="TACTILE_SWITCH_PTH_RIGHT_ANGLE_KIT"/>
-</packageinstances>
-</package3d>
-<package3d name="TACTILE_SWITCH_SMD_12MM" urn="urn:adsk.eagle:package:40166/1" type="box" library_version="1">
-<description>Momentary Switch (Pushbutton) - SPST - SMD, 12mm Square
-Normally-open (NO) SPST momentary switches (buttons, pushbuttons).
-Datasheet</description>
-<packageinstances>
-<packageinstance name="TACTILE_SWITCH_SMD_12MM"/>
-</packageinstances>
-</package3d>
-<package3d name="TACTILE_SWITCH_PTH_6.0MM_KIT" urn="urn:adsk.eagle:package:40170/1" type="box" library_version="1">
-<description>Momentary Switch (Pushbutton) - SPST - PTH, 6.0mm Square
-Normally-open (NO) SPST momentary switches (buttons, pushbuttons).
-Warning: This is the KIT version of this package. This package has a smaller diameter top stop mask, which doesn't cover the diameter of the pad. This means only the bottom side of the pads' copper will be exposed. You'll only be able to solder to the bottom side.
-Datasheet (B3F-1000)</description>
-<packageinstances>
-<packageinstance name="TACTILE_SWITCH_PTH_6.0MM_KIT"/>
-</packageinstances>
-</package3d>
-<package3d name="TACTILE_SWITCH_SMD_5.2MM" urn="urn:adsk.eagle:package:40167/1" type="box" library_version="1">
-<description>Momentary Switch (Pushbutton) - SPST - SMD, 5.2mm Square
-Normally-open (NO) SPST momentary switches (buttons, pushbuttons).
-Dimensional Drawing</description>
-<packageinstances>
-<packageinstance name="TACTILE_SWITCH_SMD_5.2MM"/>
-</packageinstances>
-</package3d>
-<package3d name="TACTILE_SWITCH_SMD_RIGHT_ANGLE" urn="urn:adsk.eagle:package:40169/1" type="box" library_version="1">
-<description>Momentary Switch (Pushbutton) - SPST - SMD, Right-angle
-Normally-open (NO) SPST momentary switches (buttons, pushbuttons).</description>
-<packageinstances>
-<packageinstance name="TACTILE_SWITCH_SMD_RIGHT_ANGLE"/>
-</packageinstances>
-</package3d>
-<package3d name="TACTILE_SWITCH_SMD_4.6X2.8MM" urn="urn:adsk.eagle:package:40176/1" type="box" library_version="1">
-<description>Momentary Switch (Pushbutton) - SPST - SMD, 4.6 x 2.8mm
-Normally-open (NO) SPST momentary switches (buttons, pushbuttons).
-Datasheet</description>
-<packageinstances>
-<packageinstance name="TACTILE_SWITCH_SMD_4.6X2.8MM"/>
-</packageinstances>
-</package3d>
-</packages3d>
 <symbols>
-<symbol name="SWITCH-MOMENTARY-2" urn="urn:adsk.eagle:symbol:40102/1" library_version="1">
+<symbol name="SWITCH-MOMENTARY-2">
 <description>&lt;h3&gt;Momentary Switch (Pushbutton) - SPST&lt;/h3&gt;
 &lt;p&gt;Normally-open (NO) SPST momentary switches (buttons, pushbuttons).&lt;/p&gt;</description>
 <wire x1="1.905" y1="0" x2="2.54" y2="0" width="0.254" layer="94"/>
@@ -17108,7 +17406,7 @@ Datasheet</description>
 </symbol>
 </symbols>
 <devicesets>
-<deviceset name="MOMENTARY-SWITCH-SPST" urn="urn:adsk.eagle:component:40205/1" prefix="S" library_version="1">
+<deviceset name="MOMENTARY-SWITCH-SPST" prefix="S">
 <description>&lt;h3&gt;Momentary Switch (Pushbutton) - SPST&lt;/h3&gt;
 &lt;p&gt;Normally-open (NO) SPST momentary switches (buttons, pushbuttons).&lt;/p&gt;
 &lt;h4&gt;Variants&lt;/h4&gt;
@@ -17147,9 +17445,6 @@ SparkFun BigTime Watch Kit&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
 <connect gate="G$1" pin="1" pad="1"/>
 <connect gate="G$1" pin="2" pad="3"/>
 </connects>
-<package3dinstances>
-<package3dinstance package3d_urn="urn:adsk.eagle:package:40163/1"/>
-</package3dinstances>
 <technologies>
 <technology name="">
 <attribute name="PROD_ID" value=" SWCH-08441"/>
@@ -17162,9 +17457,6 @@ SparkFun BigTime Watch Kit&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
 <connect gate="G$1" pin="1" pad="2 3"/>
 <connect gate="G$1" pin="2" pad="1 4"/>
 </connects>
-<package3dinstances>
-<package3dinstance package3d_urn="urn:adsk.eagle:package:40162/1"/>
-</package3dinstances>
 <technologies>
 <technology name="">
 <attribute name="PROD_ID" value="SWCH-09213"/>
@@ -17176,9 +17468,6 @@ SparkFun BigTime Watch Kit&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
 <connect gate="G$1" pin="1" pad="1"/>
 <connect gate="G$1" pin="2" pad="3"/>
 </connects>
-<package3dinstances>
-<package3dinstance package3d_urn="urn:adsk.eagle:package:40164/1"/>
-</package3dinstances>
 <technologies>
 <technology name="">
 <attribute name="PROD_ID" value="SWCH-09185"/>
@@ -17191,12 +17480,9 @@ SparkFun BigTime Watch Kit&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
 <connect gate="G$1" pin="1" pad="1"/>
 <connect gate="G$1" pin="2" pad="2"/>
 </connects>
-<package3dinstances>
-<package3dinstance package3d_urn="urn:adsk.eagle:package:40165/1"/>
-</package3dinstances>
 <technologies>
 <technology name="">
-<attribute name="PROD_ID" value="SWCH-00815"/>
+<attribute name="PROD_ID" value="SWCH-14278"/>
 <attribute name="SF_SKU" value="COM-08229"/>
 </technology>
 </technologies>
@@ -17206,9 +17492,6 @@ SparkFun BigTime Watch Kit&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
 <connect gate="G$1" pin="1" pad="A2"/>
 <connect gate="G$1" pin="2" pad="B2"/>
 </connects>
-<package3dinstances>
-<package3dinstance package3d_urn="urn:adsk.eagle:package:40172/1"/>
-</package3dinstances>
 <technologies>
 <technology name="">
 <attribute name="PROD_ID" value="SWCH-11966"/>
@@ -17221,9 +17504,6 @@ SparkFun BigTime Watch Kit&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
 <connect gate="G$1" pin="1" pad="1"/>
 <connect gate="G$1" pin="2" pad="2"/>
 </connects>
-<package3dinstances>
-<package3dinstance package3d_urn="urn:adsk.eagle:package:40168/1"/>
-</package3dinstances>
 <technologies>
 <technology name="">
 <attribute name="PROD_ID" value="CONN-10672"/>
@@ -17236,9 +17516,6 @@ SparkFun BigTime Watch Kit&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
 <connect gate="G$1" pin="1" pad="1"/>
 <connect gate="G$1" pin="2" pad="3"/>
 </connects>
-<package3dinstances>
-<package3dinstance package3d_urn="urn:adsk.eagle:package:40166/1"/>
-</package3dinstances>
 <technologies>
 <technology name="">
 <attribute name="PROD_ID" value="SWCH-11967"/>
@@ -17251,9 +17528,6 @@ SparkFun BigTime Watch Kit&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
 <connect gate="G$1" pin="1" pad="1"/>
 <connect gate="G$1" pin="2" pad="3"/>
 </connects>
-<package3dinstances>
-<package3dinstance package3d_urn="urn:adsk.eagle:package:40170/1"/>
-</package3dinstances>
 <technologies>
 <technology name="">
 <attribute name="PROD_ID" value="SWCH-08441"/>
@@ -17266,9 +17540,6 @@ SparkFun BigTime Watch Kit&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
 <connect gate="G$1" pin="1" pad="1"/>
 <connect gate="G$1" pin="2" pad="3"/>
 </connects>
-<package3dinstances>
-<package3dinstance package3d_urn="urn:adsk.eagle:package:40167/1"/>
-</package3dinstances>
 <technologies>
 <technology name="">
 <attribute name="PROD_ID" value="SWCH-08247"/>
@@ -17281,9 +17552,6 @@ SparkFun BigTime Watch Kit&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
 <connect gate="G$1" pin="1" pad="1 2"/>
 <connect gate="G$1" pin="2" pad="3 4"/>
 </connects>
-<package3dinstances>
-<package3dinstance package3d_urn="urn:adsk.eagle:package:40167/1"/>
-</package3dinstances>
 <technologies>
 <technology name="">
 <attribute name="PROD_ID" value="SWCH-08247"/>
@@ -17296,9 +17564,6 @@ SparkFun BigTime Watch Kit&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
 <connect gate="G$1" pin="1" pad="1"/>
 <connect gate="G$1" pin="2" pad="2"/>
 </connects>
-<package3dinstances>
-<package3dinstance package3d_urn="urn:adsk.eagle:package:40169/1"/>
-</package3dinstances>
 <technologies>
 <technology name="">
 <attribute name="PROD_ID" value="COMP-12265" constant="no"/>
@@ -17310,12 +17575,43 @@ SparkFun BigTime Watch Kit&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
 <connect gate="G$1" pin="1" pad="1 2"/>
 <connect gate="G$1" pin="2" pad="3 4"/>
 </connects>
-<package3dinstances>
-<package3dinstance package3d_urn="urn:adsk.eagle:package:40176/1"/>
-</package3dinstances>
 <technologies>
 <technology name="">
 <attribute name="PROD_ID" value="SWCH-13065"/>
+</technology>
+</technologies>
+</device>
+<device name="-PTH-RIGHT-ANGLE" package="TACTILE_SWITCH_PTH_RIGHT_ANGLE">
+<connects>
+<connect gate="G$1" pin="1" pad="1"/>
+<connect gate="G$1" pin="2" pad="2"/>
+</connects>
+<technologies>
+<technology name="">
+<attribute name="PROD_ID" value="CONN-10672" constant="no"/>
+<attribute name="SF_SKU" value="COM-10791" constant="no"/>
+</technology>
+</technologies>
+</device>
+<device name="-SMD-5.2-TALL-REDUNDANT" package="TACTILE_SWITCH_SMD_5.2MM">
+<connects>
+<connect gate="G$1" pin="1" pad="1 2"/>
+<connect gate="G$1" pin="2" pad="3 4"/>
+</connects>
+<technologies>
+<technology name="">
+<attribute name="PROD_ID" value="SWCH-14139"/>
+</technology>
+</technologies>
+</device>
+<device name="-SMD-5.2MM-TALL" package="TACTILE_SWITCH_SMD_5.2MM">
+<connects>
+<connect gate="G$1" pin="1" pad="1"/>
+<connect gate="G$1" pin="2" pad="3"/>
+</connects>
+<technologies>
+<technology name="">
+<attribute name="PROD_ID" value="SWCH-14139"/>
 </technology>
 </technologies>
 </device>
@@ -18658,20 +18954,20 @@ Source: http://www.osram.convergy.de/</description>
 <package name="SOT230P700X170-4N">
 <description>&lt;b&gt;SOT223/ H Package&lt;/b&gt;&lt;br&gt;
 </description>
-<smd name="1" x="-3.1" y="2.3" dx="1.85" dy="0.9" layer="1"/>
-<smd name="2" x="-3.1" y="0" dx="1.85" dy="0.9" layer="1"/>
-<smd name="3" x="-3.1" y="-2.3" dx="1.85" dy="0.9" layer="1"/>
-<smd name="4" x="3.1" y="0" dx="3.2" dy="1.85" layer="1" rot="R90"/>
+<smd name="1" x="3.1" y="-2.3" dx="1.85" dy="0.9" layer="1" rot="R180"/>
+<smd name="2" x="3.1" y="0" dx="1.85" dy="0.9" layer="1" rot="R180"/>
+<smd name="3" x="3.1" y="2.3" dx="1.85" dy="0.9" layer="1" rot="R180"/>
+<smd name="4" x="-3.1" y="0" dx="3.2" dy="1.85" layer="1" rot="R270"/>
 <text x="-1.016" y="0" size="1.27" layer="25" rot="R90" align="center">&gt;NAME</text>
 <text x="-5.08" y="0" size="1.27" layer="27" rot="R90" align="center">&gt;VALUE</text>
-<wire x1="-4.275" y1="3.6" x2="4.275" y2="3.6" width="0.05" layer="51"/>
-<wire x1="4.275" y1="3.6" x2="4.275" y2="-3.6" width="0.05" layer="51"/>
 <wire x1="4.275" y1="-3.6" x2="-4.275" y2="-3.6" width="0.05" layer="51"/>
 <wire x1="-4.275" y1="-3.6" x2="-4.275" y2="3.6" width="0.05" layer="51"/>
-<wire x1="-1.75" y1="3.25" x2="1.75" y2="3.25" width="0.1" layer="51"/>
-<wire x1="1.75" y1="3.25" x2="1.75" y2="-3.25" width="0.1" layer="51"/>
+<wire x1="-4.275" y1="3.6" x2="4.275" y2="3.6" width="0.05" layer="51"/>
+<wire x1="4.275" y1="3.6" x2="4.275" y2="-3.6" width="0.05" layer="51"/>
 <wire x1="1.75" y1="-3.25" x2="-1.75" y2="-3.25" width="0.1" layer="51"/>
 <wire x1="-1.75" y1="-3.25" x2="-1.75" y2="3.25" width="0.1" layer="51"/>
+<wire x1="-1.75" y1="3.25" x2="1.75" y2="3.25" width="0.1" layer="51"/>
+<wire x1="1.75" y1="3.25" x2="1.75" y2="-3.25" width="0.1" layer="51"/>
 <wire x1="-4.025" y1="3.1" x2="-2.175" y2="3.1" width="0.2" layer="21"/>
 </package>
 <package name="SOT65P210X100-6N">
@@ -19388,107 +19684,108 @@ Source: http://www.cypress.com .. 38-12025_0P_V.pdf</description>
 </class>
 </classes>
 <parts>
-<part name="SUPPLY1" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="12V" device=""/>
-<part name="GND1" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="GND" device=""/>
+<part name="SUPPLY1" library="SparkFun-PowerSymbols" deviceset="12V" device=""/>
+<part name="GND1" library="SparkFun-PowerSymbols" deviceset="GND" device=""/>
 <part name="JP1" library="kanflo" deviceset="POWER_JACK" device="SLT"/>
-<part name="SUPPLY4" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="5V" device=""/>
-<part name="SUPPLY2" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="3.3V" device=""/>
+<part name="SUPPLY4" library="SparkFun-PowerSymbols" deviceset="5V" device=""/>
+<part name="SUPPLY2" library="SparkFun-PowerSymbols" deviceset="3.3V" device=""/>
 <part name="R1" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="10k"/>
 <part name="R2" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="10k"/>
 <part name="R3" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="10k"/>
 <part name="R4" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="10k"/>
 <part name="R5" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="10k"/>
-<part name="GND2" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="GND" device=""/>
-<part name="GND3" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="GND" device=""/>
+<part name="GND2" library="SparkFun-PowerSymbols" deviceset="GND" device=""/>
+<part name="GND3" library="SparkFun-PowerSymbols" deviceset="GND" device=""/>
 <part name="C2" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0805" package3d_urn="urn:adsk.eagle:package:23617/2" value="100nF"/>
-<part name="GND7" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="GND" device=""/>
-<part name="SUPPLY6" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="3.3V" device=""/>
+<part name="GND7" library="SparkFun-PowerSymbols" deviceset="GND" device=""/>
+<part name="SUPPLY6" library="SparkFun-PowerSymbols" deviceset="3.3V" device=""/>
 <part name="R6" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="10k"/>
-<part name="LED1" library="adafruit" deviceset="LED" device="CHIP-LED0805" value="green"/>
-<part name="GND9" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="GND" device=""/>
+<part name="LED1" library="adafruit" deviceset="LED" device="CHIP-LED0603" value="green"/>
+<part name="GND9" library="SparkFun-PowerSymbols" deviceset="GND" device=""/>
 <part name="R7" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="470Ω"/>
 <part name="J1" library="SamacSys_Parts" deviceset="ZX62-B-5PA(33)" device=""/>
-<part name="D2" library="Seeed-Diode" library_urn="urn:adsk.eagle:library:467" deviceset="SMD-DIODE-SCHOTTKY-20V-500MA(SOD-123)" device="" package3d_urn="urn:adsk.eagle:package:32510/1" value="1N5819W"/>
-<part name="GND5" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="GND" device=""/>
-<part name="SUPPLY5" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="5V" device=""/>
-<part name="D1" library="Seeed-Diode" library_urn="urn:adsk.eagle:library:467" deviceset="SMD-DIODE-SCHOTTKY-20V-500MA(SOD-123)" device="" package3d_urn="urn:adsk.eagle:package:32510/1" value="1N5819W"/>
+<part name="D2" library="Seeed-Diode" library_urn="urn:adsk.eagle:library:467" deviceset="SMD-DIODE-SCHOTTKY-20V-500MA(SOD-123)" device="" package3d_urn="urn:adsk.eagle:package:32510/1" value="B5819W"/>
+<part name="GND5" library="SparkFun-PowerSymbols" deviceset="GND" device=""/>
+<part name="SUPPLY5" library="SparkFun-PowerSymbols" deviceset="5V" device=""/>
+<part name="D1" library="Seeed-Diode" library_urn="urn:adsk.eagle:library:467" deviceset="SMD-DIODE-SCHOTTKY-20V-500MA(SOD-123)" device="" package3d_urn="urn:adsk.eagle:package:32510/1" value="B5819W"/>
 <part name="U1" library="SamacSys_Parts" deviceset="AZ1117H-5.0TRE1" device="" value="5V_REG"/>
-<part name="SUPPLY3" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="12V" device=""/>
-<part name="GND4" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="GND" device=""/>
-<part name="SUPPLY7" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="5V" device=""/>
+<part name="SUPPLY3" library="SparkFun-PowerSymbols" deviceset="12V" device=""/>
+<part name="GND4" library="SparkFun-PowerSymbols" deviceset="GND" device=""/>
+<part name="SUPPLY7" library="SparkFun-PowerSymbols" deviceset="5V" device=""/>
 <part name="U2" library="SamacSys_Parts" deviceset="AZ1117H-5.0TRE1" device="" value="3V3_REG"/>
-<part name="GND8" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="GND" device=""/>
-<part name="SUPPLY8" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="3.3V" device=""/>
+<part name="GND8" library="SparkFun-PowerSymbols" deviceset="GND" device=""/>
+<part name="SUPPLY8" library="SparkFun-PowerSymbols" deviceset="3.3V" device=""/>
 <part name="C4" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0805" package3d_urn="urn:adsk.eagle:package:23617/2" value="10uF"/>
 <part name="C5" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0805" package3d_urn="urn:adsk.eagle:package:23617/2" value="22uF"/>
 <part name="C10" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0805" package3d_urn="urn:adsk.eagle:package:23617/2" value="22uF"/>
 <part name="C6" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="CPOL-US" device="SMCB" package3d_urn="urn:adsk.eagle:package:25920/5" value="100uF"/>
-<part name="S1" library="SparkFun-Switches" library_urn="urn:adsk.eagle:library:535" deviceset="MOMENTARY-SWITCH-SPST" device="-SMD-6.0X3.5MM" package3d_urn="urn:adsk.eagle:package:40165/1" value="RST"/>
-<part name="S2" library="SparkFun-Switches" library_urn="urn:adsk.eagle:library:535" deviceset="MOMENTARY-SWITCH-SPST" device="-SMD-6.0X3.5MM" package3d_urn="urn:adsk.eagle:package:40165/1" value="FLASH"/>
+<part name="S1" library="SparkFun-Switches" deviceset="MOMENTARY-SWITCH-SPST" device="-SMD-6.0X3.5MM" value="RST"/>
+<part name="S2" library="SparkFun-Switches" deviceset="MOMENTARY-SWITCH-SPST" device="-SMD-6.0X3.5MM" value="FLASH"/>
 <part name="C1" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0805" package3d_urn="urn:adsk.eagle:package:23617/2" value="10uF"/>
 <part name="C7" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="CPOL-US" device="UD-6,3X7,7" package3d_urn="urn:adsk.eagle:package:23472/1" value="220uF"/>
-<part name="GND6" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="GND" device=""/>
+<part name="GND6" library="SparkFun-PowerSymbols" deviceset="GND" device=""/>
 <part name="SJR1" library="esp12e" deviceset="ESP8266-12E" device="ESP12E" value="ESP-12E"/>
-<part name="SUPPLY23" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="3.3V" device=""/>
-<part name="GND25" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="GND" device=""/>
-<part name="GND26" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="GND" device=""/>
-<part name="GND15" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="GND" device=""/>
+<part name="SUPPLY23" library="SparkFun-PowerSymbols" deviceset="3.3V" device=""/>
+<part name="GND25" library="SparkFun-PowerSymbols" deviceset="GND" device=""/>
+<part name="GND26" library="SparkFun-PowerSymbols" deviceset="GND" device=""/>
+<part name="GND15" library="SparkFun-PowerSymbols" deviceset="GND" device=""/>
 <part name="C11" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0805" package3d_urn="urn:adsk.eagle:package:23617/2" value="100nF"/>
 <part name="U3" library="ch340g" deviceset="CH340G" device="" value="CH340C"/>
 <part name="C12" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="CPOL-US" device="SMCB" package3d_urn="urn:adsk.eagle:package:25920/5" value="100uF"/>
 <part name="C13" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0805" package3d_urn="urn:adsk.eagle:package:23617/2" value="100nF"/>
-<part name="GND16" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="GND" device=""/>
+<part name="GND16" library="SparkFun-PowerSymbols" deviceset="GND" device=""/>
 <part name="Q1" library="SamacSys_Parts" deviceset="UMH3NFHATN" device="" value="UMH3N"/>
 <part name="J4" library="con-molex-spox" deviceset="5267-4" device="" value="I2C"/>
 <part name="J9" library="con-molex-spox" deviceset="5267-3" device="" value="ADC"/>
 <part name="J5" library="con-molex-spox" deviceset="5267-2" device="" value="LCD_BACKLIGHT"/>
 <part name="VR1" library="SamacSys_Parts" deviceset="RK09K1130A6S" device="" value="RK09K1130AAU"/>
-<part name="SUPPLY12" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="5V" device=""/>
+<part name="SUPPLY12" library="SparkFun-PowerSymbols" deviceset="5V" device=""/>
 <part name="J3" library="con-molex-spox" deviceset="5267-8" device="" value="LCD"/>
-<part name="GND10" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="GND" device=""/>
-<part name="SUPPLY10" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="5V" device=""/>
-<part name="GND13" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="GND" device=""/>
-<part name="SUPPLY13" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="5V" device=""/>
+<part name="GND10" library="SparkFun-PowerSymbols" deviceset="GND" device=""/>
+<part name="SUPPLY10" library="SparkFun-PowerSymbols" deviceset="5V" device=""/>
+<part name="GND13" library="SparkFun-PowerSymbols" deviceset="GND" device=""/>
+<part name="SUPPLY13" library="SparkFun-PowerSymbols" deviceset="5V" device=""/>
 <part name="J2" library="con-molex-spox" deviceset="5267-4" device="" value="I2C"/>
-<part name="GND11" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="GND" device=""/>
-<part name="SUPPLY11" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="5V" device=""/>
+<part name="GND11" library="SparkFun-PowerSymbols" deviceset="GND" device=""/>
+<part name="SUPPLY11" library="SparkFun-PowerSymbols" deviceset="5V" device=""/>
 <part name="FRAME2" library="frames" library_urn="urn:adsk.eagle:library:229" deviceset="A4L-LOC" device=""/>
 <part name="FRAME1" library="frames" library_urn="urn:adsk.eagle:library:229" deviceset="A4L-LOC" device=""/>
 <part name="J6" library="con-molex-spox" deviceset="5267-4" device="" value="TEMP/HUM"/>
-<part name="GND17" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="GND" device=""/>
-<part name="GND20" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="GND" device=""/>
-<part name="SUPPLY20" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="5V" device=""/>
+<part name="GND17" library="SparkFun-PowerSymbols" deviceset="GND" device=""/>
+<part name="GND20" library="SparkFun-PowerSymbols" deviceset="GND" device=""/>
+<part name="SUPPLY20" library="SparkFun-PowerSymbols" deviceset="5V" device=""/>
 <part name="J7" library="con-molex-spox" deviceset="5267-4" device="" value="RADON"/>
-<part name="GND18" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="GND" device=""/>
+<part name="GND18" library="SparkFun-PowerSymbols" deviceset="GND" device=""/>
 <part name="R10" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="470Ω"/>
 <part name="R12" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="47k(1%)"/>
 <part name="R13" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="10k(1%)"/>
-<part name="GND24" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="GND" device=""/>
+<part name="GND24" library="SparkFun-PowerSymbols" deviceset="GND" device=""/>
 <part name="J10" library="con-molex-spox" deviceset="5267-3" device="" value="BTN1"/>
-<part name="GND22" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="GND" device=""/>
+<part name="GND22" library="SparkFun-PowerSymbols" deviceset="GND" device=""/>
 <part name="J8" library="con-molex-spox" deviceset="5267-4" device="" value="DUST"/>
-<part name="GND19" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="GND" device=""/>
-<part name="SUPPLY19" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="5V" device=""/>
+<part name="GND19" library="SparkFun-PowerSymbols" deviceset="GND" device=""/>
+<part name="SUPPLY19" library="SparkFun-PowerSymbols" deviceset="5V" device=""/>
 <part name="R11" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="470Ω"/>
-<part name="GND12" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="GND" device=""/>
-<part name="SUPPLY18" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="12V" device=""/>
-<part name="SUPPLY17" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="3.3V" device=""/>
+<part name="GND12" library="SparkFun-PowerSymbols" deviceset="GND" device=""/>
+<part name="SUPPLY18" library="SparkFun-PowerSymbols" deviceset="12V" device=""/>
+<part name="SUPPLY17" library="SparkFun-PowerSymbols" deviceset="3.3V" device=""/>
 <part name="J11" library="con-molex-spox" deviceset="5267-3" device="" value="BTN2"/>
-<part name="GND23" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="GND" device=""/>
-<part name="GND14" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="GND" device=""/>
-<part name="SUPPLY21" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="5V" device=""/>
-<part name="SUPPLY22" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="5V" device=""/>
-<part name="SUPPLY14" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="5V" device=""/>
+<part name="GND23" library="SparkFun-PowerSymbols" deviceset="GND" device=""/>
+<part name="GND14" library="SparkFun-PowerSymbols" deviceset="GND" device=""/>
+<part name="SUPPLY21" library="SparkFun-PowerSymbols" deviceset="5V" device=""/>
+<part name="SUPPLY22" library="SparkFun-PowerSymbols" deviceset="5V" device=""/>
+<part name="SUPPLY14" library="SparkFun-PowerSymbols" deviceset="5V" device=""/>
 <part name="C9" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="CPOL-US" device="UD-6,3X7,7" package3d_urn="urn:adsk.eagle:package:23472/1" value="220uF"/>
 <part name="C8" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0805" package3d_urn="urn:adsk.eagle:package:23617/2" value="100nF"/>
 <part name="C3" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0805" package3d_urn="urn:adsk.eagle:package:23617/2" value="100nF"/>
-<part name="SUPPLY9" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="3.3V" device=""/>
-<part name="SUPPLY24" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="3.3V" device=""/>
+<part name="SUPPLY9" library="SparkFun-PowerSymbols" deviceset="3.3V" device=""/>
+<part name="SUPPLY24" library="SparkFun-PowerSymbols" deviceset="3.3V" device=""/>
 </parts>
 <sheets>
 <sheet>
 <plain>
-<text x="164.084" y="23.622" size="2.032" layer="150" align="top-left">Resistor, LED, capacitor: 0805
+<text x="164.084" y="23.622" size="2.032" layer="150" align="top-left">Resistor, capacitor: 0805
+LED: 0603
 100uF: SMC_B(3528) tantalum
 220uF: 6.3*7.7mm
 Diode: SOD-123
