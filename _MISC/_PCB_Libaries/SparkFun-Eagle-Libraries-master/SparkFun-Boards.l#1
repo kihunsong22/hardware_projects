@@ -6737,7 +6737,7 @@ There is no on-board regulation. All pins of the W5100 are broken out to two pai
 <pin name="IOREF" x="-12.7" y="15.24" visible="pin" length="short"/>
 <pin name="SDA" x="12.7" y="15.24" visible="pin" length="short" rot="R180"/>
 <pin name="SCL" x="12.7" y="17.78" visible="pin" length="short" rot="R180"/>
-<pin name="NC" x="-12.7" y="17.78" visible="pin" length="short"/>
+<pin name="NC" x="-12.7" y="17.78" length="short"/>
 </symbol>
 <symbol name="SPARKFUN_PRO_MICRO">
 <description>&lt;h3&gt;SparkFun Pro Micro&lt;/h3&gt;

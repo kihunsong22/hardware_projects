@@ -6737,7 +6737,7 @@ There is no on-board regulation. All pins of the W5100 are broken out to two pai
 <pin name="IOREF" x="-12.7" y="15.24" visible="pin" length="short"/>
 <pin name="SDA" x="12.7" y="15.24" visible="pin" length="short" rot="R180"/>
 <pin name="SCL" x="12.7" y="17.78" visible="pin" length="short" rot="R180"/>
-<pin name="NC" x="-12.7" y="17.78" visible="pin" length="short"/>
+<pin name="NC" x="-12.7" y="17.78" length="short"/>
 </symbol>
 <symbol name="SPARKFUN_PRO_MICRO">
 <description>&lt;h3&gt;SparkFun Pro Micro&lt;/h3&gt;
@@ -8987,7 +8987,6 @@ Shield form compatible with the Arduino Uno R3.
 <connect gate="G$1" pin="GND@1" pad="GND@1"/>
 <connect gate="G$1" pin="GND@2" pad="GND@2"/>
 <connect gate="G$1" pin="IOREF" pad="IOREF"/>
-<connect gate="G$1" pin="NC" pad="NC"/>
 <connect gate="G$1" pin="RES" pad="RES"/>
 <connect gate="G$1" pin="RX" pad="RX"/>
 <connect gate="G$1" pin="SCL" pad="SCL"/>
