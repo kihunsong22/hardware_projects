@@ -83,8 +83,8 @@
 <smd name="4" x="1.6" y="-1.27" dx="1.27" dy="1" layer="1"/>
 <smd name="5" x="1.6" y="0" dx="1.27" dy="1" layer="1"/>
 <smd name="6" x="1.6" y="1.27" dx="1.27" dy="1" layer="1"/>
-<text x="-2.239" y="2.54" size="1.016" layer="25" ratio="12">&gt;NAME</text>
-<text x="-2.747" y="-3.556" size="1.016" layer="27" ratio="12">&gt;VALUE</text>
+<text x="-3.509" y="4.572" size="1.016" layer="25" ratio="12">&gt;NAME</text>
+<text x="-3.509" y="3.556" size="1.016" layer="27" ratio="12">&gt;VALUE</text>
 <wire x1="-2" y1="2.5" x2="2" y2="2.5" width="0.2" layer="51"/>
 <wire x1="2" y1="2.5" x2="2" y2="-2.5" width="0.2" layer="51"/>
 <wire x1="2" y1="-2.5" x2="-2" y2="-2.5" width="0.2" layer="51"/>

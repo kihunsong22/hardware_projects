@@ -1011,7 +1011,6 @@ Shield form compatible with the Arduino Uno R3.
 <connect gate="G$1" pin="GND@1" pad="GND@1"/>
 <connect gate="G$1" pin="GND@2" pad="GND@2"/>
 <connect gate="G$1" pin="IOREF" pad="IOREF"/>
-<connect gate="G$1" pin="NC" pad="NC"/>
 <connect gate="G$1" pin="RES" pad="RES"/>
 <connect gate="G$1" pin="RX" pad="RX"/>
 <connect gate="G$1" pin="SCL" pad="SCL"/>
@@ -1089,7 +1088,6 @@ Shield form compatible with the Arduino Uno R3.
 <connect gate="G$1" pin="GND@1" pad="GND@1"/>
 <connect gate="G$1" pin="GND@2" pad="GND@2"/>
 <connect gate="G$1" pin="IOREF" pad="IOREF"/>
-<connect gate="G$1" pin="NC" pad="NC"/>
 <connect gate="G$1" pin="RES" pad="RES"/>
 <connect gate="G$1" pin="RX" pad="RX"/>
 <connect gate="G$1" pin="SCL" pad="SCL"/>
