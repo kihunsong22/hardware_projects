@@ -7,7 +7,7 @@
 <setting keepoldvectorfont="yes"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="10" unitdist="mil" unit="mil" style="lines" multiple="1" display="yes" altdistance="5" altunitdist="mil" altunit="mil"/>
+<grid distance="0.05" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
@@ -58,6 +58,7 @@
 <layer number="47" name="Measures" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="48" name="Document" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="49" name="Reference" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="50" name="dxf" color="7" fill="1" visible="no" active="no"/>
 <layer number="51" name="tDocu" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="52" name="bDocu" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="90" name="Modules" color="5" fill="1" visible="yes" active="yes"/>
@@ -69,11 +70,51 @@
 <layer number="96" name="Values" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="97" name="Info" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="98" name="Guide" color="6" fill="1" visible="yes" active="yes"/>
+<layer number="250" name="Descript" color="3" fill="1" visible="no" active="no"/>
+<layer number="251" name="SMDround" color="12" fill="11" visible="no" active="no"/>
 </layers>
 <library>
 <description>&lt;b&gt;https://componentsearchengine.com&lt;/b&gt;&lt;p&gt;
 &lt;author&gt;Created by SamacSys&lt;/author&gt;</description>
 <packages>
+<package name="SOT65P220X100-3N">
+<description>&lt;b&gt;SOT-323 (SC-70) CASE 419-04 ISSUE N&lt;/b&gt;&lt;br&gt;
+</description>
+<smd name="1" x="-1" y="0.65" dx="1.15" dy="0.55" layer="1"/>
+<smd name="2" x="-1" y="-0.65" dx="1.15" dy="0.55" layer="1"/>
+<smd name="3" x="1" y="0" dx="1.15" dy="0.55" layer="1"/>
+<text x="-2.54" y="1.27" size="1.27" layer="25">&gt;NAME</text>
+<text x="-2.54" y="-2.286" size="1.27" layer="27">&gt;VALUE</text>
+<wire x1="-0.625" y1="1" x2="0.625" y2="1" width="0.1" layer="51"/>
+<wire x1="0.625" y1="1" x2="0.625" y2="-1" width="0.1" layer="51"/>
+<wire x1="0.625" y1="-1" x2="-0.625" y2="-1" width="0.1" layer="51"/>
+<wire x1="-0.625" y1="-1" x2="-0.625" y2="1" width="0.1" layer="51"/>
+<wire x1="-0.625" y1="0.35" x2="0.025" y2="1" width="0.1" layer="51"/>
+<wire x1="-0.202" y1="1" x2="0.202" y2="1" width="0.2" layer="21"/>
+<wire x1="0.202" y1="1" x2="0.202" y2="-1" width="0.2" layer="21"/>
+<wire x1="0.202" y1="-1" x2="-0.202" y2="-1" width="0.2" layer="21"/>
+<wire x1="-0.202" y1="-1" x2="-0.202" y2="1" width="0.2" layer="21"/>
+<wire x1="-1.575" y1="1.175" x2="-0.425" y2="1.175" width="0.2" layer="21"/>
+</package>
+<package name="SOP50P310X90-8N">
+<description>&lt;b&gt;DCU (R-PDSO-G8)&lt;/b&gt;&lt;br&gt;
+</description>
+<smd name="1" x="-1.575" y="0.75" dx="0.85" dy="0.3" layer="1"/>
+<smd name="2" x="-1.575" y="0.25" dx="0.85" dy="0.3" layer="1"/>
+<smd name="3" x="-1.575" y="-0.25" dx="0.85" dy="0.3" layer="1"/>
+<smd name="4" x="-1.575" y="-0.75" dx="0.85" dy="0.3" layer="1"/>
+<smd name="5" x="1.575" y="-0.75" dx="0.85" dy="0.3" layer="1"/>
+<smd name="6" x="1.575" y="-0.25" dx="0.85" dy="0.3" layer="1"/>
+<smd name="7" x="1.575" y="0.25" dx="0.85" dy="0.3" layer="1"/>
+<smd name="8" x="1.575" y="0.75" dx="0.85" dy="0.3" layer="1"/>
+<text x="0" y="1.778" size="1.016" layer="25" ratio="10" align="center">&gt;NAME</text>
+<text x="0" y="-1.651" size="1.016" layer="27" ratio="10" align="center">&gt;VALUE</text>
+<wire x1="-0.8" y1="1" x2="0.8" y2="1" width="0.2" layer="21"/>
+<wire x1="0.8" y1="1" x2="0.8" y2="-1" width="0.2" layer="21"/>
+<wire x1="0.8" y1="-1" x2="-0.8" y2="-1" width="0.2" layer="21"/>
+<wire x1="-0.8" y1="-1" x2="-0.8" y2="1" width="0.2" layer="21"/>
+<wire x1="-2" y1="1.123" x2="-1.15" y2="1.123" width="0.2" layer="21"/>
+</package>
 <package name="AHT10">
 <description>&lt;b&gt;6 SMD&lt;/b&gt;&lt;br&gt;
 </description>
@@ -83,16 +124,12 @@
 <smd name="4" x="1.6" y="-1.27" dx="1.27" dy="1" layer="1"/>
 <smd name="5" x="1.6" y="0" dx="1.27" dy="1" layer="1"/>
 <smd name="6" x="1.6" y="1.27" dx="1.27" dy="1" layer="1"/>
-<text x="-3.509" y="4.572" size="1.016" layer="25" ratio="12">&gt;NAME</text>
-<text x="-3.509" y="3.556" size="1.016" layer="27" ratio="12">&gt;VALUE</text>
+<text x="-2.239" y="2.54" size="1.016" layer="25" ratio="12">&gt;NAME</text>
+<text x="-2.747" y="-3.556" size="1.016" layer="27" ratio="12">&gt;VALUE</text>
 <wire x1="-2" y1="2.5" x2="2" y2="2.5" width="0.2" layer="51"/>
 <wire x1="2" y1="2.5" x2="2" y2="-2.5" width="0.2" layer="51"/>
 <wire x1="2" y1="-2.5" x2="-2" y2="-2.5" width="0.2" layer="51"/>
 <wire x1="-2" y1="-2.5" x2="-2" y2="2.5" width="0.2" layer="51"/>
-<wire x1="-3.65" y1="3.5" x2="3.235" y2="3.5" width="0.1" layer="51"/>
-<wire x1="3.235" y1="3.5" x2="3.235" y2="-3.5" width="0.1" layer="51"/>
-<wire x1="3.235" y1="-3.5" x2="-3.65" y2="-3.5" width="0.1" layer="51"/>
-<wire x1="-3.65" y1="-3.5" x2="-3.65" y2="3.5" width="0.1" layer="51"/>
 <wire x1="-2" y1="2" x2="-2" y2="2.5" width="0.1" layer="21"/>
 <wire x1="-2" y1="2.5" x2="2" y2="2.5" width="0.1" layer="21"/>
 <wire x1="2" y1="2.5" x2="2" y2="2" width="0.1" layer="21"/>
@@ -571,6 +608,50 @@
 </package>
 </packages>
 <symbols>
+<symbol name="BAT54SWT1G">
+<wire x1="-8.89" y1="2.54" x2="8.89" y2="2.54" width="0.254" layer="94"/>
+<wire x1="8.89" y1="-2.54" x2="8.89" y2="2.54" width="0.254" layer="94"/>
+<wire x1="8.89" y1="-2.54" x2="-8.89" y2="-2.54" width="0.254" layer="94"/>
+<wire x1="-8.89" y1="2.54" x2="-8.89" y2="-2.54" width="0.254" layer="94"/>
+<text x="-8.89" y="6.35" size="1.778" layer="95" align="center-left">&gt;NAME</text>
+<text x="-8.89" y="3.81" size="1.778" layer="96" align="center-left">&gt;VALUE</text>
+<pin name="ANODE" x="-10.16" y="0" visible="pad" length="point" rot="R180"/>
+<pin name="CATHODE" x="10.16" y="0" visible="pad" length="point"/>
+<pin name="CATHODE-ANODE" x="0" y="-5.08" visible="pad" length="point" rot="R180"/>
+<wire x1="-5.08" y1="-1.27" x2="-2.54" y2="0" width="0.254" layer="94"/>
+<wire x1="-2.54" y1="0" x2="-5.08" y2="1.27" width="0.254" layer="94"/>
+<wire x1="-2.54" y1="1.27" x2="-2.54" y2="0" width="0.254" layer="94"/>
+<wire x1="-5.08" y1="1.27" x2="-5.08" y2="0" width="0.254" layer="94"/>
+<wire x1="-5.08" y1="0" x2="-5.08" y2="-1.27" width="0.254" layer="94"/>
+<wire x1="-2.54" y1="0" x2="-2.54" y2="-1.27" width="0.254" layer="94"/>
+<wire x1="2.54" y1="-1.27" x2="5.08" y2="0" width="0.254" layer="94"/>
+<wire x1="5.08" y1="0" x2="2.54" y2="1.27" width="0.254" layer="94"/>
+<wire x1="5.08" y1="1.27" x2="5.08" y2="0" width="0.254" layer="94"/>
+<wire x1="2.54" y1="1.27" x2="2.54" y2="0" width="0.254" layer="94"/>
+<wire x1="2.54" y1="0" x2="2.54" y2="-1.27" width="0.254" layer="94"/>
+<wire x1="5.08" y1="0" x2="5.08" y2="-1.27" width="0.254" layer="94"/>
+<wire x1="-2.54" y1="0" x2="0" y2="0" width="0.254" layer="94"/>
+<wire x1="0" y1="0" x2="2.54" y2="0" width="0.254" layer="94"/>
+<wire x1="5.08" y1="0" x2="10.16" y2="0" width="0.254" layer="94"/>
+<wire x1="-5.08" y1="0" x2="-10.16" y2="0" width="0.254" layer="94"/>
+<wire x1="0" y1="0" x2="0" y2="-5.08" width="0.254" layer="94"/>
+</symbol>
+<symbol name="TXS0102DCUR">
+<wire x1="-8.89" y1="6.35" x2="8.89" y2="6.35" width="0.254" layer="94"/>
+<wire x1="8.89" y1="-6.35" x2="8.89" y2="6.35" width="0.254" layer="94"/>
+<wire x1="8.89" y1="-6.35" x2="-8.89" y2="-6.35" width="0.254" layer="94"/>
+<wire x1="-8.89" y1="6.35" x2="-8.89" y2="-6.35" width="0.254" layer="94"/>
+<text x="-8.89" y="9.144" size="1.778" layer="95" align="center-left">&gt;NAME</text>
+<text x="-8.89" y="7.366" size="1.778" layer="96" align="center-left">&gt;VALUE</text>
+<pin name="B2" x="13.97" y="-1.27" length="middle" rot="R180"/>
+<pin name="GND" x="-13.97" y="-3.81" length="middle"/>
+<pin name="VCCA" x="-13.97" y="3.81" length="middle"/>
+<pin name="A2" x="-13.97" y="-1.27" length="middle"/>
+<pin name="B1" x="13.97" y="1.27" length="middle" rot="R180"/>
+<pin name="VCCB" x="13.97" y="3.81" length="middle" rot="R180"/>
+<pin name="OE" x="13.97" y="-3.81" length="middle" rot="R180"/>
+<pin name="A1" x="-13.97" y="1.27" length="middle"/>
+</symbol>
 <symbol name="AHT10">
 <wire x1="-7.62" y1="5.08" x2="7.62" y2="5.08" width="0.254" layer="94"/>
 <wire x1="7.62" y1="-5.08" x2="7.62" y2="5.08" width="0.254" layer="94"/>
@@ -920,6 +1001,63 @@
 </symbol>
 </symbols>
 <devicesets>
+<deviceset name="BAT54SWT1G" prefix="D">
+<description>&lt;b&gt;Dual Series Schottky Barrier Diodes&lt;/b&gt;&lt;p&gt;
+Source: &lt;a href="https://datasheet.lcsc.com/szlcsc/ON-Semicon-ON-BAT54SWT1G_C78260.pdf"&gt; Datasheet &lt;/a&gt;</description>
+<gates>
+<gate name="G$1" symbol="BAT54SWT1G" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="SOT65P220X100-3N">
+<connects>
+<connect gate="G$1" pin="ANODE" pad="1"/>
+<connect gate="G$1" pin="CATHODE" pad="2"/>
+<connect gate="G$1" pin="CATHODE-ANODE" pad="3"/>
+</connects>
+<technologies>
+<technology name="">
+<attribute name="DESCRIPTION" value="Dual Series Schottky Barrier Diodes" constant="no"/>
+<attribute name="HEIGHT" value="1mm" constant="no"/>
+<attribute name="LCSC_PART_NUMBER" value="C78260" constant="no"/>
+<attribute name="LCSC_PRICE-STOCK" value="https://lcsc.com/product-detail/Schottky-Barrier-Diodes-SBD_ON-Semicon_BAT54SWT1G_ON-Semicon-ON-BAT54SWT1G_C78260.html" constant="no"/>
+<attribute name="MANUFACTURER_NAME" value="ON Semiconductor" constant="no"/>
+<attribute name="MANUFACTURER_PART_NUMBER" value="BAT54SWT1G" constant="no"/>
+</technology>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="TXS0102DCUR" prefix="IC">
+<description>&lt;b&gt;2-Bit Bidirectional Voltage-Level Shifter for Open-Drain and Push-Pull Application&lt;/b&gt;&lt;p&gt;
+Source: &lt;a href="https://datasheet.lcsc.com/szlcsc/Texas-Instruments-TI-TXS0102DCUR_C53434.pdf"&gt; Datasheet &lt;/a&gt;</description>
+<gates>
+<gate name="G$1" symbol="TXS0102DCUR" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="SOP50P310X90-8N">
+<connects>
+<connect gate="G$1" pin="A1" pad="5"/>
+<connect gate="G$1" pin="A2" pad="4"/>
+<connect gate="G$1" pin="B1" pad="8"/>
+<connect gate="G$1" pin="B2" pad="1"/>
+<connect gate="G$1" pin="GND" pad="2"/>
+<connect gate="G$1" pin="OE" pad="6"/>
+<connect gate="G$1" pin="VCCA" pad="3"/>
+<connect gate="G$1" pin="VCCB" pad="7"/>
+</connects>
+<technologies>
+<technology name="">
+<attribute name="DESCRIPTION" value="2-Bit Bidirectional Voltage-Level Shifter for Open-Drain and Push-Pull Application" constant="no"/>
+<attribute name="HEIGHT" value="0.9mm" constant="no"/>
+<attribute name="LCSC_PART_NUMBER" value="C53434" constant="no"/>
+<attribute name="LCSC_PRICE-STOCK" value="https://lcsc.com/product-detail/Level-Translators-Shifters_Texas-Instruments_TXS0102DCUR_Texas-Instruments-Texas-Instruments-TXS0102DCUR_C53434.html" constant="no"/>
+<attribute name="MANUFACTURER_NAME" value="Texas Instruments" constant="no"/>
+<attribute name="MANUFACTURER_PART_NUMBER" value="TXS0102DCUR" constant="no"/>
+</technology>
+</technologies>
+</device>
+</devices>
+</deviceset>
 <deviceset name="AHT10" prefix="IC">
 <description>&lt;b&gt;AHT10 Integrated temperature and humidity sensor&lt;/b&gt;&lt;p&gt;
 Source: &lt;a href="https://datasheet.lcsc.com/szlcsc/1901291508_Aosong-Guangzhou-Elec-AHT10_C368909.pdf"&gt; Datasheet &lt;/a&gt;</description>
