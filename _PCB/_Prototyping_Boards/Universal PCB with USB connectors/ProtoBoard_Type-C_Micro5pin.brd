@@ -2398,6 +2398,11 @@ design rules under a new name.</description>
 <mfgpreviewcolor name="coppercolor" color="0xFFFFBF00"/>
 <mfgpreviewcolor name="substratecolor" color="0xFF786E46"/>
 </mfgpreviewcolors>
+<errors>
+<approved hash="21,19,e50eeb08eb08e50e"/>
+<approved hash="23,1,10075ae9452c0fc2"/>
+<approved hash="23,1,5ebfb2be686ea665"/>
+</errors>
 </board>
 </drawing>
 </eagle>
