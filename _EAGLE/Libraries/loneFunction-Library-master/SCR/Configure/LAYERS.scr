@@ -1,0 +1,20 @@
+# Custom layers to setup.
+# These need some work
+LAYER 50 Mechanical;
+LAYER 100 PanelOutline;
+LAYER 101 Stencil;
+LAYER 102 V-Score;
+LAYER 120 DimOutline;
+LAYER 121 _tPlace;
+LAYER 122 _bPlace;
+LAYER 125 _tNames;
+LAYER 126 _bNames;
+LAYER 147 docuMeasures;
+LAYER 150 Mechanical2;
+LAYER 151 tNotes;
+LAYER 152 bNotes;
+LAYER 247 libMeasures;
+LAYER 250 Mechanical3;
+LAYER 251 tDocuLIB;
+LAYER 252 1MMGRID;
+LAYER 253 0.1MMGRID;

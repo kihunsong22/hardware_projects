@@ -1,0 +1,16 @@
+*.l##
+*.l#?
+*.bak
+*.zip
+LBR/Logo.lbr
+
+# Folders
+LBR/lbr_user/
+LBR/Obsolete/
+BOM/
+MODULES/
+ULP/BOBSTARR/
+ULP/CADSOFT/
+ULP/Rachael/
+SCR/Archive/
+REFERENCE/RF/

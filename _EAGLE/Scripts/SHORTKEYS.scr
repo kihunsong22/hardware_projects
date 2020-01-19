@@ -1,0 +1,32 @@
+# File: SHORTCUTS.SCR
+# Description: Master shortcuts script file.
+# Original Author: Cameron Nicks, PCB Designer
+
+#----------------------------------#
+#------------ GENERAL--------------#
+#----------------------------------#
+
+
+
+#----------------------------------#
+#---------- BOARD EDITOR ----------#
+#----------------------------------#
+
+BRD:
+
+ASSIGN A+Q    GROUP;
+ASSIGN A+W    MOVE;
+
+
+#----------------------------------#
+#------- SCHEMATIC EDITOR ---------#
+#----------------------------------#
+
+SCH:
+
+ASSIGN A+Q    GROUP;
+ASSIGN A+W    MOVE;
+
+PAC:
+
+SYM:

@@ -1,0 +1,279 @@
+# File: SHORTCUTS.SCR
+# Description: Master shortcuts script file.
+# Author: Cameron Nicks, PCB Designer
+
+#----------------------------------#
+#------------ GENERAL--------------#
+#----------------------------------#
+
+	ASSIGN F1 'display last';
+	ASSIGN A+F1 'grid last';
+	#ASSIGN S+F1 'run GRID_DOUBLE';
+	#ASSIGN C+F1 'run GRID_HALF';
+	ASSIGN CA+F1 'grid FINE_MM';
+	ASSIGN CS+F1 'grid';
+	ASSIGN SA+F1 'grid FINE_IN';
+
+	ASSIGN CA+G 'Display';
+
+#----------------------------------#
+#---------- BOARD EDITOR ----------#
+#----------------------------------#
+
+BRD:
+		
+#Evoluent Vertical Mouse
+
+		#buttons 6+1 = C+M
+	ASSIGN C+M 		MOVE; #mouse thumb+forefinger=C+M
+	ASSIGN CA+M 	'SET WIRE_BEND 1; SPLIT'; #mouse Alt-thumb+forefinger=C+M
+	ASSIGN CS+M 	'RUN MOVEBY'; #mouse thumb+forefinger=C+M
+	ASSIGN CSA+M 	'MITER -0'; #mouse thumb+forefinger=C+M
+								#'RUN GRP-ROTATE 45' #mouse thumb+forefinger=C+M
+
+		#buttons 6+2 = C+G
+	ASSIGN C+G 		GROUP; #thumb+Middle
+	ASSIGN CA+G 	'Display'; #Alt+thumb+Middle
+	ASSIGN CS+G 	'CHANGE LAYER';#Shift+thumb+Middle
+	ASSIGN CSA+G 	'CHANGE';#Alt+Shift+thumb+Middle
+	
+		#buttons 6+3 = C+R
+	ASSIGN C+R		DELETE; #mouse Better than ripup with Cmd.Delete.WireJointsWithoutCtrl =1
+	ASSIGN CA+R 	RIPUP; #mouse Swapped with delete. 
+	ASSIGN CS+R 	'MITER -0';
+	ASSIGN CSA+R 	SLICE; #mouse
+	
+		#button 4 = C+I
+	ASSIGN C+I 		INFO;
+	ASSIGN CA+I 	SHOW;
+	ASSIGN CS+I 	'RUN SHOW-BRD-PART-NETS GND';
+	ASSIGN CSA+I 	'RUN SHOW-GROUP-PARTS'; #mouse
+	
+		#buttons 6+4 = C+L
+	ASSIGN C+L 		'SET WIRE_BEND 1; MITER -0; ROUTE'; # Cannot add "DISPLAY -19" to stop the unrouted from displaying.
+	ASSIGN CA+L 	'LINE; CHANGE LAYER';
+	ASSIGN CS+L 	'SET WIRE_BEND 1; SET OBSTACLE_MODE IGNORE; MITER -0; ratsnest; ROUTE'; #mouse, -0 changes to straight miter instead of round. Obstacle turned off until it routes on grid.
+	ASSIGN CSA+L	'';
+	
+	
+# Keyboard Shortcuts
+	ASSIGN A+A 		ATTRIBUTE;
+	ASSIGN A+R 		RATSNEST;
+	ASSIGN A+S 		SIGNAL;
+	ASSIGN A+M		'run toggle 47';
+	ASSIGN C+E 		ERRORS;
+	ASSIGN C+H 		HOLE;
+	ASSIGN C+T 		TEXT;
+#	ASSIGN C+T 		PASTE;
+	ASSIGN C+X 		CHANGE;
+	ASSIGN C+Y 		REDO;
+	ASSIGN C+Z 		UNDO;
+	ASSIGN SC+A 	ADD;
+	ASSIGN SC+C 	COPY;
+	ASSIGN SC+D 	DRC;
+	ASSIGN SC+N 	NAME;
+	ASSIGN SC+P 	POLYGON;
+	ASSIGN SC+S 	SMASH;
+	ASSIGN SC+V 	VALUE;
+	ASSIGN C+F 		'RUN find.ulp';
+	ASSIGN ALT+BS 	'edit .sch';
+	
+	ASSIGN A+W		'RUN trace-layer +';
+	ASSIGN A+S		'RUN trace-layer -';
+	
+	# --------------ROUTE SHORTCUTS
+	ASSIGN C+1		'ROUTE 0.15mm';
+	ASSIGN C+2		'ROUTE 0.20mm';
+	ASSIGN C+3		'ROUTE 0.25mm';
+	ASSIGN C+4		'ROUTE 0.30mm';
+	ASSIGN C+5		'ROUTE 0.40mm';
+	ASSIGN C+6		'ROUTE 0.50mm';
+	ASSIGN C+7		'ROUTE 0.80mm';
+	ASSIGN C+8		'ROUTE 1.00mm';
+	
+	# ---------DIAGNAL GRID OVERLAY
+	ASSIGN A+1		'RUN TOGGLE 19
+	#ASSIGN A+1		'GRID OFF; RUN TOGGLE 252; #1.0MM Diagnal Grid
+	#ASSIGN A+2		'GRID OFF; RUN TOGGLE 253'; # 0.1MM Diagnal Grid
+	ASSIGN A+3		'ROUTE 0.25mm';
+	ASSIGN A+4		'ROUTE 0.30mm';
+	ASSIGN A+5		'ROUTE 0.40mm';
+	ASSIGN A+6		'ROUTE 0.50mm';
+	ASSIGN A+7		'ROUTE 0.80mm';
+	ASSIGN A+8		'ROUTE 1.00mm';
+	
+	# 0 0.25mm 0.30mm 0.35mm 0.40mm 0.45mm 0.50mm 0.60mm 0.80mm 1.0mm 2.5mm;
+	# -----------------------------
+
+					# Toggle needs some work, enables more that
+	ASSIGN F2 		'run toggle -U 1 23'; #Top tOrigins
+	ASSIGN A+F2 	'run toggle -S 21'; #tPlace
+	ASSIGN S+F2 	'run toggle -U 29 41'; #tStop tRestrict
+#	ASSIGN C+F2 	'run toggle -s 25'; #tNames
+	ASSIGN C+F2		'run toggle -U 1 21 23 29'; #Top Full
+	ASSIGN CA+F2 	'run toggle -s 51'; #tDocu
+	ASSIGN CS+F2 	'';
+	ASSIGN SA+F2 	'';
+
+	ASSIGN F3 		'run toggle -U 16 24'; #Bottom bOrigins
+	ASSIGN A+F3 	'run toggle -S 22'; #bPlace
+	ASSIGN S+F3 	'run toggle -U 30 42'; #bStop bRestrict
+#	ASSIGN C+F3 	'run toggle -s 26'; #bNames
+	ASSIGN C+F3		'run toggle -U 16 22 24 30'; #Bottom Full
+	ASSIGN CA+F3 	'run toggle -s 52'; #bDocu
+	#ASSIGN CS+F3 	'';
+	#ASSIGN SA+F3 	'';
+
+	ASSIGN F4 		'run toggle pads vias unrouted dimension'
+	ASSIGN A+F4 	'run toggle milling measures document Outline DrillLegend';
+	ASSIGN S+F4 	'run toggle -S 49 51 52 ';
+	#ASSIGN C+F4 	'';
+	#ASSIGN CA+F4 	'';
+	#ASSIGN CS+F4 	'';
+	#ASSIGN SA+F4 	'';
+
+#	ASSIGN F5 		'RATSNEST * ! GN*';
+	ASSIGN F5 		'RATS';
+	ASSIGN A+F5 	'run hide-airwires';
+	ASSIGN S+F5 	'SET POLYGON_RATSNEST OFF';
+	#ASSIGN C+F5 	'RATSNEST *';
+	#ASSIGN CA+F5 	'';
+	ASSIGN CS+F5 	'SET POLYGON_RATSNEST ON';
+	#ASSIGN SA+F5 	'';
+
+	#ASSIGN F6 		'';
+	#ASSIGN A+F6 	'';
+	#ASSIGN S+F6 	'';
+	#ASSIGN C+F6 	'';
+	#ASSIGN CA+F6 	'';
+	#ASSIGN CS+F6 	'';
+	#ASSIGN SA+F6 	'';
+	
+	ASSIGN F7 		'RUN cfgtoggle --t';
+	#ASSIGN A+F7 	'';
+	#ASSIGN S+F7 	'';
+	#ASSIGN C+F7 	'';
+	#ASSIGN CA+F7 	'';
+	#ASSIGN CS+F7 	'';
+	#ASSIGN SA+F7 	'';
+	
+		# ASSIGN C+F12 'set Option.PadNames 1';
+	ASSIGN F12 'RUN CFGTOGGLE Option.SignalNamesOnTraces;'
+	ASSIGN C+F12 'RUN CFGTOGGLE Option.SignalNamesOnPads;'
+	
+
+#----------------------------------#
+#------- SCHEMATIC EDITOR ---------#
+#----------------------------------#
+
+SCH:
+	ASSIGN A+A 		ATTRIBUTE
+	ASSIGN A+F2 	'Window fit;';
+	ASSIGN A+N 		NET;
+	ASSIGN C+C 		COPY;
+	ASSIGN C+E 		ERRORS;
+	ASSIGN C+F 		'RUN find.ulp';
+	ASSIGN C+G 		GROUP;
+	ASSIGN C+I 		INFO;
+	ASSIGN CA+I 	SHOW;
+	ASSIGN CS+I 	'run SHOW-SCH-GROUP';
+	ASSIGN CSA+I 	'RUN select-sch-group-to-brd-group';
+	ASSIGN C+M 		MOVE;
+	ASSIGN CA+M 	'SPLIT'; #mouse thumb+forefinger=C+M
+	ASSIGN CS+M 	'RUN MOVEBY'; #mouse thumb+forefinger=C+M
+	ASSIGN CSA+M 	'RUN GRP-ROTATE 90'
+	ASSIGN C+N 		NAME;
+	ASSIGN C+L 		NET;
+	ASSIGN CA+L 	LINE;
+	ASSIGN C+T 		TEXT;
+	ASSIGN C+V 		PASTE;
+	ASSIGN C+W 		LINE;
+	ASSIGN C+X 		CHANGE;
+	ASSIGN C+Y 		REDO;
+	ASSIGN C+Z 		UNDO;
+	ASSIGN CA+G 	'Display';
+	ASSIGN F2 		'run editprev-sheet';
+	ASSIGN F3 		'run editnext-sheet';
+	ASSIGN F4 		'Window 0.5';
+	ASSIGN F5 		'Window (@);';
+	ASSIGN SC+A 	ADD;
+	ASSIGN SC+E 	ERC;
+	ASSIGN SC+P 	POLYGON;
+	ASSIGN C+R 		DELETE; #Ripup muscle memory from board editor
+#	ASSIGN CA+R 	DELETE; #Slice in place for 
+	ASSIGN CA+R 	'SLICE 0.2'; 	#RIPUP muscle memory
+	ASSIGN CSA+R 	SLICE;
+	ASSIGN SC+S 	SMASH;
+	ASSIGN SC+V 	VALUE;
+
+	ASSIGN ALT+BS 	'edit .brd';
+
+#----------------------------------#
+#--------- LIBRARY EDITOR ---------#
+#----------------------------------#
+
+LBR:
+
+	ASSIGN A+C 		CONNECT;
+	ASSIGN A+P 		PAD;
+#	ASSIGN A+S 		SMD;
+	ASSIGN A+M		'run toggle 47';
+	ASSIGN C+D 		DELETE;
+	ASSIGN C+E 		EDIT;
+	ASSIGN C+F 		'RUN find.ulp';
+	ASSIGN C+G 		GROUP;
+	ASSIGN CA+G 	'Display';
+	ASSIGN CS+G 	'CHANGE LAYER';#Shift+thumb+Middle
+	ASSIGN C+H 		HOLE;
+	ASSIGN C+I 		INFO;
+	ASSIGN CA+I 	SHOW;
+	ASSIGN C+M 		MOVE;
+	ASSIGN C+N 		NAME;
+	ASSIGN C+T 		TEXT;
+	ASSIGN C+V 		Paste;
+	ASSIGN C+L 		LINE;
+	ASSIGN C+Y 		REDO;
+	ASSIGN C+Z 		UNDO;
+	ASSIGN F2 		'run EDITPREV';
+	ASSIGN F3 		'run EDITNEXT';
+	ASSIGN SC+A 	ADD;
+	ASSIGN SC+C 	COPY;
+	ASSIGN SC+N 	NAME;
+	ASSIGN SC+P 	POLYGON;
+	ASSIGN C+R 		DELETE; #Ripup muscle memory from board editor
+#	ASSIGN CA+R 	DELETE; #Slice in place for RIPUP muscle memory
+	ASSIGN CA+R 	SLICE;
+
+PAC:
+
+	ASSIGN CSA+M 	'MITER -0'; #mouse thumb+forefinger=C+M
+	ASSIGN CA+M 	'SET WIRE_BEND 3; SPLIT'; #mouse Alt-thumb+forefinger=C+M
+	ASSIGN CS+M 	'RUN MOVEBY';
+	ASSIGN CSA+M 	'RUN GRP-ROTATE 45'; #mouse
+
+	ASSIGN C+R 		DELETE;
+	ASSIGN CA+R 	SLICE;
+	
+	
+	ASSIGN A+W		'RUN trace-layer +'; #Trace-layer only supports board.
+	ASSIGN A+S		'RUN trace-layer -';
+
+	#ASSIGN F2 		'run toggle 1 23';
+	ASSIGN A+F2 	'display all';
+	#ASSIGN S+F2 	'run toggle -S 29 41';
+	#ASSIGN C+F2 	'run toggle -s 21';
+	#ASSIGN CA+F2 	'run toggle -s 51';
+	#ASSIGN CS+F2 	'';
+	#ASSIGN SA+F2 	'';
+
+	#ASSIGN F3 		'run toggle 16 24';
+	ASSIGN A+F3 	'display none; display';
+	#ASSIGN S+F3 	'run toggle -S 30 42';
+	#ASSIGN C+F3 	'run toggle -s 22';
+	#ASSIGN CA+F3 	'run toggle -s 52';
+	#ASSIGN CS+F3 	'';
+	#ASSIGN SA+F3 	'';
+
+SYM:
+
+	ASSIGN CA+R 	SLICE;

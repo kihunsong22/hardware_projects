@@ -1,0 +1,183 @@
+#
+# File: EAGLE.SCR
+# Description: Master script file.
+# Author: Cameron Nicks, PCB Designer
+# 
+#
+#   This file must be copied to Eagle scripts directory (control panel -> Options -> Directories...)
+#   It will be run automatically when Eagle is started and when various windows
+#   are brought up (bug, some settings are not loaded at start like font. Run at first launch to be sure)
+#___________________________________
+
+# Bring in modular setup scripts
+
+#SCRIPT COLORS.scr
+SCRIPT SHORTCUTS.scr
+SCRIPT MENU.scr
+
+# SCRIPT LAYERS.scr #Not ready, need to separate layers by editors
+
+#----------------------------------#
+#------------ GENERAL--------------#
+#----------------------------------#
+
+
+	
+	set Interface.PreferredUnit 2;
+	
+	set Option.ToggleCtrlForGroupSelectionAndContextMenu 1; # Added ctrl-right click to mouse right click for context. Top thumb set to ctrl-right click.
+
+	set Cmd.Wire.IgnoreCtrlForRadiusMode 1;
+	set Option.DrawUnprocessedPolygonEdgesContinuous 0;
+	set Option.AutoLoadMatchingDrawingFile 1;
+	set Option.FileLocking 0;
+	set Option.RepositionMouseCursorAfterContextMenu 1;
+	set Option.SelectFactor 0.02;
+	set Option.ShowPartOrigins 1;
+	set Option.ShowTextOrigins 1;
+	set Option.SnapLength 1000;
+	set Warning.PartHasNoUserDefinableValue 0;
+	set Warning.SupplyPinAutoOverwriteGeneratedNetName 0;
+	SET REPLACE_SAME NAMES;
+	
+	set Cmd.Delete.WireJointsWithoutCtrl 1; #This is awesome, wish I knew about this before
+	
+	set Directories.IgnoreNonExisting 1;
+	
+
+#	set Option.SignalNamesOnPads 0; 
+#	set Option.SignalNamesOnTraces 0;
+#	set Option.PadNames 0;
+
+#	set Option.GroupDefault 0; #Group default option. No thanks, messes up entire workflow
+
+#----------------------------------#
+#---------- BOARD EDITOR ----------#
+#----------------------------------#
+
+
+BRD:
+		# Context and menu set from Configure/MENU.scr
+
+# SCRIPT LAYERS.scr #Set layers from master, Not ready yet. EXP-LAYERS.ulp in prog
+
+#---------- DISPLAY ALIAS PRESETS ------------
+# These still need some work
+	#DISPLAY = 'Preset_Top' None 1 17 18 19 20 21 23 25 39 41 45 51;
+	#DISPLAY = 'Preset_Bottom' None 16 17 18 19 20 22 24 26 40 42 45 52;
+	#DISPLAY = 'Preset_Standard' None 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 39 40 41 42 44 45 51 52;
+	
+	DISPLAY = 'Preset_Top';
+	DISPLAY = 'Preset_Bottom';
+	DISPLAY = 'Preset_Standard';
+	
+	
+	DISPLAY = '_All' _copper _silk 19 20 23 24; #All the useful layout layers, this will replace the standard all on a shortcut and will not turn on documentation
+	
+	DISPLAY = '_copper' 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18; #All copper layers, not sure if this is useful or not?
+	DISPLAY = '_silk' 21 22 25 26 ?? 121 122 125 126 221 222 225 226; #every layer that has silkscreen
+	DISPLAY = '_toptoggle' -22 -24 -26 -28 -30 -32 -40 -42 -52 ?? -122 -126; #Turns off all bottom layers except copper
+	DISPLAY = '_bottoggle' -21 -23 -25 -27 -29 -31 -39 -41 -51 ?? -121 -125; #Turns off all top layers except copper
+	DISPLAY = '_doc' 46 47 48 51 52 ?? 50 100 102 120; # Document layers
+
+	SET WIRE_BEND @ 0 1 2; #Only allows 90, 45, and free. Use ctrl+right to switch directions
+		
+		# Setup Default Grid, Drill and Width Values
+
+	GRID ON;
+	GRID DOTS;
+	Grid MM 1;
+	Grid ALT MM 0.5;
+
+	Change Shape Round;
+	SET DRILL_MENU 0.008in 0.010in 0.012in 0.014in 0.016in 0.020in 0.024in 0.028in 0.032in 0.036in 0.040in 0.056in 0.066in 0.076in 0.086in 0.125in;
+
+	SET WIDTH_MENU 0.05mm 0.1mm 0.20mm 0.25mm 0.30mm 0.35mm 0.40mm 0.45mm 0.50mm 0.60mm 0.80mm 1.0mm 2.5mm;
+
+	CHANGE Drill 12mil;
+
+	CHANGE Width 0.2mm;
+	SET vector_font on;
+	Change Font Vector; #This doesn't actually get set on the first running of eagle.scr, must re-run to take effect
+	#Change Ratio 18;
+	
+	# Set dimension tool settings.
+	CHANGE DUNIT MM ON 2;
+	CHANGE DLINE 0.05mm 0 2 1mm;
+	CHANGE SIZE 1.5;
+	CHANGE RATIO 12;
+
+
+#----------------------------------#
+#------- SCHEMATIC EDITOR ---------#
+#----------------------------------#
+
+SCH:
+		# Context and menu set from Configure/MENU.scr
+	
+	set Option.UnpopulatedMarkScaling .7;
+		
+	GRID ON;
+	GRID DOTS;
+	Grid IN .1;
+	Grid ALT IN .025;
+
+	Change Font Vector; #This doesn't actually get set on the first running of eagle.scr, must re-run to take effect
+	SET vector_font on;
+	Change Size 0.050;
+	Change Ratio 10;
+	CHANGE XREF ON;
+	CHANGE ALIGN top-left;
+
+	SET WIRE_BEND @ 0 4; #Only allow 90 angles
+	SET WIDTH_MENU 0.00 0.003in 0.006in 0.01in 0.015in 0.02in 0.025in 0.03in 0.035in 0.04in 0.045in 0.05in 0.1in;
+
+
+#----------------------------------#
+#--------- LIBRARY EDITOR ---------#
+#----------------------------------#
+
+LBR:
+		# Context and menu set from Configure/MENU.scr
+
+PAC:
+		#SCRIPT LAYERS.scr #Set layers from master
+	GRID ON;
+	Grid MM 1;
+	Grid ALT MM 0.5;
+	Change Font Vector; #This doesn't actually get set on the first running of eagle.scr, must re-run to take effect
+
+	Change Shape Round;
+	SET DRILL_MENU 0.008in 0.010in 0.012in 0.014in 0.016in 0.020in 0.024in 0.028in 0.032in 0.036in 0.040in 0.056in 0.066in 0.076in 0.086in 0.125in;
+
+	SET WIDTH_MENU 0.05mm 0.1mm 0.20mm 0.25mm 0.30mm 0.35mm 0.40mm 0.45mm 0.50mm 0.60mm 0.80mm 1.0mm 2.5mm;
+
+	Change Width 0.2mm;
+
+	SET WIRE_BEND @ 0 1 2; #Only allows 90, 45, and free. Use ctrl+right to switch directions
+	
+		# Let's try to get Eagle to obey dimension settings
+	set Option.DimensionExtExt 1;
+	set Option.DimensionExtOfs 1;
+	set Option.DimensionExtWidth 0.1;
+	set Option.DimensionLineWidth 0.2;
+	set Option.DimensionPrecAngular 1;
+	set Option.DimensionPrecLinear 2;
+	set Option.DimensionShowUnit 1;
+	set Option.DimensionTextOffset 1;
+	set Option.DimensionTextRatio 12;
+	set Option.DimensionTextSize 1.5;
+	set Option.DimensionUnit 2;	
+	
+	# Set dimension tool settings.
+	CHANGE DUNIT MM ON 2;
+	CHANGE DLINE 0.05mm 0 2 1mm;
+	CHANGE SIZE 1.5;
+	CHANGE RATIO 12;
+
+SYM:
+	Grid IN .1;
+	Grid alt .025;
+	Change Font Vector;
+	Change Width 0.016;
+	SET WIRE_BEND @ 0 4; #Only allow 90 angles
