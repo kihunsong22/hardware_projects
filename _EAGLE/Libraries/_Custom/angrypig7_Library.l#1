@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+<grid distance="50" unitdist="mil" unit="mil" style="lines" multiple="1" display="yes" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="2" name="Route2" color="16" fill="1" visible="yes" active="yes"/>
@@ -1619,8 +1619,8 @@ Looking footprint for headers.
 <pin name="5V" x="-13.97" y="-8.89" length="middle"/>
 </symbol>
 <symbol name="ZX62D-B-5P8">
-<text x="-5.07591875" y="10.1722" size="2.1844" layer="95">&gt;NAME</text>
-<text x="-5.07786875" y="-13.9774" size="2.1844" layer="96">&gt;VALUE</text>
+<text x="-5.07591875" y="12.7122" size="2.1844" layer="95">&gt;NAME</text>
+<text x="-5.08" y="10.414" size="2.1844" layer="96">&gt;VALUE</text>
 <wire x1="-5.08" y1="10.16" x2="-5.08" y2="-10.16" width="0.254" layer="94"/>
 <wire x1="-5.08" y1="-10.16" x2="5.08" y2="-10.16" width="0.254" layer="94"/>
 <wire x1="5.08" y1="-10.16" x2="5.08" y2="10.16" width="0.254" layer="94"/>
@@ -1631,6 +1631,54 @@ Looking footprint for headers.
 <pin name="D+" x="-10.16" y="2.54" length="middle" direction="pas"/>
 <pin name="ID" x="-10.16" y="0" length="middle" direction="pas"/>
 <pin name="SHIELD" x="-10.16" y="-7.62" length="middle" direction="pas"/>
+</symbol>
+<symbol name="UTO-NBL-52A">
+<wire x1="-25.4" y1="22.86" x2="-25.4" y2="-29.21" width="0.254" layer="94"/>
+<wire x1="-25.4" y1="-29.21" x2="27.94" y2="-29.21" width="0.254" layer="94"/>
+<wire x1="27.94" y1="-29.21" x2="27.94" y2="22.86" width="0.254" layer="94"/>
+<wire x1="27.94" y1="22.86" x2="-25.4" y2="22.86" width="0.254" layer="94"/>
+<text x="0" y="-2.54" size="1.778" layer="95" align="center">&gt;NAME</text>
+<text x="0" y="-5.08" size="1.778" layer="96" align="center">&gt;VALUE</text>
+<pin name="SWDCLK" x="-30.48" y="13.97" length="middle"/>
+<pin name="SWDIO" x="-30.48" y="10.16" length="middle"/>
+<pin name="P0.21" x="-30.48" y="6.35" length="middle"/>
+<pin name="P0.18" x="-30.48" y="2.54" length="middle"/>
+<pin name="P0.16" x="-30.48" y="-1.27" length="middle"/>
+<pin name="P0.15" x="-30.48" y="-5.08" length="middle"/>
+<pin name="P0.14" x="-30.48" y="-8.89" length="middle"/>
+<pin name="P0.12" x="-30.48" y="-12.7" length="middle"/>
+<pin name="VCC" x="-30.48" y="-16.51" length="middle"/>
+<pin name="P0.10" x="-30.48" y="-20.32" length="middle"/>
+<pin name="P0.09" x="-16.51" y="-34.29" length="middle" rot="R90"/>
+<pin name="P0.08" x="-12.7" y="-34.29" length="middle" rot="R90"/>
+<pin name="P0.06" x="-8.89" y="-34.29" length="middle" rot="R90"/>
+<pin name="P0.05" x="-5.08" y="-34.29" length="middle" rot="R90"/>
+<pin name="P0.04" x="-1.27" y="-34.29" length="middle" rot="R90"/>
+<pin name="P0.03" x="2.54" y="-34.29" length="middle" rot="R90"/>
+<pin name="P0.02" x="6.35" y="-34.29" length="middle" rot="R90"/>
+<pin name="DEC4" x="10.16" y="-34.29" length="middle" rot="R90"/>
+<pin name="DCC" x="13.97" y="-34.29" length="middle" rot="R90"/>
+<pin name="P0.30" x="17.78" y="-34.29" length="middle" rot="R90"/>
+<pin name="GND2" x="17.78" y="27.94" length="middle" rot="R270"/>
+<pin name="P0.24" x="13.97" y="27.94" length="middle" rot="R270"/>
+<pin name="P0.20" x="10.16" y="27.94" length="middle" rot="R270"/>
+<pin name="P0.17" x="6.35" y="27.94" length="middle" rot="R270"/>
+<pin name="P0.19" x="2.54" y="27.94" length="middle" rot="R270"/>
+<pin name="P0.13" x="-1.27" y="27.94" length="middle" rot="R270"/>
+<pin name="P0.07" x="-5.08" y="27.94" length="middle" rot="R270"/>
+<pin name="P0.11" x="-8.89" y="27.94" length="middle" rot="R270"/>
+<pin name="GND_SLUG" x="-12.7" y="27.94" length="middle" rot="R270"/>
+<pin name="A" x="-16.51" y="27.94" length="middle" rot="R270"/>
+<pin name="P0.31" x="33.02" y="-20.32" length="middle" rot="R180"/>
+<pin name="P0.29" x="33.02" y="-16.51" length="middle" rot="R180"/>
+<pin name="P0.27" x="33.02" y="-12.7" length="middle" rot="R180"/>
+<pin name="P0.28" x="33.02" y="-8.89" length="middle" rot="R180"/>
+<pin name="P0.25" x="33.02" y="-5.08" length="middle" rot="R180"/>
+<pin name="P0.26" x="33.02" y="-1.27" length="middle" rot="R180"/>
+<pin name="P0.22" x="33.02" y="2.54" length="middle" rot="R180"/>
+<pin name="P0.23" x="33.02" y="6.35" length="middle" rot="R180"/>
+<pin name="GND1" x="33.02" y="10.16" length="middle" rot="R180"/>
+<pin name="NC" x="33.02" y="13.97" length="middle" rot="R180"/>
 </symbol>
 </symbols>
 <devicesets>
@@ -1997,6 +2045,17 @@ Shield form compatible with the Arduino Uno R3.
 <attribute name="PACKAGE" value="None"/>
 <attribute name="PRICE" value="None"/>
 </technology>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="UTO-NBL-52A">
+<gates>
+</gates>
+<devices>
+<device name="">
+<technologies>
+<technology name=""/>
 </technologies>
 </device>
 </devices>

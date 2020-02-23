@@ -1633,23 +1633,22 @@ Looking footprint for headers.
 <pin name="SHIELD" x="-10.16" y="-7.62" length="middle" direction="pas"/>
 </symbol>
 <symbol name="UTO-NBL-52A">
-<wire x1="-25.4" y1="22.86" x2="-25.4" y2="-29.21" width="0.254" layer="94"/>
-<wire x1="-25.4" y1="-29.21" x2="27.94" y2="-29.21" width="0.254" layer="94"/>
-<wire x1="27.94" y1="-29.21" x2="27.94" y2="22.86" width="0.254" layer="94"/>
-<wire x1="27.94" y1="22.86" x2="-25.4" y2="22.86" width="0.254" layer="94"/>
-<text x="-6.35" y="-3.81" size="1.778" layer="95">&gt;NAME</text>
-<text x="-6.35" y="-6.35" size="1.778" layer="96">&gt;VALUE</text>
-<pin name="SWDCLK" x="-30.48" y="13.97" length="middle"/>
-<pin name="SWDIO" x="-30.48" y="10.16" length="middle"/>
-<pin name="P0.21" x="-30.48" y="6.35" length="middle"/>
-<pin name="P0.18" x="-30.48" y="2.54" length="middle"/>
-<pin name="P0.16" x="-30.48" y="-1.27" length="middle"/>
-<pin name="P0.15" x="-30.48" y="-5.08" length="middle"/>
-<pin name="P0.14" x="-30.48" y="-8.89" length="middle"/>
-<pin name="P0.12" x="-30.48" y="-12.7" length="middle"/>
-<pin name="VCC" x="-30.48" y="-16.51" length="middle"/>
-<pin name="P0.10" x="-30.48" y="-20.32" length="middle"/>
-<pin name="P$1" x="-16.51" y="-34.29" length="middle" rot="R90"/>
+<wire x1="-20.32" y1="17.78" x2="-20.32" y2="-24.13" width="0.254" layer="94"/>
+<wire x1="-20.32" y1="-24.13" x2="25.4" y2="-24.13" width="0.254" layer="94"/>
+<wire x1="25.4" y1="-24.13" x2="25.4" y2="17.78" width="0.254" layer="94"/>
+<wire x1="25.4" y1="17.78" x2="-20.32" y2="17.78" width="0.254" layer="94"/>
+<text x="-3.81" y="-3.81" size="1.778" layer="95">&gt;NAME</text>
+<text x="-3.81" y="-6.35" size="1.778" layer="96">&gt;VALUE</text>
+<pin name="P$1" x="-25.4" y="13.97" length="middle"/>
+<pin name="P$2" x="-25.4" y="10.16" length="middle"/>
+<pin name="P$3" x="-25.4" y="6.35" length="middle"/>
+<pin name="P$4" x="-25.4" y="2.54" length="middle"/>
+<pin name="P$5" x="-25.4" y="-1.27" length="middle"/>
+<pin name="P$6" x="-25.4" y="-5.08" length="middle"/>
+<pin name="P$7" x="-25.4" y="-8.89" length="middle"/>
+<pin name="P$8" x="-25.4" y="-12.7" length="middle"/>
+<pin name="P$9" x="-25.4" y="-16.51" length="middle"/>
+<pin name="P$10" x="-25.4" y="-20.32" length="middle"/>
 </symbol>
 </symbols>
 <devicesets>
