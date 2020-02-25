@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.1" unitdist="mm" unit="mm" style="lines" multiple="1" display="yes" altdistance="5" altunitdist="mil" altunit="mil"/>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="2" name="Route2" color="16" fill="1" visible="yes" active="yes"/>
@@ -2057,6 +2057,8 @@ Shield form compatible with the Arduino Uno R3.
 </devices>
 </deviceset>
 <deviceset name="UTO-NBL-52A" prefix="U">
+<description>&lt;h3&gt;UTO-NBL-52A&lt;/h3&gt;
+nRF52832 SoC module</description>
 <gates>
 <gate name="G$1" symbol="UTO-NBL-52A" x="0" y="0"/>
 </gates>

@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.8" unitdist="mm" unit="mm" style="lines" multiple="1" display="yes" altdistance="5" altunitdist="mil" altunit="mil"/>
+<grid distance="0.1" unitdist="mm" unit="mm" style="lines" multiple="1" display="yes" altdistance="5" altunitdist="mil" altunit="mil"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="2" name="Route2" color="16" fill="1" visible="yes" active="yes"/>
@@ -1450,18 +1450,18 @@ Looking footprint for headers.
 <smd name="P0.6" x="7.15" y="-0.15" dx="0.3" dy="0.7" layer="1"/>
 <smd name="P0.7" x="7.75" y="-0.15" dx="0.3" dy="0.7" layer="1"/>
 <smd name="P0.8" x="8.35" y="-0.15" dx="0.3" dy="0.7" layer="1"/>
-<smd name="P0.9" x="8.75" y="-1.15" dx="0.3" dy="0.7" layer="1" rot="R90"/>
-<smd name="P0.10" x="8.75" y="-1.75" dx="0.3" dy="0.7" layer="1" rot="R90"/>
-<smd name="P0.11" x="8.75" y="-2.35" dx="0.3" dy="0.7" layer="1" rot="R90"/>
-<smd name="P0.12" x="8.75" y="-2.95" dx="0.3" dy="0.7" layer="1" rot="R90"/>
-<smd name="P0.13" x="8.75" y="-3.55" dx="0.3" dy="0.7" layer="1" rot="R90"/>
-<smd name="P0.14" x="8.75" y="-4.15" dx="0.3" dy="0.7" layer="1" rot="R90"/>
-<smd name="P0.15" x="8.75" y="-4.75" dx="0.3" dy="0.7" layer="1" rot="R90"/>
-<smd name="P0.16" x="3.55" y="-5.75" dx="0.3" dy="0.7" layer="1"/>
-<smd name="P0.17" x="4.15" y="-5.75" dx="0.3" dy="0.7" layer="1"/>
-<smd name="P0.18" x="4.75" y="-5.75" dx="0.3" dy="0.7" layer="1"/>
-<smd name="P0.19" x="5.35" y="-5.75" dx="0.3" dy="0.7" layer="1"/>
-<smd name="P0.20" x="5.95" y="-5.75" dx="0.3" dy="0.7" layer="1"/>
+<smd name="P0.03" x="8.75" y="-1.15" dx="0.3" dy="0.7" layer="1" rot="R90"/>
+<smd name="P0.04" x="8.75" y="-1.75" dx="0.3" dy="0.7" layer="1" rot="R90"/>
+<smd name="P0.05" x="8.75" y="-2.35" dx="0.3" dy="0.7" layer="1" rot="R90"/>
+<smd name="P0.06" x="8.75" y="-2.95" dx="0.3" dy="0.7" layer="1" rot="R90"/>
+<smd name="P0.08" x="8.75" y="-3.55" dx="0.3" dy="0.7" layer="1" rot="R90"/>
+<smd name="P0.09" x="8.75" y="-4.15" dx="0.3" dy="0.7" layer="1" rot="R90"/>
+<smd name="P0.10" x="8.75" y="-4.75" dx="0.3" dy="0.7" layer="1" rot="R90"/>
+<smd name="SWDCLK" x="3.55" y="-5.75" dx="0.3" dy="0.7" layer="1"/>
+<smd name="SWDIO" x="4.15" y="-5.75" dx="0.3" dy="0.7" layer="1"/>
+<smd name="P0.21/RST" x="4.75" y="-5.75" dx="0.3" dy="0.7" layer="1"/>
+<smd name="P0.18" x="5.35" y="-5.75" dx="0.3" dy="0.7" layer="1"/>
+<smd name="P0.16" x="5.95" y="-5.75" dx="0.3" dy="0.7" layer="1"/>
 <smd name="P0.21" x="6.55" y="-5.75" dx="0.3" dy="0.7" layer="1"/>
 <smd name="P0.22" x="7.15" y="-5.75" dx="0.3" dy="0.7" layer="1"/>
 <smd name="P0.23" x="7.75" y="-5.75" dx="0.3" dy="0.7" layer="1"/>

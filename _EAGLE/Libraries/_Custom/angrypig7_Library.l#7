@@ -1442,14 +1442,14 @@ Looking footprint for headers.
 <wire x1="0" y1="0" x2="8.9" y2="0" width="0.04" layer="51"/>
 <smd name="GND_SLUG" x="5.95" y="-2.95" dx="1" dy="1" layer="1"/>
 <smd name="P0.25" x="3.55" y="-0.15" dx="0.3" dy="0.7" layer="1"/>
-<smd name="P0.1" x="4.15" y="-0.15" dx="0.3" dy="0.7" layer="1"/>
-<smd name="P0.2" x="4.75" y="-0.15" dx="0.3" dy="0.7" layer="1"/>
-<smd name="P0.3" x="5.35" y="-0.15" dx="0.3" dy="0.7" layer="1"/>
-<smd name="P0.4" x="5.95" y="-0.15" dx="0.3" dy="0.7" layer="1"/>
-<smd name="P0.5" x="6.55" y="-0.15" dx="0.3" dy="0.7" layer="1"/>
-<smd name="P0.6" x="7.15" y="-0.15" dx="0.3" dy="0.7" layer="1"/>
-<smd name="P0.7" x="7.75" y="-0.15" dx="0.3" dy="0.7" layer="1"/>
-<smd name="P0.8" x="8.35" y="-0.15" dx="0.3" dy="0.7" layer="1"/>
+<smd name="1234" x="4.15" y="-0.15" dx="0.3" dy="0.7" layer="1"/>
+<smd name="4321" x="4.75" y="-0.15" dx="0.3" dy="0.7" layer="1"/>
+<smd name="2134" x="5.35" y="-0.15" dx="0.3" dy="0.7" layer="1"/>
+<smd name="3214" x="5.95" y="-0.15" dx="0.3" dy="0.7" layer="1"/>
+<smd name="2341" x="6.55" y="-0.15" dx="0.3" dy="0.7" layer="1"/>
+<smd name="4312" x="7.15" y="-0.15" dx="0.3" dy="0.7" layer="1"/>
+<smd name="1243" x="7.75" y="-0.15" dx="0.3" dy="0.7" layer="1"/>
+<smd name="43214" x="8.35" y="-0.15" dx="0.3" dy="0.7" layer="1"/>
 <smd name="P0.03" x="8.75" y="-1.15" dx="0.3" dy="0.7" layer="1" rot="R90"/>
 <smd name="P0.04" x="8.75" y="-1.75" dx="0.3" dy="0.7" layer="1" rot="R90"/>
 <smd name="P0.05" x="8.75" y="-2.35" dx="0.3" dy="0.7" layer="1" rot="R90"/>
@@ -1461,18 +1461,18 @@ Looking footprint for headers.
 <smd name="SWDIO" x="4.15" y="-5.75" dx="0.3" dy="0.7" layer="1"/>
 <smd name="P0.21/RST" x="4.75" y="-5.75" dx="0.3" dy="0.7" layer="1"/>
 <smd name="P0.18" x="5.35" y="-5.75" dx="0.3" dy="0.7" layer="1"/>
-<smd name="P0.16" x="5.95" y="-5.75" dx="0.3" dy="0.7" layer="1"/>
-<smd name="P0.21" x="6.55" y="-5.75" dx="0.3" dy="0.7" layer="1"/>
-<smd name="P0.22" x="7.15" y="-5.75" dx="0.3" dy="0.7" layer="1"/>
-<smd name="P0.23" x="7.75" y="-5.75" dx="0.3" dy="0.7" layer="1"/>
-<smd name="P0.24" x="8.35" y="-5.75" dx="0.3" dy="0.7" layer="1"/>
-<smd name="P0.26" x="3.25" y="-1.15" dx="0.3" dy="0.5" layer="1" rot="R90"/>
-<smd name="P0.27" x="3.25" y="-1.75" dx="0.3" dy="0.5" layer="1" rot="R90"/>
-<smd name="P0.28" x="3.25" y="-2.35" dx="0.3" dy="0.5" layer="1" rot="R90"/>
-<smd name="P0.29" x="3.25" y="-2.95" dx="0.3" dy="0.5" layer="1" rot="R90"/>
-<smd name="P0.30" x="3.25" y="-3.55" dx="0.3" dy="0.5" layer="1" rot="R90"/>
-<smd name="P0.31" x="3.25" y="-4.15" dx="0.3" dy="0.5" layer="1" rot="R90"/>
-<smd name="P0.32" x="3.25" y="-4.75" dx="0.3" dy="0.5" layer="1" rot="R90"/>
+<smd name="15" x="5.95" y="-5.75" dx="0.3" dy="0.7" layer="1"/>
+<smd name="14" x="6.55" y="-5.75" dx="0.3" dy="0.7" layer="1"/>
+<smd name="13" x="7.15" y="-5.75" dx="0.3" dy="0.7" layer="1"/>
+<smd name="12" x="7.75" y="-5.75" dx="0.3" dy="0.7" layer="1"/>
+<smd name="11" x="8.35" y="-5.75" dx="0.3" dy="0.7" layer="1"/>
+<smd name="1" x="3.25" y="-1.15" dx="0.3" dy="0.5" layer="1" rot="R90"/>
+<smd name="2" x="3.25" y="-1.75" dx="0.3" dy="0.5" layer="1" rot="R90"/>
+<smd name="3" x="3.25" y="-2.35" dx="0.3" dy="0.5" layer="1" rot="R90"/>
+<smd name="4" x="3.25" y="-2.95" dx="0.3" dy="0.5" layer="1" rot="R90"/>
+<smd name="5" x="3.25" y="-3.55" dx="0.3" dy="0.5" layer="1" rot="R90"/>
+<smd name="6" x="3.25" y="-4.15" dx="0.3" dy="0.5" layer="1" rot="R90"/>
+<smd name="7" x="3.25" y="-4.75" dx="0.3" dy="0.5" layer="1" rot="R90"/>
 <smd name="P$1" x="4.4" y="-4.3" dx="0.4" dy="0.4" layer="1" roundness="100"/>
 <smd name="P$2" x="5.2" y="-4.3" dx="0.4" dy="0.4" layer="1" roundness="100"/>
 <smd name="P$3" x="6.8" y="-4.3" dx="0.4" dy="0.4" layer="1" roundness="100"/>

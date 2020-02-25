@@ -2063,7 +2063,7 @@ nRF52832 SoC module</description>
 <gate name="G$1" symbol="UTO-NBL-52A" x="0" y="0"/>
 </gates>
 <devices>
-<device name="">
+<device name="" package="UTO-NBL-52A">
 <technologies>
 <technology name=""/>
 </technologies>
