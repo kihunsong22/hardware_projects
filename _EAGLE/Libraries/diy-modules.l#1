@@ -7,7 +7,7 @@
 <setting keepoldvectorfont="yes"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="50" unitdist="mil" unit="mil" style="lines" multiple="1" display="yes" altdistance="5" altunitdist="mil" altunit="mil"/>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="16" name="Bottom" color="1" fill="1" visible="yes" active="yes"/>
@@ -8012,6 +8012,7 @@ Footprint for SMD assembly.</description>
 <pad name="2" x="-15.875" y="3.81" drill="1"/>
 <pad name="3" x="-15.875" y="1.27" drill="1"/>
 <pad name="4" x="-15.875" y="-1.27" drill="1"/>
+<pad name="5" x="-15.875" y="-6.35" drill="1"/>
 <wire x1="18.034" y1="-12.065" x2="-18.034" y2="-12.065" width="0.127" layer="21"/>
 <wire x1="-17.145" y1="-4.445" x2="-17.145" y2="-3.175" width="0.127" layer="21"/>
 <wire x1="-17.145" y1="-1.905" x2="-17.145" y2="-0.635" width="0.127" layer="21"/>

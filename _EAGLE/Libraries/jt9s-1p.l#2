@@ -58,7 +58,7 @@
 <layer number="47" name="Measures" color="7" fill="1" visible="no" active="yes"/>
 <layer number="48" name="Document" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="49" name="Reference" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="51" name="tDocu" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="51" name="tDocu" color="7" fill="1" visible="no" active="yes"/>
 <layer number="52" name="bDocu" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="91" name="Nets" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="92" name="Busses" color="1" fill="1" visible="yes" active="yes"/>
@@ -115,9 +115,9 @@ datasheet : http://www.produktinfo.conrad.com/datenblaetter/425000-449999/425608
 <hole x="6.65" y="-7.75" drill="1.4224"/>
 <hole x="-6.65" y="-7.75" drill="1.4224"/>
 <pad name="P$1" x="-6.6548" y="7.7724" drill="1.778" shape="octagon"/>
-<pad name="P$2" x="6.604" y="7.7724" drill="1.778" shape="octagon"/>
+<pad name="P$2" x="6.6548" y="7.7724" drill="1.778" shape="octagon"/>
 <pad name="P$3" x="6.6548" y="-7.7216" drill="1.778" shape="octagon"/>
-<pad name="P$4" x="-6.604" y="-7.7724" drill="1.778" shape="octagon"/>
+<pad name="P$4" x="-6.6548" y="-7.747" drill="1.778" shape="octagon"/>
 </package>
 </packages>
 <symbols>

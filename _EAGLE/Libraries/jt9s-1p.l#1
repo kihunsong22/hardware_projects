@@ -7,7 +7,7 @@
 <setting keepoldvectorfont="yes"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="2" unitdist="mil" unit="mil" style="lines" multiple="1" display="yes" altdistance="5" altunitdist="mil" altunit="mil"/>
+<grid distance="50" unitdist="mil" unit="mil" style="lines" multiple="1" display="yes" altdistance="5" altunitdist="mil" altunit="mil"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
@@ -25,8 +25,8 @@
 <layer number="14" name="Route14" color="1" fill="6" visible="no" active="no"/>
 <layer number="15" name="Route15" color="4" fill="6" visible="no" active="no"/>
 <layer number="16" name="Bottom" color="1" fill="1" visible="yes" active="yes"/>
-<layer number="17" name="Pads" color="2" fill="1" visible="yes" active="yes"/>
-<layer number="18" name="Vias" color="2" fill="1" visible="yes" active="yes"/>
+<layer number="17" name="Pads" color="2" fill="1" visible="no" active="yes"/>
+<layer number="18" name="Vias" color="2" fill="1" visible="no" active="yes"/>
 <layer number="19" name="Unrouted" color="6" fill="1" visible="yes" active="yes"/>
 <layer number="20" name="Dimension" color="15" fill="1" visible="yes" active="yes"/>
 <layer number="21" name="tPlace" color="7" fill="1" visible="yes" active="yes"/>
@@ -110,10 +110,6 @@ datasheet : http://www.produktinfo.conrad.com/datenblaetter/425000-449999/425608
 <pad name="S2" x="12.75" y="3.25" drill="1.016" shape="octagon" rot="R90"/>
 <text x="0" y="2.032" size="1.0668" layer="25" align="center">&gt;NAME</text>
 <text x="0" y="0.762" size="1.0668" layer="27" align="center">&gt;VALUE</text>
-<hole x="-6.65" y="7.75" drill="1.4224"/>
-<hole x="6.65" y="7.75" drill="1.4224"/>
-<hole x="6.65" y="-7.75" drill="1.4224"/>
-<hole x="-6.65" y="-7.75" drill="1.4224"/>
 <pad name="P$1" x="-6.6548" y="7.7724" drill="1.778" shape="octagon"/>
 <pad name="P$2" x="6.6548" y="7.7724" drill="1.778" shape="octagon"/>
 <pad name="P$3" x="6.6548" y="-7.7216" drill="1.778" shape="octagon"/>
