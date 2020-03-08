@@ -1,6 +1,4 @@
-# File: SHORTCUTS.SCR
-# Description: Master shortcuts script file.
-# Original Author: Cameron Nicks, PCB Designer
+# EAGLE CAD shortcut keys
 
 #----------------------------------#
 #------------ GENERAL--------------#
@@ -16,17 +14,49 @@ BRD:
 
 ASSIGN A+Q    GROUP;
 ASSIGN A+W    MOVE;
+ASSIGN A+E    ROUTE;
+ASSIGN A+R    DELETE;
+
+ASSIGN A+A    VIA;
+ASSIGN A+S    SHOW;
 
 
 #----------------------------------#
-#------- SCHEMATIC EDITOR ---------#
+#-------- SCHEMATIC EDITOR --------#
 #----------------------------------#
 
 SCH:
 
 ASSIGN A+Q    GROUP;
 ASSIGN A+W    MOVE;
+ASSIGN A+E    NET;
+ASSIGN A+R    DELETE;
+
+ASSIGN A+S    SHOW;
+
+
+#----------------------------------#
+#----- LIBRARY SYMBOL EDITOR ------#
+#----------------------------------#
+
+SYM:
+
+ASSIGN A+Q    GROUP;
+ASSIGN A+W    MOVE;
+ASSIGN A+E    LINE;
+ASSIGN A+R    DELETE;
+
+ASSIGN A+A    PIN;
+
+#----------------------------------#
+#---- LIBRARY FOOTPRINT EDITOR ----#
+#----------------------------------#
 
 PAC:
 
-SYM:
+ASSIGN A+Q    GROUP;
+ASSIGN A+M    MOVE;
+ASSIGN A+E    LINE;
+ASSIGN A+R    DELETE;
+
+ASSIGN A+A    PAD;

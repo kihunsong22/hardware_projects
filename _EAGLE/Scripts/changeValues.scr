@@ -1,6 +1,6 @@
 display torig borig;   # Display the top and bottom origins
 group all;
-smash (C>0 0);         # Smash everything in the group
+# smash (C>0 0);         # Smash everything in the group
 
 # display none tname bname tval bval; # OPTIONAL: limit changes to names and values
 display none tval bval; # values only

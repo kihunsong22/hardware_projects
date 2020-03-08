@@ -1,6 +1,6 @@
 display torig borig;   # Display the top and bottom origins
 group all;
-smash (C>0 0);         # Smash everything in the group
+# smash (C>0 0);         # Smash everything in the group
 
 display none tname bname; # names only
 group all;             # Group everything including smashed texts.
