@@ -36,8 +36,10 @@ ASSIGN A+S    SHOW;
 
 
 #----------------------------------#
-#----- LIBRARY SYMBOL EDITOR ------#
+#--------- LIBRARY EDITOR ---------#
 #----------------------------------#
+
+LBR:
 
 SYM:
 
@@ -48,9 +50,6 @@ ASSIGN A+R    DELETE;
 
 ASSIGN A+A    PIN;
 
-#----------------------------------#
-#---- LIBRARY FOOTPRINT EDITOR ----#
-#----------------------------------#
 
 PAC:
 
