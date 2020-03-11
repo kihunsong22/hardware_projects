@@ -1546,7 +1546,7 @@ Looking footprint for headers.
 <wire x1="-3" y1="1.1" x2="-3" y2="1.5" width="0.2032" layer="51"/>
 <wire x1="3" y1="1.1" x2="3" y2="1.5" width="0.2032" layer="51"/>
 <wire x1="3" y1="-1.5" x2="3" y2="-1.1" width="0.2032" layer="51"/>
-<text x="0" y="-2.921" size="0.7112" layer="25" font="vector" ratio="12" rot="R180" align="bottom-center">&gt;Name</text>
+<text x="0" y="-2.921" size="0.6096" layer="25" font="vector" ratio="20" rot="R180" align="bottom-center">&gt;Name</text>
 <smd name="P$1" x="3.556" y="0" dx="1.5" dy="1.2" layer="1"/>
 <smd name="P$2" x="-3.556" y="0" dx="1.5" dy="1.2" layer="1"/>
 <circle x="0" y="0" radius="1.016" width="3.81" layer="29"/>
@@ -1567,7 +1567,7 @@ Looking footprint for headers.
 <wire x1="1.524" y1="-2.286" x2="-0.762" y2="-2.286" width="0.2032" layer="1" style="longdash"/>
 </package>
 <package name="CONTACT_PAD">
-<text x="0" y="-2.921" size="0.7112" layer="25" font="vector" ratio="12" rot="R180" align="bottom-center">&gt;Name</text>
+<text x="0" y="-2.921" size="0.6096" layer="25" font="vector" ratio="20" rot="R180" align="bottom-center">&gt;Name</text>
 <smd name="P$1" x="2.856" y="0" dx="0.2" dy="1.2" layer="1" stop="no" cream="no"/>
 <smd name="P$2" x="-2.856" y="0" dx="0.2" dy="1.2" layer="1" stop="no" cream="no"/>
 <circle x="0" y="0" radius="1.016" width="3.81" layer="29"/>
