@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="10" unitdist="mil" unit="mil" style="lines" multiple="1" display="yes" altdistance="5" altunitdist="mil" altunit="mil"/>
+<grid distance="5" unitdist="mil" unit="mil" style="lines" multiple="1" display="yes" altdistance="5" altunitdist="mil" altunit="mil"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="2" name="Route2" color="16" fill="1" visible="yes" active="yes"/>
@@ -1490,12 +1490,12 @@ Looking footprint for headers.
 <smd name="8" x="1.27" y="0.635" dx="0.7874" dy="0.7874" layer="1" roundness="100" cream="no"/>
 <smd name="10" x="2.54" y="0.635" dx="0.7874" dy="0.7874" layer="1" roundness="100" cream="no"/>
 <smd name="9" x="2.54" y="-0.635" dx="0.7874" dy="0.7874" layer="1" roundness="100" cream="no"/>
-<rectangle x1="-2.54" y1="-0.635" x2="2.54" y2="0.635" layer="41"/>
 <hole x="-3.81" y="0" drill="0.9906"/>
 <hole x="3.81" y="1.016" drill="0.9906"/>
 <hole x="3.81" y="-1.016" drill="0.9906"/>
 <text x="-4.445" y="-3.175" size="1.27" layer="27">&gt;VALUE</text>
 <text x="-4.445" y="1.905" size="1.27" layer="25">&gt;NAME</text>
+<rectangle x1="-2.286" y1="-0.381" x2="2.286" y2="0.381" layer="41"/>
 </package>
 <package name="TC2030-IDC">
 <smd name="2" x="-1.27" y="0.635" dx="0.7874" dy="0.7874" layer="1" roundness="100" cream="no"/>
@@ -1546,7 +1546,7 @@ Looking footprint for headers.
 <wire x1="-3" y1="1.1" x2="-3" y2="1.5" width="0.2032" layer="51"/>
 <wire x1="3" y1="1.1" x2="3" y2="1.5" width="0.2032" layer="51"/>
 <wire x1="3" y1="-1.5" x2="3" y2="-1.1" width="0.2032" layer="51"/>
-<text x="0" y="-2.921" size="0.6096" layer="25" font="vector" ratio="20" rot="R180" align="bottom-center">&gt;Name</text>
+<text x="0" y="-2.921" size="0.7112" layer="25" font="vector" ratio="12" rot="R180" align="bottom-center">&gt;Name</text>
 <smd name="P$1" x="3.556" y="0" dx="1.5" dy="1.2" layer="1"/>
 <smd name="P$2" x="-3.556" y="0" dx="1.5" dy="1.2" layer="1"/>
 <circle x="0" y="0" radius="1.016" width="3.81" layer="29"/>
@@ -1567,7 +1567,7 @@ Looking footprint for headers.
 <wire x1="1.524" y1="-2.286" x2="-0.762" y2="-2.286" width="0.2032" layer="1" style="longdash"/>
 </package>
 <package name="CONTACT_PAD">
-<text x="0" y="-2.921" size="0.6096" layer="25" font="vector" ratio="20" rot="R180" align="bottom-center">&gt;Name</text>
+<text x="0" y="-2.921" size="0.7112" layer="25" font="vector" ratio="12" rot="R180" align="bottom-center">&gt;Name</text>
 <smd name="P$1" x="2.856" y="0" dx="0.2" dy="1.2" layer="1" stop="no" cream="no"/>
 <smd name="P$2" x="-2.856" y="0" dx="0.2" dy="1.2" layer="1" stop="no" cream="no"/>
 <circle x="0" y="0" radius="1.016" width="3.81" layer="29"/>
@@ -1602,7 +1602,7 @@ Looking footprint for headers.
 <pin name="GND_2" x="17.78" y="-7.62" length="middle" rot="R180"/>
 <text x="-1.27" y="9.144" size="1.27" layer="95">&gt;NAME</text>
 <text x="-1.27" y="7.874" size="1.27" layer="95">&gt;VALUE</text>
-<pin name="SHIELD" x="0" y="-15.24" length="middle" rot="R90"/>
+<pin name="SHIELD" x="0" y="-15.24" visible="pin" length="middle" rot="R90"/>
 </symbol>
 <symbol name="LORA_IM-L400">
 <text x="-7.112" y="10.922" size="1.778" layer="95">IM-L400</text>
@@ -1870,6 +1870,8 @@ Looking footprint for headers.
 <wire x1="0" y1="3.81" x2="-0.635" y2="3.81" width="0.254" layer="94"/>
 <pin name="P$1" x="8.89" y="0" visible="off" length="middle" rot="R180"/>
 <pin name="P$2" x="-8.89" y="0" visible="off" length="middle"/>
+<text x="0" y="4.318" size="1.524" layer="95" ratio="12" align="bottom-center">&gt;NAME</text>
+<text x="0" y="-4.318" size="1.524" layer="96" ratio="12" rot="R180" align="bottom-center">&gt;VALUE</text>
 </symbol>
 </symbols>
 <devicesets>
@@ -2331,7 +2333,16 @@ http://www.tag-connect.com</description>
 <gate name="G$1" symbol="CONTACT_PAD" x="0" y="0"/>
 </gates>
 <devices>
-<device name="" package="CONTACT_PAD_SWITCH-6.0*3.5MM">
+<device name="" package="CONTACT_PAD">
+<connects>
+<connect gate="G$1" pin="P$1" pad="P$1"/>
+<connect gate="G$1" pin="P$2" pad="P$2"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+<device name="_SWITCH-6.0*3.5MM" package="CONTACT_PAD_SWITCH-6.0*3.5MM">
 <connects>
 <connect gate="G$1" pin="P$1" pad="P$1"/>
 <connect gate="G$1" pin="P$2" pad="P$2"/>
