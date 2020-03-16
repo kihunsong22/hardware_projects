@@ -1,0 +1,11 @@
+Warning: v_v2: has no value, DC 0 assumed
+
+Circuit: * spicenetlist
+
+Doing analysis at TEMP = 0.000000 and TNOM = 27.000000
+
+
+No. of Data Rows : 1
+ASCII raw file
+
+Note: No ".plot", ".print", or ".fourier" lines; no simulations run
