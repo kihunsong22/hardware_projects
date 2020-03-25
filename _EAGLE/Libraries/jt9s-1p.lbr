@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="9.5.2">
+<eagle version="9.6.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -25,8 +25,8 @@
 <layer number="14" name="Route14" color="1" fill="6" visible="no" active="no"/>
 <layer number="15" name="Route15" color="4" fill="6" visible="no" active="no"/>
 <layer number="16" name="Bottom" color="1" fill="1" visible="yes" active="yes"/>
-<layer number="17" name="Pads" color="2" fill="1" visible="no" active="yes"/>
-<layer number="18" name="Vias" color="2" fill="1" visible="no" active="yes"/>
+<layer number="17" name="Pads" color="2" fill="1" visible="yes" active="yes"/>
+<layer number="18" name="Vias" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="19" name="Unrouted" color="6" fill="1" visible="yes" active="yes"/>
 <layer number="20" name="Dimension" color="15" fill="1" visible="yes" active="yes"/>
 <layer number="21" name="tPlace" color="7" fill="1" visible="yes" active="yes"/>
@@ -35,8 +35,8 @@
 <layer number="24" name="bOrigins" color="15" fill="1" visible="yes" active="yes"/>
 <layer number="25" name="tNames" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="26" name="bNames" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="27" name="tValues" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="28" name="bValues" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="27" name="tValues" color="7" fill="1" visible="no" active="yes"/>
+<layer number="28" name="bValues" color="7" fill="1" visible="no" active="yes"/>
 <layer number="29" name="tStop" color="7" fill="3" visible="no" active="yes"/>
 <layer number="30" name="bStop" color="7" fill="6" visible="no" active="yes"/>
 <layer number="31" name="tCream" color="7" fill="4" visible="no" active="yes"/>
@@ -51,14 +51,14 @@
 <layer number="40" name="bKeepout" color="1" fill="11" visible="yes" active="yes"/>
 <layer number="41" name="tRestrict" color="4" fill="10" visible="yes" active="yes"/>
 <layer number="42" name="bRestrict" color="1" fill="10" visible="yes" active="yes"/>
-<layer number="43" name="vRestrict" color="2" fill="10" visible="yes" active="yes"/>
+<layer number="43" name="vRestrict" color="2" fill="10" visible="no" active="yes"/>
 <layer number="44" name="Drills" color="7" fill="1" visible="no" active="yes"/>
-<layer number="45" name="Holes" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="45" name="Holes" color="7" fill="1" visible="no" active="yes"/>
 <layer number="46" name="Milling" color="3" fill="1" visible="no" active="yes"/>
 <layer number="47" name="Measures" color="7" fill="1" visible="no" active="yes"/>
-<layer number="48" name="Document" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="49" name="Reference" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="51" name="tDocu" color="7" fill="1" visible="no" active="yes"/>
+<layer number="48" name="Document" color="7" fill="1" visible="no" active="yes"/>
+<layer number="49" name="Reference" color="7" fill="1" visible="no" active="yes"/>
+<layer number="51" name="tDocu" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="52" name="bDocu" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="91" name="Nets" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="92" name="Busses" color="1" fill="1" visible="yes" active="yes"/>
@@ -104,10 +104,10 @@ datasheet : http://www.produktinfo.conrad.com/datenblaetter/425000-449999/425608
 <pad name="XS" x="0" y="9.75" drill="1.016" shape="octagon" rot="R90"/>
 <pad name="X1" x="-2.5" y="9.75" drill="1.016" shape="octagon" rot="R90"/>
 <pad name="X2" x="2.5" y="9.75" drill="1.016" shape="octagon" rot="R90"/>
-<pad name="S4" x="8.25" y="3.25" drill="1.016" shape="octagon" rot="R90"/>
+<pad name="S4" x="12.75" y="3.25" drill="1.016" shape="octagon" rot="R90"/>
 <pad name="S1" x="8.25" y="-3.25" drill="1.016" shape="octagon" rot="R90"/>
-<pad name="S3" x="12.75" y="-3.25" drill="1.016" shape="octagon" rot="R90"/>
-<pad name="S2" x="12.75" y="3.25" drill="1.016" shape="octagon" rot="R90"/>
+<pad name="S3" x="8.25" y="3.25" drill="1.016" shape="octagon" rot="R90"/>
+<pad name="S2" x="12.75" y="-3.25" drill="1.016" shape="octagon" rot="R90"/>
 <text x="0" y="2.032" size="1.0668" layer="25" align="center">&gt;NAME</text>
 <text x="0" y="0.762" size="1.0668" layer="27" align="center">&gt;VALUE</text>
 <pad name="P$1" x="-6.6548" y="7.7724" drill="1.778" shape="octagon"/>
@@ -229,7 +229,7 @@ datasheet : http://www.produktinfo.conrad.com/datenblaetter/425000-449999/425608
 </symbols>
 <devicesets>
 <deviceset name="JT9S-19" prefix="P">
-<description>Joystick Potentiometer 10k</description>
+<description>Joystick Potentiometer - 16mm*16mm</description>
 <gates>
 <gate name="G$1" symbol="POT" x="0" y="2.54"/>
 </gates>

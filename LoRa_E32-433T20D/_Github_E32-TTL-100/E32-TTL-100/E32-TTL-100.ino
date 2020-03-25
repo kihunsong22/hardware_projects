@@ -278,13 +278,13 @@ RET_STATUS SettingModule(struct CFGstruct *pCFG)
 {
   RET_STATUS STATUS = RET_SUCCESS;
 
-#ifdef Device_A
-  pCFG->ADDH = DEVICE_A_ADDR_H;
-  pCFG->ADDL = DEVICE_A_ADDR_L;
-#else
-  pCFG->ADDH = DEVICE_B_ADDR_H;
-  pCFG->ADDL = DEVICE_B_ADDR_L;
-#endif
+  #ifdef Device_A
+    pCFG->ADDH = DEVICE_A_ADDR_H;
+    pCFG->ADDL = DEVICE_A_ADDR_L;
+  #else
+    pCFG->ADDH = DEVICE_B_ADDR_H;
+    pCFG->ADDL = DEVICE_B_ADDR_L;
+  #endif
 
   pCFG->OPTION_bits.trsm_mode =TRSM_FP_MODE;
   pCFG->OPTION_bits.tsmt_pwr = TSMT_PWR_10DB;
@@ -346,11 +346,11 @@ RET_STATUS SendMsg()
 
   //TRSM_FP_MODE
   //Send format : ADDH ADDL CHAN DATA_0 DATA_1 DATA_2 ...
-#ifdef Device_A
-  uint8_t SendBuf[4] = { DEVICE_B_ADDR_H, DEVICE_B_ADDR_L, 0x17, random(0x00, 0x80)};	//for A
-#else
-  uint8_t SendBuf[4] = { DEVICE_A_ADDR_H, DEVICE_A_ADDR_L, 0x17, random(0x81, 0xFF)};	//for B
-#endif
+  #ifdef Device_A
+    uint8_t SendBuf[4] = { DEVICE_B_ADDR_H, DEVICE_B_ADDR_L, 0x17, random(0x00, 0x80)};	//for A
+  #else
+    uint8_t SendBuf[4] = { DEVICE_A_ADDR_H, DEVICE_A_ADDR_L, 0x17, random(0x81, 0xFF)};	//for B
+  #endif
   softSerial.write(SendBuf, 4);
 
   return STATUS;
@@ -371,11 +371,11 @@ void setup()
   softSerial.begin(9600);
   Serial.begin(9600);
 
-#ifdef Device_A
-  Serial.println("[10-A] ");
-#else
-  Serial.println("[10-B] ");
-#endif
+  #ifdef Device_A
+    Serial.println("[10-A] ");
+  #else
+    Serial.println("[10-B] ");
+  #endif
 
   STATUS = SleepModeCmd(R_CFG, (void* )&CFG);
   STATUS = SettingModule(&CFG);
@@ -406,17 +406,17 @@ void loop()
 {
   uint8_t data_buf[100], data_len;
 
-#ifdef Device_A
-  if(ReceiveMsg(data_buf, &data_len)==RET_SUCCESS)
-  {
-    blinkLED();
-  }
-#else
-  if(SendMsg()==RET_SUCCESS)
-  {
-    blinkLED();
-  }
-#endif
+  #ifdef Device_A
+    if(ReceiveMsg(data_buf, &data_len)==RET_SUCCESS)
+    {
+      blinkLED();
+    }
+  #else
+    if(SendMsg()==RET_SUCCESS)
+    {
+      blinkLED();
+    }
+  #endif
 
   delay(random(400, 600));
 }

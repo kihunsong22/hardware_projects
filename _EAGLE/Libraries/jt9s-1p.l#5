@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="7.3.0">
+<eagle version="9.5.2">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
+<setting keepoldvectorfont="yes"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+<grid distance="2" unitdist="mil" unit="mil" style="lines" multiple="1" display="yes" altdistance="5" altunitdist="mil" altunit="mil"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
@@ -57,7 +58,7 @@
 <layer number="47" name="Measures" color="7" fill="1" visible="no" active="yes"/>
 <layer number="48" name="Document" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="49" name="Reference" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="51" name="tDocu" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="51" name="tDocu" color="7" fill="1" visible="no" active="yes"/>
 <layer number="52" name="bDocu" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="91" name="Nets" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="92" name="Busses" color="1" fill="1" visible="yes" active="yes"/>
@@ -77,26 +78,26 @@ datasheet : http://www.produktinfo.conrad.com/datenblaetter/425000-449999/425608
 &lt;author&gt;szczepan@stud.fh-hannover.de&lt;/author&gt;</description>
 <packages>
 <package name="JT9S-1P">
-<wire x1="8" y1="-8" x2="3.5" y2="-8" width="0.1524" layer="21"/>
-<wire x1="-3.5" y1="-8" x2="-8" y2="-8" width="0.1524" layer="21"/>
-<wire x1="8" y1="8" x2="5" y2="8" width="0.1524" layer="21"/>
-<wire x1="-5" y1="8" x2="-8" y2="8" width="0.1524" layer="21"/>
-<wire x1="-8" y1="8" x2="-8" y2="5" width="0.1524" layer="21"/>
-<wire x1="-8" y1="-5" x2="-8" y2="-8" width="0.1524" layer="21"/>
-<wire x1="8" y1="8" x2="8" y2="5.5" width="0.1524" layer="21"/>
-<wire x1="8" y1="-5.5" x2="8" y2="-8" width="0.1524" layer="21"/>
-<wire x1="-8" y1="-5" x2="-11.5" y2="-5" width="0.1524" layer="21"/>
-<wire x1="-11.5" y1="-5" x2="-11.5" y2="5" width="0.1524" layer="21"/>
-<wire x1="-11.5" y1="5" x2="-8" y2="5" width="0.1524" layer="21"/>
-<wire x1="-5" y1="8" x2="-5" y2="11.5" width="0.1524" layer="21"/>
-<wire x1="-5" y1="11.5" x2="5" y2="11.5" width="0.1524" layer="21"/>
-<wire x1="5" y1="11.5" x2="5" y2="8" width="0.1524" layer="21"/>
-<wire x1="-3.5" y1="-8" x2="-3.5" y2="-9.5" width="0.1524" layer="21"/>
-<wire x1="-3.5" y1="-9.5" x2="3.5" y2="-9.5" width="0.1524" layer="21"/>
-<wire x1="3.5" y1="-9.5" x2="3.5" y2="-8" width="0.1524" layer="21"/>
-<wire x1="8" y1="-5.5" x2="14.5" y2="-5.5" width="0.1524" layer="21"/>
-<wire x1="14.5" y1="-5.5" x2="14.5" y2="5.5" width="0.1524" layer="21"/>
-<wire x1="14.5" y1="5.5" x2="8" y2="5.5" width="0.1524" layer="21"/>
+<wire x1="8" y1="-8" x2="3.5" y2="-8" width="0.1524" layer="51"/>
+<wire x1="-3.5" y1="-8" x2="-8" y2="-8" width="0.1524" layer="51"/>
+<wire x1="8" y1="8" x2="5" y2="8" width="0.1524" layer="51"/>
+<wire x1="-5" y1="8" x2="-8" y2="8" width="0.1524" layer="51"/>
+<wire x1="-8" y1="8" x2="-8" y2="5" width="0.1524" layer="51"/>
+<wire x1="-8" y1="-5" x2="-8" y2="-8" width="0.1524" layer="51"/>
+<wire x1="8" y1="8" x2="8" y2="5.5" width="0.1524" layer="51"/>
+<wire x1="8" y1="-5.5" x2="8" y2="-8" width="0.1524" layer="51"/>
+<wire x1="-8" y1="-5" x2="-11.5" y2="-5" width="0.1524" layer="51"/>
+<wire x1="-11.5" y1="-5" x2="-11.5" y2="5" width="0.1524" layer="51"/>
+<wire x1="-11.5" y1="5" x2="-8" y2="5" width="0.1524" layer="51"/>
+<wire x1="-5" y1="8" x2="-5" y2="11.5" width="0.1524" layer="51"/>
+<wire x1="-5" y1="11.5" x2="5" y2="11.5" width="0.1524" layer="51"/>
+<wire x1="5" y1="11.5" x2="5" y2="8" width="0.1524" layer="51"/>
+<wire x1="-3.5" y1="-8" x2="-3.5" y2="-9.5" width="0.1524" layer="51"/>
+<wire x1="-3.5" y1="-9.5" x2="3.5" y2="-9.5" width="0.1524" layer="51"/>
+<wire x1="3.5" y1="-9.5" x2="3.5" y2="-8" width="0.1524" layer="51"/>
+<wire x1="8" y1="-5.5" x2="14.5" y2="-5.5" width="0.1524" layer="51"/>
+<wire x1="14.5" y1="-5.5" x2="14.5" y2="5.5" width="0.1524" layer="51"/>
+<wire x1="14.5" y1="5.5" x2="8" y2="5.5" width="0.1524" layer="51"/>
 <pad name="YS" x="-9.75" y="0" drill="1.016" shape="octagon" rot="R90"/>
 <pad name="Y2" x="-9.75" y="-2.5" drill="1.016" shape="octagon" rot="R90"/>
 <pad name="Y1" x="-9.75" y="2.5" drill="1.016" shape="octagon" rot="R90"/>
@@ -107,12 +108,16 @@ datasheet : http://www.produktinfo.conrad.com/datenblaetter/425000-449999/425608
 <pad name="S1" x="8.25" y="-3.25" drill="1.016" shape="octagon" rot="R90"/>
 <pad name="S3" x="12.75" y="-3.25" drill="1.016" shape="octagon" rot="R90"/>
 <pad name="S2" x="12.75" y="3.25" drill="1.016" shape="octagon" rot="R90"/>
-<text x="-11.43" y="9.525" size="1.27" layer="25">&gt;NAME</text>
-<text x="5.715" y="9.525" size="1.27" layer="27">&gt;VALUE</text>
+<text x="0" y="2.032" size="1.0668" layer="25" align="center">&gt;NAME</text>
+<text x="0" y="0.762" size="1.0668" layer="27" align="center">&gt;VALUE</text>
 <hole x="-6.65" y="7.75" drill="1.4224"/>
 <hole x="6.65" y="7.75" drill="1.4224"/>
 <hole x="6.65" y="-7.75" drill="1.4224"/>
 <hole x="-6.65" y="-7.75" drill="1.4224"/>
+<pad name="P$1" x="-6.6548" y="7.7724" drill="1.778" shape="octagon"/>
+<pad name="P$2" x="6.6548" y="7.7724" drill="1.778" shape="octagon"/>
+<pad name="P$3" x="6.6548" y="-7.7216" drill="1.778" shape="octagon"/>
+<pad name="P$4" x="-6.6548" y="-7.747" drill="1.778" shape="octagon"/>
 </package>
 </packages>
 <symbols>
