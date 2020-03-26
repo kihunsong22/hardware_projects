@@ -391,8 +391,8 @@
 <rectangle x1="-2.032" y1="-0.762" x2="-1.524" y2="0.762" layer="94"/>
 <rectangle x1="-2.032" y1="-2.921" x2="-1.524" y2="-1.397" layer="94"/>
 <rectangle x1="0.762" y1="0.762" x2="2.032" y2="0.889" layer="94"/>
-<pin name="D" x="0" y="5.08" visible="off" length="short" direction="pas" rot="R270"/>
-<pin name="S" x="0" y="-5.08" visible="off" length="short" direction="pas" rot="R90"/>
+<pin name="D" x="0" y="4.953" visible="off" length="short" direction="pas" rot="R270"/>
+<pin name="S" x="0" y="-4.953" visible="off" length="short" direction="pas" rot="R90"/>
 <pin name="G" x="-5.08" y="-2.54" visible="off" length="short" direction="pas"/>
 <polygon width="0.1016" layer="94">
 <vertex x="-1.524" y="0"/>
@@ -406,7 +406,7 @@
 </polygon>
 <text x="-0.508" y="4.826" size="1.27" layer="94" rot="R180">D</text>
 <text x="-0.508" y="-3.302" size="1.27" layer="94" rot="R180">S</text>
-<text x="-4.318" y="-2.032" size="1.27" layer="94">G</text>
+<text x="-4.572" y="-2.159" size="1.27" layer="94">G</text>
 </symbol>
 <symbol name="FS8205A">
 <wire x1="-10.16" y1="6.35" x2="10.16" y2="6.35" width="0.254" layer="94"/>

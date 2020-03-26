@@ -463,7 +463,7 @@ Switches electrical signals</description>
 </symbol>
 </symbols>
 <devicesets>
-<deviceset name="FS8205A-MOSFET" prefix="T">
+<deviceset name="FS8205A-MOSFET" prefix="Q">
 <description>&lt;b&gt;DUAL N-CHANNEL ENHANCEMENT MODE MOSFET&lt;/b&gt;
 
 &lt;p&gt;&lt;a href="http://goo.gl/dRgboR"&gt;data sheet&lt;/a&gt;&lt;/p&gt;
@@ -489,7 +489,7 @@ Dave.Calaway &lt;a href="https://goo.gl/Muy1Tr"&gt;Eagle Library&lt;/a&gt;</desc
 </device>
 </devices>
 </deviceset>
-<deviceset name="NTS2101PT1G">
+<deviceset name="NTS2101PT1G" prefix="Q">
 <description>&lt;b&gt;NTS2101PT1G P-Channel MOSFET&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="P-MOSFET" x="0" y="0"/>
