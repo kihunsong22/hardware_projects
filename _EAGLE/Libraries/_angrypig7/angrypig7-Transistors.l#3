@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+<grid distance="5" unitdist="mil" unit="mil" style="lines" multiple="1" display="yes" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="2" name="Route2" color="16" fill="1" visible="no" active="yes"/>
@@ -373,7 +373,7 @@
 </package>
 </packages>
 <symbols>
-<symbol name="N-MOSFET">
+<symbol name="N-MOSFET_LABELED">
 <wire x1="-0.508" y1="0" x2="0" y2="0" width="0.1524" layer="94"/>
 <wire x1="-1.524" y1="-2.159" x2="0" y2="-2.159" width="0.1524" layer="94"/>
 <wire x1="-2.54" y1="-2.54" x2="-2.54" y2="2.54" width="0.1524" layer="94"/>
@@ -391,8 +391,8 @@
 <rectangle x1="-2.032" y1="-0.762" x2="-1.524" y2="0.762" layer="94"/>
 <rectangle x1="-2.032" y1="-2.921" x2="-1.524" y2="-1.397" layer="94"/>
 <rectangle x1="0.762" y1="0.762" x2="2.032" y2="0.889" layer="94"/>
-<pin name="D" x="0" y="4.953" visible="off" length="short" direction="pas" rot="R270"/>
-<pin name="S" x="0" y="-4.953" visible="off" length="short" direction="pas" rot="R90"/>
+<pin name="D" x="0" y="4.826" visible="off" length="short" direction="pas" rot="R270"/>
+<pin name="S" x="0" y="-4.826" visible="off" length="short" direction="pas" rot="R90"/>
 <pin name="G" x="-5.08" y="-2.54" visible="off" length="short" direction="pas"/>
 <polygon width="0.1016" layer="94">
 <vertex x="-1.524" y="0"/>
@@ -406,7 +406,7 @@
 </polygon>
 <text x="-0.508" y="4.826" size="1.27" layer="94" rot="R180">D</text>
 <text x="-0.508" y="-3.302" size="1.27" layer="94" rot="R180">S</text>
-<text x="-4.572" y="-2.159" size="1.27" layer="94">G</text>
+<text x="-4.318" y="-2.032" size="1.27" layer="94">G</text>
 </symbol>
 <symbol name="FS8205A">
 <wire x1="-10.16" y1="6.35" x2="10.16" y2="6.35" width="0.254" layer="94"/>
@@ -424,7 +424,7 @@
 <pin name="S2_1" x="15.24" y="-1.27" length="middle" rot="R180"/>
 <pin name="G2" x="15.24" y="-3.81" length="middle" rot="R180"/>
 </symbol>
-<symbol name="P-MOSFET">
+<symbol name="P-MOSFET_LABELED">
 <description>&lt;h3&gt;P-channel MOSFET&lt;/h3&gt;
 Switches electrical signals</description>
 <pin name="G" x="-5.08" y="-2.54" visible="off" length="short"/>
@@ -470,8 +470,8 @@ Switches electrical signals</description>
 
 Dave.Calaway &lt;a href="https://goo.gl/Muy1Tr"&gt;Eagle Library&lt;/a&gt;</description>
 <gates>
-<gate name="A" symbol="N-MOSFET" x="0" y="7.62"/>
-<gate name="B" symbol="N-MOSFET" x="0" y="-7.62"/>
+<gate name="A" symbol="N-MOSFET_LABELED" x="0" y="7.62"/>
+<gate name="B" symbol="N-MOSFET_LABELED" x="0" y="-7.62"/>
 </gates>
 <devices>
 <device name="" package="TSSOP-8">
@@ -492,7 +492,7 @@ Dave.Calaway &lt;a href="https://goo.gl/Muy1Tr"&gt;Eagle Library&lt;/a&gt;</desc
 <deviceset name="NTS2101PT1G">
 <description>&lt;b&gt;NTS2101PT1G P-Channel MOSFET&lt;/b&gt;</description>
 <gates>
-<gate name="G$1" symbol="P-MOSFET" x="0" y="0"/>
+<gate name="G$1" symbol="P-MOSFET_LABELED" x="0" y="0"/>
 </gates>
 <devices>
 <device name="" package="SOT323">
