@@ -4,7 +4,15 @@
 #------------ GENERAL--------------#
 #----------------------------------#
 
+# ASSIGN A+F1 'grid last';
+# ASSIGN S+F1 'run GRID_DOUBLE';
+# ASSIGN C+F1 'run GRID_HALF';
+# ASSIGN CA+F1 'grid FINE_MM';
+# ASSIGN CS+F1 'grid';
+# ASSIGN SA+F1 'grid FINE_IN';
+# ASSIGN CA+G 'Display';
 
+# ASSIGN C+1 
 
 #----------------------------------#
 #---------- BOARD EDITOR ----------#
