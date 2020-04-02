@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="9.5.2">
+<eagle version="9.6.0">
 <designblock>
-<description>&lt;b&gt;BQ2104DBVR Li-ion/Li-po Charging Circuit&lt;/b&gt;
+<description>&lt;b&gt;BQ2104 charging circuit&lt;/b&gt;
 
 &lt;p&gt;
-Max 800mA charging current
+Max 800mA charging current, currently set to aroudn 200mA
 &lt;/p&gt;</description>
 <attributes>
 <attribute name="BOARDSIZE" value="436 x 461 mil"/>
