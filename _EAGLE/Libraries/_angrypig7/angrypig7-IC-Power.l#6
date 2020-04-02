@@ -329,20 +329,6 @@
 <pin name="OUT" x="12.7" y="0" length="short" direction="out" rot="R180"/>
 <pin name="FB" x="12.7" y="5.08" length="short" direction="in" rot="R180"/>
 </symbol>
-<symbol name="HT7463B">
-<wire x1="-8.89" y1="5.08" x2="8.89" y2="5.08" width="0.254" layer="94"/>
-<wire x1="8.89" y1="-12.7" x2="8.89" y2="5.08" width="0.254" layer="94"/>
-<wire x1="8.89" y1="-12.7" x2="-8.89" y2="-12.7" width="0.254" layer="94"/>
-<wire x1="-8.89" y1="5.08" x2="-8.89" y2="-12.7" width="0.254" layer="94"/>
-<text x="-5.08" y="8.89" size="1.778" layer="95" align="center-left">&gt;NAME</text>
-<text x="-5.08" y="6.35" size="1.778" layer="96" align="center-left">&gt;VALUE</text>
-<pin name="TS" x="13.97" y="-10.16" visible="pin" length="middle" direction="in" rot="R180"/>
-<pin name="OUT" x="13.97" y="2.54" visible="pin" length="middle" direction="out" rot="R180"/>
-<pin name="!CHG" x="13.97" y="-3.81" visible="pin" length="middle" direction="out" rot="R180"/>
-<pin name="VIN" x="-13.97" y="2.54" visible="pin" length="middle" direction="in"/>
-<pin name="GND" x="-13.97" y="-10.16" visible="pin" length="middle" direction="pwr"/>
-<pin name="ISET" x="-13.97" y="-3.81" visible="pin" length="middle" direction="in"/>
-</symbol>
 </symbols>
 <devicesets>
 <deviceset name="BQ21040DBVR" prefix="IC">
@@ -442,17 +428,6 @@ Source: http://www.national.com/ds/LM/LM2596.pdf</description>
 <attribute name="OC_NEWARK" value="41K3842" constant="no"/>
 <attribute name="POPULARITY" value="12" constant="no"/>
 </technology>
-</technologies>
-</device>
-</devices>
-</deviceset>
-<deviceset name="HT7463B">
-<gates>
-</gates>
-<devices>
-<device name="" package="SOT-23-6">
-<technologies>
-<technology name=""/>
 </technologies>
 </device>
 </devices>
