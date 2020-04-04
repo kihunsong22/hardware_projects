@@ -630,11 +630,11 @@ Holes are offset 0.005" from center, to hold pins in place during soldering.
 <wire x1="24.13" y1="2.54" x2="22.86" y2="2.54" width="0.6096" layer="94"/>
 <text x="-3.81" y="-5.715" size="1.778" layer="96" align="top-left">&gt;VALUE</text>
 <text x="-3.81" y="5.842" size="1.778" layer="95">&gt;NAME</text>
-<pin name="1-VREF" x="-7.62" y="2.54" visible="pin" length="middle" direction="pas" swaplevel="1"/>
+<pin name="VCC" x="-7.62" y="2.54" visible="pin" length="middle" direction="pas" swaplevel="1"/>
 <pin name="3-RESET" x="-7.62" y="0" visible="pin" length="middle" direction="pas" swaplevel="1"/>
 <pin name="5-GND" x="-7.62" y="-2.54" visible="pin" length="middle" direction="pas" swaplevel="1"/>
 <pin name="SWDIO-2" x="29.21" y="2.54" visible="pin" length="middle" direction="pas" swaplevel="1" rot="R180"/>
-<pin name="SWDCLK-4" x="29.21" y="0" visible="pin" length="middle" direction="pas" swaplevel="1" rot="R180"/>
+<pin name="SWCLK-4" x="29.21" y="0" visible="pin" length="middle" direction="pas" swaplevel="1" rot="R180"/>
 <pin name="SWO-6" x="29.21" y="-2.54" visible="pin" length="middle" direction="pas" swaplevel="1" rot="R180"/>
 </symbol>
 <symbol name="TC2050-IDC">
@@ -654,11 +654,11 @@ Holes are offset 0.005" from center, to hold pins in place during soldering.
 <wire x1="-2.54" y1="2.54" x2="-1.27" y2="2.54" width="0.6096" layer="94"/>
 <text x="-3.81" y="-10.16" size="1.778" layer="96">&gt;VALUE</text>
 <text x="-3.81" y="8.382" size="1.778" layer="95">&gt;NAME</text>
-<pin name="1-VREF" x="-7.62" y="5.08" visible="pin" length="middle" direction="pas" swaplevel="1"/>
+<pin name="1-VCC" x="-7.62" y="5.08" visible="pin" length="middle" direction="pas" swaplevel="1"/>
 <pin name="3" x="-7.62" y="2.54" visible="pin" length="middle" direction="pas" swaplevel="1"/>
 <pin name="5-RESET" x="-7.62" y="0" visible="pin" length="middle" direction="pas" swaplevel="1"/>
 <pin name="GND-2" x="29.21" y="5.08" visible="pin" length="middle" direction="pas" swaplevel="1" rot="R180"/>
-<pin name="SWDCLK-4" x="29.21" y="2.54" visible="pin" length="middle" direction="pas" swaplevel="1" rot="R180"/>
+<pin name="SWCLK-4" x="29.21" y="2.54" visible="pin" length="middle" direction="pas" swaplevel="1" rot="R180"/>
 <pin name="GND-6" x="29.21" y="0" visible="pin" length="middle" direction="pas" swaplevel="1" rot="R180"/>
 <pin name="7" x="-7.62" y="-2.54" visible="pin" length="middle" direction="pas" swaplevel="1"/>
 <pin name="9" x="-7.62" y="-5.08" visible="pin" length="middle" direction="pas" swaplevel="1"/>
@@ -785,12 +785,12 @@ http://www.tag-connect.com</description>
 <devices>
 <device name="-NL" package="TC2030-IDC-NL">
 <connects>
-<connect gate="A" pin="1-VREF" pad="1"/>
 <connect gate="A" pin="3-RESET" pad="3"/>
 <connect gate="A" pin="5-GND" pad="5"/>
-<connect gate="A" pin="SWDCLK-4" pad="4"/>
+<connect gate="A" pin="SWCLK-4" pad="4"/>
 <connect gate="A" pin="SWDIO-2" pad="2"/>
 <connect gate="A" pin="SWO-6" pad="6"/>
+<connect gate="A" pin="VCC" pad="1"/>
 </connects>
 <technologies>
 <technology name=""/>
@@ -798,12 +798,12 @@ http://www.tag-connect.com</description>
 </device>
 <device name="" package="TC2030-IDC">
 <connects>
-<connect gate="A" pin="1-VREF" pad="1"/>
 <connect gate="A" pin="3-RESET" pad="3"/>
 <connect gate="A" pin="5-GND" pad="5"/>
-<connect gate="A" pin="SWDCLK-4" pad="4"/>
+<connect gate="A" pin="SWCLK-4" pad="4"/>
 <connect gate="A" pin="SWDIO-2" pad="2"/>
 <connect gate="A" pin="SWO-6" pad="6"/>
+<connect gate="A" pin="VCC" pad="1"/>
 </connects>
 <technologies>
 <technology name=""/>
@@ -820,14 +820,14 @@ http://www.tag-connect.com</description>
 <devices>
 <device name="-NL" package="TC2050-IDC-NL">
 <connects>
-<connect gate="A" pin="1-VREF" pad="1"/>
+<connect gate="A" pin="1-VCC" pad="1"/>
 <connect gate="A" pin="3" pad="3"/>
 <connect gate="A" pin="5-RESET" pad="5"/>
 <connect gate="A" pin="7" pad="7"/>
 <connect gate="A" pin="9" pad="9"/>
 <connect gate="A" pin="GND-2" pad="2"/>
 <connect gate="A" pin="GND-6" pad="6"/>
-<connect gate="A" pin="SWDCLK-4" pad="4"/>
+<connect gate="A" pin="SWCLK-4" pad="4"/>
 <connect gate="A" pin="SWDIO-8" pad="8"/>
 <connect gate="A" pin="SWO-10" pad="10"/>
 </connects>
@@ -837,14 +837,14 @@ http://www.tag-connect.com</description>
 </device>
 <device name="" package="TC2050-IDC">
 <connects>
-<connect gate="A" pin="1-VREF" pad="1"/>
+<connect gate="A" pin="1-VCC" pad="1"/>
 <connect gate="A" pin="3" pad="3"/>
 <connect gate="A" pin="5-RESET" pad="5"/>
 <connect gate="A" pin="7" pad="7"/>
 <connect gate="A" pin="9" pad="9"/>
 <connect gate="A" pin="GND-2" pad="2"/>
 <connect gate="A" pin="GND-6" pad="6"/>
-<connect gate="A" pin="SWDCLK-4" pad="4"/>
+<connect gate="A" pin="SWCLK-4" pad="4"/>
 <connect gate="A" pin="SWDIO-8" pad="8"/>
 <connect gate="A" pin="SWO-10" pad="10"/>
 </connects>
