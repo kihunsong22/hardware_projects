@@ -4,8 +4,6 @@ Thumbs.db
 .idea/
 .vscode
 workspace.xml
-bfg.jar
-..bfg-report/
 
 # EAGLE temporary files
 *.b#[0-9]
@@ -14,5 +12,7 @@ bfg.jar
 board_[0-9][0-9].job
 
 # Project specific files
+bfg.jar
+..bfg-report/
 /_MISC/_Sketchbook/
 _gitignore_Keys/
