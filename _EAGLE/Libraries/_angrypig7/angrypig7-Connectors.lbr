@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+<grid distance="5" unitdist="mil" unit="mil" style="lines" multiple="1" display="yes" altdistance="5" altunitdist="mil" altunit="mil"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="2" name="Route2" color="16" fill="1" visible="no" active="yes"/>
@@ -3898,19 +3898,19 @@ This part has an overhanging portion. The edge of the PCB should be aligned with
 <circle x="0" y="0" radius="1.016" width="3.81" layer="29"/>
 <wire x1="-0.254" y1="2.794" x2="-0.254" y2="-2.794" width="0.2032" layer="1" curve="169.611142"/>
 <wire x1="0.254" y1="2.794" x2="0.254" y2="-2.794" width="0.2032" layer="1" curve="-169.611142"/>
-<wire x1="1.524" y1="2.286" x2="-0.762" y2="2.286" width="0.2032" layer="1" style="longdash"/>
-<wire x1="-2.032" y1="1.905" x2="1.524" y2="1.905" width="0.2032" layer="1" style="longdash"/>
-<wire x1="2.286" y1="1.524" x2="-1.778" y2="1.524" width="0.2032" layer="1" style="longdash"/>
-<wire x1="-2.54" y1="1.143" x2="2.032" y2="1.143" width="0.2032" layer="1" style="longdash"/>
-<wire x1="2.667" y1="0.762" x2="-2.159" y2="0.762" width="0.2032" layer="1" style="longdash"/>
-<wire x1="-2.794" y1="0.381" x2="2.286" y2="0.381" width="0.2032" layer="1" style="longdash"/>
-<wire x1="2.794" y1="0" x2="-2.286" y2="0" width="0.2032" layer="1" style="longdash"/>
-<wire x1="-2.794" y1="-0.381" x2="2.286" y2="-0.381" width="0.2032" layer="1" style="longdash"/>
-<wire x1="2.667" y1="-0.762" x2="-2.159" y2="-0.762" width="0.2032" layer="1" style="longdash"/>
-<wire x1="-2.54" y1="-1.143" x2="2.032" y2="-1.143" width="0.2032" layer="1" style="longdash"/>
-<wire x1="2.413" y1="-1.524" x2="-1.778" y2="-1.524" width="0.2032" layer="1" style="longdash"/>
+<wire x1="1.524" y1="2.286" x2="-0.508" y2="2.286" width="0.2032" layer="1" style="longdash"/>
+<wire x1="-2.032" y1="1.905" x2="1.27" y2="1.905" width="0.2032" layer="1" style="longdash"/>
+<wire x1="2.286" y1="1.524" x2="-1.524" y2="1.524" width="0.2032" layer="1" style="longdash"/>
+<wire x1="-2.54" y1="1.143" x2="1.778" y2="1.143" width="0.2032" layer="1" style="longdash"/>
+<wire x1="2.667" y1="0.762" x2="-1.905" y2="0.762" width="0.2032" layer="1" style="longdash"/>
+<wire x1="-2.794" y1="0.381" x2="2.032" y2="0.381" width="0.2032" layer="1" style="longdash"/>
+<wire x1="2.794" y1="0" x2="-2.032" y2="0" width="0.2032" layer="1" style="longdash"/>
+<wire x1="-2.794" y1="-0.381" x2="2.032" y2="-0.381" width="0.2032" layer="1" style="longdash"/>
+<wire x1="2.667" y1="-0.762" x2="-1.905" y2="-0.762" width="0.2032" layer="1" style="longdash"/>
+<wire x1="-2.54" y1="-1.143" x2="1.778" y2="-1.143" width="0.2032" layer="1" style="longdash"/>
+<wire x1="2.413" y1="-1.524" x2="-1.524" y2="-1.524" width="0.2032" layer="1" style="longdash"/>
 <wire x1="-2.032" y1="-1.905" x2="1.524" y2="-1.905" width="0.2032" layer="1" style="longdash"/>
-<wire x1="1.524" y1="-2.286" x2="-0.762" y2="-2.286" width="0.2032" layer="1" style="longdash"/>
+<wire x1="1.524" y1="-2.286" x2="-0.508" y2="-2.286" width="0.2032" layer="1" style="longdash"/>
 </package>
 <package name="CONTACT_PAD_SWITCH-6.0*3.5MM">
 <wire x1="-3" y1="1.1" x2="-3" y2="-1.1" width="0.127" layer="51"/>
@@ -3932,17 +3932,17 @@ This part has an overhanging portion. The edge of the PCB should be aligned with
 <wire x1="-0.254" y1="2.794" x2="-0.254" y2="-2.794" width="0.2032" layer="1" curve="169.611142"/>
 <wire x1="0.254" y1="2.794" x2="0.254" y2="-2.794" width="0.2032" layer="1" curve="-169.611142"/>
 <wire x1="1.524" y1="2.286" x2="-0.762" y2="2.286" width="0.2032" layer="1" style="longdash"/>
-<wire x1="-2.032" y1="1.905" x2="1.524" y2="1.905" width="0.2032" layer="1" style="longdash"/>
-<wire x1="2.286" y1="1.524" x2="-1.778" y2="1.524" width="0.2032" layer="1" style="longdash"/>
-<wire x1="-2.54" y1="1.143" x2="2.032" y2="1.143" width="0.2032" layer="1" style="longdash"/>
-<wire x1="2.667" y1="0.762" x2="-2.159" y2="0.762" width="0.2032" layer="1" style="longdash"/>
-<wire x1="-2.794" y1="0.381" x2="2.286" y2="0.381" width="0.2032" layer="1" style="longdash"/>
-<wire x1="2.794" y1="0" x2="-2.286" y2="0" width="0.2032" layer="1" style="longdash"/>
-<wire x1="-2.794" y1="-0.381" x2="2.286" y2="-0.381" width="0.2032" layer="1" style="longdash"/>
-<wire x1="2.667" y1="-0.762" x2="-2.159" y2="-0.762" width="0.2032" layer="1" style="longdash"/>
-<wire x1="-2.54" y1="-1.143" x2="2.032" y2="-1.143" width="0.2032" layer="1" style="longdash"/>
-<wire x1="2.413" y1="-1.524" x2="-1.778" y2="-1.524" width="0.2032" layer="1" style="longdash"/>
-<wire x1="-2.032" y1="-1.905" x2="1.524" y2="-1.905" width="0.2032" layer="1" style="longdash"/>
+<wire x1="-2.032" y1="1.905" x2="1.27" y2="1.905" width="0.2032" layer="1" style="longdash"/>
+<wire x1="2.286" y1="1.524" x2="-1.524" y2="1.524" width="0.2032" layer="1" style="longdash"/>
+<wire x1="-2.54" y1="1.143" x2="1.651" y2="1.143" width="0.2032" layer="1" style="longdash"/>
+<wire x1="2.667" y1="0.762" x2="-1.905" y2="0.762" width="0.2032" layer="1" style="longdash"/>
+<wire x1="-2.794" y1="0.381" x2="1.905" y2="0.381" width="0.2032" layer="1" style="longdash"/>
+<wire x1="2.794" y1="0" x2="-2.032" y2="0" width="0.2032" layer="1" style="longdash"/>
+<wire x1="-2.794" y1="-0.381" x2="1.905" y2="-0.381" width="0.2032" layer="1" style="longdash"/>
+<wire x1="2.667" y1="-0.762" x2="-1.905" y2="-0.762" width="0.2032" layer="1" style="longdash"/>
+<wire x1="-2.54" y1="-1.143" x2="1.651" y2="-1.143" width="0.2032" layer="1" style="longdash"/>
+<wire x1="2.413" y1="-1.524" x2="-1.524" y2="-1.524" width="0.2032" layer="1" style="longdash"/>
+<wire x1="-2.032" y1="-1.905" x2="1.27" y2="-1.905" width="0.2032" layer="1" style="longdash"/>
 <wire x1="1.524" y1="-2.286" x2="-0.762" y2="-2.286" width="0.2032" layer="1" style="longdash"/>
 </package>
 </packages>
