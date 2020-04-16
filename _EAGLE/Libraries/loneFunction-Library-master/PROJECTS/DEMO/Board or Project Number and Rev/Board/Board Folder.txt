@@ -1,3 +1,0 @@
-Board Folder:
-- Eagle project file/description
-- Documentation/images/pdfs

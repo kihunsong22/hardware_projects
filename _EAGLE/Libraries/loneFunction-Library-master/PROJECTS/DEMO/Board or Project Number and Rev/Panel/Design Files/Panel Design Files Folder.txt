@@ -1,3 +1,0 @@
-Panel Board Files Folder:
-- All Eagle .brd and .sch files for panelized design.
-- Design specific scripts, config files, drillrack, libraries, etc.

@@ -1,7 +1,0 @@
-# Sets standard ACTIVE attributes for current deviceset
-# -----------------------------
-SCRIPT ATT_SET_STANDARD;
-
-RUN attribute-deviceset VSUP constant;
-
-# ----------------------------- 

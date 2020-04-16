@@ -1,2 +1,0 @@
-Resources Folder:
-- Place all design resources here. App notes, datasheets, drawings, reference designs, etc.

@@ -1,4 +1,0 @@
-if (package) package(P) {
-	setgroup(P);
-	exit("DELETE (C> 0 0);");
-}

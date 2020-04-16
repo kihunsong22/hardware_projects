@@ -1,2 +1,0 @@
-Panel Fabrication Folder:
-All files generated for panel fabrication including bill of materials, gerbers, documentation, placement files, etc.

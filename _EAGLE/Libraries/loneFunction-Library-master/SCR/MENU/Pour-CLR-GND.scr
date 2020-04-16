@@ -1,2 +1,0 @@
-#Clear GND polygon pours - For menu
-RIPUP @ *GND; SET POLYGON_RATSNEST OFF;
