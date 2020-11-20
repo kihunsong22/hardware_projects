@@ -16,5 +16,5 @@ bfg.jar
 ..bfg-report/
 /_MISC/_Sketchbook/
 _gitignore_Keys/
-secrets.h
+.secrets.h
 
