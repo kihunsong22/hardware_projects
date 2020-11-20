@@ -1,10 +1,13 @@
 #include <Arduino.h>
 #include <main.h>
+#include <secrets.h>
 
 #include <bsec.h>
 #include <ESP8266WiFiMulti.h>
 #include <InfluxDbClient.h>
 
+// #define INFLUXDB_URL 
+// #define INFLUXDB_DB_NAME 
 #define LED_BUILTIN 2
 
 ESP8266WiFiMulti wifiMulti;
