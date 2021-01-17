@@ -13,13 +13,12 @@
 ESP8266WiFiMulti wifiMulti;
 Bsec iaqSensor;
 
-// InfluxDBClient client(INFLUXDB_URL, INFLUXDB_ORG, INFLUXDB_BUCKET, INFLUXDB_TOKEN);
 InfluxDBClient client(INFLUXDB_URL, INFLUXDB_DB_NAME);
 
 Point sensor("air-log");
 
 const uint32_t connectTimeoutMs = 5000;
-const uint32_t wifi_check_loop = 5000;
+const uint32_t wifi_check_loop = 10000;
 const uint32_t sensor_check_loop = 5000;
 uint32_t wifi_check_timer = 0;
 uint32_t sensor_check_timer = 0;
@@ -39,6 +38,7 @@ void setup()
 
   WiFi.mode(WIFI_STA);
   wifiMulti.addAP("Deco_M4", "networkpass");
+  wifiMulti.addAP("WiPi", "networkpass");
 
   iaqSensor.begin(BME680_I2C_ADDR_PRIMARY, Wire);
   output = "\nBSEC library version " + String(iaqSensor.version.major) + "." + String(iaqSensor.version.minor) + "." + String(iaqSensor.version.major_bugfix) + "." + String(iaqSensor.version.minor_bugfix);
@@ -59,7 +59,7 @@ void setup()
   };
 
   iaqSensor.setTemperatureOffset(3);
-  iaqSensor.updateSubscription(sensorList, 10, BSEC_SAMPLE_RATE_LP);
+  iaqSensor.updateSubscription(sensorList, 10, BSEC_SAMPLE_RATE_CONTINUOUS);
   checkIaqSensorStatus();
 
   sensor.addTag("device", "esp8266");
@@ -181,7 +181,6 @@ void loop()
 
     } else {
       checkIaqSensorStatus();
-
       digitalWrite(LED_BUILTIN, HIGH);
     }
   }
