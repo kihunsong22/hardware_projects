@@ -1,25 +1,36 @@
-#include<Wire.h>
+#include <Wire.h>
+// #include "mpu6500.c"
+// #include "mpu6500.h"
 
-const int MPU_addr=0x68;  //MPU 6050 의 I2C 기본 주소
+const int mpu_addr=0x68;  //MPU 6500 의 I2C 기본 주소
 int16_t AcX,AcY,AcZ,Tmp,GyX,GyY,GyZ;
 
 void setup(){
   Serial.begin(115200);
-  Serial.println("MPU example");
+  Serial.println();
+  Serial.println("MPU-6500 example");
   Serial.println();
 
   Wire.begin();      //Wire 라이브러리 초기화
-  Wire.beginTransmission(MPU_addr); //MPU로 데이터 전송 시작
+  Wire.beginTransmission(mpu_addr); //MPU로 데이터 전송 시작
   Wire.write(0x6B);  // PWR_MGMT_1 register
   Wire.write(0);     //MPU-6050 시작 모드로
   Wire.endTransmission(true); 
+
+  // char buffer[14] = { 0 };
+  // i2cdev_readBits(0x68, 0x1A, 5, 4, buffer);
+  
+  // // mpu6500Init();
+  // Serial.println(buffer == 0x38);
+
+  delay(500);
 }
 
 void loop(){
-  Wire.beginTransmission(MPU_addr);    //데이터 전송시작
+  Wire.beginTransmission(mpu_addr);    //데이터 전송시작
   Wire.write(0x3B);               // register 0x3B (ACCEL_XOUT_H), 큐에 데이터 기록
   Wire.endTransmission(false);    //연결유지
-  Wire.requestFrom(MPU_addr,14,true);  //MPU에 데이터 요청
+  Wire.requestFrom(mpu_addr,14,true);  //MPU에 데이터 요청
   //데이터 한 바이트 씩 읽어서 반환
   AcX=Wire.read()<<8|Wire.read();  // 0x3B (ACCEL_XOUT_H) & 0x3C (ACCEL_XOUT_L)    
   AcY=Wire.read()<<8|Wire.read();  // 0x3D (ACCEL_YOUT_H) & 0x3E (ACCEL_YOUT_L)
@@ -38,5 +49,5 @@ void loop(){
   Serial.print(" | GyY = "); Serial.print(GyY);
   Serial.print(" | GyZ = "); Serial.println(GyZ);
   Serial.println();
-  delay(40);
+  delay(500);
 }
